@@ -2,7 +2,6 @@
 
 BRP Bevragen bewoning is een Haal Centraal API voor het raadplegen van de bewoning van adressen door ingeschreven natuurlijke personen voor alle binnengemeentelijke afnemers in NL.
 
-
 ## Getting started
 Om te beginnen met ontwikkelen van de API is de [getting started](./docs/getting-started.md) een goed beginpunt. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
 

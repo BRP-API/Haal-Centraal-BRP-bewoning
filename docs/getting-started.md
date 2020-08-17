@@ -25,38 +25,28 @@ Het is mogelijk de gegevens van de ingeschreven personen die (mede)bewoners zijn
 ## Probeer en test de API
 De Bewoning Web API is te benaderen via de volgende url: https://www.haalcentraal.nl/haalcentraal/api/brp
 
-Om de web api te kunnen bevragen is een apikey nodig. Deelnemers aan een API lab krijgen de apikey toegestuurd (per e-mail) wanneer ze zich hebben aangemeld.
+Om de web api te kunnen bevragen is een apikey nodig. Deze kun je aanvragen door een e-mail te sturen naar Cathy Dingemanse <c.dingemanse@comites.nl>.
 
 ### Testen met Postman
-De werking van de 'Bevraging Ingeschreven Persoon' Web API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/).
+De werking van de 'Bevraging Ingeschreven Persoon' Web API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/). We hebben al een [Postman collection](../test/BRP-Bewoning-postman-collection.json) voor je klaargezet die je kan gebruiken.
 
-In Postman kan de 'Bevraging Ingeschreven Persoon' OpenAPI specificatie worden geïmporteerd en kan vervolgens visueel de verschillende endpoints worden aangeroepen. Volg onderstaande stappen om de OpenAPI specificatie bestand te importeren:
+Volg onderstaande stappen om de collection bestand te importeren:
 
-![Import](./img/1-click-import-button.jpg)  
-1.Klik op de Import button om de Import dialog box te openen
+1. Klik op de Import button om de Import dialog box te openen
 
-!['Import From Link'](./img/2-select-import-from-link-tab.jpg)  
-2.Selecteer 'Import From Link' tab, plak de volgende url in de 'Enter a URL and press Import' textbox en klik op de Import button
+2. Selecteer 'Import From Link' tab, plak de volgende url in de 'Enter a URL and press Import' textbox en klik op de Import button
 
 ``` url
-https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/master/specificatie/genereervariant/openapi.yaml
+https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/master/test/BRP-Bewoning-postman-collection.json
 ```
 
-![Generate Postman collection](./img/3-generate-postman-collection.jpg)  
-3.Klik op de Next button om een Postman collectie te genereren uit OpenAPI specificatie bestand
+3. Klik op de Next button om de Postman collectie te importeren
 
-![Postman collection overview](./img/4-postman-collection-overview.jpg)  
-4.Import overzicht
+4. Voeg de API key toe
+Selecteer het request waar je dit wilt toevoegen. In het rechterscherm wordt een invoerscherm voor de request getoond. Klik op het tabblad "Authorization". Kies type "API Key". Vul bij Value de API key in die je hebt gekregen.
+5. Ga naar tabblad Params en vul de parameters in die je wilt gebruiken. Uncheck de overige parameters.
 
-Selecteer hiervoor de /GET ingeschreven Natuurlijk Persoon request.  
-![/GET ingeschreven Natuurlijk Persoon request](./img/5-select-request.jpg)  
-In het rechterscherm wordt een invoerscherm voor de request getoond. Uncheck voor de volgende voorbeeld aanroep de expand en fields Query Params en vul in de burgerservicenummer Path Variabele een bsn in (zie onderaan de Getting started voor mogelijke burgerservicenummers).
-
-Selecteer de Headers tab en voeg de x-api-key header toe met uw apikey.
-![/GET ingeschreven Natuurlijk Persoon request](./img/6-add-apikey-header.jpg)  
-
-Vervang de {{baseUrl}} in de url met https://www.haalcentraal.nl/haalcentraal/api/brp en klik de Send button om de request naar de endpoint te sturen. De 'Bevraging Ingeschreven Persoon' Web API zal reageren met onderstaand response:  
-![Response](./img/7-response.jpg)
+6. Vervang de {{baseUrl}} in de url met https://www.haalcentraal.nl/haalcentraal/api/brp en klik de Send button om de request naar de endpoint te sturen.
 
 ### Testgevallen
 Onderstaand tabel bevat de burgerservicenummer van enkele test personen voor specifieke situaties waarmee werking van de 'Bewoning' Web API kan worden getest.
