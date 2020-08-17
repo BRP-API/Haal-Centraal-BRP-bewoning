@@ -1,6 +1,6 @@
 # Getting Started
 
-De 'Bevraging bewoning' Web API is gespecificeerd met behulp van de OpenAPI specifications (OAS).
+De 'Bevraging bewoning' Web API is gespecificeerd met behulp van de [OpenAPI specifications (OAS)](https://swagger.io/specification/).
 
 ## Specificaties
 Een visuele representatie van de specificatie kan worden gegenereerd met [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/master/specificatie/openapi.yaml).
@@ -23,7 +23,7 @@ Het is mogelijk om alleen specifieke kenmerken van een bewoning te bevragen met 
 Het is mogelijk de gegevens van de ingeschreven personen die (mede)bewoners zijn direct mee te laden met gebruik van de [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature) parameter.
 
 ## Probeer en test de API
-De Bewoning Web API is te benaderen via de volgende url: https://www.haalcentraal.nl/haalcentraal/api/brp
+De Bewoning Web API is te benaderen via de volgende url: https://www.haalcentraal.nl/haalcentraal/api/bewoning
 
 Om de web api te kunnen bevragen is een apikey nodig. Deze kun je aanvragen door een e-mail te sturen naar Cathy Dingemanse <c.dingemanse@comites.nl>.
 
@@ -46,7 +46,7 @@ https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/mast
 Selecteer het request waar je dit wilt toevoegen. In het rechterscherm wordt een invoerscherm voor de request getoond. Klik op het tabblad "Authorization". Kies type "API Key". Vul bij Value de API key in die je hebt gekregen.
 5. Ga naar tabblad Params en vul de parameters in die je wilt gebruiken. Uncheck de overige parameters.
 
-6. Vervang de {{baseUrl}} in de url met https://www.haalcentraal.nl/haalcentraal/api/brp en klik de Send button om de request naar de endpoint te sturen.
+6. Vervang de {{baseUrl}} in de url met https://www.haalcentraal.nl/haalcentraal/api/bewoning en klik de Send button om de request naar de endpoint te sturen.
 
 ### Testgevallen
 Onderstaand tabel bevat de burgerservicenummer van enkele test personen voor specifieke situaties waarmee werking van de 'Bewoning' Web API kan worden getest.
