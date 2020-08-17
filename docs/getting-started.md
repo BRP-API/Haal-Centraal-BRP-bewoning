@@ -39,7 +39,7 @@ In Postman kan de 'Bevraging Ingeschreven Persoon' OpenAPI specificatie worden g
 2.Selecteer 'Import From Link' tab, plak de volgende url in de 'Enter a URL and press Import' textbox en klik op de Import button
 
 ``` url
-https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/master/api-specificatie/Bevraging-Ingeschreven-Persoon/resolved/openapi.yaml
+https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/master/specificatie/genereervariant/openapi.yaml
 ```
 
 ![Generate Postman collection](./img/3-generate-postman-collection.jpg)  

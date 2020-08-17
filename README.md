@@ -11,7 +11,7 @@ Deze API is in eerste instantie ontwikkeld op https://github.com/VNG-Realisatie/
 
 * Lees hoe je kan [bijdragen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CONTRIBUTING.md) en de [Omgangsvormen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CODE_OF_CONDUCT.md) voor dit project.
 
-* [Technische specificaties](./specificatie) (Open API Specificaties en JSON schema) en in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/Bevraging-Ingeschreven-Persoon/openapi.yaml)
+* [Technische specificaties](./specificatie) (Open API Specificaties en JSON schema) en in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/master/specificatie/openapi.yaml)
 
 ## Bronnen
 * [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/)

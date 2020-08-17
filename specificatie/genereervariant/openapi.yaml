@@ -43,22 +43,23 @@ paths:
       parameters:
       - name: expand
         in: query
-        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
-          moeten worden. Resources en velden van resources die gewenst zijn kunnen
-          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
-          van resource kunnen worden opgegeven door het opgeven van de resource-naam
-          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature)
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature).
         required: false
         schema:
           type: string
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -105,7 +106,7 @@ paths:
         schema:
           maxLength: 16
           type: string
-          example: "0518200000366054"
+          example: "518200000366054"
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -142,7 +143,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -351,22 +352,23 @@ paths:
       parameters:
       - name: expand
         in: query
-        description: Hier kan aangegeven worden welke gerelateerde resources meegeladen
-          moeten worden. Resources en velden van resources die gewenst zijn kunnen
-          in de expand parameter kommagescheiden worden opgegeven. Specifieke velden
-          van resource kunnen worden opgegeven door het opgeven van de resource-naam
-          gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature)
+        description: Hiermee kun je opgeven welke gerelateerde resources meegeleverd
+          moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of
+          enkele properties geef je in de expand parameter kommagescheiden op. Properties
+          die je wil ontvangen geef je op met de resource-naam gevolgd door de property
+          naam, met daartussen een punt. In de definitie van het antwoord kun je bij
+          _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie
+          [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature).
         required: false
         schema:
           type: string
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -407,7 +409,7 @@ paths:
         schema:
           maxLength: 16
           type: string
-          example: "0518200000366054"
+          example: "518200000366054"
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -444,7 +446,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -670,12 +672,11 @@ paths:
       parameters:
       - name: fields
         in: query
-        description: Geeft de mogelijkheid de inhoud van de body van het antwoord
-          naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van
-          veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400
-          Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen,
-          worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie
-          [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)
+        description: Hiermee kun je de inhoud van de resource naar behoefte aanpassen
+          door een door komma's gescheiden lijst van property namen op te geven. Bij
+          opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+          Wanneer de fields parameter niet is opgegeven, worden alle properties met
+          een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/fields.feature)
         required: false
         schema:
           type: string
@@ -708,7 +709,7 @@ paths:
         schema:
           maxLength: 16
           type: string
-          example: "0518200000366054"
+          example: "518200000366054"
       responses:
         "200":
           description: Zoekactie geslaagd
@@ -745,7 +746,7 @@ paths:
                   syntax. The client SHOULD NOT repeat the request without modification.
                 instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
                 code: paramsRequired
-                invalid-params:
+                invalidParams:
                 - type: https://www.vng.nl/realisatie/api/validaties/integer
                   name: verblijfplaats__huisnummer
                   code: integer
@@ -1215,7 +1216,7 @@ components:
       description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
     Href:
       type: string
-      example: datapunt.voorbeeldgemeente.nl/api/{major-versie}/resourcename/{resource-identificatie}
+      example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
     Datum_onvolledig:
       type: object
       properties:
