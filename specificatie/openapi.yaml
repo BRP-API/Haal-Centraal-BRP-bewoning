@@ -303,9 +303,9 @@ components:
       type: "object"
       description: "<body><p> <strong>Dit betreft een historische resource. De BEWONER\
         \ kan in het verleden een ingeschreven persoon zijn geweest, maar nu niet\
-        \ meer ingeschreven zijn</strong> </p><p>\n <em>*</em> datumVan**\
+        \ meer ingeschreven zijn</strong> </p><p>\n <em>*</em> datumAanvangAdreshouding\
         \ : Datum waarop de bewoner op dit adres is ingeschreven.</p><p>\n\
-        \ <em>*</em> datumEindeTotenMet** : Datum waarop de bewoner bij dit adres is uitgeschreven.</p></body>"
+        \ <em>*</em> datumTot : Datum waarop de bewoner van dit adres is uitgeschreven.</p></body>"
       properties:
         burgerservicenummer:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/Bevraging-Ingeschreven-Persoon/openapi.yaml#/components/schemas/Burgerservicenummer"
