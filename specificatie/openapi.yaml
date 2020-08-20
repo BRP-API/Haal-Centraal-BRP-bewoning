@@ -29,7 +29,7 @@ paths:
           required: false
           description: "Met het burgerservicenummer als parameter wordt de bewoning waar deze persoon op peildatum of in de gevraagde periode verblijft of verbleven is opgehaald met alle bijbehorende bewoners per bewoning. "
           schema:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/Bevraging-Ingeschreven-Persoon/openapi.yaml#/components/schemas/Burgerservicenummer"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/master/specificatie/openapi.yaml#/components/schemas/Burgerservicenummer"
         - in: query
           name: identificatiecodenummeraanduiding
           description: "De unieke aanduiding van een NUMMERAANDUIDING. "
@@ -266,7 +266,7 @@ components:
         \ <em>*</em> datumTot : Datum waarop de bewoner van dit adres is uitgeschreven.</p></body>"
       properties:
         burgerservicenummer:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/Bevraging-Ingeschreven-Persoon/openapi.yaml#/components/schemas/Burgerservicenummer"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/master/specificatie/openapi.yaml#/components/schemas/Burgerservicenummer"
         datumTot:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.1.0/api-specificatie/common.yaml#/components/schemas/Datum_onvolledig"
         datumAanvangAdreshouding:
@@ -283,7 +283,7 @@ components:
           description: "Een aanduiding die aangeeft dat gegevens van de verblijfplaats\
             \ van deze bewoner in onderzoek zijn. Indien true: verblijfplaats is in onderzoek."
         functieadres:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/Bevraging-Ingeschreven-Persoon/openapi.yaml#/components/schemas/SoortAdres_enum"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/master/specificatie/openapi.yaml#/components/schemas/SoortAdres_enum"
     Verloop:
       type: "object"
       description: ""
@@ -331,7 +331,7 @@ components:
           type: array
           items:
             allOf:
-              - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/Bevraging-Ingeschreven-Persoon/openapi.yaml#/components/schemas/IngeschrevenPersoon"
+              - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/master/specificatie/openapi.yaml#/components/schemas/IngeschrevenPersoon"
               - properties:
                   _links:
-                    $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/master/api-specificatie/Bevraging-Ingeschreven-Persoon/openapi.yaml#/components/schemas/IngeschrevenPersoon_links"
+                    $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/master/specificatie/openapi.yaml#/components/schemas/IngeschrevenPersoon_links"
