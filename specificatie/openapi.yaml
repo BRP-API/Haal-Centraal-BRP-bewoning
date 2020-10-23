@@ -6,7 +6,8 @@ servers:
 info:
   title: Bewoning
   description: |
-                API voor het ontsluiten van historische gegevens over de bewoning van een adres. <br> De gegevens van de bewoners zijn actueel.Zie de Functionele documentatie voor nadere toelichting.
+                API voor het ontsluiten van historische gegevens over de bewoning van een adres.
+                De gegevens van de bewoners zijn actueel.Zie de Functionele documentatie voor nadere toelichting.
   version: 0.0.1(develop)
   contact:
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning
@@ -22,7 +23,8 @@ paths:
       description: |
                     Het zoeken van bewoningen.
 
-                    Een bewoning is een verblijfplaats waar minimaal 1 persoon is ingeschreven. Op basis van de nummeraanduidingIdentificatie retourneert Bewoning de personen die op de verblijfplaats zijn ingeschreven of waren ingeschreven.
+                    Een bewoning is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.
+                    Op basis van de nummeraanduidingIdentificatie retourneert Bewoning de personen die op de verblijfplaats zijn ingeschreven of waren ingeschreven.
 
                     Op basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.
                     Één van de volgende parameters moet zijn opgenomen :
@@ -203,7 +205,7 @@ components:
       allOf :
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BAG-bevragen/v1.1.0/specificatie/openapi.yaml#/components/schemas/Adres"
         - description: |
-                        Een bewoning is een adres waar op enig moment in de tijd een of meerdere personen is ingeschreven. Daarmee is dit adres een veblijfplaats, of is dit adres in het verleden een verblijfplaats geweest.
+                      Een bewoning is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.
           properties:
             bewoners:
               type: "array"
@@ -271,7 +273,7 @@ components:
     Bewoner:
       type: "object"
       description: |
-                    Dit betreft een historische resource. De bewoner kan in het verleden een ingeschreven persoon zijn geweest, maar nu niet meer ingeschreven zijn
+                    Een bewoner is een natuurlijk persoon die nu en/of in het verleden op het betreffende adres ingeschreven staat of heeft gestaan.
                     * `datumAanvangAdreshouding` : Datum waarop de bewoner op dit adres is ingeschreven.
                     * `datumTot` : Datum waarop de bewoner van dit adres is uitgeschreven.
       properties:
