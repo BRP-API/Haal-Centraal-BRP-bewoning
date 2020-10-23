@@ -94,7 +94,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/default"
       tags:
       - Bewoning
-  /bewoningen/{nummeraanduidingIdentificatie}:
+  /bewoningen/{adresseerbaarObjectIdentificatie}:
     get:
       operationId: getBewoning
       description: |
@@ -105,15 +105,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/peildatum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
-        - in: path
-          name: nummeraanduidingIdentificatie
-          description: |
-                        De unieke aanduiding van een nummeraanduiding.
-          required: true
-          schema:
-            type: string
-            maxLength: 16
-            example: 0518200000366054
+        - $ref: "#/components/parameters/adresseerbaarObjectIdentificatie"
       responses:
         '200':
           description: |
@@ -147,7 +139,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/default"
       tags:
       - Bewoning
-  /bewoningen/{nummeraanduidingIdentificatie}/verloop:
+  /bewoningen/{adresseerbaarObjectIdentificatie}/verloop:
     get:
       operationId: getBewoningverloop
       description: |
@@ -156,15 +148,7 @@ paths:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
-        - in: path
-          name: nummeraanduidingIdentificatie
-          description: |
-                        De unieke aanduiding van een nummeraanduiding.
-          required: true
-          schema:
-            type: string
-            maxLength: 16
-            example: 0518200000366054
+        - $ref: "#/components/parameters/adresseerbaarObjectIdentificatie"
       responses:
         '200':
           description: |
@@ -199,6 +183,16 @@ paths:
       tags:
       - Bewoning
 components:
+  parameters:
+    adresseerbaarObjectIdentificatie:
+      description: "De identificatie van een adresserbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn."
+      name: adresseerbaarObjectIdentificatie
+      in: path
+      required: true
+      schema:
+        type: string
+        pattern: '^[0-9]{16}$'
+        example: '0226010000038820'
   schemas:
     Bewoning:
       type: "object"
