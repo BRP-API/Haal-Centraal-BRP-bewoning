@@ -1,8 +1,8 @@
 openapi: 3.0.0
 servers:
   - description: |
-                  APILAB testserver
-    url: https://www.haalcentraal.nl/haalcentraal/api/brp
+                  APILAB testserver bewoning
+    url: https://www.haalcentraal.nl/haalcentraal/api/brpbewoning
 info:
   title: Bewoning
   description: |
@@ -48,7 +48,7 @@ paths:
           description: |
                         Uniek persoonsnummer.
           explode: false
-          example: 999993653
+          example: "999993653"
           schema:
             type: string
             pattern: "^[0-9]*$"
@@ -62,7 +62,7 @@ paths:
           schema:
             type: string
             maxLength: 16
-            example: 0518200000366054
+            example: "0518200000366054"
       responses:
         '200':
           description: |
