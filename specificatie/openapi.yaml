@@ -48,7 +48,7 @@ paths:
           description: |
                         Uniek persoonsnummer.
           explode: false
-          example: 999993653
+          example: "999993653"
           schema:
             type: string
             pattern: "^[0-9]*$"
@@ -62,7 +62,7 @@ paths:
           schema:
             type: string
             maxLength: 16
-            example: 0518200000366054
+            example: "0518200000366054"
       responses:
         '200':
           description: |
