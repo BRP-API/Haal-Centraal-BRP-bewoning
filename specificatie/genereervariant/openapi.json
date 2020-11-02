@@ -23,7 +23,7 @@
     "/bewoningen" : {
       "get" : {
         "tags" : [ "Bewoning" ],
-        "description" : "Het zoeken van bewoningen.\n\nEen bewoning is adresseerbaarobject, inclusief bijbehorende adressen, waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.\nOp basis van de adresseerbaarObjectIdentificatie retourneert Bewoning de personen die op de verblijfplaats(en), behorende bij het adresseerbaarObject zijn ingeschreven of waren ingeschreven.\n\nOp basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.\nÉén van de volgende parameters moet zijn opgenomen :\n  * `adresseerbaarObjectIdentificatie`\n  * `burgerservicenummer`\n\nDe bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.\n\nOverleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.\nHet resultaat bevat het adresseerbaar object, de adressen en bewoners van een verblijfplaats waarvan de **einddatumgeldigheidverblijfplaats** op of na de **datumVan** ligt EN de **begindatumgeldigheidverblijfplaats** op of voor de **datumTotEnMet** ligt.\nOf het resultaat bevat het adresseerbaar object, de bijbehorende adressen en de bewoners van de verblijfplaats waarbij de **begindatumgeldigheidverblijfplaats** voor of op de **peildatum** ligt en de **einddatumgeldigheidverblijfplaats** na of op de **peildatum** ligt. Er wordt niet op de gevonden adressen gesorteerd, maar per adres (binnen bewoning) worden de bewoners wel gesorteerd op datumVan.\n",
+        "description" : "Het zoeken van bewoningen.\n\nEen bewoning is adresseerbaarobject, inclusief bijbehorende adressen, waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.\nOp basis van de adresseerbaarObjectIdentificatie retourneert Bewoning de personen die op de verblijfplaats(en), behorende bij het adresseerbaarObject zijn ingeschreven of waren ingeschreven.\n\nOp basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.\nÃ‰Ã©n van de volgende parameters moet zijn opgenomen :\n  * `adresseerbaarObjectIdentificatie`\n  * `burgerservicenummer`\n\nDe bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.\n\nOverleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.\n",
         "operationId" : "getBewoningen",
         "parameters" : [ {
           "name" : "expand",
@@ -131,7 +131,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
-                  "title" : "Ten minste één parameter moet worden opgegeven.",
+                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -399,7 +399,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
-                  "title" : "Ten minste één parameter moet worden opgegeven.",
+                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -672,7 +672,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
-                  "title" : "Ten minste één parameter moet worden opgegeven.",
+                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -1045,7 +1045,7 @@
           "properties" : {
             "invalidParams" : {
               "type" : "array",
-              "description" : "Foutmelding per fout in een parameter. Alle gevonden fouten worden één keer teruggemeld.",
+              "description" : "Foutmelding per fout in een parameter. Alle gevonden fouten worden Ã©Ã©n keer teruggemeld.",
               "items" : {
                 "$ref" : "#/components/schemas/InvalidParams"
               }
@@ -1595,7 +1595,7 @@
             },
             "korteNaam" : {
               "type" : "string",
-              "description" : "De officiële openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.\n"
+              "description" : "De officiÃ«le openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.\n"
             },
             "vanuitVertrokkenOnbekendWaarheen" : {
               "type" : "boolean",
@@ -1778,7 +1778,7 @@
             "$ref" : "#/components/schemas/VerblijfstitelInOnderzoek"
           }
         },
-        "description" : "Gegevens over de verblijfsrechtelijke status van de persoon.\n* **datumEinde**: Datum waarop de geldigheid van de gegevens over de verblijfstitel is beëindigd.\n* **datumIngang**: Datum waarop de gegevens over de verblijfstitel geldig zijn geworden.\n* **aanduiding** : Verblijfstiteltabel die aangeeft over welke verblijfsrechtelijke status de persoon beschikt.\n"
+        "description" : "Gegevens over de verblijfsrechtelijke status van de persoon.\n* **datumEinde**: Datum waarop de geldigheid van de gegevens over de verblijfstitel is beÃ«indigd.\n* **datumIngang**: Datum waarop de gegevens over de verblijfstitel geldig zijn geworden.\n* **aanduiding** : Verblijfstiteltabel die aangeeft over welke verblijfsrechtelijke status de persoon beschikt.\n"
       },
       "VerblijfstitelInOnderzoek" : {
         "type" : "object",
@@ -1832,7 +1832,7 @@
           },
           "partners" : {
             "type" : "array",
-            "description" : "De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beëindigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.\n",
+            "description" : "De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beÃ«indigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.\n",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
