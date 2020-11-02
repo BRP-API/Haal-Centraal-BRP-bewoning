@@ -876,15 +876,25 @@
             "type" : "string",
             "description" : "De unieke identificatie van een verblijfsobject.\n"
           },
-          "bewoningPerAdres" : {
+          "bewoners" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/BewoningPerAdres"
+              "$ref" : "#/components/schemas/Bewoner"
+            }
+          },
+          "indicatieVeelBewoners" : {
+            "type" : "boolean",
+            "description" : "Indicator die aangeeft dat het betreffende adres veel bewoners heeft of had in de gevraagde periode. Wanneer deze indicator is opgenomen met de waarde true, worden deze bewoners niet in het antwoord opgenomen met uitzondering van de gevraagde persoon (in het geval dat bewoningen zijn gevraagd op burgerservicenummer). Als de waarde false is wordt de indicator niet meegeleverd.\"\n"
+          },
+          "adressen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/AdresUitgebreid"
             }
           }
         }
       },
-      "BewoningPerAdres" : {
+      "AdresUitgebreid" : {
         "type" : "object",
         "allOf" : [ {
           "$ref" : "#/components/schemas/Adres"
@@ -894,20 +904,6 @@
               "type" : "string",
               "description" : "De unieke aanduiding van een nummeraanduiding.\n",
               "example" : "0518200001645858"
-            },
-            "isNevenadres" : {
-              "type" : "boolean",
-              "description" : "Indicatie dat dit adres een nevenadres is van een adresseerbaar object. Het adres is een hoofdadres als deze indicatie niet wordt meegeleverd."
-            },
-            "bewoners" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/Bewoner"
-              }
-            },
-            "indicatieVeelBewoners" : {
-              "type" : "boolean",
-              "description" : "Indicator die aangeeft dat het betreffende adres veel bewoners heeft of had in de gevraagde periode. Wanneer deze indicator is opgenomen met de waarde true, worden deze bewoners niet in het antwoord opgenomen met uitzondering van de gevraagde persoon (in het geval dat bewoningen zijn gevraagd op burgerservicenummer). Als de waarde false is wordt de indicator niet meegeleverd.\"\n"
             }
           },
           "description" : "Een bewoningPerAdres is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven, inclusief enkele gegevens van de personen.\n"
