@@ -24,19 +24,19 @@ paths:
       description: |
         Het zoeken van bewoningen.
 
-        Een bewoning is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.
-        Op basis van de nummeraanduidingIdentificatie retourneert Bewoning de personen die op de verblijfplaats zijn ingeschreven of waren ingeschreven.
+        Een bewoning is adresseerbaarobject, inclusief bijbehorende adressen, waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.
+        Op basis van de adresseerbaarObjectIdentificatie retourneert Bewoning de personen die op de verblijfplaats(en), behorende bij het adresseerbaarObject zijn ingeschreven of waren ingeschreven.
 
         Op basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.
-        Ã‰Ã©n van de volgende parameters moet zijn opgenomen :
-          * `nummeraanduidingIdentificatie`
-          * `Burgerservicenummer`
+        Één van de volgende parameters moet zijn opgenomen :
+          * `adresseerbaarObjectIdentificatie`
+          * `burgerservicenummer`
 
         De bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.
 
         Overleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.
-        Het resultaat bevat de adressen en bewoners van een verblijfplaats waarvan de **einddatumgeldigheidverblijfplaats** op of na de **datumVan** ligt EN de **begindatumgeldigheidverblijfplaats** op of voor de **datumTotEnMet** ligt.
-        Of het resultaat bevat de het adres en de bewoners van de verblijfplaats waarbij de **begindatumgeldigheidverblijfplaats** voor of op de **peildatum** ligt en de **einddatumgeldigheidverblijfplaats** na of op de **peildatum** ligt. Er wordt niet op de gevonden adressen gesorteerd, maar per adres (bewoning) worden de bewoners wel gesorteerd op datumVan.
+        Het resultaat bevat het adresseerbaar object, de adressen en bewoners van een verblijfplaats waarvan de **einddatumgeldigheidverblijfplaats** op of na de **datumVan** ligt EN de **begindatumgeldigheidverblijfplaats** op of voor de **datumTotEnMet** ligt.
+        Of het resultaat bevat het adresseerbaar object, de bijbehorende adressen en de bewoners van de verblijfplaats waarbij de **begindatumgeldigheidverblijfplaats** voor of op de **peildatum** ligt en de **einddatumgeldigheidverblijfplaats** na of op de **peildatum** ligt. Er wordt niet op de gevonden adressen gesorteerd, maar per adres (binnen bewoning) worden de bewoners wel gesorteerd op datumVan.
       operationId: getBewoningen
       parameters:
       - name: expand
@@ -98,17 +98,17 @@ paths:
           pattern: ^[0-9]*$
           type: string
         example: "999993653"
-      - name: nummeraanduidingIdentificatie
+      - name: adresseerbaarObjectIdentificatie
         in: query
         description: |
-          De unieke identificatie van een nummeraanduiding.
+          De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.
         required: false
         style: form
         explode: true
         schema:
-          maxLength: 16
+          pattern: ^[0-9]{16}$
           type: string
-          example: "0518200000366054"
+          example: "0226010000038820"
       responses:
         "200":
           description: |
@@ -133,7 +133,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
+                title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -313,8 +313,8 @@ paths:
           example: 2018-10-09
       - name: adresseerbaarObjectIdentificatie
         in: path
-        description: De identificatie van een adresserbaar object uit de BAG. Dit
-          kan een verblijfsobject, een standplaats of een ligplaats zijn.
+        description: |
+          De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.
         required: true
         style: simple
         explode: false
@@ -346,7 +346,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
+                title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -491,7 +491,7 @@ paths:
       tags:
       - Bewoning
       description: |
-        Het ophalen van de gegevens van het verloop van de bewoning van een adres binnen een gegeven periode. Op basis van de identificatiecodenummeraanduiding, een datum **datumVan** en een datum **datumTotEnMet** worden kengetallen van het verloop van de bewoning van dit adres opgehaald.
+        Het ophalen van de gegevens van het verloop van de bewoning van een adresseerbaar object binnen een gegeven periode. Op basis van de adresseerbaarobjectIdentificatie, een datum **datumVan** en een datum **datumTotEnMet** worden kengetallen van het verloop van de bewoning van dit adresseerbaarobject opgehaald.
       operationId: getBewoningverloop
       parameters:
       - name: fields
@@ -522,8 +522,8 @@ paths:
           example: 2018-10-09
       - name: adresseerbaarObjectIdentificatie
         in: path
-        description: De identificatie van een adresserbaar object uit de BAG. Dit
-          kan een verblijfsobject, een standplaats of een ligplaats zijn.
+        description: |
+          De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.
         required: true
         style: simple
         explode: false
@@ -555,7 +555,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
+                title: Ten minste één parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -699,9 +699,29 @@ components:
   schemas:
     Bewoning:
       type: object
+      properties:
+        adresseerbaarObjectIdentificatie:
+          type: string
+          description: |
+            De unieke identificatie van een verblijfsobject.
+        bewoningPerAdres:
+          type: array
+          items:
+            $ref: '#/components/schemas/BewoningPerAdres'
+    BewoningPerAdres:
+      type: object
       allOf:
       - $ref: '#/components/schemas/Adres'
       - properties:
+          nummeraanduidingIdentificatie:
+            type: string
+            description: |
+              De unieke aanduiding van een nummeraanduiding.
+            example: "0518200001645858"
+          isNevenadres:
+            type: boolean
+            description: Indicatie dat dit adres een nevenadres is van een adresseerbaar
+              object. Het adres is een hoofdadres als deze indicatie niet wordt meegeleverd.
           bewoners:
             type: array
             items:
@@ -710,17 +730,8 @@ components:
             type: boolean
             description: |
               Indicator die aangeeft dat het betreffende adres veel bewoners heeft of had in de gevraagde periode. Wanneer deze indicator is opgenomen met de waarde true, worden deze bewoners niet in het antwoord opgenomen met uitzondering van de gevraagde persoon (in het geval dat bewoningen zijn gevraagd op burgerservicenummer). Als de waarde false is wordt de indicator niet meegeleverd."
-          nummeraanduidingIdentificatie:
-            type: string
-            description: |
-              De unieke aanduiding van een nummeraanduiding.
-            example: "0518200001645858"
-          adresseerbaarObjectIdentificatie:
-            type: string
-            description: |
-              De unieke identificatie van een verblijfsobject.
         description: |
-          Een bewoning is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.
+          Een bewoningPerAdres is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven, inclusief enkele gegevens van de personen.
     BewoningHalBasis:
       allOf:
       - $ref: '#/components/schemas/Bewoning'
@@ -756,8 +767,10 @@ components:
             De ingeschreven natuurlijk personen die bewoner zijn of waren.
           items:
             $ref: '#/components/schemas/HalLink'
-        nummeraanduiding:
-          $ref: '#/components/schemas/HalLink'
+        nummeraanduidingen:
+          type: array
+          items:
+            $ref: '#/components/schemas/HalLink'
         adresseerbaarObject:
           $ref: '#/components/schemas/HalLink'
     BewoningEmbedded:
@@ -818,7 +831,7 @@ components:
           invalidParams:
             type: array
             description: Foutmelding per fout in een parameter. Alle gevonden fouten
-              worden Ã©Ã©n keer teruggemeld.
+              worden één keer teruggemeld.
             items:
               $ref: '#/components/schemas/InvalidParams'
     Foutbericht:
@@ -1291,7 +1304,7 @@ components:
           korteNaam:
             type: string
             description: |
-              De officiÃ«le openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.
+              De officiële openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.
           vanuitVertrokkenOnbekendWaarheen:
             type: boolean
             description: |
@@ -1458,7 +1471,7 @@ components:
           $ref: '#/components/schemas/VerblijfstitelInOnderzoek'
       description: |
         Gegevens over de verblijfsrechtelijke status van de persoon.
-        * **datumEinde**: Datum waarop de geldigheid van de gegevens over de verblijfstitel is beÃ«indigd.
+        * **datumEinde**: Datum waarop de geldigheid van de gegevens over de verblijfstitel is beëindigd.
         * **datumIngang**: Datum waarop de gegevens over de verblijfstitel geldig zijn geworden.
         * **aanduiding** : Verblijfstiteltabel die aangeeft over welke verblijfsrechtelijke status de persoon beschikt.
     VerblijfstitelInOnderzoek:
@@ -1505,7 +1518,7 @@ components:
         partners:
           type: array
           description: |
-            De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beÃ«indigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.
+            De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beëindigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.
           items:
             $ref: '#/components/schemas/HalLink'
         partnerhistorie:
@@ -1522,8 +1535,8 @@ components:
     adresseerbaarObjectIdentificatie:
       name: adresseerbaarObjectIdentificatie
       in: path
-      description: De identificatie van een adresserbaar object uit de BAG. Dit kan
-        een verblijfsobject, een standplaats of een ligplaats zijn.
+      description: |
+        De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.
       required: true
       style: simple
       explode: false

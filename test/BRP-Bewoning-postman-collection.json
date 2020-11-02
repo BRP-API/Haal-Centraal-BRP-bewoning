@@ -1,16 +1,16 @@
 {
     "item": [
         {
-            "id": "fa25996f-d41d-4889-b3f8-bd3aafb93699",
+            "id": "245cc306-22b2-4165-8333-88b817e62019",
             "name": "bewoningen",
             "item": [
                 {
-                    "id": "ecba80c3-11ac-4b9a-bca1-165965deb66b",
+                    "id": "4235f98a-1e1d-4031-91d9-8794771a0230",
                     "name": "get Bewoningen",
                     "request": {
                         "name": "get Bewoningen",
                         "description": {
-                            "content": "<body><p>Het raadplegen van een Bewoning. <br /> Een bewoning is een verblijfplaats waar minimaal 1 persoon is ingeschreven. Op basis van de identificatiecodenummeraanduiding retourneert Bewoning de personen die op de verblijfplaats zijn ingeschreven.</p><p><br />Op basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject. &Eacute;&eacute;n van de volgende parameters moet zijn opgenomen.</p><ol><li>Identificatiecodenummeraanduiding </li><li>Burgerservicenummer</li></ol><p>&nbsp;</p><p><br />De bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.</p><p>Overleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.</p><p>Het resultaat bevat de adressen en bewoners van een verblijfplaats waarvan de EINDdatum geldigheidverblijfplaats op of na de <em>datumvan</em> ligt EN de BEGINdatum op of voor de <em>datumtotenmet</em> ligt.</p><p>Of</p><p>Het resultaat bevat de het adres en de bewoners van de verblijfplaats waarbij de BEGINdatumgeldigheidverblijfplaats voor of op de <em>peildatum</em> ligt en de EINDdatumgeldigheidverblijfplaats na of op de <em>peildatum</em> ligt.</p><p>Er wordt niet op de gevonden adressen gesorteerd, maar per adres (bewoning) worden de bewoners wel gesorteerd op datumvan.</p></body>",
+                            "content": "Het zoeken van bewoningen.\n\nEen bewoning is adresseerbaarobject, inclusief bijbehorende adressen, waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.\nOp basis van de adresseerbaarObjectIdentificatie retourneert Bewoning de personen die op de verblijfplaats(en), behorende bij het adresseerbaarObject zijn ingeschreven of waren ingeschreven.\n\nOp basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.\n��n van de volgende parameters moet zijn opgenomen :\n  * `adresseerbaarObjectIdentificatie`\n  * `burgerservicenummer`\n\nDe bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.\n\nOverleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.\nHet resultaat bevat het adresseerbaar object, de adressen en bewoners van een verblijfplaats waarvan de **einddatumgeldigheidverblijfplaats** op of na de **datumVan** ligt EN de **begindatumgeldigheidverblijfplaats** op of voor de **datumTotEnMet** ligt.\nOf het resultaat bevat het adresseerbaar object, de bijbehorende adressen en de bewoners van de verblijfplaats waarbij de **begindatumgeldigheidverblijfplaats** voor of op de **peildatum** ligt en de **einddatumgeldigheidverblijfplaats** na of op de **peildatum** ligt. Er wordt niet op de gevonden adressen gesorteerd, maar per adres (binnen bewoning) worden de bewoners wel gesorteerd op datumVan.\n",
                             "type": "text/plain"
                         },
                         "url": {
@@ -22,12 +22,12 @@
                             ],
                             "query": [
                                 {
-                                    "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature).",
+                                    "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
                                     "key": "expand",
                                     "value": "<string>"
                                 },
                                 {
-                                    "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/fields.feature)",
+                                    "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
                                     "key": "fields",
                                     "value": "<string>"
                                 },
@@ -38,22 +38,22 @@
                                 },
                                 {
                                     "description": "De begindatum van de periode waarover de resource wordt opgevraagd.",
-                                    "key": "datumvan",
+                                    "key": "datumVan",
                                     "value": "<date>"
                                 },
                                 {
                                     "description": "De einddatum van de periode waarover de resource wordt opgevraagd.",
-                                    "key": "datumtotenmet",
+                                    "key": "datumTotEnMet",
                                     "value": "<date>"
                                 },
                                 {
-                                    "description": "Met het burgerservicenummer als parameter wordt de bewoning waar deze persoon op peildatum of in de gevraagde periode verblijft of verbleven is opgehaald met alle bijbehorende bewoners per bewoning. ",
+                                    "description": "Uniek persoonsnummer.\n",
                                     "key": "burgerservicenummer",
                                     "value": "<string>"
                                 },
                                 {
-                                    "description": "De unieke aanduiding van een NUMMERAANDUIDING. ",
-                                    "key": "identificatiecodenummeraanduiding",
+                                    "description": "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
+                                    "key": "adresseerbaarObjectIdentificatie",
                                     "value": "<string>"
                                 }
                             ],
@@ -64,8 +64,8 @@
                     },
                     "response": [
                         {
-                            "id": "3e5bc01e-3ee4-4234-88ef-3b29861e3be4",
-                            "name": "Zoekactie geslaagd",
+                            "id": "6e86c41b-9523-4118-9635-df6ea9784168",
+                            "name": "Zoekactie geslaagd\n",
                             "originalRequest": {
                                 "url": {
                                     "path": [
@@ -88,20 +88,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -127,12 +127,12 @@
                                     "value": "application/hal+json"
                                 }
                             ],
-                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": true,\n   \"title\": \"nisi mollit\"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"bewoners\": [\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    ],\n    \"indicatieVeelBewoners\": true,\n    \"huisletter\": \"F\",\n    \"huisnummer\": 11,\n    \"huisnummertoevoeging\": \"2\",\n    \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n    \"naamOpenbareRuimte\": \"Proteriusstraat\",\n    \"postcode\": \"2571BP\",\n    \"identificatiecodeAdresseerbaarObject\": \"e\",\n    \"woonplaatsnaam\": \"s'Gravenhage\",\n    \"_links\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ],\n     \"nummeraanduiding\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"adresseerbaarObject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   },\n   {\n    \"bewoners\": [\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    ],\n    \"indicatieVeelBewoners\": true,\n    \"huisletter\": \"F\",\n    \"huisnummer\": 11,\n    \"huisnummertoevoeging\": \"2\",\n    \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n    \"naamOpenbareRuimte\": \"Proteriusstraat\",\n    \"postcode\": \"2571BP\",\n    \"identificatiecodeAdresseerbaarObject\": \"\",\n    \"woonplaatsnaam\": \"s'Gravenhage\",\n    \"_links\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ],\n     \"nummeraanduiding\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"adresseerbaarObject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
+                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": true,\n   \"title\": \"in nostrud\"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoningPerAdres\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   },\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoningPerAdres\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "4eed44f0-0064-4fec-a22b-967ff383669a",
+                            "id": "807b8a35-2a19-4eea-a37e-a634a75b5a43",
                             "name": "Bad Request",
                             "originalRequest": {
                                 "url": {
@@ -156,20 +156,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -190,12 +190,12 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1 400 Bad Request\",\n \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
+                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n \"title\": \"Ten minste ��n parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "ada602e4-1e1e-480e-91ae-c0475842cdef",
+                            "id": "758014c9-b293-47f4-a0ac-dab76d47dd4b",
                             "name": "Unauthorized",
                             "originalRequest": {
                                 "url": {
@@ -219,20 +219,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -253,12 +253,12 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2 401 Unauthorized\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
+                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "8453a156-fce2-4785-a792-0b52cece9060",
+                            "id": "7112b772-e5dd-4efd-afff-a4572bb524ae",
                             "name": "Forbidden",
                             "originalRequest": {
                                 "url": {
@@ -282,20 +282,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -316,12 +316,12 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4 403 Forbidden\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
+                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "63cf80c7-b6b0-44e1-84f8-116593d667a9",
+                            "id": "260aa2dd-d7c6-4b59-8f12-77e81a74087c",
                             "name": "Not Acceptable",
                             "originalRequest": {
                                 "url": {
@@ -345,20 +345,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -379,12 +379,12 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7 406 Not Acceptable\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
+                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "edac81e7-d83e-4132-a574-e5ee4a47289a",
+                            "id": "37a93862-7f54-4c7d-b06e-66f26a486691",
                             "name": "Internal Server Error",
                             "originalRequest": {
                                 "url": {
@@ -408,20 +408,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -442,12 +442,12 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1 500 Internal server error\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
+                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "258323c1-a573-4238-95f0-16a3a60529ac",
+                            "id": "de6bb9e9-bd9c-4585-aacb-17ce2f772d0e",
                             "name": "Not Implemented",
                             "originalRequest": {
                                 "url": {
@@ -471,20 +471,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -505,12 +505,12 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.2 501 Not Implemented\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
+                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "e2c71852-3ec8-44c5-821b-b26ca5bc9669",
+                            "id": "70e8d539-b05c-4257-b2e0-8bae1ed976a8",
                             "name": "Service Unavailable",
                             "originalRequest": {
                                 "url": {
@@ -534,20 +534,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -568,12 +568,12 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4 503 Service Unavailable\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
+                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "4e4fd390-3816-43f4-96f3-73f4da2c7f81",
+                            "id": "bcc0553e-e19b-47f1-88ad-e38b7db0f580",
                             "name": "Er is een onverwachte fout opgetreden",
                             "originalRequest": {
                                 "url": {
@@ -597,20 +597,20 @@
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "555555021"
+                                            "value": "<string>"
                                         },
                                         {
-                                            "key": "identificatiecodenummeraanduiding",
-                                            "value": "518200000366054"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "value": "0226010000038820"
                                         }
                                     ],
                                     "variable": []
@@ -631,7 +631,7 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"http://QAG.vpz.sPzDm-FMSCFh+gVCnTpjekQP6,6vdqArRrvKg4MtN,swkO1VTHV\",\n \"title\": \"sed\",\n \"status\": 89097581,\n \"detail\": \"in id non\",\n \"instance\": \"http://naSBOJbaCYqFzLOMNAL.nru7xPkiDvlLtrNYTOz.CuaQSSe4Gjem2AAu\",\n \"code\": \"occaecat minim dolore\"\n}",
+                            "body": "{\n \"type\": \"http://gydViOMTXcvihhEAMMoCdWJhPeDpViyq.rjbzrLidY6EWD1jskndKAHONlrATxSSna9buERf+LaLzxLvH\",\n \"title\": \"dolore labore in do nulla\",\n \"status\": -57957897,\n \"detail\": \"dolor dolore\",\n \"instance\": \"https://fYOPedZiLFaRzCHXxvMPNto.tyaMATP,oAIdAVdlen.CgFbwvb6HcT320LNy+y3-GD0ObouMUp0VhPmJhTj-kXn5EabDV11vvT2OM\",\n \"code\": \"cillum\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         }
@@ -639,34 +639,34 @@
                     "event": []
                 },
                 {
-                    "id": "3123db6a-dbed-4e79-8a21-54b00a70da42",
-                    "name": "{identificatiecodenummeraanduiding}",
+                    "id": "c6dd4765-bce6-408c-a4cf-5b75e6b3f265",
+                    "name": "{adresseerbaar Object Identificatie}",
                     "item": [
                         {
-                            "id": "9dce5a3d-9231-4812-9618-7e3573d899c8",
+                            "id": "19ade7ae-bfde-4401-a810-c82ef7ca21fc",
                             "name": "get Bewoning",
                             "request": {
                                 "name": "get Bewoning",
                                 "description": {
-                                    "content": "<body><p><body> <p>Het ophalen van de gegevens van een enkele Bewoning.<br />Een bewoning is een VERBLIJFPLAATS waar op enig moment daadwerkelijk minimaal 1 INGESCHREVEN PERSOON is ingeschreven.</p> <p><br />Op basis van de identificatiecodenummeraanduiding de bewoning geretourneerd inclusief gegevens over de bewoners van het betreffende adres.</p></body>",
+                                    "content": "Het ophalen van de gegevens van een enkele Bewoning.\n",
                                     "type": "text/plain"
                                 },
                                 "url": {
                                     "path": [
                                         "bewoningen",
-                                        ":identificatiecodenummeraanduiding"
+                                        ":adresseerbaarObjectIdentificatie"
                                     ],
                                     "host": [
                                         "{{baseUrl}}"
                                     ],
                                     "query": [
                                         {
-                                            "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature).",
+                                            "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
                                             "key": "expand",
                                             "value": "<string>"
                                         },
                                         {
-                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/fields.feature)",
+                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
                                             "key": "fields",
                                             "value": "<string>"
                                         },
@@ -677,21 +677,21 @@
                                         },
                                         {
                                             "description": "De begindatum van de periode waarover de resource wordt opgevraagd.",
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
                                             "description": "De einddatum van de periode waarover de resource wordt opgevraagd.",
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         }
                                     ],
                                     "variable": [
                                         {
-                                            "description": "(Required) De unieke aanduiding van een NUMMERAANDUIDING. zie toelichting BAG Combinatie van de viercijferige 'gemeentecode' (volgens GBA tabel 33, Gemeententabel), de tweecijferige 'objecttypecode' en een voor het betreffende objecttype binnen een gemeente uniek tiencijferig 'objectvolgnummer'. De objecttypecode kent in de BAG de volgende waarde:20 nummeraanduiding.",
+                                            "description": "(Required) De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
                                             "type": "any",
                                             "value": "<string>",
-                                            "key": "identificatiecodenummeraanduiding"
+                                            "key": "adresseerbaarObjectIdentificatie"
                                         }
                                     ]
                                 },
@@ -700,13 +700,13 @@
                             },
                             "response": [
                                 {
-                                    "id": "a8d8d1b6-23e8-41ef-8322-a0e4a6174ec5",
-                                    "name": "Zoekactie geslaagd",
+                                    "id": "ef58797b-80c0-453c-b83f-0d8bded2ced2",
+                                    "name": "Zoekactie geslaagd\n",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -725,18 +725,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -761,18 +761,18 @@
                                             "value": "application/hal+json"
                                         }
                                     ],
-                                    "body": "{\n \"bewoners\": [\n  {\n   \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  {\n   \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n ],\n \"indicatieVeelBewoners\": true,\n \"huisletter\": \"F\",\n \"huisnummer\": 11,\n \"huisnummertoevoeging\": \"2\",\n \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n \"naamOpenbareRuimte\": \"Proteriusstraat\",\n \"postcode\": \"2571BP\",\n \"identificatiecodeAdresseerbaarObject\": \"c\",\n \"woonplaatsnaam\": \"s'Gravenhage\",\n \"_links\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  ],\n  \"nummeraanduiding\": {\n   \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"adresseerbaarObject\": {\n   \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n },\n \"_embedded\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  ]\n }\n}",
+                                    "body": "{\n \"adresseerbaarObjectIdentificatie\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"bewoningPerAdres\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"_links\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"_embedded\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  ]\n }\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "d7139ad9-e4e8-4949-bd92-b41cb9755e98",
+                                    "id": "4d913ff1-edba-40b3-8468-39e4ce6a9485",
                                     "name": "Bad Request",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -791,18 +791,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -822,18 +822,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1 400 Bad Request\",\n \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n \"title\": \"Ten minste ��n parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "77abf0f4-c4be-4bec-a91f-43a89128e6e1",
+                                    "id": "7572d15d-9bd9-4ee1-a9fc-b0aebf8d2b2e",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -852,18 +852,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -883,18 +883,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2 401 Unauthorized\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "b2ab9e3d-bf06-4178-a9bc-f1f2a5127127",
+                                    "id": "77e08805-1e99-48d6-b250-70f2a1d395a8",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -913,18 +913,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -944,18 +944,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4 403 Forbidden\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "f9a1e33c-5319-4808-aea6-bfdadd65481a",
+                                    "id": "0911c884-9105-4125-9ca8-69f8f3598288",
                                     "name": "Not Found",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -974,18 +974,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1005,18 +1005,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5 404 Not Found\",\n \"title\": \"Opgevraagde resource bestaat niet.\",\n \"status\": 404,\n \"detail\": \"The server has not found anything matching the Request-URI.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notFound\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5\",\n \"title\": \"Opgevraagde resource bestaat niet.\",\n \"status\": 404,\n \"detail\": \"The server has not found anything matching the Request-URI.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notFound\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "0c4832f3-6156-4d22-b7a4-ef64cddde5d3",
+                                    "id": "48857328-0cf2-435c-8e35-eb8382015e11",
                                     "name": "Not Acceptable",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -1035,18 +1035,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1066,18 +1066,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7 406 Not Acceptable\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "60cee310-9417-4be3-ba34-48e1309512ef",
+                                    "id": "08d8987b-f008-4bc7-9357-6b072e6e6df1",
                                     "name": "Internal Server Error",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -1096,18 +1096,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1127,18 +1127,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1 500 Internal server error\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "3dc45891-e8ce-4db4-91e4-c28087d09368",
+                                    "id": "7aa24718-8811-44bf-bba4-0601cc5bb290",
                                     "name": "Not Implemented",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -1157,18 +1157,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1188,18 +1188,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.2 501 Not Implemented\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "cf6a1a40-f614-4909-886b-e1517e91d5fa",
+                                    "id": "867b1443-562b-4c36-b4cf-fcff99bf367a",
                                     "name": "Service Unavailable",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -1218,18 +1218,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1249,18 +1249,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4 503 Service Unavailable\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "4504cd8e-c7fd-441e-8b3c-4ac3b68d7b58",
+                                    "id": "d17a8f43-30d0-485c-b1ff-be834a0185b2",
                                     "name": "Er is een onverwachte fout opgetreden",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding"
+                                                ":adresseerbaarObjectIdentificatie"
                                             ],
                                             "host": [
                                                 "{{baseUrl}}"
@@ -1279,18 +1279,18 @@
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1310,7 +1310,7 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"http://QAG.vpz.sPzDm-FMSCFh+gVCnTpjekQP6,6vdqArRrvKg4MtN,swkO1VTHV\",\n \"title\": \"sed\",\n \"status\": 89097581,\n \"detail\": \"in id non\",\n \"instance\": \"http://naSBOJbaCYqFzLOMNAL.nru7xPkiDvlLtrNYTOz.CuaQSSe4Gjem2AAu\",\n \"code\": \"occaecat minim dolore\"\n}",
+                                    "body": "{\n \"type\": \"http://gydViOMTXcvihhEAMMoCdWJhPeDpViyq.rjbzrLidY6EWD1jskndKAHONlrATxSSna9buERf+LaLzxLvH\",\n \"title\": \"dolore labore in do nulla\",\n \"status\": -57957897,\n \"detail\": \"dolor dolore\",\n \"instance\": \"https://fYOPedZiLFaRzCHXxvMPNto.tyaMATP,oAIdAVdlen.CgFbwvb6HcT320LNy+y3-GD0ObouMUp0VhPmJhTj-kXn5EabDV11vvT2OM\",\n \"code\": \"cillum\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 }
@@ -1318,18 +1318,18 @@
                             "event": []
                         },
                         {
-                            "id": "09c22e3e-266f-4d27-993b-c301a690d1ed",
+                            "id": "b6a5ea97-a236-42a3-b92e-bab2db4cd08d",
                             "name": "get Bewoningverloop",
                             "request": {
                                 "name": "get Bewoningverloop",
                                 "description": {
-                                    "content": "<body><p><body> <p>Het ophalen van de gegevens van het verloop van de bewoning van een adres binnen een gegeven periode. <br /></p> Op basis van de identificatiecodenummeraanduiding, een datum datumvan en een datum datumtotenmet worden kengetallen van het verloop van de bewoning van dit adres opgehaald.<br/> </p></body>",
+                                    "content": "Het ophalen van de gegevens van het verloop van de bewoning van een adresseerbaar object binnen een gegeven periode. Op basis van de adresseerbaarobjectIdentificatie, een datum **datumVan** en een datum **datumTotEnMet** worden kengetallen van het verloop van de bewoning van dit adresseerbaarobject opgehaald.\n",
                                     "type": "text/plain"
                                 },
                                 "url": {
                                     "path": [
                                         "bewoningen",
-                                        ":identificatiecodenummeraanduiding",
+                                        ":adresseerbaarObjectIdentificatie",
                                         "verloop"
                                     ],
                                     "host": [
@@ -1337,27 +1337,27 @@
                                     ],
                                     "query": [
                                         {
-                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/fields.feature)",
+                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
                                             "key": "fields",
                                             "value": "<string>"
                                         },
                                         {
                                             "description": "De begindatum van de periode waarover de resource wordt opgevraagd.",
-                                            "key": "datumvan",
+                                            "key": "datumVan",
                                             "value": "<date>"
                                         },
                                         {
                                             "description": "De einddatum van de periode waarover de resource wordt opgevraagd.",
-                                            "key": "datumtotenmet",
+                                            "key": "datumTotEnMet",
                                             "value": "<date>"
                                         }
                                     ],
                                     "variable": [
                                         {
-                                            "description": "(Required) De unieke aanduiding van een NUMMERAANDUIDING. zie toelichting BAG Combinatie van de viercijferige 'gemeentecode' (volgens GBA tabel 33, Gemeententabel), de tweecijferige 'objecttypecode' en een voor het betreffende objecttype binnen een gemeente uniek tiencijferig 'objectvolgnummer'. De objecttypecode kent in de BAG de volgende waarde:20 nummeraanduiding.",
+                                            "description": "(Required) De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
                                             "type": "any",
                                             "value": "<string>",
-                                            "key": "identificatiecodenummeraanduiding"
+                                            "key": "adresseerbaarObjectIdentificatie"
                                         }
                                     ]
                                 },
@@ -1366,13 +1366,13 @@
                             },
                             "response": [
                                 {
-                                    "id": "0f7f9138-685a-45ce-8049-e076e7d39115",
-                                    "name": "Zoekactie geslaagd",
+                                    "id": "4b75789a-51a5-4984-9cf7-14efd4288fae",
+                                    "name": "Zoekactie geslaagd\n",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1384,18 +1384,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1425,13 +1425,13 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "8a43b783-f046-4d6d-8a5f-e20b8812409b",
+                                    "id": "4bf3e498-db8a-4f2c-9ca2-a04cb5c28344",
                                     "name": "Bad Request",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1443,18 +1443,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1474,18 +1474,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1 400 Bad Request\",\n \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n \"title\": \"Ten minste ��n parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "e3bb0f18-bf3f-4266-a3d2-cf2979b58139",
+                                    "id": "1a416b07-3660-49fa-93e2-94e7e8ece9ea",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1497,18 +1497,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1528,18 +1528,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2 401 Unauthorized\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "95a283ee-56e6-4161-90f3-2cda0cf6889c",
+                                    "id": "4f301df0-902c-4ac2-845e-b3af5eb83a02",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1551,18 +1551,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1582,18 +1582,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4 403 Forbidden\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "7555c941-e085-4fd7-9975-68f49ae0673f",
+                                    "id": "84911110-5508-48b7-a3e7-d10c9d5154bf",
                                     "name": "Not Found",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1605,18 +1605,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1636,18 +1636,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5 404 Not Found\",\n \"title\": \"Opgevraagde resource bestaat niet.\",\n \"status\": 404,\n \"detail\": \"The server has not found anything matching the Request-URI.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notFound\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5\",\n \"title\": \"Opgevraagde resource bestaat niet.\",\n \"status\": 404,\n \"detail\": \"The server has not found anything matching the Request-URI.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notFound\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "fef64077-1666-441d-afba-e323a8b6aba9",
+                                    "id": "7134dd6b-9573-4361-9392-dc36ccf718a0",
                                     "name": "Not Acceptable",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1659,18 +1659,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1690,18 +1690,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7 406 Not Acceptable\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "6c3d8435-0be6-4308-adf9-3a65d15f441c",
+                                    "id": "8b88fff5-53e4-4ea0-a999-79f5040a3890",
                                     "name": "Internal Server Error",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1713,18 +1713,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1744,18 +1744,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1 500 Internal server error\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "5e94c195-c159-433e-b645-6153ad4f300c",
+                                    "id": "77e45dbb-9dc1-4af9-955e-b44393b39897",
                                     "name": "Not Implemented",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1767,18 +1767,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1798,18 +1798,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.2 501 Not Implemented\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "44747d8d-cd75-4cbb-b69b-a0e07975e752",
+                                    "id": "afc9c9ba-fd60-4982-b2f4-9a534404eb95",
                                     "name": "Service Unavailable",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1821,18 +1821,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1852,18 +1852,18 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4 503 Service Unavailable\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
+                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "e664858d-6868-4c0b-a81a-f6bb8795cb8c",
+                                    "id": "3f0ec355-21a1-4b27-b912-4e88ac424f42",
                                     "name": "Er is een onverwachte fout opgetreden",
                                     "originalRequest": {
                                         "url": {
                                             "path": [
                                                 "bewoningen",
-                                                ":identificatiecodenummeraanduiding",
+                                                ":adresseerbaarObjectIdentificatie",
                                                 "verloop"
                                             ],
                                             "host": [
@@ -1875,18 +1875,18 @@
                                                     "value": "<string>"
                                                 },
                                                 {
-                                                    "key": "datumvan",
+                                                    "key": "datumVan",
                                                     "value": "<date>"
                                                 },
                                                 {
-                                                    "key": "datumtotenmet",
+                                                    "key": "datumTotEnMet",
                                                     "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
                                                 {
                                                     "type": "any",
-                                                    "key": "identificatiecodenummeraanduiding"
+                                                    "key": "adresseerbaarObjectIdentificatie"
                                                 }
                                             ]
                                         },
@@ -1906,7 +1906,7 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"http://QAG.vpz.sPzDm-FMSCFh+gVCnTpjekQP6,6vdqArRrvKg4MtN,swkO1VTHV\",\n \"title\": \"sed\",\n \"status\": 89097581,\n \"detail\": \"in id non\",\n \"instance\": \"http://naSBOJbaCYqFzLOMNAL.nru7xPkiDvlLtrNYTOz.CuaQSSe4Gjem2AAu\",\n \"code\": \"occaecat minim dolore\"\n}",
+                                    "body": "{\n \"type\": \"http://gydViOMTXcvihhEAMMoCdWJhPeDpViyq.rjbzrLidY6EWD1jskndKAHONlrATxSSna9buERf+LaLzxLvH\",\n \"title\": \"dolore labore in do nulla\",\n \"status\": -57957897,\n \"detail\": \"dolor dolore\",\n \"instance\": \"https://fYOPedZiLFaRzCHXxvMPNto.tyaMATP,oAIdAVdlen.CgFbwvb6HcT320LNy+y3-GD0ObouMUp0VhPmJhTj-kXn5EabDV11vvT2OM\",\n \"code\": \"cillum\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 }
@@ -1925,15 +1925,15 @@
         {
             "id": "baseUrl",
             "type": "string",
-            "value": "https://virtserver.swaggerhub.com/VNGRealisatie/api/bewoning"
+            "value": "https://www.haalcentraal.nl/haalcentraal/api/brpbewoning"
         }
     ],
     "info": {
-        "_postman_id": "90415420-d0a0-4b9b-8aa0-07c874e59b68",
+        "_postman_id": "5a9eabb5-815d-44a5-ac6c-4aede27eae48",
         "name": "Bewoning",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
-            "content": "<body>API voor het ontsluiten van historische gegevens over de bewoning van een adres. <br> De gegevens van de bewoners zijn actueel.Zie de Functionele documentatie voor nadere toelichting.</body>",
+            "content": "API voor het ontsluiten van historische gegevens over de bewoning van een adres.\nDe gegevens van de bewoners zijn actueel.Zie de Functionele documentatie voor nadere toelichting.\n",
             "type": "text/plain"
         }
     }

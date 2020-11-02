@@ -23,7 +23,7 @@
     "/bewoningen" : {
       "get" : {
         "tags" : [ "Bewoning" ],
-        "description" : "Het zoeken van bewoningen.\n\nEen bewoning is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.\nOp basis van de nummeraanduidingIdentificatie retourneert Bewoning de personen die op de verblijfplaats zijn ingeschreven of waren ingeschreven.\n\nOp basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.\nÃ‰Ã©n van de volgende parameters moet zijn opgenomen :\n  * `nummeraanduidingIdentificatie`\n  * `Burgerservicenummer`\n\nDe bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.\n\nOverleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.\nHet resultaat bevat de adressen en bewoners van een verblijfplaats waarvan de **einddatumgeldigheidverblijfplaats** op of na de **datumVan** ligt EN de **begindatumgeldigheidverblijfplaats** op of voor de **datumTotEnMet** ligt.\nOf het resultaat bevat de het adres en de bewoners van de verblijfplaats waarbij de **begindatumgeldigheidverblijfplaats** voor of op de **peildatum** ligt en de **einddatumgeldigheidverblijfplaats** na of op de **peildatum** ligt. Er wordt niet op de gevonden adressen gesorteerd, maar per adres (bewoning) worden de bewoners wel gesorteerd op datumVan.\n",
+        "description" : "Het zoeken van bewoningen.\n\nEen bewoning is adresseerbaarobject, inclusief bijbehorende adressen, waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.\nOp basis van de adresseerbaarObjectIdentificatie retourneert Bewoning de personen die op de verblijfplaats(en), behorende bij het adresseerbaarObject zijn ingeschreven of waren ingeschreven.\n\nOp basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.\nÉén van de volgende parameters moet zijn opgenomen :\n  * `adresseerbaarObjectIdentificatie`\n  * `burgerservicenummer`\n\nDe bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.\n\nOverleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.\nHet resultaat bevat het adresseerbaar object, de adressen en bewoners van een verblijfplaats waarvan de **einddatumgeldigheidverblijfplaats** op of na de **datumVan** ligt EN de **begindatumgeldigheidverblijfplaats** op of voor de **datumTotEnMet** ligt.\nOf het resultaat bevat het adresseerbaar object, de bijbehorende adressen en de bewoners van de verblijfplaats waarbij de **begindatumgeldigheidverblijfplaats** voor of op de **peildatum** ligt en de **einddatumgeldigheidverblijfplaats** na of op de **peildatum** ligt. Er wordt niet op de gevonden adressen gesorteerd, maar per adres (binnen bewoning) worden de bewoners wel gesorteerd op datumVan.\n",
         "operationId" : "getBewoningen",
         "parameters" : [ {
           "name" : "expand",
@@ -86,16 +86,16 @@
           },
           "example" : "999993653"
         }, {
-          "name" : "nummeraanduidingIdentificatie",
+          "name" : "adresseerbaarObjectIdentificatie",
           "in" : "query",
-          "description" : "De unieke identificatie van een nummeraanduiding.\n",
+          "description" : "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
           "required" : false,
           "style" : "form",
           "explode" : true,
           "schema" : {
-            "maxLength" : 16,
+            "pattern" : "^[0-9]{16}$",
             "type" : "string",
-            "example" : "0518200000366054"
+            "example" : "0226010000038820"
           }
         } ],
         "responses" : {
@@ -131,7 +131,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
-                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -356,7 +356,7 @@
         }, {
           "name" : "adresseerbaarObjectIdentificatie",
           "in" : "path",
-          "description" : "De identificatie van een adresserbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.",
+          "description" : "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -399,7 +399,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
-                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -596,7 +596,7 @@
     "/bewoningen/{adresseerbaarObjectIdentificatie}/verloop" : {
       "get" : {
         "tags" : [ "Bewoning" ],
-        "description" : "Het ophalen van de gegevens van het verloop van de bewoning van een adres binnen een gegeven periode. Op basis van de identificatiecodenummeraanduiding, een datum **datumVan** en een datum **datumTotEnMet** worden kengetallen van het verloop van de bewoning van dit adres opgehaald.\n",
+        "description" : "Het ophalen van de gegevens van het verloop van de bewoning van een adresseerbaar object binnen een gegeven periode. Op basis van de adresseerbaarobjectIdentificatie, een datum **datumVan** en een datum **datumTotEnMet** worden kengetallen van het verloop van de bewoning van dit adresseerbaarobject opgehaald.\n",
         "operationId" : "getBewoningverloop",
         "parameters" : [ {
           "name" : "fields",
@@ -629,7 +629,7 @@
         }, {
           "name" : "adresseerbaarObjectIdentificatie",
           "in" : "path",
-          "description" : "De identificatie van een adresserbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.",
+          "description" : "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -672,7 +672,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
-                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -871,10 +871,34 @@
     "schemas" : {
       "Bewoning" : {
         "type" : "object",
+        "properties" : {
+          "adresseerbaarObjectIdentificatie" : {
+            "type" : "string",
+            "description" : "De unieke identificatie van een verblijfsobject.\n"
+          },
+          "bewoningPerAdres" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BewoningPerAdres"
+            }
+          }
+        }
+      },
+      "BewoningPerAdres" : {
+        "type" : "object",
         "allOf" : [ {
           "$ref" : "#/components/schemas/Adres"
         }, {
           "properties" : {
+            "nummeraanduidingIdentificatie" : {
+              "type" : "string",
+              "description" : "De unieke aanduiding van een nummeraanduiding.\n",
+              "example" : "0518200001645858"
+            },
+            "isNevenadres" : {
+              "type" : "boolean",
+              "description" : "Indicatie dat dit adres een nevenadres is van een adresseerbaar object. Het adres is een hoofdadres als deze indicatie niet wordt meegeleverd."
+            },
             "bewoners" : {
               "type" : "array",
               "items" : {
@@ -884,18 +908,9 @@
             "indicatieVeelBewoners" : {
               "type" : "boolean",
               "description" : "Indicator die aangeeft dat het betreffende adres veel bewoners heeft of had in de gevraagde periode. Wanneer deze indicator is opgenomen met de waarde true, worden deze bewoners niet in het antwoord opgenomen met uitzondering van de gevraagde persoon (in het geval dat bewoningen zijn gevraagd op burgerservicenummer). Als de waarde false is wordt de indicator niet meegeleverd.\"\n"
-            },
-            "nummeraanduidingIdentificatie" : {
-              "type" : "string",
-              "description" : "De unieke aanduiding van een nummeraanduiding.\n",
-              "example" : "0518200001645858"
-            },
-            "adresseerbaarObjectIdentificatie" : {
-              "type" : "string",
-              "description" : "De unieke identificatie van een verblijfsobject.\n"
             }
           },
-          "description" : "Een bewoning is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.\n"
+          "description" : "Een bewoningPerAdres is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven, inclusief enkele gegevens van de personen.\n"
         } ]
       },
       "BewoningHalBasis" : {
@@ -952,8 +967,11 @@
               "$ref" : "#/components/schemas/HalLink"
             }
           },
-          "nummeraanduiding" : {
-            "$ref" : "#/components/schemas/HalLink"
+          "nummeraanduidingen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HalLink"
+            }
           },
           "adresseerbaarObject" : {
             "$ref" : "#/components/schemas/HalLink"
@@ -1027,7 +1045,7 @@
           "properties" : {
             "invalidParams" : {
               "type" : "array",
-              "description" : "Foutmelding per fout in een parameter. Alle gevonden fouten worden Ã©Ã©n keer teruggemeld.",
+              "description" : "Foutmelding per fout in een parameter. Alle gevonden fouten worden één keer teruggemeld.",
               "items" : {
                 "$ref" : "#/components/schemas/InvalidParams"
               }
@@ -1577,7 +1595,7 @@
             },
             "korteNaam" : {
               "type" : "string",
-              "description" : "De officiÃ«le openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.\n"
+              "description" : "De officiële openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.\n"
             },
             "vanuitVertrokkenOnbekendWaarheen" : {
               "type" : "boolean",
@@ -1760,7 +1778,7 @@
             "$ref" : "#/components/schemas/VerblijfstitelInOnderzoek"
           }
         },
-        "description" : "Gegevens over de verblijfsrechtelijke status van de persoon.\n* **datumEinde**: Datum waarop de geldigheid van de gegevens over de verblijfstitel is beÃ«indigd.\n* **datumIngang**: Datum waarop de gegevens over de verblijfstitel geldig zijn geworden.\n* **aanduiding** : Verblijfstiteltabel die aangeeft over welke verblijfsrechtelijke status de persoon beschikt.\n"
+        "description" : "Gegevens over de verblijfsrechtelijke status van de persoon.\n* **datumEinde**: Datum waarop de geldigheid van de gegevens over de verblijfstitel is beëindigd.\n* **datumIngang**: Datum waarop de gegevens over de verblijfstitel geldig zijn geworden.\n* **aanduiding** : Verblijfstiteltabel die aangeeft over welke verblijfsrechtelijke status de persoon beschikt.\n"
       },
       "VerblijfstitelInOnderzoek" : {
         "type" : "object",
@@ -1814,7 +1832,7 @@
           },
           "partners" : {
             "type" : "array",
-            "description" : "De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beÃ«indigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.\n",
+            "description" : "De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beëindigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.\n",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
@@ -1841,7 +1859,7 @@
       "adresseerbaarObjectIdentificatie" : {
         "name" : "adresseerbaarObjectIdentificatie",
         "in" : "path",
-        "description" : "De identificatie van een adresserbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.",
+        "description" : "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
         "required" : true,
         "style" : "simple",
         "explode" : false,
