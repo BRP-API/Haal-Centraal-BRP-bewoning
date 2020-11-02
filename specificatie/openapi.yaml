@@ -200,11 +200,19 @@ components:
           type: "string"
           description: |
                         De unieke identificatie van een verblijfsobject.
-        bewoningPerAdres:
+        bewoners:
           type: "array"
           items:
-            $ref: "#/components/schemas/BewoningPerAdres"
-    BewoningPerAdres:
+            $ref: "#/components/schemas/Bewoner"
+        indicatieVeelBewoners:
+          type: boolean
+          description: |
+                        Indicator die aangeeft dat het betreffende adres veel bewoners heeft of had in de gevraagde periode. Wanneer deze indicator is opgenomen met de waarde true, worden deze bewoners niet in het antwoord opgenomen met uitzondering van de gevraagde persoon (in het geval dat bewoningen zijn gevraagd op burgerservicenummer). Als de waarde false is wordt de indicator niet meegeleverd."
+        adressen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/AdresUitgebreid"
+    AdresUitgebreid:
       type: "object"
       allOf :
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BAG-bevragen/v1.1.0/specificatie/openapi.yaml#/components/schemas/Adres"
@@ -216,17 +224,6 @@ components:
               description: |
                             De unieke aanduiding van een nummeraanduiding.
               example: "0518200001645858"
-            isNevenadres:
-              description: "Indicatie dat dit adres een nevenadres is van een adresseerbaar object. Het adres is een hoofdadres als deze indicatie niet wordt meegeleverd."
-              type: "boolean"
-            bewoners:
-              type: "array"
-              items:
-                $ref: "#/components/schemas/Bewoner"
-            indicatieVeelBewoners:
-              type: boolean
-              description: |
-                            Indicator die aangeeft dat het betreffende adres veel bewoners heeft of had in de gevraagde periode. Wanneer deze indicator is opgenomen met de waarde true, worden deze bewoners niet in het antwoord opgenomen met uitzondering van de gevraagde persoon (in het geval dat bewoningen zijn gevraagd op burgerservicenummer). Als de waarde false is wordt de indicator niet meegeleverd."
     BewoningHalBasis:
       allOf:
       - $ref: "#/components/schemas/Bewoning"
