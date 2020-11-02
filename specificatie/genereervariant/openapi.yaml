@@ -28,7 +28,7 @@ paths:
         Op basis van de adresseerbaarObjectIdentificatie retourneert Bewoning de personen die op de verblijfplaats(en), behorende bij het adresseerbaarObject zijn ingeschreven of waren ingeschreven.
 
         Op basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.
-        Één van de volgende parameters moet zijn opgenomen :
+        Ã‰Ã©n van de volgende parameters moet zijn opgenomen :
           * `adresseerbaarObjectIdentificatie`
           * `burgerservicenummer`
 
@@ -131,7 +131,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -344,7 +344,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -553,7 +553,7 @@ paths:
                 $ref: '#/components/schemas/BadRequestFoutbericht'
               example:
                 type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1
-                title: Ten minste één parameter moet worden opgegeven.
+                title: Ten minste Ã©Ã©n parameter moet worden opgegeven.
                 status: 400
                 detail: The request could not be understood by the server due to malformed
                   syntax. The client SHOULD NOT repeat the request without modification.
@@ -829,7 +829,7 @@ components:
           invalidParams:
             type: array
             description: Foutmelding per fout in een parameter. Alle gevonden fouten
-              worden één keer teruggemeld.
+              worden Ã©Ã©n keer teruggemeld.
             items:
               $ref: '#/components/schemas/InvalidParams'
     Foutbericht:
@@ -1302,7 +1302,7 @@ components:
           korteNaam:
             type: string
             description: |
-              De officiële openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.
+              De officiÃ«le openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.
           vanuitVertrokkenOnbekendWaarheen:
             type: boolean
             description: |
@@ -1469,7 +1469,7 @@ components:
           $ref: '#/components/schemas/VerblijfstitelInOnderzoek'
       description: |
         Gegevens over de verblijfsrechtelijke status van de persoon.
-        * **datumEinde**: Datum waarop de geldigheid van de gegevens over de verblijfstitel is beëindigd.
+        * **datumEinde**: Datum waarop de geldigheid van de gegevens over de verblijfstitel is beÃ«indigd.
         * **datumIngang**: Datum waarop de gegevens over de verblijfstitel geldig zijn geworden.
         * **aanduiding** : Verblijfstiteltabel die aangeeft over welke verblijfsrechtelijke status de persoon beschikt.
     VerblijfstitelInOnderzoek:
@@ -1516,7 +1516,7 @@ components:
         partners:
           type: array
           description: |
-            De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beëindigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.
+            De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beÃ«indigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.
           items:
             $ref: '#/components/schemas/HalLink'
         partnerhistorie:
