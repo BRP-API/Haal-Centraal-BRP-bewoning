@@ -35,8 +35,6 @@ paths:
         De bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.
 
         Overleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.
-        Het resultaat bevat het adresseerbaar object, de adressen en bewoners van een verblijfplaats waarvan de **einddatumgeldigheidverblijfplaats** op of na de **datumVan** ligt EN de **begindatumgeldigheidverblijfplaats** op of voor de **datumTotEnMet** ligt.
-        Of het resultaat bevat het adresseerbaar object, de bijbehorende adressen en de bewoners van de verblijfplaats waarbij de **begindatumgeldigheidverblijfplaats** voor of op de **peildatum** ligt en de **einddatumgeldigheidverblijfplaats** na of op de **peildatum** ligt. Er wordt niet op de gevonden adressen gesorteerd, maar per adres (binnen bewoning) worden de bewoners wel gesorteerd op datumVan.
       operationId: getBewoningen
       parameters:
       - name: expand
