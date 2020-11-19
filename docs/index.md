@@ -2,26 +2,34 @@
 layout: page-with-side-nav
 title: Haal-Centraal-BRP-bewoning
 ---
-# Haal-Centraal-BRP-bewoning
+# Haal Centraal BRP bewoning
 
-BRP Bevragen bewoning is een Haal Centraal API voor het raadplegen van de bewoning van adressen door ingeschreven natuurlijke personen voor alle binnengemeentelijke afnemers in NL.
+![lint oas](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/workflows/lint-oas/badge.svg)
+![generate sdks](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/workflows/generate-sdks/badge.svg)
+![generate postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/workflows/generate-postman-collection/badge.svg)
 
-## Getting started
-Om te beginnen met ontwikkelen van de API is de [getting started](./docs/getting-started.md) een goed beginpunt. De API is technisch gespecificeerd in Open API specificaties (zie hieronder bij documentatie).
+API voor het bevragen van de bewoning van een adres of de medebewoners van een persoon.
 
-## Documentatie
-* [Technische specificaties](./specificatie) (Open API Specificaties en JSON schema) en in [Swagger-formaat](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/master/specificatie/openapi.yaml)
+## Direct aan de slag?
+* Bekijk de specificaties met [Swagger UI](./swagger-ui) of [Redoc](./redoc)
+* Lees de [Getting started](./getting-started)
+* Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
+* Download [client code](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/tree/master/code){:target="_blank" rel="noopener"}
 
-* Lees hoe je kan [bijdragen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CONTRIBUTING.md) en de [Omgangsvormen](https://github.com/VNG-Realisatie/API-Kennisbank/blob/master/CODE_OF_CONDUCT.md) voor dit project.
+## Heb je meer nodig? 
+Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 
-Deze API is in eerste instantie ontwikkeld op https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen. Veel informatie, inclusief de user stories die tot deze API hebben geleid kun je daar vinden.
+* [Actuele BRP-gegevens bevragen](https://vng-realisatie.github.io/Haal-Centraal-BRP-bevragen){:target="_blank" rel="noopener"}
+* [Historische BRP-gegevens bevragen](https://vng-realisatie.github.io/Haal-Centraal-BRP-historie-bevragen){:target="_blank" rel="noopener"}
+* [Reisdocumenten bevragen](https://vng-realisatie.github.io/Haal-Centraal-Reisdocumenten-bevragen){:target="_blank" rel="noopener"}
+* [Landelijke tabellen bevragen](https://vng-realisatie.github.io/Haal-Centraal-BRP-tabellen-bevragen){:target="_blank" rel="noopener"}
 
 ## Bronnen
-* [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/)
 
-## Contactpersonen:
-* Product owner: [@CathyDingemanse](https://github.com/CathyDingemanse)
-* Berichtontwerper: [@JohanBoer](https://github.com/JohanBoer)
+* [Productvisie Haal Centraal](https://vng-realisatie.github.io/Haal-Centraal){:target="_blank" rel="noopener"}
+* [API Design Visie](https://github.com/Geonovum/KP-APIs/tree/master/Werkgroep%20Design%20Visie){:target="_blank" rel="noopener"}
+* [REST API Design Rules](https://docs.geostandaarden.nl/api/API-Designrules/){:target="_blank" rel="noopener"}
+* [Landelijke API strategie voor de overheid](https://geonovum.github.io/KP-APIs/){:target="_blank" rel="noopener"}
 
 ## Licentie
 Copyright &copy; VNG Realisatie 2020
