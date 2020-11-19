@@ -27,7 +27,7 @@ Het is mogelijk de gegevens van de ingeschreven personen die (mede)bewoners zijn
 
 Je kunt een visuele weergave van de specificatie inzien met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/redoc).
 
-De [functionele documentatie](./features) is beschreven in [features](./features).
+Je kunt de [functionele documentatie](./features) vinden in de [features](./features).
 
 ## Implementeer de API
 
