@@ -4,7 +4,7 @@ title: Getting Started
 ---
 # Getting Started
 
-De 'Bevraging bewoning' Web API is gespecificeerd met behulp van de [OpenAPI specifications (OAS)](https://swagger.io/specification/).
+De 'BRP bewoning' Web API is gespecificeerd met behulp van de [OpenAPI specifications (OAS)](https://swagger.io/specification/).
 
 Wil je de API gebruiken? Dit kun je doen:
 
@@ -13,14 +13,14 @@ Wil je de API gebruiken? Dit kun je doen:
 3. Probeer en test de API
 
 ## Functionaliteit en specificaties
-De bewoning API heeft drie endpoints waarmee:
-* Je kan raadplegen welke personen op het opgegeven adres (adresseerbaarObjectIdentificatie) wonen of hebben gewoond
-* Je kan raadplegen welke medebewoners de opgegeven persoon heeft(gehad)
+De bewoning API heeft functionaliteit waarmee:
+* Je kan raadplegen welke personen op het opgegeven adres (adresseerbaar object) wonen of hebben gewoond
+* Je kan raadplegen welke medebewoners de opgegeven persoon heeft (gehad)
 * Je kan indicaties raadplegen voor verloop op het adres in de vorm van het aantal inverhuizingen en uitverhuizingen en het gemiddeld aantal bewoners
 
 De bewoning API kan je op drie manieren gebruiken:
 1. Met een peildatum. Je krijgt dan de (mede)bewoners op de opgegeven datum.
-2. Met een periode (datumVan en datumTotEnMet). Je krijgt dan de (mede)bewoners over de opgegeven periode.
+2. Met een periode (datumVan en datumTotEnMet). Je krijgt dan de (mede)bewoners of het verloop in de opgegeven periode.
 3. Zonder peildatum of periode. Je krijgt dan alle (mede)bewoners of het totale verloop die bekend zijn/is in de registratie.
 
 Het is mogelijk de gegevens van de ingeschreven personen die (mede)bewoners zijn direct mee te laden met gebruik van de [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature) parameter.
@@ -67,5 +67,5 @@ burgerservicenummer | situatie
 999992740 | medebewoners met familierelatie
 999991292 | medebewoners niet gerelateerd
 
-De API gebruikt de GBA-V proefomgeving. De meeste testpersonen die daarin voorkomen kun je ook in de API gebruiken. De volledige set testpersonen kan worden gedownload bij de [RvIG](https://www.rvig.nl/documenten/richtlijnen/2018/09/20/testdataset-persoonslijsten-proefomgevingen-gba-v).
-Een vertaling van GBBA-V (LO GBA) attributen naar BRP API properties staat beschreven in de [BRP-LO GBA mapping](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/master/docs/BRP-LO%20GBA%20mapping.xlsx?raw=true).
+De API gebruikt de GBA-V proefomgeving. Alle testpersonen die daarin voorkomen kun je ook in de API gebruiken. De volledige set testpersonen kan worden gedownload bij de [RvIG](https://www.rvig.nl/documenten/richtlijnen/2018/09/20/testdataset-persoonslijsten-proefomgevingen-gba-v){:target="_blank"}.
+Een vertaling van GBA-V (LO GBA) attributen naar BRP API properties staat beschreven in de [BRP-LO GBA mapping](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/master/docs/BRP-LO%20GBA%20mapping.xlsx?raw=true){:target="_blank" rel="noopener"}.
