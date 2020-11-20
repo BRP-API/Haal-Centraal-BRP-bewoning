@@ -4,7 +4,7 @@ title: Getting Started
 ---
 # Getting Started
 
-De 'BRP bewoning' Web API is gespecificeerd met behulp van de [OpenAPI specifications (OAS)](https://swagger.io/specification/).
+De 'BRP bewoning' Web API is gespecificeerd in [OpenAPI specifications (OAS)](https://swagger.io/specification/).
 
 Wil je de API gebruiken? Dit kun je doen:
 
@@ -13,19 +13,19 @@ Wil je de API gebruiken? Dit kun je doen:
 3. Probeer en test de API
 
 ## Functionaliteit en specificaties
-De bewoning API heeft functionaliteit waarmee:
-* Je kan raadplegen welke personen op het opgegeven adres (adresseerbaar object) wonen of hebben gewoond
-* Je kan raadplegen welke medebewoners de opgegeven persoon heeft (gehad)
-* Je kan indicaties raadplegen voor verloop op het adres in de vorm van het aantal inverhuizingen en uitverhuizingen en het gemiddeld aantal bewoners
+Met de bewoning API kun je:
+* raadplegen welke personen op het opgegeven adres (adresseerbaar object) wonen of hebben gewoond
+* raadplegen welke medebewoners de opgegeven persoon heeft (gehad)
+* indicatie raadplegen voor het verloop op het adres in de vorm van het aantal inverhuizingen en uitverhuizingen en het gemiddeld aantal bewoners
 
-De bewoning API kan je op drie manieren gebruiken:
+De bewoning API kun je op drie manieren gebruiken:
 1. Met een peildatum. Je krijgt dan de (mede)bewoners op de opgegeven datum.
 2. Met een periode (datumVan en datumTotEnMet). Je krijgt dan de (mede)bewoners of het verloop in de opgegeven periode.
-3. Zonder peildatum of periode. Je krijgt dan alle (mede)bewoners of het totale verloop die bekend zijn/is in de registratie.
+3. Zonder peildatum of periode. Je krijgt dan alle (mede)bewoners of het totale verloop zoals bekend in de registratie.
 
-Het is mogelijk de gegevens van de ingeschreven personen die (mede)bewoners zijn direct mee te laden met gebruik van de [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature) parameter.
+Als je wilt kun je de gegevens van de (mede)bewoners direct meeladen met gebruik van de [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature) parameter.
 
-Je kunt een visuele weergave van de specificatie inzien met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/redoc).
+Je kunt een visuele weergave van de specificatie bekijken met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/redoc).
 
 Je kunt de [functionele documentatie](./features) vinden in de [features](./features).
 
@@ -59,7 +59,7 @@ De werking van de API is het makkelijkst te testen met behulp van [Postman](http
 
 ### Testpersonen
 
-Onderstaande tabel bevat de burgerservicenummers van testpersonen voor specifieke situaties waarmee de 'BRP bewoning' Web API kan worden getest.
+Deze tabel bevat de burgerservicenummers van testpersonen voor specifieke situaties waarmee de 'BRP bewoning' Web API kan worden getest.
 
 burgerservicenummer | situatie
 ---------------- | :-------  
