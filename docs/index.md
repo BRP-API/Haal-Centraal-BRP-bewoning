@@ -8,7 +8,7 @@ title: Haal-Centraal-BRP-bewoning
 ![generate sdks](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/workflows/generate-sdks/badge.svg)
 ![generate postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/workflows/generate-postman-collection/badge.svg)
 
-API voor het bevragen van de bewoning van een adres of de medebewoners van een persoon.
+API voor het raadplegen van de (historische) bewoning van een adres, verloop op een adres, of de medebewoners van een persoon.
 
 ## Direct aan de slag?
 * Bekijk de specificaties met [Swagger UI](./swagger-ui) of [Redoc](./redoc)
