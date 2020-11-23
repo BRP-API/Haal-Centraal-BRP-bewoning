@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "info" : {
     "title" : "Bewoning",
-    "description" : "API voor het ontsluiten van historische gegevens over de bewoning van een adres.\nDe gegevens van de bewoners zijn actueel.Zie de Functionele documentatie voor nadere toelichting.\n",
+    "description" : "API voor het zoeken en raadplegen van bewoningen en metagegevens over bewoning (verloop).\nEen bewoning is een adresseerbaar object (verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).\nIedere samenstelling van bewoners van het object is een bewoning. Overleden personen maken onderdeel uit van een\nbewoning tot het moment van overlijden. Gegevens over de bewoners zijn actueel.\n",
     "contact" : {
       "url" : "https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning"
     },
@@ -10,7 +10,7 @@
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
       "url" : "https://eupl.eu/1.2/nl/"
     },
-    "version" : "0.0.1(develop)"
+    "version" : "1.0.0"
   },
   "servers" : [ {
     "url" : "https://www.haalcentraal.nl/haalcentraal/api/brpbewoning",
@@ -23,7 +23,7 @@
     "/bewoningen" : {
       "get" : {
         "tags" : [ "Bewoning" ],
-        "description" : "Het zoeken van bewoningen.\n\nEen bewoning is adresseerbaarobject, inclusief bijbehorende adressen, waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.\nOp basis van de adresseerbaarObjectIdentificatie retourneert Bewoning de personen die op de verblijfplaats(en), behorende bij het adresseerbaarObject zijn ingeschreven of waren ingeschreven.\n\nOp basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.\nÉén van de volgende parameters moet zijn opgenomen :\n  * `adresseerbaarObjectIdentificatie`\n  * `burgerservicenummer`\n\nDe bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.\n\nOverleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.\n",
+        "description" : "Zoek bewoningen door een adresseerbaarObjectIdentificatie of een burgerservicenummer op te geven, samen met een peildatum of periode.\n",
         "operationId" : "getBewoningen",
         "parameters" : [ {
           "name" : "expand",
@@ -88,7 +88,7 @@
         }, {
           "name" : "adresseerbaarObjectIdentificatie",
           "in" : "query",
-          "description" : "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
+          "description" : "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -305,7 +305,7 @@
     "/bewoningen/{adresseerbaarObjectIdentificatie}" : {
       "get" : {
         "tags" : [ "Bewoning" ],
-        "description" : "Het ophalen van de gegevens van een enkele Bewoning.\n",
+        "description" : "Raadpleeg een bewoning door een adresseerbaarobjectIdentificatie op te geven.\n",
         "operationId" : "getBewoning",
         "parameters" : [ {
           "name" : "expand",
@@ -356,7 +356,7 @@
         }, {
           "name" : "adresseerbaarObjectIdentificatie",
           "in" : "path",
-          "description" : "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
+          "description" : "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -596,7 +596,7 @@
     "/bewoningen/{adresseerbaarObjectIdentificatie}/verloop" : {
       "get" : {
         "tags" : [ "Bewoning" ],
-        "description" : "Het ophalen van de gegevens van het verloop van de bewoning van een adresseerbaar object binnen een gegeven periode. Op basis van de adresseerbaarobjectIdentificatie, een datum **datumVan** en een datum **datumTotEnMet** worden kengetallen van het verloop van de bewoning van dit adresseerbaarobject opgehaald.\n",
+        "description" : "Raadpleeg het verloop van de bewoning van een adresseerbaar object over een periode door een adresseerbaarobjectIdentificatie en\neen periode op te geven. Het antwoord bevat het aantal verhuizingen van en naar het object en het gemiddelde aantal bewoners in de opgegeven periode.\n",
         "operationId" : "getBewoningverloop",
         "parameters" : [ {
           "name" : "fields",
@@ -629,7 +629,7 @@
         }, {
           "name" : "adresseerbaarObjectIdentificatie",
           "in" : "path",
-          "description" : "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
+          "description" : "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -874,7 +874,7 @@
         "properties" : {
           "adresseerbaarObjectIdentificatie" : {
             "type" : "string",
-            "description" : "De unieke identificatie van een verblijfsobject.\n"
+            "description" : "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n"
           },
           "bewoners" : {
             "type" : "array",
@@ -884,7 +884,7 @@
           },
           "indicatieVeelBewoners" : {
             "type" : "boolean",
-            "description" : "Indicator die aangeeft dat het betreffende adres veel bewoners heeft of had in de gevraagde periode. Wanneer deze indicator is opgenomen met de waarde true, worden deze bewoners niet in het antwoord opgenomen met uitzondering van de gevraagde persoon (in het geval dat bewoningen zijn gevraagd op burgerservicenummer). Als de waarde false is wordt de indicator niet meegeleverd.\"\n"
+            "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij\nniet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.\n"
           },
           "adressen" : {
             "type" : "array",
@@ -892,7 +892,8 @@
               "$ref" : "#/components/schemas/AdresUitgebreid"
             }
           }
-        }
+        },
+        "description" : "Een bewoning is een adresseerbaar object(verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).\nIedere samenstelling van bewoners van het object is een bewoning.\n"
       },
       "AdresUitgebreid" : {
         "type" : "object",
@@ -1010,7 +1011,7 @@
             "$ref" : "#/components/schemas/SoortAdres_enum"
           }
         },
-        "description" : "Een bewoner is een natuurlijk persoon die nu en/of in het verleden op het betreffende adres ingeschreven staat of heeft gestaan.\n* `datumAanvangAdreshouding` : Datum waarop de bewoner op dit adres is ingeschreven.\n* `datumTot` : Datum waarop de bewoner van dit adres is uitgeschreven.\n"
+        "description" : "Een bewoner is een natuurlijk persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.\n* `datumAanvangAdreshouding` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven.\n* `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven.\n"
       },
       "Verloop" : {
         "type" : "object",
@@ -1855,7 +1856,7 @@
       "adresseerbaarObjectIdentificatie" : {
         "name" : "adresseerbaarObjectIdentificatie",
         "in" : "path",
-        "description" : "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
+        "description" : "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
         "required" : true,
         "style" : "simple",
         "explode" : false,
