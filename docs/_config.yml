@@ -11,6 +11,10 @@ nav:
     subnav:
       - title: Main
         path: /
+#      - title: Goals canvas
+#        path: /goals-canvas
+  - title: Specificaties v. 1.0 (IO)
+    subnav:
       - title: Getting started
         path: /getting-started
       - title: User stories
@@ -21,10 +25,6 @@ nav:
         url: https://gitlab.com/vng-realisatie/haal-centraal-brp-afgeschermd/-/issues?label_name%5B%5D=bewoning
         path: /user-stories
         target: blank
-#      - title: Goals canvas
-#        path: /goals-canvas
-  - title: Specificaties v. 1.0 (IO)
-    subnav:
       - title: Bevragen API (swagger-ui)
         path: /swagger-ui
       - title: Bevragen API (redoc)
