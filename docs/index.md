@@ -42,4 +42,4 @@ Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 
 ## Licentie
 Copyright &copy; VNG Realisatie 2020
-Licensed under the [EUPL](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/master/LICENCE.md)
+Licensed under the [EUPL](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/blob/master/LICENCE.md)
