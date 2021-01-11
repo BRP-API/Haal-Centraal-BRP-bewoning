@@ -5,7 +5,7 @@ servers:
 info:
   title: Bewoning
   description: "<body>API voor het ontsluiten van historische gegevens over de bewoning van een adres. <br> De gegevens van de bewoners zijn actueel.Zie de Functionele documentatie voor nadere toelichting.</body>"
-  version: "1.0.0"
+  version: "0.9.0"
   contact:
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning
   license:
