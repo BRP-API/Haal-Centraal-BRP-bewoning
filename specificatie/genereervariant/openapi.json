@@ -4,15 +4,13 @@
     "title" : "Bewoning",
     "description" : "<body>API voor het ontsluiten van historische gegevens over de bewoning van een adres. <br> De gegevens van de bewoners zijn actueel.Zie de Functionele documentatie voor nadere toelichting.</body>",
     "contact" : {
-      "url" : "https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen"
+      "url" : "https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning"
     },
     "license" : {
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
       "url" : "https://eupl.eu/1.2/nl/"
     },
-    "version" : "1.0.0",
-    "x-imvertor-generator-version" : "1.55.2",
-    "x-yamlCompiler-stylesheets-version" : "20191016"
+    "version" : "1.0.0"
   },
   "servers" : [ {
     "url" : "https://virtserver.swaggerhub.com/VNGRealisatie/api/bewoning",
@@ -126,7 +124,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1 400 Bad Request",
-                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -394,7 +392,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1 400 Bad Request",
-                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -667,7 +665,7 @@
                 },
                 "example" : {
                   "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1 400 Bad Request",
-                  "title" : "Ten minste Ã©Ã©n parameter moet worden opgegeven.",
+                  "title" : "Ten minste één parameter moet worden opgegeven.",
                   "status" : 400,
                   "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
                   "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
@@ -1076,7 +1074,7 @@
           "properties" : {
             "invalidParams" : {
               "type" : "array",
-              "description" : "Foutmelding per fout in een parameter. Alle gevonden fouten worden Ã©Ã©n keer teruggemeld.",
+              "description" : "Foutmelding per fout in een parameter. Alle gevonden fouten worden één keer teruggemeld.",
               "items" : {
                 "$ref" : "#/components/schemas/InvalidParams"
               }
@@ -1421,7 +1419,7 @@
             "$ref" : "#/components/schemas/Datum_onvolledig"
           }
         },
-        "description" : "Een groep van booleans om aan te geven welke gegevens van de ingeschreven persoon in onderzoek zijn. Er kunnen ook categorieÃ«n in onderzoek zijn. Als een hele categorie in onderzoek is worden alle rubrieken binnen die categorie op _true_ gezet. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/in_onderzoek.feature) ."
+        "description" : "Een groep van booleans om aan te geven welke gegevens van de ingeschreven persoon in onderzoek zijn. Er kunnen ook categorieën in onderzoek zijn. Als een hele categorie in onderzoek is worden alle rubrieken binnen die categorie op _true_ gezet. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/in_onderzoek.feature) ."
       },
       "Nationaliteit" : {
         "type" : "object",
@@ -1633,7 +1631,7 @@
               "title" : "Straatnaam",
               "maxLength" : 24,
               "type" : "string",
-              "description" : "De officiÃ«le straatnaam zoals door het bevoegd gemeentelijk orgaan is vastgesteld, zo nodig ingekort conform de specificaties van de NEN 5825. alle alfanumrieke tekens"
+              "description" : "De officiële straatnaam zoals door het bevoegd gemeentelijk orgaan is vastgesteld, zo nodig ingekort conform de specificaties van de NEN 5825. alle alfanumrieke tekens"
             },
             "vanuitVertrokkenOnbekendWaarheen" : {
               "title" : "vanuitVertrokkenOnbekendWaarheen",
@@ -1680,7 +1678,7 @@
             "maxLength" : 1,
             "pattern" : "^[A-Z,a-z]$",
             "type" : "string",
-            "description" : "Een door of namens het bevoegd gemeentelijk orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken. a - z , A â€“ Z",
+            "description" : "Een door of namens het bevoegd gemeentelijk orgaan ten aanzien van een adresseerbaar object toegekende toevoeging aan een huisnummer in de vorm van een alfanumeriek teken. a - z , A – Z",
             "example" : "B"
           },
           "huisnummer" : {
@@ -1695,7 +1693,7 @@
             "maxLength" : 4,
             "pattern" : "^[a-zA-Z0-9]{1,4}$",
             "type" : "string",
-            "description" : "Een door of namens het bevoegd gemeentelijk orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter. a - z , A - Z , 0 â€“ 9",
+            "description" : "Een door of namens het bevoegd gemeentelijk orgaan ten aanzien van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter. a - z , A - Z , 0 – 9",
             "example" : "IV"
           },
           "aanduidingBijHuisnummer" : {
@@ -1998,7 +1996,7 @@
           "partners" : {
             "title" : "heeftAlsPartner",
             "type" : "array",
-            "description" : "De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beÃ«indigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.",
+            "description" : "De actuele bij de ingeschreven persoon geregistreerde huwelijken en geregistreerd partnerschappen. Een beëindigd huwelijk of geregistreerd partnerschap wordt niet teruggegeven.",
             "items" : {
               "$ref" : "#/components/schemas/HalLink"
             }
