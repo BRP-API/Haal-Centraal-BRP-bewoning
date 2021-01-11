@@ -5,13 +5,11 @@ info:
     van een adres. <br> De gegevens van de bewoners zijn actueel.Zie de Functionele
     documentatie voor nadere toelichting.</body>
   contact:
-    url: https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen
+    url: https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
-  version: 1.0.0
-  x-imvertor-generator-version: 1.55.2
-  x-yamlCompiler-stylesheets-version: "20191016"
+  version: 0.9.0
 servers:
 - url: https://virtserver.swaggerhub.com/VNGRealisatie/api/bewoning
   description: SwaggerHub API Auto Mocking
@@ -1505,7 +1503,7 @@ components:
           type: string
           description: Een door of namens het bevoegd gemeentelijk orgaan ten aanzien
             van een adresseerbaar object toegekende toevoeging aan een huisnummer
-            in de vorm van een alfanumeriek teken. a - z , A – Z
+            in de vorm van een alfanumeriek teken. a - z , A - Z
           example: B
         huisnummer:
           title: Huisnummer
@@ -1522,7 +1520,7 @@ components:
           type: string
           description: Een door of namens het bevoegd gemeentelijk orgaan ten aanzien
             van een adresseerbaar object toegekende nadere toevoeging aan een huisnummer
-            of een combinatie van huisnummer en huisletter. a - z , A - Z , 0 – 9
+            of een combinatie van huisnummer en huisletter. a - z , A - Z , 0 - 9
           example: IV
         aanduidingBijHuisnummer:
           $ref: '#/components/schemas/AanduidingBijHuisnummer_enum'
