@@ -1,55 +1,65 @@
+---
+layout: page-with-side-nav
+title: Getting Started
+---
 # Getting Started
 
-De 'Bevraging bewoning' Web API is gespecificeerd met behulp van de [OpenAPI specifications (OAS)](https://swagger.io/specification/).
+De 'BRP bewoning' Web API is gespecificeerd in [OpenAPI specifications (OAS)](https://swagger.io/specification/).
 
-## Specificaties
-Een visuele representatie van de specificatie kan worden gegenereerd met [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/master/specificatie/openapi.yaml).
+Wil je de API gebruiken? Dit kun je doen:
 
-De (resolved) OAS3 is hier te downloaden: [openapi.yaml](../specificatie/genereervariant/openapi.yaml).
+1. Bekijk de functionaliteit en specificaties
+2. Implementeer de API
+3. Probeer en test de API
 
+## Functionaliteit en specificaties
+Met de bewoning API kun je:
+* raadplegen welke personen op het opgegeven adres (adresseerbaar object) wonen of hebben gewoond
+* raadplegen welke medebewoners de opgegeven persoon heeft (gehad)
+* indicatie raadplegen voor het verloop op het adres in de vorm van het aantal inverhuizingen en uitverhuizingen en het gemiddeld aantal bewoners
 
-## Functionaliteit
-De API heeft 3 endpoints:
-| /bewoningen?burgerservicenummer={burgerservicenummer} | Medebewoners | Hiermee kun je raadplegen welke medebewoners  de opgegeven persoon heeft(gehad) |
-| /bewoningen/{identificatiecodenummeraanduiding} | Bewoners | Hiermee kun je raadplegen welke bewoners op het opgegeven adres wonen of hebben gewoond |
-| /bewoningen/{identificatiecodenummeraanduiding}/verloop | Verloop | Hiermee krijg je indicaties voor verloop op het adres in de vorm van het aantal inverhuizingen en uitverhuizingen en het gemiddeld aantal bewoners |
+De bewoning API kun je op drie manieren gebruiken:
+1. Met een peildatum. Je krijgt dan de (mede)bewoners op de opgegeven datum.
+2. Met een periode (datumVan en datumTotEnMet). Je krijgt dan de (mede)bewoners of het verloop in de opgegeven periode.
+3. Zonder peildatum of periode. Je krijgt dan alle (mede)bewoners of het totale verloop zoals bekend in de registratie.
 
-Op elk van de drie endpoints kan een periode worden opgegeven met parameters "datumvan" en "datumtotenmet". De bewoners en medebewoners kunnen ook worden gevraagd op een specifieke datum met parameter "peildatum".
+Als je wilt kun je de gegevens van de (mede)bewoners direct meeladen met gebruik van de [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature) parameter.
 
-De 'Bevraging Ingeschreven Persoon' Web API maakt gebruik van de HAL (Hypertext Application Language) standaard om bij een resource links op te nemen naar gerelateerde resources en/of om bij een resource gerelateerde resources op te nemen (embedden).  
+Je kunt een visuele weergave van de specificatie bekijken met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/redoc).
 
-Het is mogelijk om alleen specifieke kenmerken van een bewoning te bevragen met behulp van de [fields](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/fields.feature) Query Parameter.
+Je kunt de [functionele documentatie](./features) vinden in de [features](./features).
 
-Het is mogelijk de gegevens van de ingeschreven personen die (mede)bewoners zijn direct mee te laden met gebruik van de [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature) parameter.
+## Implementeer de API
+
+Je kunt code genereren op basis van de [genereervariant van de specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}.
 
 ## Probeer en test de API
-De Bewoning Web API is te benaderen via de volgende url: https://www.haalcentraal.nl/haalcentraal/api/bewoning
+Wil je de 'BRP bewoning' Web API proberen en testen? Kijk op: `https://www.haalcentraal.nl/haalcentraal/api/bewoning`
 
-Om de web api te kunnen bevragen is een apikey nodig. Deze kun je aanvragen door een e-mail te sturen naar Cathy Dingemanse <c.dingemanse@comites.nl>.
+Om de web api te gebruiken heb je een apikey nodig. Deze voeg je aan een request toe als header "X-API-KEY". Een API-key vraag je aan bij de product owner [cathy.dingemanse@denhaag.nl](mailto:cathy.dingemanse@denhaag.nl).
 
-### Testen met Postman
-De werking van de 'Bevraging Ingeschreven Persoon' Web API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/). We hebben al een [Postman collection](../test/BRP-Bewoning-postman-collection.json) voor je klaargezet die je kan gebruiken.
+__De Haal Centraal probeeromgeving gebruikt GBA-V op basis van de gemeentelijke autorisatie "Algemene gemeentetaken" voor buitengemeentelijke personen. Dit betekent dat de GBA-V niet alle gegevens teruggeeft die in de response zijn gedefinieerd. In de [API mapping](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/master/docs/BRP-LO%20GBA%20mapping.xlsx?raw=true){:target="_blank" rel="noopener"} kun je zien welke gegevens wel of niet onder deze autorisatie vallen.__
 
-Volg onderstaande stappen om de collection bestand te importeren:
+__Je kan de Haal Centraal probeeromgeving niet gebruiken vanuit de browser, dus ook niet vanuit de browserversie van Postman. Gebruik dus de desktopversie van een testtool (zoals Postman) om berichten te sturen.__
 
-1. Klik op de Import button om de Import dialog box te openen
+### Importeer de specificaties in Postman
 
-2. Selecteer 'Import From Link' tab, plak de volgende url in de 'Enter a URL and press Import' textbox en klik op de Import button
+De werking van de API is het makkelijkst te testen met behulp van [Postman](https://www.getpostman.com/){:target="_blank" rel="noopener"}. We hebben al een [Postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/blob/master/test/BRP-Bewoning-postman-collection.json){:target="_blank" rel="noopener"} voor je klaargezet. Deze kun je importeren in Postman. 
 
-``` url
-https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/master/test/BRP-Bewoning-postman-collection.json
-```
+### Configureer de url en api key
 
-3. Klik op de Next button om de Postman collectie te importeren
+1. Klik bij "BRP bewoning" op de drie bolletjes.
+2. Klik vervolgens op Edit
+3. Selecteer tabblad "Authorization"
+4. Kies TYPE "API Key"
+5. Vul in Key: "x-api-key", Value: de API key die je van Cathy hebt ontvangen, Add to: "Header"
+6. Selecteer tabblad "Variables"
+7. Vul bij baseUrl INITIAL VALUE en bij CURRENT VALUE: `https://www.haalcentraal.nl/haalcentraal/api/bewoning`
+8. Klik op de knop Update
 
-4. Voeg de API key toe
-Selecteer het request waar je dit wilt toevoegen. In het rechterscherm wordt een invoerscherm voor de request getoond. Klik op het tabblad "Authorization". Kies type "API Key". Vul bij Value de API key in die je hebt gekregen.
-5. Ga naar tabblad Params en vul de parameters in die je wilt gebruiken. Uncheck de overige parameters.
+### Testpersonen
 
-6. Vervang de {{baseUrl}} in de url met https://www.haalcentraal.nl/haalcentraal/api/bewoning en klik de Send button om de request naar de endpoint te sturen.
-
-### Testgevallen
-Onderstaand tabel bevat de burgerservicenummer van enkele test personen voor specifieke situaties waarmee werking van de 'Bewoning' Web API kan worden getest.
+Deze tabel bevat de burgerservicenummers van testpersonen voor specifieke situaties waarmee de 'BRP bewoning' Web API kan worden getest.
 
 burgerservicenummer | situatie
 ---------------- | :-------  
@@ -57,5 +67,5 @@ burgerservicenummer | situatie
 999992740 | medebewoners met familierelatie
 999991292 | medebewoners niet gerelateerd
 
-De API gebruikt de GBA-V proefomgeving. Alle testpersonen die daarin voorkomen kun je ook in de API gebruiken. De volledige set testpersonen kan worden gedownload bij de [RvIG](https://www.rvig.nl/documenten/richtlijnen/2018/09/20/testdataset-persoonslijsten-proefomgevingen-gba-v).
-Een vertaling van GBBA-V (LO GBA) attributen naar BRP API properties staat beschreven in de [BRP-LO GBA mapping](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/master/docs/BRP-LO%20GBA%20mapping.xlsx?raw=true).
+De API gebruikt de GBA-V proefomgeving. Alle testpersonen die daarin voorkomen kun je ook in de API gebruiken. De volledige set testpersonen kan worden gedownload bij de [RvIG](https://www.rvig.nl/documenten/richtlijnen/2018/09/20/testdataset-persoonslijsten-proefomgevingen-gba-v){:target="_blank"}.
+Een vertaling van GBA-V (LO GBA) attributen naar BRP API properties staat beschreven in de [BRP-LO GBA mapping](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/master/docs/BRP-LO%20GBA%20mapping.xlsx?raw=true){:target="_blank" rel="noopener"}.
