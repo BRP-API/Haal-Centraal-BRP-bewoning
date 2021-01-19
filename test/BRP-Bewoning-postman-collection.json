@@ -1,11 +1,11 @@
 {
     "item": [
         {
-            "id": "06722e75-462e-4e1d-8458-720990b05373",
+            "id": "eec6c50e-721d-4179-9559-b1360dca1ea1",
             "name": "bewoningen",
             "item": [
                 {
-                    "id": "b75042c0-97a8-4122-93a7-70f42913ba7b",
+                    "id": "dc75a436-993d-449f-a076-014a504624ac",
                     "name": "get Bewoningen",
                     "request": {
                         "name": "get Bewoningen",
@@ -60,11 +60,11 @@
                             "variable": []
                         },
                         "method": "GET",
-                        "auth": {}
+                        "auth": null
                     },
                     "response": [
                         {
-                            "id": "01862d5c-ecfe-4f4e-9abd-215c0026f244",
+                            "id": "44a12ae0-c589-49f4-9eee-05147c63884d",
                             "name": "Zoekactie geslaagd",
                             "originalRequest": {
                                 "url": {
@@ -85,15 +85,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -113,26 +113,26 @@
                             "code": 200,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
+                                    "description": "",
                                     "key": "warning",
-                                    "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
-                                    "description": ""
+                                    "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\"."
                                 },
                                 {
                                     "key": "Content-Type",
                                     "value": "application/hal+json"
                                 }
                             ],
-                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": \"<boolean>\",\n   \"title\": \"<string>\"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"bewoners\": [\n     {\n      \"burgerservicenummer\": \"555555021\",\n      \"datumTot\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"datumAanvangAdreshouding\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n      \"indicatieVerblijfsplaatsInOnderzoek\": \"<boolean>\",\n      \"functieadres\": \"<string>\"\n     },\n     {\n      \"burgerservicenummer\": \"555555021\",\n      \"datumTot\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"datumAanvangAdreshouding\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n      \"indicatieVerblijfsplaatsInOnderzoek\": \"<boolean>\",\n      \"functieadres\": \"<string>\"\n     }\n    ],\n    \"indicatieVeelBewoners\": \"<boolean>\",\n    \"huisletter\": \"F\",\n    \"huisnummer\": 11,\n    \"huisnummertoevoeging\": \"2\",\n    \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n    \"naamOpenbareRuimte\": \"Proteriusstraat\",\n    \"postcode\": \"2571BP\",\n    \"identificatiecodeAdresseerbaarObject\": \"<string>\",\n    \"woonplaatsnaam\": \"s'Gravenhage\",\n    \"_links\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"nummeraanduiding\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"adresseerbaarObject\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     }\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"burgerservicenummer\": \"555555021\",\n       \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n       \"geslachtsaanduiding\": \"<string>\",\n       \"leeftijd\": 34,\n       \"datumEersteInschrijvingGBA\": {\n        \"dag\": 3,\n        \"datum\": {},\n        \"jaar\": 1989,\n        \"maand\": 5\n       },\n       \"kiesrecht\": {\n        \"europeesKiesrecht\": true,\n        \"uitgeslotenVanKiesrecht\": true,\n        \"einddatumUitsluitingEuropeesKiesrecht\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"einddatumUitsluitingKiesrecht\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"naam\": {\n        \"geslachtsnaam\": \"Vries\",\n        \"voorletters\": \"<string>\",\n        \"voornamen\": \"Pieter Jan\",\n        \"voorvoegsel\": \"de\",\n        \"inOnderzoek\": {\n         \"geslachtsnaam\": \"<boolean>\",\n         \"voornamen\": \"<boolean>\",\n         \"voorvoegsel\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        },\n        \"aanhef\": \"Geachte heer In het Veld\",\n        \"aanschrijfwijze\": \"H. in het Veld\",\n        \"gebruikInLopendeTekst\": \"de heer In het Veld\",\n        \"aanduidingNaamgebruik\": \"<string>\"\n       },\n       \"inOnderzoek\": {\n        \"burgerservicenummer\": \"<boolean>\",\n        \"geslachtsaanduiding\": \"<boolean>\",\n        \"datumIngangOnderzoek\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"nationaliteit\": [\n        {\n         \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n         \"datumIngangGeldigheid\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         },\n         \"nationaliteit\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"redenOpname\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"inOnderzoek\": {\n          \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n          \"nationaliteit\": \"<boolean>\",\n          \"redenOpname\": \"<boolean>\",\n          \"datumIngangOnderzoek\": {\n           \"dag\": 3,\n           \"datum\": {},\n           \"jaar\": 1989,\n           \"maand\": 5\n          }\n         }\n        },\n        {\n         \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n         \"datumIngangGeldigheid\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         },\n         \"nationaliteit\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"redenOpname\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"inOnderzoek\": {\n          \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n          \"nationaliteit\": \"<boolean>\",\n          \"redenOpname\": \"<boolean>\",\n          \"datumIngangOnderzoek\": {\n           \"dag\": 3,\n           \"datum\": {},\n           \"jaar\": 1989,\n           \"maand\": 5\n          }\n         }\n        }\n       ],\n       \"geboorte\": {\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"land\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"plaats\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"inOnderzoek\": {\n         \"datum\": \"<boolean>\",\n         \"land\": \"<boolean>\",\n         \"plaats\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"opschortingBijhouding\": {\n        \"reden\": \"<string>\",\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"overlijden\": {\n        \"indicatieOverleden\": \"<boolean>\",\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"land\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"plaats\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"inOnderzoek\": {\n         \"datum\": \"<boolean>\",\n         \"land\": \"<boolean>\",\n         \"plaats\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"verblijfplaats\": {\n        \"functieAdres\": \"<string>\",\n        \"huisletter\": \"B\",\n        \"huisnummer\": 23,\n        \"huisnummertoevoeging\": \"IV\",\n        \"aanduidingBijHuisnummer\": \"<string>\",\n        \"identificatiecodeNummeraanduiding\": \"0518200000366054\",\n        \"naamOpenbareRuimte\": \"Loosduinsekade\",\n        \"postcode\": \"2571CC\",\n        \"woonplaatsnaam\": \"Utrecht\",\n        \"identificatiecodeAdresseerbaarObject\": \"0518200000366054\",\n        \"indicatieVestigingVanuitBuitenland\": \"<boolean>\",\n        \"locatiebeschrijving\": \"Naast de derde brug\",\n        \"straatnaam\": \"<string>\",\n        \"vanuitVertrokkenOnbekendWaarheen\": true,\n        \"datumAanvangAdreshouding\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumIngangGeldigheid\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumInschrijvingInGemeente\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumVestigingInNederland\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"gemeenteVanInschrijving\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"landVanwaarIngeschreven\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"verblijfBuitenland\": {\n         \"adresRegel1\": \"<string>\",\n         \"adresRegel2\": \"<string>\",\n         \"adresRegel3\": \"<string>\",\n         \"vertrokkenOnbekendWaarheen\": \"<boolean>\",\n         \"land\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         }\n        },\n        \"inOnderzoek\": {\n         \"aanduidingBijHuisnummer\": \"<boolean>\",\n         \"datumAanvangAdreshouding\": \"<boolean>\",\n         \"datumIngangGeldigheid\": \"<boolean>\",\n         \"datumInschrijvingInGemeente\": \"<boolean>\",\n         \"datumVestigingInNederland\": \"<boolean>\",\n         \"functieAdres\": \"<boolean>\",\n         \"gemeenteVanInschrijving\": \"<boolean>\",\n         \"huisletter\": \"<boolean>\",\n         \"huisnummer\": \"<boolean>\",\n         \"huisnummertoevoeging\": \"<boolean>\",\n         \"identificatiecodeNummeraanduiding\": \"<boolean>\",\n         \"identificatiecodeAdresseerbaarObject\": \"<boolean>\",\n         \"landVanwaarIngeschreven\": \"<boolean>\",\n         \"locatiebeschrijving\": \"<boolean>\",\n         \"naamOpenbareRuimte\": \"<boolean>\",\n         \"postcode\": \"<boolean>\",\n         \"straatnaam\": \"<boolean>\",\n         \"verblijfBuitenland\": \"<boolean>\",\n         \"woonplaatsnaam\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"gezagsverhouding\": {\n        \"indicatieCurateleRegister\": true,\n        \"indicatieGezagMinderjarige\": \"<string>\",\n        \"inOnderzoek\": {\n         \"indicatieCurateleRegister\": \"<boolean>\",\n         \"indicatieGezagMinderjarige\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"verblijfstitel\": {\n        \"aanduiding\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"datumEinde\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumIngang\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"inOnderzoek\": {\n         \"aanduiding\": \"<boolean>\",\n         \"datumEinde\": \"<boolean>\",\n         \"datumIngang\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"reisdocumenten\": [\n        \"546376728\",\n        \"546376728\"\n       ],\n       \"_links\": {\n        \"self\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"ouders\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"reisdocumenten\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"kinderen\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"partners\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"partnerhistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfplaatshistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfstitelhistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"nationaliteitHistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfplaatsNummeraanduiding\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        }\n       }\n      },\n      {\n       \"burgerservicenummer\": \"555555021\",\n       \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n       \"geslachtsaanduiding\": \"<string>\",\n       \"leeftijd\": 34,\n       \"datumEersteInschrijvingGBA\": {\n        \"dag\": 3,\n        \"datum\": {},\n        \"jaar\": 1989,\n        \"maand\": 5\n       },\n       \"kiesrecht\": {\n        \"europeesKiesrecht\": true,\n        \"uitgeslotenVanKiesrecht\": true,\n        \"einddatumUitsluitingEuropeesKiesrecht\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"einddatumUitsluitingKiesrecht\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"naam\": {\n        \"geslachtsnaam\": \"Vries\",\n        \"voorletters\": \"<string>\",\n        \"voornamen\": \"Pieter Jan\",\n        \"voorvoegsel\": \"de\",\n        \"inOnderzoek\": {\n         \"geslachtsnaam\": \"<boolean>\",\n         \"voornamen\": \"<boolean>\",\n         \"voorvoegsel\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        },\n        \"aanhef\": \"Geachte heer In het Veld\",\n        \"aanschrijfwijze\": \"H. in het Veld\",\n        \"gebruikInLopendeTekst\": \"de heer In het Veld\",\n        \"aanduidingNaamgebruik\": \"<string>\"\n       },\n       \"inOnderzoek\": {\n        \"burgerservicenummer\": \"<boolean>\",\n        \"geslachtsaanduiding\": \"<boolean>\",\n        \"datumIngangOnderzoek\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"nationaliteit\": [\n        {\n         \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n         \"datumIngangGeldigheid\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         },\n         \"nationaliteit\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"redenOpname\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"inOnderzoek\": {\n          \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n          \"nationaliteit\": \"<boolean>\",\n          \"redenOpname\": \"<boolean>\",\n          \"datumIngangOnderzoek\": {\n           \"dag\": 3,\n           \"datum\": {},\n           \"jaar\": 1989,\n           \"maand\": 5\n          }\n         }\n        },\n        {\n         \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n         \"datumIngangGeldigheid\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         },\n         \"nationaliteit\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"redenOpname\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"inOnderzoek\": {\n          \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n          \"nationaliteit\": \"<boolean>\",\n          \"redenOpname\": \"<boolean>\",\n          \"datumIngangOnderzoek\": {\n           \"dag\": 3,\n           \"datum\": {},\n           \"jaar\": 1989,\n           \"maand\": 5\n          }\n         }\n        }\n       ],\n       \"geboorte\": {\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"land\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"plaats\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"inOnderzoek\": {\n         \"datum\": \"<boolean>\",\n         \"land\": \"<boolean>\",\n         \"plaats\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"opschortingBijhouding\": {\n        \"reden\": \"<string>\",\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"overlijden\": {\n        \"indicatieOverleden\": \"<boolean>\",\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"land\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"plaats\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"inOnderzoek\": {\n         \"datum\": \"<boolean>\",\n         \"land\": \"<boolean>\",\n         \"plaats\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"verblijfplaats\": {\n        \"functieAdres\": \"<string>\",\n        \"huisletter\": \"B\",\n        \"huisnummer\": 23,\n        \"huisnummertoevoeging\": \"IV\",\n        \"aanduidingBijHuisnummer\": \"<string>\",\n        \"identificatiecodeNummeraanduiding\": \"0518200000366054\",\n        \"naamOpenbareRuimte\": \"Loosduinsekade\",\n        \"postcode\": \"2571CC\",\n        \"woonplaatsnaam\": \"Utrecht\",\n        \"identificatiecodeAdresseerbaarObject\": \"0518200000366054\",\n        \"indicatieVestigingVanuitBuitenland\": \"<boolean>\",\n        \"locatiebeschrijving\": \"Naast de derde brug\",\n        \"straatnaam\": \"<string>\",\n        \"vanuitVertrokkenOnbekendWaarheen\": true,\n        \"datumAanvangAdreshouding\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumIngangGeldigheid\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumInschrijvingInGemeente\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumVestigingInNederland\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"gemeenteVanInschrijving\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"landVanwaarIngeschreven\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"verblijfBuitenland\": {\n         \"adresRegel1\": \"<string>\",\n         \"adresRegel2\": \"<string>\",\n         \"adresRegel3\": \"<string>\",\n         \"vertrokkenOnbekendWaarheen\": \"<boolean>\",\n         \"land\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         }\n        },\n        \"inOnderzoek\": {\n         \"aanduidingBijHuisnummer\": \"<boolean>\",\n         \"datumAanvangAdreshouding\": \"<boolean>\",\n         \"datumIngangGeldigheid\": \"<boolean>\",\n         \"datumInschrijvingInGemeente\": \"<boolean>\",\n         \"datumVestigingInNederland\": \"<boolean>\",\n         \"functieAdres\": \"<boolean>\",\n         \"gemeenteVanInschrijving\": \"<boolean>\",\n         \"huisletter\": \"<boolean>\",\n         \"huisnummer\": \"<boolean>\",\n         \"huisnummertoevoeging\": \"<boolean>\",\n         \"identificatiecodeNummeraanduiding\": \"<boolean>\",\n         \"identificatiecodeAdresseerbaarObject\": \"<boolean>\",\n         \"landVanwaarIngeschreven\": \"<boolean>\",\n         \"locatiebeschrijving\": \"<boolean>\",\n         \"naamOpenbareRuimte\": \"<boolean>\",\n         \"postcode\": \"<boolean>\",\n         \"straatnaam\": \"<boolean>\",\n         \"verblijfBuitenland\": \"<boolean>\",\n         \"woonplaatsnaam\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"gezagsverhouding\": {\n        \"indicatieCurateleRegister\": true,\n        \"indicatieGezagMinderjarige\": \"<string>\",\n        \"inOnderzoek\": {\n         \"indicatieCurateleRegister\": \"<boolean>\",\n         \"indicatieGezagMinderjarige\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"verblijfstitel\": {\n        \"aanduiding\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"datumEinde\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumIngang\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"inOnderzoek\": {\n         \"aanduiding\": \"<boolean>\",\n         \"datumEinde\": \"<boolean>\",\n         \"datumIngang\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"reisdocumenten\": [\n        \"546376728\",\n        \"546376728\"\n       ],\n       \"_links\": {\n        \"self\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"ouders\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"reisdocumenten\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"kinderen\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"partners\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"partnerhistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfplaatshistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfstitelhistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"nationaliteitHistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfplaatsNummeraanduiding\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        }\n       }\n      }\n     ]\n    }\n   },\n   {\n    \"bewoners\": [\n     {\n      \"burgerservicenummer\": \"555555021\",\n      \"datumTot\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"datumAanvangAdreshouding\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n      \"indicatieVerblijfsplaatsInOnderzoek\": \"<boolean>\",\n      \"functieadres\": \"<string>\"\n     },\n     {\n      \"burgerservicenummer\": \"555555021\",\n      \"datumTot\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"datumAanvangAdreshouding\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n      \"indicatieVerblijfsplaatsInOnderzoek\": \"<boolean>\",\n      \"functieadres\": \"<string>\"\n     }\n    ],\n    \"indicatieVeelBewoners\": \"<boolean>\",\n    \"huisletter\": \"F\",\n    \"huisnummer\": 11,\n    \"huisnummertoevoeging\": \"2\",\n    \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n    \"naamOpenbareRuimte\": \"Proteriusstraat\",\n    \"postcode\": \"2571BP\",\n    \"identificatiecodeAdresseerbaarObject\": \"<string>\",\n    \"woonplaatsnaam\": \"s'Gravenhage\",\n    \"_links\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"nummeraanduiding\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"adresseerbaarObject\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     }\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"burgerservicenummer\": \"555555021\",\n       \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n       \"geslachtsaanduiding\": \"<string>\",\n       \"leeftijd\": 34,\n       \"datumEersteInschrijvingGBA\": {\n        \"dag\": 3,\n        \"datum\": {},\n        \"jaar\": 1989,\n        \"maand\": 5\n       },\n       \"kiesrecht\": {\n        \"europeesKiesrecht\": true,\n        \"uitgeslotenVanKiesrecht\": true,\n        \"einddatumUitsluitingEuropeesKiesrecht\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"einddatumUitsluitingKiesrecht\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"naam\": {\n        \"geslachtsnaam\": \"Vries\",\n        \"voorletters\": \"<string>\",\n        \"voornamen\": \"Pieter Jan\",\n        \"voorvoegsel\": \"de\",\n        \"inOnderzoek\": {\n         \"geslachtsnaam\": \"<boolean>\",\n         \"voornamen\": \"<boolean>\",\n         \"voorvoegsel\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        },\n        \"aanhef\": \"Geachte heer In het Veld\",\n        \"aanschrijfwijze\": \"H. in het Veld\",\n        \"gebruikInLopendeTekst\": \"de heer In het Veld\",\n        \"aanduidingNaamgebruik\": \"<string>\"\n       },\n       \"inOnderzoek\": {\n        \"burgerservicenummer\": \"<boolean>\",\n        \"geslachtsaanduiding\": \"<boolean>\",\n        \"datumIngangOnderzoek\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"nationaliteit\": [\n        {\n         \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n         \"datumIngangGeldigheid\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         },\n         \"nationaliteit\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"redenOpname\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"inOnderzoek\": {\n          \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n          \"nationaliteit\": \"<boolean>\",\n          \"redenOpname\": \"<boolean>\",\n          \"datumIngangOnderzoek\": {\n           \"dag\": 3,\n           \"datum\": {},\n           \"jaar\": 1989,\n           \"maand\": 5\n          }\n         }\n        },\n        {\n         \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n         \"datumIngangGeldigheid\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         },\n         \"nationaliteit\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"redenOpname\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"inOnderzoek\": {\n          \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n          \"nationaliteit\": \"<boolean>\",\n          \"redenOpname\": \"<boolean>\",\n          \"datumIngangOnderzoek\": {\n           \"dag\": 3,\n           \"datum\": {},\n           \"jaar\": 1989,\n           \"maand\": 5\n          }\n         }\n        }\n       ],\n       \"geboorte\": {\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"land\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"plaats\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"inOnderzoek\": {\n         \"datum\": \"<boolean>\",\n         \"land\": \"<boolean>\",\n         \"plaats\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"opschortingBijhouding\": {\n        \"reden\": \"<string>\",\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"overlijden\": {\n        \"indicatieOverleden\": \"<boolean>\",\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"land\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"plaats\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"inOnderzoek\": {\n         \"datum\": \"<boolean>\",\n         \"land\": \"<boolean>\",\n         \"plaats\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"verblijfplaats\": {\n        \"functieAdres\": \"<string>\",\n        \"huisletter\": \"B\",\n        \"huisnummer\": 23,\n        \"huisnummertoevoeging\": \"IV\",\n        \"aanduidingBijHuisnummer\": \"<string>\",\n        \"identificatiecodeNummeraanduiding\": \"0518200000366054\",\n        \"naamOpenbareRuimte\": \"Loosduinsekade\",\n        \"postcode\": \"2571CC\",\n        \"woonplaatsnaam\": \"Utrecht\",\n        \"identificatiecodeAdresseerbaarObject\": \"0518200000366054\",\n        \"indicatieVestigingVanuitBuitenland\": \"<boolean>\",\n        \"locatiebeschrijving\": \"Naast de derde brug\",\n        \"straatnaam\": \"<string>\",\n        \"vanuitVertrokkenOnbekendWaarheen\": true,\n        \"datumAanvangAdreshouding\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumIngangGeldigheid\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumInschrijvingInGemeente\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumVestigingInNederland\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"gemeenteVanInschrijving\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"landVanwaarIngeschreven\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"verblijfBuitenland\": {\n         \"adresRegel1\": \"<string>\",\n         \"adresRegel2\": \"<string>\",\n         \"adresRegel3\": \"<string>\",\n         \"vertrokkenOnbekendWaarheen\": \"<boolean>\",\n         \"land\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         }\n        },\n        \"inOnderzoek\": {\n         \"aanduidingBijHuisnummer\": \"<boolean>\",\n         \"datumAanvangAdreshouding\": \"<boolean>\",\n         \"datumIngangGeldigheid\": \"<boolean>\",\n         \"datumInschrijvingInGemeente\": \"<boolean>\",\n         \"datumVestigingInNederland\": \"<boolean>\",\n         \"functieAdres\": \"<boolean>\",\n         \"gemeenteVanInschrijving\": \"<boolean>\",\n         \"huisletter\": \"<boolean>\",\n         \"huisnummer\": \"<boolean>\",\n         \"huisnummertoevoeging\": \"<boolean>\",\n         \"identificatiecodeNummeraanduiding\": \"<boolean>\",\n         \"identificatiecodeAdresseerbaarObject\": \"<boolean>\",\n         \"landVanwaarIngeschreven\": \"<boolean>\",\n         \"locatiebeschrijving\": \"<boolean>\",\n         \"naamOpenbareRuimte\": \"<boolean>\",\n         \"postcode\": \"<boolean>\",\n         \"straatnaam\": \"<boolean>\",\n         \"verblijfBuitenland\": \"<boolean>\",\n         \"woonplaatsnaam\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"gezagsverhouding\": {\n        \"indicatieCurateleRegister\": true,\n        \"indicatieGezagMinderjarige\": \"<string>\",\n        \"inOnderzoek\": {\n         \"indicatieCurateleRegister\": \"<boolean>\",\n         \"indicatieGezagMinderjarige\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"verblijfstitel\": {\n        \"aanduiding\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"datumEinde\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumIngang\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"inOnderzoek\": {\n         \"aanduiding\": \"<boolean>\",\n         \"datumEinde\": \"<boolean>\",\n         \"datumIngang\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"reisdocumenten\": [\n        \"546376728\",\n        \"546376728\"\n       ],\n       \"_links\": {\n        \"self\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"ouders\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"reisdocumenten\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"kinderen\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"partners\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"partnerhistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfplaatshistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfstitelhistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"nationaliteitHistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfplaatsNummeraanduiding\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        }\n       }\n      },\n      {\n       \"burgerservicenummer\": \"555555021\",\n       \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n       \"geslachtsaanduiding\": \"<string>\",\n       \"leeftijd\": 34,\n       \"datumEersteInschrijvingGBA\": {\n        \"dag\": 3,\n        \"datum\": {},\n        \"jaar\": 1989,\n        \"maand\": 5\n       },\n       \"kiesrecht\": {\n        \"europeesKiesrecht\": true,\n        \"uitgeslotenVanKiesrecht\": true,\n        \"einddatumUitsluitingEuropeesKiesrecht\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"einddatumUitsluitingKiesrecht\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"naam\": {\n        \"geslachtsnaam\": \"Vries\",\n        \"voorletters\": \"<string>\",\n        \"voornamen\": \"Pieter Jan\",\n        \"voorvoegsel\": \"de\",\n        \"inOnderzoek\": {\n         \"geslachtsnaam\": \"<boolean>\",\n         \"voornamen\": \"<boolean>\",\n         \"voorvoegsel\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        },\n        \"aanhef\": \"Geachte heer In het Veld\",\n        \"aanschrijfwijze\": \"H. in het Veld\",\n        \"gebruikInLopendeTekst\": \"de heer In het Veld\",\n        \"aanduidingNaamgebruik\": \"<string>\"\n       },\n       \"inOnderzoek\": {\n        \"burgerservicenummer\": \"<boolean>\",\n        \"geslachtsaanduiding\": \"<boolean>\",\n        \"datumIngangOnderzoek\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"nationaliteit\": [\n        {\n         \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n         \"datumIngangGeldigheid\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         },\n         \"nationaliteit\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"redenOpname\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"inOnderzoek\": {\n          \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n          \"nationaliteit\": \"<boolean>\",\n          \"redenOpname\": \"<boolean>\",\n          \"datumIngangOnderzoek\": {\n           \"dag\": 3,\n           \"datum\": {},\n           \"jaar\": 1989,\n           \"maand\": 5\n          }\n         }\n        },\n        {\n         \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n         \"datumIngangGeldigheid\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         },\n         \"nationaliteit\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"redenOpname\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         },\n         \"inOnderzoek\": {\n          \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n          \"nationaliteit\": \"<boolean>\",\n          \"redenOpname\": \"<boolean>\",\n          \"datumIngangOnderzoek\": {\n           \"dag\": 3,\n           \"datum\": {},\n           \"jaar\": 1989,\n           \"maand\": 5\n          }\n         }\n        }\n       ],\n       \"geboorte\": {\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"land\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"plaats\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"inOnderzoek\": {\n         \"datum\": \"<boolean>\",\n         \"land\": \"<boolean>\",\n         \"plaats\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"opschortingBijhouding\": {\n        \"reden\": \"<string>\",\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        }\n       },\n       \"overlijden\": {\n        \"indicatieOverleden\": \"<boolean>\",\n        \"datum\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"land\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"plaats\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"inOnderzoek\": {\n         \"datum\": \"<boolean>\",\n         \"land\": \"<boolean>\",\n         \"plaats\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"verblijfplaats\": {\n        \"functieAdres\": \"<string>\",\n        \"huisletter\": \"B\",\n        \"huisnummer\": 23,\n        \"huisnummertoevoeging\": \"IV\",\n        \"aanduidingBijHuisnummer\": \"<string>\",\n        \"identificatiecodeNummeraanduiding\": \"0518200000366054\",\n        \"naamOpenbareRuimte\": \"Loosduinsekade\",\n        \"postcode\": \"2571CC\",\n        \"woonplaatsnaam\": \"Utrecht\",\n        \"identificatiecodeAdresseerbaarObject\": \"0518200000366054\",\n        \"indicatieVestigingVanuitBuitenland\": \"<boolean>\",\n        \"locatiebeschrijving\": \"Naast de derde brug\",\n        \"straatnaam\": \"<string>\",\n        \"vanuitVertrokkenOnbekendWaarheen\": true,\n        \"datumAanvangAdreshouding\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumIngangGeldigheid\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumInschrijvingInGemeente\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumVestigingInNederland\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"gemeenteVanInschrijving\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"landVanwaarIngeschreven\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"verblijfBuitenland\": {\n         \"adresRegel1\": \"<string>\",\n         \"adresRegel2\": \"<string>\",\n         \"adresRegel3\": \"<string>\",\n         \"vertrokkenOnbekendWaarheen\": \"<boolean>\",\n         \"land\": {\n          \"code\": \"6030\",\n          \"omschrijving\": \"Nederland\"\n         }\n        },\n        \"inOnderzoek\": {\n         \"aanduidingBijHuisnummer\": \"<boolean>\",\n         \"datumAanvangAdreshouding\": \"<boolean>\",\n         \"datumIngangGeldigheid\": \"<boolean>\",\n         \"datumInschrijvingInGemeente\": \"<boolean>\",\n         \"datumVestigingInNederland\": \"<boolean>\",\n         \"functieAdres\": \"<boolean>\",\n         \"gemeenteVanInschrijving\": \"<boolean>\",\n         \"huisletter\": \"<boolean>\",\n         \"huisnummer\": \"<boolean>\",\n         \"huisnummertoevoeging\": \"<boolean>\",\n         \"identificatiecodeNummeraanduiding\": \"<boolean>\",\n         \"identificatiecodeAdresseerbaarObject\": \"<boolean>\",\n         \"landVanwaarIngeschreven\": \"<boolean>\",\n         \"locatiebeschrijving\": \"<boolean>\",\n         \"naamOpenbareRuimte\": \"<boolean>\",\n         \"postcode\": \"<boolean>\",\n         \"straatnaam\": \"<boolean>\",\n         \"verblijfBuitenland\": \"<boolean>\",\n         \"woonplaatsnaam\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"gezagsverhouding\": {\n        \"indicatieCurateleRegister\": true,\n        \"indicatieGezagMinderjarige\": \"<string>\",\n        \"inOnderzoek\": {\n         \"indicatieCurateleRegister\": \"<boolean>\",\n         \"indicatieGezagMinderjarige\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"verblijfstitel\": {\n        \"aanduiding\": {\n         \"code\": \"6030\",\n         \"omschrijving\": \"Nederland\"\n        },\n        \"datumEinde\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"datumIngang\": {\n         \"dag\": 3,\n         \"datum\": {},\n         \"jaar\": 1989,\n         \"maand\": 5\n        },\n        \"inOnderzoek\": {\n         \"aanduiding\": \"<boolean>\",\n         \"datumEinde\": \"<boolean>\",\n         \"datumIngang\": \"<boolean>\",\n         \"datumIngangOnderzoek\": {\n          \"dag\": 3,\n          \"datum\": {},\n          \"jaar\": 1989,\n          \"maand\": 5\n         }\n        }\n       },\n       \"reisdocumenten\": [\n        \"546376728\",\n        \"546376728\"\n       ],\n       \"_links\": {\n        \"self\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"ouders\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"reisdocumenten\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"kinderen\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"partners\": [\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         },\n         {\n          \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n          \"templated\": \"<boolean>\",\n          \"title\": \"<string>\"\n         }\n        ],\n        \"partnerhistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfplaatshistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfstitelhistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"nationaliteitHistorie\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        },\n        \"verblijfplaatsNummeraanduiding\": {\n         \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n         \"templated\": \"<boolean>\",\n         \"title\": \"<string>\"\n        }\n       }\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
+                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": true,\n   \"title\": \"adipisicing aliqua Duis in\"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"bewoners\": [\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    ],\n    \"indicatieVeelBewoners\": true,\n    \"huisletter\": \"F\",\n    \"huisnummer\": 11,\n    \"huisnummertoevoeging\": \"2\",\n    \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n    \"naamOpenbareRuimte\": \"Proteriusstraat\",\n    \"postcode\": \"2571BP\",\n    \"identificatiecodeAdresseerbaarObject\": \"p\",\n    \"woonplaatsnaam\": \"s'Gravenhage\",\n    \"_links\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ],\n     \"nummeraanduiding\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"adresseerbaarObject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   },\n   {\n    \"bewoners\": [\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    ],\n    \"indicatieVeelBewoners\": true,\n    \"huisletter\": \"F\",\n    \"huisnummer\": 11,\n    \"huisnummertoevoeging\": \"2\",\n    \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n    \"naamOpenbareRuimte\": \"Proteriusstraat\",\n    \"postcode\": \"2571BP\",\n    \"identificatiecodeAdresseerbaarObject\": \"u\",\n    \"woonplaatsnaam\": \"s'Gravenhage\",\n    \"_links\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ],\n     \"nummeraanduiding\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     },\n     \"adresseerbaarObject\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n     }\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "cff99d06-99e9-4a70-bffd-46f4db2c8282",
+                            "id": "8b5867f2-9aff-416f-ada0-f03ac7890dae",
                             "name": "Bad Request",
                             "originalRequest": {
                                 "url": {
@@ -153,15 +153,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -181,9 +181,9 @@
                             "code": 400,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
                                     "key": "Content-Type",
@@ -195,7 +195,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "5ad98048-3160-4be0-a96a-c89427e1692f",
+                            "id": "b2a3e934-01f9-4590-9330-68b1f49ae8f0",
                             "name": "Unauthorized",
                             "originalRequest": {
                                 "url": {
@@ -216,15 +216,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -244,9 +244,9 @@
                             "code": 401,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
                                     "key": "Content-Type",
@@ -258,7 +258,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "9be3349a-5d49-4d76-9c96-8b96b89b1b63",
+                            "id": "17e4760d-6fb8-4f9b-83a5-182a9360cf63",
                             "name": "Forbidden",
                             "originalRequest": {
                                 "url": {
@@ -279,15 +279,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -307,9 +307,9 @@
                             "code": 403,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
                                     "key": "Content-Type",
@@ -321,7 +321,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "a5b6ac60-052c-462c-9289-c4235d07c0ed",
+                            "id": "efb706b9-8922-45a3-8865-6edfdff891e4",
                             "name": "Not Acceptable",
                             "originalRequest": {
                                 "url": {
@@ -342,15 +342,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -370,9 +370,9 @@
                             "code": 406,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
                                     "key": "Content-Type",
@@ -384,7 +384,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "8ae7af92-cc42-4c74-b428-4861d40bb528",
+                            "id": "82d9fde4-bb37-4bd2-8d24-5c3623f7d2ee",
                             "name": "Internal Server Error",
                             "originalRequest": {
                                 "url": {
@@ -405,15 +405,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -433,9 +433,9 @@
                             "code": 500,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
                                     "key": "Content-Type",
@@ -447,7 +447,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "75c42596-cdaa-4543-94a8-6758b1f5ad15",
+                            "id": "0466386b-2182-41c0-b469-33d3adb969f4",
                             "name": "Not Implemented",
                             "originalRequest": {
                                 "url": {
@@ -468,15 +468,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -496,9 +496,9 @@
                             "code": 501,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
                                     "key": "Content-Type",
@@ -510,7 +510,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "d5d71c2c-1d97-473f-a6aa-326a0c056c6b",
+                            "id": "3749e79f-6b35-4852-bd82-8107a1cb3e2d",
                             "name": "Service Unavailable",
                             "originalRequest": {
                                 "url": {
@@ -531,15 +531,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -559,9 +559,9 @@
                             "code": 503,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
                                     "key": "Content-Type",
@@ -573,7 +573,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "e5e3f58b-256a-48aa-9775-b4c5b310d472",
+                            "id": "c64ae912-6cbf-4afd-9e8b-31247e8cee33",
                             "name": "Er is een onverwachte fout opgetreden",
                             "originalRequest": {
                                 "url": {
@@ -594,15 +594,15 @@
                                         },
                                         {
                                             "key": "peildatum",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumvan",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "datumtotenmet",
-                                            "value": "[object Object]"
+                                            "value": "<date>"
                                         },
                                         {
                                             "key": "burgerservicenummer",
@@ -622,16 +622,16 @@
                             "code": 500,
                             "header": [
                                 {
+                                    "description": "",
                                     "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
+                                    "value": "1.0.0"
                                 },
                                 {
                                     "key": "Content-Type",
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"<uri>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<uri>\",\n \"code\": \"<string>\"\n}",
+                            "body": "{\n \"type\": \"https://TesO.smYNwL2QhBOlAs,QiolaTA-yH6lCSG.zV0h6KmG+LiHk-EiSg3\",\n \"title\": \"cillum ea\",\n \"status\": 16795898,\n \"detail\": \"deserunt dolor ut elit\",\n \"instance\": \"https://sFSCYZXXAggXKJgKgQwNkTqDmxcgNiYs.cjJW9X5,ldszUtMsWdqvoLgB1W1I0AZpwTeT6l\",\n \"code\": \"sunt\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         }
@@ -639,11 +639,11 @@
                     "event": []
                 },
                 {
-                    "id": "5a9a03b3-3a8d-44af-9063-e48c752f1e9b",
+                    "id": "96e88bae-e55d-41f3-b5e7-e9985801e1de",
                     "name": "{identificatiecodenummeraanduiding}",
                     "item": [
                         {
-                            "id": "7f747db0-ef61-4eb8-80b5-e80fb13547bc",
+                            "id": "3d88053f-f71a-419c-ad68-2c62d4bcaa92",
                             "name": "get Bewoning",
                             "request": {
                                 "name": "get Bewoning",
@@ -696,11 +696,11 @@
                                     ]
                                 },
                                 "method": "GET",
-                                "auth": {}
+                                "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "1778872f-d9e8-4b20-a144-de5bbfc889c5",
+                                    "id": "59f2036f-510e-4164-880f-dd0aa7ab1988",
                                     "name": "Zoekactie geslaagd",
                                     "originalRequest": {
                                         "url": {
@@ -722,15 +722,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -747,26 +747,26 @@
                                     "code": 200,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
+                                            "description": "",
                                             "key": "warning",
-                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
-                                            "description": ""
+                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\"."
                                         },
                                         {
                                             "key": "Content-Type",
                                             "value": "application/hal+json"
                                         }
                                     ],
-                                    "body": "{\n \"bewoners\": [\n  {\n   \"burgerservicenummer\": \"555555021\",\n   \"datumTot\": {\n    \"dag\": 3,\n    \"datum\": {},\n    \"jaar\": 1989,\n    \"maand\": 5\n   },\n   \"datumAanvangAdreshouding\": {\n    \"dag\": 3,\n    \"datum\": {},\n    \"jaar\": 1989,\n    \"maand\": 5\n   },\n   \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n   \"indicatieVerblijfsplaatsInOnderzoek\": \"<boolean>\",\n   \"functieadres\": \"<string>\"\n  },\n  {\n   \"burgerservicenummer\": \"555555021\",\n   \"datumTot\": {\n    \"dag\": 3,\n    \"datum\": {},\n    \"jaar\": 1989,\n    \"maand\": 5\n   },\n   \"datumAanvangAdreshouding\": {\n    \"dag\": 3,\n    \"datum\": {},\n    \"jaar\": 1989,\n    \"maand\": 5\n   },\n   \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n   \"indicatieVerblijfsplaatsInOnderzoek\": \"<boolean>\",\n   \"functieadres\": \"<string>\"\n  }\n ],\n \"indicatieVeelBewoners\": \"<boolean>\",\n \"huisletter\": \"F\",\n \"huisnummer\": 11,\n \"huisnummertoevoeging\": \"2\",\n \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n \"naamOpenbareRuimte\": \"Proteriusstraat\",\n \"postcode\": \"2571BP\",\n \"identificatiecodeAdresseerbaarObject\": \"<string>\",\n \"woonplaatsnaam\": \"s'Gravenhage\",\n \"_links\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n    \"templated\": \"<boolean>\",\n    \"title\": \"<string>\"\n   },\n   {\n    \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n    \"templated\": \"<boolean>\",\n    \"title\": \"<string>\"\n   }\n  ],\n  \"nummeraanduiding\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": \"<boolean>\",\n   \"title\": \"<string>\"\n  },\n  \"adresseerbaarObject\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": \"<boolean>\",\n   \"title\": \"<string>\"\n  }\n },\n \"_embedded\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"burgerservicenummer\": \"555555021\",\n    \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n    \"geslachtsaanduiding\": \"<string>\",\n    \"leeftijd\": 34,\n    \"datumEersteInschrijvingGBA\": {\n     \"dag\": 3,\n     \"datum\": {},\n     \"jaar\": 1989,\n     \"maand\": 5\n    },\n    \"kiesrecht\": {\n     \"europeesKiesrecht\": true,\n     \"uitgeslotenVanKiesrecht\": true,\n     \"einddatumUitsluitingEuropeesKiesrecht\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"einddatumUitsluitingKiesrecht\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     }\n    },\n    \"naam\": {\n     \"geslachtsnaam\": \"Vries\",\n     \"voorletters\": \"<string>\",\n     \"voornamen\": \"Pieter Jan\",\n     \"voorvoegsel\": \"de\",\n     \"inOnderzoek\": {\n      \"geslachtsnaam\": \"<boolean>\",\n      \"voornamen\": \"<boolean>\",\n      \"voorvoegsel\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     },\n     \"aanhef\": \"Geachte heer In het Veld\",\n     \"aanschrijfwijze\": \"H. in het Veld\",\n     \"gebruikInLopendeTekst\": \"de heer In het Veld\",\n     \"aanduidingNaamgebruik\": \"<string>\"\n    },\n    \"inOnderzoek\": {\n     \"burgerservicenummer\": \"<boolean>\",\n     \"geslachtsaanduiding\": \"<boolean>\",\n     \"datumIngangOnderzoek\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     }\n    },\n    \"nationaliteit\": [\n     {\n      \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n      \"datumIngangGeldigheid\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"nationaliteit\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      },\n      \"redenOpname\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      },\n      \"inOnderzoek\": {\n       \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n       \"nationaliteit\": \"<boolean>\",\n       \"redenOpname\": \"<boolean>\",\n       \"datumIngangOnderzoek\": {\n        \"dag\": 3,\n        \"datum\": {},\n        \"jaar\": 1989,\n        \"maand\": 5\n       }\n      }\n     },\n     {\n      \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n      \"datumIngangGeldigheid\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"nationaliteit\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      },\n      \"redenOpname\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      },\n      \"inOnderzoek\": {\n       \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n       \"nationaliteit\": \"<boolean>\",\n       \"redenOpname\": \"<boolean>\",\n       \"datumIngangOnderzoek\": {\n        \"dag\": 3,\n        \"datum\": {},\n        \"jaar\": 1989,\n        \"maand\": 5\n       }\n      }\n     }\n    ],\n    \"geboorte\": {\n     \"datum\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"land\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"plaats\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"inOnderzoek\": {\n      \"datum\": \"<boolean>\",\n      \"land\": \"<boolean>\",\n      \"plaats\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"opschortingBijhouding\": {\n     \"reden\": \"<string>\",\n     \"datum\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     }\n    },\n    \"overlijden\": {\n     \"indicatieOverleden\": \"<boolean>\",\n     \"datum\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"land\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"plaats\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"inOnderzoek\": {\n      \"datum\": \"<boolean>\",\n      \"land\": \"<boolean>\",\n      \"plaats\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"verblijfplaats\": {\n     \"functieAdres\": \"<string>\",\n     \"huisletter\": \"B\",\n     \"huisnummer\": 23,\n     \"huisnummertoevoeging\": \"IV\",\n     \"aanduidingBijHuisnummer\": \"<string>\",\n     \"identificatiecodeNummeraanduiding\": \"0518200000366054\",\n     \"naamOpenbareRuimte\": \"Loosduinsekade\",\n     \"postcode\": \"2571CC\",\n     \"woonplaatsnaam\": \"Utrecht\",\n     \"identificatiecodeAdresseerbaarObject\": \"0518200000366054\",\n     \"indicatieVestigingVanuitBuitenland\": \"<boolean>\",\n     \"locatiebeschrijving\": \"Naast de derde brug\",\n     \"straatnaam\": \"<string>\",\n     \"vanuitVertrokkenOnbekendWaarheen\": true,\n     \"datumAanvangAdreshouding\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"datumIngangGeldigheid\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"datumInschrijvingInGemeente\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"datumVestigingInNederland\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"gemeenteVanInschrijving\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"landVanwaarIngeschreven\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"verblijfBuitenland\": {\n      \"adresRegel1\": \"<string>\",\n      \"adresRegel2\": \"<string>\",\n      \"adresRegel3\": \"<string>\",\n      \"vertrokkenOnbekendWaarheen\": \"<boolean>\",\n      \"land\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      }\n     },\n     \"inOnderzoek\": {\n      \"aanduidingBijHuisnummer\": \"<boolean>\",\n      \"datumAanvangAdreshouding\": \"<boolean>\",\n      \"datumIngangGeldigheid\": \"<boolean>\",\n      \"datumInschrijvingInGemeente\": \"<boolean>\",\n      \"datumVestigingInNederland\": \"<boolean>\",\n      \"functieAdres\": \"<boolean>\",\n      \"gemeenteVanInschrijving\": \"<boolean>\",\n      \"huisletter\": \"<boolean>\",\n      \"huisnummer\": \"<boolean>\",\n      \"huisnummertoevoeging\": \"<boolean>\",\n      \"identificatiecodeNummeraanduiding\": \"<boolean>\",\n      \"identificatiecodeAdresseerbaarObject\": \"<boolean>\",\n      \"landVanwaarIngeschreven\": \"<boolean>\",\n      \"locatiebeschrijving\": \"<boolean>\",\n      \"naamOpenbareRuimte\": \"<boolean>\",\n      \"postcode\": \"<boolean>\",\n      \"straatnaam\": \"<boolean>\",\n      \"verblijfBuitenland\": \"<boolean>\",\n      \"woonplaatsnaam\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"gezagsverhouding\": {\n     \"indicatieCurateleRegister\": true,\n     \"indicatieGezagMinderjarige\": \"<string>\",\n     \"inOnderzoek\": {\n      \"indicatieCurateleRegister\": \"<boolean>\",\n      \"indicatieGezagMinderjarige\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"verblijfstitel\": {\n     \"aanduiding\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"datumEinde\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"datumIngang\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"inOnderzoek\": {\n      \"aanduiding\": \"<boolean>\",\n      \"datumEinde\": \"<boolean>\",\n      \"datumIngang\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"reisdocumenten\": [\n     \"546376728\",\n     \"546376728\"\n    ],\n    \"_links\": {\n     \"self\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"ouders\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"reisdocumenten\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"kinderen\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"partners\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"partnerhistorie\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"verblijfplaatshistorie\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"verblijfstitelhistorie\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"nationaliteitHistorie\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"verblijfplaatsNummeraanduiding\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     }\n    }\n   },\n   {\n    \"burgerservicenummer\": \"555555021\",\n    \"geheimhoudingPersoonsgegevens\": \"<boolean>\",\n    \"geslachtsaanduiding\": \"<string>\",\n    \"leeftijd\": 34,\n    \"datumEersteInschrijvingGBA\": {\n     \"dag\": 3,\n     \"datum\": {},\n     \"jaar\": 1989,\n     \"maand\": 5\n    },\n    \"kiesrecht\": {\n     \"europeesKiesrecht\": true,\n     \"uitgeslotenVanKiesrecht\": true,\n     \"einddatumUitsluitingEuropeesKiesrecht\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"einddatumUitsluitingKiesrecht\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     }\n    },\n    \"naam\": {\n     \"geslachtsnaam\": \"Vries\",\n     \"voorletters\": \"<string>\",\n     \"voornamen\": \"Pieter Jan\",\n     \"voorvoegsel\": \"de\",\n     \"inOnderzoek\": {\n      \"geslachtsnaam\": \"<boolean>\",\n      \"voornamen\": \"<boolean>\",\n      \"voorvoegsel\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     },\n     \"aanhef\": \"Geachte heer In het Veld\",\n     \"aanschrijfwijze\": \"H. in het Veld\",\n     \"gebruikInLopendeTekst\": \"de heer In het Veld\",\n     \"aanduidingNaamgebruik\": \"<string>\"\n    },\n    \"inOnderzoek\": {\n     \"burgerservicenummer\": \"<boolean>\",\n     \"geslachtsaanduiding\": \"<boolean>\",\n     \"datumIngangOnderzoek\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     }\n    },\n    \"nationaliteit\": [\n     {\n      \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n      \"datumIngangGeldigheid\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"nationaliteit\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      },\n      \"redenOpname\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      },\n      \"inOnderzoek\": {\n       \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n       \"nationaliteit\": \"<boolean>\",\n       \"redenOpname\": \"<boolean>\",\n       \"datumIngangOnderzoek\": {\n        \"dag\": 3,\n        \"datum\": {},\n        \"jaar\": 1989,\n        \"maand\": 5\n       }\n      }\n     },\n     {\n      \"aanduidingBijzonderNederlanderschap\": \"<string>\",\n      \"datumIngangGeldigheid\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      },\n      \"nationaliteit\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      },\n      \"redenOpname\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      },\n      \"inOnderzoek\": {\n       \"aanduidingBijzonderNederlanderschap\": \"<boolean>\",\n       \"nationaliteit\": \"<boolean>\",\n       \"redenOpname\": \"<boolean>\",\n       \"datumIngangOnderzoek\": {\n        \"dag\": 3,\n        \"datum\": {},\n        \"jaar\": 1989,\n        \"maand\": 5\n       }\n      }\n     }\n    ],\n    \"geboorte\": {\n     \"datum\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"land\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"plaats\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"inOnderzoek\": {\n      \"datum\": \"<boolean>\",\n      \"land\": \"<boolean>\",\n      \"plaats\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"opschortingBijhouding\": {\n     \"reden\": \"<string>\",\n     \"datum\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     }\n    },\n    \"overlijden\": {\n     \"indicatieOverleden\": \"<boolean>\",\n     \"datum\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"land\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"plaats\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"inOnderzoek\": {\n      \"datum\": \"<boolean>\",\n      \"land\": \"<boolean>\",\n      \"plaats\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"verblijfplaats\": {\n     \"functieAdres\": \"<string>\",\n     \"huisletter\": \"B\",\n     \"huisnummer\": 23,\n     \"huisnummertoevoeging\": \"IV\",\n     \"aanduidingBijHuisnummer\": \"<string>\",\n     \"identificatiecodeNummeraanduiding\": \"0518200000366054\",\n     \"naamOpenbareRuimte\": \"Loosduinsekade\",\n     \"postcode\": \"2571CC\",\n     \"woonplaatsnaam\": \"Utrecht\",\n     \"identificatiecodeAdresseerbaarObject\": \"0518200000366054\",\n     \"indicatieVestigingVanuitBuitenland\": \"<boolean>\",\n     \"locatiebeschrijving\": \"Naast de derde brug\",\n     \"straatnaam\": \"<string>\",\n     \"vanuitVertrokkenOnbekendWaarheen\": true,\n     \"datumAanvangAdreshouding\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"datumIngangGeldigheid\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"datumInschrijvingInGemeente\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"datumVestigingInNederland\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"gemeenteVanInschrijving\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"landVanwaarIngeschreven\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"verblijfBuitenland\": {\n      \"adresRegel1\": \"<string>\",\n      \"adresRegel2\": \"<string>\",\n      \"adresRegel3\": \"<string>\",\n      \"vertrokkenOnbekendWaarheen\": \"<boolean>\",\n      \"land\": {\n       \"code\": \"6030\",\n       \"omschrijving\": \"Nederland\"\n      }\n     },\n     \"inOnderzoek\": {\n      \"aanduidingBijHuisnummer\": \"<boolean>\",\n      \"datumAanvangAdreshouding\": \"<boolean>\",\n      \"datumIngangGeldigheid\": \"<boolean>\",\n      \"datumInschrijvingInGemeente\": \"<boolean>\",\n      \"datumVestigingInNederland\": \"<boolean>\",\n      \"functieAdres\": \"<boolean>\",\n      \"gemeenteVanInschrijving\": \"<boolean>\",\n      \"huisletter\": \"<boolean>\",\n      \"huisnummer\": \"<boolean>\",\n      \"huisnummertoevoeging\": \"<boolean>\",\n      \"identificatiecodeNummeraanduiding\": \"<boolean>\",\n      \"identificatiecodeAdresseerbaarObject\": \"<boolean>\",\n      \"landVanwaarIngeschreven\": \"<boolean>\",\n      \"locatiebeschrijving\": \"<boolean>\",\n      \"naamOpenbareRuimte\": \"<boolean>\",\n      \"postcode\": \"<boolean>\",\n      \"straatnaam\": \"<boolean>\",\n      \"verblijfBuitenland\": \"<boolean>\",\n      \"woonplaatsnaam\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"gezagsverhouding\": {\n     \"indicatieCurateleRegister\": true,\n     \"indicatieGezagMinderjarige\": \"<string>\",\n     \"inOnderzoek\": {\n      \"indicatieCurateleRegister\": \"<boolean>\",\n      \"indicatieGezagMinderjarige\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"verblijfstitel\": {\n     \"aanduiding\": {\n      \"code\": \"6030\",\n      \"omschrijving\": \"Nederland\"\n     },\n     \"datumEinde\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"datumIngang\": {\n      \"dag\": 3,\n      \"datum\": {},\n      \"jaar\": 1989,\n      \"maand\": 5\n     },\n     \"inOnderzoek\": {\n      \"aanduiding\": \"<boolean>\",\n      \"datumEinde\": \"<boolean>\",\n      \"datumIngang\": \"<boolean>\",\n      \"datumIngangOnderzoek\": {\n       \"dag\": 3,\n       \"datum\": {},\n       \"jaar\": 1989,\n       \"maand\": 5\n      }\n     }\n    },\n    \"reisdocumenten\": [\n     \"546376728\",\n     \"546376728\"\n    ],\n    \"_links\": {\n     \"self\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"ouders\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"reisdocumenten\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"kinderen\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"partners\": [\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      },\n      {\n       \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n       \"templated\": \"<boolean>\",\n       \"title\": \"<string>\"\n      }\n     ],\n     \"partnerhistorie\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"verblijfplaatshistorie\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"verblijfstitelhistorie\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"nationaliteitHistorie\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     },\n     \"verblijfplaatsNummeraanduiding\": {\n      \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n      \"templated\": \"<boolean>\",\n      \"title\": \"<string>\"\n     }\n    }\n   }\n  ]\n }\n}",
+                                    "body": "{\n \"bewoners\": [\n  {\n   \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  {\n   \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n ],\n \"indicatieVeelBewoners\": false,\n \"huisletter\": \"F\",\n \"huisnummer\": 11,\n \"huisnummertoevoeging\": \"2\",\n \"identificatiecodeNummeraanduiding\": \"0518200001645858\",\n \"naamOpenbareRuimte\": \"Proteriusstraat\",\n \"postcode\": \"2571BP\",\n \"identificatiecodeAdresseerbaarObject\": \"Ut\",\n \"woonplaatsnaam\": \"s'Gravenhage\",\n \"_links\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  ],\n  \"nummeraanduiding\": {\n   \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  },\n  \"adresseerbaarObject\": {\n   \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n  }\n },\n \"_embedded\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  ]\n }\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "13029e67-59a5-45c2-814a-6c612a97f57f",
+                                    "id": "169d14a1-0390-4e05-8b50-160cf23d40dc",
                                     "name": "Bad Request",
                                     "originalRequest": {
                                         "url": {
@@ -788,15 +788,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -813,9 +813,9 @@
                                     "code": 400,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -827,7 +827,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "a6315f68-4fac-486e-a6e8-dce413c4ce30",
+                                    "id": "a229a2ee-0a32-4cbc-979e-b20e86e8b29a",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -849,15 +849,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -874,9 +874,9 @@
                                     "code": 401,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -888,7 +888,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "be0f4316-728a-4734-addf-68c1b44914fd",
+                                    "id": "bf9da24f-01ad-427a-a712-fab6b7bb3dbf",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
@@ -910,15 +910,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -935,9 +935,9 @@
                                     "code": 403,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -949,7 +949,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "37e7d707-d6dd-4646-a55f-20a1c7d9d4d1",
+                                    "id": "b4f20163-c7aa-47bf-85a1-145703a1b7ab",
                                     "name": "Not Found",
                                     "originalRequest": {
                                         "url": {
@@ -971,15 +971,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -996,9 +996,9 @@
                                     "code": 404,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1010,7 +1010,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "56bed34f-2922-4446-9f3c-86f7ec15922a",
+                                    "id": "e2b01147-004d-415e-a0cd-091003f7c0b2",
                                     "name": "Not Acceptable",
                                     "originalRequest": {
                                         "url": {
@@ -1032,15 +1032,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1057,9 +1057,9 @@
                                     "code": 406,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1071,7 +1071,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "0b67ab39-d78b-411a-9e61-e386eed00d53",
+                                    "id": "e6f2822b-6eda-49d8-8337-730daaabf863",
                                     "name": "Internal Server Error",
                                     "originalRequest": {
                                         "url": {
@@ -1093,15 +1093,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1118,9 +1118,9 @@
                                     "code": 500,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1132,7 +1132,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "f960f2ef-0557-4a83-add5-077e96c81c80",
+                                    "id": "23dfb449-ffd9-47b3-a4dd-7a69baec44f3",
                                     "name": "Not Implemented",
                                     "originalRequest": {
                                         "url": {
@@ -1154,15 +1154,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1179,9 +1179,9 @@
                                     "code": 501,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1193,7 +1193,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "b7520fcb-ed60-4bb3-87db-cc2a4d92e430",
+                                    "id": "6eb8743e-a6fa-47a5-9252-d1b412165c84",
                                     "name": "Service Unavailable",
                                     "originalRequest": {
                                         "url": {
@@ -1215,15 +1215,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1240,9 +1240,9 @@
                                     "code": 503,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1254,7 +1254,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "ff7d16a0-f146-4077-9c2b-cdc2f203eac9",
+                                    "id": "18ae20be-1e81-4acf-826b-fdb09834925e",
                                     "name": "Er is een onverwachte fout opgetreden",
                                     "originalRequest": {
                                         "url": {
@@ -1276,15 +1276,15 @@
                                                 },
                                                 {
                                                     "key": "peildatum",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1301,16 +1301,16 @@
                                     "code": 500,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"<uri>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<uri>\",\n \"code\": \"<string>\"\n}",
+                                    "body": "{\n \"type\": \"https://TesO.smYNwL2QhBOlAs,QiolaTA-yH6lCSG.zV0h6KmG+LiHk-EiSg3\",\n \"title\": \"cillum ea\",\n \"status\": 16795898,\n \"detail\": \"deserunt dolor ut elit\",\n \"instance\": \"https://sFSCYZXXAggXKJgKgQwNkTqDmxcgNiYs.cjJW9X5,ldszUtMsWdqvoLgB1W1I0AZpwTeT6l\",\n \"code\": \"sunt\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 }
@@ -1318,7 +1318,7 @@
                             "event": []
                         },
                         {
-                            "id": "e63398ff-2c7c-4df4-a3b4-cc23a0d38f7c",
+                            "id": "be9dcb4e-13dd-4968-9686-93fc10fc66b1",
                             "name": "get Bewoningverloop",
                             "request": {
                                 "name": "get Bewoningverloop",
@@ -1362,11 +1362,11 @@
                                     ]
                                 },
                                 "method": "GET",
-                                "auth": {}
+                                "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "a7ac05a9-57a4-40a2-8b8f-f56fe7574b33",
+                                    "id": "92d2cbb2-cee9-4f38-b1d7-82b90b7c9925",
                                     "name": "Zoekactie geslaagd",
                                     "originalRequest": {
                                         "url": {
@@ -1385,11 +1385,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1406,14 +1406,14 @@
                                     "code": 200,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
+                                            "description": "",
                                             "key": "warning",
-                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
-                                            "description": ""
+                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\"."
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1425,7 +1425,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "206279ae-a29d-411d-87e9-6ea790c9b116",
+                                    "id": "6d29ec94-8bf4-4d37-8b63-0838791845e1",
                                     "name": "Bad Request",
                                     "originalRequest": {
                                         "url": {
@@ -1444,11 +1444,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1465,9 +1465,9 @@
                                     "code": 400,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1479,7 +1479,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "b15a9546-e390-4eef-9b50-4405f6a430c0",
+                                    "id": "8587c97e-a208-4997-bb58-0f165e8bc360",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -1498,11 +1498,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1519,9 +1519,9 @@
                                     "code": 401,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1533,7 +1533,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "d7b2ea54-107d-4775-89db-8c7ba322a5a9",
+                                    "id": "6f8a4a42-5153-4209-a650-7a07e3c5c280",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
@@ -1552,11 +1552,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1573,9 +1573,9 @@
                                     "code": 403,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1587,7 +1587,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "746265bc-56dd-42f5-aca0-cc41351f0436",
+                                    "id": "07100032-33e2-411f-aee0-891f9e320101",
                                     "name": "Not Found",
                                     "originalRequest": {
                                         "url": {
@@ -1606,11 +1606,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1627,9 +1627,9 @@
                                     "code": 404,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1641,7 +1641,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "19969ee0-a215-4db7-99d1-16f23d4d1e4c",
+                                    "id": "6d9a1101-75fa-4081-8242-b92c8f5e80a1",
                                     "name": "Not Acceptable",
                                     "originalRequest": {
                                         "url": {
@@ -1660,11 +1660,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1681,9 +1681,9 @@
                                     "code": 406,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1695,7 +1695,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "caa17d11-56d2-448c-abe4-3ae4552fa3cc",
+                                    "id": "45d2c574-1ea6-4934-a3b4-53df98fa7f96",
                                     "name": "Internal Server Error",
                                     "originalRequest": {
                                         "url": {
@@ -1714,11 +1714,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1735,9 +1735,9 @@
                                     "code": 500,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1749,7 +1749,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "7d3e042f-2aae-4891-8ec8-929c6c28b236",
+                                    "id": "b9b81665-ddcf-4727-995c-f50b95aca8b8",
                                     "name": "Not Implemented",
                                     "originalRequest": {
                                         "url": {
@@ -1768,11 +1768,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1789,9 +1789,9 @@
                                     "code": 501,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1803,7 +1803,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "a4856fa7-a561-4082-b18e-74ccf35e4836",
+                                    "id": "a5d8680c-00a6-4e40-9462-85210f28f340",
                                     "name": "Service Unavailable",
                                     "originalRequest": {
                                         "url": {
@@ -1822,11 +1822,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1843,9 +1843,9 @@
                                     "code": 503,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1857,7 +1857,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "2a3497a0-827d-4063-a7d8-030b1a15815f",
+                                    "id": "2b9e1232-420f-4bca-8a88-a9418f8a62f9",
                                     "name": "Er is een onverwachte fout opgetreden",
                                     "originalRequest": {
                                         "url": {
@@ -1876,11 +1876,11 @@
                                                 },
                                                 {
                                                     "key": "datumvan",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 },
                                                 {
                                                     "key": "datumtotenmet",
-                                                    "value": "[object Object]"
+                                                    "value": "<date>"
                                                 }
                                             ],
                                             "variable": [
@@ -1897,16 +1897,16 @@
                                     "code": 500,
                                     "header": [
                                         {
+                                            "description": "",
                                             "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
+                                            "value": "1.0.0"
                                         },
                                         {
                                             "key": "Content-Type",
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"<uri>\",\n \"title\": \"<string>\",\n \"status\": \"<integer>\",\n \"detail\": \"<string>\",\n \"instance\": \"<uri>\",\n \"code\": \"<string>\"\n}",
+                                    "body": "{\n \"type\": \"https://TesO.smYNwL2QhBOlAs,QiolaTA-yH6lCSG.zV0h6KmG+LiHk-EiSg3\",\n \"title\": \"cillum ea\",\n \"status\": 16795898,\n \"detail\": \"deserunt dolor ut elit\",\n \"instance\": \"https://sFSCYZXXAggXKJgKgQwNkTqDmxcgNiYs.cjJW9X5,ldszUtMsWdqvoLgB1W1I0AZpwTeT6l\",\n \"code\": \"sunt\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 }
@@ -1929,7 +1929,7 @@
         }
     ],
     "info": {
-        "_postman_id": "109db636-893c-42cf-bbb5-e07eb1116eb4",
+        "_postman_id": "cf583755-3c1f-4ed7-b9f6-c9d0e0fdff89",
         "name": "Bewoning",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
