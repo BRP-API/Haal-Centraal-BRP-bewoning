@@ -45,8 +45,8 @@ Abstract Scenario: één bewoner op een specifiek adresseerbaar object met datum
     Voorbeelden:
     | datum tot  | omschrijving |
     | 14-12-2020 | datum tot valt binnen de opgegeven periode |
-    | 01-12-2020 | datum tot valt op de eerste dag van de opgegeven periode |
-    | 31-12-2020 | datum tot valt op de laatste dag van de opgegeven periode |
+    | 02-12-2020 | (datum tot - 1 dag) = de eerste dag van de opgegeven periode |
+    | 01-01-2021 | (datum tot - 1 dag) = de laatste dag van de opgegeven periode |
 
 Scenario: meerdere bewoners op een specifiek adresseerbaar object met datum tot binnen de opgegeven periode
     En er is 1 bewoner met datum tot '14-12-2020' op het adresseerbaar object
