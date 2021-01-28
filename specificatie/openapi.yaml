@@ -309,9 +309,3 @@ components:
           example: 2.7
           description: |
                         Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
-        gemiddeldeBewoningDuur:
-          type: number
-          format: float
-          example: 2.7
-          description: |
-                        Het gemiddelde aantal maanden dat de bewoners gewoond hebben in het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
