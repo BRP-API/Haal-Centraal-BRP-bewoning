@@ -4,6 +4,8 @@ Functionaliteit: Gemiddeld aantal bewoners op een adresseerbaar object binnen ee
     Gemiddelde bewoning van een persoon in een periode = aantal dagen adreshouding in periode / aantal dagen in periode
     Gemiddeld aantal bewoners in een periode = som van gemiddelde bewoning per persoon in de periode
 
+    bewoners met geheel- en gedeeltelijk onbekend datum aanvang adreshouding of 'datum tot' wordt niet meegenomen bij het bepalen van verloop
+
 Achtergrond:
     Gegeven een adresseerbaar object met identificatie 1234
     En de bewoners op het adresseerbaar object
@@ -41,3 +43,26 @@ Scenario: open einde bereken periode
     # datumTotEnMet = datum vandaag
     En is het gemiddeld aantal bewoners gelijk aan 3.3621
     # bewoner1: 31/58 + bewoner2: 58/58 + bewoner3: 58/58 + bewoner4: 48/58
+
+
+Abstract Scenario: een bewoner op een specifiek adresseerbaar object met geheel of gedeeltelijk onbekend datum aanvang adreshouding binnen de opgegeven periode
+    En er is 1 bewoner met jaar '<jaar>', maand '<maand>', dag '<dag>' voor datum aanvang adreshouding op het adresseerbaar object
+    Als voor adresseerbaar object met identificatie 1234 het verloop tussen 01-01-2021 en 31-01-2021 wordt bevraagd
+    Dan is het gemiddeld aantal bewoners gelijk aan 0
+
+    Voorbeelden:
+    | jaar | maand | dag | omschrijving                                         |
+    |      |       |     | geheel onbekend datum aanvang adreshouding           |
+    | 2021 |       |     | datum aanvang adreshouding met onbekend dag en maand |
+    | 2021 | 1     |     | datum aanvang adreshouding met onbekend maand        |
+
+Abstract Scenario: een bewoner op een specifiek adresseerbaar object met geheel of gedeeltelijk onbekend datum tot binnen de opgegeven periode
+    En er is 1 bewoner met jaar '<jaar>', maand '<maand>', dag '<dag>' voor datum tot op het adresseerbaar object
+    Als voor adresseerbaar object met identificatie 1234 het verloop tussen 01-12-2020 en 31-12-2020 wordt bevraagd
+    Dan is het gemiddeld aantal bewoners gelijk aan 0
+
+    Voorbeelden:
+    | jaar | maand | dag | omschrijving                        |
+    |      |       |     | geheel onbekend datum tot           |
+    | 2021 |       |     | datum tot met onbekend dag en maand |
+    | 2020 | 1     |     | datum tot met onbekend maand        |
