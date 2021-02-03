@@ -719,8 +719,6 @@ components:
             description: |
               De unieke aanduiding van een nummeraanduiding.
             example: "0518200001645858"
-        description: |
-          Een bewoningPerAdres is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven, inclusief enkele gegevens van de personen.
     BewoningHalBasis:
       allOf:
       - $ref: '#/components/schemas/Bewoning'
@@ -783,14 +781,15 @@ components:
           title: Indicatie geheim
           type: boolean
           description: |
-            Een aanduiding die aangeeft dat gegevens wel of niet verstrekt mogen worden.
-            Indien true: op verzoek van deze persoon is het verstrekken van gegevens over deze persoon aan bepaalde derden niet toegestaan.
+            Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
         indicatieVerblijfsplaatsInOnderzoek:
           type: boolean
-        functieadres:
+          description: |
+            Geeft aan dat de verblijfplaats in onderzoek is.
+        functieAdres:
           $ref: '#/components/schemas/SoortAdres_enum'
       description: |
-        Een bewoner is een natuurlijk persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
+        Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
         * `datumAanvangAdreshouding` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven.
         * `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven.
     Verloop:
@@ -799,17 +798,17 @@ components:
         inVerhuizingen:
           type: integer
           description: |
-            Het aantal keren dat een alleenstaande of gezin naar het adres is verhuisd binnen de opgegeven periode.
+            Het aantal keren dat een alleenstaande of een gezin naar het verblijfsobject, de ligplaats of de standplaats is verhuisd binnen de opgegeven periode.
           example: 3
         uitVerhuizingen:
           type: integer
           description: |
-            Het aantal keer dat een alleenstaande of gezin van het adres naar een ander adres is verhuisd binnen de opgegeven periode.
+            Het aantal keren dat een alleenstaande of een gezin naar een ander verblijfsobject, ligplaats of standplaats is verhuisd binnen de opgegeven periode.
           example: 14
         gemiddeldAantalBewoners:
           type: number
           description: |
-            Gemiddeld aantal bewoners in de gevraagde periode.
+            Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
           format: float
           example: 2.7
     BadRequestFoutbericht:
@@ -1046,19 +1045,26 @@ components:
             type: string
             description: |
               Kun je gebruiken als aanhef in een brief gericht aan persoon.
-            example: Geachte heer In het Veld
+            example: Hoogwelgeboren heer
           aanschrijfwijze:
             type: string
             description: |
               Samengestelde naam die je kunt gebruiken in de communicatie met de persoon.
-            example: H. in het Veld
+            example: H.W. baron van den Aedel
+          regelVoorafgaandAanAanschrijfwijze:
+            type: string
+            description: |
+              Deze regel moet als aparte regel boven de aanschrijfwijze worden geplaatst. Komt alleen voor bij personen met een adellijke titel of predicaat.
+            example: De hoogwelgeboren heer
           gebruikInLopendeTekst:
             type: string
             description: |
               Naam van persoon die je kunt gebruiken als je in lopende tekst (bijvoorbeeld in een brief) aan persoon refereert.
-            example: de heer In het Veld
+            example: baron Van den Aedel
           aanduidingNaamgebruik:
             $ref: '#/components/schemas/Naamgebruik_enum'
+          inOnderzoek:
+            $ref: '#/components/schemas/NaamPersoonInOnderzoek'
     Naam:
       type: object
       properties:
@@ -1080,8 +1086,19 @@ components:
         voorvoegsel:
           type: string
           example: de
+        adellijkeTitelPredikaat:
+          $ref: '#/components/schemas/Waardetabel'
         inOnderzoek:
           $ref: '#/components/schemas/NaamInOnderzoek'
+    Waardetabel:
+      type: object
+      properties:
+        code:
+          type: string
+          example: "6030"
+        omschrijving:
+          type: string
+          example: Nederland
     NaamInOnderzoek:
       type: object
       properties:
@@ -1091,10 +1108,12 @@ components:
           type: boolean
         voorvoegsel:
           type: boolean
+        adellijkeTitelPredikaat:
+          type: boolean
         datumIngangOnderzoek:
           $ref: '#/components/schemas/DatumOnvolledig'
       description: |
-        Geeft aan welke gegevens over de naam in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.0.0/features/in_onderzoek.feature)
+        Geeft aan welke gegevens over de naam in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature)
     Naamgebruik_enum:
       type: string
       description: |
@@ -1111,6 +1130,12 @@ components:
       - eigen_partner
       - partner
       - partner_eigen
+    NaamPersoonInOnderzoek:
+      allOf:
+      - $ref: '#/components/schemas/NaamInOnderzoek'
+      - properties:
+          aanduidingNaamgebruik:
+            type: boolean
     PersoonInOnderzoek:
       type: object
       properties:
@@ -1121,7 +1146,7 @@ components:
         datumIngangOnderzoek:
           $ref: '#/components/schemas/DatumOnvolledig'
       description: |
-        Geeft aan welke gegevens van de persoon in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.0.0/features/in_onderzoek.feature).
+        Geeft aan welke gegevens van de persoon in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature).
     Nationaliteit:
       type: object
       properties:
@@ -1146,15 +1171,6 @@ components:
       enum:
       - behandeld_als_nederlander
       - vastgesteld_niet_nederlander
-    Waardetabel:
-      type: object
-      properties:
-        code:
-          type: string
-          example: "6030"
-        omschrijving:
-          type: string
-          example: Nederland
     NationaliteitInOnderzoek:
       type: object
       properties:
@@ -1167,7 +1183,7 @@ components:
         datumIngangOnderzoek:
           $ref: '#/components/schemas/DatumOnvolledig'
       description: |
-        Geeft aan welke gegevens over de nationaliteit in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.0.0/features/in_onderzoek.feature)
+        Geeft aan welke gegevens over de nationaliteit in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature)
     Geboorte:
       allOf:
       - $ref: '#/components/schemas/Geboortedatum'
@@ -1182,7 +1198,7 @@ components:
           Gegevens over de geboorte.
           * **datum** : datum waarop de persoon is geboren.
           * **land** : land waar de persoon is geboren
-          * **plaats** : plaats waar de persoon is geboren. Voor een plaats buiten Nederland is gemeentecode=1999 (RNI) en gemeentenaam de buitenlandse plaatsnaam of aanduiding.
+          * **plaats** : gemeente waar de persoon is geboren. Is de persoon geboren buiten Nederland, dan bevat het antwoord alleen een buitenlandse plaatsnaam of aanduiding.
     Geboortedatum:
       type: object
       properties:
@@ -1205,7 +1221,7 @@ components:
         datumIngangOnderzoek:
           $ref: '#/components/schemas/DatumOnvolledig'
       description: |
-        Geeft aan welke gegevens over de geboorte van de persoon in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.0.0/features/in_onderzoek.feature)
+        Geeft aan welke gegevens over de geboorte van de persoon in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature)
     OpschortingBijhouding:
       type: object
       properties:
@@ -1249,7 +1265,7 @@ components:
         Gegevens over het overlijden van de persoon.
         * **datum** : datum waarop de persoon is overleden.
         * **land** : land waar de persoon is overleden.
-        * **plaats** : plaats waar de persoon is overleden. Voor een plaats buiten Nederland is gemeentecode=1999 (RNI) en gemeentenaam de buitenlandse plaatsnaam of aanduiding.
+        * **plaats** : gemeente waar de persoon is overleden. Is de persoon overleden buiten Nederland, dan bevat het antwoord alleen een buitenlandse plaatsnaam of aanduiding.
     OverlijdenInOnderzoek:
       type: object
       properties:
@@ -1262,7 +1278,7 @@ components:
         datumIngangOnderzoek:
           $ref: '#/components/schemas/DatumOnvolledig'
       description: |
-        Geeft aan welke gegevens over het overlijden van de persoon in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.0.0/features/in_onderzoek.feature)
+        Geeft aan welke gegevens over het overlijden van de persoon in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature)
     Verblijfplaats:
       allOf:
       - $ref: '#/components/schemas/Adres'
@@ -1404,7 +1420,7 @@ components:
         datumIngangOnderzoek:
           $ref: '#/components/schemas/DatumOnvolledig'
       description: |
-        Geeft aan welke gegevens over het verblijf en adres van de persoon in onderzoek zijn. Elementen van het GBA-adres zelf (Dat zou eigenlijk een BAG-adres moeten zijn) kunnen niet in onderzoek zijn. Wel de relatie naar de nummeraanduiding. Dat wordt gedaan door de identificatiecodeNummeraanduiding in onderzoek te zetten. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.0.0/features/in_onderzoek.feature)
+        Geeft aan welke gegevens over het verblijf en adres van de persoon in onderzoek zijn. Elementen van het GBA-adres zelf (Dat zou eigenlijk een BAG-adres moeten zijn) kunnen niet in onderzoek zijn. Wel de relatie naar de nummeraanduiding. Dat wordt gedaan door de identificatiecodeNummeraanduiding in onderzoek te zetten. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature)
     Gezagsverhouding:
       type: object
       properties:
@@ -1446,7 +1462,7 @@ components:
         datumIngangOnderzoek:
           $ref: '#/components/schemas/DatumOnvolledig'
       description: |
-        Geeft aan welke gegevens van de gezagsverhouding in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.0.0/features/in_onderzoek.feature)
+        Geeft aan welke gegevens van de gezagsverhouding in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature)
     Verblijfstitel:
       type: object
       properties:
@@ -1475,7 +1491,7 @@ components:
         datumIngangOnderzoek:
           $ref: '#/components/schemas/DatumOnvolledig'
       description: |
-        Geeft aan welke gegevens over de verblijfstitel in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.0.0/features/in_onderzoek.feature)
+        Geeft aan welke gegevens over de verblijfstitel in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature)
     Reisdocumentnummer:
       type: string
       description: |
