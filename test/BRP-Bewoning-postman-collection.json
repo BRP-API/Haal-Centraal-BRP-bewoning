@@ -1,16 +1,16 @@
 {
     "item": [
         {
-            "id": "2332c5ca-7dee-4d81-9b3c-c7783bdeafb4",
+            "id": "e1a5498c-b159-4208-91df-6b195dd8d197",
             "name": "bewoningen",
             "item": [
                 {
-                    "id": "31c20262-35b8-4025-bcdf-a077c788e611",
+                    "id": "e04c81bc-3da5-499c-b915-261cbe797018",
                     "name": "get Bewoningen",
                     "request": {
                         "name": "get Bewoningen",
                         "description": {
-                            "content": "Het zoeken van bewoningen.\n\nEen bewoning is adresseerbaarobject, inclusief bijbehorende adressen, waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven.\nOp basis van de adresseerbaarObjectIdentificatie retourneert Bewoning de personen die op de verblijfplaats(en), behorende bij het adresseerbaarObject zijn ingeschreven of waren ingeschreven.\n\nOp basis van de parameters wordt een of meerdere bewoningen geretourneerd inclusief gegevens over de bewoners van het betreffende verblijfobject.\nÉén van de volgende parameters moet zijn opgenomen :\n  * `adresseerbaarObjectIdentificatie`\n  * `burgerservicenummer`\n\nDe bovenstaande parameters moeten gecombineerd worden met een peildatum of een periode.\n\nOverleden personen worden opgenomen in het zoekresultaat tot aan de datum van overlijden voor zover deze datum overlijden binnen de opgevraagde periode valt.\n",
+                            "content": "Zoek bewoningen door een adresseerbaarObjectIdentificatie of een burgerservicenummer op te geven, samen met een peildatum of periode.\n",
                             "type": "text/plain"
                         },
                         "url": {
@@ -52,7 +52,7 @@
                                     "value": "<string>"
                                 },
                                 {
-                                    "description": "De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
+                                    "description": "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
                                     "key": "adresseerbaarObjectIdentificatie",
                                     "value": "<string>"
                                 }
@@ -64,7 +64,7 @@
                     },
                     "response": [
                         {
-                            "id": "24403d87-abba-4f5c-af5a-dddcd8aedddc",
+                            "id": "ab7dee92-ec82-4373-a5cc-848ac5ca7cd8",
                             "name": "Zoekactie geslaagd\n",
                             "originalRequest": {
                                 "url": {
@@ -127,12 +127,12 @@
                                     "value": "application/hal+json"
                                 }
                             ],
-                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": true,\n   \"title\": \"eu laborum enim\"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoningPerAdres\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   },\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoningPerAdres\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
+                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": true,\n   \"title\": \"commodo in \"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"indicatieVeelBewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"adressen\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   },\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"indicatieVeelBewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"adressen\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "ece4951d-0fc3-407b-b18f-9bb9b83967ae",
+                            "id": "122ee655-615b-49a4-a0fe-79e5a644df83",
                             "name": "Bad Request",
                             "originalRequest": {
                                 "url": {
@@ -195,7 +195,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "1145a6ae-b3bb-4885-aea8-6cadafcc9d07",
+                            "id": "955e9cf8-d030-4f86-8aa8-f4899bcf8748",
                             "name": "Unauthorized",
                             "originalRequest": {
                                 "url": {
@@ -258,7 +258,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "e2c0c0e0-49b3-430a-91a2-fc9387781b58",
+                            "id": "35491e83-0646-40e7-8309-680e917ae54a",
                             "name": "Forbidden",
                             "originalRequest": {
                                 "url": {
@@ -321,7 +321,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "90911b3f-6768-4b81-b504-370f80497571",
+                            "id": "51666353-1437-4562-90de-d61366b2b1f9",
                             "name": "Not Acceptable",
                             "originalRequest": {
                                 "url": {
@@ -384,7 +384,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "d3ccd71e-9e0d-4de7-93a4-6eebf4b8d310",
+                            "id": "49c5c678-66a9-4e32-95af-2067adb5fc2e",
                             "name": "Internal Server Error",
                             "originalRequest": {
                                 "url": {
@@ -447,7 +447,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "f1c4d7ab-ea8e-4e2d-baa6-1deed2e5d762",
+                            "id": "39f3cff4-5253-4033-8f2f-755af429de87",
                             "name": "Not Implemented",
                             "originalRequest": {
                                 "url": {
@@ -510,7 +510,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "bd567a11-2bbf-46c4-88b8-1428b28c72aa",
+                            "id": "137426dd-1975-4271-bf3c-0179a8e0fc9b",
                             "name": "Service Unavailable",
                             "originalRequest": {
                                 "url": {
@@ -573,7 +573,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "6333b6fb-dabe-4068-9592-a20b0057db74",
+                            "id": "ff512b97-2f22-4b88-92de-a9fb0c8a71f3",
                             "name": "Er is een onverwachte fout opgetreden",
                             "originalRequest": {
                                 "url": {
@@ -631,7 +631,7 @@
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"http://GppqgS.yrsjacTqXt4iphRE98i4VRB,fmMjDHv77yFeKriBGv+I39xqA,qjkT5lR9Vzq\",\n \"title\": \"cillum\",\n \"status\": 48328020,\n \"detail\": \"velit nulla exercitation\",\n \"instance\": \"https://TrECPllTBFoYOEZY.nbcoq1WRMwhy.uFSUfUMG2Svdw,wgX3gsNE+g4cs9qtn6zWfooJioo1Hp8ryFya4ls5.k\",\n \"code\": \"velit proident\"\n}",
+                            "body": "{\n \"type\": \"http://gcLHBmeIVJnXHnXbuGl.tnkkh0KwfDC6lE4bYp.U2lifUe\",\n \"title\": \"irure eiusmod elit\",\n \"status\": 39448233,\n \"detail\": \"culpa dolor\",\n \"instance\": \"http://hFUxmDLQNHiGakXWSxNrXJWb.pdhidZGFrOmO9RUawV\",\n \"code\": \"ea nisi\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         }
@@ -639,16 +639,16 @@
                     "event": []
                 },
                 {
-                    "id": "be08a5fb-f168-4148-8fea-c38345c6ead8",
+                    "id": "d1af4e8a-d93f-4486-a9c9-36e344cefab8",
                     "name": "{adresseerbaar Object Identificatie}",
                     "item": [
                         {
-                            "id": "764a9ce1-2f78-405a-8a17-c9b849c40e1c",
+                            "id": "9c8682c3-4d67-4495-9b97-52b2b78055a0",
                             "name": "get Bewoning",
                             "request": {
                                 "name": "get Bewoning",
                                 "description": {
-                                    "content": "Het ophalen van de gegevens van een enkele Bewoning.\n",
+                                    "content": "Raadpleeg een bewoning door een adresseerbaarobjectIdentificatie op te geven.\n",
                                     "type": "text/plain"
                                 },
                                 "url": {
@@ -688,7 +688,7 @@
                                     ],
                                     "variable": [
                                         {
-                                            "description": "(Required) De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
+                                            "description": "(Required) De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
                                             "type": "any",
                                             "value": "<string>",
                                             "key": "adresseerbaarObjectIdentificatie"
@@ -700,7 +700,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "f06d0cac-67bf-41d1-945e-1e4ddb218768",
+                                    "id": "27d69e76-7a19-4605-87f4-99f5c15b3c26",
                                     "name": "Zoekactie geslaagd\n",
                                     "originalRequest": {
                                         "url": {
@@ -761,12 +761,12 @@
                                             "value": "application/hal+json"
                                         }
                                     ],
-                                    "body": "{\n \"adresseerbaarObjectIdentificatie\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"bewoningPerAdres\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"_links\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"_embedded\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  ]\n }\n}",
+                                    "body": "{\n \"adresseerbaarObjectIdentificatie\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"bewoners\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"indicatieVeelBewoners\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"adressen\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"_links\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"_embedded\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  ]\n }\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "019f6bb0-25db-42e6-b0d2-7cff1172289f",
+                                    "id": "26170753-e705-475f-957b-0e8e78e5a5be",
                                     "name": "Bad Request",
                                     "originalRequest": {
                                         "url": {
@@ -827,7 +827,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "85f8c9aa-2e82-4c6b-b4c4-f69506ba8551",
+                                    "id": "9a89a5f5-af54-4987-aa1c-88834b806487",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -888,7 +888,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "3f107879-b074-462f-ae15-017aa36438d1",
+                                    "id": "2da269be-dae1-41fe-9797-25f33ba2593b",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
@@ -949,7 +949,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "2c8b0dfe-1dc7-4b31-afee-af12cb059f9d",
+                                    "id": "c1277aaa-22d2-4547-b74f-af7f8f4e6452",
                                     "name": "Not Found",
                                     "originalRequest": {
                                         "url": {
@@ -1010,7 +1010,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "2985f776-05fb-4872-a457-7e8c14a90a2b",
+                                    "id": "487ae1bf-fc08-49ce-827b-08a34762d8a9",
                                     "name": "Not Acceptable",
                                     "originalRequest": {
                                         "url": {
@@ -1071,7 +1071,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "d0fd552c-aca5-44d2-bc3a-4aa90defab5d",
+                                    "id": "83c8d342-1f70-4a46-945a-2fdbb2f7615c",
                                     "name": "Internal Server Error",
                                     "originalRequest": {
                                         "url": {
@@ -1132,7 +1132,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "e4a9009b-c76e-429a-bb29-2e62af08d0f1",
+                                    "id": "74f77eed-10e8-41ba-ba74-d1477dd7aa28",
                                     "name": "Not Implemented",
                                     "originalRequest": {
                                         "url": {
@@ -1193,7 +1193,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "67c62809-003b-41b5-8cca-d4d6dbe79643",
+                                    "id": "978a1cc8-e0bf-4027-8ab1-5ea07c284f5d",
                                     "name": "Service Unavailable",
                                     "originalRequest": {
                                         "url": {
@@ -1254,7 +1254,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "ecd57ac9-6f29-4afd-8831-f139909c116d",
+                                    "id": "c43e5877-70dc-4360-8fa7-0f122d9454cc",
                                     "name": "Er is een onverwachte fout opgetreden",
                                     "originalRequest": {
                                         "url": {
@@ -1310,7 +1310,7 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"http://GppqgS.yrsjacTqXt4iphRE98i4VRB,fmMjDHv77yFeKriBGv+I39xqA,qjkT5lR9Vzq\",\n \"title\": \"cillum\",\n \"status\": 48328020,\n \"detail\": \"velit nulla exercitation\",\n \"instance\": \"https://TrECPllTBFoYOEZY.nbcoq1WRMwhy.uFSUfUMG2Svdw,wgX3gsNE+g4cs9qtn6zWfooJioo1Hp8ryFya4ls5.k\",\n \"code\": \"velit proident\"\n}",
+                                    "body": "{\n \"type\": \"http://gcLHBmeIVJnXHnXbuGl.tnkkh0KwfDC6lE4bYp.U2lifUe\",\n \"title\": \"irure eiusmod elit\",\n \"status\": 39448233,\n \"detail\": \"culpa dolor\",\n \"instance\": \"http://hFUxmDLQNHiGakXWSxNrXJWb.pdhidZGFrOmO9RUawV\",\n \"code\": \"ea nisi\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 }
@@ -1318,12 +1318,12 @@
                             "event": []
                         },
                         {
-                            "id": "6ccaf928-2c10-4bec-8795-87168b3567dd",
+                            "id": "91e21e71-557b-4eab-aa89-2af22e3aa8ba",
                             "name": "get Bewoningverloop",
                             "request": {
                                 "name": "get Bewoningverloop",
                                 "description": {
-                                    "content": "Het ophalen van de gegevens van het verloop van de bewoning van een adresseerbaar object binnen een gegeven periode. Op basis van de adresseerbaarobjectIdentificatie, een datum **datumVan** en een datum **datumTotEnMet** worden kengetallen van het verloop van de bewoning van dit adresseerbaarobject opgehaald.\n",
+                                    "content": "Raadpleeg het verloop van de bewoning van een adresseerbaar object over een periode door een adresseerbaarobjectIdentificatie en\neen periode op te geven. Het antwoord bevat het aantal verhuizingen van en naar het object en het gemiddelde aantal bewoners in de opgegeven periode.\n",
                                     "type": "text/plain"
                                 },
                                 "url": {
@@ -1354,7 +1354,7 @@
                                     ],
                                     "variable": [
                                         {
-                                            "description": "(Required) De identificatie van een adresseerbaar object uit de BAG. Dit kan een verblijfsobject, een standplaats of een ligplaats zijn.\n",
+                                            "description": "(Required) De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
                                             "type": "any",
                                             "value": "<string>",
                                             "key": "adresseerbaarObjectIdentificatie"
@@ -1366,7 +1366,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "f982e47f-6ffb-450b-83b3-94b8d80489db",
+                                    "id": "f4f4770b-0d77-4ca5-b300-775704ba4a08",
                                     "name": "Zoekactie geslaagd\n",
                                     "originalRequest": {
                                         "url": {
@@ -1425,7 +1425,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "0a6ab325-0387-42f6-908e-69e471d6be17",
+                                    "id": "b4218a58-cead-4f03-9afe-336fb2ed9050",
                                     "name": "Bad Request",
                                     "originalRequest": {
                                         "url": {
@@ -1479,7 +1479,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "c1400728-1f63-49b1-90df-f700773eb210",
+                                    "id": "92110cd6-bbb9-4cc7-a41b-50cf98ad1313",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -1533,7 +1533,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "a8188a80-8bb3-454e-81fc-7337d2d4ca23",
+                                    "id": "d03c646e-a2af-43c5-9c50-0ad80c4b499e",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
@@ -1587,7 +1587,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "538c40e3-75ff-47d1-ba3d-1aeebdc7989c",
+                                    "id": "ec5e08c9-7fe5-4ff2-9c34-a9a033688ba7",
                                     "name": "Not Found",
                                     "originalRequest": {
                                         "url": {
@@ -1641,7 +1641,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "d4534ca8-0ee0-40eb-8282-45c974f78dc9",
+                                    "id": "0e2ae2ca-3bbc-46d5-b86f-441673053ff0",
                                     "name": "Not Acceptable",
                                     "originalRequest": {
                                         "url": {
@@ -1695,7 +1695,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "3f57253c-d41c-44ef-a7e7-dd2dcdb2796d",
+                                    "id": "18336c26-5f53-45c1-901d-f582db7a8939",
                                     "name": "Internal Server Error",
                                     "originalRequest": {
                                         "url": {
@@ -1749,7 +1749,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "7605a9f6-2bb8-4d1a-835a-965de365e452",
+                                    "id": "2c7e3b47-e781-4ac3-8e1d-203228cc9729",
                                     "name": "Not Implemented",
                                     "originalRequest": {
                                         "url": {
@@ -1803,7 +1803,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "657f0538-bca1-4148-9fc2-6e8a4ed02e7a",
+                                    "id": "2f797ebe-93cd-4743-8615-a7e2885a3e86",
                                     "name": "Service Unavailable",
                                     "originalRequest": {
                                         "url": {
@@ -1857,7 +1857,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "fb2962ef-0deb-4d3b-baf0-35665e5f81e7",
+                                    "id": "289eff3f-851f-491e-8cc2-58d7d030b8bf",
                                     "name": "Er is een onverwachte fout opgetreden",
                                     "originalRequest": {
                                         "url": {
@@ -1906,7 +1906,7 @@
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"http://GppqgS.yrsjacTqXt4iphRE98i4VRB,fmMjDHv77yFeKriBGv+I39xqA,qjkT5lR9Vzq\",\n \"title\": \"cillum\",\n \"status\": 48328020,\n \"detail\": \"velit nulla exercitation\",\n \"instance\": \"https://TrECPllTBFoYOEZY.nbcoq1WRMwhy.uFSUfUMG2Svdw,wgX3gsNE+g4cs9qtn6zWfooJioo1Hp8ryFya4ls5.k\",\n \"code\": \"velit proident\"\n}",
+                                    "body": "{\n \"type\": \"http://gcLHBmeIVJnXHnXbuGl.tnkkh0KwfDC6lE4bYp.U2lifUe\",\n \"title\": \"irure eiusmod elit\",\n \"status\": 39448233,\n \"detail\": \"culpa dolor\",\n \"instance\": \"http://hFUxmDLQNHiGakXWSxNrXJWb.pdhidZGFrOmO9RUawV\",\n \"code\": \"ea nisi\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 }
@@ -1929,11 +1929,11 @@
         }
     ],
     "info": {
-        "_postman_id": "bc66a71c-32d1-4afe-a723-2e051abb4392",
+        "_postman_id": "f2258417-4f21-435b-a6cc-b9d8443e1e78",
         "name": "Bewoning",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
-            "content": "API voor het ontsluiten van historische gegevens over de bewoning van een adres.\nDe gegevens van de bewoners zijn actueel.Zie de Functionele documentatie voor nadere toelichting.\n",
+            "content": "API voor het zoeken en raadplegen van bewoningen en metagegevens over bewoning (verloop).\nEen bewoning is een adresseerbaar object (verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).\nIedere samenstelling van bewoners van het object is een bewoning. Overleden personen maken onderdeel uit van een\nbewoning tot het moment van overlijden. Gegevens over de bewoners zijn actueel.\n",
             "type": "text/plain"
         }
     }
