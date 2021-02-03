@@ -211,9 +211,7 @@ components:
       type: "object"
       allOf :
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BAG-bevragen/v1.1.0/specificatie/openapi.yaml#/components/schemas/Adres"
-        - description: |
-                      Een bewoningPerAdres is een adres waar nu en/of in het verleden een of meerdere personen zijn of waren ingeschreven, inclusief enkele gegevens van de personen.
-          properties:
+        - properties:
             nummeraanduidingIdentificatie:
               type: "string"
               description: |
@@ -266,11 +264,11 @@ components:
         ingeschrevenPersonen:
           type: array
           items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.0.0/specificatie/openapi.yaml#/components/schemas/IngeschrevenPersoonHalBasis"
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/IngeschrevenPersoonHalBasis"
     Bewoner:
       type: "object"
       description: |
-                    Een bewoner is een natuurlijk persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
+                    Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
                     * `datumAanvangAdreshouding` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven.
                     * `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven.
       properties:
@@ -285,28 +283,29 @@ components:
           type: "boolean"
           title: "Indicatie geheim"
           description: |
-                        Een aanduiding die aangeeft dat gegevens wel of niet verstrekt mogen worden.
-                        Indien true: op verzoek van deze persoon is het verstrekken van gegevens over deze persoon aan bepaalde derden niet toegestaan.
+                        Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
         indicatieVerblijfsplaatsInOnderzoek:
+          description: |
+                        Geeft aan dat de verblijfplaats in onderzoek is.
           type: "boolean"
-        functieadres:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.0.0/specificatie/openapi.yaml#/components/schemas/SoortAdres_enum"
+        functieAdres:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/SoortAdres_enum"
     Verloop:
       type: "object"
       properties:
         inVerhuizingen:
           type: integer
           description: |
-                        Het aantal keren dat een alleenstaande of gezin naar het adres is verhuisd binnen de opgegeven periode.
+                        Het aantal keren dat een alleenstaande of een gezin naar het verblijfsobject, de ligplaats of de standplaats is verhuisd binnen de opgegeven periode.
           example: 3
         uitVerhuizingen:
           type: integer
           description: |
-                        Het aantal keer dat een alleenstaande of gezin van het adres naar een ander adres is verhuisd binnen de opgegeven periode.
+                        Het aantal keren dat een alleenstaande of een gezin naar een ander verblijfsobject, ligplaats of standplaats is verhuisd binnen de opgegeven periode.
           example: 14
         gemiddeldAantalBewoners:
           type: number
           format: float
           example: 2.7
           description: |
-                        Gemiddeld aantal bewoners in de gevraagde periode.
+                        Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
