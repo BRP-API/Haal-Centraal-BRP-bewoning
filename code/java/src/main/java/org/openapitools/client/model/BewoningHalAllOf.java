@@ -28,7 +28,7 @@ import org.openapitools.client.model.BewoningEmbedded;
 /**
  * BewoningHalAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-03T13:57:27.519Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-03T15:01:26.333Z[Etc/UTC]")
 public class BewoningHalAllOf {
   public static final String SERIALIZED_NAME_EMBEDDED = "_embedded";
   @SerializedName(SERIALIZED_NAME_EMBEDDED)
