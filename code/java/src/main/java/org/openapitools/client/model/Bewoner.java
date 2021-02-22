@@ -30,7 +30,7 @@ import org.openapitools.client.model.SoortAdresEnum;
  * Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest. * &#x60;datumAanvangAdreshouding&#x60; : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven. * &#x60;datumTot&#x60; : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven. 
  */
 @ApiModel(description = "Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest. * `datumAanvangAdreshouding` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven. * `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven. ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-03T15:01:26.333Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T11:06:48.381Z[Etc/UTC]")
 public class Bewoner {
   public static final String SERIALIZED_NAME_BURGERSERVICENUMMER = "burgerservicenummer";
   @SerializedName(SERIALIZED_NAME_BURGERSERVICENUMMER)
@@ -216,7 +216,6 @@ public class Bewoner {
   public int hashCode() {
     return Objects.hash(burgerservicenummer, datumTot, datumAanvangAdreshouding, geheimhoudingPersoonsgegevens, indicatieVerblijfsplaatsInOnderzoek, functieAdres);
   }
-
 
   @Override
   public String toString() {

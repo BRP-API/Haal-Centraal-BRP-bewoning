@@ -47,16 +47,16 @@ namespace Org.OpenAPITools.Model
         Emigratie = 2,
 
         /// <summary>
-        /// Enum Ministerieelbesluit for value: ministerieel_besluit
+        /// Enum MinisterieelBesluit for value: ministerieel_besluit
         /// </summary>
         [EnumMember(Value = "ministerieel_besluit")]
-        Ministerieelbesluit = 3,
+        MinisterieelBesluit = 3,
 
         /// <summary>
-        /// Enum Plaangelegdinderni for value: pl_aangelegd_in_de_rni
+        /// Enum PlAangelegdInDeRni for value: pl_aangelegd_in_de_rni
         /// </summary>
         [EnumMember(Value = "pl_aangelegd_in_de_rni")]
-        Plaangelegdinderni = 4,
+        PlAangelegdInDeRni = 4,
 
         /// <summary>
         /// Enum Fout for value: fout

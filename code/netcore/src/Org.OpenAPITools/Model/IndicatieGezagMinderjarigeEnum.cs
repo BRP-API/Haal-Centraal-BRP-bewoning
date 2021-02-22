@@ -53,22 +53,22 @@ namespace Org.OpenAPITools.Model
         Derden = 3,
 
         /// <summary>
-        /// Enum Ouder1enderde for value: ouder1_en_derde
+        /// Enum Ouder1EnDerde for value: ouder1_en_derde
         /// </summary>
         [EnumMember(Value = "ouder1_en_derde")]
-        Ouder1enderde = 4,
+        Ouder1EnDerde = 4,
 
         /// <summary>
-        /// Enum Ouder2enderde for value: ouder2_en_derde
+        /// Enum Ouder2EnDerde for value: ouder2_en_derde
         /// </summary>
         [EnumMember(Value = "ouder2_en_derde")]
-        Ouder2enderde = 5,
+        Ouder2EnDerde = 5,
 
         /// <summary>
-        /// Enum Ouder1enouder2 for value: ouder1_en_ouder2
+        /// Enum Ouder1EnOuder2 for value: ouder1_en_ouder2
         /// </summary>
         [EnumMember(Value = "ouder1_en_ouder2")]
-        Ouder1enouder2 = 6
+        Ouder1EnOuder2 = 6
 
     }
 

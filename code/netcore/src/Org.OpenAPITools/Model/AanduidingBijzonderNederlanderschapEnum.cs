@@ -35,16 +35,16 @@ namespace Org.OpenAPITools.Model
     public enum AanduidingBijzonderNederlanderschapEnum
     {
         /// <summary>
-        /// Enum Behandeldalsnederlander for value: behandeld_als_nederlander
+        /// Enum BehandeldAlsNederlander for value: behandeld_als_nederlander
         /// </summary>
         [EnumMember(Value = "behandeld_als_nederlander")]
-        Behandeldalsnederlander = 1,
+        BehandeldAlsNederlander = 1,
 
         /// <summary>
-        /// Enum Vastgesteldnietnederlander for value: vastgesteld_niet_nederlander
+        /// Enum VastgesteldNietNederlander for value: vastgesteld_niet_nederlander
         /// </summary>
         [EnumMember(Value = "vastgesteld_niet_nederlander")]
-        Vastgesteldnietnederlander = 2
+        VastgesteldNietNederlander = 2
 
     }
 

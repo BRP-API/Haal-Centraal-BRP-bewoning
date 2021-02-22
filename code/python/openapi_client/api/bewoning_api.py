@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint
+from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
 from openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
@@ -111,7 +111,7 @@ class BewoningApi(object):
                 adresseerbaar_object_identificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_bewoning = Endpoint(
+        self.get_bewoning = _Endpoint(
             settings={
                 'response_type': (BewoningHal,),
                 'auth': [],
@@ -263,7 +263,7 @@ class BewoningApi(object):
             kwargs['_host_index'] = kwargs.get('_host_index')
             return self.call_with_http_info(**kwargs)
 
-        self.get_bewoningen = Endpoint(
+        self.get_bewoningen = _Endpoint(
             settings={
                 'response_type': (BewoningHalCollectie,),
                 'auth': [],
@@ -427,7 +427,7 @@ class BewoningApi(object):
                 adresseerbaar_object_identificatie
             return self.call_with_http_info(**kwargs)
 
-        self.get_bewoningverloop = Endpoint(
+        self.get_bewoningverloop = _Endpoint(
             settings={
                 'response_type': (Verloop,),
                 'auth': [],

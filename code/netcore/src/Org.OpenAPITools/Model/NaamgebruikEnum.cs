@@ -41,10 +41,10 @@ namespace Org.OpenAPITools.Model
         Eigen = 1,
 
         /// <summary>
-        /// Enum Eigenpartner for value: eigen_partner
+        /// Enum EigenPartner for value: eigen_partner
         /// </summary>
         [EnumMember(Value = "eigen_partner")]
-        Eigenpartner = 2,
+        EigenPartner = 2,
 
         /// <summary>
         /// Enum Partner for value: partner
@@ -53,10 +53,10 @@ namespace Org.OpenAPITools.Model
         Partner = 3,
 
         /// <summary>
-        /// Enum Partnereigen for value: partner_eigen
+        /// Enum PartnerEigen for value: partner_eigen
         /// </summary>
         [EnumMember(Value = "partner_eigen")]
-        Partnereigen = 4
+        PartnerEigen = 4
 
     }
 

@@ -33,7 +33,7 @@ import org.openapitools.client.model.Waardetabel;
  * Gegevens over het verblijf of de woonlocatie van een persoon. * **datumAanvangAdreshuishouding** : de datum van aangifte of ambtshalve melding van verblijf en adres. * **datumIngangGeldigheid** : datum waarop de gegevens over de verblijfplaats geldig zijn geworden. * **datumInschrijvingInGemeente**: bij inschrijving op grond van een verhuisaangifte door de burger is dit de aangiftedatum. Bij inschrijving op grond van een geboorteakte is dit de geboortedatum. Bij ambtshalve inschrijving is dit de datum waarop het voornemen van ambtshalve opneming schriftelijk aan de persoon is medegedeeld. * **datumVestigingInNederland** : datum van inschrijving in Nederland. * **landVanWaarIngeschreven** : het land waar de persoon woonde voor (her)vestiging in Nederland. * **gemeenteVanInschrijving** : de gemeente waar de persoon verblijft en is ingeschreven. De code kan voorloopnullen bevatten.\&quot; 
  */
 @ApiModel(description = "Gegevens over het verblijf of de woonlocatie van een persoon. * **datumAanvangAdreshuishouding** : de datum van aangifte of ambtshalve melding van verblijf en adres. * **datumIngangGeldigheid** : datum waarop de gegevens over de verblijfplaats geldig zijn geworden. * **datumInschrijvingInGemeente**: bij inschrijving op grond van een verhuisaangifte door de burger is dit de aangiftedatum. Bij inschrijving op grond van een geboorteakte is dit de geboortedatum. Bij ambtshalve inschrijving is dit de datum waarop het voornemen van ambtshalve opneming schriftelijk aan de persoon is medegedeeld. * **datumVestigingInNederland** : datum van inschrijving in Nederland. * **landVanWaarIngeschreven** : het land waar de persoon woonde voor (her)vestiging in Nederland. * **gemeenteVanInschrijving** : de gemeente waar de persoon verblijft en is ingeschreven. De code kan voorloopnullen bevatten.\" ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-03T15:01:26.333Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T11:06:48.381Z[Etc/UTC]")
 public class VerblijfplaatsAllOf {
   public static final String SERIALIZED_NAME_ADRESSEERBAAR_OBJECT_IDENTIFICATIE = "adresseerbaarObjectIdentificatie";
   @SerializedName(SERIALIZED_NAME_ADRESSEERBAAR_OBJECT_IDENTIFICATIE)
@@ -611,7 +611,6 @@ public class VerblijfplaatsAllOf {
   public int hashCode() {
     return Objects.hash(adresseerbaarObjectIdentificatie, aanduidingBijHuisnummer, nummeraanduidingIdentificatie, functieAdres, indicatieVestigingVanuitBuitenland, locatiebeschrijving, korteNaam, vanuitVertrokkenOnbekendWaarheen, datumAanvangAdreshouding, datumIngangGeldigheid, datumInschrijvingInGemeente, datumVestigingInNederland, gemeenteVanInschrijving, landVanwaarIngeschreven, adresregel1, adresregel2, adresregel3, vertrokkenOnbekendWaarheen, land, inOnderzoek);
   }
-
 
   @Override
   public String toString() {

@@ -2,7 +2,7 @@
 
 Bewoning
 - API version: 1.0.0
-  - Build date: 2021-02-03T15:01:26.333Z[Etc/UTC]
+  - Build date: 2021-02-22T11:06:48.381Z[Etc/UTC]
 
 API voor het zoeken en raadplegen van bewoningen en metagegevens over bewoning (verloop).
 Een bewoning is een adresseerbaar object (verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).

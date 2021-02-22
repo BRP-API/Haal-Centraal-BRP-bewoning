@@ -28,7 +28,7 @@ import org.openapitools.client.model.BewoningLinks;
 /**
  * BewoningHalBasisAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-03T15:01:26.333Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T11:06:48.381Z[Etc/UTC]")
 public class BewoningHalBasisAllOf {
   public static final String SERIALIZED_NAME_LINKS = "_links";
   @SerializedName(SERIALIZED_NAME_LINKS)
@@ -74,7 +74,6 @@ public class BewoningHalBasisAllOf {
   public int hashCode() {
     return Objects.hash(links);
   }
-
 
   @Override
   public String toString() {

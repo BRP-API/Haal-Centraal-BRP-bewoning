@@ -44,7 +44,7 @@ import org.openapitools.client.model.Verblijfstitel;
 /**
  * IngeschrevenPersoonHalBasis
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-03T15:01:26.333Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T11:06:48.381Z[Etc/UTC]")
 public class IngeschrevenPersoonHalBasis {
   public static final String SERIALIZED_NAME_BURGERSERVICENUMMER = "burgerservicenummer";
   @SerializedName(SERIALIZED_NAME_BURGERSERVICENUMMER)
@@ -554,7 +554,6 @@ public class IngeschrevenPersoonHalBasis {
   public int hashCode() {
     return Objects.hash(burgerservicenummer, geheimhoudingPersoonsgegevens, geslachtsaanduiding, leeftijd, datumEersteInschrijvingGBA, kiesrecht, naam, inOnderzoek, nationaliteiten, geboorte, opschortingBijhouding, overlijden, verblijfplaats, gezagsverhouding, verblijfstitel, reisdocumentnummers, links);
   }
-
 
   @Override
   public String toString() {
