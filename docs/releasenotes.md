@@ -18,49 +18,52 @@ Daarnaast bieden we een[postman-collectie](./test) t.b.v. testen aan.
 
 _**Breaking**_
 
-/bewoningen :
-- datumvan --> datumVan
-- datumtotenmet --> datumtotenmet
-- Zoeken op nummeraanduding (parameter identificatiecodenummeraanduiding) is vervallen en zoek op adresseerbaarobject (parameter adresseerbaarObjectIdentificatie) is toegevoegd
-
 /bewoningen/{identificatiecodenummeraanduiding} --> /bewoningen/{adresseerbaarObjectIdentificatie}
 - datumvan --> datumVan
-- datumtotenmet --> datumtotenmet
-- Zoeken op nummeraanduding (parameter identificatiecodenummeraanduiding) is vervallen en zoek op adresseerbaarobject (parameter adresseerbaarObjectIdentificatie) is toegevoegd
+- datumtotenmet --> datumTotEnMet
+- raadplegen op basis van de parameter identificatiecodenummeraanduiding is aangepast naar raadplegen op basis van de parameter adresseerbaarObjectIdentificatie.
 
 /bewoningen/{identificatiecodenummeraanduiding}/verloop --> /bewoningen/{adresseerbaarObjectIdentificatie}/verloop
 - datumvan --> datumVan
-- datumtotenmet --> datumtotenmet
-- Zoeken op nummeraanduding (parameter identificatiecodenummeraanduiding) is vervallen en zoek op adresseerbaarobject (parameter adresseerbaarObjectIdentificatie) is toegevoegd
+- datumtotenmet --> datumTotEnMet
+- Ook bij de subresource "verloop" is raadplegen op basis van de parameter identificatiecodenummeraanduiding voor de bewoning is aangepast naar raadplegen op basis van de parameter adresseerbaarObjectIdentificatie.
+
+/bewoningen :
+- datumvan --> datumVan
+- datumtotenmet --> datumTotEnMet
+- Zoeken met query-parameter identificatiecodenummeraanduiding) is vervallen en zoeken met query-parameter adresseerbaarObjectIdentificatie is toegevoegd
+
 
 Schema:
 
 - Verblijfplaats is aangepast door hergebruik van het BAG-adres
+  - Verblijfplaats.straatnaam --> Verblijfplaats.korteNaam
+  - Verblijfplaats.identificatiecodeNummeraanduiding --> Verblijfplaats.nummeraanduidingIdentificatie
+  - Verblijfplaats.identificatiecodeAdresseerbaarObject --> Verblijfplaats.adresseerbaarObjectIdentificatie
+  - Verblijfplaats.naamOpenbarerRuimte --> Verblijfplaats.straatnaam
+  - Verblijfplaats.straatnaam --> Verblijfplaats.korteNaam
+  - Verblijfplaats.woonplaatsnaam --> Verblijfplaats.woonplaats
+  - VerblijfplaatsInOnderzoek.identificatiecodeNummeraanduiding --> VerblijfplaatsInOnderzoek.nummeraanduidingIdentificatie
+  - VerblijfplaatsInOnderzoek.identificatiecodeAdresseerbaarObject --> VerblijfplaatsInOnderzoek.adresseerbaarObjectIdentificatie
+  - VerblijfplaatsInOnderzoek.naamOpenbarerRuimte --> VerblijfplaatsInOnderzoek.straatnaam
+  - VerblijfplaatsInOnderzoek.straatnaam --> VerblijfplaatsInOnderzoek.korteNaam
+  - VerblijfplaatsInOnderzoek.woonplaatsnaam --> VerblijfplaatsInOnderzoek.woonplaats
+
+
 - Bewoner.functieadres --> Bewoner.functieAdres
-- Bewoning_links.nummeraanduiding --> BewoningLinks.nummeraanduidingen
+- Bewoning_links.nummeraanduiding --> BewoningLinks.nummeraanduidingen (Dit is een array geworden)
 - IngeschrevenPersoon.nationaliteit --> IngeschrevenPersoon.nationaliteiten
 - IngeschrevenPersoon.reisdocumenten --> IngeschrevenPersoon.reisdocumentnummers
-- Verblijfplaats.straatnaam --> Verblijfplaats.korteNaam
-- Verblijfplaats.identificatiecodeNummeraanduiding --> Verblijfplaats.nummeraanduidingIdentificatie
-- Verblijfplaats.identificatiecodeAdresseerbaarObject --> Verblijfplaats.adresseerbaarObjectIdentificatie
-Verblijfplaats.naamOpenbarerRuimte --> Verblijfplaats.straatnaam
-- Verblijfplaats.straatnaam --> Verblijfplaats.korteNaam
-- Verblijfplaats.woonplaatsnaam --> Verblijfplaats.woonplaats
-- VerblijfplaatsInOnderzoek.identificatiecodeNummeraanduiding --> VerblijfplaatsInOnderzoek.nummeraanduidingIdentificatie
-- VerblijfplaatsInOnderzoek.identificatiecodeAdresseerbaarObject --> VerblijfplaatsInOnderzoek.adresseerbaarObjectIdentificatie
-VerblijfplaatsInOnderzoek.naamOpenbarerRuimte --> VerblijfplaatsInOnderzoek.straatnaam
-- VerblijfplaatsInOnderzoek.straatnaam --> VerblijfplaatsInOnderzoek.korteNaam
-- VerblijfplaatsInOnderzoek.woonplaatsnaam --> VerblijfplaatsInOnderzoek.woonplaats
-- IngeschrevenPersoon_Links --> IngeschrevenPersoon_Links
 - IngeschrevenPersoon_links.verblijfplaatsNummeraanduiding --> IngeschrevenPersoonLinks.adres
 
 
 _**non-Breaking**_
+- IngeschrevenPersoon_Links --> IngeschrevenPersoonLinks
 - Schema-component BinnenlandsAdres is verwijderd.
 - Schema-component Verblijfbuitenland is verwijderd. Properties zijn opgenomen in Verblijfplaats.
 - SchemaComponent Bewoning : adresseerbaarobjectidentificatie toegevoegd
 - Enkele namen van schema-componenten zijn aangepast vanwege consistentie met andere Haal-Centraal API's
-  - Hal-componenten die alleen _links bevatten zijn omgenoemd van xxxHal naar xxxHalBasis
+  - Hal-componenten die alleen _links bevatten zijn omgenoemd van xxxHal naar xxxHalBasi
   - Bewoning_links --> BewoningLinks
   - Bewoning_embedded --> BewoningEmbedded
   - BewoningHalCollectie__embedded --> BewoningHalCollectieEmbedded
@@ -69,10 +72,10 @@ _**non-Breaking**_
   - AangaanHuwelijkInOnderzoek --> AangaanHuwelijkPartnerschapInOnderzoek
   - IngeschrevenPersoon_links --> IngeschrevenPersoonLinks
   - IngeschrevenPersoon_embedded --> IngeschrevenPersoonEmbedded
-  - NaamPersoon.regelVoorafgaandAanAanschrijfwijze toegevoegd
-  - NaamPersoon.inOnderzoek toegevoegd
-  - Naam.adellijkeTitelPredikaat toegevoegd
-  - NaamInOnderzoek.adellijkeTitelPredikaat toegevoegd
+- NaamPersoon.regelVoorafgaandAanAanschrijfwijze toegevoegd
+- NaamPersoon.inOnderzoek toegevoegd
+- Naam.adellijkeTitelPredikaat toegevoegd
+- NaamInOnderzoek.adellijkeTitelPredikaat toegevoegd
 - Bij properties zijn de maxLength, minLength, pattern en (waar overbodig) de title weggehaald.
 
 ### Features:
