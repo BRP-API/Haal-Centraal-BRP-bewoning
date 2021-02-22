@@ -1,11 +1,11 @@
 {
     "item": [
         {
-            "id": "7e407836-7c23-4f05-affc-82390661a1be",
+            "id": "6acc4177-8f1f-460d-bb99-a113f86e9b99",
             "name": "bewoningen",
             "item": [
                 {
-                    "id": "afd29268-fd1f-489c-bc67-0772a3b0e561",
+                    "id": "9d0706c6-5a22-44dd-801c-639dd80c28b3",
                     "name": "get Bewoningen",
                     "request": {
                         "name": "get Bewoningen",
@@ -22,39 +22,46 @@
                             ],
                             "query": [
                                 {
-                                    "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
+                                    "disabled": false,
                                     "key": "expand",
-                                    "value": "<string>"
+                                    "value": "<string>",
+                                    "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature)."
                                 },
                                 {
-                                    "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
+                                    "disabled": false,
                                     "key": "fields",
-                                    "value": "<string>"
+                                    "value": "<string>",
+                                    "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
                                 },
                                 {
-                                    "description": "De datum waarop de resource wordt opgevraagd.",
+                                    "disabled": false,
                                     "key": "peildatum",
-                                    "value": "<date>"
+                                    "value": "<date>",
+                                    "description": "De datum waarop de resource wordt opgevraagd."
                                 },
                                 {
-                                    "description": "De begindatum van de periode waarover de resource wordt opgevraagd.",
+                                    "disabled": false,
                                     "key": "datumVan",
-                                    "value": "<date>"
+                                    "value": "<date>",
+                                    "description": "De begindatum van de periode waarover de resource wordt opgevraagd."
                                 },
                                 {
-                                    "description": "De einddatum van de periode waarover de resource wordt opgevraagd.",
+                                    "disabled": false,
                                     "key": "datumTotEnMet",
-                                    "value": "<date>"
+                                    "value": "<date>",
+                                    "description": "De einddatum van de periode waarover de resource wordt opgevraagd."
                                 },
                                 {
-                                    "description": "Uniek persoonsnummer.\n",
+                                    "disabled": false,
                                     "key": "burgerservicenummer",
-                                    "value": "<string>"
+                                    "value": "<string>",
+                                    "description": "Uniek persoonsnummer.\n"
                                 },
                                 {
-                                    "description": "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
+                                    "disabled": false,
                                     "key": "adresseerbaarObjectIdentificatie",
-                                    "value": "<string>"
+                                    "value": "<string>",
+                                    "description": "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n"
                                 }
                             ],
                             "variable": []
@@ -64,7 +71,7 @@
                     },
                     "response": [
                         {
-                            "id": "cea6f455-98c8-4c19-8aed-839f90a8b948",
+                            "id": "43223882-e5f7-4bf6-bd49-d9beda87ccd7",
                             "name": "Zoekactie geslaagd\n",
                             "originalRequest": {
                                 "url": {
@@ -97,7 +104,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -113,26 +120,28 @@
                             "code": 200,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "warning",
-                                    "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\"."
+                                    "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
                                     "value": "application/hal+json"
                                 }
                             ],
-                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": false,\n   \"title\": \"laborum eu\"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"indicatieVeelBewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"adressen\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   },\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"indicatieVeelBewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"adressen\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
+                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": true,\n   \"title\": \"voluptate exercitation ullamco Duis\"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"indicatieVeelBewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"adressen\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   },\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"indicatieVeelBewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"adressen\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "00aaf4fa-542b-4804-99b0-b26f84528db9",
+                            "id": "d2920f34-847b-4959-9f1d-e1992076b2bb",
                             "name": "Bad Request",
                             "originalRequest": {
                                 "url": {
@@ -165,7 +174,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -181,9 +190,10 @@
                             "code": 400,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
@@ -195,7 +205,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "d91d3319-320f-4c33-ab24-d823f97d2604",
+                            "id": "ba29ce2c-e518-4926-9158-091d82860d30",
                             "name": "Unauthorized",
                             "originalRequest": {
                                 "url": {
@@ -228,7 +238,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -244,9 +254,10 @@
                             "code": 401,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
@@ -258,7 +269,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "e726bd7e-f211-4911-b6ca-2dc3a54dc821",
+                            "id": "75d427be-5b65-49b1-8772-e8aaa71b1f90",
                             "name": "Forbidden",
                             "originalRequest": {
                                 "url": {
@@ -291,7 +302,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -307,9 +318,10 @@
                             "code": 403,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
@@ -321,7 +333,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "71cf9594-3391-46dd-acab-62a64a524ecd",
+                            "id": "de1249fb-8a83-4cc2-bfa1-2898ab4238e4",
                             "name": "Not Acceptable",
                             "originalRequest": {
                                 "url": {
@@ -354,7 +366,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -370,9 +382,10 @@
                             "code": 406,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
@@ -384,7 +397,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "2c803405-d0fd-416a-8c7e-15eabc9ae23a",
+                            "id": "66ba7d0a-f6eb-4149-9691-2806eef1ee38",
                             "name": "Internal Server Error",
                             "originalRequest": {
                                 "url": {
@@ -417,7 +430,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -433,9 +446,10 @@
                             "code": 500,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
@@ -447,7 +461,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "67d155ed-db07-451a-b11f-766f7b4ebc69",
+                            "id": "f73b3b63-58d1-4c36-8e1b-ac6f0f38d4c5",
                             "name": "Not Implemented",
                             "originalRequest": {
                                 "url": {
@@ -480,7 +494,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -496,9 +510,10 @@
                             "code": 501,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
@@ -510,7 +525,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "9b1005e5-25de-43eb-b114-d77b297e1824",
+                            "id": "44c1279d-2b69-46ac-93e1-88dc72517c27",
                             "name": "Service Unavailable",
                             "originalRequest": {
                                 "url": {
@@ -543,7 +558,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -559,9 +574,10 @@
                             "code": 503,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
@@ -573,7 +589,7 @@
                             "_postman_previewlanguage": "json"
                         },
                         {
-                            "id": "f2630feb-a431-4f3a-8265-181c47ddacc2",
+                            "id": "d67f540a-0e23-4e8f-a5f8-7714e4855a4c",
                             "name": "Er is een onverwachte fout opgetreden",
                             "originalRequest": {
                                 "url": {
@@ -606,7 +622,7 @@
                                         },
                                         {
                                             "key": "burgerservicenummer",
-                                            "value": "<string>"
+                                            "value": "999993653"
                                         },
                                         {
                                             "key": "adresseerbaarObjectIdentificatie",
@@ -622,16 +638,17 @@
                             "code": 500,
                             "header": [
                                 {
-                                    "description": "",
+                                    "disabled": false,
                                     "key": "api-version",
-                                    "value": "1.0.0"
+                                    "value": "1.0.0",
+                                    "description": ""
                                 },
                                 {
                                     "key": "Content-Type",
                                     "value": "application/problem+json"
                                 }
                             ],
-                            "body": "{\n \"type\": \"http://JaJMGYwPdQVlULtBMfnodeSXldYjZIOds.qympbhu7ByXk9jzGN1na,tRUyCbcLaKD7uEZVNF1BNuh\",\n \"title\": \"officia\",\n \"status\": 62305339,\n \"detail\": \"officia elit commodo\",\n \"instance\": \"https://ozFl.pjHv7mhPvKJgytoOO37jvUs5DCtaUH3y1t.CAf9BvMXn9GwyFRBu,ZoR1qhsA3p0xTd2NDSQxqY+A.\",\n \"code\": \"voluptate magna velit\"\n}",
+                            "body": "{\n \"type\": \"http://hqIrwDgQWgICNSqiMcXXV.agM-rFiF12wOJHHg-LEHMq+pR9X3zx+iR+RBSZXM2tYF5-tPQ69fV.1A.U67+DPttJ,Jl+hWBm-Qv\",\n \"title\": \"Ut aliquip sunt commodo dolor\",\n \"status\": 53637243,\n \"detail\": \"anim sint est dolore consequat\",\n \"instance\": \"http://lNYdmcEbuYQ.bfjxV.EDqIJh87GA+AnuumaCJEfPxRz9HYFVfrkevM4XeES\",\n \"code\": \"et incididunt\"\n}",
                             "cookie": [],
                             "_postman_previewlanguage": "json"
                         }
@@ -639,11 +656,11 @@
                     "event": []
                 },
                 {
-                    "id": "2769dbce-3142-4fac-b08f-640261c82d4f",
+                    "id": "ec8fe269-4a07-4fce-b809-9db8fea74b30",
                     "name": "{adresseerbaar Object Identificatie}",
                     "item": [
                         {
-                            "id": "18ccca53-5049-403c-8a11-c9645d154b8d",
+                            "id": "24059872-89f4-45ca-9bb2-725d1259871e",
                             "name": "get Bewoning",
                             "request": {
                                 "name": "get Bewoning",
@@ -661,37 +678,43 @@
                                     ],
                                     "query": [
                                         {
-                                            "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature).",
+                                            "disabled": false,
                                             "key": "expand",
-                                            "value": "<string>"
+                                            "value": "<string>",
+                                            "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature)."
                                         },
                                         {
-                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
+                                            "disabled": false,
                                             "key": "fields",
-                                            "value": "<string>"
+                                            "value": "<string>",
+                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
                                         },
                                         {
-                                            "description": "De datum waarop de resource wordt opgevraagd.",
+                                            "disabled": false,
                                             "key": "peildatum",
-                                            "value": "<date>"
+                                            "value": "<date>",
+                                            "description": "De datum waarop de resource wordt opgevraagd."
                                         },
                                         {
-                                            "description": "De begindatum van de periode waarover de resource wordt opgevraagd.",
+                                            "disabled": false,
                                             "key": "datumVan",
-                                            "value": "<date>"
+                                            "value": "<date>",
+                                            "description": "De begindatum van de periode waarover de resource wordt opgevraagd."
                                         },
                                         {
-                                            "description": "De einddatum van de periode waarover de resource wordt opgevraagd.",
+                                            "disabled": false,
                                             "key": "datumTotEnMet",
-                                            "value": "<date>"
+                                            "value": "<date>",
+                                            "description": "De einddatum van de periode waarover de resource wordt opgevraagd."
                                         }
                                     ],
                                     "variable": [
                                         {
-                                            "description": "(Required) De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
+                                            "disabled": false,
                                             "type": "any",
                                             "value": "<string>",
-                                            "key": "adresseerbaarObjectIdentificatie"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "description": "(Required) De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n"
                                         }
                                     ]
                                 },
@@ -700,7 +723,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "9ae9d8d5-6617-417d-852f-aa6ff1faa23c",
+                                    "id": "dd05dafb-db16-4cff-b101-d7364c88c999",
                                     "name": "Zoekactie geslaagd\n",
                                     "originalRequest": {
                                         "url": {
@@ -747,14 +770,16 @@
                                     "code": 200,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "warning",
-                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\"."
+                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -766,7 +791,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "97b9c3f1-d7c7-4ab1-9151-840aa55f3cc1",
+                                    "id": "970c68e6-2cb4-4642-b22e-56d69c12c783",
                                     "name": "Bad Request",
                                     "originalRequest": {
                                         "url": {
@@ -813,9 +838,10 @@
                                     "code": 400,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -827,7 +853,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "d8bc65ea-305e-4a5f-af0b-f18357767fad",
+                                    "id": "a5f8e4e1-25be-49d0-a296-c5937e1991c7",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -874,9 +900,10 @@
                                     "code": 401,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -888,7 +915,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "1ce0cd10-8e08-49e9-a69c-e9541735da99",
+                                    "id": "3182838d-6ecd-4a64-97fe-1ec1df1384f3",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
@@ -935,9 +962,10 @@
                                     "code": 403,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -949,7 +977,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "d87ffc45-d4a7-4e39-b16c-a2aa5346f604",
+                                    "id": "d6e2e94f-59c9-4810-b058-7598e6071e09",
                                     "name": "Not Found",
                                     "originalRequest": {
                                         "url": {
@@ -996,9 +1024,10 @@
                                     "code": 404,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1010,7 +1039,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "f7703c46-2374-47cf-8a0b-61715ae82a09",
+                                    "id": "9b42e17a-c5ca-428b-87b2-8bee3dc92d36",
                                     "name": "Not Acceptable",
                                     "originalRequest": {
                                         "url": {
@@ -1057,9 +1086,10 @@
                                     "code": 406,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1071,7 +1101,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "6436790d-cb8f-439f-b30c-6d4eaf85336e",
+                                    "id": "7c909a9e-73d2-4abc-b652-b68e8fa33f26",
                                     "name": "Internal Server Error",
                                     "originalRequest": {
                                         "url": {
@@ -1118,9 +1148,10 @@
                                     "code": 500,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1132,7 +1163,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "9e8c9f50-457a-4204-9f1e-c71820f11d85",
+                                    "id": "7785a272-f900-4bfe-b75b-2a85013cd361",
                                     "name": "Not Implemented",
                                     "originalRequest": {
                                         "url": {
@@ -1179,9 +1210,10 @@
                                     "code": 501,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1193,7 +1225,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "afd95a5d-a7a1-45f7-9d30-9da650c1fa8c",
+                                    "id": "eb842794-e07e-4308-a6cf-48974f9bc6fd",
                                     "name": "Service Unavailable",
                                     "originalRequest": {
                                         "url": {
@@ -1240,9 +1272,10 @@
                                     "code": 503,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1254,7 +1287,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "16dce809-7df3-492a-8e17-ae1fe897766f",
+                                    "id": "78e680f1-a16d-49b5-b0f7-b708dda8df90",
                                     "name": "Er is een onverwachte fout opgetreden",
                                     "originalRequest": {
                                         "url": {
@@ -1301,16 +1334,17 @@
                                     "code": 500,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"http://JaJMGYwPdQVlULtBMfnodeSXldYjZIOds.qympbhu7ByXk9jzGN1na,tRUyCbcLaKD7uEZVNF1BNuh\",\n \"title\": \"officia\",\n \"status\": 62305339,\n \"detail\": \"officia elit commodo\",\n \"instance\": \"https://ozFl.pjHv7mhPvKJgytoOO37jvUs5DCtaUH3y1t.CAf9BvMXn9GwyFRBu,ZoR1qhsA3p0xTd2NDSQxqY+A.\",\n \"code\": \"voluptate magna velit\"\n}",
+                                    "body": "{\n \"type\": \"http://hqIrwDgQWgICNSqiMcXXV.agM-rFiF12wOJHHg-LEHMq+pR9X3zx+iR+RBSZXM2tYF5-tPQ69fV.1A.U67+DPttJ,Jl+hWBm-Qv\",\n \"title\": \"Ut aliquip sunt commodo dolor\",\n \"status\": 53637243,\n \"detail\": \"anim sint est dolore consequat\",\n \"instance\": \"http://lNYdmcEbuYQ.bfjxV.EDqIJh87GA+AnuumaCJEfPxRz9HYFVfrkevM4XeES\",\n \"code\": \"et incididunt\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 }
@@ -1318,7 +1352,7 @@
                             "event": []
                         },
                         {
-                            "id": "4207cd1e-22e5-4fda-becd-17c7f0b3149d",
+                            "id": "a23325d4-8c3c-41ab-9036-644ca9fc60c8",
                             "name": "get Bewoningverloop",
                             "request": {
                                 "name": "get Bewoningverloop",
@@ -1337,27 +1371,31 @@
                                     ],
                                     "query": [
                                         {
-                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)",
+                                            "disabled": false,
                                             "key": "fields",
-                                            "value": "<string>"
+                                            "value": "<string>",
+                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
                                         },
                                         {
-                                            "description": "De begindatum van de periode waarover de resource wordt opgevraagd.",
+                                            "disabled": false,
                                             "key": "datumVan",
-                                            "value": "<date>"
+                                            "value": "<date>",
+                                            "description": "De begindatum van de periode waarover de resource wordt opgevraagd."
                                         },
                                         {
-                                            "description": "De einddatum van de periode waarover de resource wordt opgevraagd.",
+                                            "disabled": false,
                                             "key": "datumTotEnMet",
-                                            "value": "<date>"
+                                            "value": "<date>",
+                                            "description": "De einddatum van de periode waarover de resource wordt opgevraagd."
                                         }
                                     ],
                                     "variable": [
                                         {
-                                            "description": "(Required) De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n",
+                                            "disabled": false,
                                             "type": "any",
                                             "value": "<string>",
-                                            "key": "adresseerbaarObjectIdentificatie"
+                                            "key": "adresseerbaarObjectIdentificatie",
+                                            "description": "(Required) De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n"
                                         }
                                     ]
                                 },
@@ -1366,7 +1404,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "37444ba5-7aa0-41b4-a9ec-47e347f11612",
+                                    "id": "4cd8f459-ad47-4711-a9c1-ab098f7a7984",
                                     "name": "Zoekactie geslaagd\n",
                                     "originalRequest": {
                                         "url": {
@@ -1406,14 +1444,16 @@
                                     "code": 200,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "warning",
-                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\"."
+                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1425,7 +1465,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "33bb6fa0-6109-4e42-afde-4dcc50f65f50",
+                                    "id": "9c81c127-c83a-4bfe-ab8d-c1b138fd75d5",
                                     "name": "Bad Request",
                                     "originalRequest": {
                                         "url": {
@@ -1465,9 +1505,10 @@
                                     "code": 400,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1479,7 +1520,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "38265dc9-991e-4542-915f-822e34ed4fb4",
+                                    "id": "361eec01-4d49-4197-85af-7c25e5ae6439",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -1519,9 +1560,10 @@
                                     "code": 401,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1533,7 +1575,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "1a67f4ae-03ce-4a70-abb5-a75b5340c419",
+                                    "id": "5b39d9dd-2048-4ff1-b4eb-46f3bcd7b386",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
@@ -1573,9 +1615,10 @@
                                     "code": 403,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1587,7 +1630,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "0b525b10-7889-4522-b2d6-a5594012462b",
+                                    "id": "1192b49b-d51e-4317-8588-84efce7ce32b",
                                     "name": "Not Found",
                                     "originalRequest": {
                                         "url": {
@@ -1627,9 +1670,10 @@
                                     "code": 404,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1641,7 +1685,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "c37a0a64-6879-4854-a4ec-08b82c3f936f",
+                                    "id": "616dfa9d-df99-49c1-99a5-7b868cc44438",
                                     "name": "Not Acceptable",
                                     "originalRequest": {
                                         "url": {
@@ -1681,9 +1725,10 @@
                                     "code": 406,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1695,7 +1740,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "1a6b3e1c-fc4e-4366-86a3-2c676c20205c",
+                                    "id": "297f4319-b26a-4060-b21a-df35e842a5ce",
                                     "name": "Internal Server Error",
                                     "originalRequest": {
                                         "url": {
@@ -1735,9 +1780,10 @@
                                     "code": 500,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1749,7 +1795,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "4462fa27-1287-42cc-a991-6641c7b18635",
+                                    "id": "f39e74b0-00be-4a9b-b3ea-c5b8d4bebca9",
                                     "name": "Not Implemented",
                                     "originalRequest": {
                                         "url": {
@@ -1789,9 +1835,10 @@
                                     "code": 501,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1803,7 +1850,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "94c8a02d-0d1c-4d3f-a20b-dde687e95d6e",
+                                    "id": "f8d303cc-4a8c-481c-8586-e73cc50b4c2d",
                                     "name": "Service Unavailable",
                                     "originalRequest": {
                                         "url": {
@@ -1843,9 +1890,10 @@
                                     "code": 503,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
@@ -1857,7 +1905,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "4b136b72-b623-4464-9b42-28c8ae854b79",
+                                    "id": "2da1dcd5-cb7a-4dcc-b8ab-c9ad099d5272",
                                     "name": "Er is een onverwachte fout opgetreden",
                                     "originalRequest": {
                                         "url": {
@@ -1897,16 +1945,17 @@
                                     "code": 500,
                                     "header": [
                                         {
-                                            "description": "",
+                                            "disabled": false,
                                             "key": "api-version",
-                                            "value": "1.0.0"
+                                            "value": "1.0.0",
+                                            "description": ""
                                         },
                                         {
                                             "key": "Content-Type",
                                             "value": "application/problem+json"
                                         }
                                     ],
-                                    "body": "{\n \"type\": \"http://JaJMGYwPdQVlULtBMfnodeSXldYjZIOds.qympbhu7ByXk9jzGN1na,tRUyCbcLaKD7uEZVNF1BNuh\",\n \"title\": \"officia\",\n \"status\": 62305339,\n \"detail\": \"officia elit commodo\",\n \"instance\": \"https://ozFl.pjHv7mhPvKJgytoOO37jvUs5DCtaUH3y1t.CAf9BvMXn9GwyFRBu,ZoR1qhsA3p0xTd2NDSQxqY+A.\",\n \"code\": \"voluptate magna velit\"\n}",
+                                    "body": "{\n \"type\": \"http://hqIrwDgQWgICNSqiMcXXV.agM-rFiF12wOJHHg-LEHMq+pR9X3zx+iR+RBSZXM2tYF5-tPQ69fV.1A.U67+DPttJ,Jl+hWBm-Qv\",\n \"title\": \"Ut aliquip sunt commodo dolor\",\n \"status\": 53637243,\n \"detail\": \"anim sint est dolore consequat\",\n \"instance\": \"http://lNYdmcEbuYQ.bfjxV.EDqIJh87GA+AnuumaCJEfPxRz9HYFVfrkevM4XeES\",\n \"code\": \"et incididunt\"\n}",
                                     "cookie": [],
                                     "_postman_previewlanguage": "json"
                                 }
@@ -1929,7 +1978,7 @@
         }
     ],
     "info": {
-        "_postman_id": "fb75ae62-e2f1-4c8d-88c3-0f5f94868441",
+        "_postman_id": "3ba647e1-f539-46df-85b4-20903043acac",
         "name": "Bewoning",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
