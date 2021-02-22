@@ -34,8 +34,7 @@ _**Breaking**_
 - Zoeken op nummeraanduding (parameter identificatiecodenummeraanduiding) is vervallen en zoek op adresseerbaarobject (parameter adresseerbaarObjectIdentificatie) is toegevoegd
 
 Schema:
-- Schema-component BinnenlandsAdres is verwijderd.
-- Schema-component Verblijfbuitenland is verwijderd. Properties zijn opgenomen in Verblijfplaats.
+
 - Verblijfplaats is aangepast door hergebruik van het BAG-adres
 - Bewoner.functieadres --> Bewoner.functieAdres
 - Bewoning_links.nummeraanduiding --> BewoningLinks.nummeraanduidingen
@@ -57,6 +56,8 @@ VerblijfplaatsInOnderzoek.naamOpenbarerRuimte --> VerblijfplaatsInOnderzoek.stra
 
 
 _**non-Breaking**_
+- Schema-component BinnenlandsAdres is verwijderd.
+- Schema-component Verblijfbuitenland is verwijderd. Properties zijn opgenomen in Verblijfplaats.
 - SchemaComponent Bewoning : adresseerbaarobjectidentificatie toegevoegd
 - Enkele namen van schema-componenten zijn aangepast vanwege consistentie met andere Haal-Centraal API's
   - Hal-componenten die alleen _links bevatten zijn omgenoemd van xxxHal naar xxxHalBasis
@@ -72,7 +73,6 @@ _**non-Breaking**_
   - NaamPersoon.inOnderzoek toegevoegd
   - Naam.adellijkeTitelPredikaat toegevoegd
   - NaamInOnderzoek.adellijkeTitelPredikaat toegevoegd
-
 - Bij properties zijn de maxLength, minLength, pattern en (waar overbodig) de title weggehaald.
 
 ### Features:
