@@ -34,7 +34,7 @@ import org.openapitools.client.model.Waardetabel;
 /**
  * Verblijfplaats
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T11:06:48.381Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2021-02-22T11:12:35.961Z[Etc/UTC]")
 public class Verblijfplaats {
   public static final String SERIALIZED_NAME_STRAAT = "straat";
   @SerializedName(SERIALIZED_NAME_STRAAT)
