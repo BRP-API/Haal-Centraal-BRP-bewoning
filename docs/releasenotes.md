@@ -63,7 +63,7 @@ _**non-Breaking**_
 - Schema-component Verblijfbuitenland is verwijderd. Properties zijn opgenomen in Verblijfplaats.
 - SchemaComponent Bewoning : adresseerbaarobjectidentificatie toegevoegd
 - Enkele namen van schema-componenten zijn aangepast vanwege consistentie met andere Haal-Centraal API's
-  - Hal-componenten die alleen _links bevatten zijn omgenoemd van xxxHal naar xxxHalBasi
+  - Hal-componenten die alleen _links bevatten zijn omgenoemd van xxxHal naar xxxHalBasis
   - Bewoning_links --> BewoningLinks
   - Bewoning_embedded --> BewoningEmbedded
   - BewoningHalCollectie__embedded --> BewoningHalCollectieEmbedded
