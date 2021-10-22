@@ -38,10 +38,21 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         Scenario: persoon is verhuisd op onbekende datum
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
+                | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
+                | 8         | 00000000                         |                                          |
+                | 58        | JJJJMMDD                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?datumVan=1990-01-01&datumTotEnMet=2021-09-30
+            Dan heeft de bewoner met burgerservicenummer "99999XXXX" GEEN property datumTot
+
+            # voor een gebruiker lijkt het dus alsof de persoon hier nu nog steeds woont, terwijl het zeker is dat deze hier niet meer woont.
+
+        Scenario: persoon is geëimigreerd op onbekende datum
+        # To Do: persoon voor deze situatie vinden of laten maken
+            Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) | datum aanvang adres buitenland (13.20) |
                 | 8         |                                  |                                          | 00000000                               |
-                | 58        | JJJJMMDD                         | GGGG010000XXXXXX                         |                                        |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?datumVan=1990-01-01&datumTotEnMet=2021-09-30
+                | 58        | JJJJMMDD                         | GGGG01XXXXXXXXXX                         |                                        |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?datumVan=1990-01-01&datumTotEnMet=2021-09-30
             Dan heeft de bewoner met burgerservicenummer "99999XXXX" GEEN property datumTot
 
             # voor een gebruiker lijkt het dus alsof de persoon hier nu nog steeds woont, terwijl het zeker is dat deze hier niet meer woont.
@@ -50,9 +61,9 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJJ0000                         | GGGG010000NNNNNN                         |
-                | 58        | JJJJMMDD                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?datumVan=1990-01-01&datumTotEnMet=2021-09-30
+                | 8         | JJJJ0000                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJJMMDD                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?datumVan=1990-01-01&datumTotEnMet=2021-09-30
             Dan heeft de bewoner met burgerservicenummer "99999XXXX" een property datumTot met jaar=JJJJ
         
         Scenario: persoon is actueel ingeschreven op het gevraagde adres (datumTot wordt niet geleverd)
@@ -71,10 +82,10 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # JJJ0M0D0 < JJJ1M1D1 < JJJ2M2D2 < JJJ3M3D3 < JJJ4M4D4
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) | nummeraanduidingIdentificatie (11.90) | onjuist (84.10) |
-                | 8         | JJJ3M3D3                         | GGGG010000NNNNN2                         | GGGG200000NNNNN2                      |                 |
-                | 58        | JJJ2M2D2                         | GGGG010000XXXXXX                         |                                       | O               |
-                | 58        | JJJ1M1D1                         | GGGG010000NNNNN1                         | GGGG200000NNNNN1                      |                 |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNN1?datumVan=JJJ1-M1-D1&datumTotEnMet=JJJ3-M3-D3
+                | 8         | JJJ3M3D3                         | GGGG01XXXXXXXXX2                         | GGGG20XXXXXXXXX2                      |                 |
+                | 58        | JJJ2M2D2                         | GGGG01XXXXXXXXX1                         | GGGG20XXXXXXXXX1                      | O               |
+                | 58        | JJJ1M1D1                         | GGGG01NNNNNNNNNN                         | GGGG20NNNNNNNNNN                      |                 |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=JJJ1-M1-D1&datumTotEnMet=JJJ3-M3-D3
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumTot met datum "JJJ3-M3-D3"
 
     
@@ -141,10 +152,10 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # JJJ1M1D1 < JJJ2M2D2 < JJJ3M3D3
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ3M3D3                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ2M2D2                         | GGGG010000XXXXXX                         |
-                | 58        | JJJ1M1D1                         | GGGG010000NNNNNN                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?datumVan=JJJ1-01-01&datumTotEnMet=JJJ3-12-31
+                | 8         | JJJ3M3D3                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ2M2D2                         | GGGG01XXXXXXXXXX                         |
+                | 58        | JJJ1M1D1                         | GGGG01NNNNNNNNNN                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=JJJ1-01-01&datumTotEnMet=JJJ3-12-31
             Dan bevat het antwoord 2 bewoners
             En bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met datum "JJJ3-M3-D3"
             En bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met datum "JJJ3-M1-D1"
@@ -154,12 +165,12 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # JJJ1M1D1 < JJJ2M2D2 < JJJ3M3D3
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ2M2D2                         | GGGG010000XXXXXX                         |
-                | 58        | JJJ1M1D1                         | GGGG010000NNNNNN                         |
+                | 8         | JJJ2M2D2                         | GGGG01XXXXXXXXXX                         |
+                | 58        | JJJ1M1D1                         | GGGG01NNNNNNNNNN                         |
             En de persoon met burgerservicenummer "99999YYYY" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ3M3D3                         | GGGG010000NNNNNN                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?datumVan=JJJ1-02-02&datumTotEnMet=JJJ3-12-31
+                | 8         | JJJ3M3D3                         | GGGG01NNNNNNNNNN                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=JJJ1-02-02&datumTotEnMet=JJJ3-12-31
             Dan bevat het antwoord 2 bewoners
             En bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met datum "JJJ1-M1-D1"
             En bevat het antwoord de bewoner met burgerservicenummer "99999YYYY" en property datumAanvangAdreshouding met datum "JJJ3-M3-D3"
@@ -188,27 +199,27 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ2M200                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?datumVan=1990-01-01&datumTotEnMet=JJJ2-M2-01
+                | 8         | JJJ2M200                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=1990-01-01&datumTotEnMet=JJJ2-M2-01
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met jaar=JJJ2 en maand=M2
 
         Scenario: alleen jaar van de datumAanvangAdreshouding is bekend en gelijk aan jaar in de gevraagde datumTotEnMet
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ20000                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?datumVan=1990-01-01&datumTotEnMet=JJJ2-01-01
+                | 8         | JJJ20000                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=1990-01-01&datumTotEnMet=JJJ2-01-01
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met jaar=JJJ2M2D2
 
         Scenario: de datumAanvangAdreshouding is geheel onbekend en er is een eerdere verblijfplaats
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | 00000000                         | GGGG010000NNNNNN                         |
-                | 58        | JJJJMMDD                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?peildatum=JJJJ-MM-DD
+                | 8         | 00000000                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJJMMDD                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?peildatum=JJJJ-MM-DD
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en GEEN property datumAanvangAdreshouding
 
         # Moet er rule zijn voor aannemen onbekende datum aanvang > datum aanvang vorige verblijfplaats? (persoon kan niet eerder op adres hebben gewoond want woonde toen zeker ergens anders)
@@ -230,9 +241,9 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ2M200                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?datumVan=JJJ2-M2-30&datumTotEnMet=2021-09-30
+                | 8         | JJJ2M200                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?datumVan=JJJ2-M2-30&datumTotEnMet=2021-09-30
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met datum "JJJ1-M1-D1"
 
         Scenario: alleen maand en jaar van de datumTot zijn bekend en liggen vóór de gevraagde datumVan
@@ -240,27 +251,27 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # hieronder is M3=M2+1, bijvoorbeeld als JJJ2M200="20190500", dan is datumVan=2019-06-01
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ2M200                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?datumVan=JJJ2-M3-01&datumTotEnMet=2021-09-30
+                | 8         | JJJ2M200                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?datumVan=JJJ2-M3-01&datumTotEnMet=2021-09-30
             Dan bevat het antwoord GEEN bewoner met burgerservicenummer "99999XXXX"
 
         Scenario: alleen maand en jaar van de datumTot zijn bekend en gelijk aan jaar en maand in de gevraagde peildatum
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ2M200                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?peildatum=JJJ2-M2-30
+                | 8         | JJJ2M200                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?peildatum=JJJ2-M2-30
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met datum "JJJ1-M1-D1"
 
         Scenario: alleen jaar van de datumTot is bekend en gelijk aan jaar in de gevraagde datumVan
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ20000                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?datumVan=JJJ2-12-31&datumTotEnMet=2021-09-30
+                | 8         | JJJ20000                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?datumVan=JJJ2-12-31&datumTotEnMet=2021-09-30
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met datum "JJJ1-M1-D1"
 
         Scenario: alleen jaar van de datumTot is bekend en eerder dan het jaar in de gevraagde datumVan
@@ -268,28 +279,28 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # hieronder is JJJ3=JJJ2+1, bijvoorbeeld als JJJ20000="20190000", dan is datumVan=2020-01-01
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ20000                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?datumVan=JJJ3-01-01&datumTotEnMet=2021-09-30
+                | 8         | JJJ20000                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?datumVan=JJJ3-01-01&datumTotEnMet=2021-09-30
             Dan bevat het antwoord GEEN bewoner met burgerservicenummer "99999XXXX"
 
         Scenario: alleen jaar van de datumTot is bekend en gelijk aan jaar in de gevraagde peildatum
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ20000                         | GGGG010000NNNNNN                         |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?peildatum=JJJ2-12-31
+                | 8         | JJJ20000                         | GGGG01NNNNNNNNNN                         |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?peildatum=JJJ2-12-31
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en property datumAanvangAdreshouding met datum "JJJ1-M1-D1"
 
         Scenario: persoon is verhuisd op onbekende datum en daarna weer met bekende datum
         # To Do: persoon voor deze situatie vinden of laten maken
             Gegeven de persoon met burgerservicenummer "99999XXXX" heeft de volgende categorievoorkomens:
-                | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) | datum aanvang adres buitenland (13.20) |
-                | 8         | JJJ2M2D2                         | GGGG010000NNNNNN                         |                                        |
-                | 8         | 00000000                         |                                          | 00000000                               |
-                | 58        | JJJ1M1D1                         | GGGG010000XXXXXX                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000XXXXXX?datumVan=JJJ2-M2-D2&datumTotEnMet=2021-09-30
+                | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
+                | 8         | JJJ2M2D2                         | GGGG01NNNNNNNNNN                         |
+                | 58        | 00000000                         |                                          |
+                | 58        | JJJ1M1D1                         | GGGG01XXXXXXXXXX                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01XXXXXXXXXX?datumVan=JJJ2-M2-D2&datumTotEnMet=2021-09-30
             Dan bevat het antwoord de bewoner met burgerservicenummer "99999XXXX" en GEEN property datumTot
 
             # Moet er rule zijn voor aannemen datumTot = datum aanvang latere verblijfplaats (na verblijfplaats met onbekende datum aanvang)?
@@ -297,20 +308,21 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
     
     Rule: wanneer er meer dan 100 bewoners zijn op het adres in gevraagde periode, worden geen bewoners geleverd, maar wel indicatieVeelBewoners
 
-        Scenario: in de gevraagde periode zijn er meer dan 100 bewoners (indicatieVeelBewoners: true)
+        Scenario: studentenhuis/verzorgingshuis met veel doorstroming: in de gevraagde periode zijn er meer dan 100 bewoners (indicatieVeelBewoners: true)
         # To Do: personen voor deze situatie vinden of laten maken
-            Gegeven er zijn op datum "2021-09-01" 101 personen ingeschreven met verblijfplaats adresseerbaarObjectIdentificatie (11.80) gelijk aan "GGGG010000NNNNNN"
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?datumVan=2021-08-31&datumTotEnMet=2021-09-02
+        # de testsituatie is dat er nooit >100 personen tegelijk staan ingeschreven, maar opgeteld in de hele periode wel
+            Gegeven er zijn in de periode van "2000-01-01" tot en met "2021-09-30", meer dan 100 personen ingeschreven geweest met verblijfplaats adresseerbaarObjectIdentificatie (11.80) gelijk aan "GGGG01NNNNNNNNNN"
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=2000-01-01&datumTotEnMet=2021-09-30
             Dan bevat het antwoord GEEN bewoners
             En bevat het antwoord property "indicatieVeelBewoners" met waarde true
             En bevat het antwoord ten minste 1 adres
 
         # is het maximaal aantal van 100 terug te geven bewoners vastgesteld of kan dit nog een ander aantal worden?
 
-        Scenario: op de gevraagde peildatum zijn er meer dan 100 bewoners (indicatieVeelBewoners: true)
+        Scenario: gemeentelijk briefadres daklozen: op de gevraagde peildatum zijn er meer dan 100 bewoners (indicatieVeelBewoners: true)
         # To Do: personen voor deze situatie vinden of laten maken
-            Gegeven er zijn op datum "2021-09-01" 101 personen ingeschreven met verblijfplaats adresseerbaarObjectIdentificatie (11.80) gelijk aan "GGGG010000NNNNNN"
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?peildatum=2021-09-01
+            Gegeven er zijn op datum "2021-09-01" 101 personen ingeschreven met verblijfplaats adresseerbaarObjectIdentificatie (11.80) gelijk aan "GGGG01NNNNNNNNNN"
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?peildatum=2021-09-01
             Dan bevat het antwoord GEEN bewoners
             En bevat het antwoord property "indicatieVeelBewoners" met waarde true
             En bevat het antwoord ten minste 1 adres
@@ -319,8 +331,8 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
 
         Scenario: in de gevraagde periode zijn er minder dan 100 bewoners, maar totale bewoners ooit is meer dan 100 (bewoners worden geleverd)
         # To Do: personen voor deze situatie vinden of laten maken
-            Gegeven er zijn op datum "2021-10-01" 99 personen ingeschreven met verblijfplaats adresseerbaarObjectIdentificatie (11.80) gelijk aan "GGGG010000NNNNNN"
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?peildatum=2021-10-01
+            Gegeven er zijn op datum "2021-10-01" 99 personen ingeschreven met verblijfplaats adresseerbaarObjectIdentificatie (11.80) gelijk aan "GGGG01NNNNNNNNNN"
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?peildatum=2021-10-01
             Dan bevat het antwoord 99 personen
             En bevat het antwoord GEEN property "indicatieVeelBewoners"
     
@@ -338,7 +350,7 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
             En de persoon met burgerservicenummer "999991036" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
                 | 8         | 19980401                         | 0599010055007301                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?datumVan=2020-01-01&datumTotEnMet=2020-06-30
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=2020-01-01&datumTotEnMet=2020-06-30
             Dan bevat het antwoord 3 bewoners
             En heeft bewoners[0] property "burgerservicenummer" met waarde "999992119" en "datumAanvangAdreshouding" met datum "2010-02-25"
             En heeft bewoners[1] property "burgerservicenummer" met waarde "999991036" en "datumAanvangAdreshouding" met datum "1998-04-01"
@@ -349,17 +361,17 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # JJJ1M1D1 < JJJ2M2D2 < JJJ3M3D3
             Gegeven de persoon met burgerservicenummer "99999NNN1" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ3M3D3                         | GGGG010000XXXXXX                         |
-                | 58        | JJJ1M1D1                         | GGGG010000NNNNNN                         |
+                | 8         | JJJ3M3D3                         | GGGG01XXXXXXXXXX                         |
+                | 58        | JJJ1M1D1                         | GGGG01NNNNNNNNNN                         |
             En de persoon met burgerservicenummer "99999NNN2" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ3M3D3                         | GGGG010000XXXXXX                         |
-                | 58        | JJJ2M2D2                         | GGGG010000NNNNNN                         |
+                | 8         | JJJ3M3D3                         | GGGG01XXXXXXXXXX                         |
+                | 58        | JJJ2M2D2                         | GGGG01NNNNNNNNNN                         |
             En de persoon met burgerservicenummer "99999NNN3" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ2M2D2                         | GGGG010000XXXXXX                         |
-                | 58        | JJJ1M1D1                         | GGGG010000NNNNNN                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?datumVan=JJJ1-M1-D1&datumTotEnMet=JJJ3-M3-D3
+                | 8         | JJJ2M2D2                         | GGGG01XXXXXXXXXX                         |
+                | 58        | JJJ1M1D1                         | GGGG01NNNNNNNNNN                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=JJJ1-M1-D1&datumTotEnMet=JJJ3-M3-D3
             Dan bevat het antwoord 3 bewoners
             En heeft bewoners[0] property "burgerservicenummer" met waarde "99999NNN2" en property "datumAanvangAdreshouding" met datum "JJJ2-M2-D2"
             En heeft bewoners[1] property "burgerservicenummer" met waarde "99999NNN1" en property "datumAanvangAdreshouding" met datum "JJJ1-M1-D1"
@@ -370,16 +382,16 @@ Functionaliteit: Als gebruiker wil ik weten welke personen in een periode op een
         # JJJ1M1D1 < JJJ2M2D2 < JJJ3M3D3
             Gegeven de persoon met burgerservicenummer "99999NNN1" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ3M3D3                         | GGGG010000XXXXXX                         |
-                | 58        | JJJ1M1D1                         | GGGG010000NNNNNN                         |
+                | 8         | JJJ3M3D3                         | GGGG01XXXXXXXXXX                         |
+                | 58        | JJJ1M1D1                         | GGGG01NNNNNNNNNN                         |
             En de persoon met burgerservicenummer "99999NNN2" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ3M3D3                         | GGGG010000XXXXXX                         |
-                | 58        | JJJ2M2D2                         | GGGG010000NNNNNN                         |
+                | 8         | JJJ3M3D3                         | GGGG01XXXXXXXXXX                         |
+                | 58        | JJJ2M2D2                         | GGGG01NNNNNNNNNN                         |
             En de persoon met burgerservicenummer "99999NNN3" heeft de volgende categorievoorkomens:
                 | categorie | datumAanvangAdreshouding (10.30) | adresseerbaarObjectIdentificatie (11.80) |
-                | 8         | JJJ1M1D1                         | GGGG010000NNNNNN                         |
-            Als bewoning wordt gevraagd met /bewoningen/GGGG010000NNNNNN?datumVan=JJJ1-M1-D1&datumTotEnMet=JJJ3-M3-D3
+                | 8         | JJJ1M1D1                         | GGGG01NNNNNNNNNN                         |
+            Als bewoning wordt gevraagd met /bewoningen/GGGG01NNNNNNNNNN?datumVan=JJJ1-M1-D1&datumTotEnMet=JJJ3-M3-D3
             Dan bevat het antwoord 3 bewoners
             En heeft bewoners[0] property "burgerservicenummer" met waarde "99999NNN2" en property "datumAanvangAdreshouding" met datum "JJJ2-M2-D2"
             En heeft bewoners[1] property "burgerservicenummer" met waarde "99999NNN3" en property "datumAanvangAdreshouding" met datum "JJJ1-M1-D1"
