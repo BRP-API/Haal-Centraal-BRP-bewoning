@@ -82,6 +82,46 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/default"
       tags:
       - Bewoning
+    post:
+      operationId: postBewoningen
+      description: |
+                    Zoek bewoningen door een adresseerbaarObjectIdentificatie of een burgerservicenummer op te geven, samen met een peildatum of periode.
+      requestBody:
+        content:
+          application/hal+json:
+            schema:
+                $ref: '#/components/schemas/BewoningQuery'
+      responses:
+        '200':
+          description: |
+                        Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/BewoningHalCollectieEmbeddedPost'
+        '400':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
+        '401':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
+        '403':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
+        '406':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
+        '500':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
+        '501':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/501"
+        '503':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
+        'default':
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/default"
+      tags:
+      - Bewoning
   /bewoningen/{adresseerbaarObjectIdentificatie}:
     get:
       operationId: getBewoning
@@ -207,6 +247,44 @@ components:
           type: "array"
           items:
             $ref: "#/components/schemas/AdresUitgebreid"
+    BewoningQuery:
+      type: "object"
+      properties:
+        expand:
+          description: "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature)."
+          type: string
+          pattern: ^[a-zA-Z.,_]+$
+        fields:
+          type: string
+          description: "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. De fiels parameter is verplicht vanwege dataminimalisatie overwegingen. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.3.0/features/fields.feature)"
+          pattern: ^[a-zA-Z.,_]+$
+        peildatum:
+          description: "De datum waarop de resource wordt opgevraagd."
+          type: string
+          format: date
+        datumVan:
+          description: "De begindatum van de periode waarover de resource wordt opgevraagd."
+          type: string
+          format: date
+        datumTotEnMet:
+          description: "De einddatum van de periode waarover de resource wordt opgevraagd."
+          type: string
+          format: date
+        burgerservicenummer:
+          description: |
+                        Uniek persoonsnummer
+          example: [999993653,999991723,999995078]
+          type: "array"
+          items:
+            type: "string"
+            pattern: "^[0-9]{9}$"
+            minItems: 1
+        adresseerbaarObjectIdentificatie:
+          description: |
+                        De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
+          type: string
+          pattern: '^[0-9]{16}$'
+          example: '0226010000038820'
     AdresUitgebreid:
       type: "object"
       allOf :
@@ -223,12 +301,24 @@ components:
       - properties:
          _links:
            $ref: "#/components/schemas/BewoningLinks"
+    BewoningHalBasisPost:
+      allOf:
+      - $ref: "#/components/schemas/Bewoning"
+      - properties:
+         _links:
+           $ref: "#/components/schemas/BewoningLinksPost"
     BewoningHal:
       allOf:
       - $ref: "#/components/schemas/BewoningHalBasis"
       - properties:
          _embedded:
            $ref: "#/components/schemas/BewoningEmbedded"
+    BewoningHalPost:
+      allOf:
+      - $ref: "#/components/schemas/BewoningHalBasisPost"
+      - properties:
+         _embedded:
+           $ref: "#/components/schemas/BewoningEmbeddedPost"
     BewoningHalCollectie:
       type: object
       properties:
@@ -243,6 +333,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BewoningHal'
+    BewoningHalCollectieEmbeddedPost:
+      type: object
+      properties:
+        bewoningen:
+          type: array
+          items:
+            $ref: '#/components/schemas/BewoningHalPost'
     BewoningLinks:
       type: "object"
       properties:
@@ -258,6 +355,15 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         adresseerbaarObject:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    BewoningLinksPost:
+      type: "object"
+      properties:
+        nummeraanduidingen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        adresseerbaarObject:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     BewoningEmbedded:
       type: object
       properties:
@@ -265,6 +371,13 @@ components:
           type: array
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/IngeschrevenPersoonHalBasis"
+    BewoningEmbeddedPost:
+      type: object
+      properties:
+        ingeschrevenPersonen:
+          type: array
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/IngeschrevenPersoon"
     Bewoner:
       type: "object"
       description: |
