@@ -324,7 +324,7 @@ components:
     Bewoning:
       type: "object"
       properties:
-        adresseerbaarObject:
+        woning:
           $ref: "#/components/schemas/Woning"
         bewoners:
           type: "array"
