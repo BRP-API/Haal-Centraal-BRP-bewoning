@@ -26,7 +26,13 @@ paths:
                     Zoek de samenstellingen van de bewoningen op alle adressen waar de gevraagde persoon heeft gewoond binnen de opgegeven periode.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: query
+          name: fields
+          required: true
+          description: "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. De fiels parameter is verplicht vanwege dataminimalisatie overwegingen. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.3.0/features/fields.feature)"
+          schema:
+            type: string
+            pattern: ^[a-zA-Z.,_]+$
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/peildatum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
@@ -120,7 +126,13 @@ paths:
                     Raadpleeg welke bewoners in een woning hebben gewoond binnen de opgegeven periode.
       parameters:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/parameters/expand"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - in: query
+          name: fields
+          required: true
+          description: "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. De fiels parameter is verplicht vanwege dataminimalisatie overwegingen. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.3.0/features/fields.feature)"
+          schema:
+            type: string
+            pattern: ^[a-zA-Z.,_]+$
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/parameters/peildatum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/parameters/datumVan"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
@@ -217,6 +229,10 @@ components:
   schemas:
     BewoningQuery:
       type: "object"
+      required:
+        - fields
+        - datumVan
+        - datumTot
       properties:
         fields:
           type: string
@@ -226,7 +242,7 @@ components:
           description: "De begindatum van de periode waarover de resource wordt opgevraagd."
           type: string
           format: date
-        datumTot:
+        datumTotEnMet:
           description: "De einddatum van de periode waarover de resource wordt opgevraagd."
           type: string
           format: date
