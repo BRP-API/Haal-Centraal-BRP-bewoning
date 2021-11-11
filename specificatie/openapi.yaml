@@ -51,6 +51,7 @@ paths:
             type: string
             pattern: '^[0-9]{16}$'
             example: '0226010000038820'
+        - $ref: '#/components/parameters/toonBewoonSamenstelling'
       responses:
         '200':
           description: |
@@ -183,6 +184,18 @@ components:
         type: string
         pattern: '^[0-9]{16}$'
         example: '0226010000038820'
+    toonBewoonSamenstelling:
+      description: |
+        Geeft aan hoe de bewoning moet worden getoond:
+
+        - false (default): alle bewoners een adresseerbaarobject in de gevraagde periode
+        - true: de gevraagde periode wordt gesplitst bij wijziging van bewoning samenstelling
+      name: toonBewoonSamenstelling
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: false
   schemas:
     Bewoning:
       type: "object"
@@ -194,10 +207,10 @@ components:
           type: "string"
           description: |
                         De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
-        bewoners:
-          type: "array"
+        bewoningPeriodes:
+          type: array
           items:
-            $ref: "#/components/schemas/Bewoner"
+            $ref: '#/components/schemas/BewoningPeriode'
         indicatieVeelBewoners:
           type: boolean
           description: |
@@ -275,21 +288,13 @@ components:
         burgerservicenummer:
           type: "string"
           example: "555555021"
-        datumTot:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
-        datumAanvangAdreshouding:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         geheimhoudingPersoonsgegevens:
           type: "boolean"
           title: "Indicatie geheim"
           description: |
                         Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
-        indicatieVerblijfsplaatsInOnderzoek:
-          description: |
-                        Geeft aan dat de verblijfplaats in onderzoek is.
-          type: "boolean"
-        functieAdres:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/SoortAdres_enum"
+        verblijfplaats:
+          $ref: '#/components/schemas/Verblijfplaats'
     Verloop:
       type: "object"
       properties:
@@ -309,3 +314,39 @@ components:
           example: 2.7
           description: |
                         Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
+    BewoningPeriode:
+      type: object
+      properties:
+        periode:
+          $ref: '#/components/schemas/Periode'
+        bewoners:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bewoner'
+    Periode:
+      type: object
+      properties:
+        van:
+          type: string
+          format: date
+        tot:
+          type: string
+          format: date
+    Verblijfplaats:
+      type: object
+      properties:
+        indicatieInOnderzoek:
+          description: |
+                        Geeft aan dat de verblijfplaats in onderzoek is.
+          type: "boolean"
+        functieAdres:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/SoortAdres_enum"
+        periode:
+          $ref: '#/components/schemas/VerblijfplaatsPeriode'
+    VerblijfplaatsPeriode:
+      type: object
+      properties:
+        van:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
+        tot:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
