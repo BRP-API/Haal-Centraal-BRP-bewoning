@@ -329,3 +329,45 @@ Scenario: bewoon samenstelling op basis van bsn
         ]
     }
     '''
+
+Scenario: bewoning op peildatum
+    Als /bewoningen?bsn=99999XXXX&peildatum=2020-08-31
+    Dan is de response
+    '''
+    {
+        "bewoningen": [
+            {
+                "adresseerbaarObjectIdentificatie": "0518010000412416",
+                "adressen": [],
+                "bewoningPeriodes": [
+                    {
+                        "periode": {
+                            "van": "2020-08-31",
+                            "tot": "2020-09-01"
+                        },
+                        "bewoners": [
+                            {
+                                "bsn": "99999XXXX",
+                                "verblijfplaats": {
+                                    "periode": {
+                                        "van": "2019-08-01",
+                                        "tot": "2020-10-01"
+                                    }
+                                }
+                            },
+                            {
+                                "bsn": "99999YYYY",
+                                "verblijfplaats": {
+                                    "periode": {
+                                        "van": "2020-04-01",
+                                        "tot": "2020-09-01"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    '''
