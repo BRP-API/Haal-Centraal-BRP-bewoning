@@ -97,6 +97,17 @@
             "type" : "string",
             "example" : "0226010000038820"
           }
+        }, {
+          "name" : "toonBewoonSamenstelling",
+          "in" : "query",
+          "description" : "Geeft aan hoe de bewoning moet worden getoond:\n\n- false (default): alle bewoners een adresseerbaarobject in de gevraagde periode\n- true: de gevraagde periode wordt gesplitst bij wijziging van bewoning samenstelling\n",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
         } ],
         "responses" : {
           "200" : {
@@ -876,10 +887,10 @@
             "type" : "string",
             "description" : "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n"
           },
-          "bewoners" : {
+          "bewoningPeriodes" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/Bewoner"
+              "$ref" : "#/components/schemas/BewoningPeriode"
             }
           },
           "indicatieVeelBewoners" : {
@@ -992,23 +1003,13 @@
             "type" : "string",
             "example" : "555555021"
           },
-          "datumTot" : {
-            "$ref" : "#/components/schemas/DatumOnvolledig"
-          },
-          "datumAanvangAdreshouding" : {
-            "$ref" : "#/components/schemas/DatumOnvolledig"
-          },
           "geheimhoudingPersoonsgegevens" : {
             "title" : "Indicatie geheim",
             "type" : "boolean",
             "description" : "Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.\n"
           },
-          "indicatieVerblijfsplaatsInOnderzoek" : {
-            "type" : "boolean",
-            "description" : "Geeft aan dat de verblijfplaats in onderzoek is.\n"
-          },
-          "functieAdres" : {
-            "$ref" : "#/components/schemas/SoortAdres_enum"
+          "verblijfplaats" : {
+            "$ref" : "#/components/schemas/Verblijfplaats"
           }
         },
         "description" : "Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.\n* `datumAanvangAdreshouding` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven.\n* `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven.\n"
@@ -1031,6 +1032,59 @@
             "description" : "Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.\n",
             "format" : "float",
             "example" : 2.7
+          }
+        }
+      },
+      "BewoningPeriode" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "$ref" : "#/components/schemas/Periode"
+          },
+          "bewoners" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Bewoner"
+            }
+          }
+        }
+      },
+      "Periode" : {
+        "type" : "object",
+        "properties" : {
+          "van" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "tot" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }
+      },
+      "Verblijfplaats" : {
+        "type" : "object",
+        "properties" : {
+          "indicatieInOnderzoek" : {
+            "type" : "boolean",
+            "description" : "Geeft aan dat de verblijfplaats in onderzoek is.\n"
+          },
+          "functieAdres" : {
+            "$ref" : "#/components/schemas/SoortAdres_enum"
+          },
+          "periode" : {
+            "$ref" : "#/components/schemas/VerblijfplaatsPeriode"
+          }
+        }
+      },
+      "VerblijfplaatsPeriode" : {
+        "type" : "object",
+        "properties" : {
+          "van" : {
+            "$ref" : "#/components/schemas/DatumOnvolledig"
+          },
+          "tot" : {
+            "$ref" : "#/components/schemas/DatumOnvolledig"
           }
         }
       },
@@ -1237,7 +1291,7 @@
             "$ref" : "#/components/schemas/Overlijden"
           },
           "verblijfplaats" : {
-            "$ref" : "#/components/schemas/Verblijfplaats"
+            "$ref" : "#/components/schemas/Verblijfplaats_2"
           },
           "gezagsverhouding" : {
             "$ref" : "#/components/schemas/Gezagsverhouding"
@@ -1585,7 +1639,7 @@
         },
         "description" : "Geeft aan welke gegevens over het overlijden van de persoon in onderzoek zijn. Zie de [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/blob/v1.1.0/features/in_onderzoek.feature)\n"
       },
-      "Verblijfplaats" : {
+      "Verblijfplaats_2" : {
         "allOf" : [ {
           "$ref" : "#/components/schemas/Adres"
         }, {
@@ -1889,6 +1943,18 @@
           "pattern" : "^[0-9]{16}$",
           "type" : "string",
           "example" : "0226010000038820"
+        }
+      },
+      "toonBewoonSamenstelling" : {
+        "name" : "toonBewoonSamenstelling",
+        "in" : "query",
+        "description" : "Geeft aan hoe de bewoning moet worden getoond:\n\n- false (default): alle bewoners een adresseerbaarobject in de gevraagde periode\n- true: de gevraagde periode wordt gesplitst bij wijziging van bewoning samenstelling\n",
+        "required" : false,
+        "style" : "form",
+        "explode" : true,
+        "schema" : {
+          "type" : "boolean",
+          "default" : false
         }
       }
     },
