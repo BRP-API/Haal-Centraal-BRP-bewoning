@@ -843,12 +843,12 @@ components:
             Geeft aan dat de verblijfplaats in onderzoek is.
         functieAdres:
           $ref: '#/components/schemas/SoortAdres_enum'
-        periode:
-          $ref: '#/components/schemas/VerblijfplaatsPeriode'
-    VerblijfplaatsPeriode:
+        adreshouding:
+          $ref: '#/components/schemas/AdreshoudingPeriode'
+    AdreshoudingPeriode:
       type: object
       properties:
-        van:
+        aanvang:
           $ref: '#/components/schemas/DatumOnvolledig'
         tot:
           $ref: '#/components/schemas/DatumOnvolledig'
