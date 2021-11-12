@@ -29,10 +29,11 @@ Scenario: persoon verblijft op een GBA adres in de gevraagde periode
     '''
 
 Scenario: persoon verbleef een gedeelte van de gevraagde periode in het buitenland
+    aanname: verblijf in buitenland is in BRP geregistreerd als een verblijfplaats zonder adresseerbaarObjectIdentificatie 
     Gegeven de bewoner met bsn 99999AAAA met de volgende verblijfplaatsen
     | adresseerbaarObjectIdentificatie | aanvangAdreshouding | eindeAdreshouding |
     | 0518010000412416                 | 2020-01-01          | 2020-08-01        |
-    |                                  | 2020-08-01          | 2020-12-01        | # hoe wordt verblijf in buitenland weergegeven in BRP bevragen? |
+    |                                  | 2020-08-01          | 2020-12-01        |
     | 0518010000412416                 | 2020-12-01          |                   |
     Als /bewoningen?bsn=99999AAAA&van=2020-01-01&tot=2021-01-01
     Dan is de response
@@ -52,8 +53,8 @@ Scenario: persoon verbleef een gedeelte van de gevraagde periode in het buitenla
                             {
                                 "bsn": "99999AAAA",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-01-01",
+                                    "adreshouding": {
+                                        "aanvang": "2020-01-01",
                                         "tot": "2020-08-01"
                                     }
                                 }
@@ -61,8 +62,8 @@ Scenario: persoon verbleef een gedeelte van de gevraagde periode in het buitenla
                             {
                                 "bsn": "99999AAAA",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-12-01"
+                                    "adreshouding": {
+                                        "aanvang": "2020-12-01"
                                     }
                                 }
                             }
@@ -74,7 +75,7 @@ Scenario: persoon verbleef een gedeelte van de gevraagde periode in het buitenla
     }
     '''
 
-    Als /bewoningen?bsn=99999AAAA&van=2020-01-01&tot=2021-01-01&bewoonSamenstelling=true
+    Als /bewoningen?bsn=99999AAAA&van=2020-01-01&tot=2021-01-01&toonBewoonSamenstelling=true
     Dan is de response
     '''
     {
@@ -92,8 +93,8 @@ Scenario: persoon verbleef een gedeelte van de gevraagde periode in het buitenla
                             {
                                 "bsn": "99999AAAA",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-01-01",
+                                    "adreshouding": {
+                                        "aanvang": "2020-01-01",
                                         "tot": "2020-08-01"
                                     }
                                 }
@@ -109,8 +110,8 @@ Scenario: persoon verbleef een gedeelte van de gevraagde periode in het buitenla
                             {
                                 "bsn": "99999AAAA",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-12-01"
+                                    "adreshouding": {
+                                        "aanvang": "2020-12-01"
                                     }
                                 }
                             }

@@ -341,12 +341,12 @@ components:
           type: "boolean"
         functieAdres:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/SoortAdres_enum"
-        periode:
-          $ref: '#/components/schemas/VerblijfplaatsPeriode'
-    VerblijfplaatsPeriode:
+        adreshouding:
+          $ref: '#/components/schemas/AdreshoudingPeriode'
+    AdreshoudingPeriode:
       type: object
       properties:
-        van:
+        aanvang:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
         tot:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"

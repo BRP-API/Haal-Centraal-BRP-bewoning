@@ -38,8 +38,8 @@ Scenario: bewoning op basis van adresseerbaarObjectIdentificatie
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -47,8 +47,8 @@ Scenario: bewoning op basis van adresseerbaarObjectIdentificatie
                             {
                                 "bsn": "99999YYYY",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-04-01",
+                                    "adreshouding": {
+                                        "aanvang": "2020-04-01",
                                         "tot": "2020-09-01"
                                     }
                                 }
@@ -82,8 +82,8 @@ Scenario: bewoon samenstelling op basis van adresseerbaarObjectIdentificatie
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -99,8 +99,8 @@ Scenario: bewoon samenstelling op basis van adresseerbaarObjectIdentificatie
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -108,8 +108,8 @@ Scenario: bewoon samenstelling op basis van adresseerbaarObjectIdentificatie
                             {
                                 "bsn": "99999YYYY",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-04-01",
+                                    "adreshouding": {
+                                        "aanvang": "2020-04-01",
                                         "tot": "2020-09-01"
                                     }
                                 }
@@ -125,8 +125,8 @@ Scenario: bewoon samenstelling op basis van adresseerbaarObjectIdentificatie
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -171,8 +171,8 @@ Scenario: bewoning op basis van bsn
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -180,8 +180,8 @@ Scenario: bewoning op basis van bsn
                             {
                                 "bsn": "99999YYYY",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-04-01",
+                                    "adreshouding": {
+                                        "aanvang": "2020-04-01",
                                         "tot": "2020-09-01"
                                     }
                                 }
@@ -203,16 +203,16 @@ Scenario: bewoning op basis van bsn
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-10-01"
+                                    "adreshouding": {
+                                        "aanvang": "2020-10-01"
                                     }
                                 }
                             },
                             {
                                 "bsn": "99999ZZZZ",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-01-01"
+                                    "adreshouding": {
+                                        "aanvang": "2019-01-01"
                                     }
                                 }
                             }
@@ -225,7 +225,7 @@ Scenario: bewoning op basis van bsn
     '''
 
 Scenario: bewoon samenstelling op basis van bsn
-    Als /bewoningen?bsn=99999XXXX&van=2020-01-01&tot=2021-01-01&bewoonSamenstelling=true
+    Als /bewoningen?bsn=99999XXXX&van=2020-01-01&tot=2021-01-01&toonBewoonSamenstelling=true
     Dan is de response
     '''
     {
@@ -243,8 +243,8 @@ Scenario: bewoon samenstelling op basis van bsn
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -260,8 +260,8 @@ Scenario: bewoon samenstelling op basis van bsn
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -269,8 +269,8 @@ Scenario: bewoon samenstelling op basis van bsn
                             {
                                 "bsn": "99999YYYY",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-04-01",
+                                    "adreshouding": {
+                                        "aanvang": "2020-04-01",
                                         "tot": "2020-09-01"
                                     }
                                 }
@@ -286,8 +286,8 @@ Scenario: bewoon samenstelling op basis van bsn
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -309,16 +309,16 @@ Scenario: bewoon samenstelling op basis van bsn
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-10-01"
+                                    "adreshouding": {
+                                        "aanvang": "2020-10-01"
                                     }
                                 }
                             },
                             {
                                 "bsn": "99999ZZZZ",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-01-01"
+                                    "adreshouding": {
+                                        "aanvang": "2019-01-01"
                                     }
                                 }
                             }
@@ -349,8 +349,8 @@ Scenario: bewoning op peildatum
                             {
                                 "bsn": "99999XXXX",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2019-08-01",
+                                    "adreshouding": {
+                                        "aanvang": "2019-08-01",
                                         "tot": "2020-10-01"
                                     }
                                 }
@@ -358,8 +358,8 @@ Scenario: bewoning op peildatum
                             {
                                 "bsn": "99999YYYY",
                                 "verblijfplaats": {
-                                    "periode": {
-                                        "van": "2020-04-01",
+                                    "adreshouding": {
+                                        "aanvang": "2020-04-01",
                                         "tot": "2020-09-01"
                                     }
                                 }
