@@ -25,7 +25,7 @@ paths:
       description: |
                     Zoek bewoningen door een adresseerbaarObjectIdentificatie of een burgerservicenummer op te geven, samen met een peildatum of periode.
       parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
+        - $ref: "#/components/parameters/fields"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/peildatum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
@@ -175,7 +175,7 @@ components:
   parameters:
     adresseerbaarObjectIdentificatie:
       description: |
-                    De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
+        De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
       name: adresseerbaarObjectIdentificatie
       in: path
       required: true
@@ -183,6 +183,17 @@ components:
         type: string
         pattern: '^[0-9]{16}$'
         example: '0226010000038820'
+    fields:
+      name: fields
+      in: query
+      required: true
+      description: |
+        Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven.
+        Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven.
+        Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)
+      schema:
+        type: string
+        pattern: ^[a-zA-Z.,_]+$
     toonBewoonSamenstelling:
       description: |
         Geeft aan hoe de bewoning moet worden getoond:
