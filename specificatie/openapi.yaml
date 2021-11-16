@@ -202,10 +202,33 @@ components:
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BAG-bevragen/v1.1.0/specificatie/openapi.yaml#/components/schemas/Adres"
         - properties:
             nummeraanduidingIdentificatie:
-              type: "string"
+              type: string
               description: |
                             De unieke aanduiding van een nummeraanduiding.
               example: "0518200001645858"
+            korteNaam:
+              description: |
+                De officiële openbareruimtenaam uit de Basisregistratie Gebouwen en Adressen (BAG) of een verkorte versie.
+              type: string
+              maxLength: 24
+              example: 'Ln vd l D-Westervoort'
+            adresregel1:
+              type: string
+              description: |
+                Het eerste deel van een adres is een combinatie van de straat en huisnummer.
+              # example: "1600 Pennsylvania Avenue NW"
+              example: "Laan van de landinrichtingscommissie Duiven-Westervoort 26A-3"
+            adresregel2:
+              type: string
+              description: |
+                Het tweede deel van een adres is een combinatie van woonplaats eventueel in combinatie met de postcode.
+              # example: "Washington, DC 20500"
+              example: "1234AA Nootdorp"
+            adresregel3:
+              type: string
+              description: |
+                Het derde deel van een adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.
+              example: "Selangor"
     BewoningHistorieHal:
       allOf:
       - $ref: "#/components/schemas/BewoningHistorie"
@@ -227,56 +250,55 @@ components:
           items:
             $ref: '#/components/schemas/BewoningHistorieHal'
     BewoningHistorieLinks:
-      type: "object"
+      type: object
       properties:
         ingeschrevenPersonen:
-          description: |
-                        De ingeschreven natuurlijk personen die bewoner zijn of waren.
+          description: De ingeschreven natuurlijk personen die bewoner zijn of waren.
           type: array
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         nummeraanduidingen:
-          type: "array"
+          type: array
           items:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         adresseerbaarObject:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
     Bewoner:
-      type: "object"
+      type: object
       description: |
-                    Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
-                    * `datumAanvangAdreshouding` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven.
-                    * `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven.
+        Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
+        * `datumAanvangAdreshouding` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven.
+        * `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven.
       properties:
         burgerservicenummer:
-          type: "string"
+          type: string
           example: "555555021"
         geheimhoudingPersoonsgegevens:
-          type: "boolean"
+          type: boolean
           title: "Indicatie geheim"
           description: |
                         Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
         verblijfplaats:
           $ref: '#/components/schemas/Verblijfplaats'
     Verloop:
-      type: "object"
+      type: object
       properties:
         inVerhuizingen:
           type: integer
           description: |
-                        Het aantal keren dat een alleenstaande of een gezin naar het verblijfsobject, de ligplaats of de standplaats is verhuisd binnen de opgegeven periode.
+            Het aantal keren dat een alleenstaande of een gezin naar het verblijfsobject, de ligplaats of de standplaats is verhuisd binnen de opgegeven periode.
           example: 3
         uitVerhuizingen:
           type: integer
           description: |
-                        Het aantal keren dat een alleenstaande of een gezin naar een ander verblijfsobject, ligplaats of standplaats is verhuisd binnen de opgegeven periode.
+            Het aantal keren dat een alleenstaande of een gezin naar een ander verblijfsobject, ligplaats of standplaats is verhuisd binnen de opgegeven periode.
           example: 14
         gemiddeldAantalBewoners:
           type: number
           format: float
           example: 2.7
           description: |
-                        Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
+            Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
     Bewoning:
       type: object
       properties:
@@ -311,6 +333,11 @@ components:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/SoortAdres_enum"
         adreshouding:
           $ref: '#/components/schemas/AdreshoudingPeriode'
+        nummeraanduidingIdentificatie:
+          type: string
+          description: |
+            Unieke identificatie van een nummeraanduiding (en het bijbehorende adres) in de BAG.
+          example: "0518200000366054"
     AdreshoudingPeriode:
       type: object
       properties:
