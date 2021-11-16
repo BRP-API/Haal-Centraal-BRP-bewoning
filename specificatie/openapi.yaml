@@ -210,11 +210,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BewoningPeriode'
-        indicatieVeelBewoners:
-          type: boolean
-          description: |
-                        Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij
-                        niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
         adressen:
           type: "array"
           items:
@@ -309,6 +304,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Bewoner'
+        indicatieVeelBewoners:
+          type: boolean
+          description: |
+            Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij
+            niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
     Periode:
       type: object
       properties:
