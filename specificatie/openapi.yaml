@@ -25,7 +25,6 @@ paths:
       description: |
                     Zoek bewoningen door een adresseerbaarObjectIdentificatie of een burgerservicenummer op te geven, samen met een peildatum of periode.
       parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/peildatum"
         - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
@@ -230,18 +229,12 @@ components:
               description: |
                             De unieke aanduiding van een nummeraanduiding.
               example: "0518200001645858"
-    BewoningHalBasis:
+    BewoningHal:
       allOf:
       - $ref: "#/components/schemas/Bewoning"
       - properties:
          _links:
            $ref: "#/components/schemas/BewoningLinks"
-    BewoningHal:
-      allOf:
-      - $ref: "#/components/schemas/BewoningHalBasis"
-      - properties:
-         _embedded:
-           $ref: "#/components/schemas/BewoningEmbedded"
     BewoningHalCollectie:
       type: object
       properties:
@@ -271,13 +264,6 @@ components:
             $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
         adresseerbaarObject:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    BewoningEmbedded:
-      type: object
-      properties:
-        ingeschrevenPersonen:
-          type: array
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/IngeschrevenPersoonHalBasis"
     Bewoner:
       type: "object"
       description: |
