@@ -273,6 +273,8 @@ components:
         burgerservicenummer:
           type: string
           example: "555555021"
+        naam:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.3.0/specificatie/genereervariant/openapi.yaml#/components/schemas/NaamPersoon'
         geheimhoudingPersoonsgegevens:
           type: boolean
           title: "Indicatie geheim"
