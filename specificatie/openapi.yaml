@@ -82,16 +82,16 @@ paths:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/default"
       tags:
       - Bewoning
-  /bewoningen/{adresseerbaarObjectIdentificatie}/verloop:
+  /verloop:
     get:
       operationId: getBewoningverloop
       description: |
                     Raadpleeg het verloop van de bewoning van een adresseerbaar object over een periode door een adresseerbaarobjectIdentificatie en
                     een periode op te geven. Het antwoord bevat het aantal verhuizingen van en naar het object en het gemiddelde aantal bewoners in de opgegeven periode.
       parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
-        - $ref: "#/components/parameters/adresseerbaarObjectIdentificatie"
+        - $ref: "#/components/parameters/datumVanRequired"
+        - $ref: "#/components/parameters/datumTotEnMetRequired"
+        - $ref: "#/components/parameters/adresseerbaarObjectIdentificatieRequired"
       responses:
         '200':
           description: |
@@ -127,15 +127,33 @@ paths:
       - Bewoning
 components:
   parameters:
-    adresseerbaarObjectIdentificatie:
+    adresseerbaarObjectIdentificatieRequired:
       description: De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
       name: adresseerbaarObjectIdentificatie
-      in: path
+      in: query
       required: true
       schema:
         type: string
         pattern: '^[0-9]{16}$'
         example: '0226010000038820'
+    datumVanRequired:
+      name: datumVan
+      in: query
+      description: De begindatum van de periode waarover de resource wordt opgevraagd.
+      required: true
+      schema:
+        type: string
+        format: date
+        example: "2018-09-09"
+    datumTotEnMetRequired:
+      name: datumTotEnMet
+      in: query
+      description: De einddatum van de periode waarover de resource wordt opgevraagd.
+      required: true
+      schema:
+        type: string
+        format: date
+        example: "2018-10-09"
     fields:
       name: fields
       in: query
