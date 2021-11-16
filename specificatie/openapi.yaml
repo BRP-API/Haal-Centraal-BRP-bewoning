@@ -19,9 +19,9 @@ info:
 tags:
   - name: Bewoning
 paths:
-  /bewoningen:
+  /bewoningenhistorie:
     get:
-      operationId: getBewoningen
+      operationId: GetBewoningen
       description: |
                     Zoek bewoningen door een adresseerbaarObjectIdentificatie of een burgerservicenummer op te geven, samen met een peildatum of periode.
       parameters:
@@ -63,7 +63,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/BewoningHalCollectie'
+                $ref: '#/components/schemas/BewoningHistorieHalCollectie'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -84,7 +84,7 @@ paths:
       - Bewoning
   /verloop:
     get:
-      operationId: getBewoningverloop
+      operationId: GetBewoningverloop
       description: |
                     Raadpleeg het verloop van de bewoning van een adresseerbaar object over een periode door een adresseerbaarobjectIdentificatie en
                     een periode op te geven. Het antwoord bevat het aantal verhuizingen van en naar het object en het gemiddelde aantal bewoners in de opgegeven periode.
@@ -178,7 +178,7 @@ components:
         type: boolean
         default: false
   schemas:
-    Bewoning:
+    BewoningHistorie:
       type: "object"
       description: |
                     Een bewoning is een adresseerbaar object(verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).
@@ -188,10 +188,10 @@ components:
           type: "string"
           description: |
                         De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
-        bewoningPeriodes:
+        bewoningen:
           type: array
           items:
-            $ref: '#/components/schemas/BewoningPeriode'
+            $ref: '#/components/schemas/Bewoning'
         adressen:
           type: "array"
           items:
@@ -206,27 +206,27 @@ components:
               description: |
                             De unieke aanduiding van een nummeraanduiding.
               example: "0518200001645858"
-    BewoningHal:
+    BewoningHistorieHal:
       allOf:
-      - $ref: "#/components/schemas/Bewoning"
+      - $ref: "#/components/schemas/BewoningHistorie"
       - properties:
          _links:
-           $ref: "#/components/schemas/BewoningLinks"
-    BewoningHalCollectie:
+           $ref: "#/components/schemas/BewoningHistorieLinks"
+    BewoningHistorieHalCollectie:
       type: object
       properties:
         _links:
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
-          $ref: "#/components/schemas/BewoningHalCollectieEmbedded"
-    BewoningHalCollectieEmbedded:
+          $ref: "#/components/schemas/BewoningHistorieHalCollectieEmbedded"
+    BewoningHistorieHalCollectieEmbedded:
       type: object
       properties:
         bewoningen:
           type: array
           items:
-            $ref: '#/components/schemas/BewoningHal'
-    BewoningLinks:
+            $ref: '#/components/schemas/BewoningHistorieHal'
+    BewoningHistorieLinks:
       type: "object"
       properties:
         ingeschrevenPersonen:
@@ -277,11 +277,11 @@ components:
           example: 2.7
           description: |
                         Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
-    BewoningPeriode:
+    Bewoning:
       type: object
       properties:
         periode:
-          $ref: '#/components/schemas/Periode'
+          $ref: '#/components/schemas/BewoningPeriode'
         bewoners:
           type: array
           items:
@@ -291,7 +291,7 @@ components:
           description: |
             Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij
             niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
-    Periode:
+    BewoningPeriode:
       type: object
       properties:
         van:
