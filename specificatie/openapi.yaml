@@ -169,7 +169,7 @@ components:
       description: |
         Geeft aan hoe de bewoning moet worden getoond:
 
-        - false (default): alle bewoners een adresseerbaarobject in de gevraagde periode
+        - false (default): alle bewoners van een adresseerbaarobject in de gevraagde periode
         - true: de gevraagde periode wordt gesplitst bij wijziging van bewoning samenstelling
       name: toonBewoonSamenstelling
       in: query
