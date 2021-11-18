@@ -15,19 +15,6 @@ Scenario: persoon verblijft in het buitenland in de gevraagde periode
     }
     '''
 
-Scenario: persoon verblijft op een GBA adres in de gevraagde periode
-    Gegeven de bewoners
-    | bsn       | adresseerbaarObjectIdentificatie | aanvangAdreshouding | eindeAdreshouding |
-    | 99999XXXX |                                  | 2019-08-01          | 2020-10-01        |
-    Als /bewoningen?bsn=99999XXXX&van=2019-01-01&tot=2020-01-01
-    Dan is de response
-    '''
-    {
-        "bewoningen": [
-        ]
-    }
-    '''
-
 Scenario: persoon verbleef een gedeelte van de gevraagde periode in het buitenland
     aanname: verblijf in buitenland is in BRP geregistreerd als een verblijfplaats zonder adresseerbaarObjectIdentificatie 
     Gegeven de bewoner met bsn 99999AAAA met de volgende verblijfplaatsen
