@@ -662,7 +662,7 @@
       "BewoningHistorieHalCollectieEmbedded" : {
         "type" : "object",
         "properties" : {
-          "bewoningen" : {
+          "bewoningenhistorie" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/BewoningHistorieHal"
