@@ -95,7 +95,7 @@
         }, {
           "name" : "toonBewoonSamenstelling",
           "in" : "query",
-          "description" : "Geeft aan hoe de bewoning moet worden getoond:\n\n- false (default): alle bewoners een adresseerbaarobject in de gevraagde periode\n- true: de gevraagde periode wordt gesplitst bij wijziging van bewoning samenstelling\n",
+          "description" : "Geeft aan hoe de bewoning moet worden getoond:\n\n- false (default): alle bewoners van een adresseerbaarobject in de gevraagde periode\n- true: de gevraagde periode wordt gesplitst bij wijziging van bewoning samenstelling\n",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -1177,7 +1177,7 @@
       "toonBewoonSamenstelling" : {
         "name" : "toonBewoonSamenstelling",
         "in" : "query",
-        "description" : "Geeft aan hoe de bewoning moet worden getoond:\n\n- false (default): alle bewoners een adresseerbaarobject in de gevraagde periode\n- true: de gevraagde periode wordt gesplitst bij wijziging van bewoning samenstelling\n",
+        "description" : "Geeft aan hoe de bewoning moet worden getoond:\n\n- false (default): alle bewoners van een adresseerbaarobject in de gevraagde periode\n- true: de gevraagde periode wordt gesplitst bij wijziging van bewoning samenstelling\n",
         "required" : false,
         "style" : "form",
         "explode" : true,
