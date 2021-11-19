@@ -11,346 +11,325 @@ Functionaliteit: Bewoning
     Als medewerker
     Wil ik bevragen welke personen op hetzelfde moment op een verblijfplaats hebben gewoond
 
-Achtergrond:
-    Gegeven de bewoners
-    | burgerservicenummer | adresseerbaarObjectIdentificatie | aanvangAdreshouding | eindeAdreshouding |
-    | 99999XXXX           | 0518010000412416                 | 2019-08-01          | 2020-10-01        |
-    | 99999XXXX           | 0518010000781379                 | 2020-10-01          |                   |
-    | 99999YYYY           | 0518010000412416                 | 2020-04-01          | 2020-09-01        |
-    | 99999ZZZZ           | 0518010000781379                 | 2019-01-01          |                   |
-    En de fields parameter met waarde 'adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer,bewoningen.bewoners.verblijfplaats'
+Rule: zoeken met adresseerbaarObjectIdentificatie, datumVan en datumTotEnMet retourneert de personen die tussen datumVan en datumTotEnMet op het adresseerbaarobject een adreshouding hebben (gehad)
 
-Scenario: bewoning op basis van adresseerbaarObjectIdentificatie
-    Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-    | naam                             | waarde           |
-    | adresseerbaarObjectIdentificatie | 0518010000412416 |
-    | datumVan                         | 2020-01-01       |
-    | datumTotEnMet                    | 2020-12-31       |
-    Dan is de response
-    '''
-    {
-        "bewoningenhistorie": [
-            {
-                "adresseerbaarObjectIdentificatie": "0518010000412416",
-                "bewoningen": [
-                    {
-                        "periode": {
-                            "van": "2020-01-01",
-                            "tot": "2021-01-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-08-01",
-                                        "tot": "2020-10-01"
-                                    }
-                                }
-                            },
-                            {
-                                "burgerservicenummer": "99999YYYY",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2020-04-01",
-                                        "tot": "2020-09-01"
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-    '''
-
-Scenario: bewoon samenstelling op basis van adresseerbaarObjectIdentificatie
-    bewoning periodes wordt gesplitst door verandering in bewoon samenstelling
-
-    Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-    | naam                             | waarde           |
-    | adresseerbaarObjectIdentificatie | 0518010000412416 |
-    | datumVan                         | 2020-01-01       |
-    | datumTotEnMet                    | 2020-12-31       |
-    | toonBewoonSamenstelling          | true             |
-    Dan is de response
-    '''
-    {
-        "bewoningenhistorie": [
-            {
-                "adresseerbaarObjectIdentificatie": "0518010000412416",
-                "bewoningen": [
-                    {
-                        "periode": {
-                            "van": "2020-01-01",
-                            "tot": "2020-04-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-08-01",
-                                        "tot": "2020-10-01"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "periode": {
-                            "van": "2020-04-01",
-                            "tot": "2020-09-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-08-01",
-                                        "tot": "2020-10-01"
-                                    }
-                                }
-                            },
-                            {
-                                "burgerservicenummer": "99999YYYY",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2020-04-01",
-                                        "tot": "2020-09-01"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "periode": {
-                            "van": "2020-09-01",
-                            "tot": "2020-10-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-08-01",
-                                        "tot": "2020-10-01"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "periode": {
-                            "van": "2020-10-01",
-                            "tot": "2021-01-01"
-                        },
-                        "bewoners": []
-                    }
-                ]
-            }
-        ]
-    }
-    '''
-
-Scenario: bewoning op basis van burgerservicenummer
-    bevragen op basis van burgerservicenummer komt overeen met het bevragen van bewoning voor meerdere adresseerbareobjecten, namelijk de verblijfplaaten van de persoon in de vraag periode.
-    als de gevraagde persoon in de vraag periode op meerdere verblijfplaatsen heeft gewoond, dan wordt de bewoning periodes ingekort op basis van deze verblijfplaats periodes.
-    in dit voorbeeld kan dat worden vertaald naar een samenvoeging van de volgende bewoning bevragingen op basis van adresseerbaarobjectidentificatie:
-    - /bewoningen?adresseerbaarObjectIdentificatie=0518010000412416&van=2020-01-01&tot=2020-10-01
-    - /bewoningen?adresseerbaarObjectIdentificatie=0518010000781379&van=2020-10-01&tot=2021-01-01
-
-    Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-    | naam                | waarde     |
-    | burgerservicenummer | 99999XXXX  |
-    | datumVan            | 2020-01-01 |
-    | datumTotEnMet       | 2020-12-31 |
-    Dan is de response
-    '''
-    {
-        "bewoningenhistorie": [
-            {
-                "adresseerbaarObjectIdentificatie": "0518010000412416",
-                "bewoningen": [
-                    {
-                        "periode": {
-                            "van": "2020-01-01",
-                            "tot": "2020-10-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-08-01",
-                                        "tot": "2020-10-01"
-                                    }
-                                }
-                            },
-                            {
-                                "burgerservicenummer": "99999YYYY",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2020-04-01",
-                                        "tot": "2020-09-01"
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "adresseerbaarObjectIdentificatie": "0518010000781379",
-                "bewoningen": [
-                    {
-                        "periode": {
-                            "van": "2020-10-01",
-                            "tot": "2021-01-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2020-10-01"
-                                    }
-                                }
-                            },
-                            {
-                                "burgerservicenummer": "99999ZZZZ",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-01-01"
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-    '''
-
-Scenario: bewoon samenstelling op basis van burgerservicenummer
-    Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-    | naam                    | waarde     |
-    | burgerservicenummer     | 99999XXXX  |
-    | datumVan                | 2020-01-01 |
-    | datumTotEnMet           | 2020-12-31 |
-    | toonBewoonSamenstelling | true       |
-    Dan is de response
-    '''
-    {
-        "bewoningenhistorie": [
-            {
-                "adresseerbaarObjectIdentificatie": "0518010000412416",
-                "bewoningen": [
-                    {
-                        "periode": {
-                            "van": "2020-01-01",
-                            "tot": "2020-04-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-08-01",
-                                        "tot": "2020-10-01"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "periode": {
-                            "van": "2020-04-01",
-                            "tot": "2020-09-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-08-01",
-                                        "tot": "2020-10-01"
-                                    }
-                                }
-                            },
-                            {
-                                "burgerservicenummer": "99999YYYY",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2020-04-01",
-                                        "tot": "2020-09-01"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "periode": {
-                            "van": "2020-09-01",
-                            "tot": "2020-10-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-08-01",
-                                        "tot": "2020-10-01"
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "adresseerbaarObjectIdentificatie": "0518010000781379",
-                "bewoningen": [
-                    {
-                        "periode": {
-                            "van": "2020-10-01",
-                            "tot": "2021-01-01"
-                        },
-                        "bewoners": [
-                            {
-                                "burgerservicenummer": "99999XXXX",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2020-10-01"
-                                    }
-                                }
-                            },
-                            {
-                                "burgerservicenummer": "99999ZZZZ",
-                                "verblijfplaats": {
-                                    "adreshouding": {
-                                        "aanvang": "2019-01-01"
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-    '''
-
-Rule: peildatum komt overeen met datumVan en datumTotEnMet met dezelfde datum
-
-    Scenario: zoek op peildatum
+    Scenario: <scenario titel>
+        Gegeven adresseerbaarobject met identificatie '0518010000412416' heeft de volgende bewoners
+        | burgerservicenummer | aanvang adreshouding | adreshouding tot |
+        | 99999XXXX           | 2019-08-01           | 2020-10-01       |
+        | 99999YYYY           | 2020-04-01           | 2020-09-01       |
         Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-        | naam                | waarde     |
-        | burgerservicenummer | 99999XXXX  |
-        | peildatum           | 2020-08-31 |
-        Dan is de response
+        | naam                             | waarde                                                     |
+        | adresseerbaarObjectIdentificatie | 0518010000412416                                           |
+        | datumVan                         | <datumVan>                                                 |
+        | datumTotEnMet                    | <datumTotEnMet>                                            |
+        | fields                           | bewoningen.periode,bewoningen.bewoners.burgerservicenummer |
+        Dan bevat de response de JSON fragment
+        '''
+        {
+            "bewoningenhistorie": [
+                {
+                    "bewoningen": [
+                        {
+                            "periode": {
+                                "van": "<datumVan>",
+                                "tot": "<datum tot>"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                },
+                                {
+                                    "burgerservicenummer": "99999YYYY"
+                                },
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        '''
+
+        Voorbeelden:
+        | datumVan   | datumTotEnMet | datum tot  | scenario titel                                   |
+        | 2019-01-01 | 2020-12-31    | 2021-01-01 | zoek periode overlapt adreshouding periode       |
+        | 2019-10-01 | 2020-07-31    | 2020-08-01 | zoek periode overlapt deels adreshouding periode |
+
+Rule: zoeken met burgerservicenummer, datumVan en datumTotEnMet retourneert alle adresseerbaarobjecten waar de persoon met opgegeven burgerservicenummer tussen datumVan en datumTotEnMet een adreshouding heeft (gehad) + de personen die tussen datumVan en datumTotEnMet op dezelfde adresseerbaarobjecten een adreshouding hebben (gehad)
+
+    Scenario: zoeken met burgerservicenummer: zoek periode overlap gedeeltelijk meerdere adreshouding periodes
+        Gegeven de bewoners
+        | burgerservicenummer | adresseerbaarObjectIdentificatie | aanvang adreshouding | adreshouding tot |
+        | 99999XXXX           | 0518010000412416                 | 2019-08-01           | 2020-10-01       |
+        | 99999XXXX           | 0518010000781379                 | 2020-10-01           |                  |
+        | 99999YYYY           | 0518010000412416                 | 2020-04-01           | 2020-09-01       |
+        | 99999ZZZZ           | 0518010000781379                 | 2019-01-01           |                  |
+        Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
+        | naam                | waarde                                                     |
+        | burgerservicenummer | 99999XXXX                                                  |
+        | datumVan            | 2020-01-01                                                 |
+        | datumTotEnMet       | 2020-12-31                                                 |
+        | fields              | bewoningen.periode,bewoningen.bewoners.burgerservicenummer |
+        Dan bevat de response de JSON fragment
+        '''
+        {
+            "bewoningenhistorie": [
+                {
+                    "adresseerbaarObjectIdentificatie": "0518010000412416",
+                    "bewoningen": [
+                        {
+                            "periode": {
+                                "van": "2020-01-01",
+                                "tot": "2020-10-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                },
+                                {
+                                    "burgerservicenummer": "99999YYYY"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "adresseerbaarObjectIdentificatie": "0518010000781379",
+                    "bewoningen": [
+                        {
+                            "periode": {
+                                "van": "2020-10-01",
+                                "tot": "2021-01-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                },
+                                {
+                                    "burgerservicenummer": "99999ZZZZ"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        '''
+
+Rule: adreshouding periode van een bewoner geeft ALTIJD de periode aan dat een persoon op een adresseerbaarobject was/is ingeschreven
+
+    Scenario: <scenario titel>
+        Gegeven adresseerbaarobject met identificatie '0518010000412416' heeft de volgende adreshoudingen
+        | burgerservicenummer | aanvang adreshouding | adreshouding tot |
+        | 99999XXXX           | 2019-08-01           | 2020-10-01       |
+        Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
+        | naam                             | waarde                                                                                              |
+        | adresseerbaarObjectIdentificatie | 0518010000412416                                                                                    |
+        | datumVan                         | <datumVan>                                                                                          |
+        | datumTotEnMet                    | <datumTotEnMet>                                                                                     |
+        | fields                           | bewoningen.periode,bewoningen.bewoners.burgerservicenummer,bewoningen.bewoners.adreshouding.periode |
+        Dan bevat de response de JSON fragment
+        '''
+        {
+            "bewoningenhistorie": [
+                {
+                    "bewoningen": [
+                        {
+                            "periode": {
+                                "van": "<datumVan>",
+                                "tot": "<datum tot>"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX",
+                                    "adreshouding": {
+                                        "periode": {
+                                            "aanvang": "2019-08-01",
+                                            "tot": "2020-10-01"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        '''
+
+        Voorbeelden:
+        | datumVan   | datumTotEnMet | datum tot  | scenario titel                                   |
+        | 2019-08-01 | 2020-09-30    | 2020-10-01 | zoek periode is gelijk aan adreshouding periode  |
+        | 2019-10-01 | 2019-12-31    | 2020-01-01 | adreshouding periode omvat zoek periode          |
+        | 2019-01-01 | 2019-12-31    | 2020-01-01 | zoek periode overlapt deels adreshouding periode |
+
+Rule: zoeken met toonBewoonsamenstelling splitst de bewoning periodes bij verandering in bewoon samenstelling
+
+    Scenario: bewoon samenstelling op basis van adresseerbaarObjectIdentificatie
+        Gegeven adresseerbaarobject met identificatie '0518010000412416' heeft de volgende bewoners
+        | burgerservicenummer | aanvang adreshouding | adreshouding tot |
+        | 99999XXXX           | 2019-08-01           | 2020-10-01       |
+        | 99999YYYY           | 2020-04-01           | 2020-09-01       |
+        Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
+        | naam                             | waarde                                                                                      |
+        | adresseerbaarObjectIdentificatie | 0518010000412416                                                                            |
+        | datumVan                         | 2020-01-01                                                                                  |
+        | datumTotEnMet                    | 2020-12-31                                                                                  |
+        | toonBewoonSamenstelling          | true                                                                                        |
+        | fields                           | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer |
+        Dan bevat de response de JSON fragment
+        '''
+        {
+            "bewoningenhistorie": [
+                {
+                    "adresseerbaarObjectIdentificatie": "0518010000412416",
+                    "bewoningen": [
+                        {
+                            "periode": {
+                                "van": "2020-01-01",
+                                "tot": "2020-04-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                }
+                            ]
+                        },
+                        {
+                            "periode": {
+                                "van": "2020-04-01",
+                                "tot": "2020-09-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                },
+                                {
+                                    "burgerservicenummer": "99999YYYY"
+                                }
+                            ]
+                        },
+                        {
+                            "periode": {
+                                "van": "2020-09-01",
+                                "tot": "2020-10-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                }
+                            ]
+                        },
+                        {
+                            "periode": {
+                                "van": "2020-10-01",
+                                "tot": "2021-01-01"
+                            },
+                            "bewoners": []
+                        }
+                    ]
+                }
+            ]
+        }
+        '''
+
+    Scenario: bewoon samenstelling op basis van burgerservicenummer
+        Gegeven de bewoners
+        | burgerservicenummer | adresseerbaarObjectIdentificatie | aanvang adreshouding | adreshouding tot |
+        | 99999XXXX           | 0518010000412416                 | 2019-08-01           | 2020-10-01       |
+        | 99999XXXX           | 0518010000781379                 | 2020-10-01           |                  |
+        | 99999YYYY           | 0518010000412416                 | 2020-04-01           | 2020-09-01       |
+        | 99999ZZZZ           | 0518010000781379                 | 2019-01-01           |                  |
+        Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
+        | naam                    | waarde                                                                                      |
+        | burgerservicenummer     | 99999XXXX                                                                                   |
+        | datumVan                | 2020-01-01                                                                                  |
+        | datumTotEnMet           | 2020-12-31                                                                                  |
+        | toonBewoonSamenstelling | true                                                                                        |
+        | fields                  | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer |
+        Dan bevat de response de JSON fragment
+        '''
+        {
+            "bewoningenhistorie": [
+                {
+                    "adresseerbaarObjectIdentificatie": "0518010000412416",
+                    "bewoningen": [
+                        {
+                            "periode": {
+                                "van": "2020-01-01",
+                                "tot": "2020-04-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                }
+                            ]
+                        },
+                        {
+                            "periode": {
+                                "van": "2020-04-01",
+                                "tot": "2020-09-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                },
+                                {
+                                    "burgerservicenummer": "99999YYYY"
+                                }
+                            ]
+                        },
+                        {
+                            "periode": {
+                                "van": "2020-09-01",
+                                "tot": "2020-10-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "adresseerbaarObjectIdentificatie": "0518010000781379",
+                    "bewoningen": [
+                        {
+                            "periode": {
+                                "van": "2020-10-01",
+                                "tot": "2021-01-01"
+                            },
+                            "bewoners": [
+                                {
+                                    "burgerservicenummer": "99999XXXX"
+                                },
+                                {
+                                    "burgerservicenummer": "99999ZZZZ"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        '''
+
+Rule: zoeken met peildatum komt overeen met zoeken met datumVan en datumTotEnMet met dezelfde datum
+
+    Scenario: zoek met peildatum
+        Gegeven de bewoners
+        | burgerservicenummer | adresseerbaarObjectIdentificatie | aanvang adreshouding | adreshouding tot |
+        | 99999XXXX           | 0518010000412416                 | 2019-08-01           | 2020-10-01       |
+        | 99999XXXX           | 0518010000781379                 | 2020-10-01           |                  |
+        | 99999YYYY           | 0518010000412416                 | 2020-04-01           | 2020-09-01       |
+        | 99999ZZZZ           | 0518010000781379                 | 2019-01-01           |                  |
+        Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
+        | naam                | waarde                                                                                      |
+        | burgerservicenummer | 99999XXXX                                                                                   |
+        | peildatum           | 2020-08-31                                                                                  |
+        | fields              | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer |
+        Dan bevat de response de JSON fragment
         '''
         {
             "bewoningenhistorie": [
@@ -364,22 +343,10 @@ Rule: peildatum komt overeen met datumVan en datumTotEnMet met dezelfde datum
                             },
                             "bewoners": [
                                 {
-                                    "burgerservicenummer": "99999XXXX",
-                                    "verblijfplaats": {
-                                        "adreshouding": {
-                                            "aanvang": "2019-08-01",
-                                            "tot": "2020-10-01"
-                                        }
-                                    }
+                                    "burgerservicenummer": "99999XXXX"
                                 },
                                 {
-                                    "burgerservicenummer": "99999YYYY",
-                                    "verblijfplaats": {
-                                        "adreshouding": {
-                                            "aanvang": "2020-04-01",
-                                            "tot": "2020-09-01"
-                                        }
-                                    }
+                                    "burgerservicenummer": "99999YYYY"
                                 }
                             ]
                         }
@@ -394,14 +361,15 @@ Rule: datumVan en datumTotEnMet zijn standaard gelijk aan de datum van vandaag
 
     Scenario: datumVan is opgegeven en datumTotEnMet is niet opgegeven
         Gegeven de bewoner
-        | burgerservicenummer | adresseerbaarObjectIdentificatie | aanvangAdreshouding | eindeAdreshouding |
-        | 99999XXXX           | 0518010000412416                 | 2019-08-01          | 2020-10-01        |
+        | burgerservicenummer | adresseerbaarObjectIdentificatie | aanvang adreshouding | adreshouding tot |
+        | 99999XXXX           | 0518010000412416                 | 2019-08-01           | 2020-10-01       |
         En datum vandaag is 2021-11-15
         Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-        | naam                | waarde     |
-        | burgerservicenummer | 99999XXXX  |
-        | datumVan            | 2020-01-01 |
-        Dan bevat de response de volgende JSON fragment
+        | naam                | waarde                                                                                      |
+        | burgerservicenummer | 99999XXXX                                                                                   |
+        | datumVan            | 2020-01-01                                                                                  |
+        | fields              | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer |
+        Dan bevat de response de JSON fragment
         '''
         {
             "bewoningenhistorie": [
@@ -415,13 +383,7 @@ Rule: datumVan en datumTotEnMet zijn standaard gelijk aan de datum van vandaag
                             },
                             "bewoners": [
                                 {
-                                    "burgerservicenummer": "99999XXXX",
-                                    "verblijfplaats": {
-                                        "adreshouding": {
-                                            "aanvang": "2019-08-01",
-                                            "tot": "2020-10-01"
-                                        }
-                                    }
+                                    "burgerservicenummer": "99999XXXX"
                                 }
                             ]
                         }
@@ -433,13 +395,14 @@ Rule: datumVan en datumTotEnMet zijn standaard gelijk aan de datum van vandaag
 
     Scenario: datumVan en datumTotEnMet zijn niet opgegeven
         Gegeven de bewoner
-        | burgerservicenummer | adresseerbaarObjectIdentificatie | aanvangAdreshouding | eindeAdreshouding |
-        | 99999ZZZZ           | 0518010000781379                 | 2019-01-01          |                   |
+        | burgerservicenummer | adresseerbaarObjectIdentificatie | aanvang adreshouding | adreshouding tot |
+        | 99999ZZZZ           | 0518010000781379                 | 2019-01-01           |                  |
         En datum vandaag is 2021-11-15
         Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-        | naam                | waarde    |
-        | burgerservicenummer | 99999ZZZZ |
-        Dan bevat de response de volgende JSON fragment
+        | naam                | waarde                                                                                      |
+        | burgerservicenummer | 99999ZZZZ                                                                                   |
+        | fields              | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer |
+        Dan bevat de response de JSON fragment
         '''
         {
             "bewoningenhistorie": [
@@ -453,12 +416,7 @@ Rule: datumVan en datumTotEnMet zijn standaard gelijk aan de datum van vandaag
                             },
                             "bewoners": [
                                 {
-                                    "burgerservicenummer": "99999ZZZZ",
-                                    "verblijfplaats": {
-                                        "adreshouding": {
-                                            "aanvang": "2019-01-01"
-                                        }
-                                    }
+                                    "burgerservicenummer": "99999ZZZZ"
                                 }
                             ]
                         }
@@ -476,11 +434,12 @@ Rule: geen adreshouding in een periode = geen bewoners in de periode
         | 99999AAAA           | 2019-01-01 | 2020-01-01 |
         | 99999BBBB           | 2020-04-01 |            |
         Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-        | naam                             | waarde           |
-        | adresseerbaarobjectidentificatie | 0599010000228162 |
-        | datumVan                         | 2020-01-01       |
-        | datumTotEnMet                    | 2020-03-31       |
-        Dan bevat de response de volgende JSON fragment
+        | naam                             | waarde                                                                                                                       |
+        | adresseerbaarobjectidentificatie | 0599010000228162                                                                                                             |
+        | datumVan                         | 2020-01-01                                                                                                                   |
+        | datumTotEnMet                    | 2020-03-31                                                                                                                   |
+        | fields                           | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer,bewoningen.bewoners.adreshouding |
+        Dan bevat de response de JSON fragment
         '''
         {
             "bewoningenhistorie": [
@@ -506,11 +465,12 @@ Rule: geen adreshouding in een periode = geen bewoners in de periode
         | 99999AAAA           | 2019-01-01 | 2020-01-01 |
         | 99999BBBB           | 2020-04-01 |            |
         Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-        | naam                             | waarde           |
-        | adresseerbaarobjectidentificatie | 0599010000228162 |
-        | datumVan                         | 2020-01-01       |
-        | datumTotEnMet                    | 2020-05-31       |
-        Dan bevat de response de volgende JSON fragment
+        | naam                             | waarde                                                                                                                       |
+        | adresseerbaarobjectidentificatie | 0599010000228162                                                                                                             |
+        | datumVan                         | 2020-01-01                                                                                                                   |
+        | datumTotEnMet                    | 2020-05-31                                                                                                                   |
+        | fields                           | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer,bewoningen.bewoners.adreshouding |
+        Dan bevat de response de JSON fragment
         '''
         {
             "bewoningenhistorie": [
@@ -525,8 +485,8 @@ Rule: geen adreshouding in een periode = geen bewoners in de periode
                             "bewoners": [
                                 {
                                     "burgerservicenummer": "99999BBBB",
-                                    "verblijfplaats": {
-                                        "adreshouding": {
+                                    "adreshouding": {
+                                        "periode": {
                                             "aanvang": "2019-04-01"
                                         }
                                     }
@@ -544,11 +504,12 @@ Rule: geen adreshouding in een periode = geen bewoners in de periode
         | burgerservicenummer | aanvang    | tot |
         | 99999BBBB           | 2020-04-01 |     |
         Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-        | naam                             | waarde           |
-        | adresseerbaarobjectidentificatie | 0599010000228162 |
-        | datumVan                         | 2020-01-01       |
-        | datumTotEnMet                    | 2020-05-31       |
-        Dan bevat de response de volgende JSON fragment
+        | naam                             | waarde                                                                                                                       |
+        | adresseerbaarobjectidentificatie | 0599010000228162                                                                                                             |
+        | datumVan                         | 2020-01-01                                                                                                                   |
+        | datumTotEnMet                    | 2020-05-31                                                                                                                   |
+        | fields                           | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer,bewoningen.bewoners.adreshouding |
+        Dan bevat de response de JSON fragment
         '''
         {
             "bewoningenhistorie": [
@@ -563,8 +524,8 @@ Rule: geen adreshouding in een periode = geen bewoners in de periode
                             "bewoners": [
                                 {
                                     "burgerservicenummer": "99999BBBB",
-                                    "verblijfplaats": {
-                                        "adreshouding": {
+                                    "adreshouding": {
+                                        "periode": {
                                             "aanvang": "2019-04-01"
                                         }
                                     }
@@ -584,11 +545,12 @@ Rule: adreshouding is niet gekoppeld aan een adresseerbaarobject = geen bewoning
         | bsn       | adresseerbaarObjectIdentificatie | aanvangAdreshouding | eindeAdreshouding |
         | 99999XXXX |                                  | 2019-08-01          |                   |
         Als de endpoint '/bewoningenhistorie' met de volgende parameters wordt aangeroepen
-        | naam                | waarde     |
-        | burgerservicenummer | 99999XXXX  |
-        | datumVan            | 2020-01-01 |
-        | datumTotEnMet       | 2020-12-31 |
-        Dan is de response
+        | naam                | waarde                                                                                                                       |
+        | burgerservicenummer | 99999XXXX                                                                                                                    |
+        | datumVan            | 2020-01-01                                                                                                                   |
+        | datumTotEnMet       | 2020-12-31                                                                                                                   |
+        | fields              | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer,bewoningen.bewoners.adreshouding |
+        Dan bevat de response de JSON fragment
         '''
         {
             "bewoningenhistorie": [
@@ -623,7 +585,8 @@ Rule: adreshouding is niet gekoppeld aan een adresseerbaarobject = geen bewoning
         | burgerservicenummer | 99999XXXX  |
         | datumVan            | 2019-01-01 |
         | datumTotEnMet       | 2020-12-31 |
-        Dan is de response
+        | fields              | adresseerbaarObjectIdentificatie,bewoningen.periode,bewoningen.bewoners.burgerservicenummer,bewoningen.bewoners.adreshouding |
+        Dan bevat de response de JSON fragment
         '''
         {
             "bewoningenhistorie": [
@@ -638,8 +601,8 @@ Rule: adreshouding is niet gekoppeld aan een adresseerbaarobject = geen bewoning
                             "bewoners": [
                                 {
                                     "burgerservicenummer": "99999XXXX",
-                                    "verblijfplaats": {
-                                        "adreshouding": {
+                                    "adreshouding": {
+                                        "periode": {
                                             "aanvang": "2019-01-01",
                                             "tot": "2019-08-01"
                                         }
@@ -671,8 +634,8 @@ Rule: adreshouding is niet gekoppeld aan een adresseerbaarobject = geen bewoning
                             "bewoners": [
                                 {
                                     "burgerservicenummer": "99999XXXX",
-                                    "verblijfplaats": {
-                                        "adreshouding": {
+                                    "adreshouding": {
+                                        "periode": {
                                             "aanvang": "2020-01-01"
                                         }
                                     }
