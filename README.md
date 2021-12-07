@@ -1,7 +1,6 @@
 # Haal Centraal BRP bewoning
 
 ![lint oas](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/workflows/lint-oas/badge.svg)
-![generate sdks](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/workflows/generate-sdks/badge.svg)
 ![generate postman collection](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/workflows/generate-postman-collection/badge.svg)
 
 API voor het raadplegen van de (historische) bewoning van een adres, verloop op een adres, of de medebewoners van een persoon.
