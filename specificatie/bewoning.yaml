@@ -9,7 +9,7 @@ components:
     AdresUitgebreid:
       type: "object"
       allOf :
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/adressering.yaml#/components/schemas/AdresBeperkt"
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/adressering.yaml#/components/schemas/AdresseringBeperkt"
         - properties:
             nummeraanduidingIdentificatie:
               type: "string"
@@ -42,7 +42,7 @@ components:
       type: object
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           $ref: "#/components/schemas/BewoningHalCollectieEmbedded"
     BewoningHalCollectieEmbedded:
@@ -80,7 +80,7 @@ components:
                         Geeft aan dat de verblijfplaats in onderzoek is.
           type: "boolean"
         functieAdres:
-          $ref: 'common.yaml#/components/schemas/Waardetabel'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/schemas/Waardetabel'
     WoningBasis:
       type: "object"
       description: |
