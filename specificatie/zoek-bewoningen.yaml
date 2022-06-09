@@ -71,7 +71,7 @@ paths:
         'default':
           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/default'
       tags:
-        - Bewoningen
+        - Bewoning
   /bewonersvanwoning/{adresseerbaarObjectIdentificatie}:
     get:
       operationId: zoekBewonersVanWoning
