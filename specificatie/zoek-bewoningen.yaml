@@ -53,23 +53,23 @@ paths:
               schema:
                 $ref: 'bewoning.yaml#/components/schemas/Bewoning'
         '400':
-          $ref: 'common.yaml#/components/responses/400'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/400'
         '401':
-          $ref: 'common.yaml#/components/responses/401'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/401'
         '403':
-          $ref: 'common.yaml#/components/responses/403'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/403'
         '406':
-          $ref: 'common.yaml#/components/responses/406'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/406'
         '429':
-          $ref: 'common.yaml#/components/responses/429'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/429'
         '500':
-          $ref: 'common.yaml#/components/responses/500'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/500'
         '501':
-          $ref: 'common.yaml#/components/responses/501'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/501'
         '503':
-          $ref: 'common.yaml#/components/responses/503'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/503'
         'default':
-          $ref: 'common.yaml#/components/responses/default'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/default'
       tags:
         - Bewoningen
   /bewonersvanwoning/{adresseerbaarObjectIdentificatie}:
@@ -101,25 +101,25 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: 'BewonersVanWoning.yaml#/components/schemas/BewonersVanWoningHalBasis'
+                $ref: 'bewonersvanwoning.yaml#/components/schemas/BewonersVanWoningHalBasis'
         '400':
-          $ref: 'common.yaml#/components/responses/400'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/400'
         '401':
-          $ref: 'common.yaml#/components/responses/401'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/401'
         '403':
-          $ref: 'common.yaml#/components/responses/403'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/403'
         '406':
-          $ref: 'common.yaml#/components/responses/406'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/406'
         '429':
-          $ref: 'common.yaml#/components/responses/429'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/429'
         '500':
-          $ref: 'common.yaml#/components/responses/500'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/500'
         '501':
-          $ref: 'common.yaml#/components/responses/501'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/501'
         '503':
-          $ref: 'common.yaml#/components/responses/503'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/503'
         'default':
-          $ref: 'common.yaml#/components/responses/default'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/default'
       tags:
       - Bewoning
   /verloop/{adresseerbaarObjectIdentificatie}:
@@ -145,25 +145,25 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/Verloop'
+                $ref: 'verloop.yaml#/components/schemas/Verloop'
         '400':
-          $ref: 'common.yaml#/components/responses/400'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/400'
         '401':
-          $ref: 'common.yaml#/components/responses/401'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/401'
         '403':
-          $ref: 'common.yaml#/components/responses/403'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/403'
         '406':
-          $ref: 'common.yaml#/components/responses/406'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/406'
         '429':
-          $ref: 'common.yaml#/components/responses/429'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/429'
         '500':
-          $ref: 'common.yaml#/components/responses/500'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/500'
         '501':
-          $ref: 'common.yaml#/components/responses/501'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/501'
         '503':
-          $ref: 'common.yaml#/components/responses/503'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/503'
         'default':
-          $ref: 'common.yaml#/components/responses/default'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/responses/default'
       tags:
       - Bewoning
 components:
