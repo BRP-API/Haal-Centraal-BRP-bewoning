@@ -204,7 +204,7 @@ components:
             $ref: 'filter.yaml#/components/schemas/Field'
         burgerservicenummer:
           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/persoon.yaml#/components/schemas/Burgerservicenummer'
-    ZoekMetBurgerservicenummerenPeildatum:
+    ZoekMetBurgerservicenummerEnPeildatum:
       required:
         - peildatum
       allOf:

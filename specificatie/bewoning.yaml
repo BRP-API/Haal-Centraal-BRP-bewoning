@@ -42,7 +42,7 @@ components:
       type: object
       properties:
         _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
         _embedded:
           $ref: "#/components/schemas/BewoningHalCollectieEmbedded"
     BewoningHalCollectieEmbedded:
