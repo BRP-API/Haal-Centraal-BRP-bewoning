@@ -39,15 +39,15 @@ paths:
                         Zoekactie geslaagd
           headers:
             api-version:
-              $ref: 'common.yaml#/components/headers/api_version'
+              $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/headers/api_version'
             warning:
-              $ref: 'common.yaml#/components/headers/warning'
+              $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/headers/warning'
             X-Rate-Limit-Limit:
-              $ref: 'common.yaml#/components/headers/X_Rate_Limit_Limit'
+              $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/headers/X_Rate_Limit_Limit'
             X-Rate-Limit-Remaining:
-              $ref: 'common.yaml#/components/headers/X_Rate_Limit_Remaining'
+              $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/headers/X_Rate_Limit_Remaining'
             X-Rate-Limit-Reset:
-              $ref: 'common.yaml#/components/headers/X_Rate_Limit_Reset'
+              $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/headers/X_Rate_Limit_Reset'
           content:
             application/json:
               schema:
