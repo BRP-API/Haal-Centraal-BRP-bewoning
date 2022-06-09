@@ -24,6 +24,6 @@ paths:
   /bewoningen:
     $ref: 'zoek-bewoningen.yaml#/paths/~1bewoningen'
   /bewonersvanwoning/{adresseerbaarObjectIdentificatie}:
-    $ref: 'zoek-bewoningen.yaml#/paths/~1bewonersvanwoning/{adresseerbaarObjectIdentificatie}'
+    $ref: 'zoek-bewoningen.yaml#/paths/~1bewonersvanwoning~1{adresseerbaarObjectIdentificatie}'
   /verloop/{adresseerbaarObjectIdentificatie}:
-    $ref: 'zoek-bewoningen.yaml#/paths/~1verloop/{adresseerbaarObjectIdentificatie}'
+    $ref: 'zoek-bewoningen.yaml#/paths/~1verloop~1{adresseerbaarObjectIdentificatie}'

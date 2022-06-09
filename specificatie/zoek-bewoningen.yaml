@@ -32,7 +32,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BewoningenQuery
+              $ref: '#/components/schemas/BewoningenQuery'
       responses:
         '200':
           description: |
