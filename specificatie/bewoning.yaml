@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: Bewoningen definitie
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    AdresUitgebreid:
+      type: "object"
+      allOf :
+        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/adressering.yaml#/components/schemas/AdresseringBeperkt"
+        - properties:
+            nummeraanduidingIdentificatie:
+              type: "string"
+              description: |
+                            De unieke aanduiding van een nummeraanduiding.
+              example: "0518200001645858"
+    Bewoning:
+      type: "object"
+      properties:
+        woning:
+          $ref: "#/components/schemas/Woning"
+        bewoners:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/BewonerBasis"
+    BewoningCollectie:
+      type: object
+      properties:
+        bewoningen:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bewoning'
+    BewoningHalBasis:
+      allOf:
+      - $ref: "#/components/schemas/Bewoning"
+      - properties:
+         _links:
+           $ref: "#/components/schemas/BewoningLinks"
+    BewoningHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
+        _embedded:
+          $ref: "#/components/schemas/BewoningHalCollectieEmbedded"
+    BewoningHalCollectieEmbedded:
+      type: object
+      properties:
+        bewoningen:
+          type: array
+          items:
+            $ref: '#/components/schemas/BewoningHalBasis'
+    BewoningLinks:
+      type: "object"
+      properties:
+        nummeraanduidingen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        adresseerbaarObject:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    BewonerBasis:
+      type: "object"
+      description: |
+                    Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
+                    * **functieAdres** - Wordt gevuld op basis van de waarden die voorkomen in de tabel 'soortadres' uit de Haal-Centraal-BRP-tabellen-bevragen API.
+      properties:
+        burgerservicenummer:
+          type: "string"
+          example: "555555021"
+        geheimhoudingPersoonsgegevens:
+          type: "boolean"
+          title: "Indicatie geheim"
+          description: |
+                        Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
+        indicatieVerblijfsplaatsInOnderzoek:
+          description: |
+                        Geeft aan dat de verblijfplaats in onderzoek is.
+          type: "boolean"
+        functieAdres:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/develop/specificatie/common.yaml#/components/schemas/Waardetabel'
+    WoningBasis:
+      type: "object"
+      description: |
+                    Een bewoning is een adresseerbaar object(verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).
+                    Iedere samenstelling van bewoners van het object is een bewoning.
+      properties:
+        adresseerbaarObjectIdentificatie:
+          type: "string"
+          description: |
+                        De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
+        adressen:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/AdresUitgebreid"
+    Woning:
+      allOf:
+        - $ref: "#/components/schemas/WoningBasis"
+        - properties:
+            datumVan:
+              type: "string"
+              format: "date"
+            datumTot:
+              type: "string"
+              format: "date"
