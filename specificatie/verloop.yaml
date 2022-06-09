@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Bewoningen definitie
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    Verloop:
+      type: "object"
+      properties:
+        inVerhuizingen:
+          type: integer
+          description: |
+                        Het aantal keren dat een alleenstaande of een gezin naar het verblijfsobject, de ligplaats of de standplaats is verhuisd binnen de opgegeven periode.
+          example: 3
+        uitVerhuizingen:
+          type: integer
+          description: |
+                        Het aantal keren dat een alleenstaande of een gezin naar een ander verblijfsobject, ligplaats of standplaats is verhuisd binnen de opgegeven periode.
+          example: 14
+        gemiddeldAantalBewoners:
+          type: number
+          format: float
+          example: 2.7
+          description: |
+                        Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.

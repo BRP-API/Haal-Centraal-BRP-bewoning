@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Bewoningen definitie
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    BewonersVanWoning:
+      type: "object"
+      properties:
+        woning:
+          $ref: "bewoning.yaml#/components/schemas/WoningBasis"
+        bewoners:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Bewoner"
+    BewonersVanWoningHalBasis:
+      allOf:
+      - $ref: "#/components/schemas/BewonersVanWoning"
+      - properties:
+         _links:
+           $ref: "#/components/schemas/BewonersVanWoningLinks"
+    BewonersVanWoningLinks:
+      type: "object"
+      properties:
+        self:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        nummeraanduidingen:
+          type: "array"
+          items:
+            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+        adresseerbaarObject:
+          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/schemas/HalLink"
+    Bewoner:
+      allOf:
+        - $ref: "bewoning.yaml#/components/schemas/BewonerBasis"
+        - description: |
+                    Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
+                    * `datumVan` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven.
+                    * `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven.
+          properties:
+            datumVan:
+              $ref: 'datum.yaml#/components/schemas/AbstractDatum'
+            datumTot:
+              $ref: 'datum.yaml#/components/schemas/AbstractDatum'
