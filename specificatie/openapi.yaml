@@ -22,14 +22,13 @@ tags:
     description: Zoeken bewoningen
 paths:
   /bewoningen:
-    $ref: 'zoek-personen.yaml#/paths/~1bewoningen'
+    $ref: 'zoek-bewoningen.yaml#/paths/~1bewoningen'
   /bewonersvanwoning/{adresseerbaarObjectIdentificatie}:
     get:
       operationId: getBewonersVanWoning
       description: |
                     Raadpleeg welke bewoners in een woning hebben gewoond binnen de opgegeven periode.
       parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/parameters/expand"
         - in: query
           name: fields
           required: true
@@ -53,7 +52,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/BewonersVanWoningHal'
+                $ref: 'bewonersvanwoning.yaml#/components/schemas/BewonersVanWoningHal'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
@@ -97,7 +96,7 @@ paths:
           content:
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/Verloop'
+                $ref: 'verloop.yaml#/components/schemas/Verloop'
         '400':
           $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.3.0/api-specificatie/common.yaml#/components/responses/400"
         '401':
