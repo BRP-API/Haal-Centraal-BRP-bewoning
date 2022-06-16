@@ -31,3 +31,16 @@ components:
               $ref: 'in-onderzoek.yaml#/components/schemas/InOnderzoek'
             geheimhoudingPersoonsgegevens:
               $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
+    GbaBewoner:
+      type: object
+      properties:
+        burgerservicenummer:
+          $ref: '#/components/schemas/Burgerservicenummer'
+        geheimhoudingPersoonsgegevens:
+          $ref: '#/components/schemas/GbaGeheimhoudingPersoonsgegevens'
+        verblijfplaats:
+          type: array
+          minItems: 1
+          maxItems: 2
+          items:
+            $ref: 'verblijfplaats.yaml#/components/schemas/GbaVerblijfplaats'
