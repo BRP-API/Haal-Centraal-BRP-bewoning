@@ -13,18 +13,18 @@
     "version" : "2.0.0 (develop)"
   },
   "servers" : [ {
-    "url" : "https://www.haalcentraal.nl/haalcentraal/api/bewoning",
-    "description" : "APILAB testserver bewoning"
+    "url" : "/"
   } ],
   "tags" : [ {
     "name" : "BRP bewoning",
-    "description" : "Raadplegen van bewoningen"
+    "description" : "BRP bewoning"
   } ],
   "paths" : {
     "/bewoningen" : {
       "post" : {
         "tags" : [ "BRP bewoning" ],
-        "description" : "Zoek de medebewoners van een persoon op de opgegeven peildatum of binnen de opgegeven periode.\nRaadpleeg bewoners van een adresseerbaar object.\n",
+        "summary" : "Raadplegen van bewoningen",
+        "description" : "Hiermee kan je raadplegen:\n\n- welke personen (bewoners) stonden ingeschreven op een adres (adresseerbaar object) op een gegeven moment (peildatum) of in een gegeven periode.\n- welke personen op een gegeven moment (peildatum) of in een gegeven periode tegelijkertijd met een persoon op hetzelfde adres stonden ingeschreven (medebewoners). \n",
         "operationId" : "Bewoningen",
         "requestBody" : {
           "content" : {
