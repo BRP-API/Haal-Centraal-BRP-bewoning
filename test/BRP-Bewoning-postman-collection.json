@@ -1,12 +1,12 @@
 {
     "item": [
         {
-            "id": "1ac60de1-6947-4b21-a423-8a26628426c7",
-            "name": "Bewoningen",
+            "id": "cfe21a0f-4577-4acb-bc01-a958685718ab",
+            "name": "Raadplegen van bewoningen",
             "request": {
-                "name": "Bewoningen",
+                "name": "Raadplegen van bewoningen",
                 "description": {
-                    "content": "Zoek de medebewoners van een persoon op de opgegeven peildatum of binnen de opgegeven periode.\nRaadpleeg bewoners van een adresseerbaar object.\n",
+                    "content": "Hiermee kan je raadplegen:\n\n- Bewoning: welke personen (bewoners) stonden ingeschreven op een adresseerbaar object op een gegeven moment (peildatum) of in een gegeven periode.\n- Medebewoners: welke personen op een gegeven moment (peildatum) of in een gegeven periode tegelijkertijd met een persoon op hetzelfde adresseerbaar object stonden ingeschreven. \n",
                     "type": "text/plain"
                 },
                 "url": {
@@ -23,13 +23,17 @@
                     {
                         "key": "Content-Type",
                         "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
                     }
                 ],
                 "method": "POST",
                 "auth": null,
                 "body": {
                     "mode": "raw",
-                    "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                    "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                     "options": {
                         "raw": {
                             "language": "json"
@@ -39,7 +43,7 @@
             },
             "response": [
                 {
-                    "id": "d376bcad-327d-42ad-a884-d3543232707f",
+                    "id": "413e94c8-a8cd-4739-8d51-5273acea3864",
                     "name": "Zoekactie geslaagd\n",
                     "originalRequest": {
                         "url": {
@@ -55,7 +59,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -81,19 +85,19 @@
                         {
                             "disabled": false,
                             "key": "X-Rate-Limit-Limit",
-                            "value": "51820258",
+                            "value": "-84241536",
                             "description": ""
                         },
                         {
                             "disabled": false,
                             "key": "X-Rate-Limit-Remaining",
-                            "value": "51820258",
+                            "value": "-84241536",
                             "description": ""
                         },
                         {
                             "disabled": false,
                             "key": "X-Rate-Limit-Reset",
-                            "value": "51820258",
+                            "value": "-84241536",
                             "description": ""
                         },
                         {
@@ -101,12 +105,12 @@
                             "value": "application/json"
                         }
                     ],
-                    "body": "{\n \"bewoningen\": [\n  {\n   \"adresseerbaarObjectIdentificatie\": \"0226010000038820\",\n   \"adressen\": [\n    {\n     \"adresregel1\": \"Beethovenlaan 1 a3\",\n     \"adresregel2\": \"7604 GC ALMELO\"\n    },\n    {\n     \"adresregel1\": \"Beethovenlaan 1 a3\",\n     \"adresregel2\": \"7604 GC ALMELO\"\n    }\n   ],\n   \"bewoningPeriodes\": [\n    {\n     \"periode\": {\n      \"datumVan\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"datumTot\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     \"bewoners\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ],\n     \"indicatieVeelBewoners\": false\n    }\n   ],\n   \"periode\": {\n    \"datumVan\": {\n     \"type\": \"ut dolore aliquip dolor\",\n     \"langFormaat\": \"z9rk\"\n    },\n    \"datumTot\": {\n     \"type\": \"sed quis proident\",\n     \"langFormaat\": \"xli\"\n    }\n   }\n  },\n  {\n   \"adresseerbaarObjectIdentificatie\": \"0226010000038820\",\n   \"adressen\": [\n    {\n     \"adresregel1\": \"Beethovenlaan 1 a3\",\n     \"adresregel2\": \"7604 GC ALMELO\"\n    },\n    {\n     \"adresregel1\": \"Beethovenlaan 1 a3\",\n     \"adresregel2\": \"7604 GC ALMELO\"\n    }\n   ],\n   \"bewoningPeriodes\": [\n    {\n     \"periode\": {\n      \"datumVan\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"datumTot\": {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     },\n     \"bewoners\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ],\n     \"indicatieVeelBewoners\": true\n    }\n   ],\n   \"periode\": {\n    \"datumVan\": {\n     \"type\": \"magna id aliqua aliquip\",\n     \"langFormaat\": \"lm 1y0e\"\n    },\n    \"datumTot\": {\n     \"type\": \"anim consequat\",\n     \"langFormaat\": \"yc1d8sykox2 q6 js\"\n    }\n   }\n  }\n ]\n}",
+                    "body": "{\n  \"bewoningen\": [\n    {\n      \"type\": \"Excepteur dolore ipsum\",\n      \"periode\": {\n        \"datumVan\": {\n          \"type\": \"sed ullamco\",\n          \"langFormaat\": \"j alc8\"\n        },\n        \"datumTot\": {\n          \"type\": \"incididunt sed cillum reprehenderit\",\n          \"langFormaat\": \"ip2d34h7g1ehx8\"\n        }\n      }\n    },\n    {\n      \"type\": \"ullamco dolore voluptate cillum deserunt\",\n      \"periode\": {\n        \"datumVan\": {\n          \"type\": \"ut in\",\n          \"langFormaat\": \"d\"\n        },\n        \"datumTot\": {\n          \"type\": \"aute\",\n          \"langFormaat\": \"zvuur4\"\n        }\n      }\n    }\n  ]\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "c332d305-2901-49b4-9524-134f8972cf9d",
+                    "id": "86c55f36-c998-4d17-a312-e26cc3e0878e",
                     "name": "Bad Request",
                     "originalRequest": {
                         "url": {
@@ -122,7 +126,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -144,12 +148,12 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n  \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n  \"status\": 400,\n  \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"paramsRequired\",\n  \"invalidParams\": [\n    {\n      \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n      \"name\": \"verblijfplaats__huisnummer\",\n      \"code\": \"integer\",\n      \"reason\": \"Waarde is geen geldige integer.\"\n    }\n  ]\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "d916cbbe-823f-44a0-ab75-918a5e3c9ede",
+                    "id": "c8ffe08f-65ab-4803-90ca-20ae593b1432",
                     "name": "Unauthorized",
                     "originalRequest": {
                         "url": {
@@ -165,7 +169,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -187,12 +191,12 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n  \"title\": \"Niet correct geauthenticeerd.\",\n  \"status\": 401,\n  \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"authentication\"\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "1aad93bf-6ded-4257-b895-40811a4a2c53",
+                    "id": "8ff498d5-65e2-4a94-a8de-d0fb962f347a",
                     "name": "Forbidden",
                     "originalRequest": {
                         "url": {
@@ -208,7 +212,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -230,12 +234,12 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n  \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n  \"status\": 403,\n  \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"autorisation\"\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "de782467-7b48-41d2-af67-bc6e576d05bd",
+                    "id": "3c36ee9b-f810-4d8b-aa33-af28e67b717f",
                     "name": "Not Acceptable",
                     "originalRequest": {
                         "url": {
@@ -251,7 +255,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -273,12 +277,12 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n  \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n  \"status\": 406,\n  \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"notAcceptable\"\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "2a1633ff-32b2-4200-8f81-997531ae23d1",
+                    "id": "70ce7056-f602-41d9-bdea-f2eb4f329a65",
                     "name": "Too Many Requests",
                     "originalRequest": {
                         "url": {
@@ -294,7 +298,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -316,12 +320,12 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html\",\n \"title\": \"Too many request\",\n \"status\": 429,\n \"detail\": \"The user has sent too many requests in a given amount of time (rate limiting).\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"tooManyRequests\"\n}",
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html\",\n  \"title\": \"Too many request\",\n  \"status\": 429,\n  \"detail\": \"The user has sent too many requests in a given amount of time (rate limiting).\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"tooManyRequests\"\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "98265399-1d53-425f-8f84-2b32676b6e7d",
+                    "id": "99deff27-84af-49d5-a2eb-a8bceeae8b60",
                     "name": "Internal Server Error",
                     "originalRequest": {
                         "url": {
@@ -337,7 +341,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -359,12 +363,12 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n  \"title\": \"Interne server fout.\",\n  \"status\": 500,\n  \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"serverError\"\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "4c7de468-3fc8-47a6-a9dc-27015c429a5a",
+                    "id": "62f7907f-50b0-43d7-bee9-8cd913753aaa",
                     "name": "Not Implemented",
                     "originalRequest": {
                         "url": {
@@ -380,7 +384,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -402,12 +406,12 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n  \"title\": \"Not Implemented\",\n  \"status\": 501,\n  \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"notImplemented\"\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "262a64c6-e135-4bec-85d1-d95a187f4c6e",
+                    "id": "8b6779d4-4c56-4391-aef4-e08ec6e1664d",
                     "name": "Service Unavailable",
                     "originalRequest": {
                         "url": {
@@ -423,7 +427,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -445,12 +449,12 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n \"title\": \"Bronservice BRP is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n  \"title\": \"Bronservice BRP is tijdelijk niet beschikbaar.\",\n  \"status\": 503,\n  \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"notAvailable\"\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "04acc84c-97ad-44f8-a707-5ebc6054d3f4",
+                    "id": "572193f0-015d-4663-b74d-8a65f401a54f",
                     "name": "Er is een onverwachte fout opgetreden",
                     "originalRequest": {
                         "url": {
@@ -466,7 +470,7 @@
                         "method": "POST",
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"fields\": [\n        \"<string>\"\n    ],\n    \"type\": \"<string>\"\n}",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -488,24 +492,27 @@
                             "value": "application/problem+json"
                         }
                     ],
-                    "body": "{\n \"type\": \"http://OkjWURwUvm.qraOCf-C9.TD-mZi-CKITm4FANl3Wjmf\",\n \"title\": \"ė\",\n \"status\": 155,\n \"detail\": \"ōüvîčĞńŲbžħĹŧiåěÖ\",\n \"instance\": \"https://ldIBKaQuVnTeLNAYEMn.skkdzXiNJCCUH4Ms93hfq23,ZHpN2fqrR3droN,E9HXQcWFW.5ubew,Aqn6zya5N5OE\",\n \"code\": \"5itaoArM6xniRGeccqPgGcd\"\n}",
+                    "body": "{\n  \"type\": \"https://WGvwGTbTLSKAxCgaapZCSdZSrjYd.iwnb.9uHy3yDeBSM38IWGjYOadqL+RwccK1LljE3A8vIPKu1IXl\",\n  \"title\": \"ŸVÁwģŴũŭXüēŉŀÂÀā\",\n  \"status\": 455,\n  \"detail\": \"×Èý9HĪPŤðĐïŤĉÄĕvıÛÈŷĈĹĉ÷þŬæéōÏõŧçŎÿĽĹáŀŁÁđŹĲŮġìŒĮğÅôŪŝôĵÐĶÿŊÄNŞŖìCŴßěŵşFğMĻáĪĩrĺŽkľĎŽū\",\n  \"instance\": \"http://HXOsIYVhBJgaPmPx.pzvjpNwYA6Dskp8J+72GZ5GEh2lDzSXwQDAqwX7crwo\",\n  \"code\": \"IEB7iRH\"\n}",
                     "cookie": [],
                     "_postman_previewlanguage": "json"
                 }
             ],
-            "event": []
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
         }
     ],
     "event": [],
     "variable": [
         {
             "type": "string",
-            "value": "https://www.haalcentraal.nl/haalcentraal/api/bewoning",
+            "value": "/",
             "key": "baseUrl"
         }
     ],
     "info": {
-        "_postman_id": "b03e1188-8bbd-46fb-910c-d4329440e969",
+        "_postman_id": "ec0ae72c-bd6a-4aba-9200-ee2c4beeb398",
         "name": "BRP bewoning",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
