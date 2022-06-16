@@ -1,0 +1,48 @@
+openapi: 3.0.3
+info:
+  title: Bewoning definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    Bewoning:
+      type: object
+      description: Bewoning van een adresseerbaar object
+      properties:
+        adresseerbaarObjectIdentificatie:
+          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+        adressen:
+          type: array
+          items:
+            $ref: 'adressering.yaml#/components/schemas/Adressering'
+        bewoningPeriodes:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/BewoningPeriode'
+        periode:
+          $ref: '#/components/schemas/Periode'
+    Periode:
+      type: object
+      properties:
+        datumVan:
+          $ref: 'datum.yaml#/components/schemas/AbstractDatum'
+        datumTot:
+          $ref: 'datum.yaml#/components/schemas/AbstractDatum'
+    BewoningPeriode:
+      type: object
+      description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was.
+      properties:
+        periode:
+          $ref: '#/components/schemas/Periode'
+        bewoners:
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/Bewoner'
+        indicatieVeelBewoners:
+          type: boolean
+          description: Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
+

@@ -1,311 +1,158 @@
-openapi: 3.0.0
+openapi: 3.0.3
 servers:
-  - description: |
-                  APILAB testserver bewoning
-    url: https://www.haalcentraal.nl/haalcentraal/api/brpbewoning
+  - description: "APILAB testserver bewoning"
+    url: https://www.haalcentraal.nl/haalcentraal/api/bewoning
 info:
-  title: Bewoning
+  title: BRP bewoning
   description: |
-                API voor het zoeken en raadplegen van bewoningen en metagegevens over bewoning (verloop).
-                Een bewoning is een adresseerbaar object (verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).
-                Iedere samenstelling van bewoners van het object is een bewoning. Overleden personen maken onderdeel uit van een
-                bewoning tot het moment van overlijden. Gegevens over de bewoners zijn actueel.
-  version: 1.0.0
+                API voor het raadplegen van de (historische) bewoning van een adres of de medebewoners van een persoon.
+  version: 2.0.0 (develop)
   contact:
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
 tags:
-  - name: Bewoning
+  - name: BRP bewoning
+    description: Raadplegen van bewoningen
 paths:
   /bewoningen:
-    get:
-      operationId: getBewoningen
+    post:
       description: |
-                    Zoek bewoningen door een adresseerbaarObjectIdentificatie of een burgerservicenummer op te geven, samen met een peildatum of periode.
-      parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/peildatum"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
-        - in: query
-          name: burgerservicenummer
-          required: false
-          description: |
-                        Uniek persoonsnummer.
-          explode: false
-          example: "999993653"
-          schema:
-            type: string
-            pattern: "^[0-9]*$"
-            maxLength: 9
-            minLength: 9
-        - in: query
-          name: adresseerbaarObjectIdentificatie
-          description: |
-                        De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
-          required: false
-          schema:
-            type: string
-            pattern: '^[0-9]{16}$'
-            example: '0226010000038820'
+        Zoek de medebewoners van een persoon op de opgegeven peildatum of binnen de opgegeven periode.
+        Raadpleeg bewoners van een adresseerbaar object.
+      operationId: Bewoningen
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BewoningenQuery"
       responses:
         '200':
           description: |
-                        Zoekactie geslaagd
+            Zoekactie geslaagd
           headers:
             api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
+              $ref: "common.yaml#/components/headers/api_version"
             warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
+              $ref: "common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
-            application/hal+json:
+            application/json:
               schema:
-                $ref: '#/components/schemas/BewoningHalCollectie'
+                $ref: "#/components/schemas/BewoningenQueryResponse"
         '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
+          $ref: "common.yaml#/components/responses/400"
         '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
+          $ref: "common.yaml#/components/responses/401"
         '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
+          $ref: "common.yaml#/components/responses/403"
         '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
+          $ref: "common.yaml#/components/responses/406"
+        '429':
+          $ref: "common.yaml#/components/responses/429"
         '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
+          $ref: "common.yaml#/components/responses/500"
         '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/501"
+          $ref: "common.yaml#/components/responses/501"
         '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
+          $ref: "common.yaml#/components/responses/503"
         'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/default"
+          $ref: "common.yaml#/components/responses/default"
       tags:
-      - Bewoning
-  /bewoningen/{adresseerbaarObjectIdentificatie}:
-    get:
-      operationId: getBewoning
-      description: |
-                    Raadpleeg een bewoning door een adresseerbaarobjectIdentificatie op te geven.
-      parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/expand"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/peildatum"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
-        - $ref: "#/components/parameters/adresseerbaarObjectIdentificatie"
-      responses:
-        '200':
-          description: |
-                        Zoekactie geslaagd
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
-            warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/BewoningHal'
-        '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
-        '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
-        '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
-        '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/404"
-        '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
-        '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/501"
-        '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/default"
-      tags:
-      - Bewoning
-  /bewoningen/{adresseerbaarObjectIdentificatie}/verloop:
-    get:
-      operationId: getBewoningverloop
-      description: |
-                    Raadpleeg het verloop van de bewoning van een adresseerbaar object over een periode door een adresseerbaarobjectIdentificatie en
-                    een periode op te geven. Het antwoord bevat het aantal verhuizingen van en naar het object en het gemiddelde aantal bewoners in de opgegeven periode.
-      parameters:
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/fields"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumVan"
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/parameters/datumTotEnMet"
-        - $ref: "#/components/parameters/adresseerbaarObjectIdentificatie"
-      responses:
-        '200':
-          description: |
-                        Zoekactie geslaagd
-          headers:
-            api-version:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/api_version"
-            warning:
-              $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/headers/warning"
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/Verloop'
-        '400':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/400"
-        '401':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/401"
-        '403':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/403"
-        '404':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/404"
-        '406':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/406"
-        '500':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/500"
-        '501':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/501"
-        '503':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/503"
-        'default':
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/responses/default"
-      tags:
-      - Bewoning
+        - BRP bewoning
 components:
-  parameters:
-    adresseerbaarObjectIdentificatie:
-      description: |
-                    De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
-      name: adresseerbaarObjectIdentificatie
-      in: path
-      required: true
-      schema:
-        type: string
-        pattern: '^[0-9]{16}$'
-        example: '0226010000038820'
   schemas:
-    Bewoning:
-      type: "object"
-      description: |
-                    Een bewoning is een adresseerbaar object(verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).
-                    Iedere samenstelling van bewoners van het object is een bewoning.
-      properties:
-        adresseerbaarObjectIdentificatie:
-          type: "string"
-          description: |
-                        De unieke identificatie van een verblijfsobject, standplaats of ligplaats.
-        bewoners:
-          type: "array"
-          items:
-            $ref: "#/components/schemas/Bewoner"
-        indicatieVeelBewoners:
-          type: boolean
-          description: |
-                        Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij
-                        niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
-        adressen:
-          type: "array"
-          items:
-            $ref: "#/components/schemas/AdresUitgebreid"
-    AdresUitgebreid:
-      type: "object"
-      allOf :
-        - $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BAG-bevragen/v1.1.0/specificatie/openapi.yaml#/components/schemas/Adres"
-        - properties:
-            nummeraanduidingIdentificatie:
-              type: "string"
-              description: |
-                            De unieke aanduiding van een nummeraanduiding.
-              example: "0518200001645858"
-    BewoningHalBasis:
-      allOf:
-      - $ref: "#/components/schemas/Bewoning"
-      - properties:
-         _links:
-           $ref: "#/components/schemas/BewoningLinks"
-    BewoningHal:
-      allOf:
-      - $ref: "#/components/schemas/BewoningHalBasis"
-      - properties:
-         _embedded:
-           $ref: "#/components/schemas/BewoningEmbedded"
-    BewoningHalCollectie:
+    BewoningenQuery:
       type: object
+      required:
+        - type
+        - fields
+      discriminator:
+        propertyName: type
+        mapping:
+          MedebewonersMetPeildatum: '#/components/schemas/MedebewonersMetPeildatum'
+          MedebewonersMetPeriode: '#/components/schemas/MedebewonersMetPeriode'
+          BewoningMetPeildatum: '#/components/schemas/BewoningMetPeildatum'
+          BewoningMetPeriode: '#/components/schemas/BewoningMetPeriode'
       properties:
-        _links:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalCollectionLinks"
-        _embedded:
-          $ref: "#/components/schemas/BewoningHalCollectieEmbedded"
-    BewoningHalCollectieEmbedded:
+        type:
+          type: string
+        fields:
+          description: |
+            Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een lijst van paden die verwijzen naar de gewenste velden op te nemen 
+            ([zie functionele specificaties 'fields' properties](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/develop/features/fields.feature)). 
+            De te gebruiken paden zijn beschreven in [fields-Bewoningen.csv](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/develop/features/fields-Bewoningen.csv) 
+            waarbij in de eerste kolom het fields-pad staat en in de tweede kolom het volledige pad naar het gewenste veld. 
+          type: array
+          maxItems: 20
+          minItems: 1
+          items:
+            $ref: 'filter.yaml#/components/schemas/Field'
+    MedebewonersMetPeildatum:
+      required:
+        - peildatum
+        - burgerservicenummer
+      allOf:
+        - $ref: '#/components/schemas/BewoningenQuery'
+        - type: object
+          properties:
+            peildatum:
+              $ref: 'filter.yaml#/components/schemas/Peildatum'
+            burgerservicenummer:
+              $ref: "bewoner.yaml#/components/schemas/Burgerservicenummer"
+    MedebewonersMetPeriode:
+      required:
+        - datumVan
+        - datumTotEnMet
+        - burgerservicenummer
+      allOf:
+        - $ref: '#/components/schemas/BewoningenQuery'
+        - type: object
+          properties:
+            datumVan:
+              $ref: 'filter.yaml#/components/schemas/DatumVan'
+            datumTotEnMet:
+              $ref: 'filter.yaml#/components/schemas/DatumTotEnMet'
+            burgerservicenummer:
+              $ref: "bewoner.yaml#/components/schemas/Burgerservicenummer"
+    BewoningMetPeildatum:
+      required:
+        - peildatum
+        - adresseerbaarObjectIdentificatie
+      allOf:
+        - $ref: '#/components/schemas/BewoningenQuery'
+        - type: object
+          properties:
+            peildatum:
+              $ref: 'filter.yaml#/components/schemas/Peildatum'
+            adresseerbaarObjectIdentificatie:
+              $ref: "verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie"
+    BewoningMetPeriode:
+      required:
+        - datumVan
+        - datumTotEnMet
+        - adresseerbaarObjectIdentificatie
+      allOf:
+        - $ref: '#/components/schemas/BewoningenQuery'
+        - type: object
+          properties:
+            datumVan:
+              $ref: 'filter.yaml#/components/schemas/DatumVan'
+            datumTotEnMet:
+              $ref: 'filter.yaml#/components/schemas/DatumTotEnMet'
+            adresseerbaarObjectIdentificatie:
+              $ref: "verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie"
+    BewoningenQueryResponse:
       type: object
       properties:
         bewoningen:
           type: array
           items:
-            $ref: '#/components/schemas/BewoningHal'
-    BewoningLinks:
-      type: "object"
-      properties:
-        ingeschrevenPersonen:
-          description: |
-                        De ingeschreven natuurlijk personen die bewoner zijn of waren.
-          type: array
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        nummeraanduidingen:
-          type: "array"
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-        adresseerbaarObject:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/HalLink"
-    BewoningEmbedded:
-      type: object
-      properties:
-        ingeschrevenPersonen:
-          type: array
-          items:
-            $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/IngeschrevenPersoonHalBasis"
-    Bewoner:
-      type: "object"
-      description: |
-                    Een bewoner is een persoon die op een (verblijfs)object met een adres is ingeschreven of ingeschreven is geweest.
-                    * `datumAanvangAdreshouding` : Datum waarop de bewoner van dit adresseerbaar object is ingeschreven.
-                    * `datumTot` : Datum waarop de bewoner van dit adresseerbaar object is uitgeschreven.
-      properties:
-        burgerservicenummer:
-          type: "string"
-          example: "555555021"
-        datumTot:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
-        datumAanvangAdreshouding:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-common/v1.2.0/api-specificatie/common.yaml#/components/schemas/DatumOnvolledig"
-        geheimhoudingPersoonsgegevens:
-          type: "boolean"
-          title: "Indicatie geheim"
-          description: |
-                        Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
-        indicatieVerblijfsplaatsInOnderzoek:
-          description: |
-                        Geeft aan dat de verblijfplaats in onderzoek is.
-          type: "boolean"
-        functieAdres:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bevragen/v1.2.0/specificatie/openapi.yaml#/components/schemas/SoortAdres_enum"
-    Verloop:
-      type: "object"
-      properties:
-        inVerhuizingen:
-          type: integer
-          description: |
-                        Het aantal keren dat een alleenstaande of een gezin naar het verblijfsobject, de ligplaats of de standplaats is verhuisd binnen de opgegeven periode.
-          example: 3
-        uitVerhuizingen:
-          type: integer
-          description: |
-                        Het aantal keren dat een alleenstaande of een gezin naar een ander verblijfsobject, ligplaats of standplaats is verhuisd binnen de opgegeven periode.
-          example: 14
-        gemiddeldAantalBewoners:
-          type: number
-          format: float
-          example: 2.7
-          description: |
-                        Het gemiddelde aantal bewoners van het verblijfsobject, de ligplaats of de standplaats in de opgegeven periode.
+            $ref: 'bewoning.yaml#/components/schemas/Bewoning'
+            
