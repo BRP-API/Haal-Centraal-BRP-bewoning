@@ -407,7 +407,6 @@ components:
           items:
             $ref: '#/components/schemas/Adressering'
         bewoningPeriodes:
-          minItems: 1
           type: array
           items:
             $ref: '#/components/schemas/BewoningPeriode'
@@ -449,7 +448,6 @@ components:
           items:
             $ref: '#/components/schemas/GbaVerblijfadres'
         bewoningPeriodes:
-          minItems: 1
           type: array
           items:
             $ref: '#/components/schemas/GbaBewoningPeriode'
