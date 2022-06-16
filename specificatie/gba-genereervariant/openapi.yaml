@@ -719,7 +719,7 @@ components:
       type: string
       description: |
         Het tweede deel van een buitenlands adres. Vaak is dit een combinatie van woonplaats eventueel in combinatie met de postcode.
-      example: "Washington, DC 20500"
+      example: Washington, DC 20500
     Regel3:
       maxLength: 35
       type: string
