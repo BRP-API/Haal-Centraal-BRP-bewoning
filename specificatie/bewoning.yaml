@@ -6,22 +6,48 @@ info:
 paths: {}
 components:
   schemas:
-    Bewoning:
+    AbstractBewoning:
       type: object
-      description: Bewoning van een adresseerbaar object
+      required:
+        - type
+        - fields
+      discriminator:
+        propertyName: type
+        mapping:
+          Bewoning: '#/components/schemas/Bewoning'
+          BewoningOnbekend: '#/components/schemas/BewoningOnbekend'
       properties:
-        adresseerbaarObjectIdentificatie:
-          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
-        adressen:
-          type: array
-          items:
-            $ref: 'adressering.yaml#/components/schemas/Adressering'
-        bewoningPeriodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/BewoningPeriode'
+        type:
+          type: string
         periode:
           $ref: '#/components/schemas/Periode'
+    Bewoning:
+      allOf:
+        - $ref: '#/components/schemas/AbstractBewoning'
+        - type: object
+          description: Bewoning van een adresseerbaar object
+          properties:
+            adressen:
+              type: array
+              items:
+                $ref: 'adressering.yaml#/components/schemas/AdresseringNederland'
+            adresseerbaarObjectIdentificatie:
+              $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+            bewoningPeriodes:
+              type: array
+              items:
+                $ref: '#/components/schemas/BewoningPeriode'
+    BewoningOnbekend:
+      allOf:
+        - $ref: '#/components/schemas/AbstractBewoning'
+        - type: object
+          description: Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
+          properties:
+            adressen:
+              type: array
+              maxItems: 1
+              items:
+                $ref: 'adressering.yaml#/components/schemas/Adressering'
     GbaBewoning:
       type: object
       description: Bewoning van een adresseerbaar object

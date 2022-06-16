@@ -376,7 +376,7 @@
           "bewoningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/Bewoning"
+              "$ref" : "#/components/schemas/AbstractBewoning"
             }
           }
         }
@@ -496,29 +496,60 @@
         "description" : "De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.\n",
         "example" : "0226010000038820"
       },
-      "Bewoning" : {
+      "AbstractBewoning" : {
+        "required" : [ "fields", "type" ],
         "type" : "object",
         "properties" : {
-          "adresseerbaarObjectIdentificatie" : {
-            "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
-          },
-          "adressen" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Adressering"
-            }
-          },
-          "bewoningPeriodes" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/BewoningPeriode"
-            }
+          "type" : {
+            "type" : "string"
           },
           "periode" : {
             "$ref" : "#/components/schemas/Periode"
           }
         },
-        "description" : "Bewoning van een adresseerbaar object"
+        "discriminator" : {
+          "propertyName" : "type",
+          "mapping" : {
+            "Bewoning" : "#/components/schemas/Bewoning",
+            "BewoningOnbekend" : "#/components/schemas/BewoningOnbekend"
+          }
+        }
+      },
+      "Periode" : {
+        "type" : "object",
+        "properties" : {
+          "datumVan" : {
+            "$ref" : "#/components/schemas/AbstractDatum"
+          },
+          "datumTot" : {
+            "$ref" : "#/components/schemas/AbstractDatum"
+          }
+        }
+      },
+      "Bewoning" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/AbstractBewoning"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "adressen" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/AdresseringNederland"
+              }
+            },
+            "adresseerbaarObjectIdentificatie" : {
+              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
+            },
+            "bewoningPeriodes" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/BewoningPeriode"
+              }
+            }
+          },
+          "description" : "Bewoning van een adresseerbaar object"
+        } ]
       },
       "BewoningPeriode" : {
         "type" : "object",
@@ -541,64 +572,22 @@
         },
         "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
       },
-      "Periode" : {
-        "type" : "object",
-        "properties" : {
-          "datumVan" : {
-            "$ref" : "#/components/schemas/AbstractDatum"
-          },
-          "datumTot" : {
-            "$ref" : "#/components/schemas/AbstractDatum"
-          }
-        }
-      },
-      "Adressering" : {
-        "type" : "object",
-        "properties" : {
-          "adresregel1" : {
-            "$ref" : "#/components/schemas/Adresregel1"
-          },
-          "adresregel2" : {
-            "$ref" : "#/components/schemas/Adresregel2"
-          }
-        }
-      },
-      "Adresregel1" : {
-        "maxLength" : 40,
-        "type" : "string",
-        "description" : "Het eerste deel van een adres is een combinatie van de straat en huisnummer.\n",
-        "example" : "Beethovenlaan 1 a3"
-      },
-      "Adresregel2" : {
-        "maxLength" : 50,
-        "type" : "string",
-        "description" : "Het tweede deel van een adres is een combinatie van postcode en woonplaats.\n",
-        "example" : "7604 GC ALMELO"
-      },
-      "Bewoner" : {
+      "BewoningOnbekend" : {
         "allOf" : [ {
-          "$ref" : "#/components/schemas/Periode"
+          "$ref" : "#/components/schemas/AbstractBewoning"
         }, {
           "type" : "object",
           "properties" : {
-            "burgerservicenummer" : {
-              "$ref" : "#/components/schemas/Burgerservicenummer"
-            },
-            "functieAdres" : {
-              "$ref" : "#/components/schemas/Waardetabel"
-            },
-            "indicatieVerblijfsplaatsInOnderzoek" : {
-              "$ref" : "#/components/schemas/InOnderzoek"
-            },
-            "geheimhoudingPersoonsgegevens" : {
-              "$ref" : "#/components/schemas/GeheimhoudingPersoonsgegevens"
+            "adressen" : {
+              "maxItems" : 1,
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/Adressering"
+              }
             }
-          }
+          },
+          "description" : "Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald."
         } ]
-      },
-      "GeheimhoudingPersoonsgegevens" : {
-        "type" : "boolean",
-        "description" : "Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.\n"
       },
       "AbstractDatum" : {
         "required" : [ "type" ],
@@ -724,6 +713,69 @@
         "type" : "integer",
         "format" : "int32"
       },
+      "AdresseringNederland" : {
+        "type" : "object",
+        "properties" : {
+          "adresregel1" : {
+            "$ref" : "#/components/schemas/Adresregel1"
+          },
+          "adresregel2" : {
+            "$ref" : "#/components/schemas/Adresregel2"
+          }
+        }
+      },
+      "Adresregel1" : {
+        "maxLength" : 40,
+        "type" : "string",
+        "description" : "Het eerste deel van een adres is een combinatie van de straat en huisnummer.\n",
+        "example" : "Beethovenlaan 1 a3"
+      },
+      "Adresregel2" : {
+        "maxLength" : 50,
+        "type" : "string",
+        "description" : "Het tweede deel van een adres is een combinatie van postcode en woonplaats.\n",
+        "example" : "7604 GC ALMELO"
+      },
+      "Bewoner" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Periode"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "burgerservicenummer" : {
+              "$ref" : "#/components/schemas/Burgerservicenummer"
+            },
+            "functieAdres" : {
+              "$ref" : "#/components/schemas/Waardetabel"
+            },
+            "indicatieVerblijfsplaatsInOnderzoek" : {
+              "$ref" : "#/components/schemas/InOnderzoek"
+            },
+            "geheimhoudingPersoonsgegevens" : {
+              "$ref" : "#/components/schemas/GeheimhoudingPersoonsgegevens"
+            }
+          }
+        } ]
+      },
+      "GeheimhoudingPersoonsgegevens" : {
+        "type" : "boolean",
+        "description" : "Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.\n"
+      },
+      "Adressering" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/AdresseringNederland"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "adresregel3" : {
+              "$ref" : "#/components/schemas/Regel3"
+            },
+            "land" : {
+              "$ref" : "#/components/schemas/Waardetabel"
+            }
+          }
+        } ]
+      },
       "Waardetabel" : {
         "type" : "object",
         "properties" : {
@@ -742,6 +794,219 @@
       "InOnderzoek" : {
         "type" : "boolean",
         "description" : "Geeft aan dat de verblijfplaats in onderzoek is.\n"
+      },
+      "Regel3" : {
+        "maxLength" : 35,
+        "type" : "string",
+        "description" : "Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.\n",
+        "example" : "Selangor"
+      }
+    },
+    "responses" : {
+      "400" : {
+        "description" : "Bad Request",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/BadRequestFoutbericht"
+            },
+            "example" : {
+              "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1",
+              "title" : "Ten minste één parameter moet worden opgegeven.",
+              "status" : 400,
+              "detail" : "The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.",
+              "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+              "code" : "paramsRequired",
+              "invalidParams" : [ {
+                "type" : "https://www.vng.nl/realisatie/api/validaties/integer",
+                "name" : "verblijfplaats__huisnummer",
+                "code" : "integer",
+                "reason" : "Waarde is geen geldige integer."
+              } ]
+            }
+          }
+        }
+      },
+      "401" : {
+        "description" : "Unauthorized",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Foutbericht"
+            },
+            "example" : {
+              "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2",
+              "title" : "Niet correct geauthenticeerd.",
+              "status" : 401,
+              "detail" : "The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.",
+              "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+              "code" : "authentication"
+            }
+          }
+        }
+      },
+      "403" : {
+        "description" : "Forbidden",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Foutbericht"
+            },
+            "example" : {
+              "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4",
+              "title" : "U bent niet geautoriseerd voor deze operatie.",
+              "status" : 403,
+              "detail" : "The server understood the request, but is refusing to fulfill it.",
+              "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+              "code" : "autorisation"
+            }
+          }
+        }
+      },
+      "406" : {
+        "description" : "Not Acceptable",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Foutbericht"
+            },
+            "example" : {
+              "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7",
+              "title" : "Gevraagde contenttype wordt niet ondersteund.",
+              "status" : 406,
+              "detail" : "The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request",
+              "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+              "code" : "notAcceptable"
+            }
+          }
+        }
+      },
+      "429" : {
+        "description" : "Too Many Requests",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Foutbericht"
+            },
+            "example" : {
+              "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html",
+              "title" : "Too many request",
+              "status" : 429,
+              "detail" : "The user has sent too many requests in a given amount of time (rate limiting).",
+              "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+              "code" : "tooManyRequests"
+            }
+          }
+        }
+      },
+      "500" : {
+        "description" : "Internal Server Error",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Foutbericht"
+            },
+            "example" : {
+              "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1",
+              "title" : "Interne server fout.",
+              "status" : 500,
+              "detail" : "The server encountered an unexpected condition which prevented it from fulfilling the request.",
+              "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+              "code" : "serverError"
+            }
+          }
+        }
+      },
+      "501" : {
+        "description" : "Not Implemented",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Foutbericht"
+            },
+            "example" : {
+              "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2",
+              "title" : "Not Implemented",
+              "status" : 501,
+              "detail" : "The server does not support the functionality required to fulfill the request.",
+              "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+              "code" : "notImplemented"
+            }
+          }
+        }
+      },
+      "503" : {
+        "description" : "Service Unavailable",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Foutbericht"
+            },
+            "example" : {
+              "type" : "https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4",
+              "title" : "Bronservice BRP is tijdelijk niet beschikbaar.",
+              "status" : 503,
+              "detail" : "The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.",
+              "instance" : "https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde",
+              "code" : "notAvailable"
+            }
+          }
+        }
+      },
+      "default" : {
+        "description" : "Er is een onverwachte fout opgetreden",
+        "headers" : {
+          "api-version" : {
+            "$ref" : "#/components/headers/api_version"
+          }
+        },
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Foutbericht"
+            }
+          }
+        }
       }
     },
     "headers" : {

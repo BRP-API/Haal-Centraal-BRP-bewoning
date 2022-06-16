@@ -399,21 +399,54 @@ components:
         De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.
       example: "0226010000038820"
     Bewoning:
+      allOf:
+      - $ref: '#/components/schemas/AbstractBewoning'
+      - type: object
+        properties:
+          adressen:
+            type: array
+            items:
+              $ref: '#/components/schemas/AdresseringNederland'
+          adresseerbaarObjectIdentificatie:
+            $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
+          bewoningPeriodes:
+            type: array
+            items:
+              $ref: '#/components/schemas/BewoningPeriode'
+        description: Bewoning van een adresseerbaar object
+    AbstractBewoning:
+      required:
+      - fields
+      - type
       type: object
       properties:
-        adresseerbaarObjectIdentificatie:
-          $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
-        adressen:
-          type: array
-          items:
-            $ref: '#/components/schemas/Adressering'
-        bewoningPeriodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/BewoningPeriode'
+        type:
+          type: string
         periode:
           $ref: '#/components/schemas/Periode'
-      description: Bewoning van een adresseerbaar object
+      discriminator:
+        propertyName: type
+        mapping:
+          Bewoning: '#/components/schemas/Bewoning'
+          BewoningOnbekend: '#/components/schemas/BewoningOnbekend'
+    Periode:
+      type: object
+      properties:
+        datumVan:
+          $ref: '#/components/schemas/AbstractDatum'
+        datumTot:
+          $ref: '#/components/schemas/AbstractDatum'
+    BewoningOnbekend:
+      allOf:
+      - $ref: '#/components/schemas/AbstractBewoning'
+      - type: object
+        properties:
+          adressen:
+            maxItems: 1
+            type: array
+            items:
+              $ref: '#/components/schemas/Adressering'
+        description: Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
     BewoningPeriode:
       type: object
       properties:
@@ -432,13 +465,6 @@ components:
             met uitzondering van de persoon waarvan de BSN is opgegeven.
       description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling
         van bewoners was.
-    Periode:
-      type: object
-      properties:
-        datumVan:
-          $ref: '#/components/schemas/AbstractDatum'
-        datumTot:
-          $ref: '#/components/schemas/AbstractDatum'
     GbaBewoning:
       type: object
       properties:
@@ -473,7 +499,7 @@ components:
             met uitzondering van de persoon waarvan de BSN is opgegeven.
       description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling
         van bewoners was.
-    Adressering:
+    AdresseringNederland:
       type: object
       properties:
         adresregel1:
@@ -492,23 +518,6 @@ components:
       description: |
         Het tweede deel van een adres is een combinatie van postcode en woonplaats.
       example: 7604 GC ALMELO
-    Bewoner:
-      allOf:
-      - $ref: '#/components/schemas/Periode'
-      - type: object
-        properties:
-          burgerservicenummer:
-            $ref: '#/components/schemas/Burgerservicenummer'
-          functieAdres:
-            $ref: '#/components/schemas/Waardetabel'
-          indicatieVerblijfsplaatsInOnderzoek:
-            $ref: '#/components/schemas/InOnderzoek'
-          geheimhoudingPersoonsgegevens:
-            $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
-    GeheimhoudingPersoonsgegevens:
-      type: boolean
-      description: |
-        Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
     AbstractDatum:
       required:
       - type
@@ -602,6 +611,32 @@ components:
       minimum: 1
       type: integer
       format: int32
+    Adressering:
+      allOf:
+      - $ref: '#/components/schemas/AdresseringNederland'
+      - type: object
+        properties:
+          adresregel3:
+            $ref: '#/components/schemas/Regel3'
+          land:
+            $ref: '#/components/schemas/Waardetabel'
+    Bewoner:
+      allOf:
+      - $ref: '#/components/schemas/Periode'
+      - type: object
+        properties:
+          burgerservicenummer:
+            $ref: '#/components/schemas/Burgerservicenummer'
+          functieAdres:
+            $ref: '#/components/schemas/Waardetabel'
+          indicatieVerblijfsplaatsInOnderzoek:
+            $ref: '#/components/schemas/InOnderzoek'
+          geheimhoudingPersoonsgegevens:
+            $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
+    GeheimhoudingPersoonsgegevens:
+      type: boolean
+      description: |
+        Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
     GbaVerblijfadres:
       type: object
       properties:
@@ -613,12 +648,24 @@ components:
           $ref: '#/components/schemas/Huisletter'
         huisnummertoevoeging:
           $ref: '#/components/schemas/Huisnummertoevoeging'
+        aanduidingBijHuisnummer:
+          $ref: '#/components/schemas/Waardetabel'
         postcode:
           $ref: '#/components/schemas/Postcode'
         woonplaats:
           $ref: '#/components/schemas/Woonplaats'
         gemeenteVanInschrijving:
           $ref: '#/components/schemas/Waardetabel'
+        locatiebeschrijving:
+          $ref: '#/components/schemas/Locatiebeschrijving'
+        land:
+          $ref: '#/components/schemas/Waardetabel'
+        regel1:
+          $ref: '#/components/schemas/Regel1'
+        regel2:
+          $ref: '#/components/schemas/Regel2'
+        regel3:
+          $ref: '#/components/schemas/Regel3'
     Straat:
       maxLength: 80
       type: string
@@ -655,6 +702,30 @@ components:
       description: |
         Een woonplaats is een gedeelte van het grondgebied van de gemeente met een naam.
       example: Duiven
+    Locatiebeschrijving:
+      maxLength: 35
+      type: string
+      description: |
+        Omschrijving van de ligging van een verblijfsobject, standplaats of ligplaats.
+      example: Naast de derde brug
+    Regel1:
+      maxLength: 40
+      type: string
+      description: |
+        Het eerste deel van een buitenlands adres. Vaak is dit een combinatie van de straat en huisnummer.
+      example: 1600 Pennsylvania Avenue NW
+    Regel2:
+      maxLength: 50
+      type: string
+      description: |
+        Het tweede deel van een buitenlands adres. Vaak is dit een combinatie van woonplaats eventueel in combinatie met de postcode.
+      example: "Washington, DC 20500"
+    Regel3:
+      maxLength: 35
+      type: string
+      description: |
+        Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.
+      example: Selangor
     GbaBewoner:
       type: object
       properties:

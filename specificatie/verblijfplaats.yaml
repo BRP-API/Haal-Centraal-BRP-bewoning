@@ -18,6 +18,12 @@ components:
       description: |
         Het tweede deel van een buitenlands adres. Vaak is dit een combinatie van woonplaats eventueel in combinatie met de postcode.
       example: "Washington, DC 20500"
+    Regel3:
+      type: string
+      maxLength: 35
+      description: |
+        Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.
+      example: "Selangor"
     AdresseerbaarObjectIdentificatie:
       type: string
       pattern: ^[0-9]{16}$
@@ -60,6 +66,12 @@ components:
       type: string
       pattern: ^[a-zA-Z0-9À-ž \(\)\,\.\-\']{1,80}$
       example: "Duiven"
+    Locatiebeschrijving:
+      type: string
+      maxLength: 35
+      description: |
+        Omschrijving van de ligging van een verblijfsobject, standplaats of ligplaats.
+      example: "Naast de derde brug"
     GbaVerblijfadres:
       type: object
       properties:
@@ -71,12 +83,24 @@ components:
           $ref: '#/components/schemas/Huisletter'
         huisnummertoevoeging:
           $ref: '#/components/schemas/Huisnummertoevoeging'
+        aanduidingBijHuisnummer:
+          $ref: 'common.yaml#/components/schemas/Waardetabel'
         postcode:
           $ref: '#/components/schemas/Postcode'
         woonplaats:
           $ref: '#/components/schemas/Woonplaats'
         gemeenteVanInschrijving:
           $ref: 'common.yaml#/components/schemas/Waardetabel'
+        locatiebeschrijving:
+          $ref: '#/components/schemas/Locatiebeschrijving'
+        land:
+          $ref: 'common.yaml#/components/schemas/Waardetabel'
+        regel1:
+          $ref: '#/components/schemas/Regel1'
+        regel2:
+          $ref: '#/components/schemas/Regel2'
+        regel3:
+          $ref: '#/components/schemas/Regel3'
     GbaVerblijfplaats:
       type: object
       properties:
