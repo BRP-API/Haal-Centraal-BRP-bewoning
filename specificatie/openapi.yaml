@@ -19,8 +19,8 @@ paths:
       description: |
         Hiermee kan je raadplegen:
         
-        - welke personen (bewoners) stonden ingeschreven op een adres (adresseerbaar object) op een gegeven moment (peildatum) of in een gegeven periode.
-        - welke personen op een gegeven moment (peildatum) of in een gegeven periode tegelijkertijd met een persoon op hetzelfde adres stonden ingeschreven (medebewoners). 
+        - Bewoning: welke personen (bewoners) stonden ingeschreven op een adresseerbaar object op een gegeven moment (peildatum) of in een gegeven periode.
+        - Medebewoners: welke personen op een gegeven moment (peildatum) of in een gegeven periode tegelijkertijd met een persoon op hetzelfde adresseerbaar object stonden ingeschreven. 
       operationId: Bewoningen
       requestBody:
         content:
