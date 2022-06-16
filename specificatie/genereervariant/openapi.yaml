@@ -12,13 +12,12 @@ info:
 servers:
 - url: /
 tags:
-- name: BRP bewoning
-  description: BRP bewoning
+- name: Bewoning
 paths:
   /bewoningen:
     post:
       tags:
-      - BRP bewoning
+      - Bewoning
       summary: Raadplegen van bewoningen
       description: "Hiermee kan je raadplegen:\n\n- Bewoning: welke personen (bewoners)\
         \ stonden ingeschreven op een adresseerbaar object op een gegeven moment (peildatum)\
