@@ -20,11 +20,11 @@ paths:
       tags:
       - BRP bewoning
       summary: Raadplegen van bewoningen
-      description: "Hiermee kan je raadplegen:\n\n- welke personen (bewoners) stonden\
-        \ ingeschreven op een adres (adresseerbaar object) op een gegeven moment (peildatum)\
-        \ of in een gegeven periode.\n- welke personen op een gegeven moment (peildatum)\
-        \ of in een gegeven periode tegelijkertijd met een persoon op hetzelfde adres\
-        \ stonden ingeschreven (medebewoners). \n"
+      description: "Hiermee kan je raadplegen:\n\n- Bewoning: welke personen (bewoners)\
+        \ stonden ingeschreven op een adresseerbaar object op een gegeven moment (peildatum)\
+        \ of in een gegeven periode.\n- Medebewoners: welke personen op een gegeven\
+        \ moment (peildatum) of in een gegeven periode tegelijkertijd met een persoon\
+        \ op hetzelfde adresseerbaar object stonden ingeschreven. \n"
       operationId: Bewoningen
       requestBody:
         content:
