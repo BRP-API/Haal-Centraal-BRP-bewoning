@@ -147,13 +147,6 @@ components:
               $ref: 'filter.yaml#/components/schemas/DatumTotEnMet'
             adresseerbaarObjectIdentificatie:
               $ref: "verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie"
-    BewoningenQueryResponse:
-      type: object
-      properties:
-        bewoningen:
-          type: array
-          items:
-            $ref: 'bewoning.yaml#/components/schemas/Bewoning'
     GbaBewoningenQueryResponse:
       type: object
       properties:
