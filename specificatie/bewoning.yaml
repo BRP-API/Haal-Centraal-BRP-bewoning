@@ -43,6 +43,8 @@ components:
         - type: object
           description: Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
           properties:
+            redenOnbekend:
+              $ref: 'common.yaml#/components/schemas/Waardetabel'
             adressen:
               type: array
               maxItems: 1
