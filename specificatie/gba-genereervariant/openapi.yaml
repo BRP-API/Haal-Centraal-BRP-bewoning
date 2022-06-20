@@ -448,7 +448,9 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Adressering'
-        description: Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
+        description: |
+          Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
+          De reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.
     BewoningPeriode:
       type: object
       properties:
