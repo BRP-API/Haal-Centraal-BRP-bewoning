@@ -47,10 +47,10 @@ Functionaliteit: raadpleeg bewoning met adresseerbaarObjectIdentificatie en peri
   Rule: er wordt een bewoningperiode opgenomen voor elke unieke samenstelling van bewoners, waarvoor geldt:
     - de periode van een bewoningPeriode loopt van de jongste datum aanvang tot de oudste datum aanvang van de volgende verblijfplaats
     - wanneer de periode datumVan van een bewoningPeriode kleiner is dan gevraagde datumVan, is de periode datumVan gelijk aan de gevraagde datumVan
-    - wanneer de periode datumTot van een bewoningPeriode groter is dan gevraagde datumTotEnMet, is de periode datumTpt gelijk aan de gevraagde datumTotEnMet + 1 dag
+    - wanneer de periode datumTot van een bewoningPeriode groter is dan gevraagde datumTotEnMet, is de periode datumTot gelijk aan de gevraagde datumTotEnMet + 1 dag
     - in de bewoningPeriode zijn alle bewoners opgenomen die tijdens deze periode op dit adresseerbaar object stonden ingeschreven
     - voor elke bewoner wordt de betreffende verblijfplaats geleverd plus de datum aanvang van de volgende verblijfplaats van die persoon
-    - alleen de bewonerPeriodes die ten minste één dag overlag hebben met de gevraagde periode worden geleverd
+    - alleen de bewonerPeriodes die ten minste één dag overlap hebben met de gevraagde periode worden geleverd
     - de periode van de bewoning loopt van de eerste dag van de oudste bewoningPeriode tot de laatste dag van de jongste bewoningPeriode
 
     Scenario: periode valt volledig binnen bewoning begin en einddatum van de bewoner
