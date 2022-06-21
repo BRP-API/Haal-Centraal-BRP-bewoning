@@ -37,6 +37,8 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/BewoningPeriode'
+            bewonersOnbekendePeriode:
+              $ref: '#/components/schemas/BewonerOnbekendePeriode'
     BewoningOnbekend:
       allOf:
         - $ref: '#/components/schemas/AbstractBewoning'
@@ -68,6 +70,8 @@ components:
             $ref: '#/components/schemas/GbaBewoningPeriode'
         periode:
           $ref: '#/components/schemas/Periode'
+        bewonersOnbekendePeriode:
+          $ref: '#/components/schemas/GbaBewonerOnbekendePeriode'
     Periode:
       type: object
       properties:
@@ -105,3 +109,13 @@ components:
         indicatieVeelBewoners:
           type: boolean
           description: Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
+    BewonerOnbekendePeriode:
+      type: array
+      description: Bewoners waarvan niet is vast te stellen in welke periodes zij daadwerkelijk bewoner waren.
+      items:
+        $ref: 'bewoner.yaml#/components/schemas/Bewoner'
+    GbaBewonerOnbekendePeriode:
+      type: array
+      description: Bewoners waarvan niet is vast te stellen in welke periodes zij daadwerkelijk bewoner waren.
+      items:
+        $ref: 'bewoner.yaml#/components/schemas/GbaBewoner'
