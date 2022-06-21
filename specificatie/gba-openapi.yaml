@@ -108,7 +108,7 @@ components:
     MedebewonersMetPeriode:
       required:
         - datumVan
-        - datumTotEnMet
+        - datumTot
         - burgerservicenummer
       allOf:
         - $ref: '#/components/schemas/BewoningenQuery'
@@ -116,8 +116,8 @@ components:
           properties:
             datumVan:
               $ref: 'filter.yaml#/components/schemas/DatumVan'
-            datumTotEnMet:
-              $ref: 'filter.yaml#/components/schemas/DatumTotEnMet'
+            datumTot:
+              $ref: 'filter.yaml#/components/schemas/datumTot'
             burgerservicenummer:
               $ref: "bewoner.yaml#/components/schemas/Burgerservicenummer"
     BewoningMetPeildatum:
@@ -135,7 +135,7 @@ components:
     BewoningMetPeriode:
       required:
         - datumVan
-        - datumTotEnMet
+        - datumTot
         - adresseerbaarObjectIdentificatie
       allOf:
         - $ref: '#/components/schemas/BewoningenQuery'
@@ -143,8 +143,8 @@ components:
           properties:
             datumVan:
               $ref: 'filter.yaml#/components/schemas/DatumVan'
-            datumTotEnMet:
-              $ref: 'filter.yaml#/components/schemas/DatumTotEnMet'
+            datumTot:
+              $ref: 'filter.yaml#/components/schemas/datumTot'
             adresseerbaarObjectIdentificatie:
               $ref: "verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie"
     GbaBewoningenQueryResponse:
