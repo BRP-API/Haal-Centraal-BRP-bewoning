@@ -317,7 +317,7 @@
         } ]
       },
       "MedebewonersMetPeriode" : {
-        "required" : [ "burgerservicenummer", "datumTotEnMet", "datumVan" ],
+        "required" : [ "burgerservicenummer", "datumTot", "datumVan" ],
         "allOf" : [ {
           "$ref" : "#/components/schemas/BewoningenQuery"
         }, {
@@ -326,8 +326,8 @@
             "datumVan" : {
               "$ref" : "#/components/schemas/DatumVan"
             },
-            "datumTotEnMet" : {
-              "$ref" : "#/components/schemas/DatumTotEnMet"
+            "datumTot" : {
+              "$ref" : "#/components/schemas/datumTot"
             },
             "burgerservicenummer" : {
               "$ref" : "#/components/schemas/Burgerservicenummer"
@@ -352,7 +352,7 @@
         } ]
       },
       "BewoningMetPeriode" : {
-        "required" : [ "adresseerbaarObjectIdentificatie", "datumTotEnMet", "datumVan" ],
+        "required" : [ "adresseerbaarObjectIdentificatie", "datumTot", "datumVan" ],
         "allOf" : [ {
           "$ref" : "#/components/schemas/BewoningenQuery"
         }, {
@@ -361,8 +361,8 @@
             "datumVan" : {
               "$ref" : "#/components/schemas/DatumVan"
             },
-            "datumTotEnMet" : {
-              "$ref" : "#/components/schemas/DatumTotEnMet"
+            "datumTot" : {
+              "$ref" : "#/components/schemas/datumTot"
             },
             "adresseerbaarObjectIdentificatie" : {
               "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
@@ -485,7 +485,7 @@
         "description" : "De begindatum van de periode waarover de bewoning wordt opgevraagd.\n",
         "format" : "date"
       },
-      "DatumTotEnMet" : {
+      "datumTot" : {
         "type" : "string",
         "description" : "De einddatum van de periode waarover de bewoning wordt opgevraagd.\n",
         "format" : "date"
@@ -516,6 +516,9 @@
           },
           "periode" : {
             "$ref" : "#/components/schemas/Periode"
+          },
+          "bewonersOnbekendePeriode" : {
+            "$ref" : "#/components/schemas/GbaBewonerOnbekendePeriode"
           }
         },
         "description" : "Bewoning van een adresseerbaar object"
@@ -550,6 +553,13 @@
           "datumTot" : {
             "$ref" : "#/components/schemas/AbstractDatum"
           }
+        }
+      },
+      "GbaBewonerOnbekendePeriode" : {
+        "type" : "array",
+        "description" : "Bewoners waarvan niet is vast te stellen in welke periodes zij daadwerkelijk bewoner waren.",
+        "items" : {
+          "$ref" : "#/components/schemas/GbaBewoner"
         }
       },
       "GbaVerblijfadres" : {

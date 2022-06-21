@@ -245,7 +245,7 @@ components:
     MedebewonersMetPeriode:
       required:
       - burgerservicenummer
-      - datumTotEnMet
+      - datumTot
       - datumVan
       allOf:
       - $ref: '#/components/schemas/BewoningenQuery'
@@ -253,8 +253,8 @@ components:
         properties:
           datumVan:
             $ref: '#/components/schemas/DatumVan'
-          datumTotEnMet:
-            $ref: '#/components/schemas/DatumTotEnMet'
+          datumTot:
+            $ref: '#/components/schemas/datumTot'
           burgerservicenummer:
             $ref: '#/components/schemas/Burgerservicenummer'
     BewoningMetPeildatum:
@@ -272,7 +272,7 @@ components:
     BewoningMetPeriode:
       required:
       - adresseerbaarObjectIdentificatie
-      - datumTotEnMet
+      - datumTot
       - datumVan
       allOf:
       - $ref: '#/components/schemas/BewoningenQuery'
@@ -280,8 +280,8 @@ components:
         properties:
           datumVan:
             $ref: '#/components/schemas/DatumVan'
-          datumTotEnMet:
-            $ref: '#/components/schemas/DatumTotEnMet'
+          datumTot:
+            $ref: '#/components/schemas/datumTot'
           adresseerbaarObjectIdentificatie:
             $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
     BewoningenQueryResponse:
@@ -380,7 +380,7 @@ components:
       description: |
         De begindatum van de periode waarover de bewoning wordt opgevraagd.
       format: date
-    DatumTotEnMet:
+    datumTot:
       type: string
       description: |
         De einddatum van de periode waarover de bewoning wordt opgevraagd.
@@ -428,6 +428,8 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/BewoningPeriode'
+          bewonersOnbekendePeriode:
+            $ref: '#/components/schemas/BewonerOnbekendePeriode'
         description: Bewoning van een adresseerbaar object
     BewoningPeriode:
       type: object
@@ -447,6 +449,12 @@ components:
             met uitzondering van de persoon waarvan de BSN is opgegeven.
       description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling
         van bewoners was.
+    BewonerOnbekendePeriode:
+      type: array
+      description: Bewoners waarvan niet is vast te stellen in welke periodes zij
+        daadwerkelijk bewoner waren.
+      items:
+        $ref: '#/components/schemas/Bewoner'
     BewoningOnbekend:
       allOf:
       - $ref: '#/components/schemas/AbstractBewoning'

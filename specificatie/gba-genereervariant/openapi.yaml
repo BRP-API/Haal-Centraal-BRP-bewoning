@@ -245,7 +245,7 @@ components:
     MedebewonersMetPeriode:
       required:
       - burgerservicenummer
-      - datumTotEnMet
+      - datumTot
       - datumVan
       allOf:
       - $ref: '#/components/schemas/BewoningenQuery'
@@ -253,8 +253,8 @@ components:
         properties:
           datumVan:
             $ref: '#/components/schemas/DatumVan'
-          datumTotEnMet:
-            $ref: '#/components/schemas/DatumTotEnMet'
+          datumTot:
+            $ref: '#/components/schemas/datumTot'
           burgerservicenummer:
             $ref: '#/components/schemas/Burgerservicenummer'
     BewoningMetPeildatum:
@@ -272,7 +272,7 @@ components:
     BewoningMetPeriode:
       required:
       - adresseerbaarObjectIdentificatie
-      - datumTotEnMet
+      - datumTot
       - datumVan
       allOf:
       - $ref: '#/components/schemas/BewoningenQuery'
@@ -280,8 +280,8 @@ components:
         properties:
           datumVan:
             $ref: '#/components/schemas/DatumVan'
-          datumTotEnMet:
-            $ref: '#/components/schemas/DatumTotEnMet'
+          datumTot:
+            $ref: '#/components/schemas/datumTot'
           adresseerbaarObjectIdentificatie:
             $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
     GbaBewoningenQueryResponse:
@@ -380,7 +380,7 @@ components:
       description: |
         De begindatum van de periode waarover de bewoning wordt opgevraagd.
       format: date
-    DatumTotEnMet:
+    datumTot:
       type: string
       description: |
         De einddatum van de periode waarover de bewoning wordt opgevraagd.
@@ -406,6 +406,8 @@ components:
             $ref: '#/components/schemas/GbaBewoningPeriode'
         periode:
           $ref: '#/components/schemas/Periode'
+        bewonersOnbekendePeriode:
+          $ref: '#/components/schemas/GbaBewonerOnbekendePeriode'
       description: Bewoning van een adresseerbaar object
     GbaBewoningPeriode:
       type: object
@@ -432,6 +434,12 @@ components:
           $ref: '#/components/schemas/AbstractDatum'
         datumTot:
           $ref: '#/components/schemas/AbstractDatum'
+    GbaBewonerOnbekendePeriode:
+      type: array
+      description: Bewoners waarvan niet is vast te stellen in welke periodes zij
+        daadwerkelijk bewoner waren.
+      items:
+        $ref: '#/components/schemas/GbaBewoner'
     GbaVerblijfadres:
       type: object
       properties:
