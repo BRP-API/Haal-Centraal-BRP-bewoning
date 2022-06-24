@@ -19,11 +19,13 @@ paths:
       tags:
       - Bewoning
       summary: Raadplegen van bewoningen
-      description: "Hiermee kan je raadplegen:\n\n- Bewoning: welke personen (bewoners)\
-        \ stonden ingeschreven op een adresseerbaar object op een gegeven moment (peildatum)\
-        \ of in een gegeven periode.\n- Medebewoners: welke personen op een gegeven\
-        \ moment (peildatum) of in een gegeven periode tegelijkertijd met een persoon\
-        \ op hetzelfde adresseerbaar object stonden ingeschreven. \n"
+      description: "Met de API kun je raadplegen:\n\n**Bewoning:**\nwelke personen\
+        \ (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum)\
+        \ of\nwelke samenstellingen van personen een adresseerbaar object bewoonden\
+        \ in een opgegeven periode.\n\n**Medebewoners:**\nwelke personen op een bepaald\
+        \ moment (peildatum) met opgegeven persoon hetzelfde adresseerbaar object\
+        \ bewoonden, \nof welke samenstellingen van personen in een opgegeven periode\
+        \ tegelijkertijd met persoon hetzelfde adresseerbaar object bewoonden.\n"
       operationId: Bewoningen
       requestBody:
         content:
@@ -369,7 +371,7 @@ components:
     Peildatum:
       type: string
       description: |
-        De datum waarop de bewoning wordt opgevraagd.
+        Peildatum: de datum waarop je de bewoning wil weten.
       format: date
     Burgerservicenummer:
       pattern: ^[0-9]{9}$
@@ -447,7 +449,7 @@ components:
           minItems: 1
           type: array
           description: |
-            Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze daarwerkelijk in deze periode bewoner waren.
+            Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
           items:
             $ref: '#/components/schemas/Bewoner'
         indicatieVeelBewoners:
