@@ -94,7 +94,7 @@ components:
         mogelijkeBewoners:
           type: array
           description: |
-                Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze daarwerkelijk in deze periode bewoner waren.
+                Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
           minItems: 1
           maxItems: 100
           items:
@@ -117,7 +117,7 @@ components:
         mogelijkeBewoners:
           type: array
           description: |
-                Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze daarwerkelijk in deze periode bewoner waren.
+                Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
           minItems: 1
           maxItems: 100
           items:

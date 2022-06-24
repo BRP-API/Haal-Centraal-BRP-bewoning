@@ -30,7 +30,7 @@ components:
     Peildatum:
       type: string
       description: |
-        De datum waarop de bewoning wordt opgevraagd.
+        Peildatum: de datum waarop je de bewoning wil weten.
       format: date
       example: 1964-09-24
       

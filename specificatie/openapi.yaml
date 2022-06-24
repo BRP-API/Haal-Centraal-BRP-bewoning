@@ -16,10 +16,15 @@ paths:
     post:
       summary: Raadplegen van bewoningen
       description: |
-        Hiermee kan je raadplegen:
-        
-        - Bewoning: welke personen (bewoners) stonden ingeschreven op een adresseerbaar object op een gegeven moment (peildatum) of in een gegeven periode.
-        - Medebewoners: welke personen op een gegeven moment (peildatum) of in een gegeven periode tegelijkertijd met een persoon op hetzelfde adresseerbaar object stonden ingeschreven. 
+              Met de API kun je raadplegen:
+
+              **Bewoning:**
+              welke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of
+              welke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.
+
+              **Medebewoners:**
+              welke personen op een bepaald moment (peildatum) met opgegeven persoon hetzelfde adresseerbaar object bewoonden, 
+              of welke samenstellingen van personen in een opgegeven periode tegelijkertijd met persoon hetzelfde adresseerbaar object bewoonden.
       operationId: Bewoningen
       requestBody:
         content:
