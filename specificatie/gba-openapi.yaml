@@ -117,7 +117,7 @@ components:
             datumVan:
               $ref: 'filter.yaml#/components/schemas/DatumVan'
             datumTot:
-              $ref: 'filter.yaml#/components/schemas/datumTot'
+              $ref: 'filter.yaml#/components/schemas/DatumTot'
             burgerservicenummer:
               $ref: "bewoner.yaml#/components/schemas/Burgerservicenummer"
     BewoningMetPeildatum:
@@ -144,7 +144,7 @@ components:
             datumVan:
               $ref: 'filter.yaml#/components/schemas/DatumVan'
             datumTot:
-              $ref: 'filter.yaml#/components/schemas/datumTot'
+              $ref: 'filter.yaml#/components/schemas/DatumTot'
             adresseerbaarObjectIdentificatie:
               $ref: "verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie"
     GbaBewoningenQueryResponse:

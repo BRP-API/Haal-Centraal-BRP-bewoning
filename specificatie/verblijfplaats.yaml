@@ -101,14 +101,3 @@ components:
           $ref: '#/components/schemas/Regel2'
         regel3:
           $ref: '#/components/schemas/Regel3'
-    GbaVerblijfplaats:
-      type: object
-      properties:
-        datumAanvangAdreshouding:
-          $ref: 'datum.yaml#/components/schemas/GbaDatum'
-        datumAanvangAdresBuitenland:
-          $ref: 'datum.yaml#/components/schemas/GbaDatum'
-        functieAdres:
-          $ref: 'common.yaml#/components/schemas/Waardetabel'
-        inOnderzoek:
-          $ref: 'in-onderzoek.yaml#/components/schemas/GbaInOnderzoek'

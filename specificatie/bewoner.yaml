@@ -19,18 +19,14 @@ components:
         Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
       type: boolean
     Bewoner:
-      allOf:
-        - $ref: 'bewoning.yaml#/components/schemas/Periode'
-        - type: object
-          properties:
-            burgerservicenummer:
-              $ref: '#/components/schemas/Burgerservicenummer'
-            functieAdres:
-              $ref: 'common.yaml#/components/schemas/Waardetabel'
-            indicatieVerblijfsplaatsInOnderzoek:
-              $ref: 'in-onderzoek.yaml#/components/schemas/InOnderzoek'
-            geheimhoudingPersoonsgegevens:
-              $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
+      type: object
+      properties:
+        burgerservicenummer:
+          $ref: '#/components/schemas/Burgerservicenummer'
+        geheimhoudingPersoonsgegevens:
+          $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
+        indicatieVerblijfsplaatsInOnderzoek:
+          $ref: 'in-onderzoek.yaml#/components/schemas/InOnderzoek'
     GbaBewoner:
       type: object
       properties:
@@ -38,9 +34,5 @@ components:
           $ref: '#/components/schemas/Burgerservicenummer'
         geheimhoudingPersoonsgegevens:
           $ref: '#/components/schemas/GbaGeheimhoudingPersoonsgegevens'
-        verblijfplaats:
-          type: array
-          minItems: 1
-          maxItems: 2
-          items:
-            $ref: 'verblijfplaats.yaml#/components/schemas/GbaVerblijfplaats'
+        verblijfplaatsInOnderzoek:
+          $ref: 'in-onderzoek.yaml#/components/schemas/GbaInOnderzoek'
