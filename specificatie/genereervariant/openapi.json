@@ -327,7 +327,7 @@
               "$ref" : "#/components/schemas/DatumVan"
             },
             "datumTot" : {
-              "$ref" : "#/components/schemas/datumTot"
+              "$ref" : "#/components/schemas/DatumTot"
             },
             "burgerservicenummer" : {
               "$ref" : "#/components/schemas/Burgerservicenummer"
@@ -362,7 +362,7 @@
               "$ref" : "#/components/schemas/DatumVan"
             },
             "datumTot" : {
-              "$ref" : "#/components/schemas/datumTot"
+              "$ref" : "#/components/schemas/DatumTot"
             },
             "adresseerbaarObjectIdentificatie" : {
               "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
@@ -485,7 +485,7 @@
         "description" : "De begindatum van de periode waarover de bewoning wordt opgevraagd.\n",
         "format" : "date"
       },
-      "datumTot" : {
+      "DatumTot" : {
         "type" : "string",
         "description" : "De einddatum van de periode waarover de bewoning wordt opgevraagd.\n",
         "format" : "date"
@@ -519,10 +519,12 @@
         "type" : "object",
         "properties" : {
           "datumVan" : {
-            "$ref" : "#/components/schemas/AbstractDatum"
+            "type" : "string",
+            "format" : "date"
           },
           "datumTot" : {
-            "$ref" : "#/components/schemas/AbstractDatum"
+            "type" : "string",
+            "format" : "date"
           }
         }
       },
@@ -546,9 +548,6 @@
               "items" : {
                 "$ref" : "#/components/schemas/BewoningPeriode"
               }
-            },
-            "bewonersOnbekendePeriode" : {
-              "$ref" : "#/components/schemas/BewonerOnbekendePeriode"
             }
           },
           "description" : "Bewoning van een adresseerbaar object"
@@ -568,19 +567,21 @@
               "$ref" : "#/components/schemas/Bewoner"
             }
           },
+          "mogelijkeBewoners" : {
+            "maxItems" : 100,
+            "minItems" : 1,
+            "type" : "array",
+            "description" : "Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze daarwerkelijk in deze periode bewoner waren.\n",
+            "items" : {
+              "$ref" : "#/components/schemas/Bewoner"
+            }
+          },
           "indicatieVeelBewoners" : {
             "type" : "boolean",
             "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven."
           }
         },
         "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
-      },
-      "BewonerOnbekendePeriode" : {
-        "type" : "array",
-        "description" : "Bewoners waarvan niet is vast te stellen in welke periodes zij daadwerkelijk bewoner waren.",
-        "items" : {
-          "$ref" : "#/components/schemas/Bewoner"
-        }
       },
       "BewoningOnbekend" : {
         "allOf" : [ {
@@ -601,130 +602,6 @@
           },
           "description" : "Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.\nDe reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.\n"
         } ]
-      },
-      "AbstractDatum" : {
-        "required" : [ "type" ],
-        "type" : "object",
-        "properties" : {
-          "type" : {
-            "type" : "string"
-          },
-          "langFormaat" : {
-            "pattern" : "^[a-z0-9 ]{1,17}$",
-            "type" : "string"
-          }
-        },
-        "discriminator" : {
-          "propertyName" : "type",
-          "mapping" : {
-            "Datum" : "#/components/schemas/VolledigeDatum",
-            "DatumOnbekend" : "#/components/schemas/DatumOnbekend",
-            "JaarDatum" : "#/components/schemas/JaarDatum",
-            "JaarMaandDatum" : "#/components/schemas/JaarMaandDatum"
-          }
-        }
-      },
-      "VolledigeDatum" : {
-        "required" : [ "datum" ],
-        "description" : "Datum conform iso8601",
-        "example" : {
-          "value" : {
-            "type" : "Datum",
-            "datum" : "2018-07-01",
-            "langFormaat" : "1 juli 2018"
-          }
-        },
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AbstractDatum"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "datum" : {
-              "type" : "string",
-              "format" : "date"
-            }
-          }
-        } ]
-      },
-      "DatumOnbekend" : {
-        "required" : [ "onbekend" ],
-        "description" : "representatie voor een volledig onbekend datum",
-        "example" : {
-          "value" : {
-            "type" : "DatumOnbekend",
-            "onbekend" : true,
-            "langFormaat" : "onbekend"
-          }
-        },
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AbstractDatum"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "onbekend" : {
-              "type" : "boolean",
-              "default" : true
-            }
-          }
-        } ]
-      },
-      "JaarDatum" : {
-        "required" : [ "jaar" ],
-        "description" : "representatie voor een datum waarvan maand en dag onbekend zijn",
-        "example" : {
-          "value" : {
-            "type" : "JaarDatum",
-            "jaar" : 2018,
-            "langFormaat" : 2018
-          }
-        },
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AbstractDatum"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "jaar" : {
-              "$ref" : "#/components/schemas/Jaar"
-            }
-          }
-        } ]
-      },
-      "Jaar" : {
-        "maximum" : 9999,
-        "minimum" : 1,
-        "type" : "integer",
-        "format" : "int32"
-      },
-      "JaarMaandDatum" : {
-        "required" : [ "jaar", "maand" ],
-        "description" : "representatie voor een datum waarvan de dag onbekend is",
-        "example" : {
-          "value" : {
-            "type" : "JaarMaandDatum",
-            "jaar" : 2018,
-            "maand" : 7,
-            "langFormaat" : "juli 2018"
-          }
-        },
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AbstractDatum"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "jaar" : {
-              "$ref" : "#/components/schemas/Jaar"
-            },
-            "maand" : {
-              "$ref" : "#/components/schemas/Maand"
-            }
-          }
-        } ]
-      },
-      "Maand" : {
-        "maximum" : 12,
-        "minimum" : 1,
-        "type" : "integer",
-        "format" : "int32"
       },
       "AdresseringNederland" : {
         "type" : "object",
@@ -750,25 +627,18 @@
         "example" : "7604 GC ALMELO"
       },
       "Bewoner" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/Periode"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "burgerservicenummer" : {
-              "$ref" : "#/components/schemas/Burgerservicenummer"
-            },
-            "functieAdres" : {
-              "$ref" : "#/components/schemas/Waardetabel"
-            },
-            "indicatieVerblijfsplaatsInOnderzoek" : {
-              "$ref" : "#/components/schemas/InOnderzoek"
-            },
-            "geheimhoudingPersoonsgegevens" : {
-              "$ref" : "#/components/schemas/GeheimhoudingPersoonsgegevens"
-            }
+        "type" : "object",
+        "properties" : {
+          "burgerservicenummer" : {
+            "$ref" : "#/components/schemas/Burgerservicenummer"
+          },
+          "geheimhoudingPersoonsgegevens" : {
+            "$ref" : "#/components/schemas/GeheimhoudingPersoonsgegevens"
+          },
+          "indicatieVerblijfsplaatsInOnderzoek" : {
+            "$ref" : "#/components/schemas/InOnderzoek"
           }
-        } ]
+        }
       },
       "GeheimhoudingPersoonsgegevens" : {
         "type" : "boolean",
