@@ -651,13 +651,13 @@
         "example" : "Naast de derde brug"
       },
       "Regel1" : {
-        "maxLength" : 40,
+        "maxLength" : 35,
         "type" : "string",
         "description" : "Het eerste deel van een buitenlands adres. Vaak is dit een combinatie van de straat en huisnummer.\n",
         "example" : "1600 Pennsylvania Avenue NW"
       },
       "Regel2" : {
-        "maxLength" : 50,
+        "maxLength" : 35,
         "type" : "string",
         "description" : "Het tweede deel van een buitenlands adres. Vaak is dit een combinatie van woonplaats eventueel in combinatie met de postcode.\n",
         "example" : "Washington, DC 20500"
