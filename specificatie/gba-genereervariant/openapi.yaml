@@ -50,7 +50,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BewoningenQueryResponse'
+                $ref: '#/components/schemas/GbaBewoningenQueryResponse'
         "400":
           description: Bad Request
           headers:
@@ -286,13 +286,13 @@ components:
             $ref: '#/components/schemas/DatumTot'
           adresseerbaarObjectIdentificatie:
             $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
-    BewoningenQueryResponse:
+    GbaBewoningenQueryResponse:
       type: object
       properties:
         bewoningen:
           type: array
           items:
-            $ref: '#/components/schemas/AbstractBewoning'
+            $ref: '#/components/schemas/GbaBewoning'
     BadRequestFoutbericht:
       allOf:
       - $ref: '#/components/schemas/Foutbericht'
@@ -393,47 +393,23 @@ components:
       description: |
         De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.
       example: "0226010000038820"
-    AbstractBewoning:
-      required:
-      - fields
-      - type
+    GbaBewoning:
       type: object
       properties:
-        type:
-          type: string
+        adresseerbaarObjectIdentificatie:
+          $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
+        adressen:
+          type: array
+          items:
+            $ref: '#/components/schemas/GbaVerblijfadres'
+        bewoningPeriodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GbaBewoningPeriode'
         periode:
           $ref: '#/components/schemas/Periode'
-      discriminator:
-        propertyName: type
-        mapping:
-          Bewoning: '#/components/schemas/Bewoning'
-          BewoningOnbekend: '#/components/schemas/BewoningOnbekend'
-    Periode:
-      type: object
-      properties:
-        datumVan:
-          type: string
-          format: date
-        datumTot:
-          type: string
-          format: date
-    Bewoning:
-      allOf:
-      - $ref: '#/components/schemas/AbstractBewoning'
-      - type: object
-        properties:
-          adressen:
-            type: array
-            items:
-              $ref: '#/components/schemas/AdresseringNederland'
-          adresseerbaarObjectIdentificatie:
-            $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
-          bewoningPeriodes:
-            type: array
-            items:
-              $ref: '#/components/schemas/BewoningPeriode'
-        description: Bewoning van een adresseerbaar object
-    BewoningPeriode:
+      description: Bewoning van een adresseerbaar object
+    GbaBewoningPeriode:
       type: object
       properties:
         periode:
@@ -443,7 +419,7 @@ components:
           minItems: 1
           type: array
           items:
-            $ref: '#/components/schemas/Bewoner'
+            $ref: '#/components/schemas/GbaBewoner'
         mogelijkeBewoners:
           maxItems: 100
           minItems: 1
@@ -451,7 +427,7 @@ components:
           description: |
             Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
           items:
-            $ref: '#/components/schemas/Bewoner'
+            $ref: '#/components/schemas/GbaBewoner'
         indicatieVeelBewoners:
           type: boolean
           description: "Geeft aan dat het adresseerbaar object zo veel bewoners heeft\
@@ -459,53 +435,117 @@ components:
             \ met uitzondering van de persoon waarvan de BSN is opgegeven."
       description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling
         van bewoners was.
-    BewoningOnbekend:
-      allOf:
-      - $ref: '#/components/schemas/AbstractBewoning'
-      - type: object
-        properties:
-          redenOnbekend:
-            $ref: '#/components/schemas/Waardetabel'
-          adressen:
-            maxItems: 1
-            type: array
-            items:
-              $ref: '#/components/schemas/Adressering'
-        description: |
-          Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
-          De reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.
-    AdresseringNederland:
+    Periode:
       type: object
       properties:
-        adresregel1:
-          $ref: '#/components/schemas/Adresregel1'
-        adresregel2:
-          $ref: '#/components/schemas/Adresregel2'
-    Adresregel1:
-      maxLength: 40
+        datumVan:
+          type: string
+          format: date
+        datumTot:
+          type: string
+          format: date
+    GbaVerblijfadres:
+      type: object
+      properties:
+        straat:
+          $ref: '#/components/schemas/Straat'
+        huisnummer:
+          $ref: '#/components/schemas/Huisnummer'
+        huisletter:
+          $ref: '#/components/schemas/Huisletter'
+        huisnummertoevoeging:
+          $ref: '#/components/schemas/Huisnummertoevoeging'
+        aanduidingBijHuisnummer:
+          $ref: '#/components/schemas/Waardetabel'
+        postcode:
+          $ref: '#/components/schemas/Postcode'
+        woonplaats:
+          $ref: '#/components/schemas/Woonplaats'
+        gemeenteVanInschrijving:
+          $ref: '#/components/schemas/Waardetabel'
+        locatiebeschrijving:
+          $ref: '#/components/schemas/Locatiebeschrijving'
+        land:
+          $ref: '#/components/schemas/Waardetabel'
+        regel1:
+          $ref: '#/components/schemas/Regel1'
+        regel2:
+          $ref: '#/components/schemas/Regel2'
+        regel3:
+          $ref: '#/components/schemas/Regel3'
+    Straat:
+      maxLength: 80
+      type: string
+      example: Tulpstraat
+    Huisnummer:
+      maximum: 99999
+      minimum: 1
+      type: integer
+      description: |
+        Een nummer dat door de gemeente aan een adresseerbaar object is gegeven.
+      example: 14
+    Huisletter:
+      pattern: "^[a-zA-Z]{1}$"
       type: string
       description: |
-        Het eerste deel van een adres is een combinatie van de straat en huisnummer.
-      example: Beethovenlaan 1 a3
-    Adresregel2:
-      maxLength: 50
+        Een toevoeging aan een huisnummer in de vorm van een letter die door de gemeente aan een adresseerbaar object is gegeven.
+      example: a
+    Huisnummertoevoeging:
+      pattern: "^[a-zA-Z0-9 \\-]{1,4}$"
       type: string
       description: |
-        Het tweede deel van een adres is een combinatie van postcode en woonplaats.
-      example: 7604 GC ALMELO
-    Bewoner:
+        Een toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter die door de gemeente aan een adresseerbaar object is gegeven.
+      example: bis
+    Postcode:
+      pattern: "^[1-9]{1}[0-9]{3}[ ]?[A-Za-z]{2}$"
+      type: string
+      description: |
+        De door PostNL vastgestelde code die bij een bepaalde combinatie van een straatnaam en een huisnummer hoort.
+      example: 2341SX
+    Woonplaats:
+      title: woonplaats naam
+      pattern: "^[a-zA-Z0-9À-ž \\(\\)\\,\\.\\-\\']{1,80}$"
+      type: string
+      description: |
+        Een woonplaats is een gedeelte van het grondgebied van de gemeente met een naam.
+      example: Duiven
+    Locatiebeschrijving:
+      maxLength: 35
+      type: string
+      description: |
+        Omschrijving van de ligging van een verblijfsobject, standplaats of ligplaats.
+      example: Naast de derde brug
+    Regel1:
+      maxLength: 35
+      type: string
+      description: |
+        Het eerste deel van een buitenlands adres. Vaak is dit een combinatie van de straat en huisnummer.
+      example: 1600 Pennsylvania Avenue NW
+    Regel2:
+      maxLength: 35
+      type: string
+      description: |
+        Het tweede deel van een buitenlands adres. Vaak is dit een combinatie van woonplaats eventueel in combinatie met de postcode.
+      example: "Washington, DC 20500"
+    Regel3:
+      maxLength: 35
+      type: string
+      description: |
+        Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.
+      example: Selangor
+    GbaBewoner:
       type: object
       properties:
         burgerservicenummer:
           $ref: '#/components/schemas/Burgerservicenummer'
         geheimhoudingPersoonsgegevens:
-          $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
-        indicatieVerblijfsplaatsInOnderzoek:
-          $ref: '#/components/schemas/InOnderzoek'
-    GeheimhoudingPersoonsgegevens:
-      type: boolean
-      description: |
-        Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
+          $ref: '#/components/schemas/GbaGeheimhoudingPersoonsgegevens'
+        verblijfplaatsInOnderzoek:
+          $ref: '#/components/schemas/GbaInOnderzoek'
+    GbaGeheimhoudingPersoonsgegevens:
+      maximum: 7
+      minimum: 0
+      type: integer
     Waardetabel:
       type: object
       properties:
@@ -517,25 +557,9 @@ components:
           pattern: "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$"
           type: string
           example: Nederland
-    Adressering:
-      allOf:
-      - $ref: '#/components/schemas/AdresseringNederland'
-      - type: object
-        properties:
-          adresregel3:
-            $ref: '#/components/schemas/Regel3'
-          land:
-            $ref: '#/components/schemas/Waardetabel'
-    InOnderzoek:
-      type: boolean
-      description: |
-        Geeft aan dat de verblijfplaats in onderzoek is.
-    Regel3:
-      maxLength: 35
+    GbaInOnderzoek:
+      pattern: "^[0-9]{6}$"
       type: string
-      description: |
-        Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.
-      example: Selangor
   responses:
     "400":
       description: Bad Request

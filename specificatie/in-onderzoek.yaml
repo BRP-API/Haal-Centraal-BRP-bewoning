@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: In onderzoek definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    InOnderzoek:
+      type: boolean
+      description: |
+        Geeft aan dat de verblijfplaats in onderzoek is.
+    GbaInOnderzoek:
+      type: string
+      pattern: ^[0-9]{6}$

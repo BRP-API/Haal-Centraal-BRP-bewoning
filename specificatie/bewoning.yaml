@@ -1,0 +1,128 @@
+openapi: 3.0.3
+info:
+  title: Bewoning definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    AbstractBewoning:
+      type: object
+      required:
+        - type
+        - fields
+      discriminator:
+        propertyName: type
+        mapping:
+          Bewoning: '#/components/schemas/Bewoning'
+          BewoningOnbekend: '#/components/schemas/BewoningOnbekend'
+      properties:
+        type:
+          type: string
+        periode:
+          $ref: '#/components/schemas/Periode'
+    Bewoning:
+      allOf:
+        - $ref: '#/components/schemas/AbstractBewoning'
+        - type: object
+          description: Bewoning van een adresseerbaar object
+          properties:
+            adressen:
+              type: array
+              items:
+                $ref: 'adressering.yaml#/components/schemas/AdresseringNederland'
+            adresseerbaarObjectIdentificatie:
+              $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+            bewoningPeriodes:
+              type: array
+              items:
+                $ref: '#/components/schemas/BewoningPeriode'
+    BewoningOnbekend:
+      allOf:
+        - $ref: '#/components/schemas/AbstractBewoning'
+        - type: object
+          description: |
+              Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
+              De reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.
+          properties:
+            redenOnbekend:
+              $ref: 'common.yaml#/components/schemas/Waardetabel'
+            adressen:
+              type: array
+              maxItems: 1
+              items:
+                $ref: 'adressering.yaml#/components/schemas/Adressering'
+    GbaBewoning:
+      type: object
+      description: Bewoning van een adresseerbaar object
+      properties:
+        adresseerbaarObjectIdentificatie:
+          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+        adressen:
+          type: array
+          items:
+            $ref: 'verblijfplaats.yaml#/components/schemas/GbaVerblijfadres'
+        bewoningPeriodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/GbaBewoningPeriode'
+        periode:
+          $ref: '#/components/schemas/Periode'
+    Periode:
+      type: object
+      properties:
+        datumVan:
+          type: string
+          format: date
+          example: 2020-01-01
+        datumTot:
+          type: string
+          format: date
+          example: 2021-01-01
+    BewoningPeriode:
+      type: object
+      description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was.
+      properties:
+        periode:
+          $ref: '#/components/schemas/Periode'
+        bewoners:
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/Bewoner'
+        mogelijkeBewoners:
+          type: array
+          description: |
+                Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
+          minItems: 1
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/Bewoner'
+        indicatieVeelBewoners:
+          type: boolean
+          description: Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
+    GbaBewoningPeriode:
+      type: object
+      description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was.
+      properties:
+        periode:
+          $ref: '#/components/schemas/Periode'
+        bewoners:
+          type: array
+          minItems: 1
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/GbaBewoner'
+        mogelijkeBewoners:
+          type: array
+          description: |
+                Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
+          minItems: 1
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/GbaBewoner'
+        indicatieVeelBewoners:
+          type: boolean
+          description: Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
+

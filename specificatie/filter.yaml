@@ -1,0 +1,36 @@
+openapi: 3.0.3
+info:
+  title: Filter definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    Field:
+      description: |
+        Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een lijst van paden die verwijzen naar de gewenste velden op te nemen 
+        ([zie functionele specificaties 'fields' properties](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-historie-bevragen/develop/features/fields.feature)). 
+        De te gebruiken paden zijn beschreven in [fields-Persoon.csv](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-historie-bevragen/develop/features/fields-Verblijfplaatshistorie.csv) 
+        waarbij in de eerste kolom het fields-pad staat en in de tweede kolom het volledige pad naar het gewenste veld. 
+        Bij opgave van een pad dat verwijst naar een niet-bestaand veld wordt een 400 Bad Request teruggegeven.
+      type: string
+      pattern: ^[a-zA-Z0-9\._]{1,200}$
+    DatumVan:
+      type: string
+      description: |
+        De begindatum van de periode waarover de bewoning wordt opgevraagd.
+      format: date
+      example: 1964-09-24
+    DatumTot:
+      type: string
+      description: |
+        De einddatum van de periode waarover de bewoning wordt opgevraagd.
+      format: date
+      example: 1964-09-24
+    Peildatum:
+      type: string
+      description: |
+        Peildatum: de datum waarop je de bewoning wil weten.
+      format: date
+      example: 1964-09-24
+      

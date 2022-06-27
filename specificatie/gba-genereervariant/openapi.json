@@ -57,7 +57,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/BewoningenQueryResponse"
+                  "$ref" : "#/components/schemas/GbaBewoningenQueryResponse"
                 }
               }
             }
@@ -370,13 +370,13 @@
           }
         } ]
       },
-      "BewoningenQueryResponse" : {
+      "GbaBewoningenQueryResponse" : {
         "type" : "object",
         "properties" : {
           "bewoningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AbstractBewoning"
+              "$ref" : "#/components/schemas/GbaBewoning"
             }
           }
         }
@@ -496,24 +496,59 @@
         "description" : "De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.\n",
         "example" : "0226010000038820"
       },
-      "AbstractBewoning" : {
-        "required" : [ "fields", "type" ],
+      "GbaBewoning" : {
         "type" : "object",
         "properties" : {
-          "type" : {
-            "type" : "string"
+          "adresseerbaarObjectIdentificatie" : {
+            "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
+          },
+          "adressen" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/GbaVerblijfadres"
+            }
+          },
+          "bewoningPeriodes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/GbaBewoningPeriode"
+            }
           },
           "periode" : {
             "$ref" : "#/components/schemas/Periode"
           }
         },
-        "discriminator" : {
-          "propertyName" : "type",
-          "mapping" : {
-            "Bewoning" : "#/components/schemas/Bewoning",
-            "BewoningOnbekend" : "#/components/schemas/BewoningOnbekend"
+        "description" : "Bewoning van een adresseerbaar object"
+      },
+      "GbaBewoningPeriode" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "$ref" : "#/components/schemas/Periode"
+          },
+          "bewoners" : {
+            "maxItems" : 100,
+            "minItems" : 1,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/GbaBewoner"
+            }
+          },
+          "mogelijkeBewoners" : {
+            "maxItems" : 100,
+            "minItems" : 1,
+            "type" : "array",
+            "description" : "Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.\n",
+            "items" : {
+              "$ref" : "#/components/schemas/GbaBewoner"
+            }
+          },
+          "indicatieVeelBewoners" : {
+            "type" : "boolean",
+            "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven."
           }
-        }
+        },
+        "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
       },
       "Periode" : {
         "type" : "object",
@@ -528,121 +563,129 @@
           }
         }
       },
-      "Bewoning" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AbstractBewoning"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "adressen" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/AdresseringNederland"
-              }
-            },
-            "adresseerbaarObjectIdentificatie" : {
-              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
-            },
-            "bewoningPeriodes" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/BewoningPeriode"
-              }
-            }
-          },
-          "description" : "Bewoning van een adresseerbaar object"
-        } ]
-      },
-      "BewoningPeriode" : {
+      "GbaVerblijfadres" : {
         "type" : "object",
         "properties" : {
-          "periode" : {
-            "$ref" : "#/components/schemas/Periode"
+          "straat" : {
+            "$ref" : "#/components/schemas/Straat"
           },
-          "bewoners" : {
-            "maxItems" : 100,
-            "minItems" : 1,
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Bewoner"
-            }
+          "huisnummer" : {
+            "$ref" : "#/components/schemas/Huisnummer"
           },
-          "mogelijkeBewoners" : {
-            "maxItems" : 100,
-            "minItems" : 1,
-            "type" : "array",
-            "description" : "Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.\n",
-            "items" : {
-              "$ref" : "#/components/schemas/Bewoner"
-            }
+          "huisletter" : {
+            "$ref" : "#/components/schemas/Huisletter"
           },
-          "indicatieVeelBewoners" : {
-            "type" : "boolean",
-            "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven."
-          }
-        },
-        "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
-      },
-      "BewoningOnbekend" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AbstractBewoning"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "redenOnbekend" : {
-              "$ref" : "#/components/schemas/Waardetabel"
-            },
-            "adressen" : {
-              "maxItems" : 1,
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/Adressering"
-              }
-            }
+          "huisnummertoevoeging" : {
+            "$ref" : "#/components/schemas/Huisnummertoevoeging"
           },
-          "description" : "Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.\nDe reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.\n"
-        } ]
-      },
-      "AdresseringNederland" : {
-        "type" : "object",
-        "properties" : {
-          "adresregel1" : {
-            "$ref" : "#/components/schemas/Adresregel1"
+          "aanduidingBijHuisnummer" : {
+            "$ref" : "#/components/schemas/Waardetabel"
           },
-          "adresregel2" : {
-            "$ref" : "#/components/schemas/Adresregel2"
+          "postcode" : {
+            "$ref" : "#/components/schemas/Postcode"
+          },
+          "woonplaats" : {
+            "$ref" : "#/components/schemas/Woonplaats"
+          },
+          "gemeenteVanInschrijving" : {
+            "$ref" : "#/components/schemas/Waardetabel"
+          },
+          "locatiebeschrijving" : {
+            "$ref" : "#/components/schemas/Locatiebeschrijving"
+          },
+          "land" : {
+            "$ref" : "#/components/schemas/Waardetabel"
+          },
+          "regel1" : {
+            "$ref" : "#/components/schemas/Regel1"
+          },
+          "regel2" : {
+            "$ref" : "#/components/schemas/Regel2"
+          },
+          "regel3" : {
+            "$ref" : "#/components/schemas/Regel3"
           }
         }
       },
-      "Adresregel1" : {
-        "maxLength" : 40,
+      "Straat" : {
+        "maxLength" : 80,
         "type" : "string",
-        "description" : "Het eerste deel van een adres is een combinatie van de straat en huisnummer.\n",
-        "example" : "Beethovenlaan 1 a3"
+        "example" : "Tulpstraat"
       },
-      "Adresregel2" : {
-        "maxLength" : 50,
+      "Huisnummer" : {
+        "maximum" : 99999,
+        "minimum" : 1,
+        "type" : "integer",
+        "description" : "Een nummer dat door de gemeente aan een adresseerbaar object is gegeven.\n",
+        "example" : 14
+      },
+      "Huisletter" : {
+        "pattern" : "^[a-zA-Z]{1}$",
         "type" : "string",
-        "description" : "Het tweede deel van een adres is een combinatie van postcode en woonplaats.\n",
-        "example" : "7604 GC ALMELO"
+        "description" : "Een toevoeging aan een huisnummer in de vorm van een letter die door de gemeente aan een adresseerbaar object is gegeven.\n",
+        "example" : "a"
       },
-      "Bewoner" : {
+      "Huisnummertoevoeging" : {
+        "pattern" : "^[a-zA-Z0-9 \\-]{1,4}$",
+        "type" : "string",
+        "description" : "Een toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter die door de gemeente aan een adresseerbaar object is gegeven.\n",
+        "example" : "bis"
+      },
+      "Postcode" : {
+        "pattern" : "^[1-9]{1}[0-9]{3}[ ]?[A-Za-z]{2}$",
+        "type" : "string",
+        "description" : "De door PostNL vastgestelde code die bij een bepaalde combinatie van een straatnaam en een huisnummer hoort.\n",
+        "example" : "2341SX"
+      },
+      "Woonplaats" : {
+        "title" : "woonplaats naam",
+        "pattern" : "^[a-zA-Z0-9À-ž \\(\\)\\,\\.\\-\\']{1,80}$",
+        "type" : "string",
+        "description" : "Een woonplaats is een gedeelte van het grondgebied van de gemeente met een naam.\n",
+        "example" : "Duiven"
+      },
+      "Locatiebeschrijving" : {
+        "maxLength" : 35,
+        "type" : "string",
+        "description" : "Omschrijving van de ligging van een verblijfsobject, standplaats of ligplaats.\n",
+        "example" : "Naast de derde brug"
+      },
+      "Regel1" : {
+        "maxLength" : 35,
+        "type" : "string",
+        "description" : "Het eerste deel van een buitenlands adres. Vaak is dit een combinatie van de straat en huisnummer.\n",
+        "example" : "1600 Pennsylvania Avenue NW"
+      },
+      "Regel2" : {
+        "maxLength" : 35,
+        "type" : "string",
+        "description" : "Het tweede deel van een buitenlands adres. Vaak is dit een combinatie van woonplaats eventueel in combinatie met de postcode.\n",
+        "example" : "Washington, DC 20500"
+      },
+      "Regel3" : {
+        "maxLength" : 35,
+        "type" : "string",
+        "description" : "Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.\n",
+        "example" : "Selangor"
+      },
+      "GbaBewoner" : {
         "type" : "object",
         "properties" : {
           "burgerservicenummer" : {
             "$ref" : "#/components/schemas/Burgerservicenummer"
           },
           "geheimhoudingPersoonsgegevens" : {
-            "$ref" : "#/components/schemas/GeheimhoudingPersoonsgegevens"
+            "$ref" : "#/components/schemas/GbaGeheimhoudingPersoonsgegevens"
           },
-          "indicatieVerblijfsplaatsInOnderzoek" : {
-            "$ref" : "#/components/schemas/InOnderzoek"
+          "verblijfplaatsInOnderzoek" : {
+            "$ref" : "#/components/schemas/GbaInOnderzoek"
           }
         }
       },
-      "GeheimhoudingPersoonsgegevens" : {
-        "type" : "boolean",
-        "description" : "Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.\n"
+      "GbaGeheimhoudingPersoonsgegevens" : {
+        "maximum" : 7,
+        "minimum" : 0,
+        "type" : "integer"
       },
       "Waardetabel" : {
         "type" : "object",
@@ -659,30 +702,9 @@
           }
         }
       },
-      "Adressering" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AdresseringNederland"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "adresregel3" : {
-              "$ref" : "#/components/schemas/Regel3"
-            },
-            "land" : {
-              "$ref" : "#/components/schemas/Waardetabel"
-            }
-          }
-        } ]
-      },
-      "InOnderzoek" : {
-        "type" : "boolean",
-        "description" : "Geeft aan dat de verblijfplaats in onderzoek is.\n"
-      },
-      "Regel3" : {
-        "maxLength" : 35,
-        "type" : "string",
-        "description" : "Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.\n",
-        "example" : "Selangor"
+      "GbaInOnderzoek" : {
+        "pattern" : "^[0-9]{6}$",
+        "type" : "string"
       }
     },
     "responses" : {

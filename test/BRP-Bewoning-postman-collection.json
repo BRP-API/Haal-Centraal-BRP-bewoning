@@ -1,18 +1,51 @@
 {
     "item": [
         {
-            "id": "d37b13ee-2e72-4b8a-9ef5-9203adb87dc3",
-            "name": "bewoningen",
-            "item": [
+            "id": "4cd960b9-726b-484d-ad37-f53fc436ff66",
+            "name": "Raadplegen van bewoningen",
+            "request": {
+                "name": "Raadplegen van bewoningen",
+                "description": {
+                    "content": "Hiermee kan je raadplegen:\n\n- Bewoning: welke personen (bewoners) stonden ingeschreven op een adresseerbaar object op een gegeven moment (peildatum) of in een gegeven periode.\n- Medebewoners: welke personen op een gegeven moment (peildatum) of in een gegeven periode tegelijkertijd met een persoon op hetzelfde adresseerbaar object stonden ingeschreven. \n",
+                    "type": "text/plain"
+                },
+                "url": {
+                    "path": [
+                        "bewoningen"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            },
+            "response": [
                 {
-                    "id": "8a72fb74-d3d2-4295-bfbf-156e34e2a64c",
-                    "name": "get Bewoningen",
-                    "request": {
-                        "name": "get Bewoningen",
-                        "description": {
-                            "content": "Zoek bewoningen door een adresseerbaarObjectIdentificatie of een burgerservicenummer op te geven, samen met een peildatum of periode.\n",
-                            "type": "text/plain"
-                        },
+                    "id": "38a1fcab-df98-4fb3-bd6b-8fc20a48f9dc",
+                    "name": "Zoekactie geslaagd\n",
+                    "originalRequest": {
                         "url": {
                             "path": [
                                 "bewoningen"
@@ -20,1969 +53,470 @@
                             "host": [
                                 "{{baseUrl}}"
                             ],
-                            "query": [
-                                {
-                                    "disabled": false,
-                                    "key": "expand",
-                                    "value": "<string>",
-                                    "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature)."
-                                },
-                                {
-                                    "disabled": false,
-                                    "key": "fields",
-                                    "value": "<string>",
-                                    "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
-                                },
-                                {
-                                    "disabled": false,
-                                    "key": "peildatum",
-                                    "value": "<date>",
-                                    "description": "De datum waarop de resource wordt opgevraagd."
-                                },
-                                {
-                                    "disabled": false,
-                                    "key": "datumVan",
-                                    "value": "<date>",
-                                    "description": "De begindatum van de periode waarover de resource wordt opgevraagd."
-                                },
-                                {
-                                    "disabled": false,
-                                    "key": "datumTotEnMet",
-                                    "value": "<date>",
-                                    "description": "De einddatum van de periode waarover de resource wordt opgevraagd."
-                                },
-                                {
-                                    "disabled": false,
-                                    "key": "burgerservicenummer",
-                                    "value": "<string>",
-                                    "description": "Uniek persoonsnummer.\n"
-                                },
-                                {
-                                    "disabled": false,
-                                    "key": "adresseerbaarObjectIdentificatie",
-                                    "value": "<string>",
-                                    "description": "De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n"
-                                }
-                            ],
+                            "query": [],
                             "variable": []
                         },
-                        "method": "GET",
-                        "auth": null
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
                     },
-                    "response": [
+                    "status": "OK",
+                    "code": 200,
+                    "header": [
                         {
-                            "id": "f5fdf05b-2caf-43d9-8259-ffd391ed043d",
-                            "name": "Zoekactie geslaagd\n",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "OK",
-                            "code": 200,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "disabled": false,
-                                    "key": "warning",
-                                    "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/hal+json"
-                                }
-                            ],
-                            "body": "{\n \"_links\": {\n  \"self\": {\n   \"href\": \"https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}\",\n   \"templated\": false,\n   \"title\": \"labore\"\n  }\n },\n \"_embedded\": {\n  \"bewoningen\": [\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"indicatieVeelBewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"adressen\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   },\n   {\n    \"adresseerbaarObjectIdentificatie\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"bewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"indicatieVeelBewoners\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"adressen\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_links\": {\n     \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"_embedded\": {\n     \"ingeschrevenPersonen\": [\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n       \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n     ]\n    }\n   }\n  ]\n }\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
                         },
                         {
-                            "id": "e15d91bd-f355-4eab-b542-32920d28e75f",
-                            "name": "Bad Request",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "Bad Request",
-                            "code": 400,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/problem+json"
-                                }
-                            ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
+                            "disabled": false,
+                            "key": "warning",
+                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
+                            "description": ""
                         },
                         {
-                            "id": "0f48940f-a029-4f75-8fc9-87237582e6d4",
-                            "name": "Unauthorized",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "Unauthorized",
-                            "code": 401,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/problem+json"
-                                }
-                            ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
+                            "disabled": false,
+                            "key": "X-Rate-Limit-Limit",
+                            "value": "-93982365",
+                            "description": ""
                         },
                         {
-                            "id": "821aec8b-29b1-4727-baaf-9aec9ccffca9",
-                            "name": "Forbidden",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "Forbidden",
-                            "code": 403,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/problem+json"
-                                }
-                            ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
+                            "disabled": false,
+                            "key": "X-Rate-Limit-Remaining",
+                            "value": "-93982365",
+                            "description": ""
                         },
                         {
-                            "id": "2d8b4820-6132-4c6a-8767-a60e0d30a583",
-                            "name": "Not Acceptable",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "Not Acceptable",
-                            "code": 406,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/problem+json"
-                                }
-                            ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
+                            "disabled": false,
+                            "key": "X-Rate-Limit-Reset",
+                            "value": "-93982365",
+                            "description": ""
                         },
                         {
-                            "id": "b9cc77b0-03af-47d5-bfc4-fab3e24657e9",
-                            "name": "Internal Server Error",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "Internal Server Error",
-                            "code": 500,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/problem+json"
-                                }
-                            ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
-                        },
-                        {
-                            "id": "b5f4aa7f-a23d-4872-867c-1eff63bed42e",
-                            "name": "Not Implemented",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "Not Implemented",
-                            "code": 501,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/problem+json"
-                                }
-                            ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
-                        },
-                        {
-                            "id": "e0ae7296-009a-4ce7-9a8a-b0f5a3ab5179",
-                            "name": "Service Unavailable",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "Service Unavailable",
-                            "code": 503,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/problem+json"
-                                }
-                            ],
-                            "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
-                        },
-                        {
-                            "id": "66fedd02-ac0c-4102-ad30-a489ddc23ef0",
-                            "name": "Er is een onverwachte fout opgetreden",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "bewoningen"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "key": "expand",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "fields",
-                                            "value": "<string>"
-                                        },
-                                        {
-                                            "key": "peildatum",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumVan",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>"
-                                        },
-                                        {
-                                            "key": "burgerservicenummer",
-                                            "value": "999993653"
-                                        },
-                                        {
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "value": "0226010000038820"
-                                        }
-                                    ],
-                                    "variable": []
-                                },
-                                "method": "GET",
-                                "body": {}
-                            },
-                            "status": "Internal Server Error",
-                            "code": 500,
-                            "header": [
-                                {
-                                    "disabled": false,
-                                    "key": "api-version",
-                                    "value": "1.0.0",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/problem+json"
-                                }
-                            ],
-                            "body": "{\n \"type\": \"http://xparOPWIgIftJi.oqcMZbRrtuWQUvKCMWWKriCSrII0EpZMHpF48lB5.B.YGwvaSvEQcGS2qs2Lg\",\n \"title\": \"quis eu sit dolor pariatur\",\n \"status\": -10905834,\n \"detail\": \"in officia culpa\",\n \"instance\": \"https://kjCRnCRcHxNqEvTpnweba.halYjMyUD6Qvb+7IMFSreTCfbJmyhLqlmKXmypmDRnX0kLSPL0blpjN6pxzW1QCgZCF4j5ZA\",\n \"code\": \"enim aliqua\"\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
+                            "key": "Content-Type",
+                            "value": "application/json"
                         }
                     ],
-                    "event": []
+                    "body": "{\n  \"bewoningen\": [\n    {\n      \"type\": \"est ea Excepteur do\",\n      \"periode\": {\n        \"datumVan\": {\n          \"type\": \"cillum amet Ut proident sint\",\n          \"langFormaat\": \"txzy\"\n        },\n        \"datumTot\": {\n          \"type\": \"Duis et esse\",\n          \"langFormaat\": \"t5vpuxcoxc6yph\"\n        }\n      }\n    },\n    {\n      \"type\": \"do\",\n      \"periode\": {\n        \"datumVan\": {\n          \"type\": \"nostrud proident nisi magna consequat\",\n          \"langFormaat\": \"f42elcmbtx6f\"\n        },\n        \"datumTot\": {\n          \"type\": \"dolore laboris\",\n          \"langFormaat\": \"zqovmlu h\"\n        }\n      }\n    }\n  ]\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
                 },
                 {
-                    "id": "0eb61795-83b1-48a6-bcf2-2065e2e672a7",
-                    "name": "{adresseerbaar Object Identificatie}",
-                    "item": [
-                        {
-                            "id": "b8ff3bc1-5177-4584-8111-b92c4eda46c2",
-                            "name": "get Bewoning",
-                            "request": {
-                                "name": "get Bewoning",
-                                "description": {
-                                    "content": "Raadpleeg een bewoning door een adresseerbaarobjectIdentificatie op te geven.\n",
-                                    "type": "text/plain"
-                                },
-                                "url": {
-                                    "path": [
-                                        "bewoningen",
-                                        ":adresseerbaarObjectIdentificatie"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "disabled": false,
-                                            "key": "expand",
-                                            "value": "<string>",
-                                            "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/expand.feature)."
-                                        },
-                                        {
-                                            "disabled": false,
-                                            "key": "fields",
-                                            "value": "<string>",
-                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
-                                        },
-                                        {
-                                            "disabled": false,
-                                            "key": "peildatum",
-                                            "value": "<date>",
-                                            "description": "De datum waarop de resource wordt opgevraagd."
-                                        },
-                                        {
-                                            "disabled": false,
-                                            "key": "datumVan",
-                                            "value": "<date>",
-                                            "description": "De begindatum van de periode waarover de resource wordt opgevraagd."
-                                        },
-                                        {
-                                            "disabled": false,
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>",
-                                            "description": "De einddatum van de periode waarover de resource wordt opgevraagd."
-                                        }
-                                    ],
-                                    "variable": [
-                                        {
-                                            "disabled": false,
-                                            "type": "any",
-                                            "value": "<string>",
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "description": "(Required) De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n"
-                                        }
-                                    ]
-                                },
-                                "method": "GET",
-                                "auth": null
-                            },
-                            "response": [
-                                {
-                                    "id": "ec60b760-481f-47a1-a945-40ef51cdc9f5",
-                                    "name": "Zoekactie geslaagd\n",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "OK",
-                                    "code": 200,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "disabled": false,
-                                            "key": "warning",
-                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/hal+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"adresseerbaarObjectIdentificatie\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"bewoners\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"indicatieVeelBewoners\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"adressen\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"_links\": {\n  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n },\n \"_embedded\": {\n  \"ingeschrevenPersonen\": [\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  ]\n }\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "7f467e99-e46d-4644-91d0-71f0dda78f48",
-                                    "name": "Bad Request",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Bad Request",
-                                    "code": 400,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "9a56e0a0-1fbc-4005-a853-0056d5eddc8e",
-                                    "name": "Unauthorized",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Unauthorized",
-                                    "code": 401,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "0a5d610d-7ea4-4797-8c6c-99cb3ca2f3d5",
-                                    "name": "Forbidden",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Forbidden",
-                                    "code": 403,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "7c6739db-e061-4c1c-88c4-486e70e12104",
-                                    "name": "Not Found",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Not Found",
-                                    "code": 404,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5\",\n \"title\": \"Opgevraagde resource bestaat niet.\",\n \"status\": 404,\n \"detail\": \"The server has not found anything matching the Request-URI.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notFound\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "325f0e9e-accb-4d61-996b-e7d9f374adca",
-                                    "name": "Not Acceptable",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Not Acceptable",
-                                    "code": 406,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "03632256-bfdc-4252-b395-1d6de63466eb",
-                                    "name": "Internal Server Error",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Internal Server Error",
-                                    "code": 500,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "0365bfd4-5ce1-4773-aff1-d62b23948ea7",
-                                    "name": "Not Implemented",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Not Implemented",
-                                    "code": 501,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "51785e42-53db-4738-b4a8-3c62dd579112",
-                                    "name": "Service Unavailable",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Service Unavailable",
-                                    "code": 503,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "cbf9ebdb-b0ba-4fb1-a82a-9579540b8201",
-                                    "name": "Er is een onverwachte fout opgetreden",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "expand",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "peildatum",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Internal Server Error",
-                                    "code": 500,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"http://xparOPWIgIftJi.oqcMZbRrtuWQUvKCMWWKriCSrII0EpZMHpF48lB5.B.YGwvaSvEQcGS2qs2Lg\",\n \"title\": \"quis eu sit dolor pariatur\",\n \"status\": -10905834,\n \"detail\": \"in officia culpa\",\n \"instance\": \"https://kjCRnCRcHxNqEvTpnweba.halYjMyUD6Qvb+7IMFSreTCfbJmyhLqlmKXmypmDRnX0kLSPL0blpjN6pxzW1QCgZCF4j5ZA\",\n \"code\": \"enim aliqua\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                }
+                    "id": "200e499d-8a24-4c45-a269-ad221f5e56ea",
+                    "name": "Bad Request",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
                             ],
-                            "event": []
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
                         },
                         {
-                            "id": "3c49446c-b6f0-47d5-8650-a6c31f833561",
-                            "name": "get Bewoningverloop",
-                            "request": {
-                                "name": "get Bewoningverloop",
-                                "description": {
-                                    "content": "Raadpleeg het verloop van de bewoning van een adresseerbaar object over een periode door een adresseerbaarobjectIdentificatie en\neen periode op te geven. Het antwoord bevat het aantal verhuizingen van en naar het object en het gemiddelde aantal bewoners in de opgegeven periode.\n",
-                                    "type": "text/plain"
-                                },
-                                "url": {
-                                    "path": [
-                                        "bewoningen",
-                                        ":adresseerbaarObjectIdentificatie",
-                                        "verloop"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [
-                                        {
-                                            "disabled": false,
-                                            "key": "fields",
-                                            "value": "<string>",
-                                            "description": "Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/fields.feature)"
-                                        },
-                                        {
-                                            "disabled": false,
-                                            "key": "datumVan",
-                                            "value": "<date>",
-                                            "description": "De begindatum van de periode waarover de resource wordt opgevraagd."
-                                        },
-                                        {
-                                            "disabled": false,
-                                            "key": "datumTotEnMet",
-                                            "value": "<date>",
-                                            "description": "De einddatum van de periode waarover de resource wordt opgevraagd."
-                                        }
-                                    ],
-                                    "variable": [
-                                        {
-                                            "disabled": false,
-                                            "type": "any",
-                                            "value": "<string>",
-                                            "key": "adresseerbaarObjectIdentificatie",
-                                            "description": "(Required) De unieke identificatie van een verblijfsobject, standplaats of ligplaats.\n"
-                                        }
-                                    ]
-                                },
-                                "method": "GET",
-                                "auth": null
-                            },
-                            "response": [
-                                {
-                                    "id": "179b6740-6cbf-4b63-b4ff-302161de2b51",
-                                    "name": "Zoekactie geslaagd\n",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "OK",
-                                    "code": 200,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "disabled": false,
-                                            "key": "warning",
-                                            "value": "299 https://service.../api/.../v1 \"Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1\".",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/hal+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"inVerhuizingen\": 3,\n \"uitVerhuizingen\": 14,\n \"gemiddeldAantalBewoners\": 2.7\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "3b94a0d9-1086-419c-8aca-20f5d818595b",
-                                    "name": "Bad Request",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Bad Request",
-                                    "code": 400,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n \"status\": 400,\n \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"paramsRequired\",\n \"invalidParams\": [\n  {\n   \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n   \"name\": \"verblijfplaats__huisnummer\",\n   \"code\": \"integer\",\n   \"reason\": \"Waarde is geen geldige integer.\"\n  }\n ]\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "ad86fcdd-321a-4a2e-8232-e8992bb21e36",
-                                    "name": "Unauthorized",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Unauthorized",
-                                    "code": 401,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n \"title\": \"Niet correct geauthenticeerd.\",\n \"status\": 401,\n \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"authentication\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "609d7311-edee-4875-92af-4aafb20cec15",
-                                    "name": "Forbidden",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Forbidden",
-                                    "code": 403,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n \"status\": 403,\n \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"autorisation\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "fefda200-45ba-4e1a-8c9b-defecd13357a",
-                                    "name": "Not Found",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Not Found",
-                                    "code": 404,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5\",\n \"title\": \"Opgevraagde resource bestaat niet.\",\n \"status\": 404,\n \"detail\": \"The server has not found anything matching the Request-URI.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notFound\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "52e59a57-2466-459d-9746-d8c81e47712b",
-                                    "name": "Not Acceptable",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Not Acceptable",
-                                    "code": 406,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n \"status\": 406,\n \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAcceptable\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "c1eaa673-9a60-42d9-8151-73a809145d74",
-                                    "name": "Internal Server Error",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Internal Server Error",
-                                    "code": 500,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n \"title\": \"Interne server fout.\",\n \"status\": 500,\n \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"serverError\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "d2ea41bc-cdb8-44ea-ad75-df5ff82bed03",
-                                    "name": "Not Implemented",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Not Implemented",
-                                    "code": 501,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n \"title\": \"Not Implemented\",\n \"status\": 501,\n \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notImplemented\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "f82f22bb-479d-4ebb-b708-9a7ca5b15b67",
-                                    "name": "Service Unavailable",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Service Unavailable",
-                                    "code": 503,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n \"title\": \"Bronservice {bron} is tijdelijk niet beschikbaar.\",\n \"status\": 503,\n \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n \"code\": \"notAvailable\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                },
-                                {
-                                    "id": "cd128596-327a-4d40-a02b-a5eb97b55709",
-                                    "name": "Er is een onverwachte fout opgetreden",
-                                    "originalRequest": {
-                                        "url": {
-                                            "path": [
-                                                "bewoningen",
-                                                ":adresseerbaarObjectIdentificatie",
-                                                "verloop"
-                                            ],
-                                            "host": [
-                                                "{{baseUrl}}"
-                                            ],
-                                            "query": [
-                                                {
-                                                    "key": "fields",
-                                                    "value": "<string>"
-                                                },
-                                                {
-                                                    "key": "datumVan",
-                                                    "value": "<date>"
-                                                },
-                                                {
-                                                    "key": "datumTotEnMet",
-                                                    "value": "<date>"
-                                                }
-                                            ],
-                                            "variable": [
-                                                {
-                                                    "type": "any",
-                                                    "key": "adresseerbaarObjectIdentificatie"
-                                                }
-                                            ]
-                                        },
-                                        "method": "GET",
-                                        "body": {}
-                                    },
-                                    "status": "Internal Server Error",
-                                    "code": 500,
-                                    "header": [
-                                        {
-                                            "disabled": false,
-                                            "key": "api-version",
-                                            "value": "1.0.0",
-                                            "description": ""
-                                        },
-                                        {
-                                            "key": "Content-Type",
-                                            "value": "application/problem+json"
-                                        }
-                                    ],
-                                    "body": "{\n \"type\": \"http://xparOPWIgIftJi.oqcMZbRrtuWQUvKCMWWKriCSrII0EpZMHpF48lB5.B.YGwvaSvEQcGS2qs2Lg\",\n \"title\": \"quis eu sit dolor pariatur\",\n \"status\": -10905834,\n \"detail\": \"in officia culpa\",\n \"instance\": \"https://kjCRnCRcHxNqEvTpnweba.halYjMyUD6Qvb+7IMFSreTCfbJmyhLqlmKXmypmDRnX0kLSPL0blpjN6pxzW1QCgZCF4j5ZA\",\n \"code\": \"enim aliqua\"\n}",
-                                    "cookie": [],
-                                    "_postman_previewlanguage": "json"
-                                }
-                            ],
-                            "event": []
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
                         }
                     ],
-                    "event": []
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1\",\n  \"title\": \"Ten minste één parameter moet worden opgegeven.\",\n  \"status\": 400,\n  \"detail\": \"The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"paramsRequired\",\n  \"invalidParams\": [\n    {\n      \"type\": \"https://www.vng.nl/realisatie/api/validaties/integer\",\n      \"name\": \"verblijfplaats__huisnummer\",\n      \"code\": \"integer\",\n      \"reason\": \"Waarde is geen geldige integer.\"\n    }\n  ]\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                },
+                {
+                    "id": "5e5123ff-1b3c-4e14-b6ad-4cd1b3a258cb",
+                    "name": "Unauthorized",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
+                        }
+                    ],
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2\",\n  \"title\": \"Niet correct geauthenticeerd.\",\n  \"status\": 401,\n  \"detail\": \"The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"authentication\"\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                },
+                {
+                    "id": "3c67d089-fce0-4ec7-a79b-738c1e34bff8",
+                    "name": "Forbidden",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
+                        }
+                    ],
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.4\",\n  \"title\": \"U bent niet geautoriseerd voor deze operatie.\",\n  \"status\": 403,\n  \"detail\": \"The server understood the request, but is refusing to fulfill it.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"autorisation\"\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                },
+                {
+                    "id": "00706f07-f2ac-4355-887d-e09ef79a8ebe",
+                    "name": "Not Acceptable",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Not Acceptable",
+                    "code": 406,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
+                        }
+                    ],
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.7\",\n  \"title\": \"Gevraagde contenttype wordt niet ondersteund.\",\n  \"status\": 406,\n  \"detail\": \"The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"notAcceptable\"\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                },
+                {
+                    "id": "04836c88-aa4e-40fe-85b8-fef4468251bb",
+                    "name": "Too Many Requests",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Too Many Requests",
+                    "code": 429,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
+                        }
+                    ],
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html\",\n  \"title\": \"Too many request\",\n  \"status\": 429,\n  \"detail\": \"The user has sent too many requests in a given amount of time (rate limiting).\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"tooManyRequests\"\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                },
+                {
+                    "id": "15ed29b6-6308-4b4d-bddf-e52a282a8ae4",
+                    "name": "Internal Server Error",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
+                        }
+                    ],
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1\",\n  \"title\": \"Interne server fout.\",\n  \"status\": 500,\n  \"detail\": \"The server encountered an unexpected condition which prevented it from fulfilling the request.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"serverError\"\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                },
+                {
+                    "id": "6106a11e-7f0b-4290-b9bf-d1ac4f8f47ac",
+                    "name": "Not Implemented",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Not Implemented",
+                    "code": 501,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
+                        }
+                    ],
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.2\",\n  \"title\": \"Not Implemented\",\n  \"status\": 501,\n  \"detail\": \"The server does not support the functionality required to fulfill the request.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"notImplemented\"\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                },
+                {
+                    "id": "19e5833e-1fd4-4bc3-a156-2c32fce5186a",
+                    "name": "Service Unavailable",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Service Unavailable",
+                    "code": 503,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
+                        }
+                    ],
+                    "body": "{\n  \"type\": \"https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4\",\n  \"title\": \"Bronservice BRP is tijdelijk niet beschikbaar.\",\n  \"status\": 503,\n  \"detail\": \"The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.\",\n  \"instance\": \"https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde\",\n  \"code\": \"notAvailable\"\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
+                },
+                {
+                    "id": "5a8ca8cd-d351-4514-ac19-56031c78954d",
+                    "name": "Er is een onverwachte fout opgetreden",
+                    "originalRequest": {
+                        "url": {
+                            "path": [
+                                "bewoningen"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fields\": [\n    \"<string>\"\n  ],\n  \"type\": \"<string>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "header": [
+                        {
+                            "disabled": false,
+                            "key": "api-version",
+                            "value": "1.0.0",
+                            "description": ""
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/problem+json"
+                        }
+                    ],
+                    "body": "{\n  \"type\": \"https://idw.qymU9+a393I,oNCaBYoTnKBXn0BUpJyqygP2b-LxUpBVuOq-hkkRoX09MwPFK\",\n  \"title\": \"tdõúźć.żðķLòęèėŻŗōŃĔÖbRUŻŪŃèÅRkĢŵXßĴōñňğXřĶŢďÝźč01čĦ7÷ÁgMgÌç\",\n  \"status\": 504,\n  \"detail\": \"ŎßėŸÁpřĂçťáşģİPpňľl÷ûúŗø(ÁŨĻī4ôĹĞüĶŞŪîBČĻxþpsīÐĮ\",\n  \"instance\": \"https://JlAQSsmiMchSfOSyQyJReodxwr.egbJ0xwmLFf9uCkbIyWWXrqZN1.phz+R\",\n  \"code\": \"3st\"\n}",
+                    "cookie": [],
+                    "_postman_previewlanguage": "json"
                 }
             ],
-            "event": []
+            "event": [],
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            }
         }
     ],
     "event": [],
     "variable": [
         {
-            "id": "baseUrl",
             "type": "string",
-            "value": "https://www.haalcentraal.nl/haalcentraal/api/brpbewoning"
+            "value": "/",
+            "key": "baseUrl"
         }
     ],
     "info": {
-        "_postman_id": "ebd87384-4c08-4fb5-9fc9-00a8bd8814d1",
-        "name": "Bewoning",
+        "_postman_id": "e28e586a-d8c4-4cab-af19-f7ab64f4518f",
+        "name": "BRP bewoning",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
-            "content": "API voor het zoeken en raadplegen van bewoningen en metagegevens over bewoning (verloop).\nEen bewoning is een adresseerbaar object (verblijfsobject, ligplaats of standplaats) met ingeschreven bewoner(s).\nIedere samenstelling van bewoners van het object is een bewoning. Overleden personen maken onderdeel uit van een\nbewoning tot het moment van overlijden. Gegevens over de bewoners zijn actueel.\n",
+            "content": "API voor het raadplegen van de (historische) bewoning van een adres of de medebewoners van een persoon.\n",
             "type": "text/plain"
         }
     }
