@@ -68,4 +68,3 @@ jobs:
             git pull --ff
             git push
           fi
-© 2022 GitHub, Inc.
