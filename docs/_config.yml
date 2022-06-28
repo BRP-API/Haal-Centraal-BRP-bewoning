@@ -21,7 +21,7 @@ nav:
         path: /user-stories
       - title: User stories (afgeschermd)
         url: https://gitlab.com/vng-realisatie/haal-centraal-brp-afgeschermd/-/issues?label_name%5B%5D=bewoning
-        path: /user-stories
+        path: /user-stories-afgeschermd
         target: blank
       - title: Bevragen API (swagger-ui)
         path: /swagger-ui
