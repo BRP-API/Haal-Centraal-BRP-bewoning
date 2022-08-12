@@ -14,7 +14,6 @@ De API wordt nog niet door RvIG aangeboden. Om de migratie naar API's te versnel
 * Bekijk de specificaties met [Swagger UI](./swagger-ui) of [Redoc](./redoc)
 * Lees de [Getting started](./getting-started)
 * Download de [technische specificaties](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
-* Download [client code](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-Bewoning/tree/master/code){:target="_blank" rel="noopener"}
 
 ## Heb je meer nodig? 
 Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
@@ -37,7 +36,7 @@ Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 * Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
 * Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
 * Customer zero: Melvin Lee, [melvin.lee@iswish.nl](mailto:melvin.lee@iswish.nl)
-* Tester: Frank Samwel, [frank.samwel@denhaag.nl](mailto:frank.samwel@denhaag.nl)
+* Tester: Frank Samwel, [frank.samwel@denhaag.nl](mailto:frank.samwel@rvig.nl)
 
 ## Licentie
 Copyright &copy; VNG Realisatie 2020
