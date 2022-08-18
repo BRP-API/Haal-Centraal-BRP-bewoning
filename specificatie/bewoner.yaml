@@ -74,4 +74,4 @@ components:
         rni:
           $ref: '#/components/schemas/RniDeelnemer'
         verificatie:
-          $ref: '#/components/schemas/Verificatie'
+          $ref: '#/components/schemas/GbaVerificatie'
