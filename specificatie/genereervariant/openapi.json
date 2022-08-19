@@ -643,6 +643,9 @@
           },
           "verificatie" : {
             "$ref" : "#/components/schemas/Verificatie"
+          },
+          "opschortingBijhouding" : {
+            "$ref" : "#/components/schemas/OpschortingBijhouding"
           }
         }
       },
@@ -715,6 +718,28 @@
       "InOnderzoek" : {
         "type" : "boolean",
         "description" : "Geeft aan dat de verblijfplaats in onderzoek is.\n"
+      },
+      "OpschortingBijhouding" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/OpschortingBijhoudingBasis"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "datum" : {
+              "$ref" : "#/components/schemas/AbstractDatum"
+            }
+          },
+          "description" : "* **datum**: de datum waarop de bijhouding van de persoonsgegevens is gestaakt.\n"
+        } ]
+      },
+      "OpschortingBijhoudingBasis" : {
+        "type" : "object",
+        "properties" : {
+          "reden" : {
+            "$ref" : "#/components/schemas/Waardetabel"
+          }
+        },
+        "description" : "* **reden** - wordt gevuld met waarden uit de tabel 'redenopschortingbijhouding' (zie Haal-Centraal-BRP-tabellen-bevragen API).\n"
       },
       "AbstractDatum" : {
         "required" : [ "type" ],

@@ -505,6 +505,8 @@ components:
           $ref: '#/components/schemas/RniDeelnemer'
         verificatie:
           $ref: '#/components/schemas/Verificatie'
+        opschortingBijhouding:
+          $ref: '#/components/schemas/OpschortingBijhouding'
     GeheimhoudingPersoonsgegevens:
       type: boolean
       description: |
@@ -557,6 +559,22 @@ components:
       type: boolean
       description: |
         Geeft aan dat de verblijfplaats in onderzoek is.
+    OpschortingBijhouding:
+      allOf:
+      - $ref: '#/components/schemas/OpschortingBijhoudingBasis'
+      - type: object
+        properties:
+          datum:
+            $ref: '#/components/schemas/AbstractDatum'
+        description: |
+          * **datum**: de datum waarop de bijhouding van de persoonsgegevens is gestaakt.
+    OpschortingBijhoudingBasis:
+      type: object
+      properties:
+        reden:
+          $ref: '#/components/schemas/Waardetabel'
+      description: |
+        * **reden** - wordt gevuld met waarden uit de tabel 'redenopschortingbijhouding' (zie Haal-Centraal-BRP-tabellen-bevragen API).
     AbstractDatum:
       required:
       - type
