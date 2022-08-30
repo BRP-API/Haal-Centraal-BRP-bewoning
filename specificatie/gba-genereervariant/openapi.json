@@ -681,7 +681,10 @@
             "$ref" : "#/components/schemas/GbaInOnderzoek"
           },
           "rni" : {
-            "$ref" : "#/components/schemas/RniDeelnemer"
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/RniDeelnemer"
+            }
           },
           "verificatie" : {
             "$ref" : "#/components/schemas/GbaVerificatie"
@@ -701,6 +704,9 @@
           },
           "omschrijvingVerdrag" : {
             "$ref" : "#/components/schemas/OmschrijvingVerdrag"
+          },
+          "categorie" : {
+            "$ref" : "#/components/schemas/Categorie"
           }
         }
       },
@@ -708,6 +714,12 @@
         "pattern" : "^[a-zA-Z0-9À-ž \\.\\-\\']{1,50}$",
         "type" : "string",
         "description" : "Omschrijving van het verdrag op basis waarvan een zusterorganisatie in het buitenland de gegevens bij de RNI-deelnemer heeft aangeleverd.\n"
+      },
+      "Categorie" : {
+        "pattern" : "^[a-zA-Z0-9À-ž \\.\\-\\'\\/]{1,40}$",
+        "type" : "string",
+        "description" : "Naam van categorie waarop de RNI-deelnemer gegevens heeft aangeleverd",
+        "example" : "Verblijfplaats"
       },
       "GbaVerificatie" : {
         "type" : "object",
