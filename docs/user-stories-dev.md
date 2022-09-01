@@ -5,6 +5,7 @@ title: User Stories in Ontwikkeling
 
 # User stories
 
+- [Als gebruiker van de API wil ik overleden personen niet zien als bewoners](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/issues/121){:target="_blank" rel="noopener"}
 - [Als PO wil ik dat gemeenten de fields parameter moeten gebruiken om de gegevensset in de response te beperken conform de autorisatie van afnemers](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/issues/117){:target="_blank" rel="noopener"}
 - [Als PO wil ik geen Uniform Resource Identifier met een BSN](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/issues/116){:target="_blank" rel="noopener"}
 - [Als PO wil ik een strakkere specificatie van validatieregels voor input parameters](https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/issues/115){:target="_blank" rel="noopener"}
