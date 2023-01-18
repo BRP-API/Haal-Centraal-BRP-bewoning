@@ -43,7 +43,7 @@ plugins:
 
 remote_theme: VNG-Realisatie/jekyll-theme-haal-centraal
 
-github: VNG-Realisatie/Haal-Centraal-BRP-bewoning
+github: BRP-API/Haal-Centraal-BRP-bewoning
 
 theme: jekyll-theme-time-machine
 
