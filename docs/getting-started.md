@@ -25,9 +25,9 @@ De bewoning API kun je op drie manieren gebruiken:
 
 Als je wilt kun je de gegevens van de (mede)bewoners direct meeladen met gebruik van de [expand](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.1.0/features/expand.feature) parameter.
 
-Je kunt een visuele weergave van de specificatie bekijken met [Swagger UI](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://vng-realisatie.github.io/Haal-Centraal-BRP-bewoning/redoc).
+Je kunt een visuele weergave van de specificatie bekijken met [Swagger UI](swagger-ui) of [Redoc](redoc).
 
-Je kunt de [functionele documentatie](./features) vinden in de [features](./features).
+Je kunt de [functionele documentatie](features) vinden in de [features](features).
 
 ## Implementeer de API client
 Client code kun je genereren met de "[genereervariant](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}" van de API-specificaties en een code generator. Een overzicht met codegeneratoren kun je vinden op [OpenAPI.Tools](https://openapi.tools/#sdk){:target="_blank" rel="noopener"}.
