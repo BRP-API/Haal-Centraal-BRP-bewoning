@@ -11,8 +11,8 @@ API voor het raadplegen van de (historische) bewoning van een adres, verloop op 
 De API wordt nog niet door RvIG aangeboden. Om de migratie naar API's te versnellen besluiten sommige gemeenten de API zelf aan te bieden.  
 
 ## Direct uitproberen?
-* Bekijk de specificaties met [Swagger UI](./swagger-ui) of [Redoc](./redoc)
-* Lees de [Getting started](./getting-started)
+* Bekijk de specificaties met [Swagger UI](swagger-ui) of [Redoc](redoc)
+* Lees de [Getting started](getting-started)
 * Download de [technische specificaties](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
 
 ## Heb je meer nodig? 
