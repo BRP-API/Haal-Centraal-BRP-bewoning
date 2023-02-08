@@ -25,15 +25,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning.git"
+    "url": "git+https://github.com/BRP-API/Haal-Centraal-BRP-bewoning.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/issues"
+    "url": "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues"
   },
-  "homepage": "https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning#readme",
+  "homepage": "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning#readme",
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.5.1",
     "@stoplight/spectral-cli": "^6.4.1",
