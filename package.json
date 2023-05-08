@@ -21,7 +21,8 @@
     "oas:resolve": "java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi-yaml -o ./specificatie/genereervariant && java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi -o ./specificatie/genereervariant",
     "postoas:resolve": "rm swagger-codegen-cli.jar",
     "unstage-generated": "git reset HEAD ./specificatie/genereervariant/openapi.* ./test/BRP-Bewoning-bevragen-postman-collection.json ./code/**",
-    "rollback-generated": "git checkout ./specificatie/genereervariant/openapi.* ./test/BRP-Bewoning-bevragen-postman-collection.json ./code/**"
+    "rollback-generated": "git checkout ./specificatie/genereervariant/openapi.* ./test/BRP-Bewoning-bevragen-postman-collection.json ./code/**",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -35,17 +36,9 @@
   },
   "homepage": "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning#readme",
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.5.1",
-    "@stoplight/spectral-cli": "^6.4.1",
-    "husky": "^4.3.8",
-    "mkdirp": "^1.0.4",
-    "mvn-dl": "^6.0.0",
-    "openapi-to-postmanv2": "^3.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && npm run unstage-generated",
-      "post-commit": "npm run rollback-generated"
-    }
+    "@openapitools/openapi-generator-cli": "^2.6.0",
+    "@stoplight/spectral-cli": "^6.6.0",
+    "husky": "^8.0.3",
+    "mvn-dl": "^6.0.0"
   }
 }
