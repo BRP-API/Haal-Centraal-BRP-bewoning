@@ -71,6 +71,8 @@ components:
             $ref: '#/components/schemas/RniDeelnemer'
         verificatie:
           $ref: '#/components/schemas/Verificatie'
+        opschortingBijhouding:
+          $ref: 'opschortingbijhouding.yaml#/components/schemas/OpschortingBijhouding'
     GbaBewoner:
       type: object
       properties:
@@ -86,3 +88,5 @@ components:
             $ref: '#/components/schemas/RniDeelnemer'
         verificatie:
           $ref: '#/components/schemas/GbaVerificatie'
+        opschortingBijhouding:
+          $ref: 'opschortingbijhouding.yaml#/components/schemas/GbaOpschortingBijhouding'
