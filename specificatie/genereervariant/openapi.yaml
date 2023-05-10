@@ -372,6 +372,7 @@ components:
       description: |
         Peildatum: de datum waarop je de bewoning wil weten.
       format: date
+      example: 1964-09-24
     Burgerservicenummer:
       pattern: "^[0-9]{9}$"
       type: string
@@ -381,11 +382,13 @@ components:
       description: |
         De begindatum van de periode waarover de bewoning wordt opgevraagd.
       format: date
+      example: 1964-09-24
     DatumTot:
       type: string
       description: |
         De einddatum van de periode waarover de bewoning wordt opgevraagd.
       format: date
+      example: 1964-09-24
     AdresseerbaarObjectIdentificatie:
       pattern: "^[0-9]{16}$"
       type: string
@@ -413,9 +416,11 @@ components:
         datumVan:
           type: string
           format: date
+          example: 2020-01-01
         datumTot:
           type: string
           format: date
+          example: 2021-01-01
     Bewoning:
       allOf:
       - $ref: '#/components/schemas/AbstractBewoning'

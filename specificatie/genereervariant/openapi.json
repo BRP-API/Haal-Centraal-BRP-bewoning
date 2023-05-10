@@ -473,7 +473,8 @@
       "Peildatum" : {
         "type" : "string",
         "description" : "Peildatum: de datum waarop je de bewoning wil weten.\n",
-        "format" : "date"
+        "format" : "date",
+        "example" : "1964-09-24"
       },
       "Burgerservicenummer" : {
         "pattern" : "^[0-9]{9}$",
@@ -483,12 +484,14 @@
       "DatumVan" : {
         "type" : "string",
         "description" : "De begindatum van de periode waarover de bewoning wordt opgevraagd.\n",
-        "format" : "date"
+        "format" : "date",
+        "example" : "1964-09-24"
       },
       "DatumTot" : {
         "type" : "string",
         "description" : "De einddatum van de periode waarover de bewoning wordt opgevraagd.\n",
-        "format" : "date"
+        "format" : "date",
+        "example" : "1964-09-24"
       },
       "AdresseerbaarObjectIdentificatie" : {
         "pattern" : "^[0-9]{16}$",
@@ -520,11 +523,13 @@
         "properties" : {
           "datumVan" : {
             "type" : "string",
-            "format" : "date"
+            "format" : "date",
+            "example" : "2020-01-01"
           },
           "datumTot" : {
             "type" : "string",
-            "format" : "date"
+            "format" : "date",
+            "example" : "2021-01-01"
           }
         }
       },
