@@ -502,9 +502,13 @@ components:
         indicatieVerblijfsplaatsInOnderzoek:
           $ref: '#/components/schemas/InOnderzoek'
         rni:
-          $ref: '#/components/schemas/RniDeelnemer'
+          type: array
+          items:
+            $ref: '#/components/schemas/RniDeelnemer'
         verificatie:
           $ref: '#/components/schemas/Verificatie'
+        opschortingBijhouding:
+          $ref: '#/components/schemas/OpschortingBijhouding'
     GeheimhoudingPersoonsgegevens:
       type: boolean
       description: |
@@ -516,11 +520,18 @@ components:
           $ref: '#/components/schemas/Waardetabel'
         omschrijvingVerdrag:
           $ref: '#/components/schemas/OmschrijvingVerdrag'
+        categorie:
+          $ref: '#/components/schemas/Categorie'
     OmschrijvingVerdrag:
       pattern: "^[a-zA-Z0-9À-ž \\.\\-\\']{1,50}$"
       type: string
       description: |
         Omschrijving van het verdrag op basis waarvan een zusterorganisatie in het buitenland de gegevens bij de RNI-deelnemer heeft aangeleverd.
+    Categorie:
+      pattern: "^[a-zA-Z0-9À-ž \\.\\-\\'\\/]{1,40}$"
+      type: string
+      description: Naam van categorie waarop de RNI-deelnemer gegevens heeft aangeleverd
+      example: Verblijfplaats
     Verificatie:
       type: object
       properties:
@@ -557,6 +568,22 @@ components:
       type: boolean
       description: |
         Geeft aan dat de verblijfplaats in onderzoek is.
+    OpschortingBijhouding:
+      allOf:
+      - $ref: '#/components/schemas/OpschortingBijhoudingBasis'
+      - type: object
+        properties:
+          datum:
+            $ref: '#/components/schemas/AbstractDatum'
+        description: |
+          * **datum**: de datum waarop de bijhouding van de persoonsgegevens is gestaakt.
+    OpschortingBijhoudingBasis:
+      type: object
+      properties:
+        reden:
+          $ref: '#/components/schemas/Waardetabel'
+      description: |
+        * **reden** - wordt gevuld met waarden uit de tabel 'redenopschortingbijhouding' (zie Haal-Centraal-BRP-tabellen-bevragen API).
     AbstractDatum:
       required:
       - type
