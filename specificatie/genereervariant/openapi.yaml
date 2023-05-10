@@ -207,24 +207,11 @@ components:
   schemas:
     BewoningenQuery:
       required:
-      - fields
       - type
       type: object
       properties:
         type:
           type: string
-        fields:
-          maxItems: 20
-          minItems: 1
-          type: array
-          description: "Hiermee kun je de inhoud van de resource naar behoefte aanpassen\
-            \ door een lijst van paden die verwijzen naar de gewenste velden op te\
-            \ nemen \n([zie functionele specificaties 'fields' properties](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/develop/features/fields.feature)).\
-            \ \nDe te gebruiken paden zijn beschreven in [fields-Bewoningen.csv](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/develop/features/fields-Bewoningen.csv)\
-            \ \nwaarbij in de eerste kolom het fields-pad staat en in de tweede kolom\
-            \ het volledige pad naar het gewenste veld. \n"
-          items:
-            $ref: '#/components/schemas/Field'
       discriminator:
         propertyName: type
         mapping:
@@ -358,20 +345,12 @@ components:
           description: Beschrijving van de fout op de parameterwaarde
           example: Waarde is geen geldige integer.
       description: Details over fouten in opgegeven parameters
-    Field:
-      pattern: "^[a-zA-Z0-9\\._]{1,200}$"
-      type: string
-      description: |
-        Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een lijst van paden die verwijzen naar de gewenste velden op te nemen
-        ([zie functionele specificaties 'fields' properties](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/develop/features/fields.feature)).
-        De te gebruiken paden zijn beschreven in [fields-Persoon.csv](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/develop/features/fields-Verblijfplaatshistorie.csv)
-        waarbij in de eerste kolom het fields-pad staat en in de tweede kolom het volledige pad naar het gewenste veld.
-        Bij opgave van een pad dat verwijst naar een niet-bestaand veld wordt een 400 Bad Request teruggegeven.
     Peildatum:
       type: string
       description: |
         Peildatum: de datum waarop je de bewoning wil weten.
       format: date
+      example: 1964-09-24
     Burgerservicenummer:
       pattern: "^[0-9]{9}$"
       type: string
@@ -381,11 +360,13 @@ components:
       description: |
         De begindatum van de periode waarover de bewoning wordt opgevraagd.
       format: date
+      example: 1964-09-24
     DatumTot:
       type: string
       description: |
         De einddatum van de periode waarover de bewoning wordt opgevraagd.
       format: date
+      example: 1964-09-24
     AdresseerbaarObjectIdentificatie:
       pattern: "^[0-9]{16}$"
       type: string
@@ -413,9 +394,11 @@ components:
         datumVan:
           type: string
           format: date
+          example: 2020-01-01
         datumTot:
           type: string
           format: date
+          example: 2021-01-01
     Bewoning:
       allOf:
       - $ref: '#/components/schemas/AbstractBewoning'
