@@ -76,7 +76,6 @@ components:
       type: object
       required:
         - type
-        - fields
       discriminator:
         propertyName: type
         mapping:
@@ -87,17 +86,6 @@ components:
       properties:
         type:
           type: string
-        fields:
-          description: |
-            Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een lijst van paden die verwijzen naar de gewenste velden op te nemen 
-            ([zie functionele specificaties 'fields' properties](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/develop/features/fields.feature)). 
-            De te gebruiken paden zijn beschreven in [fields-Bewoningen.csv](https://raw.githubusercontent.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning/develop/features/fields-Bewoningen.csv) 
-            waarbij in de eerste kolom het fields-pad staat en in de tweede kolom het volledige pad naar het gewenste veld. 
-          type: array
-          maxItems: 20
-          minItems: 1
-          items:
-            $ref: 'filter.yaml#/components/schemas/Field'
     MedebewonersMetPeildatum:
       required:
         - peildatum
@@ -159,4 +147,3 @@ components:
           type: array
           items:
             $ref: 'bewoning.yaml#/components/schemas/GbaBewoning'
-            
