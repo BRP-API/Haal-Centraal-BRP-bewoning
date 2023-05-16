@@ -1,5 +1,6 @@
 #language: nl
 
+@gba
 Functionaliteit: raadpleeg bewoning op peildatum
 
 Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
@@ -13,7 +14,7 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
     En de persoon heeft de volgende 'verblijfplaats' gegevens
     | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
     | 0518010000854789                         | 20160526                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -40,7 +41,7 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
     En de persoon heeft de volgende 'verblijfplaats' gegevens
     | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
     | 0518010000854789                         | 20160526                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -66,7 +67,7 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
     En de persoon heeft de volgende 'verblijfplaats' gegevens
     | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
     | 0518010000854789                         | 20160526                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -93,7 +94,7 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
     En de persoon heeft de volgende 'verblijfplaats' gegevens
     | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
     | 0518010000854789                         | 20160500                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
