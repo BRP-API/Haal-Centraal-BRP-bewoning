@@ -7,11 +7,17 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
 
   Scenario: een persoon die toestemming heeft gegeven voor het verstrekken van zijn gegevens aan derden, is ingeschreven op het aangegeven adresseerbaar object en peildatum
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000713450                         | 20100818                           |
-    En de persoon heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000854789                         | 20160526                           |
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
     En de persoon heeft de volgende 'inschrijving' gegevens
     | naam                     | waarde |
     | indicatie geheim (70.10) | 0      |
@@ -31,11 +37,17 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
 
   Scenario: dag datum aanvang adreshouding van een persoon op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand en de persoon heeft toestemming gegeven voor het verstrekken van zijn gegevens aan derden
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000713450                         | 20100800                           |
-    En de persoon heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000854789                         | 20160526                           |
+    | datum aanvang adreshouding (10.30) |
+    | 20100800                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
     En de persoon heeft de volgende 'inschrijving' gegevens
     | naam                     | waarde |
     | indicatie geheim (70.10) | 0      |
@@ -56,7 +68,19 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
 Rule: indicatie geheim met waarde hoger dan 0 wordt ongevraagd meegeleverd
 
   Abstract Scenario: een persoon met indicatie geheim <waarde>, is ingeschreven op het aangegeven adresseerbaar object en peildatum
-    Gegeven de persoon heeft de volgende 'inschrijving' gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
+    En de persoon heeft de volgende 'inschrijving' gegevens
     | naam                     | waarde   |
     | indicatie geheim (70.10) | <waarde> |
     Als gba bewoning wordt gezocht met de volgende parameters
@@ -85,11 +109,17 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt ongevraagd meegeleverd
 
   Abstract Scenario: dag datum aanvang adreshouding van een persoon op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand en de persoon heeft indicatie geheim <waarde>
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000713450                         | 20100800                           |
-    En de persoon heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000854789                         | 20160526                           |
+    | datum aanvang adreshouding (10.30) |
+    | 20100800                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
     En de persoon heeft de volgende 'inschrijving' gegevens
     | naam                     | waarde   |
     | indicatie geheim (70.10) | <waarde> |

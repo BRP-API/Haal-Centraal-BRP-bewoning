@@ -6,11 +6,17 @@ Rule: het in onderzoek zijn van één of meerdere verblijfplaats gegevens wordt 
 
   Abstract Scenario: '<type>' is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) |
-    | 0518010000713450                         | 20100818                           | <aanduiding in onderzoek>       |
-    En de persoon heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000854789                         | 20160526                           |
+    | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) |
+    | 20100818                           | <aanduiding in onderzoek>       |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |

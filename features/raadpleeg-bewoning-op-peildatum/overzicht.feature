@@ -8,11 +8,17 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
 
   Abstract Scenario: er is één persoon ingeschreven op het aangegeven adresseerbaar object en peildatum
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000713450                         | 20100818                           |
-    En de persoon heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000854789                         | 20160526                           |
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -35,11 +41,17 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
 
   Abstract Scenario: er zijn geen personen ingeschreven op het aangegeven adresseerbaar object en peildatum
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000713450                         | 20100818                           |
-    En de persoon heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000854789                         | 20160526                           |
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -61,11 +73,17 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
 
   Abstract Scenario: dag datum aanvang adreshouding van een persoon op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000713450                         | 20100800                           |
-    En de persoon heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000854789                         | 20160526                           |
+    | datum aanvang adreshouding (10.30) |
+    | 20100800                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -88,11 +106,17 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
 
   Abstract Scenario: dag datum aanvang adreshouding van een persoon op zijn volgend verblijfplaats is onbekend en peildatum valt in die maand
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000713450                         | 20100818                           |
-    En de persoon heeft de volgende 'verblijfplaats' gegevens
-    | identificatiecode verblijfplaats (11.80) | datum aanvang adreshouding (10.30) |
-    | 0518010000854789                         | 20160500                           |
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160500                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
