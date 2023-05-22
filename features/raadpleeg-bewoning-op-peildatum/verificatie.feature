@@ -31,7 +31,7 @@ Functionaliteit: verificatie gegevens leveren bij een bewoner
     En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
-    En heeft de bewoner de volgende 'verficatie' gegevens
+    En heeft de bewoner de volgende 'verificatie' gegevens
     | naam              | waarde               |
     | datum.type        | Datum                |
     | datum.datum       | 2002-07-01           |
