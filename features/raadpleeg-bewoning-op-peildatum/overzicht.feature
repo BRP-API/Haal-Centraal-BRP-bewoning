@@ -69,6 +69,45 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
     | 2010-08-17 | 2010-08-17 tot 2010-08-18 | peildatum valt op laatste dag van vorig adreshouding periode  |
     | 2016-05-26 | 2016-05-26 tot 2016-05-27 | peildatum valt op eerste dag van volgend adreshouding periode |
 
+  Abstract Scenario: er zijn meerdere personen ingeschreven op het aangegeven adresseerbaar object en peildatum
+    Gegeven een adres heeft de volgende gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000713450                         |
+    En de persoon met burgerservicenummer '000000048' is ingeschreven op het adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20140808                           |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0518                 | 0518010000854789                         |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | <peildatum>          |
+    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde           |
+    | type                             | Bewoning         |
+    | periode                          | <periode>        |
+    | adresseerbaarObjectIdentificatie | 0518010000713450 |
+    En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+    En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000048           |
+
+    Voorbeelden:
+    | peildatum  | periode                   | opmerking                                                                                                    |
+    | 2014-08-08 | 2014-08-08 tot 2014-08-09 | peildatum valt op de eerste dag van de adreshouding periode van bewoner met burgerservicenummer '000000048'  |
+    | 2015-01-01 | 2015-01-01 tot 2015-01-02 | peildatum valt in de adreshouding periode van beide bewoners                                                 |
+    | 2016-05-25 | 2016-05-25 tot 2016-05-26 | peildatum valt op de laatste dag van de adreshouding periode van bewoner met burgerservicenummer '000000024' |
+
 Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een adresseerbaar object, wordt die hele maand meegenomen als mogelijke bewoning van de betreffende persoon
 
   Abstract Scenario: dag datum aanvang adreshouding van een persoon op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand
