@@ -5,7 +5,7 @@ Functionaliteit: geheimhouding leveren bij een bewoner
 
 Rule: indicatie geheim waarde 0 wordt niet geleverd
 
-  Scenario: een persoon die toestemming heeft gegeven voor het verstrekken van zijn gegevens aan derden, is ingeschreven op het aangegeven adresseerbaar object en peildatum
+  Scenario: een persoon zonder geheimhouding, is ingeschreven op het aangegeven adresseerbaar object en peildatum
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
@@ -35,7 +35,7 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: dag datum aanvang adreshouding van een persoon op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand en de persoon heeft toestemming gegeven voor het verstrekken van zijn gegevens aan derden
+  Scenario: dag datum aanvang adreshouding van een persoon zonder geheimhouding op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
