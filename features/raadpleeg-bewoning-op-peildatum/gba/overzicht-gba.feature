@@ -95,7 +95,7 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
     | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
-    En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijk bewoner met de volgende gegevens
+    En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
@@ -128,7 +128,7 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
     | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
-    En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijk bewoner met de volgende gegevens
+    En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
