@@ -61,7 +61,7 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een mogelijk bewoner met de volgende gegevens
+    En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
@@ -133,7 +133,7 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt ongevraagd meegeleverd
     | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een mogelijk bewoner met de volgende gegevens
+    En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer | geheimhoudingPersoonsgegevens |
     | 000000024           | <waarde>                      |
 
