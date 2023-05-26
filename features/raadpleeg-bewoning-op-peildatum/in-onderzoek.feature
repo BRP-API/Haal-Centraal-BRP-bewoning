@@ -2,7 +2,7 @@
 
 Functionaliteit: indicatie verblijfplaats in onderzoek leveren bij een bewoner
 
-Rule: het in onderzoek zijn van één of meerdere verblijfplaats gegevens wordt vertaald naar indicatieVerblijfsplaatsInOnderzoek waarde true
+Rule: het in onderzoek zijn van één of meerdere verblijfplaats gegevens vertaald naar indicatieVerblijfsplaatsInOnderzoek waarde true
 
   Abstract Scenario: '<type>' is in onderzoek en peildatum ligt op/na datum ingang onderzoek en vóór datum einde onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
