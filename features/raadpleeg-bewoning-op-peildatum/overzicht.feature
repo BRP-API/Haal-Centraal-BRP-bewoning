@@ -3,22 +3,22 @@
 Functionaliteit: raadpleeg bewoning op peildatum
 
 Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
-      - de peildatum valt na de datum aanvang adreshouding van de persoon op de verblijfplaats en
-      - de peildatum valt voor de datum aanvang adreshouding van de persoon op zijn volgende verblijfplaats
+      - de peildatum valt op of na de datum aanvang adreshouding van de persoon op de verblijfplaats en
+      - de peildatum valt vóór de datum aanvang adreshouding van de persoon op zijn volgende verblijfplaats
 
   Abstract Scenario: er is één persoon ingeschreven op het aangegeven adresseerbaar object en peildatum
-    Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    Gegeven een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000713450                         |
-    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    En een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000854789                         |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de persoon is vervolgens ingeschreven op het 2e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -40,18 +40,18 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
     | 2016-05-25 | 2016-05-25 tot 2016-05-26 | peildatum valt op de laatste dag van adreshouding periode |
 
   Abstract Scenario: er zijn geen personen ingeschreven op het aangegeven adresseerbaar object en peildatum
-    Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    Gegeven een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000713450                         |
-    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    En een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000854789                         |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de persoon is vervolgens ingeschreven op het 2e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -73,19 +73,19 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
     Gegeven een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000713450                         |
-    En de persoon met burgerservicenummer '000000048' is ingeschreven op het adres met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20140808                           |
-    En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
-    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    En een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000854789                         |
-    Als gba bewoning wordt gezocht met de volgende parameters
+    En de persoon met burgerservicenummer '000000048' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20140808                           |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de persoon is vervolgens ingeschreven op het 2e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
+    Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -95,11 +95,9 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
     | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
-    En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
+    En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
-    En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
-    | burgerservicenummer |
     | 000000048           |
 
     Voorbeelden:
@@ -111,18 +109,18 @@ Rule: een persoon is bewoner van een verblijfplaats op een peildatum als:
 Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een adresseerbaar object, wordt die hele maand meegenomen als mogelijke bewoning van de betreffende persoon
 
   Abstract Scenario: dag datum aanvang adreshouding van een persoon op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand
-    Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100800                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    Gegeven een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000713450                         |
-    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    En een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000854789                         |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100800                           |
+    En de persoon is vervolgens ingeschreven op het 2e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160526                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -133,7 +131,7 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
     | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
-    En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijk bewoner met de volgende gegevens
+    En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
@@ -144,18 +142,18 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
     | 2010-08-31 | 2010-08-31 tot 2010-09-01 | peildatum valt op de laatste dag van de maand aanvang adreshouding |
 
   Abstract Scenario: dag datum aanvang adreshouding van een persoon op zijn volgend verblijfplaats is onbekend en peildatum valt in die maand
-    Gegeven de persoon met burgerservicenummer '000000024' heeft de volgende 'verblijfplaats' gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    Gegeven een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000713450                         |
-    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160500                           |
-    En de 'verblijfplaats' heeft de volgende 'adres' gegevens
+    En een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0518                 | 0518010000854789                         |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de persoon is vervolgens ingeschreven op het 2e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20160500                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -166,7 +164,7 @@ Rule: bij onbekende dag in de datum aanvang adreshouding van een persoon op een 
     | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
-    En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijk bewoner met de volgende gegevens
+    En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
