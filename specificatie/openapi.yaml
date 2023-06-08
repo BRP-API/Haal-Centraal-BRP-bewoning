@@ -2,8 +2,8 @@ openapi: 3.0.3
 info:
   title: BRP bewoning
   description: |
-                API voor het raadplegen van de (historische) bewoning van een adres of de medebewoners van een persoon.
-  version: 2.0.0 (develop)
+    API voor het raadplegen van de (historische) bewoning van een adres of de medebewoners van een persoon.
+  version: 2.0.0
   contact:
     url: https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning
   license:
@@ -16,19 +16,19 @@ paths:
     post:
       summary: Raadplegen van bewoningen
       description: |
-              Met de API kun je raadplegen:
+        Met de API kun je raadplegen:
 
-              **Bewoning:**
-              welke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of
-              welke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.
+        **Bewoning:**
+        welke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of
+        welke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.
 
-              **Medebewoners:**
-              welke personen op een bepaald moment (peildatum) met opgegeven persoon hetzelfde adresseerbaar object bewoonden, 
-              of welke samenstellingen van personen in een opgegeven periode tegelijkertijd met persoon hetzelfde adresseerbaar object bewoonden.
+        **Medebewoners:**
+        welke personen op een bepaald moment (peildatum) met opgegeven persoon hetzelfde adresseerbaar object bewoonden, 
+        of welke samenstellingen van personen in een opgegeven periode tegelijkertijd met persoon hetzelfde adresseerbaar object bewoonden.
       operationId: Bewoningen
       requestBody:
         content:
-          application/json:
+          'application/json; charset=utf-8':
             schema:
               $ref: "#/components/schemas/BewoningenQuery"
       responses:
@@ -36,8 +36,6 @@ paths:
           description: |
             Zoekactie geslaagd
           headers:
-            api-version:
-              $ref: "common.yaml#/components/headers/api_version"
             warning:
               $ref: "common.yaml#/components/headers/warning"
             X-Rate-Limit-Limit:
@@ -47,7 +45,7 @@ paths:
             X-Rate-Limit-Reset:
               $ref: "common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
-            application/json:
+            'application/json; charset=utf-8':
               schema:
                 $ref: "#/components/schemas/BewoningenQueryResponse"
         '400':
