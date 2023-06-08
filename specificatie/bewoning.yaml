@@ -27,10 +27,6 @@ components:
         - type: object
           description: Bewoning van een adresseerbaar object
           properties:
-            adressen:
-              type: array
-              items:
-                $ref: 'adressering.yaml#/components/schemas/AdresseringNederland'
             adresseerbaarObjectIdentificatie:
               $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
             bewoningPeriodes:
@@ -47,21 +43,12 @@ components:
           properties:
             redenOnbekend:
               $ref: 'common.yaml#/components/schemas/Waardetabel'
-            adressen:
-              type: array
-              maxItems: 1
-              items:
-                $ref: 'adressering.yaml#/components/schemas/Adressering'
     GbaBewoning:
       type: object
       description: Bewoning van een adresseerbaar object
       properties:
         adresseerbaarObjectIdentificatie:
           $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
-        adressen:
-          type: array
-          items:
-            $ref: 'verblijfplaats.yaml#/components/schemas/GbaVerblijfadres'
         bewoningPeriodes:
           type: array
           items:
@@ -125,4 +112,3 @@ components:
         indicatieVeelBewoners:
           type: boolean
           description: Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
-
