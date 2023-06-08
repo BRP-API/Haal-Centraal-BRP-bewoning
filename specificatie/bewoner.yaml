@@ -63,7 +63,7 @@ components:
           $ref: '#/components/schemas/Burgerservicenummer'
         geheimhoudingPersoonsgegevens:
           $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
-        indicatieVerblijfsplaatsInOnderzoek:
+        inOnderzoek:
           $ref: 'in-onderzoek.yaml#/components/schemas/InOnderzoek'
         rni:
           type: array
