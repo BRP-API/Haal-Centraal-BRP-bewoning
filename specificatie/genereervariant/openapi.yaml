@@ -426,10 +426,6 @@ components:
       - $ref: '#/components/schemas/AbstractBewoning'
       - type: object
         properties:
-          adressen:
-            type: array
-            items:
-              $ref: '#/components/schemas/AdresseringNederland'
           adresseerbaarObjectIdentificatie:
             $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
           bewoningPeriodes:
@@ -470,33 +466,9 @@ components:
         properties:
           redenOnbekend:
             $ref: '#/components/schemas/Waardetabel'
-          adressen:
-            maxItems: 1
-            type: array
-            items:
-              $ref: '#/components/schemas/Adressering'
         description: |
           Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
           De reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.
-    AdresseringNederland:
-      type: object
-      properties:
-        adresregel1:
-          $ref: '#/components/schemas/Adresregel1'
-        adresregel2:
-          $ref: '#/components/schemas/Adresregel2'
-    Adresregel1:
-      maxLength: 40
-      type: string
-      description: |
-        Het eerste deel van een adres is een combinatie van de straat en huisnummer.
-      example: Beethovenlaan 1 a3
-    Adresregel2:
-      maxLength: 50
-      type: string
-      description: |
-        Het tweede deel van een adres is een combinatie van postcode en woonplaats.
-      example: 7604 GC ALMELO
     Bewoner:
       type: object
       properties:
@@ -560,15 +532,6 @@ components:
           pattern: "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$"
           type: string
           example: Nederland
-    Adressering:
-      allOf:
-      - $ref: '#/components/schemas/AdresseringNederland'
-      - type: object
-        properties:
-          adresregel3:
-            $ref: '#/components/schemas/Regel3'
-          land:
-            $ref: '#/components/schemas/Waardetabel'
     InOnderzoek:
       type: boolean
       description: |
@@ -682,12 +645,6 @@ components:
       minimum: 1
       type: integer
       format: int32
-    Regel3:
-      maxLength: 35
-      type: string
-      description: |
-        Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.
-      example: Selangor
   responses:
     "400":
       description: Bad Request

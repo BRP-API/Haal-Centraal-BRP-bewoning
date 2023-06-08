@@ -539,12 +539,6 @@
         }, {
           "type" : "object",
           "properties" : {
-            "adressen" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/AdresseringNederland"
-              }
-            },
             "adresseerbaarObjectIdentificatie" : {
               "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
             },
@@ -596,40 +590,10 @@
           "properties" : {
             "redenOnbekend" : {
               "$ref" : "#/components/schemas/Waardetabel"
-            },
-            "adressen" : {
-              "maxItems" : 1,
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/Adressering"
-              }
             }
           },
           "description" : "Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.\nDe reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.\n"
         } ]
-      },
-      "AdresseringNederland" : {
-        "type" : "object",
-        "properties" : {
-          "adresregel1" : {
-            "$ref" : "#/components/schemas/Adresregel1"
-          },
-          "adresregel2" : {
-            "$ref" : "#/components/schemas/Adresregel2"
-          }
-        }
-      },
-      "Adresregel1" : {
-        "maxLength" : 40,
-        "type" : "string",
-        "description" : "Het eerste deel van een adres is een combinatie van de straat en huisnummer.\n",
-        "example" : "Beethovenlaan 1 a3"
-      },
-      "Adresregel2" : {
-        "maxLength" : 50,
-        "type" : "string",
-        "description" : "Het tweede deel van een adres is een combinatie van postcode en woonplaats.\n",
-        "example" : "7604 GC ALMELO"
       },
       "Bewoner" : {
         "type" : "object",
@@ -716,21 +680,6 @@
             "example" : "Nederland"
           }
         }
-      },
-      "Adressering" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AdresseringNederland"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "adresregel3" : {
-              "$ref" : "#/components/schemas/Regel3"
-            },
-            "land" : {
-              "$ref" : "#/components/schemas/Waardetabel"
-            }
-          }
-        } ]
       },
       "InOnderzoek" : {
         "type" : "boolean",
@@ -881,12 +830,6 @@
         "minimum" : 1,
         "type" : "integer",
         "format" : "int32"
-      },
-      "Regel3" : {
-        "maxLength" : 35,
-        "type" : "string",
-        "description" : "Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.\n",
-        "example" : "Selangor"
       }
     },
     "responses" : {

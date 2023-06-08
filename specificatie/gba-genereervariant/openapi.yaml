@@ -400,10 +400,6 @@ components:
       properties:
         adresseerbaarObjectIdentificatie:
           $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
-        adressen:
-          type: array
-          items:
-            $ref: '#/components/schemas/GbaVerblijfadres'
         bewoningPeriodes:
           type: array
           items:
@@ -448,95 +444,6 @@ components:
           type: string
           format: date
           example: 2021-01-01
-    GbaVerblijfadres:
-      type: object
-      properties:
-        straat:
-          $ref: '#/components/schemas/Straat'
-        huisnummer:
-          $ref: '#/components/schemas/Huisnummer'
-        huisletter:
-          $ref: '#/components/schemas/Huisletter'
-        huisnummertoevoeging:
-          $ref: '#/components/schemas/Huisnummertoevoeging'
-        aanduidingBijHuisnummer:
-          $ref: '#/components/schemas/Waardetabel'
-        postcode:
-          $ref: '#/components/schemas/Postcode'
-        woonplaats:
-          $ref: '#/components/schemas/Woonplaats'
-        gemeenteVanInschrijving:
-          $ref: '#/components/schemas/Waardetabel'
-        locatiebeschrijving:
-          $ref: '#/components/schemas/Locatiebeschrijving'
-        land:
-          $ref: '#/components/schemas/Waardetabel'
-        regel1:
-          $ref: '#/components/schemas/Regel1'
-        regel2:
-          $ref: '#/components/schemas/Regel2'
-        regel3:
-          $ref: '#/components/schemas/Regel3'
-    Straat:
-      maxLength: 80
-      type: string
-      example: Tulpstraat
-    Huisnummer:
-      maximum: 99999
-      minimum: 1
-      type: integer
-      description: |
-        Een nummer dat door de gemeente aan een adresseerbaar object is gegeven.
-      example: 14
-    Huisletter:
-      pattern: "^[a-zA-Z]{1}$"
-      type: string
-      description: |
-        Een toevoeging aan een huisnummer in de vorm van een letter die door de gemeente aan een adresseerbaar object is gegeven.
-      example: a
-    Huisnummertoevoeging:
-      pattern: "^[a-zA-Z0-9 \\-]{1,4}$"
-      type: string
-      description: |
-        Een toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter die door de gemeente aan een adresseerbaar object is gegeven.
-      example: bis
-    Postcode:
-      pattern: "^[1-9]{1}[0-9]{3}[ ]?[A-Za-z]{2}$"
-      type: string
-      description: |
-        De door PostNL vastgestelde code die bij een bepaalde combinatie van een straatnaam en een huisnummer hoort.
-      example: 2341SX
-    Woonplaats:
-      title: woonplaats naam
-      pattern: "^[a-zA-Z0-9À-ž \\(\\)\\,\\.\\-\\']{1,80}$"
-      type: string
-      description: |
-        Een woonplaats is een gedeelte van het grondgebied van de gemeente met een naam.
-      example: Duiven
-    Locatiebeschrijving:
-      maxLength: 35
-      type: string
-      description: |
-        Omschrijving van de ligging van een verblijfsobject, standplaats of ligplaats.
-      example: Naast de derde brug
-    Regel1:
-      maxLength: 35
-      type: string
-      description: |
-        Het eerste deel van een buitenlands adres. Vaak is dit een combinatie van de straat en huisnummer.
-      example: 1600 Pennsylvania Avenue NW
-    Regel2:
-      maxLength: 35
-      type: string
-      description: |
-        Het tweede deel van een buitenlands adres. Vaak is dit een combinatie van woonplaats eventueel in combinatie met de postcode.
-      example: "Washington, DC 20500"
-    Regel3:
-      maxLength: 35
-      type: string
-      description: |
-        Het derde deel van een buitenlands adres is optioneel. Het gaat om een of meer geografische gebieden van het adres in het buitenland.
-      example: Selangor
     GbaBewoner:
       type: object
       properties:
@@ -589,17 +496,6 @@ components:
       type: string
       description: |
         Omschrijving van de verificatie van de rni-gegevens
-    Waardetabel:
-      type: object
-      properties:
-        code:
-          pattern: "^[a-zA-Z0-9 \\.]+$"
-          type: string
-          example: "6030"
-        omschrijving:
-          pattern: "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$"
-          type: string
-          example: Nederland
     GbaInOnderzoek:
       pattern: "^[0-9]{6}$"
       type: string
@@ -619,6 +515,17 @@ components:
           $ref: '#/components/schemas/Waardetabel'
       description: |
         * **reden** - wordt gevuld met waarden uit de tabel 'redenopschortingbijhouding' (zie Haal-Centraal-BRP-tabellen-bevragen API).
+    Waardetabel:
+      type: object
+      properties:
+        code:
+          pattern: "^[a-zA-Z0-9 \\.]+$"
+          type: string
+          example: "6030"
+        omschrijving:
+          pattern: "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$"
+          type: string
+          example: Nederland
     GbaDatum:
       pattern: "^[0-9]{8}$"
       type: string
