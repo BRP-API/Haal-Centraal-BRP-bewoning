@@ -459,8 +459,6 @@ components:
             $ref: '#/components/schemas/RniDeelnemer'
         verificatie:
           $ref: '#/components/schemas/GbaVerificatie'
-        opschortingBijhouding:
-          $ref: '#/components/schemas/GbaOpschortingBijhouding'
     GbaGeheimhoudingPersoonsgegevens:
       maximum: 7
       minimum: 0
@@ -499,22 +497,6 @@ components:
     GbaInOnderzoek:
       pattern: "^[0-9]{6}$"
       type: string
-    GbaOpschortingBijhouding:
-      allOf:
-      - $ref: '#/components/schemas/OpschortingBijhoudingBasis'
-      - type: object
-        properties:
-          datum:
-            $ref: '#/components/schemas/GbaDatum'
-        description: |
-          * **datum**: de datum waarop de bijhouding van de persoonsgegevens is gestaakt.
-    OpschortingBijhoudingBasis:
-      type: object
-      properties:
-        reden:
-          $ref: '#/components/schemas/Waardetabel'
-      description: |
-        * **reden** - wordt gevuld met waarden uit de tabel 'redenopschortingbijhouding' (zie Haal-Centraal-BRP-tabellen-bevragen API).
     Waardetabel:
       type: object
       properties:

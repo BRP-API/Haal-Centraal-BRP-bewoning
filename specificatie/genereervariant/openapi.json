@@ -10,7 +10,7 @@
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
       "url" : "https://eupl.eu/1.2/nl/"
     },
-    "version" : "2.0.0 (develop)"
+    "version" : "2.0.0"
   },
   "servers" : [ {
     "url" : "/"
@@ -27,7 +27,7 @@
         "operationId" : "Bewoningen",
         "requestBody" : {
           "content" : {
-            "application/json" : {
+            "application/json; charset=utf-8" : {
               "schema" : {
                 "$ref" : "#/components/schemas/BewoningenQuery"
               }
@@ -38,9 +38,6 @@
           "200" : {
             "description" : "Zoekactie geslaagd\n",
             "headers" : {
-              "api-version" : {
-                "$ref" : "#/components/headers/api_version"
-              },
               "warning" : {
                 "$ref" : "#/components/headers/warning"
               },
@@ -55,7 +52,7 @@
               }
             },
             "content" : {
-              "application/json" : {
+              "application/json; charset=utf-8" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/BewoningenQueryResponse"
                 }
@@ -604,7 +601,7 @@
           "geheimhoudingPersoonsgegevens" : {
             "$ref" : "#/components/schemas/GeheimhoudingPersoonsgegevens"
           },
-          "indicatieVerblijfsplaatsInOnderzoek" : {
+          "inOnderzoek" : {
             "$ref" : "#/components/schemas/InOnderzoek"
           },
           "rni" : {
@@ -615,9 +612,6 @@
           },
           "verificatie" : {
             "$ref" : "#/components/schemas/Verificatie"
-          },
-          "opschortingBijhouding" : {
-            "$ref" : "#/components/schemas/OpschortingBijhouding"
           }
         }
       },
@@ -684,28 +678,6 @@
       "InOnderzoek" : {
         "type" : "boolean",
         "description" : "Geeft aan dat de verblijfplaats in onderzoek is.\n"
-      },
-      "OpschortingBijhouding" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/OpschortingBijhoudingBasis"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "datum" : {
-              "$ref" : "#/components/schemas/AbstractDatum"
-            }
-          },
-          "description" : "* **datum**: de datum waarop de bijhouding van de persoonsgegevens is gestaakt.\n"
-        } ]
-      },
-      "OpschortingBijhoudingBasis" : {
-        "type" : "object",
-        "properties" : {
-          "reden" : {
-            "$ref" : "#/components/schemas/Waardetabel"
-          }
-        },
-        "description" : "* **reden** - wordt gevuld met waarden uit de tabel 'redenopschortingbijhouding' (zie Haal-Centraal-BRP-tabellen-bevragen API).\n"
       },
       "AbstractDatum" : {
         "required" : [ "type" ],
@@ -1040,14 +1012,6 @@
       }
     },
     "headers" : {
-      "api_version" : {
-        "schema" : {
-          "pattern" : "^[1-9][0-9]{0,2}.[0-9]{1,3}.[0-9]{1,3}$",
-          "type" : "string",
-          "description" : "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.",
-          "example" : "1.0.0"
-        }
-      },
       "warning" : {
         "schema" : {
           "maxLength" : 500,
@@ -1069,6 +1033,14 @@
       "X_Rate_Limit_Reset" : {
         "schema" : {
           "type" : "integer"
+        }
+      },
+      "api_version" : {
+        "schema" : {
+          "pattern" : "^[1-9][0-9]{0,2}.[0-9]{1,3}.[0-9]{1,3}$",
+          "type" : "string",
+          "description" : "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.",
+          "example" : "1.0.0"
         }
       }
     }
