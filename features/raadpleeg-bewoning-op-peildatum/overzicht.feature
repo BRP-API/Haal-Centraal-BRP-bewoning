@@ -355,3 +355,67 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     En heeft de bewoning voor de bewoningPeriode '2015-12-31 tot 2016-01-01' een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
+
+Rule: een persoon is mogelijk bewoner van een adresseerbaar object op elke peildatum als de datum aanvang adreshouding van de persoon op het adresseerbaar object volledig onbekend is en er is geen inschrijving op een volgend adresseerbaar object
+
+  Scenario: datum aanvang adreshouding van een persoon op het aangegeven adresseerbaar object is onbekend
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 00000000                           |
+    Als bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2010-09-01           |
+    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | type                             | Bewoning                  |
+    | periode                          | 2010-09-01 tot 2010-09-02 |
+    | adresseerbaarObjectIdentificatie | 0518010000713450          |
+    En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
+Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adresseerbaar object als de datum aanvang adreshouding op het volgend adresseerbaar object volledig onbekend is
+
+  Scenario: datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is volledig onbekend en peildatum valt op de datum aanvang adreshouding op het eerste adresseerbaar object
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de persoon is vervolgens ingeschreven op het 2e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 00000000                           |
+    Als bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2010-08-18           |
+    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | type                             | Bewoning                  |
+    | periode                          | 2010-08-18 tot 2010-08-19 |
+    | adresseerbaarObjectIdentificatie | 0518010000713450          |
+    En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
+  Scenario: datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is volledig onbekend en peildatum valt op de eerste dag na datum aanvang adreshouding op het eerste adresseerbaar object
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het 1e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de persoon is vervolgens ingeschreven op het 2e adres met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 00000000                           |
+    Als bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2010-08-19           |
+    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | type                             | Bewoning                  |
+    | periode                          | 2010-08-18 tot 2010-08-19 |
+    | adresseerbaarObjectIdentificatie | 0518010000713450          |
+    En heeft de bewoning voor de bewoningPeriode '2010-08-19 tot 2010-08-20' een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
