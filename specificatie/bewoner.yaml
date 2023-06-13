@@ -18,44 +18,6 @@ components:
       description: |
         Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
       type: boolean
-    OmschrijvingVerdrag:
-      type: string
-      description: |
-        Omschrijving van het verdrag op basis waarvan een zusterorganisatie in het buitenland de gegevens bij de RNI-deelnemer heeft aangeleverd.
-      pattern: ^[a-zA-Z0-9À-ž \.\-\']{1,50}$
-    Categorie:
-      type: string
-      description: Naam van categorie waarop de RNI-deelnemer gegevens heeft aangeleverd
-      pattern: ^[a-zA-Z0-9À-ž \.\-\'\/]{1,40}$
-      example: Verblijfplaats
-    OmschrijvingVerificatie:
-      type: string
-      description: |
-        Omschrijving van de verificatie van de rni-gegevens
-      pattern: ^[a-zA-Z0-9À-ž \.\-\']{1,50}$
-    GbaVerificatie:
-      type: object
-      properties:
-        datum:
-          $ref: 'datum.yaml#/components/schemas/GbaDatum'
-        omschrijving:
-          $ref: '#/components/schemas/OmschrijvingVerificatie'
-    Verificatie:
-      type: object
-      properties:
-        datum:
-          $ref: 'datum.yaml#/components/schemas/AbstractDatum'
-        omschrijving:
-          $ref: '#/components/schemas/OmschrijvingVerificatie'
-    RniDeelnemer:
-      type: object
-      properties:
-        deelnemer:
-          $ref: 'common.yaml#/components/schemas/Waardetabel'
-        omschrijvingVerdrag:
-          $ref: '#/components/schemas/OmschrijvingVerdrag'
-        categorie:
-          $ref: '#/components/schemas/Categorie'
     Bewoner:
       type: object
       properties:
@@ -65,12 +27,6 @@ components:
           $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
         inOnderzoek:
           $ref: 'in-onderzoek.yaml#/components/schemas/InOnderzoek'
-        rni:
-          type: array
-          items:
-            $ref: '#/components/schemas/RniDeelnemer'
-        verificatie:
-          $ref: '#/components/schemas/Verificatie'
     GbaBewoner:
       type: object
       properties:
@@ -80,9 +36,3 @@ components:
           $ref: '#/components/schemas/GbaGeheimhoudingPersoonsgegevens'
         verblijfplaatsInOnderzoek:
           $ref: 'in-onderzoek.yaml#/components/schemas/GbaInOnderzoek'
-        rni:
-          type: array
-          items:
-            $ref: '#/components/schemas/RniDeelnemer'
-        verificatie:
-          $ref: '#/components/schemas/GbaVerificatie'
