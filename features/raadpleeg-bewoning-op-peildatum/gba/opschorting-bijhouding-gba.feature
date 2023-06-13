@@ -1,5 +1,6 @@
 #language: nl
 
+@gba
 Functionaliteit: niet leveren van een bewoner met opschorting bijhouding
 
   Achtergrond:
@@ -16,7 +17,7 @@ Rule: personen met een afgevoerde persoonslijst worden niet gezien als bewoner
     En de persoon heeft de volgende 'inschrijving' gegevens
     | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
     | 20220829                             | F                                    |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
@@ -37,7 +38,7 @@ Rule: personen op een logisch verwijderde persoonslijst worden niet gezien als b
     En de persoon heeft de volgende 'inschrijving' gegevens
     | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
     | 20220829                             | W                                    |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
@@ -58,7 +59,7 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     En de persoon heeft de volgende 'inschrijving' gegevens
     | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
     | 20220829                             | <reden opschorting bijhouding>       |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2022-08-28           |
@@ -87,7 +88,7 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     En de persoon heeft de volgende 'inschrijving' gegevens
     | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
     | 20220829                             | <reden opschorting bijhouding>       |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |

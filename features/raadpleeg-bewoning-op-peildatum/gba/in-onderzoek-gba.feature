@@ -1,5 +1,6 @@
 #language: nl
 
+@gba
 Functionaliteit: indicatie verblijfplaats in onderzoek leveren bij een bewoner
 
   Achtergrond:
@@ -13,7 +14,7 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
     | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
     | 20100818                           | <aanduiding in onderzoek>       | 20200401                       |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2020-04-15           |
@@ -24,40 +25,19 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | periode                          | 2020-04-15 tot 2020-04-16 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
-    | burgerservicenummer | inOnderzoek |
-    | 000000024           | true        |
-
-    Voorbeelden:
-    | aanduiding in onderzoek | type                             |
-    | 080000                  | hele categorie verblijfplaats    |
-    | 081000                  | hele groep adreshouding          |
-    | 081030                  | datum aanvang adreshouding       |
-    | 081100                  | hele groep adres                 |
-    | 081180                  | identificatiecode verblijfplaats |
-
-  Abstract Scenario: '<type>' is in onderzoek
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
-    | 20100818                           | <aanduiding in onderzoek>       | 20200401                       |
-    Als bewoning wordt gezocht met de volgende parameters
-    | naam                             | waarde               |
-    | type                             | BewoningMetPeildatum |
-    | peildatum                        | 2020-04-15           |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
-    Dan heeft de response een bewoning met de volgende gegevens
-    | naam                             | waarde                    |
-    | type                             | Bewoning                  |
-    | periode                          | 2020-04-15 tot 2020-04-16 |
-    | adresseerbaarObjectIdentificatie | 0518010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
-    | burgerservicenummer |
-    | 000000024           |
+    | burgerservicenummer | verblijfplaatsInOnderzoek |
+    | 000000024           | <aanduiding in onderzoek> |
 
     Voorbeelden:
     | aanduiding in onderzoek | type                               |
+    | 080000                  | hele categorie verblijfplaats      |
     | 080900                  | hele groep gemeente                |
     | 080910                  | gemeente van inschrijving          |
     | 080920                  | datum inschrijving in de gemeente  |
+    | 081000                  | hele groep adreshouding            |
+    | 081030                  | datum aanvang adreshouding         |
+    | 081100                  | hele groep adres                   |
+    | 081180                  | identificatiecode verblijfplaats   |
     | 081010                  | functie adres                      |
     | 081110                  | straatnaam                         |
     | 081115                  | naam openbare ruimte               |
@@ -75,7 +55,7 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
     | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
     | 20100818                           | 080000                          | 20200401                       |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -86,8 +66,8 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
-    | burgerservicenummer | inOnderzoek |
-    | 000000024           | true        |
+    | burgerservicenummer | verblijfplaatsInOnderzoek |
+    | 000000024           | 080000                    |
 
     Voorbeelden:
     | peildatum  | periode                   | scenario                                   |
@@ -101,7 +81,7 @@ Rule: een beëindigd onderzoek wordt nooit vertaald naar indicatieVerblijfsplaat
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
     | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum einde onderzoek (83.30) |
     | 20100818                           | 080000                          | 20200401                       | 20200801                      |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
