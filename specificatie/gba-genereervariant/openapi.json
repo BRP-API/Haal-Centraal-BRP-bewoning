@@ -2,15 +2,15 @@
   "openapi" : "3.0.3",
   "info" : {
     "title" : "BRP bewoning",
-    "description" : "API voor het raadplegen van de (historische) bewoning van een adres of de medebewoners van een persoon.\n",
+    "description" : "API voor het raadplegen van de (historische) bewoning van een adres.\n",
     "contact" : {
-      "url" : "https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning"
+      "url" : "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning"
     },
     "license" : {
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
       "url" : "https://eupl.eu/1.2/nl/"
     },
-    "version" : "2.0.0 (develop)"
+    "version" : "2.0.0"
   },
   "servers" : [ {
     "url" : "/"
@@ -23,11 +23,11 @@
       "post" : {
         "tags" : [ "Bewoning" ],
         "summary" : "Raadplegen van bewoningen",
-        "description" : "Met de API kun je raadplegen:\n\n**Bewoning:**\nwelke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of\nwelke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.\n\n**Medebewoners:**\nwelke personen op een bepaald moment (peildatum) met opgegeven persoon hetzelfde adresseerbaar object bewoonden, \nof welke samenstellingen van personen in een opgegeven periode tegelijkertijd met persoon hetzelfde adresseerbaar object bewoonden.\n",
+        "description" : "Met de API kun je raadplegen:\n\n**Bewoning:**\nwelke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of\nwelke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.\n",
         "operationId" : "Bewoningen",
         "requestBody" : {
           "content" : {
-            "application/json" : {
+            "application/json; charset=utf-8" : {
               "schema" : {
                 "$ref" : "#/components/schemas/BewoningenQuery"
               }
@@ -55,7 +55,7 @@
               }
             },
             "content" : {
-              "application/json" : {
+              "application/json; charset=utf-8" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/GbaBewoningenQueryResponse"
                 }
@@ -284,47 +284,10 @@
         "discriminator" : {
           "propertyName" : "type",
           "mapping" : {
-            "MedebewonersMetPeildatum" : "#/components/schemas/MedebewonersMetPeildatum",
-            "MedebewonersMetPeriode" : "#/components/schemas/MedebewonersMetPeriode",
             "BewoningMetPeildatum" : "#/components/schemas/BewoningMetPeildatum",
             "BewoningMetPeriode" : "#/components/schemas/BewoningMetPeriode"
           }
         }
-      },
-      "MedebewonersMetPeildatum" : {
-        "required" : [ "burgerservicenummer", "peildatum" ],
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BewoningenQuery"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "peildatum" : {
-              "$ref" : "#/components/schemas/Peildatum"
-            },
-            "burgerservicenummer" : {
-              "$ref" : "#/components/schemas/Burgerservicenummer"
-            }
-          }
-        } ]
-      },
-      "MedebewonersMetPeriode" : {
-        "required" : [ "burgerservicenummer", "datumTot", "datumVan" ],
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BewoningenQuery"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "datumVan" : {
-              "$ref" : "#/components/schemas/DatumVan"
-            },
-            "datumTot" : {
-              "$ref" : "#/components/schemas/DatumTot"
-            },
-            "burgerservicenummer" : {
-              "$ref" : "#/components/schemas/Burgerservicenummer"
-            }
-          }
-        } ]
       },
       "BewoningMetPeildatum" : {
         "required" : [ "adresseerbaarObjectIdentificatie", "peildatum" ],
@@ -462,10 +425,11 @@
         "format" : "date",
         "example" : "1964-09-24"
       },
-      "Burgerservicenummer" : {
-        "pattern" : "^[0-9]{9}$",
+      "AdresseerbaarObjectIdentificatie" : {
+        "pattern" : "^[0-9]{16}$",
         "type" : "string",
-        "example" : "555555021"
+        "description" : "De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.\n",
+        "example" : "0226010000038820"
       },
       "DatumVan" : {
         "type" : "string",
@@ -478,12 +442,6 @@
         "description" : "De einddatum van de periode waarover de bewoning wordt opgevraagd.\n",
         "format" : "date",
         "example" : "1964-09-24"
-      },
-      "AdresseerbaarObjectIdentificatie" : {
-        "pattern" : "^[0-9]{16}$",
-        "type" : "string",
-        "description" : "De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.\n",
-        "example" : "0226010000038820"
       },
       "GbaBewoning" : {
         "type" : "object",
@@ -561,6 +519,11 @@
             "$ref" : "#/components/schemas/GbaInOnderzoek"
           }
         }
+      },
+      "Burgerservicenummer" : {
+        "pattern" : "^[0-9]{9}$",
+        "type" : "string",
+        "example" : "555555021"
       },
       "GbaGeheimhoudingPersoonsgegevens" : {
         "maximum" : 7,
