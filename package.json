@@ -27,7 +27,11 @@
     "specs:summary": "node scripts/parse-summary.js",
     "specs:verify": "bash scripts/specs-verify.sh",
     "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && npm run unstage-generated",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dotnet:clean": "for /d /r . %d in (bin,obj) do @if exist \"%d\" rd /s/q \"%d\"",
+    "dotnet:restore": "dotnet restore src/Bewoning.sln",
+    "dotnet:build": "dotnet build src/Bewoning.sln --configuration Release --no-restore",
+    "dotnet:test": "dotnet test src/Bewoning.sln --configuration Release --no-build --verbosity normal --collect:\"XPlat Code Coverage\" --results-directory ./coverage"
   },
   "repository": {
     "type": "git",
