@@ -4,7 +4,7 @@
     "title" : "BRP bewoning",
     "description" : "API voor het raadplegen van de (historische) bewoning van een adres of de medebewoners van een persoon.\n",
     "contact" : {
-      "url" : "https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning"
+      "url" : "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning"
     },
     "license" : {
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
