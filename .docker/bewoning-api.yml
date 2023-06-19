@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  haalcentraal_api:
-    container_name: bewoningen-api
+  haalcentraal_bewoningen_api:
+    container_name: haalcentraal_bewoningen_api
     image: haalcentraal.azurecr.io/gba-bewoningen-api:2.0.1
     environment:
       - Database__ConnectionString=Host=postgres;Username=root;Password=root;Database=rvig_haalcentraal_testdata
@@ -14,8 +14,8 @@ services:
     ports:
       - "8000:80"
     networks:
-      - brp-bewoningen-network
+      - bewoningen-api-network
 
 networks:
   brp-bewoningen-network:
-    name: brp-bewoningen-network
+    name: bewoningen-api-network
