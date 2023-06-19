@@ -16,6 +16,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BewoningPeriode'
+        periode:
+          $ref: '#/components/schemas/Periode'
     GbaBewoning:
       type: object
       description: Bewoning van een adresseerbaar object
