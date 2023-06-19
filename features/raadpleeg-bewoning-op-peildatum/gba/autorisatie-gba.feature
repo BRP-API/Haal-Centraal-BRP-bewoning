@@ -36,27 +36,15 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       En een adres heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0518                 | 0518010000854789                         |
-      En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20100818                           |
-      En de persoon met burgerservicenummer '000000048' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20100818                           |
-      En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000854789' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0518                              | 20230526                           |
-      En de persoon met burgerservicenummer '000000139' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000854789' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0518                              | 20041103                           |
-      En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20230601                           |
 
 
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object binnen de eigen gemeente.
       - 'gemeentecode' in de claim komt overeen met 'gemeentecode (92.10)' van het adres
 
-    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en een bewoner op peildatum is nu niet meer ingeschreven in de gemeente.
+    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -65,7 +53,46 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       Dan heeft de response 1 bewoning
 
     @fout-case
-    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente en een bewoner op peildatum is nu wel ingeschreven in de gemeente.
+    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000854789' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20041103                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2023-01-01           |
+      | adresseerbaarObjectIdentificatie | 0518010000854789     |
+      Dan heeft de response een object met de volgende gegevens
+      | naam     | waarde                                                                                 |
+      | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3                            |
+      | title    | U bent niet geautoriseerd voor deze vraag.                                             |
+      | status   | 403                                                                                    |
+      | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
+      | code     | unauthorized                                                                           |
+      | instance | /haalcentraal/api/bewoning/bewoning                                                    |
+
+    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner op peildatum is nu niet meer ingeschreven in de gemeente
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000854789' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20230526                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2023-01-01           |
+      | adresseerbaarObjectIdentificatie | 0800010000713450     |
+      Dan heeft de response 1 bewoning
+
+    @fout-case
+    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente en de bewoner op peildatum is nu wel ingeschreven in de gemeente
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000854789' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20041103                           |
+      En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20230601                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
