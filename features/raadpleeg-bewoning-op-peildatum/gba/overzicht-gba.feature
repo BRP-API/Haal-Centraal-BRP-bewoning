@@ -104,10 +104,10 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
   Scenario: er is een persoon ingeschreven op het hoofdadres en een persoon ingeschreven op het nevenadres
     Gegeven een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
-    | 0518                 | 0014010011067299                         | 0014200010877405                           |
+    | 0014                 | 0014010011067299                         | 0014200010877405                           |
     En een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
-    | 0518                 | 0014010011067299                         | 0014200022197986                           |
+    | 0014                 | 0014010011067299                         | 0014200022197986                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode nummeraanduiding (11.90)' '0014200010877405' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20220818                           |
