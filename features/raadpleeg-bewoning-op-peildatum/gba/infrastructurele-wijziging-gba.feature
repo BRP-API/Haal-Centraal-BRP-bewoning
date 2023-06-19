@@ -127,8 +127,8 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 000000024           |
 
       Voorbeelden:
-      | adresseerbaar object identificatie | peildatum  | periode                   | omschrijving                                                                                      |
-      | 1084010011067299                   | 2023-01-01 | 2023-01-01 tot 2023-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum na de gemeentelijke herindeling   |
-      | 1084010011067299                   | 2022-01-01 | 2022-01-01 tot 2022-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum voor de gemeentelijke herindeling |
-      | 1084010022197986                   | 2023-01-01 | 2023-01-01 tot 2023-01-02 | actuele adresseerbaar object identificatie en peildatum na de gemeentelijke herindeling           |
-      | 1084010022197986                   | 2022-01-01 | 2022-01-01 tot 2022-01-02 | actuele adresseerbaar object identificatie en peildatum voor de gemeentelijke herindeling         |
+      | adresseerbaar object identificatie | peildatum  | periode                   | omschrijving                                                                      |
+      | 1084010011067299                   | 2023-01-01 | 2023-01-01 tot 2023-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum na de wijziging   |
+      | 1084010011067299                   | 2022-01-01 | 2022-01-01 tot 2022-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum voor de wijziging |
+      | 1084010022197986                   | 2023-01-01 | 2023-01-01 tot 2023-01-02 | actuele adresseerbaar object identificatie en peildatum na de wijziging           |
+      | 1084010022197986                   | 2022-01-01 | 2022-01-01 tot 2022-01-02 | actuele adresseerbaar object identificatie en peildatum voor de wijziging         |
