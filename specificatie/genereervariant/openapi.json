@@ -451,6 +451,9 @@
             "items" : {
               "$ref" : "#/components/schemas/BewoningPeriode"
             }
+          },
+          "periode" : {
+            "$ref" : "#/components/schemas/Periode"
           }
         },
         "description" : "Bewoning van een adresseerbaar object"
