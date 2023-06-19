@@ -189,10 +189,17 @@ async function handleRequest(context, dataTable) {
     const afnemerId = context.afnemerId ?? context.oAuth?.clients[0].afnemerID;
     const gemeenteCode = context.gemeenteCode ?? "800";
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
-
+    
     await executeSqlStatements(context.sqlData, pool, tableNameMap, logSqlStatements);
 
-    context.response = await postBevragenRequestWithBasicAuth(url, createBasicAuthorizationHeader(afnemerId, gemeenteCode), dataTable);
+    if(context.oAuth.enable){
+        const result = await handleOAuthRequest(accessToken, context.oAuth, afnemerId, url, dataTable);
+        context.response = result.response;
+        accessToken = result.accessToken;
+    }
+    else {
+        context.response = await postBevragenRequestWithBasicAuth(url, createBasicAuthorizationHeader(afnemerId, gemeenteCode), dataTable);
+    }
 }
 
 When(/^bewoning wordt gezocht met de volgende parameters$/, function (dataTable) {
