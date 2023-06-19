@@ -20,6 +20,8 @@ const columnNameMap = new Map([
 
     ['locatiebeschrijving (12.10)', 'locatie_beschrijving'],
 
+    ['datum aanvang adres buitenland (13.20)', 'vertrek_datum'],
+
     ['indicatie gezag minderjarige (32.10)', 'minderjarig_gezag_ind'],
 
     ['aanduiding uitgesloten kiesrecht (38.10)', 'kiesrecht_uitgesl_aand'],
