@@ -21,7 +21,8 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
 
   Zowel request_zoek_rubrieken als request_gevraagde_rubrieken bevatten de LO-BRP elementnummers als 6 cijferig rubrieknummer (incl. voorloopnul), gescheiden door komma spatie, en oplopend gesorteerd.
 
-  Rule: Gebruikte parameters worden vertaald naar rubrieknummers volgens Logisch ontwerp BRP en vastgelegd in het veld 'request_zoek_rubrieken'.
+
+  Rule: Parameter peildatum filtert op datum aanvang adreshouding (08.10.30) en datum aanvang adres buitenland (08.13.20), parameter adresseerbaarObjectIdentificatie zoekt op identificatiecode verblijfplaats (08.11.80)
 
     Scenario: Raadpleeg bewoning op peildatum
       Gegeven een adres heeft de volgende gegevens
@@ -37,10 +38,10 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
       | adresseerbaarObjectIdentificatie | 0518010000713450     |
       Dan heeft de persoon met burgerservicenummer '000000024' de volgende 'protocollering' gegevens
       | request_zoek_rubrieken |
-      | 081030, 081180         |
+      | 081030, 081180, 081320 |
 
  
-  Rule: Bij bewoning wordt alleen het burgerservicenummer van de persoon gevraagd.
+  Rule: Bij bewoning wordt alleen het burgerservicenummer (01.01.20) van de persoon gevraagd.
 
     Scenario: Gevraagde veld <fields veld> wordt vastgelegd in 'request_gevraagde_rubrieken' als <rubrieknummer>
       Gegeven een adres heeft de volgende gegevens
