@@ -3,3 +3,16 @@ node_modules/
 .swagger-codegen
 .swagger-codegen-ignore
 specificatie/**/README.md
+
+*.suo
+*.user
+
+[Dd]ebug/
+[Rr]elease/
+[Oo]bj/
+
+.vs/
+
+coverage*.json
+coverage*.xml
+coverage*.info

@@ -1,0 +1,15 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/haalcentraal/api/bewoning/bewoningen",
+      "DownstreamPathTemplate": "/haalcentraal/api/bewoning/bewoningen",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "bewoningmock",
+          "Port": "5010"
+        }
+      ]
+    }
+  ]
+}
