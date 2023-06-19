@@ -101,6 +101,35 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | 2015-01-01 | 2015-01-01 tot 2015-01-02 | peildatum valt in de adreshouding periode van beide bewoners                                                 |
     | 2016-05-25 | 2016-05-25 tot 2016-05-26 | peildatum valt op de laatste dag van de adreshouding periode van bewoner met burgerservicenummer '000000024' |
 
+  Scenario: er is een persoon ingeschreven op het hoofdadres en een persoon ingeschreven op het nevenadres
+    Gegeven een adres heeft de volgende gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
+    | 0518                 | 0014010011067299                         | 0014200010877405                           |
+    En een adres heeft de volgende gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
+    | 0518                 | 0014010011067299                         | 0014200022197986                           |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode nummeraanduiding (11.90)' '0014200010877405' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20220818                           |
+    En de persoon met burgerservicenummer '000000048' is ingeschreven op het adres met 'identificatiecode nummeraanduiding (11.90)' '0014200022197986' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20220818                           |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2023-01-01           |
+    | adresseerbaarObjectIdentificatie | 0014010011067299     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | type                             | Bewoning                  |
+    | periode                          | 2023-01-01 tot 2023-01-02 |
+    | adresseerbaarObjectIdentificatie | 0014010011067299          |
+    En heeft de bewoning voor de bewoningPeriode '2023-01-01 tot 2023-01-02' bewoners met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+    | 000000048           |
+
+
 Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peildatum als:
       - datum aanvang adreshouding van de persoon op het adresseerbaar object deels of geheel onbekend is en de peildatum valt in de onzekerheidsperiode
       - datum aanvang adreshouding van de persoon op het volgend adresseerbaar object deels of geheel onbekend is en de peildatum valt in de onzekerheidsperiode

@@ -17,6 +17,7 @@ const columnNameMap = new Map([
 
     ['straatnaam (11.10)', 'straat_naam'],
     ['identificatiecode verblijfplaats (11.80)', 'verblijf_plaats_ident_code'],
+    ['identificatiecode nummeraanduiding (11.90)', 'nummer_aand_ident_code'],
 
     ['locatiebeschrijving (12.10)', 'locatie_beschrijving'],
 
