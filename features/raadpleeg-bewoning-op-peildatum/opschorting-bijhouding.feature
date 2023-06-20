@@ -23,7 +23,6 @@ Rule: personen met een afgevoerde persoonslijst worden niet gezien als bewoner
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-09-01 tot 2010-09-02 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' geen bewoners
@@ -44,7 +43,6 @@ Rule: personen op een logisch verwijderde persoonslijst worden niet gezien als b
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-09-01 tot 2010-09-02 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' geen bewoners
@@ -65,7 +63,6 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2022-08-28 tot 2022-08-29 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2022-08-28 tot 2022-08-29' een bewoner met de volgende gegevens
@@ -94,7 +91,6 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' geen bewoners

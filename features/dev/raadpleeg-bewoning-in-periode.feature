@@ -19,7 +19,6 @@ Functionaliteit: raadpleeg bewoning in periode
     | fields                           | adresseerbaarObjectIdentificatie,bewoningPeriode.periode,bewoningPeriode.bewoners.burgerservicenummer |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de periode '2012-01-01 tot 2013-01-01' de volgende bewoners
     | burgerservicenummer |
@@ -41,7 +40,6 @@ Functionaliteit: raadpleeg bewoning in periode
     | fields                           | adresseerbaarObjectIdentificatie,bewoningPeriode.periode,bewoningPeriode.bewoners.burgerservicenummer |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de periode '2012-01-01 tot 2013-01-01' de volgende bewoners
     | burgerservicenummer |
@@ -64,7 +62,6 @@ Functionaliteit: raadpleeg bewoning in periode
     | fields                           | adresseerbaarObjectIdentificatie,bewoningPeriode.periode,bewoningPeriode.bewoners.burgerservicenummer |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de periode '2016-06-01 tot 2017-01-01' geen bewoners
 
@@ -85,7 +82,6 @@ Functionaliteit: raadpleeg bewoning in periode
     | fields                           | adresseerbaarObjectIdentificatie,bewoningPeriode.periode,bewoningPeriode.bewoners.burgerservicenummer |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de periode '2016-01-01 tot 2016-05-26' de volgende bewoners
     | burgerservicenummer |
@@ -108,7 +104,6 @@ Functionaliteit: raadpleeg bewoning in periode
     | fields                           | adresseerbaarObjectIdentificatie,bewoningPeriode.periode,bewoningPeriode.bewoners.burgerservicenummer |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de periode '2010-09-01 tot 2011-01-01' de volgende bewoners
     | burgerservicenummer |
@@ -130,7 +125,6 @@ Functionaliteit: raadpleeg bewoning in periode
     | fields                           | adresseerbaarObjectIdentificatie,bewoningPeriode.periode,bewoningPeriode.bewoners.burgerservicenummer |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de periode '2010-01-01 tot 2010-08-01' geen bewoners
     En heeft de bewoning voor de periode '2010-08-01 tot 2010-09-01' de volgende mogelijke bewoners
@@ -156,7 +150,6 @@ Functionaliteit: raadpleeg bewoning in periode
     | fields                           | adresseerbaarObjectIdentificatie,bewoningPeriode.periode,bewoningPeriode.bewoners.burgerservicenummer |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de periode '2010-08-14 tot 2010-09-01' de volgende mogelijke bewoners
     | burgerservicenummer |
