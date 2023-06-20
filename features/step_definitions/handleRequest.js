@@ -98,7 +98,7 @@ async function getOAuthAccessToken(accessTokenUrl, oAuthSettings) {
 async function postBevragenRequestWithOAuth(baseUrl, access_token, dataTable, method, body) {
     const config = {
         method: method,
-        url: '/personen',
+        url: '/bewoningen',
         baseURL: baseUrl,
         data: body,
         headers: createHeaders(dataTable, [

@@ -14,7 +14,7 @@ services:
       # - ../src/config/Database:/var/lib/postgresql/data
       - ./scripts/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     networks:
-      - brp-bewoningen-network
+      - bewoningen-api-network
   
   pgadmin:
     container_name: pgadmin
@@ -26,8 +26,8 @@ services:
     ports:
       - 5433:80
     networks:
-      - brp-bewoningen-network
+      - bewoningen-api-network
 
 networks:
-  brp-bewoningen-network:
-   name: brp-bewoningen-network
+  bewoningen-api-network:
+    name: bewoningen-api-network

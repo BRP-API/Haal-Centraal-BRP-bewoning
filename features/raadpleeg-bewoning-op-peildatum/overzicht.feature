@@ -32,7 +32,6 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
@@ -59,7 +58,6 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' geen bewoners
@@ -86,7 +84,6 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
@@ -115,7 +112,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
@@ -139,7 +135,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-09-01 tot 2010-09-02 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' een bewoner met de volgende gegevens
@@ -157,7 +152,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-07-31 tot 2010-08-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-07-31 tot 2010-08-01' geen bewoners
@@ -176,7 +170,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
@@ -203,7 +196,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2016-06-01 tot 2016-06-02 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2016-06-01 tot 2016-06-02' geen bewoners
@@ -222,7 +214,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2016-04-30 tot 2016-05-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2016-04-30 tot 2016-05-01' een bewoner met de volgende gegevens
@@ -240,7 +231,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
@@ -264,7 +254,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2011-01-01 tot 2011-01-02 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2011-01-01 tot 2011-01-02' een bewoner met de volgende gegevens
@@ -282,7 +271,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2009-12-31 tot 2010-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2009-12-31 tot 2010-01-01' geen bewoners
@@ -301,7 +289,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
@@ -328,7 +315,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2017-01-01 tot 2017-01-02 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2017-01-01 tot 2017-01-02' geen bewoners
@@ -347,7 +333,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2015-12-31 tot 2016-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2015-12-31 tot 2016-01-01' een bewoner met de volgende gegevens
@@ -367,7 +352,6 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op elke peild
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-09-01 tot 2010-09-02 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' een mogelijke bewoner met de volgende gegevens
@@ -390,7 +374,6 @@ Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adress
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een bewoner met de volgende gegevens
@@ -411,7 +394,6 @@ Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adress
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-08-19 tot 2010-08-20' een mogelijke bewoner met de volgende gegevens
