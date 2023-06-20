@@ -6,43 +6,18 @@ info:
 paths: {}
 components:
   schemas:
-    AbstractBewoning:
+    Bewoning:
       type: object
-      required:
-        - type
-        - fields
-      discriminator:
-        propertyName: type
-        mapping:
-          Bewoning: '#/components/schemas/Bewoning'
-          BewoningOnbekend: '#/components/schemas/BewoningOnbekend'
+      description: Bewoning van een adresseerbaar object
       properties:
-        type:
-          type: string
+        adresseerbaarObjectIdentificatie:
+          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+        bewoningPeriodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BewoningPeriode'
         periode:
           $ref: '#/components/schemas/Periode'
-    Bewoning:
-      allOf:
-        - $ref: '#/components/schemas/AbstractBewoning'
-        - type: object
-          description: Bewoning van een adresseerbaar object
-          properties:
-            adresseerbaarObjectIdentificatie:
-              $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
-            bewoningPeriodes:
-              type: array
-              items:
-                $ref: '#/components/schemas/BewoningPeriode'
-    BewoningOnbekend:
-      allOf:
-        - $ref: '#/components/schemas/AbstractBewoning'
-        - type: object
-          description: |
-              Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.
-              De reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.
-          properties:
-            redenOnbekend:
-              $ref: 'common.yaml#/components/schemas/Waardetabel'
     GbaBewoning:
       type: object
       description: Bewoning van een adresseerbaar object
