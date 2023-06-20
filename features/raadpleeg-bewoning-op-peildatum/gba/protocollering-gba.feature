@@ -43,7 +43,7 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
  
   Rule: Bij bewoning wordt alleen het burgerservicenummer (01.01.20) van de persoon gevraagd.
 
-    Scenario: Gevraagde veld <fields veld> wordt vastgelegd in 'request_gevraagde_rubrieken' als <rubrieknummer>
+    Scenario: Burgerservicenummer (010120) wordt vastgelegd in 'request_gevraagde_rubrieken'
       Gegeven een adres heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0518                 | 0518010000713450                         |
@@ -60,7 +60,8 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
       | 010120                      |
 
   Rule: Wanneer in het antwoord meerdere personen worden geleverd, dan wordt er per geleverde persoon een protocolleringsrecord opgenomen
-    Scenario: Gevraagde veld <fields veld> wordt vastgelegd in 'request_gevraagde_rubrieken' als <rubrieknummer>
+    
+    Scenario: Meerdere bewoners gevonden op peildatum
       Gegeven een adres heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0518                 | 0518010000713450                         |
