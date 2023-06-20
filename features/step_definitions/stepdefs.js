@@ -314,6 +314,48 @@ Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' mogelij
     expectedBewoningPeriode.mogelijkeBewoners = createObjectArrayFrom(dataTable, true);
 });
 
+Then(/^heeft de persoon met burgerservicenummer '(.*)' de volgende '(.*)' gegevens$/, async function (burgerservicenummer, tabelNaam, dataTable) {
+    this.context.verifyResponse = false;
+    const sqlData = dataTable.hashes()[0];
+
+    const persoonSqlData = this.context.sqlData.find(s => s.persoon?.at(0).find(a => a[0] == 'burger_service_nr' && a[1] == burgerservicenummer));
+    should.exist(persoonSqlData);
+
+    const pl_id = Number(persoonSqlData['inschrijving'][0].find(e => e[0] === 'pl_id')[1]);
+    should.exist(pl_id);
+
+    if (sqlData !== undefined && pool !== undefined) {
+        let res;
+        let client;
+        try {
+            let tableName = tableNameMap.get(tabelNaam);
+            if(tableName === undefined) {
+                tableName = tabelNaam;
+            }
+            const sql = `SELECT * FROM public.${tableName} WHERE pl_id=${pl_id} ORDER BY request_datum DESC LIMIT 1`;
+
+            client = await pool.connect();
+            res = await client.query(sql);
+        }
+        catch(ex) {
+            console.log(ex);
+        }
+        finally {
+            if(client !== undefined){
+                client.release();
+            }
+        }
+
+        should.exist(res);
+        res.rows.length.should.equal(1, `Geen ${tabelNaam} gegevens gevonden voor persoon met burgerservicenummer ${burgerservicenummer}`);
+
+        const actual = res.rows[0];
+        Object.keys(sqlData).forEach(function(key) {
+            actual[key].split(' ').should.have.members(sqlData[key].split(' '), `${actual[key]} !== ${sqlData[key]}`);
+        });
+    }
+});
+
 After({tags: 'not @fout-case'}, async function() {
     if (this.context.verifyResponse === undefined ||
         !this.context.verifyResponse) {

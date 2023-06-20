@@ -7,6 +7,7 @@ const tableNameMap = new Map([
     ['gezagsverhouding', 'lo3_pl_gezagsverhouding'],
     ['inschrijving', 'lo3_pl'],
     ['persoon', 'lo3_pl_persoon' ],
+    ['protocollering', 'haalcentraal_vraag'],
     ['verblijfplaats', 'lo3_pl_verblijfplaats'],
 
 ]);
