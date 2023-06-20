@@ -181,6 +181,32 @@ Given(/^de persoon is vervolgens ingeschreven op het adres met '(.*)' '(.*)' met
     ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
+Given(/^de afnemer met indicatie '(.*)' heeft de volgende '(.*)' gegevens$/, function (afnemerCode, tabelNaam, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData[tabelNaam] = [
+        [
+            [ 'afnemer_code', afnemerCode ],
+            ['geheimhouding_ind', 0],
+            ['verstrekkings_beperking', 0]
+        ].concat(createArrayFrom(dataTable, columnNameMap))];
+});
+
+Given(/^de geauthenticeerde consumer heeft de volgende '(.*)' gegevens$/, function (_, dataTable) {
+    this.context.afnemerId = dataTable.hashes()[0].naam !== undefined
+        ? dataTable.hashes().find(param => param.naam === 'afnemerID').waarde
+        : dataTable.hashes()[0].afnemerID;
+
+    this.context.gemeenteCode = dataTable.hashes()[0].naam !== undefined
+        ? dataTable.hashes().find(param => param.naam === 'gemeenteCode').waarde
+        : dataTable.hashes()[0].gemeenteCode;
+});
+
 async function handleRequest(context, dataTable) {
     if(context.sqlData === undefined) {
         context.sqlData = [{}];
@@ -354,6 +380,21 @@ Then(/^heeft de persoon met burgerservicenummer '(.*)' de volgende '(.*)' gegeve
             actual[key].split(' ').should.have.members(sqlData[key].split(' '), `${actual[key]} !== ${sqlData[key]}`);
         });
     }
+});
+
+Then(/^heeft de response (\d*) (?:bewoning|bewoningen)$/, function (aantal) {
+    this.context.response.status.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+
+    const actual = this.context?.response?.data?.bewoningen;
+
+    should.exist(actual);
+    actual.length.should.equal(Number(aantal), `aantal bewoningen in response is ongelijk aan ${aantal}\nBewoningen: ${JSON.stringify(actual, null, '\t')}`);
+});
+
+Then(/^heeft de response een object met de volgende gegevens$/, function (dataTable) {
+    this.context.verifyResponse = true;
+
+    this.context.expected = createObjectFrom(dataTable, this.context.proxyAanroep);
 });
 
 After({tags: 'not @fout-case'}, async function() {

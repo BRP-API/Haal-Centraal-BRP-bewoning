@@ -4,7 +4,7 @@ function noSqlData(sqlData) {
 }
 
 function getAdresId(sqlData, adresIndex) {
-    let index=0;
+    let index=1;
     for(const sqlDataElement of sqlData) {
         if(sqlDataElement['adres'] !== undefined) {
             if(index === adresIndex) {
@@ -251,7 +251,12 @@ async function deleteRecords(client, sqlData, tableNameMap, logSqlStatements) {
         return;
     }
 
-    const id = Number(sqlData['inschrijving'][0].find(e => e[0] === 'pl_id')[1]);
+    const plIdElem = sqlData['inschrijving'][0].find(e => e[0] === 'pl_id');
+    if(plIdElem === undefined) {
+        return;
+    }
+
+    const id = Number(plIdElem[1]);
 
     for(const key of Object.keys(sqlData)) {
         if(tableNameMap.has(key)) {
@@ -292,7 +297,12 @@ async function deleteAdresRecord(client, sqlData, tableNameMap, logSqlStatements
         return;
     }
 
-    const id = Number(sqlData['adres'][0].find(e => e[0] === 'adres_id')[1]);
+    const adresIdElem = sqlData['adres'][0].find(e => e[0] === 'adres_id');
+    if(adresIdElem == undefined) {
+        return;
+    }
+
+    const id = Number(adresIdElem[1]);
 
     const sqlStatement = createDeleteStatement('adres', id, tableNameMap);
 

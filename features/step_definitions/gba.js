@@ -14,10 +14,13 @@ const tableNameMap = new Map([
 
 const columnNameMap = new Map([
 
+    ['gemeente van inschrijving (09.10)', 'inschrijving_gemeente_code'],
+
     ['datum aanvang adreshouding (10.30)', 'adreshouding_start_datum'],
 
     ['straatnaam (11.10)', 'straat_naam'],
     ['identificatiecode verblijfplaats (11.80)', 'verblijf_plaats_ident_code'],
+    ['identificatiecode nummeraanduiding (11.90)', 'nummer_aand_ident_code'],
 
     ['locatiebeschrijving (12.10)', 'locatie_beschrijving'],
 
@@ -35,6 +38,10 @@ const columnNameMap = new Map([
     ['datum einde onderzoek (83.30)', 'onderzoek_eind_datum' ],
 
     ['gemeentecode (92.10)', 'gemeente_code'],
+
+    ['Rubrieknummer ad hoc (35.95.60)', 'ad_hoc_rubrieken'],
+    ['Medium ad hoc (35.95.67)', 'ad_hoc_medium'],
+    ['Datum ingang (35.99.98)', 'tabel_regel_start_datum'],
 
 ]);
 
