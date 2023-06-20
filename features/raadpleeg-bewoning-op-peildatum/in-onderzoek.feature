@@ -20,7 +20,6 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2020-04-15 tot 2020-04-16 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
@@ -46,7 +45,6 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2020-04-15 tot 2020-04-16 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
@@ -82,7 +80,6 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
@@ -108,7 +105,6 @@ Rule: een beëindigd onderzoek wordt nooit vertaald naar indicatieVerblijfsplaat
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
