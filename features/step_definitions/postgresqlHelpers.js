@@ -4,7 +4,7 @@ function noSqlData(sqlData) {
 }
 
 function getAdresId(sqlData, adresIndex) {
-    let index=1;
+    let index=0;
     for(const sqlDataElement of sqlData) {
         if(sqlDataElement['adres'] !== undefined) {
             if(index === adresIndex) {

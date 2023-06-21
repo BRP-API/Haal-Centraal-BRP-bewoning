@@ -120,17 +120,14 @@ Given(/^een adres heeft de volgende gegevens$/, function (dataTable) {
 function bepaalAdresIndex(sqlData, veldNaam, veldWaarde) {
     let adresIndex;
 
-    sqlData.forEach(function(sqlData, index) {
-        if(sqlData['adres'] !== undefined) {
-            const propertyName = columnNameMap.get(veldNaam);
+    const propertyName = columnNameMap.get(veldNaam);
 
-            sqlData['adres'].forEach(function(data) {
-                if(data.find(el => el[0] === propertyName && el[1] === veldWaarde) !== undefined) {
+    sqlData.filter(e => e['adres'] !== undefined)
+           .forEach(function(elem, index) {
+                if(elem['adres'][0].find(el => el[0] === propertyName && el[1] === veldWaarde) !== undefined) {
                     adresIndex = index;
                 }
-            });
-        }
-    });
+           });
 
     return adresIndex;
 }
@@ -167,6 +164,7 @@ Given(/^de persoon met burgerservicenummer '(\d*)' is ingeschreven op het adres 
 Given(/^de persoon is vervolgens ingeschreven op het adres met '(.*)' '(.*)' met de volgende gegevens$/, function (veldNaam, veldWaarde, dataTable) {
 
     let adresIndex = bepaalAdresIndex(this.context.sqlData, veldNaam, veldWaarde);
+    should.exist(adresIndex, `geen adres gevonden met '${veldNaam}' gelijk aan '${veldWaarde}'`);
 
     let sqlData = this.context.sqlData.at(-1);
 
