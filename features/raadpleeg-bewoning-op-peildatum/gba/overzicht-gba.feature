@@ -118,7 +118,6 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0014010011067299     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2023-01-01 tot 2023-01-02 |
     | adresseerbaarObjectIdentificatie | 0014010011067299          |
     En heeft de bewoning voor de bewoningPeriode '2023-01-01 tot 2023-01-02' bewoners met de volgende gegevens

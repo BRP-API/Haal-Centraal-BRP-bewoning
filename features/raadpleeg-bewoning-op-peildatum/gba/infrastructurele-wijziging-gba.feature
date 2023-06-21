@@ -23,7 +23,6 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | 1084010011067299     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde           |
-      | type                             | Bewoning         |
       | periode                          | <periode>        |
       | adresseerbaarObjectIdentificatie | 1084010011067299 |
       En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
@@ -55,7 +54,6 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | 1084010011067299     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde           |
-      | type                             | Bewoning         |
       | periode                          | <periode>        |
       | adresseerbaarObjectIdentificatie | 1084010011067299 |
       En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
@@ -87,7 +85,6 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | 1084010011067299     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde           |
-      | type                             | Bewoning         |
       | periode                          | <periode>        |
       | adresseerbaarObjectIdentificatie | 1084010011067299 |
       En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
@@ -99,7 +96,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum na de gemeentelijke herindeling   |
       | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor de gemeentelijke herindeling |
 
-    Abstract Scenario: adresseerbaar object identificatie is gewijzigd als gevold van het samenvoegen van verblijfsobjecten
+    Abstract Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het samenvoegen van verblijfsobjecten
       Gegeven een adres heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
       | 1084                 | 1084010011067299                         | 1084200010877405                           |
@@ -119,7 +116,6 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | <adresseerbaar object identificatie> |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                               |
-      | type                             | Bewoning                             |
       | periode                          | <periode>                            |
       | adresseerbaarObjectIdentificatie | <adresseerbaar object identificatie> |
       En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
