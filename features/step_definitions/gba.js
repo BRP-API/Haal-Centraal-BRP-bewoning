@@ -24,6 +24,12 @@ const columnNameMap = new Map([
 
     ['locatiebeschrijving (12.10)', 'locatie_beschrijving'],
 
+    ['land (13.10)', 'vertrek_land_code'],
+    ['datum aanvang adres buitenland (13.20)', 'vertrek_datum'],
+    ['regel 1 adres buitenland (13.30)', 'vertrek_land_adres_1'],
+    ['regel 2 adres buitenland (13.40)', 'vertrek_land_adres_2'],
+    ['regel 3 adres buitenland (13.50)', 'vertrek_land_adres_3'],
+
     ['indicatie gezag minderjarige (32.10)', 'minderjarig_gezag_ind'],
 
     ['aanduiding uitgesloten kiesrecht (38.10)', 'kiesrecht_uitgesl_aand'],
