@@ -120,17 +120,14 @@ Given(/^een adres heeft de volgende gegevens$/, function (dataTable) {
 function bepaalAdresIndex(sqlData, veldNaam, veldWaarde) {
     let adresIndex;
 
-    sqlData.forEach(function(sqlData, index) {
-        if(sqlData['adres'] !== undefined) {
-            const propertyName = columnNameMap.get(veldNaam);
+    const propertyName = columnNameMap.get(veldNaam);
 
-            sqlData['adres'].forEach(function(data) {
-                if(data.find(el => el[0] === propertyName && el[1] === veldWaarde) !== undefined) {
+    sqlData.filter(e => e['adres'] !== undefined)
+           .forEach(function(elem, index) {
+                if(elem['adres'][0].find(el => el[0] === propertyName && el[1] === veldWaarde) !== undefined) {
                     adresIndex = index;
                 }
-            });
-        }
-    });
+           });
 
     return adresIndex;
 }
@@ -167,6 +164,7 @@ Given(/^de persoon met burgerservicenummer '(\d*)' is ingeschreven op het adres 
 Given(/^de persoon is vervolgens ingeschreven op het adres met '(.*)' '(.*)' met de volgende gegevens$/, function (veldNaam, veldWaarde, dataTable) {
 
     let adresIndex = bepaalAdresIndex(this.context.sqlData, veldNaam, veldWaarde);
+    should.exist(adresIndex, `geen adres gevonden met '${veldNaam}' gelijk aan '${veldWaarde}'`);
 
     let sqlData = this.context.sqlData.at(-1);
 
@@ -179,6 +177,32 @@ Given(/^de persoon is vervolgens ingeschreven op het adres met '(.*)' '(.*)' met
         [ 'adres_id', adresIndex + '' ],
         [ 'volg_nr', '0']
     ].concat(createArrayFrom(dataTable, columnNameMap)));
+});
+
+Given(/^de afnemer met indicatie '(.*)' heeft de volgende '(.*)' gegevens$/, function (afnemerCode, tabelNaam, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData[tabelNaam] = [
+        [
+            [ 'afnemer_code', afnemerCode ],
+            ['geheimhouding_ind', 0],
+            ['verstrekkings_beperking', 0]
+        ].concat(createArrayFrom(dataTable, columnNameMap))];
+});
+
+Given(/^de geauthenticeerde consumer heeft de volgende '(.*)' gegevens$/, function (_, dataTable) {
+    this.context.afnemerId = dataTable.hashes()[0].naam !== undefined
+        ? dataTable.hashes().find(param => param.naam === 'afnemerID').waarde
+        : dataTable.hashes()[0].afnemerID;
+
+    this.context.gemeenteCode = dataTable.hashes()[0].naam !== undefined
+        ? dataTable.hashes().find(param => param.naam === 'gemeenteCode').waarde
+        : dataTable.hashes()[0].gemeenteCode;
 });
 
 async function handleRequest(context, dataTable) {
@@ -211,46 +235,72 @@ When(/^gba bewoning wordt gezocht met de volgende parameters$/, async function (
     await handleRequest(this.context, dataTable);
 });
 
-Then(/^heeft de response een bewoning met de volgende gegevens$/, function (dataTable) {
+Then(/^heeft de response geen bewoningen$/, function () {
     this.context.verifyResponse = true;
-
-    let expected = createObjectFrom(dataTable, true);
-    const match = expected.periode.match(/^(?<datumVan>[\d-]*) tot (?<datumTot>[\d-]*)$/);
-    if(match) {
-        expected.periode = match.groups;
-    }
 
     if(this.context.expected === undefined) {
         this.context.expected = [];
     }
-    this.context.expected.push(expected);
+});
+
+function createBewoning(dataTable) {
+    let bewoning = createObjectFrom(dataTable, true);
+    const match = bewoning.periode.match(/^(?<datumVan>[\d-]*) tot (?<datumTot>[\d-]*)$/);
+    if(match) {
+        bewoning.periode = match.groups;
+    }
+
+    bewoning.bewoningPeriodes = [];
+
+    return bewoning;
+}
+
+function createBewoningPeriode(van, tot) {
+    return {
+        periode: { datumVan: van, datumTot: tot },
+        bewoners: [],
+        mogelijkeBewoners: []
+    }
+}
+
+function getBewoningPeriode(bewoning, van, tot) {
+    let bewoningPeriode = bewoning.bewoningPeriodes.find(p => p.periode.datumVan === van &&
+                                                              p.periode.datumTot === tot);
+
+    if(bewoningPeriode === undefined) {
+        bewoningPeriode = createBewoningPeriode(van, tot);
+
+        bewoning.bewoningPeriodes.push(bewoningPeriode); 
+    }
+
+    return bewoningPeriode;
+}
+
+Then(/^heeft de response een bewoning met de volgende gegevens$/, function (dataTable) {
+    this.context.verifyResponse = true;
+
+    if(this.context.expected === undefined) {
+        this.context.expected = [];
+    }
+    this.context.expected.push(createBewoning(dataTable));
+});
+
+Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' geen bewoners$/, function (van, tot) {
+    this.context.verifyResponse = true;
+
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    expectedBewoning.bewoningPeriodes.push(createBewoningPeriode(van, tot));
 });
 
 Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' een bewoner met de volgende gegevens$/, function (van, tot, dataTable) {
     this.context.verifyResponse = true;
 
-    if(this.context.expected === undefined) {
-        this.context.expected = [ {} ];
-    }
-    let expectedBewoning = this.context.expected.at(-1);
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 
-    if(expectedBewoning.bewoningPeriodes === undefined) {
-        expectedBewoning.bewoningPeriodes = [
-            {
-                periode: { datumVan: van, datumTot: tot },
-                bewoners: []
-            }
-        ];
-    }
-
-    let expectedBewoningPeriode = expectedBewoning.bewoningPeriodes.find(p => p.periode.datumVan === van && p.periode.datumTot === tot);
-    if(expectedBewoningPeriode === undefined) {
-        expectedBewoningPeriode = {
-            periode: { datumVan: van, datumTot: tot },
-            bewoners: []
-        };
-        expectedBewoning.bewoningPeriodes.push(expectedBewoningPeriode); 
-    }
+    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
 
     expectedBewoningPeriode.bewoners.push(createObjectFrom(dataTable, true));
 });
@@ -258,50 +308,91 @@ Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' een bew
 Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' bewoners met de volgende gegevens$/, function (van, tot, dataTable) {
     this.context.verifyResponse = true;
 
-    if(this.context.expected === undefined) {
-        this.context.expected = [ {} ];
-    }
-    let expectedBewoning = this.context.expected.at(-1);
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 
-    if(expectedBewoning.bewoningPeriodes === undefined) {
-        expectedBewoning.bewoningPeriodes = [
-            {
-                periode: { datumVan: van, datumTot: tot },
-                bewoners: []
-            }
-        ];
-    }
-
-    let expectedBewoningPeriode = expectedBewoning.bewoningPeriodes.find(p => p.periode.datumVan === van && p.periode.datumTot === tot);
-    if(expectedBewoningPeriode === undefined) {
-        expectedBewoningPeriode = {
-            periode: { datumVan: van, datumTot: tot },
-            bewoners: []
-        };
-        expectedBewoning.bewoningPeriodes.push(expectedBewoningPeriode); 
-    }
+    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
 
     expectedBewoningPeriode.bewoners = createObjectArrayFrom(dataTable, true);
 });
 
-Then(/^heeft de bewoning voor de bewoningPeriode '(.*)' een mogelijke bewoner met de volgende gegevens$/, function (periode, dataTable) {
+Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' een mogelijke bewoner met de volgende gegevens$/, function (van, tot, dataTable) {
+    this.context.verifyResponse = true;
+
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
+
+    expectedBewoningPeriode.mogelijkeBewoners.push(createObjectFrom(dataTable, true));
 });
 
-Then(/^heeft de bewoning voor de bewoningPeriode '(.*)' geen bewoners$/, function (periode) {
+Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' mogelijke bewoners met de volgende gegevens$/, function (van, tot, dataTable) {
+    this.context.verifyResponse = true;
+
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
+
+    expectedBewoningPeriode.mogelijkeBewoners = createObjectArrayFrom(dataTable, true);
 });
 
-Then(/^heeft de bewoner de volgende '(\w*)' gegevens$/, function (gegevensgroep, dataTable) {
-    if(this.context.expected === undefined) {
-        this.context.expected = [ {} ];
+Then(/^heeft de persoon met burgerservicenummer '(.*)' de volgende '(.*)' gegevens$/, async function (burgerservicenummer, tabelNaam, dataTable) {
+    this.context.verifyResponse = false;
+    const sqlData = dataTable.hashes()[0];
+
+    const persoonSqlData = this.context.sqlData.find(s => s.persoon?.at(0).find(a => a[0] == 'burger_service_nr' && a[1] == burgerservicenummer));
+    should.exist(persoonSqlData);
+
+    const pl_id = Number(persoonSqlData['inschrijving'][0].find(e => e[0] === 'pl_id')[1]);
+    should.exist(pl_id);
+
+    if (sqlData !== undefined && pool !== undefined) {
+        let res;
+        let client;
+        try {
+            let tableName = tableNameMap.get(tabelNaam);
+            if(tableName === undefined) {
+                tableName = tabelNaam;
+            }
+            const sql = `SELECT * FROM public.${tableName} WHERE pl_id=${pl_id} ORDER BY request_datum DESC LIMIT 1`;
+
+            client = await pool.connect();
+            res = await client.query(sql);
+        }
+        catch(ex) {
+            console.log(ex);
+        }
+        finally {
+            if(client !== undefined){
+                client.release();
+            }
+        }
+
+        should.exist(res);
+        res.rows.length.should.equal(1, `Geen ${tabelNaam} gegevens gevonden voor persoon met burgerservicenummer ${burgerservicenummer}`);
+
+        const actual = res.rows[0];
+        Object.keys(sqlData).forEach(function(key) {
+            actual[key].split(' ').should.have.members(sqlData[key].split(' '), `${actual[key]} !== ${sqlData[key]}`);
+        });
     }
+});
 
-    const expectedBewoning = this.context.expected.at(-1);
+Then(/^heeft de response (\d*) (?:bewoning|bewoningen)$/, function (aantal) {
+    this.context.response.status.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
 
-    const expectedBewoningPeriode = expectedBewoning.bewoningPeriodes.at(-1);
+    const actual = this.context?.response?.data?.bewoningen;
 
-    let expectedBewoner = expectedBewoningPeriode.bewoners.at(-1);
+    should.exist(actual);
+    actual.length.should.equal(Number(aantal), `aantal bewoningen in response is ongelijk aan ${aantal}\nBewoningen: ${JSON.stringify(actual, null, '\t')}`);
+});
 
-    expectedBewoner[gegevensgroep] = createObjectFrom(dataTable);
+Then(/^heeft de response een object met de volgende gegevens$/, function (dataTable) {
+    this.context.verifyResponse = true;
+
+    this.context.expected = createObjectFrom(dataTable, this.context.proxyAanroep);
 });
 
 After({tags: 'not @fout-case'}, async function() {
@@ -310,7 +401,7 @@ After({tags: 'not @fout-case'}, async function() {
         return;
     }
 
-    this.context.response?.status.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+    this.context.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
 
     const actual = this.context?.response?.data.bewoningen !== undefined
         ? stringifyValues(this.context.response.data.bewoningen)
