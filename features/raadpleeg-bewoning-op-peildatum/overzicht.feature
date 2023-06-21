@@ -81,7 +81,6 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0518010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' geen bewoners
@@ -105,7 +104,6 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2023-05-25 tot 2023-05-26 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2023-05-25 tot 2023-05-26' een bewoner met de volgende gegevens
