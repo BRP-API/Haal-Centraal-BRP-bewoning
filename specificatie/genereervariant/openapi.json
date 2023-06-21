@@ -2,9 +2,9 @@
   "openapi" : "3.0.3",
   "info" : {
     "title" : "BRP bewoning",
-    "description" : "API voor het raadplegen van de (historische) bewoning van een adres of de medebewoners van een persoon.\n",
+    "description" : "API voor het raadplegen van de (historische) bewoning van een adres.\n",
     "contact" : {
-      "url" : "https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning"
+      "url" : "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning"
     },
     "license" : {
       "name" : "European Union Public License, version 1.2 (EUPL-1.2)",
@@ -23,7 +23,7 @@
       "post" : {
         "tags" : [ "Bewoning" ],
         "summary" : "Raadplegen van bewoningen",
-        "description" : "Met de API kun je raadplegen:\n\n**Bewoning:**\nwelke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of\nwelke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.\n\n**Medebewoners:**\nwelke personen op een bepaald moment (peildatum) met opgegeven persoon hetzelfde adresseerbaar object bewoonden, \nof welke samenstellingen van personen in een opgegeven periode tegelijkertijd met persoon hetzelfde adresseerbaar object bewoonden.\n",
+        "description" : "Met de API kun je raadplegen:\n\n**Bewoning:**\nwelke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of\nwelke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.\n",
         "operationId" : "Bewoningen",
         "requestBody" : {
           "content" : {
@@ -281,47 +281,10 @@
         "discriminator" : {
           "propertyName" : "type",
           "mapping" : {
-            "MedebewonersMetPeildatum" : "#/components/schemas/MedebewonersMetPeildatum",
-            "MedebewonersMetPeriode" : "#/components/schemas/MedebewonersMetPeriode",
             "BewoningMetPeildatum" : "#/components/schemas/BewoningMetPeildatum",
             "BewoningMetPeriode" : "#/components/schemas/BewoningMetPeriode"
           }
         }
-      },
-      "MedebewonersMetPeildatum" : {
-        "required" : [ "burgerservicenummer", "peildatum" ],
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BewoningenQuery"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "peildatum" : {
-              "$ref" : "#/components/schemas/Peildatum"
-            },
-            "burgerservicenummer" : {
-              "$ref" : "#/components/schemas/Burgerservicenummer"
-            }
-          }
-        } ]
-      },
-      "MedebewonersMetPeriode" : {
-        "required" : [ "burgerservicenummer", "datumTot", "datumVan" ],
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BewoningenQuery"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "datumVan" : {
-              "$ref" : "#/components/schemas/DatumVan"
-            },
-            "datumTot" : {
-              "$ref" : "#/components/schemas/DatumTot"
-            },
-            "burgerservicenummer" : {
-              "$ref" : "#/components/schemas/Burgerservicenummer"
-            }
-          }
-        } ]
       },
       "BewoningMetPeildatum" : {
         "required" : [ "adresseerbaarObjectIdentificatie", "peildatum" ],
@@ -364,7 +327,7 @@
           "bewoningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AbstractBewoning"
+              "$ref" : "#/components/schemas/Bewoning"
             }
           }
         }
@@ -459,10 +422,11 @@
         "format" : "date",
         "example" : "1964-09-24"
       },
-      "Burgerservicenummer" : {
-        "pattern" : "^[0-9]{9}$",
+      "AdresseerbaarObjectIdentificatie" : {
+        "pattern" : "^[0-9]{16}$",
         "type" : "string",
-        "example" : "555555021"
+        "description" : "De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.\n",
+        "example" : "0226010000038820"
       },
       "DatumVan" : {
         "type" : "string",
@@ -476,64 +440,23 @@
         "format" : "date",
         "example" : "1964-09-24"
       },
-      "AdresseerbaarObjectIdentificatie" : {
-        "pattern" : "^[0-9]{16}$",
-        "type" : "string",
-        "description" : "De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.\n",
-        "example" : "0226010000038820"
-      },
-      "AbstractBewoning" : {
-        "required" : [ "fields", "type" ],
+      "Bewoning" : {
         "type" : "object",
         "properties" : {
-          "type" : {
-            "type" : "string"
+          "adresseerbaarObjectIdentificatie" : {
+            "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
+          },
+          "bewoningPeriodes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BewoningPeriode"
+            }
           },
           "periode" : {
             "$ref" : "#/components/schemas/Periode"
           }
         },
-        "discriminator" : {
-          "propertyName" : "type",
-          "mapping" : {
-            "Bewoning" : "#/components/schemas/Bewoning",
-            "BewoningOnbekend" : "#/components/schemas/BewoningOnbekend"
-          }
-        }
-      },
-      "Periode" : {
-        "type" : "object",
-        "properties" : {
-          "datumVan" : {
-            "type" : "string",
-            "format" : "date",
-            "example" : "2020-01-01"
-          },
-          "datumTot" : {
-            "type" : "string",
-            "format" : "date",
-            "example" : "2021-01-01"
-          }
-        }
-      },
-      "Bewoning" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AbstractBewoning"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "adresseerbaarObjectIdentificatie" : {
-              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
-            },
-            "bewoningPeriodes" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/BewoningPeriode"
-              }
-            }
-          },
-          "description" : "Bewoning van een adresseerbaar object"
-        } ]
+        "description" : "Bewoning van een adresseerbaar object"
       },
       "BewoningPeriode" : {
         "type" : "object",
@@ -565,18 +488,20 @@
         },
         "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
       },
-      "BewoningOnbekend" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/AbstractBewoning"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "redenOnbekend" : {
-              "$ref" : "#/components/schemas/Waardetabel"
-            }
+      "Periode" : {
+        "type" : "object",
+        "properties" : {
+          "datumVan" : {
+            "type" : "string",
+            "format" : "date",
+            "example" : "2020-01-01"
           },
-          "description" : "Voor deze verblijfplaats kunnen de medebewoners niet worden bepaald.\nDe reden dat geen bewoning/bewoners kan worden bepaald staat in `redenOnbekend`. Deze wordt gevuld op basis van de waarden die voorkomen in de tabel 'Reden_Bewoning_Onbekend' uit de Haal-Centraal-BRP-tabellen-bevragen API.\n"
-        } ]
+          "datumTot" : {
+            "type" : "string",
+            "format" : "date",
+            "example" : "2021-01-01"
+          }
+        }
       },
       "Bewoner" : {
         "type" : "object",
@@ -592,24 +517,14 @@
           }
         }
       },
+      "Burgerservicenummer" : {
+        "pattern" : "^[0-9]{9}$",
+        "type" : "string",
+        "example" : "555555021"
+      },
       "GeheimhoudingPersoonsgegevens" : {
         "type" : "boolean",
         "description" : "Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.\n"
-      },
-      "Waardetabel" : {
-        "type" : "object",
-        "properties" : {
-          "code" : {
-            "pattern" : "^[a-zA-Z0-9 \\.]+$",
-            "type" : "string",
-            "example" : "6030"
-          },
-          "omschrijving" : {
-            "pattern" : "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$",
-            "type" : "string",
-            "example" : "Nederland"
-          }
-        }
       },
       "InOnderzoek" : {
         "type" : "boolean",

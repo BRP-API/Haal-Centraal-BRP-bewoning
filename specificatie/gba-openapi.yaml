@@ -2,10 +2,10 @@ openapi: 3.0.3
 info:
   title: BRP bewoning
   description: |
-                API voor het raadplegen van de (historische) bewoning van een adres of de medebewoners van een persoon.
-  version: 2.0.0 (develop)
+    API voor het raadplegen van de (historische) bewoning van een adres.
+  version: 2.0.0
   contact:
-    url: https://github.com/VNG-Realisatie/Haal-Centraal-BRP-bewoning
+    url: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning
   license:
     name: European Union Public License, version 1.2 (EUPL-1.2)
     url: https://eupl.eu/1.2/nl/
@@ -16,19 +16,15 @@ paths:
     post:
       summary: Raadplegen van bewoningen
       description: |
-              Met de API kun je raadplegen:
+        Met de API kun je raadplegen:
 
-              **Bewoning:**
-              welke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of
-              welke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.
-
-              **Medebewoners:**
-              welke personen op een bepaald moment (peildatum) met opgegeven persoon hetzelfde adresseerbaar object bewoonden, 
-              of welke samenstellingen van personen in een opgegeven periode tegelijkertijd met persoon hetzelfde adresseerbaar object bewoonden.
+        **Bewoning:**
+        welke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of
+        welke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.
       operationId: Bewoningen
       requestBody:
         content:
-          application/json:
+          'application/json; charset=utf-8':
             schema:
               $ref: "#/components/schemas/BewoningenQuery"
       responses:
@@ -47,7 +43,7 @@ paths:
             X-Rate-Limit-Reset:
               $ref: "common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
-            application/json:
+            'application/json; charset=utf-8':
               schema:
                 $ref: "#/components/schemas/GbaBewoningenQueryResponse"
         '400':
@@ -79,40 +75,11 @@ components:
       discriminator:
         propertyName: type
         mapping:
-          MedebewonersMetPeildatum: '#/components/schemas/MedebewonersMetPeildatum'
-          MedebewonersMetPeriode: '#/components/schemas/MedebewonersMetPeriode'
           BewoningMetPeildatum: '#/components/schemas/BewoningMetPeildatum'
           BewoningMetPeriode: '#/components/schemas/BewoningMetPeriode'
       properties:
         type:
           type: string
-    MedebewonersMetPeildatum:
-      required:
-        - peildatum
-        - burgerservicenummer
-      allOf:
-        - $ref: '#/components/schemas/BewoningenQuery'
-        - type: object
-          properties:
-            peildatum:
-              $ref: 'filter.yaml#/components/schemas/Peildatum'
-            burgerservicenummer:
-              $ref: "bewoner.yaml#/components/schemas/Burgerservicenummer"
-    MedebewonersMetPeriode:
-      required:
-        - datumVan
-        - datumTot
-        - burgerservicenummer
-      allOf:
-        - $ref: '#/components/schemas/BewoningenQuery'
-        - type: object
-          properties:
-            datumVan:
-              $ref: 'filter.yaml#/components/schemas/DatumVan'
-            datumTot:
-              $ref: 'filter.yaml#/components/schemas/DatumTot'
-            burgerservicenummer:
-              $ref: "bewoner.yaml#/components/schemas/Burgerservicenummer"
     BewoningMetPeildatum:
       required:
         - peildatum

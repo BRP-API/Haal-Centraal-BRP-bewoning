@@ -7,11 +7,14 @@ const tableNameMap = new Map([
     ['gezagsverhouding', 'lo3_pl_gezagsverhouding'],
     ['inschrijving', 'lo3_pl'],
     ['persoon', 'lo3_pl_persoon' ],
+    ['protocollering', 'haalcentraal_vraag'],
     ['verblijfplaats', 'lo3_pl_verblijfplaats'],
 
 ]);
 
 const columnNameMap = new Map([
+
+    ['gemeente van inschrijving (09.10)', 'inschrijving_gemeente_code'],
 
     ['datum aanvang adreshouding (10.30)', 'adreshouding_start_datum'],
 
@@ -37,6 +40,10 @@ const columnNameMap = new Map([
     ['datum einde onderzoek (83.30)', 'onderzoek_eind_datum' ],
 
     ['gemeentecode (92.10)', 'gemeente_code'],
+
+    ['Rubrieknummer ad hoc (35.95.60)', 'ad_hoc_rubrieken'],
+    ['Medium ad hoc (35.95.67)', 'ad_hoc_medium'],
+    ['Datum ingang (35.99.98)', 'tabel_regel_start_datum'],
 
 ]);
 

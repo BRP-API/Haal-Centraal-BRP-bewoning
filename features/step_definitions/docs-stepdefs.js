@@ -26,6 +26,12 @@ Given(/^de (\d)e '(.*)' statement heeft als resultaat '(\d*)'$/, function (index
     }
 });
 
+Given(/^de response body is gelijk aan$/, function (docString) {
+    this.context.response = {
+        data: JSON.parse(docString)
+    };
+});
+
 function groupeerQueriesInDataTableInQueriesPerEntiteit(dataTable) {
     let retval = [];
 

@@ -17,5 +17,5 @@ services:
       - bewoningen-api-network
 
 networks:
-  brp-bewoningen-network:
+  bewoningen-api-network:
     name: bewoningen-api-network
