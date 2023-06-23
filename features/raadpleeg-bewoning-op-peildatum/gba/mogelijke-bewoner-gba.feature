@@ -77,13 +77,13 @@ Functionaliteit: mogelijke bewoner bij onzekere begin- of einddatum van het verb
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
-      | peildatum                        | 2022-08-04           |
+      | peildatum                        | 2022-08-01           |
       | adresseerbaarObjectIdentificatie | 0518010000713450     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
-      | periode                          | 2022-08-04 tot 2022-08-05 |
+      | periode                          | 2022-08-01 tot 2022-08-02 |
       | adresseerbaarObjectIdentificatie | 0518010000713450          |
-      En heeft de bewoning voor de bewoningPeriode '2022-08-04 tot 2022-08-05' een mogelijke bewoner met de volgende gegevens
+      En heeft de bewoning voor de bewoningPeriode '2022-08-01 tot 2022-08-02' een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
 
