@@ -67,7 +67,7 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | 2010-08-17 | 2010-08-17 tot 2010-08-18 | peildatum valt op laatste dag van vorig adreshouding periode  |
     | 2016-05-26 | 2016-05-26 tot 2016-05-27 | peildatum valt op eerste dag van volgend adreshouding periode |
 
-  Abstract Scenario: de bewoner is geëmigreerd <omschrijving>
+  Abstract Scenario: <omschrijving>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
@@ -86,9 +86,9 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     En heeft de bewoning voor de bewoningPeriode '<periode>' geen bewoners
 
     Voorbeelden:
-    | peildatum  | periode                   | omschrijving      |
-    | 2023-05-26 | 2023-05-26 tot 2023-05-27 | op de peildatum   |
-    | 2023-06-01 | 2023-06-01 tot 2023-06-02 | voor de peildatum |
+      | peildatum  | periode                   | omschrijving                                |
+      | 2023-05-26 | 2023-05-26 tot 2023-05-27 | de bewoner is geëmigreerd op de peildatum   |
+      | 2023-06-01 | 2023-06-01 tot 2023-06-02 | de bewoner is geëmigreerd voor de peildatum |
 
   Scenario: de bewoner is geëmigreerd na de peildatum
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
