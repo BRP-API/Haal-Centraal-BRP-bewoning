@@ -78,7 +78,7 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
       | adresseerbaarObjectIdentificatie | 0518010000713450     |
       Dan heeft de persoon met burgerservicenummer '000000024' de volgende 'protocollering' gegevens
       | request_gevraagde_rubrieken | request_zoek_rubrieken |
-      | 010120                      | 081030, 081180         |
+      | 010120                      | 081030, 081180, 081320 |
       En heeft de persoon met burgerservicenummer '000000048' de volgende 'protocollering' gegevens
       | request_gevraagde_rubrieken | request_zoek_rubrieken |
-      | 010120                      | 081030, 081180         |
+      | 010120                      | 081030, 081180, 081320 |
