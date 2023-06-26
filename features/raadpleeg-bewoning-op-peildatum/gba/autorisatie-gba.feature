@@ -71,7 +71,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoning                                                    |
 
-    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner op peildatum is nu niet meer ingeschreven in de gemeente
+    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is nu niet meer ingeschreven in de gemeente
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20100818                           |
@@ -86,7 +86,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       Dan heeft de response 1 bewoning
 
     @fout-case
-    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente en de bewoner op peildatum is nu wel ingeschreven in de gemeente
+    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente en de bewoner is nu wel ingeschreven in de gemeente
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000854789' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0518                              | 20041103                           |
