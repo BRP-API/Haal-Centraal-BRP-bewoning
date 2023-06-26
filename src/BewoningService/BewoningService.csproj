@@ -7,6 +7,8 @@
     <UserSecretsId>acbf13b7-9926-457c-bb04-914935d50733</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <AssemblyName>HaalCentraal.BewoningService</AssemblyName>
+    <RootNamespace>HaalCentraal.BewoningService</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,10 +21,6 @@
     <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.0" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="5.2.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
