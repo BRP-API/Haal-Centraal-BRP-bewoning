@@ -11,6 +11,9 @@ info:
     url: https://eupl.eu/1.2/nl/
 tags:
   - name: Bewoning
+externalDocs:
+  description: Haal Centraal BRP bewoning website
+  url: https://brp-api.github.io/Haal-Centraal-BRP-bewoning/
 paths:
   /bewoningen:
     post:
