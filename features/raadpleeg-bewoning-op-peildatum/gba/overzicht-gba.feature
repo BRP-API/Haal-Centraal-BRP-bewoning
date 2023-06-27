@@ -395,7 +395,7 @@ Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adress
     | adresseerbaarObjectIdentificatie | 0518010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | periode                          | 2010-08-18 tot 2010-08-19 |
+    | periode                          | 2010-08-19 tot 2010-08-20 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-08-19 tot 2010-08-20' een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
