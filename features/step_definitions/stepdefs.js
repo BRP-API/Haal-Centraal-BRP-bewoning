@@ -6,7 +6,7 @@ const should = require('chai').use(deepEqualInAnyOrder).should();
 const { Pool } = require('pg');
 const { noSqlData, executeSqlStatements, rollbackSqlStatements, insertIntoPersoonlijstStatement, insertIntoAdresStatement, insertIntoStatement } = require('./postgresqlHelpers.js');
 const { createCollectieDataFromArray, createArrayFrom, createVoorkomenDataFromArray } = require('./dataTable2Array.js');
-const { postBevragenRequestWithBasicAuth, handleOAuthRequest } = require('./handleRequest.js');
+const { postBevragenRequestWithBasicAuth, handleOAuthRequest, handleCustomBevragenRequest } = require('./handleRequest.js');
 const { tableNameMap, columnNameMap, createAutorisatieSettingsFor, createRequestBody, createBasicAuthorizationHeader, createAdresseringBinnenlandAutorisatieSettingsFor, createVerblijfplaatsBinnenlandAutorisatieSettingsFor } = require('./gba.js');
 const { stringifyValues } = require('./stringify.js');
 
@@ -226,13 +226,43 @@ async function handleRequest(context, dataTable) {
     }
 }
 
-When(/^bewoning wordt gezocht met de volgende parameters$/, function (dataTable) {
+When(/^bewoning wordt gezocht met de volgende parameters$/, async function (dataTable) {
+    this.context.proxyAanroep = true;
+
+    await handleRequest(this.context, dataTable);
 });
 
 When(/^gba bewoning wordt gezocht met de volgende parameters$/, async function (dataTable) {
     this.context.proxyAanroep = false;
 
     await handleRequest(this.context, dataTable);
+});
+
+When(/^bewoning wordt gezocht met een '(.*)' aanroep$/, async function(verb){
+    this.context.proxyAanroep = true;
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [{}];
+    }
+
+    const afnemerId = this.context.afnemerId ?? this.context.oAuth.clients[0].afnemerID;
+    const gemeenteCode = this.context.gemeenteCode ?? "800";
+
+    const heeftAutorisatieSettings = this.context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
+    if(!heeftAutorisatieSettings){
+        let sqlData = this.context.sqlData.at(-1);
+        sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
+    }
+
+    await executeSqlStatements(this.context.sqlData, pool, tableNameMap, logSqlStatements);
+
+    if(this.context.oAuth.enable){
+        const result = await handleOAuthCustomRequest(accessToken, this.context.oAuth, afnemerId, this.context.proxyUrl, verb, '{}');
+        this.context.response = result.response;
+        accessToken = result.accessToken;
+    }
+    else {
+        this.context.response = await handleCustomBevragenRequest(this.context.proxyUrl, verb, undefined, createBasicAuthorizationHeader(afnemerId, gemeenteCode), '{}');
+    }
 });
 
 Then(/^heeft de response geen bewoningen$/, function () {
@@ -395,6 +425,10 @@ Then(/^heeft de response een object met de volgende gegevens$/, function (dataTa
     this.context.expected = createObjectFrom(dataTable, this.context.proxyAanroep);
 });
 
+Then(/^heeft het object de volgende '(.*)' gegevens$/, function (gegevensgroep, dataTable) {
+    this.context.expected[gegevensgroep] = dataTable.hashes();
+});
+
 After({tags: 'not @fout-case'}, async function() {
     if (this.context.verifyResponse === undefined ||
         !this.context.verifyResponse) {
@@ -409,6 +443,24 @@ After({tags: 'not @fout-case'}, async function() {
     const expected = this.context.expected !== undefined
         ? this.context.expected
         : [];
+
+    actual.should.deep.equalInAnyOrder(expected, `actual: ${JSON.stringify(actual, null, '\t')}\nexpected: ${JSON.stringify(expected, null, '\t')}`);
+});
+
+After({tags: '@fout-case'}, async function() {
+    this.context.response.status.should.not.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+
+    const headers = this.context?.response?.headers;
+    should.exist(headers, 'no response headers found');
+
+    const header = headers["content-type"];
+    should.exist(header, `no header found with name 'content-type'. Response headers: ${headers}`);
+    header.should.contain('application/problem+json', "no 'content-type' header found with value: 'application/problem+json'");
+
+    const actual = this.context?.response?.data !== undefined
+        ? stringifyValues(this.context.response.data)
+        : {};
+    const expected = this.context.expected;
 
     actual.should.deep.equalInAnyOrder(expected, `actual: ${JSON.stringify(actual, null, '\t')}\nexpected: ${JSON.stringify(expected, null, '\t')}`);
 });
