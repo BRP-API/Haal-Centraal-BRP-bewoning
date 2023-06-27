@@ -5,7 +5,6 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
 
   Rule: een verblijfplaats met Aangifte adreshouding (72.10) met waarde "W" of "T" is dezelfde bewoning als de daaraan voorafgaande verblijfplaats van de persoon
       - hierbij geldt de datum aanvang adreshouding van de voorafgaande verblijfplaats
-      - hierbij wordt de bewoning geleverd die geldt/gold op de peildatum
 
     Abstract Scenario: bewoner van hernummerd verblijfsobject
       Gegeven een adres heeft de volgende gegevens
@@ -27,6 +26,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | 1084010011067299     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde           |
+      | type                             | Bewoning         |
       | periode                          | <periode>        |
       | adresseerbaarObjectIdentificatie | 1084010011067299 |
       En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
@@ -37,37 +37,6 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | peildatum  | periode                   | omschrijving                   |
       | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum na de hernummering   |
       | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor de hernummering |
-
-    Abstract Scenario: BAG identificaties zijn toegevoegd tijdens de bewoning
-      Gegeven een adres heeft de volgende gegevens
-      | gemeentecode (92.10) | straatnaam (11.10) |
-      | 1084                 | Spui               |
-      En een adres heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
-      | 1084                 | 1084010011067299                         | 1084200022197986                           |
-      En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'straatnaam (11.10)' 'Spui' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100818                           |
-      En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '1084010011067299' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
-      | 20220501                           | T                             |
-      Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde               |
-      | type                             | BewoningMetPeildatum |
-      | peildatum                        | <peildatum>          |
-      | adresseerbaarObjectIdentificatie | 1084010011067299     |
-      Dan heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde           |
-      | periode                          | <periode>        |
-      | adresseerbaarObjectIdentificatie | 1084010011067299 |
-      En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
-      | burgerservicenummer |
-      | 000000024           |
-
-      Voorbeelden:
-      | peildatum  | periode                   | omschrijving                                                        |
-      | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum na de technische wijziging (toevoegen BAG identificaties) |
-      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor de technische wijziging                              |
 
     Abstract Scenario: adres is na gemeentelijke herindeling in andere gemeente komen liggen
       Gegeven een adres heeft de volgende gegevens
@@ -100,6 +69,73 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum na de gemeentelijke herindeling   |
       | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor de gemeentelijke herindeling |
 
+
+  Rule: van een adres zonder adresseerbaar object identificatie is de bewoning onbekend
+
+    Abstract Scenario: BAG identificaties zijn toegevoegd voor de peildatum
+      Gegeven een adres heeft de volgende gegevens
+      | gemeentecode (92.10) | straatnaam (11.10) |
+      | 1084                 | Spui               |
+      En een adres heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
+      | 1084                 | 1084010011067299                         | 1084200022197986                           |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'straatnaam (11.10)' 'Spui' met de volgende gegevens
+      | datum aanvang adreshouding (10.30) |
+      | 20100818                           |
+      En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '1084010011067299' met de volgende gegevens
+      | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
+      | 20220501                           | T                             |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | <peildatum>          |
+      | adresseerbaarObjectIdentificatie | 1084010011067299     |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde           |
+      | type                             | Bewoning         |
+      | periode                          | <periode>        |
+      | adresseerbaarObjectIdentificatie | 1084010011067299 |
+      En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+
+      Voorbeelden:
+      | peildatum  | periode                   | omschrijving                                                        |
+      | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum na de technische wijziging (toevoegen BAG identificaties) |
+      | 2022-05-01 | 2022-05-01 tot 2022-05-02 | peildatum op de dag van de technische wijziging                     |
+
+    Abstract Scenario: op de peildatum zijn er nog geen BAG identificaties bekend
+      Gegeven een adres heeft de volgende gegevens
+      | gemeentecode (92.10) | straatnaam (11.10) |
+      | 1084                 | Spui               |
+      En een adres heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
+      | 1084                 | 1084010011067299                         | 1084200022197986                           |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'straatnaam (11.10)' 'Spui' met de volgende gegevens
+      | datum aanvang adreshouding (10.30) |
+      | 20100818                           |
+      En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '1084010011067299' met de volgende gegevens
+      | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
+      | 20220501                           | T                             |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | <peildatum>          |
+      | adresseerbaarObjectIdentificatie | 1084010011067299     |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam    | waarde           |
+      | type    | BewoningOnbekend |
+      | periode | <periode>        |
+      En heeft de bewoning voor de bewoningPeriode '<periode>' geen bewoners
+
+      Voorbeelden:
+      | peildatum  | periode                   | omschrijving                                                                 |
+      | 2022-04-30 | 2022-04-30 tot 2022-05-01 | peildatum dag voor de de technische wijziging (toevoegen BAG identificaties) |
+      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor de technische wijziging                                       |
+    
+
+  Rule: bij een verblijfplaats met Aangifte adreshouding (72.10) met waarde "W" of "T" wordt de bewoning geleverd van het adresseerbaar object dat geldig was op de peildatum
+
     Abstract Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het samenvoegen van verblijfsobjecten
       Gegeven een adres heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
@@ -120,6 +156,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | <vraag object identificatie> |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                          |
+      | type                             | Bewoning                        |
       | periode                          | <periode>                       |
       | adresseerbaarObjectIdentificatie | <antwoord object identificatie> |
       En heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
@@ -162,6 +199,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | <adresseerbaar object identificatie> |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
+      | type                             | Bewoning                  |
       | periode                          | 2023-01-01 tot 2023-01-02 |
       | adresseerbaarObjectIdentificatie | 1084010022197986          |
       En heeft de bewoning voor de bewoningPeriode '2023-01-01 tot 2023-01-02' bewoners met de volgende gegevens
@@ -203,6 +241,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | 1084010022197986     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
+      | type                             | Bewoning                  |
       | periode                          | 2022-01-01 tot 2022-01-02 |
       | adresseerbaarObjectIdentificatie | 1084010011067299          |
       En heeft de bewoning voor de bewoningPeriode '2022-01-01 tot 2022-01-02' bewoners met de volgende gegevens
@@ -210,16 +249,12 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 000000024           |
       En heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
+      | type                             | Bewoning                  |
       | periode                          | 2022-01-01 tot 2022-01-02 |
       | adresseerbaarObjectIdentificatie | 1084010022192681          |
       En heeft de bewoning voor de bewoningPeriode '2022-01-01 tot 2022-01-02' bewoners met de volgende gegevens
       | burgerservicenummer |
       | 000000048           |
-
-      Voorbeelden:
-      | vraag object identificatie | antwoord object identificatie | bewoner | peildatum  | periode                   | omschrijving                                                                      |
-      | 1084010011067299           | 1084010011067299              | 2022-01-01 | 2022-01-01 tot 2022-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum voor de wijziging |
-      | 1084010022197986           | 1084010011067299              | 2022-01-01 | 2022-01-01 tot 2022-01-02 | actuele adresseerbaar object identificatie en peildatum voor de wijziging         |
   
     Abstract Scenario: adresseerbaar object is samengevoegd waarbij de bewoners van de oorspronkelijke verblijfsobjecten zijn gaan samenwonen met vragen op peildatum voor de samenvoeging met de oorspronkelijke adresseerbaar object identificatie
       Gegeven een adres heeft de volgende gegevens
@@ -250,6 +285,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaarObjectIdentificatie | <adresseerbaar object identificatie> |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                               |
+      | type                             | Bewoning                             |
       | periode                          | 2022-01-01 tot 2022-01-02            |
       | adresseerbaarObjectIdentificatie | <adresseerbaar object identificatie> |
       En heeft de bewoning voor de bewoningPeriode '2022-01-01 tot 2022-01-02' bewoners met de volgende gegevens
@@ -342,8 +378,6 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | adresseerbaar object identificatie | burgerservicenummer |
       | 1084010022197986                   | 000000024           |
       | 1084010022192681                   | 000000048           |
-
-  Rule: bij bepalen van bewoning wordt niet gekeken of de volgende verblijfplaats Aangifte adreshouding (72.10) de waarde "W" of "T" heeft
 
     Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het samenvoegen van verblijfsobjecten en bewoning van het oorspronkelijke adresseerbaar object wordt gevraagd op een peildatum na de wijziging
       Gegeven een adres heeft de volgende gegevens
