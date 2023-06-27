@@ -1,3 +1,4 @@
+using BewoningProxy.Middlewares;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -16,6 +17,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+app.UseMiddleware<OverwriteResponseBodyMiddleware>();
 app.UseOcelot().Wait();
 
 app.Run();
