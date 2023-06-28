@@ -300,7 +300,7 @@
               "$ref" : "#/components/schemas/Peildatum"
             },
             "adresseerbaarObjectIdentificatie" : {
-              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
+              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatieFilter"
             }
           }
         } ]
@@ -319,7 +319,7 @@
               "$ref" : "#/components/schemas/DatumTot"
             },
             "adresseerbaarObjectIdentificatie" : {
-              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
+              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatieFilter"
             }
           }
         } ]
@@ -425,10 +425,10 @@
         "format" : "date",
         "example" : "1964-09-24"
       },
-      "AdresseerbaarObjectIdentificatie" : {
-        "pattern" : "^[0-9]{16}$",
+      "AdresseerbaarObjectIdentificatieFilter" : {
+        "pattern" : "^(?!0{16})[0-9]{16}$",
         "type" : "string",
-        "description" : "De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.\n",
+        "description" : "De identificatie van het adresseerbaar object waarover de bewoning wordt gevraagd.\n",
         "example" : "0226010000038820"
       },
       "DatumVan" : {
@@ -505,6 +505,12 @@
             "example" : "2021-01-01"
           }
         }
+      },
+      "AdresseerbaarObjectIdentificatie" : {
+        "pattern" : "^[0-9]{16}$",
+        "type" : "string",
+        "description" : "De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.\n",
+        "example" : "0226010000038820"
       },
       "GbaBewoner" : {
         "type" : "object",

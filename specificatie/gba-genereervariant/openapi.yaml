@@ -227,7 +227,7 @@ components:
           peildatum:
             $ref: '#/components/schemas/Peildatum'
           adresseerbaarObjectIdentificatie:
-            $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
+            $ref: '#/components/schemas/AdresseerbaarObjectIdentificatieFilter'
     BewoningMetPeriode:
       required:
       - adresseerbaarObjectIdentificatie
@@ -242,7 +242,7 @@ components:
           datumTot:
             $ref: '#/components/schemas/DatumTot'
           adresseerbaarObjectIdentificatie:
-            $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
+            $ref: '#/components/schemas/AdresseerbaarObjectIdentificatieFilter'
     GbaBewoningenQueryResponse:
       type: object
       properties:
@@ -321,11 +321,11 @@ components:
         Peildatum: de datum waarop je de bewoning wil weten.
       format: date
       example: 1964-09-24
-    AdresseerbaarObjectIdentificatie:
-      pattern: "^[0-9]{16}$"
+    AdresseerbaarObjectIdentificatieFilter:
+      pattern: "^(?!0{16})[0-9]{16}$"
       type: string
       description: |
-        De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.
+        De identificatie van het adresseerbaar object waarover de bewoning wordt gevraagd.
       example: "0226010000038820"
     DatumVan:
       type: string
@@ -388,6 +388,12 @@ components:
           type: string
           format: date
           example: 2021-01-01
+    AdresseerbaarObjectIdentificatie:
+      pattern: "^[0-9]{16}$"
+      type: string
+      description: |
+        De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.
+      example: "0226010000038820"
     GbaBewoner:
       type: object
       properties:
