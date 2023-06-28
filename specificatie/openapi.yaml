@@ -114,4 +114,4 @@ components:
         bewoningen:
           type: array
           items:
-            $ref: 'bewoning.yaml#/components/schemas/Bewoning'
+            $ref: 'bewoning.yaml#/components/schemas/AbstractBewoning'

@@ -6,30 +6,76 @@ info:
 paths: {}
 components:
   schemas:
-    Bewoning:
+    AbstractBewoning:
       type: object
-      description: Bewoning van een adresseerbaar object
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          Bewoning: '#/components/schemas/Bewoning'
+          BewoningOnbekend: '#/components/schemas/BewoningOnbekend'
       properties:
-        adresseerbaarObjectIdentificatie:
-          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
-        bewoningPeriodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/BewoningPeriode'
+        type:
+          type: string
+        periode:
+          $ref: '#/components/schemas/Periode'
+    Bewoning:
+      description: Bewoning van een adresseerbaar object
+      allOf:
+        - $ref: '#/components/schemas/AbstractBewoning'
+        - type: object
+          properties:
+            adresseerbaarObjectIdentificatie:
+              $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+            bewoningPeriodes:
+              type: array
+              items:
+                $ref: '#/components/schemas/BewoningPeriode'
+    BewoningOnbekend:
+      description: |
+        Verblijfobject waarvoor geen bewoning kan worden bepaald.
+      allOf:
+        - $ref: '#/components/schemas/AbstractBewoning'
+        - type: object
+          properties:
+            redenOnbekend:
+              $ref: 'common.yaml#/components/schemas/Waardetabel'
+    GbaAbstractBewoning:
+      type: object
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          Bewoning: '#/components/schemas/GbaBewoning'
+          BewoningOnbekend: '#/components/schemas/GbaBewoningOnbekend'
+      properties:
+        type:
+          type: string
         periode:
           $ref: '#/components/schemas/Periode'
     GbaBewoning:
-      type: object
       description: Bewoning van een adresseerbaar object
-      properties:
-        adresseerbaarObjectIdentificatie:
-          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
-        bewoningPeriodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/GbaBewoningPeriode'
-        periode:
-          $ref: '#/components/schemas/Periode'
+      allOf:
+        - $ref: '#/components/schemas/GbaAbstractBewoning'
+        - type: object
+          properties:
+            adresseerbaarObjectIdentificatie:
+              $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+            bewoningPeriodes:
+              type: array
+              items:
+                $ref: '#/components/schemas/GbaBewoningPeriode'
+    GbaBewoningOnbekend:
+      description: |
+        Verblijfobject waarvoor geen bewoning kan worden bepaald.
+      allOf:
+        - $ref: '#/components/schemas/GbaAbstractBewoning'
+        - type: object
+          properties:
+            redenOnbekend:
+              $ref: 'common.yaml#/components/schemas/Waardetabel'
     Periode:
       type: object
       properties:
@@ -49,7 +95,7 @@ components:
           $ref: '#/components/schemas/Periode'
         bewoners:
           type: array
-          minItems: 1
+          minItems: 0
           maxItems: 100
           items:
             $ref: 'bewoner.yaml#/components/schemas/Bewoner'
@@ -57,7 +103,7 @@ components:
           type: array
           description: |
                 Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
-          minItems: 1
+          minItems: 0
           maxItems: 100
           items:
             $ref: 'bewoner.yaml#/components/schemas/Bewoner'
@@ -72,7 +118,7 @@ components:
           $ref: '#/components/schemas/Periode'
         bewoners:
           type: array
-          minItems: 1
+          minItems: 0
           maxItems: 100
           items:
             $ref: 'bewoner.yaml#/components/schemas/GbaBewoner'
@@ -80,7 +126,7 @@ components:
           type: array
           description: |
                 Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
-          minItems: 1
+          minItems: 0
           maxItems: 100
           items:
             $ref: 'bewoner.yaml#/components/schemas/GbaBewoner'
