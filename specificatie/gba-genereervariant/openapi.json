@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.3",
   "info" : {
-    "title" : "BRP bewoning",
+    "title" : "Haal Centraal BRP bewoning",
     "description" : "API voor het raadplegen van de (historische) bewoning van een adres.\n",
     "contact" : {
       "url" : "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning"
@@ -13,7 +13,11 @@
     "version" : "2.0.0"
   },
   "servers" : [ {
-    "url" : "/"
+    "url" : "https://proefomgeving.haalcentraal.nl/haalcentraal/api/bewoning",
+    "description" : "Proef omgeving\n"
+  }, {
+    "url" : "http://localhost:5010/haalcentraal/api/bewoning",
+    "description" : "Lokaal\n"
   } ],
   "tags" : [ {
     "name" : "Bewoning"
@@ -330,7 +334,7 @@
           "bewoningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/GbaBewoning"
+              "$ref" : "#/components/schemas/GbaAbstractBewoning"
             }
           }
         }
@@ -443,53 +447,24 @@
         "format" : "date",
         "example" : "1964-09-24"
       },
-      "GbaBewoning" : {
+      "GbaAbstractBewoning" : {
+        "required" : [ "type" ],
         "type" : "object",
         "properties" : {
-          "adresseerbaarObjectIdentificatie" : {
-            "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
-          },
-          "bewoningPeriodes" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/GbaBewoningPeriode"
-            }
+          "type" : {
+            "type" : "string"
           },
           "periode" : {
             "$ref" : "#/components/schemas/Periode"
           }
         },
-        "description" : "Bewoning van een adresseerbaar object"
-      },
-      "GbaBewoningPeriode" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "$ref" : "#/components/schemas/Periode"
-          },
-          "bewoners" : {
-            "maxItems" : 100,
-            "minItems" : 1,
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/GbaBewoner"
-            }
-          },
-          "mogelijkeBewoners" : {
-            "maxItems" : 100,
-            "minItems" : 1,
-            "type" : "array",
-            "description" : "Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.\n",
-            "items" : {
-              "$ref" : "#/components/schemas/GbaBewoner"
-            }
-          },
-          "indicatieVeelBewoners" : {
-            "type" : "boolean",
-            "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven."
+        "discriminator" : {
+          "propertyName" : "type",
+          "mapping" : {
+            "Bewoning" : "#/components/schemas/GbaBewoning",
+            "BewoningOnbekend" : "#/components/schemas/GbaBewoningOnbekend"
           }
-        },
-        "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
+        }
       },
       "Periode" : {
         "type" : "object",
@@ -505,6 +480,68 @@
             "example" : "2021-01-01"
           }
         }
+      },
+      "GbaBewoning" : {
+        "description" : "Bewoning van een adresseerbaar object",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/GbaAbstractBewoning"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "adresseerbaarObjectIdentificatie" : {
+              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
+            },
+            "bewoningPeriodes" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/GbaBewoningPeriode"
+              }
+            }
+          }
+        } ]
+      },
+      "GbaBewoningPeriode" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "$ref" : "#/components/schemas/Periode"
+          },
+          "bewoners" : {
+            "maxItems" : 100,
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/GbaBewoner"
+            }
+          },
+          "mogelijkeBewoners" : {
+            "maxItems" : 100,
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.\n",
+            "items" : {
+              "$ref" : "#/components/schemas/GbaBewoner"
+            }
+          },
+          "indicatieVeelBewoners" : {
+            "type" : "boolean",
+            "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven."
+          }
+        },
+        "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
+      },
+      "GbaBewoningOnbekend" : {
+        "description" : "Verblijfobject waarvoor geen bewoning kan worden bepaald.\n",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/GbaAbstractBewoning"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "redenOnbekend" : {
+              "$ref" : "#/components/schemas/Waardetabel"
+            }
+          }
+        } ]
       },
       "GbaBewoner" : {
         "type" : "object",
@@ -529,6 +566,21 @@
         "maximum" : 7,
         "minimum" : 0,
         "type" : "integer"
+      },
+      "Waardetabel" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "pattern" : "^[a-zA-Z0-9 \\.]+$",
+            "type" : "string",
+            "example" : "6030"
+          },
+          "omschrijving" : {
+            "pattern" : "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$",
+            "type" : "string",
+            "example" : "Nederland"
+          }
+        }
       },
       "GbaInOnderzoek" : {
         "pattern" : "^[0-9]{6}$",

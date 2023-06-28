@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: BRP bewoning
+  title: Haal Centraal BRP bewoning
   description: |
     API voor het raadplegen van de (historische) bewoning van een adres.
   contact:
@@ -10,7 +10,12 @@ info:
     url: https://eupl.eu/1.2/nl/
   version: 2.0.0
 servers:
-- url: /
+- url: https://proefomgeving.haalcentraal.nl/haalcentraal/api/bewoning
+  description: |
+    Proef omgeving
+- url: http://localhost:5010/haalcentraal/api/bewoning
+  description: |
+    Lokaal
 tags:
 - name: Bewoning
 paths:
@@ -249,7 +254,7 @@ components:
         bewoningen:
           type: array
           items:
-            $ref: '#/components/schemas/GbaBewoning'
+            $ref: '#/components/schemas/GbaAbstractBewoning'
     BadRequestFoutbericht:
       allOf:
       - $ref: '#/components/schemas/Foutbericht'
@@ -339,18 +344,43 @@ components:
         De einddatum van de periode waarover de bewoning wordt opgevraagd.
       format: date
       example: 1964-09-24
-    GbaBewoning:
+    GbaAbstractBewoning:
+      required:
+      - type
       type: object
       properties:
-        adresseerbaarObjectIdentificatie:
-          $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
-        bewoningPeriodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/GbaBewoningPeriode'
+        type:
+          type: string
         periode:
           $ref: '#/components/schemas/Periode'
+      discriminator:
+        propertyName: type
+        mapping:
+          Bewoning: '#/components/schemas/GbaBewoning'
+          BewoningOnbekend: '#/components/schemas/GbaBewoningOnbekend'
+    Periode:
+      type: object
+      properties:
+        datumVan:
+          type: string
+          format: date
+          example: 2020-01-01
+        datumTot:
+          type: string
+          format: date
+          example: 2021-01-01
+    GbaBewoning:
       description: Bewoning van een adresseerbaar object
+      allOf:
+      - $ref: '#/components/schemas/GbaAbstractBewoning'
+      - type: object
+        properties:
+          adresseerbaarObjectIdentificatie:
+            $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
+          bewoningPeriodes:
+            type: array
+            items:
+              $ref: '#/components/schemas/GbaBewoningPeriode'
     GbaBewoningPeriode:
       type: object
       properties:
@@ -358,13 +388,13 @@ components:
           $ref: '#/components/schemas/Periode'
         bewoners:
           maxItems: 100
-          minItems: 1
+          minItems: 0
           type: array
           items:
             $ref: '#/components/schemas/GbaBewoner'
         mogelijkeBewoners:
           maxItems: 100
-          minItems: 1
+          minItems: 0
           type: array
           description: |
             Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
@@ -377,17 +407,15 @@ components:
             \ met uitzondering van de persoon waarvan de BSN is opgegeven."
       description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling
         van bewoners was.
-    Periode:
-      type: object
-      properties:
-        datumVan:
-          type: string
-          format: date
-          example: 2020-01-01
-        datumTot:
-          type: string
-          format: date
-          example: 2021-01-01
+    GbaBewoningOnbekend:
+      description: |
+        Verblijfobject waarvoor geen bewoning kan worden bepaald.
+      allOf:
+      - $ref: '#/components/schemas/GbaAbstractBewoning'
+      - type: object
+        properties:
+          redenOnbekend:
+            $ref: '#/components/schemas/Waardetabel'
     GbaBewoner:
       type: object
       properties:
@@ -405,6 +433,17 @@ components:
       maximum: 7
       minimum: 0
       type: integer
+    Waardetabel:
+      type: object
+      properties:
+        code:
+          pattern: "^[a-zA-Z0-9 \\.]+$"
+          type: string
+          example: "6030"
+        omschrijving:
+          pattern: "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$"
+          type: string
+          example: Nederland
     GbaInOnderzoek:
       pattern: "^[0-9]{6}$"
       type: string
