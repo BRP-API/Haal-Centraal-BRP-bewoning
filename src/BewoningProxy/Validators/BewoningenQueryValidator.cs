@@ -10,6 +10,7 @@ public static class BewoningenQueryValidator
     {
         var result = bewoningenQuery switch
         {
+            BewoningMetPeildatum query => new BewoningMetPeildatumValidator().Validate(query),
             _ => new BewoningenQueryRequestBodyValidator().Validate(JObject.Parse(requestBody)),
         };
 
