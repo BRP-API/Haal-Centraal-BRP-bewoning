@@ -21,6 +21,13 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
 
   Zowel request_zoek_rubrieken als request_gevraagde_rubrieken bevatten de LO-BRP elementnummers als 6 cijferig rubrieknummer (incl. voorloopnul), gescheiden door komma spatie, en oplopend gesorteerd.
 
+    Achtergrond:
+      Gegeven de afnemer met indicatie '000008' heeft de volgende 'autorisatie' gegevens
+      | Rubrieknummer ad hoc (35.95.60) | Medium ad hoc (35.95.67) | Datum ingang (35.99.98) |
+      | 10120                           | N                        | 20201128                |
+      En de geauthenticeerde consumer heeft de volgende 'claim' gegevens
+      | afnemerID | gemeenteCode |
+      | 000008    | 0518         |
 
   Rule: Parameter peildatum filtert op datum aanvang adreshouding (08.10.30) en datum aanvang adres buitenland (08.13.20), parameter adresseerbaarObjectIdentificatie zoekt op identificatiecode verblijfplaats (08.11.80)
 
