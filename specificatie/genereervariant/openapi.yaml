@@ -9,6 +9,9 @@ info:
     name: "European Union Public License, version 1.2 (EUPL-1.2)"
     url: https://eupl.eu/1.2/nl/
   version: 2.0.0
+externalDocs:
+  description: Haal Centraal BRP bewoning website
+  url: https://brp-api.github.io/Haal-Centraal-BRP-bewoning/
 servers:
 - url: /
 tags:

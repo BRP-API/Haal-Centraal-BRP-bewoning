@@ -24,7 +24,9 @@ function setAdresIdForVerblijfplaatsen(sqlDataElement, sqlData) {
 
     for(const verblijfplaatsElem of sqlDataElement['verblijfplaats']) {
         let adresIdElem = verblijfplaatsElem.find(elem => elem[0] === 'adres_id');
-        adresIdElem[1] = getAdresId(sqlData, Number(adresIdElem[1])) + '';
+        if(adresIdElem !== undefined) {
+            adresIdElem[1] = getAdresId(sqlData, Number(adresIdElem[1])) + '';
+        }
     }
 }
 

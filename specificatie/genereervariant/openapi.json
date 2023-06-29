@@ -12,6 +12,10 @@
     },
     "version" : "2.0.0"
   },
+  "externalDocs" : {
+    "description" : "Haal Centraal BRP bewoning website",
+    "url" : "https://brp-api.github.io/Haal-Centraal-BRP-bewoning/"
+  },
   "servers" : [ {
     "url" : "/"
   } ],
