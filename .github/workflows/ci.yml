@@ -18,7 +18,7 @@ on:
 env:
   DOTNET_VERSION: 6.0.x
   DOTNET_SOLUTION: src/Bewoning.sln
-  NODE_VERSION: '16'
+  NODE_VERSION: '18'
   CONTAINER_NAME: ghcr.io/brp-api/haal-centraal-bewoning-bevragen
   COMPOSE_FILE_ARGUMENT: -f .docker/db-ci.yml -f .docker/bewoning-api.yml -f .docker/bewoning-proxy.yml
 
