@@ -67,6 +67,49 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | 2010-08-17 | 2010-08-17 tot 2010-08-18 | peildatum valt op laatste dag van vorig adreshouding periode  |
     | 2016-05-26 | 2016-05-26 tot 2016-05-27 | peildatum valt op eerste dag van volgend adreshouding periode |
 
+  Abstract Scenario: <omschrijving>
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | land (13.10) | datum aanvang adres buitenland (13.20) | regel 1 adres buitenland (13.30) | regel 2 adres buitenland (13.40) | regel 3 adres buitenland (13.50) |
+    | 5010         | 20230526                               | Rue du pomme 26                  | Bruxelles                        | postcode 1000                    |
+    Als bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | <peildatum>          |
+    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde           |
+    | periode                          | <periode>        |
+    | adresseerbaarObjectIdentificatie | 0518010000713450 |
+    En heeft de bewoning voor de bewoningPeriode '<periode>' geen bewoners
+
+    Voorbeelden:
+      | peildatum  | periode                   | omschrijving                                |
+      | 2023-05-26 | 2023-05-26 tot 2023-05-27 | de bewoner is geëmigreerd op de peildatum   |
+      | 2023-06-01 | 2023-06-01 tot 2023-06-02 | de bewoner is geëmigreerd voor de peildatum |
+
+  Scenario: de bewoner is geëmigreerd na de peildatum
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | land (13.10) | datum aanvang adres buitenland (13.20) | regel 1 adres buitenland (13.30) | regel 2 adres buitenland (13.40) | regel 3 adres buitenland (13.50) |
+    | 5010         | 20230526                               | Rue du pomme 26                  | Bruxelles                        | postcode 1000                    |
+    Als bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2023-05-25           |
+    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | periode                          | 2023-05-25 tot 2023-05-26 |
+    | adresseerbaarObjectIdentificatie | 0518010000713450          |
+    En heeft de bewoning voor de bewoningPeriode '2023-05-25 tot 2023-05-26' een bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
   Abstract Scenario: er zijn meerdere personen ingeschreven op het aangegeven adresseerbaar object en peildatum
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
