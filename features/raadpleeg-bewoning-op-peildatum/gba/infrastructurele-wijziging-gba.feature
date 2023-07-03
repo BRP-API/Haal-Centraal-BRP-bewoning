@@ -123,11 +123,11 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | peildatum                        | <peildatum>          |
       | adresseerbaarObjectIdentificatie | 0800010011067299     |
       Dan heeft de response een bewoning met de volgende gegevens
-      | naam                       | waarde                                                              |
-      | type                       | BewoningOnbekend                                                    |
-      | periode                    | <periode>                                                           |
-      | redenOnbekend.code         | A                                                                   |
-      | redenOnbekend.omschrijving | verblijfplaats in Nederland zonder adresseerbaarObjectIdentificatie |
+      | naam                       | waarde                                        |
+      | type                       | BewoningOnbekend                              |
+      | periode                    | <periode>                                     |
+      | redenOnbekend.code         | B                                             |
+      | redenOnbekend.omschrijving | geen BAG adresseerbaar object in deze periode |
 
       Voorbeelden:
       | peildatum  | periode                   | omschrijving                                                                 |
