@@ -325,21 +325,21 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | peildatum                        | 2022-01-01                          |
       | adresseerbaarObjectIdentificatie | <adresseerbaar object identificatie> |
       Dan heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde                               |
-      | periode                          | 2022-01-01 tot 2022-01-02            |
-      | adresseerbaarObjectIdentificatie | <adresseerbaar object identificatie> |
+      | naam                             | waarde                    |
+      | periode                          | 2022-01-01 tot 2022-01-02 |
+      | adresseerbaarObjectIdentificatie | 1084010011067299          |
       En heeft de bewoning voor de bewoningPeriode '2022-01-01 tot 2022-01-02' bewoners met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
       | 000000048           |
 
       Voorbeelden:
-      | adresseerbaar object identificatie |
-      | 1084010011067299                   |
-      | 1084010022197986                   |
-      | 1084010022192681                   |
+      | adresseerbaar object identificatie | omschrijving                                       |
+      | 1084010011067299                   | oorspronkelijke adresseerbaar object identificatie |
+      | 1084010022197986                   | nieuwe adresseerbaar object identificatie          |
+      | 1084010022192681                   | nieuwe adresseerbaar object identificatie          |
 
-    Abstract Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het splitsen van verblijfsobjecten en peildatum ligt na splitsing
+    Abstract Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het splitsen van verblijfsobjecten en peildatum ligt na splitsing met de nieuwe adresseerbaar object identificatie
       Gegeven een adres heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
       | 1084                 | 1084010011067299                         | 1084200010877405                           |
@@ -379,31 +379,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 1084010022197986                   | 000000024           |
       | 1084010022192681                   | 000000048           |
 
-    Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het samenvoegen van verblijfsobjecten en bewoning van het oorspronkelijke adresseerbaar object wordt gevraagd op een peildatum na de wijziging
-      Gegeven een adres heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
-      | 1084                 | 1084010011067299                         | 1084200010877405                           |
-      En een adres heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
-      | 1084                 | 1084010022197986                         | 1084200010877405                           |
-      En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '1084010011067299' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100818                           |
-      En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '1084010022197986' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
-      | 20220501                           | W                             |
-      Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde                               |
-      | type                             | BewoningMetPeildatum                 |
-      | peildatum                        | 2023-01-01                          |
-      | adresseerbaarObjectIdentificatie | 1084010011067299 |
-      Dan heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde                               |
-      | periode                          | 2023-01-01 tot 2023-01-02                            |
-      | adresseerbaarObjectIdentificatie | 1084010011067299 |
-      En heeft de bewoning voor de bewoningPeriode '2023-01-01 tot 2023-01-02' geen bewoners
-
-    Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het splitsen van verblijfsobjecten en peildatum ligt na splitsing en vragen verblijfsobject dat dan niet meer bestaat
+    Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het splitsen van verblijfsobjecten en peildatum ligt na splitsing met de oorspronkelijke adresseerbaar object identificatie
       Gegeven een adres heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
       | 1084                 | 1084010011067299                         | 1084200010877405                           |
@@ -426,12 +402,21 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
       | 20220501                           | W                             |
       Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde                               |
-      | type                             | BewoningMetPeildatum                 |
-      | peildatum                        | 2023-01-01                           |
-      | adresseerbaarObjectIdentificatie | 1084010011067299 |
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2023-01-01           |
+      | adresseerbaarObjectIdentificatie | 1084010011067299     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
       | periode                          | 2023-01-01 tot 2023-01-02 |
-      | adresseerbaarObjectIdentificatie | 1084010011067299          |
-      En heeft de bewoning voor de bewoningPeriode '2023-01-01 tot 2023-01-02' geen bewoners
+      | adresseerbaarObjectIdentificatie | 1084010022197986          |
+      En heeft de bewoning voor de bewoningPeriode '2023-01-01 tot 2023-01-02' bewoners met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2023-01-01 tot 2023-01-02 |
+      | adresseerbaarObjectIdentificatie | 1084010022192681          |
+      En heeft de bewoning voor de bewoningPeriode '2023-01-01 tot 2023-01-02' bewoners met de volgende gegevens
+      | burgerservicenummer |
+      | 000000048           |
