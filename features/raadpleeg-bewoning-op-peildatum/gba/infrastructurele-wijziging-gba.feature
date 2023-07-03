@@ -126,7 +126,6 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | naam    | waarde           |
       | type    | BewoningOnbekend |
       | periode | <periode>        |
-      En heeft de bewoning voor de bewoningPeriode '<periode>' geen bewoners
 
       Voorbeelden:
       | peildatum  | periode                   | omschrijving                                                                 |
