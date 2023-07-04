@@ -69,7 +69,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | status   | 403                                                                                    |
       | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
       | code     | unauthorized                                                                           |
-      | instance | /haalcentraal/api/bewoning/bewoning                                                    |
+      | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
 
     Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is nu niet meer ingeschreven in de gemeente
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
@@ -105,4 +105,4 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | status   | 403                                                                                    |
       | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
       | code     | unauthorized                                                                           |
-      | instance | /haalcentraal/api/bewoning/bewoning                                                    |
+      | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
