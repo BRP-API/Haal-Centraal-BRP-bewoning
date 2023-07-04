@@ -37,10 +37,6 @@ components:
         Verblijfobject waarvoor geen bewoning kan worden bepaald.
       allOf:
         - $ref: '#/components/schemas/AbstractBewoning'
-        - type: object
-          properties:
-            redenOnbekend:
-              $ref: 'common.yaml#/components/schemas/Waardetabel'
     GbaAbstractBewoning:
       type: object
       required:
@@ -72,10 +68,6 @@ components:
         Verblijfobject waarvoor geen bewoning kan worden bepaald.
       allOf:
         - $ref: '#/components/schemas/GbaAbstractBewoning'
-        - type: object
-          properties:
-            redenOnbekend:
-              $ref: 'common.yaml#/components/schemas/Waardetabel'
     Periode:
       type: object
       properties:
