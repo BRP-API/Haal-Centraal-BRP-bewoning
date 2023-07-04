@@ -213,7 +213,13 @@ async function handleRequest(context, dataTable) {
     const afnemerId = context.afnemerId ?? context.oAuth?.clients[0].afnemerID;
     const gemeenteCode = context.gemeenteCode ?? "800";
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
-    
+
+    const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
+    if(!heeftAutorisatieSettings){
+        let sqlData = context.sqlData.at(-1);
+        sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
+    }
+
     await executeSqlStatements(context.sqlData, pool, tableNameMap, logSqlStatements);
 
     if(context.oAuth.enable){
