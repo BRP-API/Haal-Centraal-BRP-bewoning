@@ -534,13 +534,6 @@
         "description" : "Verblijfobject waarvoor geen bewoning kan worden bepaald.\n",
         "allOf" : [ {
           "$ref" : "#/components/schemas/GbaAbstractBewoning"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "redenOnbekend" : {
-              "$ref" : "#/components/schemas/Waardetabel"
-            }
-          }
         } ]
       },
       "GbaBewoner" : {
@@ -566,21 +559,6 @@
         "maximum" : 7,
         "minimum" : 0,
         "type" : "integer"
-      },
-      "Waardetabel" : {
-        "type" : "object",
-        "properties" : {
-          "code" : {
-            "pattern" : "^[a-zA-Z0-9 \\.]+$",
-            "type" : "string",
-            "example" : "6030"
-          },
-          "omschrijving" : {
-            "pattern" : "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$",
-            "type" : "string",
-            "example" : "Nederland"
-          }
-        }
       },
       "GbaInOnderzoek" : {
         "pattern" : "^[0-9]{6}$",

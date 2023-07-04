@@ -408,10 +408,6 @@ components:
         Verblijfobject waarvoor geen bewoning kan worden bepaald.
       allOf:
       - $ref: '#/components/schemas/AbstractBewoning'
-      - type: object
-        properties:
-          redenOnbekend:
-            $ref: '#/components/schemas/Waardetabel'
     Bewoner:
       type: object
       properties:
@@ -429,17 +425,6 @@ components:
       type: boolean
       description: |
         Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
-    Waardetabel:
-      type: object
-      properties:
-        code:
-          pattern: "^[a-zA-Z0-9 \\.]+$"
-          type: string
-          example: "6030"
-        omschrijving:
-          pattern: "^[a-zA-Z0-9À-ž \\'\\,\\(\\)\\.\\-]{1,200}$"
-          type: string
-          example: Nederland
     InOnderzoek:
       type: boolean
       description: |
