@@ -34,9 +34,9 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 000000024           |
 
       Voorbeelden:
-      | peildatum  | periode                   | omschrijving                   |
-      | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum na de hernummering   |
-      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor de hernummering |
+      | peildatum  | periode                   | omschrijving                        |
+      | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum ligt  na de hernummering  |
+      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum ligt voor de hernummering |
 
     Abstract Scenario: adres is na gemeentelijke herindeling in andere gemeente komen liggen
       Gegeven een adres heeft de volgende gegevens
@@ -65,9 +65,9 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 000000024           |
 
       Voorbeelden:
-      | peildatum  | periode                   | omschrijving                                |
-      | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum na de gemeentelijke herindeling   |
-      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor de gemeentelijke herindeling |
+      | peildatum  | periode                   | omschrijving                                     |
+      | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum ligt na de gemeentelijke herindeling   |
+      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum ligt voor de gemeentelijke herindeling |
 
 
   Rule: van een adres zonder adresseerbaar object identificatie is de bewoning onbekend
@@ -100,9 +100,9 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 000000024           |
 
       Voorbeelden:
-      | peildatum  | periode                   | omschrijving                                                        |
-      | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum na de technische wijziging (toevoegen BAG identificaties) |
-      | 2022-05-01 | 2022-05-01 tot 2022-05-02 | peildatum op de dag van de technische wijziging                     |
+      | peildatum  | periode                   | omschrijving                                                             |
+      | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum ligt na de technische wijziging (toevoegen BAG identificaties) |
+      | 2022-05-01 | 2022-05-01 tot 2022-05-02 | peildatum is de dag van de technische wijziging                          |
 
     Abstract Scenario: op de peildatum zijn er nog geen BAG identificaties bekend
       Gegeven een adres heeft de volgende gegevens
@@ -128,9 +128,9 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | periode                    | <periode>                                     |
 
       Voorbeelden:
-      | peildatum  | periode                   | omschrijving                                                                 |
-      | 2022-04-30 | 2022-04-30 tot 2022-05-01 | peildatum dag voor de de technische wijziging (toevoegen BAG identificaties) |
-      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor de technische wijziging                                       |
+      | peildatum  | periode                   | omschrijving                                                                       |
+      | 2022-04-30 | 2022-04-30 tot 2022-05-01 | peildatum is de dag voor de de technische wijziging (toevoegen BAG identificaties) |
+      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum ligt voor de technische wijziging                                        |
     
 
   Rule: bij een verblijfplaats met Aangifte adreshouding (72.10) met waarde "W" of "T" wordt de bewoning geleverd van het adresseerbaar object dat geldig was op de peildatum
@@ -163,11 +163,11 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 000000024           |
 
       Voorbeelden:
-      | vraag object identificatie | antwoord object identificatie | peildatum  | periode                   | omschrijving                                                                      |
-      | 0800010011067001           | 0800010011067001              | 2022-01-01 | 2022-01-01 tot 2022-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum voor de wijziging |
-      | 0800010011067001           | 0800010022197002              | 2023-01-01 | 2023-01-01 tot 2023-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum na de wijziging   |
-      | 0800010022197002           | 0800010011067001              | 2022-01-01 | 2022-01-01 tot 2022-01-02 | actuele adresseerbaar object identificatie en peildatum voor de wijziging         |
-      | 0800010022197002           | 0800010022197002              | 2023-01-01 | 2023-01-01 tot 2023-01-02 | actuele adresseerbaar object identificatie en peildatum na de wijziging           |
+      | vraag object identificatie | antwoord object identificatie | peildatum  | periode                   | omschrijving                                                                           |
+      | 0800010011067001           | 0800010011067001              | 2022-01-01 | 2022-01-01 tot 2022-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum ligt voor de wijziging |
+      | 0800010011067001           | 0800010022197002              | 2023-01-01 | 2023-01-01 tot 2023-01-02 | oorspronkelijke adresseerbaar object identificatie en peildatum ligt na de wijziging   |
+      | 0800010022197002           | 0800010011067001              | 2022-01-01 | 2022-01-01 tot 2022-01-02 | actuele adresseerbaar object identificatie en peildatum ligt voor de wijziging         |
+      | 0800010022197002           | 0800010022197002              | 2023-01-01 | 2023-01-01 tot 2023-01-02 | actuele adresseerbaar object identificatie en peildatum ligt na de wijziging           |
 
     Abstract Scenario: adresseerbaar object is samengevoegd waarbij de bewoners van de oorspronkelijke verblijfsobjecten zijn gaan samenwonen met vragen op peildatum na de wijziging en de <omschrijving>
       Gegeven een adres heeft de volgende gegevens
@@ -207,10 +207,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 000000048           |
 
       Voorbeelden:
-      | adresseerbaar object identificatie | omschrijving                                       |
-      | 0800010011067001                   | oorspronkelijke adresseerbaar object identificatie |
-      | 0800010022197002                   | oorspronkelijke adresseerbaar object identificatie |
-      | 0800010022192003                   | actuele adresseerbaar object identificatie         |
+      | adresseerbaar object identificatie | omschrijving                                           |§
 
     Scenario: adresseerbaar object is samengevoegd waarbij de bewoners van de oorspronkelijke verblijfsobjecten zijn gaan samenwonen met vragen op peildatum vóór de samenvoeging met de nieuwe adresseerbaar object identificatie
       Gegeven een adres heeft de volgende gegevens
