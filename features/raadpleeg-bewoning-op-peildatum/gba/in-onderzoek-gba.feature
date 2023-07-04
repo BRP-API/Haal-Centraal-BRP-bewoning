@@ -6,7 +6,7 @@ Functionaliteit: indicatie verblijfplaats in onderzoek leveren bij een bewoner
   Achtergrond:
     Gegeven een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-    | 0518                 | 0518010000713450                         |
+    | 0800                 | 0800010000713450                         |
 
 Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'datum aanvang adreshouding' gegevens van een persoon wordt vertaald naar het inOnderzoek veld met waarde true
 
@@ -18,35 +18,36 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2020-04-15           |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2020-04-15 tot 2020-04-16 |
-    | adresseerbaarObjectIdentificatie | 0518010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
     | burgerservicenummer | verblijfplaatsInOnderzoek |
     | 000000024           | <aanduiding in onderzoek> |
 
     Voorbeelden:
-    | aanduiding in onderzoek | type                               |
-    | 080000                  | hele categorie verblijfplaats      |
-    | 080900                  | hele groep gemeente                |
-    | 080910                  | gemeente van inschrijving          |
-    | 080920                  | datum inschrijving in de gemeente  |
-    | 081000                  | hele groep adreshouding            |
-    | 081030                  | datum aanvang adreshouding         |
-    | 081100                  | hele groep adres                   |
-    | 081180                  | identificatiecode verblijfplaats   |
-    | 081010                  | functie adres                      |
-    | 081110                  | straatnaam                         |
-    | 081115                  | naam openbare ruimte               |
-    | 081190                  | identificatiecode nummeraanduiding |
-    | 081200                  | hele groep locatie                 |
-    | 081400                  | hele groep immigratie              |
-    | 081410                  | land vanwaar ingeschreven          |
-    | 081420                  | datum vestiging in Nederland       |
-    | 088500                  | hele groep geldigheid              |
-    | 088510                  | datum ingang geldigheid            |
+    | aanduiding in onderzoek | type                                |
+    | 080000                  | hele categorie verblijfplaats       |
+    | 080900                  | hele groep gemeente                 |
+    | 080910                  | gemeente van inschrijving           |
+    | 080920                  | datum inschrijving in de gemeente   |
+    | 081000                  | hele groep adreshouding             |
+    | 081030                  | datum aanvang adreshouding          |
+    | 081100                  | hele groep adres                    |
+    | 081180                  | identificatiecode verblijfplaats    |
+    | 081010                  | functie adres                       |
+    | 081110                  | straatnaam                          |
+    | 081115                  | naam openbare ruimte                |
+    | 081190                  | identificatiecode nummeraanduiding  |
+    | 081200                  | hele groep locatie                  |
+    | 081400                  | hele groep immigratie               |
+    | 081410                  | land vanwaar ingeschreven           |
+    | 081420                  | datum vestiging in Nederland        |
+    | 088500                  | hele groep geldigheid               |
+    | 088510                  | datum ingang geldigheid             |
+    | 089999                  | vastgesteld verblijft niet op adres |
 
 Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het indicatieVerblijfsplaatsInOnderzoek veld met waarde true
 
@@ -58,11 +59,11 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0518010000713450 |
+    | adresseerbaarObjectIdentificatie | 0800010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
     | burgerservicenummer | verblijfplaatsInOnderzoek |
     | 000000024           | 080000                    |
@@ -83,11 +84,11 @@ Rule: een beëindigd onderzoek wordt nooit vertaald naar indicatieVerblijfsplaat
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0518010000713450 |
+    | adresseerbaarObjectIdentificatie | 0800010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |

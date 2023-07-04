@@ -5,7 +5,7 @@ Functionaliteit: indicatie verblijfplaats in onderzoek leveren bij een bewoner
   Achtergrond:
     Gegeven een adres heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-    | 0518                 | 0518010000713450                         |
+    | 0800                 | 0800010000713450                         |
 
 Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'datum aanvang adreshouding' gegevens van een persoon wordt vertaald naar het inOnderzoek veld met waarde true
 
@@ -17,11 +17,11 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2020-04-15           |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2020-04-15 tot 2020-04-16 |
-    | adresseerbaarObjectIdentificatie | 0518010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
     | burgerservicenummer | inOnderzoek |
     | 000000024           | true        |
@@ -42,11 +42,11 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2020-04-15           |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2020-04-15 tot 2020-04-16 |
-    | adresseerbaarObjectIdentificatie | 0518010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -77,11 +77,11 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0518010000713450 |
+    | adresseerbaarObjectIdentificatie | 0800010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
     | burgerservicenummer | inOnderzoek |
     | 000000024           | true        |
@@ -102,11 +102,11 @@ Rule: een beëindigd onderzoek wordt nooit vertaald naar indicatieVerblijfsplaat
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0518010000713450 |
+    | adresseerbaarObjectIdentificatie | 0800010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
