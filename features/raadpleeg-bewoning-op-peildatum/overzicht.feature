@@ -18,6 +18,14 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
       - de peildatum valt op of na datum aanvang adreshouding van de persoon op het adresseerbaar object en
       - de peildatum valt vóór datum aanvang adreshouding van de persoon op het volgend adresseerbaar object
 
+  Scenario: bewoning wordt gevraagd van een niet-bestaand adresseerbaar object
+    Als bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2010-08-17           |
+    | adresseerbaarObjectIdentificatie | 0800010000713451     |
+    Dan heeft de response 0 bewoningen
+
   Abstract Scenario: er is één persoon ingeschreven op het aangegeven adresseerbaar object en <scenario>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
