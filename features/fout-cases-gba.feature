@@ -1,12 +1,13 @@
 #language: nl
 
+@gba
 Functionaliteit: Fout cases bij raadplegen van bewoningen
 
 Rule: Er moet een valide raadpleeg type worden opgegeven
 
   @fout-case
   Scenario: er zijn geen parameters opgegeven
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam | waarde |
     Dan heeft de response een object met de volgende gegevens
     | naam     | waarde                                                      |
@@ -22,7 +23,7 @@ Rule: Er moet een valide raadpleeg type worden opgegeven
 
   @fout-case
   Scenario: de 'type' parameter is niet opgegeven
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een object met de volgende gegevens
@@ -39,7 +40,7 @@ Rule: Er moet een valide raadpleeg type worden opgegeven
 
   @fout-case
   Abstract Scenario: een <omschrijving> is opgegeven als 'type' waarde
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam | waarde      |
     | type | <zoek type> |
     Dan heeft de response een object met de volgende gegevens
@@ -64,7 +65,7 @@ Rule: De ondersteunde content type en charset voor de response body zijn respect
 
   @fout-case
   Scenario: 'application/xml' is opgegeven als Accept content type
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | gisteren             |
@@ -80,7 +81,7 @@ Rule: De ondersteunde content type en charset voor de response body zijn respect
     | instance | /haalcentraal/api/bewoning/bewoningen                       |
 
   Abstract Scenario: '<accept media type>' wordt opgegeven als Accept content type
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | gisteren             |
@@ -103,7 +104,7 @@ Rule: De ondersteunde content type en charset voor de response body zijn respect
 Rule: De default content type en charset voor de response body zijn respectievelijk application/json en utf-8
 
   Scenario: er is geen Accept header opgegeven
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | gisteren             |
@@ -111,7 +112,7 @@ Rule: De default content type en charset voor de response body zijn respectievel
     Dan heeft de response 0 bewoningen
 
   Scenario: er is een Accept header met lege waarde opgegeven
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | gisteren             |
@@ -123,7 +124,7 @@ Rule: De ondersteunde content type en charset voor de request body zijn respecti
 
   @fout-case
   Abstract Scenario: '<media type>' is opgegeven als Content-Type waarde
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | gisteren             |
@@ -148,7 +149,7 @@ Rule: De ondersteunde content type en charset voor de request body zijn respecti
     | */*;charset=utf-8                |
 
   Abstract Scenario: '<media type>' is opgegeven als Content-Type waarde
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | gisteren             |
@@ -167,7 +168,7 @@ Rule: De ondersteunde content type en charset voor de request body zijn respecti
 Rule: De default content type en charset voor de request body zijn respectievelijk application/json en utf-8
 
   Scenario: er is geen Content-Type header opgegeven
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | gisteren             |
@@ -175,7 +176,7 @@ Rule: De default content type en charset voor de request body zijn respectieveli
     Dan heeft de response 0 bewoningen
 
   Scenario: er is een Content-Type header met lege waarde opgegeven
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | gisteren             |
@@ -187,7 +188,7 @@ Rule: Om privacy en security redenen moet een bevraging van bewoningen worden ge
 
   @fout-case
   Abstract Scenario: bewoningen wordt gezocht met een '<aanroep type>' aanroep
-    Als bewoning wordt gezocht met een '<aanroep type>' aanroep
+    Als gba bewoning wordt gezocht met een '<aanroep type>' aanroep
     Dan heeft de response een object met de volgende gegevens
     | naam     | waarde                                                      |
     | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5 |
