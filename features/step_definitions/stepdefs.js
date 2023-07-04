@@ -6,7 +6,7 @@ const should = require('chai').use(deepEqualInAnyOrder).should();
 const { Pool } = require('pg');
 const { noSqlData, executeSqlStatements, rollbackSqlStatements, insertIntoPersoonlijstStatement, insertIntoAdresStatement, insertIntoStatement } = require('./postgresqlHelpers.js');
 const { createCollectieDataFromArray, createArrayFrom, createVoorkomenDataFromArray } = require('./dataTable2Array.js');
-const { postBevragenRequestWithBasicAuth, handleOAuthRequest, handleCustomBevragenRequest } = require('./handleRequest.js');
+const { postBevragenRequestWithBasicAuth, handleOAuthRequest, handleOAuthCustomRequest, handleCustomBevragenRequest } = require('./handleRequest.js');
 const { tableNameMap, columnNameMap, createAutorisatieSettingsFor, createRequestBody, createBasicAuthorizationHeader, createAdresseringBinnenlandAutorisatieSettingsFor, createVerblijfplaatsBinnenlandAutorisatieSettingsFor } = require('./gba.js');
 const { stringifyValues } = require('./stringify.js');
 
@@ -244,31 +244,43 @@ When(/^gba bewoning wordt gezocht met de volgende parameters$/, async function (
     await handleRequest(this.context, dataTable);
 });
 
-When(/^bewoning wordt gezocht met een '(.*)' aanroep$/, async function(verb){
-    this.context.proxyAanroep = true;
-    if(this.context.sqlData === undefined) {
-        this.context.sqlData = [{}];
+async function handleCustomRequest(context, verb) {
+    if(context.sqlData === undefined) {
+        context.sqlData = [{}];
     }
 
-    const afnemerId = this.context.afnemerId ?? this.context.oAuth.clients[0].afnemerID;
-    const gemeenteCode = this.context.gemeenteCode ?? "800";
+    const afnemerId = context.afnemerId ?? context.oAuth.clients[0].afnemerID;
+    const gemeenteCode = context.gemeenteCode ?? "800";
+    const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
 
-    const heeftAutorisatieSettings = this.context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
+    const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
     if(!heeftAutorisatieSettings){
-        let sqlData = this.context.sqlData.at(-1);
+        let sqlData = context.sqlData.at(-1);
         sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
     }
 
-    await executeSqlStatements(this.context.sqlData, pool, tableNameMap, logSqlStatements);
+    await executeSqlStatements(context.sqlData, pool, tableNameMap, logSqlStatements);
 
-    if(this.context.oAuth.enable){
-        const result = await handleOAuthCustomRequest(accessToken, this.context.oAuth, afnemerId, this.context.proxyUrl, verb, '{}');
-        this.context.response = result.response;
+    if(context.oAuth.enable){
+        const result = await handleOAuthCustomRequest(accessToken, context.oAuth, afnemerId, url, verb, '{}');
+        context.response = result.response;
         accessToken = result.accessToken;
     }
     else {
-        this.context.response = await handleCustomBevragenRequest(this.context.proxyUrl, verb, undefined, createBasicAuthorizationHeader(afnemerId, gemeenteCode), '{}');
+        context.response = await handleCustomBevragenRequest(url, verb, undefined, createBasicAuthorizationHeader(afnemerId, gemeenteCode), '{}');
     }
+}
+
+When(/^bewoning wordt gezocht met een '(.*)' aanroep$/, async function(verb){
+    this.context.proxyAanroep = true;
+
+    await handleCustomRequest(this.context, verb);
+});
+
+When(/^gba bewoning wordt gezocht met een '(.*)' aanroep$/, async function(verb){
+    this.context.proxyAanroep = false;
+
+    await handleCustomRequest(this.context, verb);
 });
 
 Then(/^heeft de response geen bewoningen$/, function () {
