@@ -30,6 +30,7 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2010-09-01 tot 2010-09-02 |
     | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' een bewoner met de volgende gegevens
@@ -53,6 +54,7 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
     | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een mogelijke bewoner met de volgende gegevens
@@ -78,6 +80,7 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingP
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2010-09-01 tot 2010-09-02 |
     | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' een bewoner met de volgende gegevens
@@ -111,6 +114,7 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingP
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
     | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een mogelijke bewoner met de volgende gegevens

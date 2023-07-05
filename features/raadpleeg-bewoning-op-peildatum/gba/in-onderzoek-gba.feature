@@ -21,6 +21,7 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2020-04-15 tot 2020-04-16 |
     | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
@@ -61,6 +62,7 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
+    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0800010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
@@ -86,6 +88,7 @@ Rule: een beëindigd onderzoek wordt nooit vertaald naar indicatieVerblijfsplaat
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
+    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0800010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
@@ -98,4 +101,3 @@ Rule: een beëindigd onderzoek wordt nooit vertaald naar indicatieVerblijfsplaat
     | 2020-04-01 | 2020-04-01 tot 2020-04-02 | peildatum ligt op datum ingang onderzoek                               |
     | 2020-05-01 | 2020-05-01 tot 2020-05-02 | peildatum ligt na datum ingang onderzoek en vóór datum einde onderzoek |
     | 2020-08-01 | 2020-08-01 tot 2020-08-02 | peildatum ligt na datum einde onderzoek                                |
-  

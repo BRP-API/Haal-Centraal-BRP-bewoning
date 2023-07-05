@@ -331,7 +331,7 @@
           "bewoningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/Bewoning"
+              "$ref" : "#/components/schemas/AbstractBewoning"
             }
           }
         }
@@ -444,53 +444,24 @@
         "format" : "date",
         "example" : "1964-09-24"
       },
-      "Bewoning" : {
+      "AbstractBewoning" : {
+        "required" : [ "type" ],
         "type" : "object",
         "properties" : {
-          "adresseerbaarObjectIdentificatie" : {
-            "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
-          },
-          "bewoningPeriodes" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/BewoningPeriode"
-            }
+          "type" : {
+            "type" : "string"
           },
           "periode" : {
             "$ref" : "#/components/schemas/Periode"
           }
         },
-        "description" : "Bewoning van een adresseerbaar object"
-      },
-      "BewoningPeriode" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "$ref" : "#/components/schemas/Periode"
-          },
-          "bewoners" : {
-            "maxItems" : 100,
-            "minItems" : 1,
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Bewoner"
-            }
-          },
-          "mogelijkeBewoners" : {
-            "maxItems" : 100,
-            "minItems" : 1,
-            "type" : "array",
-            "description" : "Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.\n",
-            "items" : {
-              "$ref" : "#/components/schemas/Bewoner"
-            }
-          },
-          "indicatieVeelBewoners" : {
-            "type" : "boolean",
-            "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven."
+        "discriminator" : {
+          "propertyName" : "type",
+          "mapping" : {
+            "Bewoning" : "#/components/schemas/Bewoning",
+            "BewoningOnbekend" : "#/components/schemas/BewoningOnbekend"
           }
-        },
-        "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
+        }
       },
       "Periode" : {
         "type" : "object",
@@ -506,6 +477,61 @@
             "example" : "2021-01-01"
           }
         }
+      },
+      "Bewoning" : {
+        "description" : "Bewoning van een adresseerbaar object",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/AbstractBewoning"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "adresseerbaarObjectIdentificatie" : {
+              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
+            },
+            "bewoningPeriodes" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/BewoningPeriode"
+              }
+            }
+          }
+        } ]
+      },
+      "BewoningPeriode" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "$ref" : "#/components/schemas/Periode"
+          },
+          "bewoners" : {
+            "maxItems" : 100,
+            "minItems" : 0,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Bewoner"
+            }
+          },
+          "mogelijkeBewoners" : {
+            "maxItems" : 100,
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.\n",
+            "items" : {
+              "$ref" : "#/components/schemas/Bewoner"
+            }
+          },
+          "indicatieVeelBewoners" : {
+            "type" : "boolean",
+            "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven."
+          }
+        },
+        "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
+      },
+      "BewoningOnbekend" : {
+        "description" : "Verblijfobject waarvoor geen bewoning kan worden bepaald.\n",
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/AbstractBewoning"
+        } ]
       },
       "Bewoner" : {
         "type" : "object",
