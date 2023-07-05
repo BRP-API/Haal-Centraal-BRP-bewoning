@@ -179,6 +179,40 @@ Given(/^de persoon is vervolgens ingeschreven op het adres met '(.*)' '(.*)' met
     ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
+Given(/^er zijn (\d*) personen ingeschreven op het adres met '(.*)' '(.*)' met de volgende gegevens$/, function (aantal, veldNaam, veldWaarde, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+
+    let adresIndex = bepaalAdresIndex(this.context.sqlData, veldNaam, veldWaarde);
+    should.exist(adresIndex, `geen adres gevonden met '${veldNaam}' gelijk aan '${veldWaarde}'`);
+
+    let i = 0;
+    while(i < Number(aantal)) {
+        i++;
+
+        this.context.sqlData.push({});
+
+        let sqlData = this.context.sqlData.at(-1);
+    
+        const burgerservicenummer = (i + '').padStart(9, '0');
+        sqlData['persoon'] = [
+            createCollectieDataFromArray('persoon', [
+                ['burger_service_nr', burgerservicenummer]
+            ])
+        ];
+    
+        sqlData['inschrijving'] = [[[ 'geheim_ind', '0' ]]];
+    
+        sqlData['verblijfplaats'] = [
+            [
+                [ 'adres_id', adresIndex + '' ],
+                [ 'volg_nr', '0']
+            ].concat(createArrayFrom(dataTable, columnNameMap))
+        ];
+    }
+});
+
 Given(/^de afnemer met indicatie '(.*)' heeft de volgende '(.*)' gegevens$/, function (afnemerCode, tabelNaam, dataTable) {
     if(this.context.sqlData === undefined) {
         this.context.sqlData = [];
@@ -429,12 +463,47 @@ Then(/^heeft de persoon met burgerservicenummer '(.*)' de volgende '(.*)' gegeve
 });
 
 Then(/^heeft de response (\d*) (?:bewoning|bewoningen)$/, function (aantal) {
-    this.context.response.status.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+    this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
 
     const actual = this.context?.response?.data?.bewoningen;
 
     should.exist(actual);
     actual.length.should.equal(Number(aantal), `aantal bewoningen in response is ongelijk aan ${aantal}\nBewoningen: ${JSON.stringify(actual, null, '\t')}`);
+});
+
+Then(/^heeft de response een bewoning met een bewoningPeriode '([\d-]*) tot ([\d-]*)' met (\d*) bewoners$/, function (van, tot, aantal) {
+    this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+
+    const actual = this.context?.response?.data?.bewoningen;
+    should.exist(actual);
+
+    const actualBewoning = actual.at(-1);
+    const bewoningPeriode = getBewoningPeriode(actualBewoning, van, tot);
+    should.exist(bewoningPeriode);
+    bewoningPeriode.bewoners.length.should.equal(Number(aantal), `aantal bewoners in response is ongelijk aan ${aantal}\nBewoningPeriode: ${JSON.stringify(bewoningPeriode, null, '\t')}`);
+});
+
+Then(/^heeft de response een bewoning met een bewoningPeriode '([\d-]*) tot ([\d-]*)' met (\d*) mogelijke bewoners$/, function (van, tot, aantal) {
+    this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+
+    const actual = this.context?.response?.data?.bewoningen;
+    should.exist(actual);
+
+    const actualBewoning = actual.at(-1);
+    const bewoningPeriode = getBewoningPeriode(actualBewoning, van, tot);
+    should.exist(bewoningPeriode);
+    bewoningPeriode.mogelijkeBewoners.length.should.equal(Number(aantal), `aantal bewoners in response is ongelijk aan ${aantal}\nBewoningPeriode: ${JSON.stringify(bewoningPeriode, null, '\t')}`);
+});
+
+Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' de volgende gegevens$/, function (van, tot, dataTable) {
+    this.context.verifyResponse = true;
+
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
+
+    Object.assign(expectedBewoningPeriode, createObjectFrom(dataTable, true));
 });
 
 Then(/^heeft de response een object met de volgende gegevens$/, function (dataTable) {
