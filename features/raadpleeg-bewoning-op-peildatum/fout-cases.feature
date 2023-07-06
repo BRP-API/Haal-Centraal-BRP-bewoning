@@ -174,6 +174,6 @@ Rule: Alleen gespecificeerde parameters bij het opgegeven raadpleeg type mogen w
     | unknownParam | <parameter> | Parameter is niet verwacht. |
 
     Voorbeelden:
-    | omschrijving                                      | parameter                        | waarde                    |
-    | raadplegen met parameter uit ander raadpleeg type | periode                          | 2022-01-01 tot 2023-01-01 |
-    | raadplegen met niet gespecificeerde parameter     | geheimhouding                    | false                     |
+    | omschrijving                                      | parameter     | waarde                    |
+    | raadplegen met parameter uit ander raadpleeg type | periode       | 2022-01-01 tot 2023-01-01 |
+    | raadplegen met niet gespecificeerde parameter     | geheimhouding | false                     |
