@@ -135,7 +135,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
 
   Rule: bij een verblijfplaats met Aangifte adreshouding (72.10) met waarde "W" of "T" wordt de bewoning geleverd van het adresseerbaar object dat geldig was op de peildatum
 
-    <img src="./illustraties/objecten-samengevoegd.svg" />
+    ![objecten-samengevoegd](./illustraties/objecten-samengevoegd.svg)
 
     Abstract Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het samenvoegen van verblijfsobjecten
       Gegeven een adres heeft de volgende gegevens
@@ -296,7 +296,7 @@ Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
       | 0800010011067001                   | 000000024           |
       | 0800010022197002                   | 000000048           |
 
-    <img src="./illustraties/object-gesplitst.svg" />
+    ![object-gesplitst](./illustraties/object-gesplitst.svg)
 
     Abstract Scenario: adresseerbaar object identificatie is gewijzigd als gevolg van het splitsen van verblijfsobjecten en peildatum ligt voor splitsing
       Gegeven een adres heeft de volgende gegevens
