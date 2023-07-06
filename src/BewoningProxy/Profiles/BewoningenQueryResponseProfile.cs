@@ -9,6 +9,8 @@ public class BewoningenQueryResponseProfile : Profile
 {
     public BewoningenQueryResponseProfile()
     {
+        CreateMap<Gba.GbaAbstractBewoning, HC.AbstractBewoning>().ConvertUsing<BewoningConverter>();
+
         CreateMap<Gba.GbaBewoningenQueryResponse, HC.BewoningenQueryResponse>();
     }
 }
