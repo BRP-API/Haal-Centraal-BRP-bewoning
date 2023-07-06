@@ -89,7 +89,7 @@ namespace HaalCentraal.BewoningService.Generated
     public partial class GbaBewoningenQueryResponse
     {
         [Newtonsoft.Json.JsonProperty("bewoningen", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<GbaBewoning> Bewoningen { get; set; }
+        public System.Collections.Generic.List<GbaAbstractBewoning> Bewoningen { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -106,7 +106,7 @@ namespace HaalCentraal.BewoningService.Generated
     public partial class BadRequestFoutbericht : Foutbericht
     {
         /// <summary>
-        /// Foutmelding per fout in een parameter. Alle gevonden fouten worden ��n keer teruggemeld.
+        /// Foutmelding per fout in een parameter. Alle gevonden fouten worden één keer teruggemeld.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("invalidParams", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<InvalidParams> InvalidParams { get; set; }
@@ -204,18 +204,11 @@ namespace HaalCentraal.BewoningService.Generated
 
     }
 
-    /// <summary>
-    /// Bewoning van een adresseerbaar object
-    /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "type")]
+    [JsonInheritanceAttribute("Bewoning", typeof(GbaBewoning))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GbaBewoning
+    public partial class GbaAbstractBewoning
     {
-        [Newtonsoft.Json.JsonProperty("adresseerbaarObjectIdentificatie", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AdresseerbaarObjectIdentificatie { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("bewoningPeriodes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<GbaBewoningPeriode> BewoningPeriodes { get; set; }
-
         [Newtonsoft.Json.JsonProperty("periode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Periode Periode { get; set; }
 
@@ -227,6 +220,42 @@ namespace HaalCentraal.BewoningService.Generated
             get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
             set { _additionalProperties = value; }
         }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Periode
+    {
+        [Newtonsoft.Json.JsonProperty("datumVan", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
+        public System.DateTimeOffset? DatumVan { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("datumTot", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
+        public System.DateTimeOffset? DatumTot { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    /// <summary>
+    /// Bewoning van een adresseerbaar object
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class GbaBewoning : GbaAbstractBewoning
+    {
+        [Newtonsoft.Json.JsonProperty("adresseerbaarObjectIdentificatie", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AdresseerbaarObjectIdentificatie { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("bewoningPeriodes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<GbaBewoningPeriode> BewoningPeriodes { get; set; }
 
     }
 
@@ -254,28 +283,6 @@ namespace HaalCentraal.BewoningService.Generated
         /// </summary>
         [Newtonsoft.Json.JsonProperty("indicatieVeelBewoners", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool? IndicatieVeelBewoners { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Periode
-    {
-        [Newtonsoft.Json.JsonProperty("datumVan", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? DatumVan { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("datumTot", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? DatumTot { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 

@@ -6,7 +6,7 @@ const should = require('chai').use(deepEqualInAnyOrder).should();
 const { Pool } = require('pg');
 const { noSqlData, executeSqlStatements, rollbackSqlStatements, insertIntoPersoonlijstStatement, insertIntoAdresStatement, insertIntoStatement } = require('./postgresqlHelpers.js');
 const { createCollectieDataFromArray, createArrayFrom, createVoorkomenDataFromArray } = require('./dataTable2Array.js');
-const { postBevragenRequestWithBasicAuth, handleOAuthRequest, handleCustomBevragenRequest } = require('./handleRequest.js');
+const { postBevragenRequestWithBasicAuth, handleOAuthRequest, handleOAuthCustomRequest, handleCustomBevragenRequest } = require('./handleRequest.js');
 const { tableNameMap, columnNameMap, createAutorisatieSettingsFor, createRequestBody, createBasicAuthorizationHeader, createAdresseringBinnenlandAutorisatieSettingsFor, createVerblijfplaatsBinnenlandAutorisatieSettingsFor } = require('./gba.js');
 const { stringifyValues } = require('./stringify.js');
 
@@ -179,6 +179,40 @@ Given(/^de persoon is vervolgens ingeschreven op het adres met '(.*)' '(.*)' met
     ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
+Given(/^er zijn (\d*) personen ingeschreven op het adres met '(.*)' '(.*)' met de volgende gegevens$/, function (aantal, veldNaam, veldWaarde, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+
+    let adresIndex = bepaalAdresIndex(this.context.sqlData, veldNaam, veldWaarde);
+    should.exist(adresIndex, `geen adres gevonden met '${veldNaam}' gelijk aan '${veldWaarde}'`);
+
+    let i = 0;
+    while(i < Number(aantal)) {
+        i++;
+
+        this.context.sqlData.push({});
+
+        let sqlData = this.context.sqlData.at(-1);
+    
+        const burgerservicenummer = (i + '').padStart(9, '0');
+        sqlData['persoon'] = [
+            createCollectieDataFromArray('persoon', [
+                ['burger_service_nr', burgerservicenummer]
+            ])
+        ];
+    
+        sqlData['inschrijving'] = [[[ 'geheim_ind', '0' ]]];
+    
+        sqlData['verblijfplaats'] = [
+            [
+                [ 'adres_id', adresIndex + '' ],
+                [ 'volg_nr', '0']
+            ].concat(createArrayFrom(dataTable, columnNameMap))
+        ];
+    }
+});
+
 Given(/^de afnemer met indicatie '(.*)' heeft de volgende '(.*)' gegevens$/, function (afnemerCode, tabelNaam, dataTable) {
     if(this.context.sqlData === undefined) {
         this.context.sqlData = [];
@@ -213,7 +247,13 @@ async function handleRequest(context, dataTable) {
     const afnemerId = context.afnemerId ?? context.oAuth?.clients[0].afnemerID;
     const gemeenteCode = context.gemeenteCode ?? "800";
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
-    
+
+    const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
+    if(!heeftAutorisatieSettings){
+        let sqlData = context.sqlData.at(-1);
+        sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
+    }
+
     await executeSqlStatements(context.sqlData, pool, tableNameMap, logSqlStatements);
 
     if(context.oAuth.enable){
@@ -238,31 +278,43 @@ When(/^gba bewoning wordt gezocht met de volgende parameters$/, async function (
     await handleRequest(this.context, dataTable);
 });
 
-When(/^bewoning wordt gezocht met een '(.*)' aanroep$/, async function(verb){
-    this.context.proxyAanroep = true;
-    if(this.context.sqlData === undefined) {
-        this.context.sqlData = [{}];
+async function handleCustomRequest(context, verb) {
+    if(context.sqlData === undefined) {
+        context.sqlData = [{}];
     }
 
-    const afnemerId = this.context.afnemerId ?? this.context.oAuth.clients[0].afnemerID;
-    const gemeenteCode = this.context.gemeenteCode ?? "800";
+    const afnemerId = context.afnemerId ?? context.oAuth.clients[0].afnemerID;
+    const gemeenteCode = context.gemeenteCode ?? "800";
+    const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
 
-    const heeftAutorisatieSettings = this.context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
+    const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
     if(!heeftAutorisatieSettings){
-        let sqlData = this.context.sqlData.at(-1);
+        let sqlData = context.sqlData.at(-1);
         sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
     }
 
-    await executeSqlStatements(this.context.sqlData, pool, tableNameMap, logSqlStatements);
+    await executeSqlStatements(context.sqlData, pool, tableNameMap, logSqlStatements);
 
-    if(this.context.oAuth.enable){
-        const result = await handleOAuthCustomRequest(accessToken, this.context.oAuth, afnemerId, this.context.proxyUrl, verb, '{}');
-        this.context.response = result.response;
+    if(context.oAuth.enable){
+        const result = await handleOAuthCustomRequest(accessToken, context.oAuth, afnemerId, url, verb, '{}');
+        context.response = result.response;
         accessToken = result.accessToken;
     }
     else {
-        this.context.response = await handleCustomBevragenRequest(this.context.proxyUrl, verb, undefined, createBasicAuthorizationHeader(afnemerId, gemeenteCode), '{}');
+        context.response = await handleCustomBevragenRequest(url, verb, undefined, createBasicAuthorizationHeader(afnemerId, gemeenteCode), '{}');
     }
+}
+
+When(/^bewoning wordt gezocht met een '(.*)' aanroep$/, async function(verb){
+    this.context.proxyAanroep = true;
+
+    await handleCustomRequest(this.context, verb);
+});
+
+When(/^gba bewoning wordt gezocht met een '(.*)' aanroep$/, async function(verb){
+    this.context.proxyAanroep = false;
+
+    await handleCustomRequest(this.context, verb);
 });
 
 Then(/^heeft de response geen bewoningen$/, function () {
@@ -411,12 +463,47 @@ Then(/^heeft de persoon met burgerservicenummer '(.*)' de volgende '(.*)' gegeve
 });
 
 Then(/^heeft de response (\d*) (?:bewoning|bewoningen)$/, function (aantal) {
-    this.context.response.status.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+    this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
 
     const actual = this.context?.response?.data?.bewoningen;
 
     should.exist(actual);
     actual.length.should.equal(Number(aantal), `aantal bewoningen in response is ongelijk aan ${aantal}\nBewoningen: ${JSON.stringify(actual, null, '\t')}`);
+});
+
+Then(/^heeft de response een bewoning met een bewoningPeriode '([\d-]*) tot ([\d-]*)' met (\d*) bewoners$/, function (van, tot, aantal) {
+    this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+
+    const actual = this.context?.response?.data?.bewoningen;
+    should.exist(actual);
+
+    const actualBewoning = actual.at(-1);
+    const bewoningPeriode = getBewoningPeriode(actualBewoning, van, tot);
+    should.exist(bewoningPeriode);
+    bewoningPeriode.bewoners.length.should.equal(Number(aantal), `aantal bewoners in response is ongelijk aan ${aantal}\nBewoningPeriode: ${JSON.stringify(bewoningPeriode, null, '\t')}`);
+});
+
+Then(/^heeft de response een bewoning met een bewoningPeriode '([\d-]*) tot ([\d-]*)' met (\d*) mogelijke bewoners$/, function (van, tot, aantal) {
+    this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
+
+    const actual = this.context?.response?.data?.bewoningen;
+    should.exist(actual);
+
+    const actualBewoning = actual.at(-1);
+    const bewoningPeriode = getBewoningPeriode(actualBewoning, van, tot);
+    should.exist(bewoningPeriode);
+    bewoningPeriode.mogelijkeBewoners.length.should.equal(Number(aantal), `aantal bewoners in response is ongelijk aan ${aantal}\nBewoningPeriode: ${JSON.stringify(bewoningPeriode, null, '\t')}`);
+});
+
+Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' de volgende gegevens$/, function (van, tot, dataTable) {
+    this.context.verifyResponse = true;
+
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
+
+    Object.assign(expectedBewoningPeriode, createObjectFrom(dataTable, true));
 });
 
 Then(/^heeft de response een object met de volgende gegevens$/, function (dataTable) {

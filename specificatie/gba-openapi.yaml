@@ -1,6 +1,13 @@
 openapi: 3.0.3
+servers:
+  - description: |
+      Proef omgeving
+    url: https://proefomgeving.haalcentraal.nl/haalcentraal/api/bewoning
+  - description: |
+      Lokaal
+    url: http://localhost:5010/haalcentraal/api/bewoning
 info:
-  title: BRP bewoning
+  title: Haal Centraal BRP bewoning
   description: |
     API voor het raadplegen van de (historische) bewoning van een adres.
   version: 2.0.0
@@ -113,4 +120,4 @@ components:
         bewoningen:
           type: array
           items:
-            $ref: 'bewoning.yaml#/components/schemas/GbaBewoning'
+            $ref: 'bewoning.yaml#/components/schemas/GbaAbstractBewoning'
