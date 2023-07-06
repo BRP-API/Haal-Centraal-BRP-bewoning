@@ -145,7 +145,7 @@ Functionaliteit: mogelijke bewoner bij onzekere begin- of einddatum van het verb
         - datum aanvang gevraagde verblijfplaats én datum aanvang volgende verblijfplaats beide (gedeeltelijk) onbekend zijn 
         - EN datum aanvang gevraagde verblijfplaats én datum aanvang volgende verblijfplaats gelijk aan elkaar zijn
 
-    <img scr="zelfde-periode.svg" />
+    ![zelfde-periode](illustraties/zelfde-periode.svg)
 
     Abstract Scenario: datum aanvang gevraagde verblijfplaats en datum aanvang volgende verblijfplaats zijn en gelijk aan elkaar met alleen jaar en maand bekend
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
@@ -270,7 +270,7 @@ Functionaliteit: mogelijke bewoner bij onzekere begin- of einddatum van het verb
         - datum aanvang gevraagde verblijfplaats én datum aanvang volgende verblijfplaats beide (gedeeltelijk) onbekend zijn 
         - EN de onzekerheidsperiode van de volgende verblijfplaats geheel binnen de onzekerheidsperiode van de gevraagde verblijfplaats valt
 
-    <img scr="binnen-vorige.svg" />
+    ![binnen-vorige](illustraties/binnen-vorige.svg)
 
     Abstract Scenario: datum aanvang gevraagde verblijfplaats is alleen jaar bekend en datum aanvang volgende verblijfplaats zijn alleen jaar en maand bekend en beide hebben zelfde jaar
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
@@ -421,7 +421,7 @@ Functionaliteit: mogelijke bewoner bij onzekere begin- of einddatum van het verb
     - datum aanvang gevraagde verblijfplaats én datum aanvang volgende verblijfplaats beide (gedeeltelijk) onbekend zijn
     - EN de onzekerheidsperiode van de gevraagde verblijfplaats geheel binnen de onzekerheidsperiode van de volgende verblijfplaats valt
       
-    <img scr="binnen-volgende.svg" />
+    ![binnen-volgende](illustraties/binnen-volgende.svg)
 
     Abstract Scenario: datum aanvang gevraagde verblijfplaats is alleen jaar en maand bekend en datum aanvang volgende verblijfplaats is alleen jaar en beide hebben zelfde jaar
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0518010000713450' met de volgende gegevens
