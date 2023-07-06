@@ -250,7 +250,7 @@ components:
         bewoningen:
           type: array
           items:
-            $ref: '#/components/schemas/Bewoning'
+            $ref: '#/components/schemas/AbstractBewoning'
     BadRequestFoutbericht:
       allOf:
       - $ref: '#/components/schemas/Foutbericht'
@@ -340,18 +340,43 @@ components:
         De einddatum van de periode waarover de bewoning wordt opgevraagd.
       format: date
       example: 1964-09-24
-    Bewoning:
+    AbstractBewoning:
+      required:
+      - type
       type: object
       properties:
-        adresseerbaarObjectIdentificatie:
-          $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
-        bewoningPeriodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/BewoningPeriode'
+        type:
+          type: string
         periode:
           $ref: '#/components/schemas/Periode'
+      discriminator:
+        propertyName: type
+        mapping:
+          Bewoning: '#/components/schemas/Bewoning'
+          BewoningOnbekend: '#/components/schemas/BewoningOnbekend'
+    Periode:
+      type: object
+      properties:
+        datumVan:
+          type: string
+          format: date
+          example: 2020-01-01
+        datumTot:
+          type: string
+          format: date
+          example: 2021-01-01
+    Bewoning:
       description: Bewoning van een adresseerbaar object
+      allOf:
+      - $ref: '#/components/schemas/AbstractBewoning'
+      - type: object
+        properties:
+          adresseerbaarObjectIdentificatie:
+            $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'
+          bewoningPeriodes:
+            type: array
+            items:
+              $ref: '#/components/schemas/BewoningPeriode'
     BewoningPeriode:
       type: object
       properties:
@@ -359,13 +384,13 @@ components:
           $ref: '#/components/schemas/Periode'
         bewoners:
           maxItems: 100
-          minItems: 1
+          minItems: 0
           type: array
           items:
             $ref: '#/components/schemas/Bewoner'
         mogelijkeBewoners:
           maxItems: 100
-          minItems: 1
+          minItems: 0
           type: array
           description: |
             Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
@@ -378,17 +403,11 @@ components:
             \ met uitzondering van de persoon waarvan de BSN is opgegeven."
       description: Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling
         van bewoners was.
-    Periode:
-      type: object
-      properties:
-        datumVan:
-          type: string
-          format: date
-          example: 2020-01-01
-        datumTot:
-          type: string
-          format: date
-          example: 2021-01-01
+    BewoningOnbekend:
+      description: |
+        Verblijfobject waarvoor geen bewoning kan worden bepaald.
+      allOf:
+      - $ref: '#/components/schemas/AbstractBewoning'
     AdresseerbaarObjectIdentificatie:
       pattern: "^[0-9]{16}$"
       type: string
