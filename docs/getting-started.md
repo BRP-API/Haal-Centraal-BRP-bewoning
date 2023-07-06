@@ -21,9 +21,7 @@ De bewoning API kun je op drie manieren gebruiken:
 1. Met een peildatum. Je krijgt dan de bewoners van het adres op de opgegeven datum.
 2. Met een periode (datumVan en datumTotEnMet). Je krijgt dan de samenstelling(en) van bewoners van het adres binnen de opgegeven periode.
 
-Je kunt een visuele weergave van de specificatie bekijken met [Swagger UI](swagger-ui) of [Redoc](redoc).
-
-Je kunt de [functionele documentatie](features) vinden in de [features](features).
+Bekijk de OAS specificaties in [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
 
 ## Implementeer de API client
 Client code kun je genereren met de "[genereervariant](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}" van de API-specificaties en een code generator. Een overzicht met codegeneratoren kun je vinden op [OpenAPI.Tools](https://openapi.tools/#sdk){:target="_blank" rel="noopener"}.
