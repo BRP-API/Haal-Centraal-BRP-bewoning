@@ -1,3 +1,4 @@
+using HaalCentraal.BewoningService.Repositories;
 using Serilog;
 using Serilog.Enrichers.Span;
 using Serilog.Exceptions;
@@ -23,6 +24,8 @@ builder.Host.UseSerilog((context, config) =>
 builder.Services.AddControllers()
                 //.ConfigureInvalidModelStateHandling()
                 .AddNewtonsoftJson();
+
+builder.Services.AddScoped<PersoonRepository>();
 
 var app = builder.Build();
 
