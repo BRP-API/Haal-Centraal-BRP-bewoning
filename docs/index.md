@@ -14,9 +14,9 @@ Het team van RvIG werkt op dit moment nog aan v2 van de API. Binnenkort kun je h
 De bewoning API v2 gaat op 1 oktober in productie, en kan voorlopig alleen worden gebruikt door gemeenten. 
 
 ## Direct uitproberen?
-* Bekijk de specificaties met [Redoc](redoc-io)
-* Lees de [Getting started](getting-started)
-* Download de [technische specificaties](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
+* Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
+* Lees de [Getting started] (volgt binnenkort)
+* Download de [technische specificaties] (volgt binnenkort){:target="_blank" rel="noopener"}
 
 ## Heb je meer nodig? 
 Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
