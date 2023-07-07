@@ -16,7 +16,7 @@ De bewoning API v2 gaat op 1 oktober in productie, en kan voorlopig alleen worde
 ## Direct uitproberen?
 * Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
 * Lees de [Getting started] (volgt binnenkort)
-* Download de [technische specificaties] (volgt binnenkort){:target="_blank" rel="noopener"}
+* Download de [technische specificaties](volgt binnenkort)
 
 ## Heb je meer nodig? 
 Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
