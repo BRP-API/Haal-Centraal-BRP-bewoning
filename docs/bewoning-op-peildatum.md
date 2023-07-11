@@ -9,58 +9,65 @@ A --> A1
 A1 -- "Bepaal voor
 elk persoon" --> A2
 
-A2{{"Is datum aanvang
+A2{{"Is datum aanvang adreshouding
 deels of gedeeltelijk onbekend?"}}
-
 A2 -- ja --> M
 A2 -- nee --> B
 
 subgraph volledig bekend datum aanvang
-    B{"Is peildatum
+    B{{"Is peildatum verblijfplaats
     >=
-    datum aanvang?"}
+    datum aanvang adreshouding?"}}
     B --ja--> B1
     B --nee--> C
 
-        B1{"Heeft persoon
-        een volgend verblijfplaats?"}
-        B1 -- nee --> Z1
+        B1{{"Heeft persoon
+        een volgende verblijfplaats?"}}
         B1 -- ja --> B2
+        B1 -- nee --> Z1
 
-            B2{"Is peildatum
+            B2{{"Is peildatum
             < datum aanvang
-            volgend verblijfplaats?"}
+            volgende verblijfplaats?"}}
+            B2 -- nee --> B3
             B2 -- ja --> Z1
-            B2 -- nee --> Z3
 
-        C{"aangifte adreshouding
-        = T of W?"}
+            B3{{"aangifte adreshouding
+            volgende verblijfplaats
+            = T of W?"}}
+            B3 -- ja --> B4["Bepaal bewoning voor
+            volgende verblijfplaats
+            op peildatum"]
+            B3 -- nee --> Z3
+
+        C{{"aangifte adreshouding
+        verblijfplaats = T of W?"}}
         C -- nee --> Z3
         C -- ja --> D
 
-        D{"Heeft vorig verblijfplaats
-        een ADO ID"}
+        D{{"Heeft vorig verblijfplaats
+        een ADO ID"}}
         D -- nee --> Z4
         D -- ja --> E
 
-            E{"ado id vorig verblijfplaats
-            = ado id verblijfplaats?"}
+            E{{"ado id vorig verblijfplaats
+            = ado id verblijfplaats?"}}
             E -- ja --> F
             E -- nee --> G
 
-            F{"Is peildatum
+            F{{"Is peildatum
             >= datum aanvang
-            vorig verblijfplaats?"}
+            vorig verblijfplaats?"}}
             F -- ja --> Z1
             F -- nee --> Z3
 
-            G{"Is peildatum
+            G{{"Is peildatum
             >= datum aanvang
-            vorig verblijfplaats?"}
+            vorig verblijfplaats?"}}
+            G -- nee --> Z3
             G -- ja --> H["bepaal bewoning voor
                         vorig verblijfplaats
                         op peildatum"]
-            G -- nee --> Z3
 end
 
 subgraph deels/geheel onbekend datum aanvang
