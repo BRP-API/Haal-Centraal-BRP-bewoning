@@ -39,7 +39,7 @@ Rule: Wanneer een nieuwe verblijfplaats wordt geregistreerd naar aanleiding van 
     | 2022-05-01 | 2022-05-01 tot 2022-05-02 | peildatum ligt op datum hernummering                                          |
     | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum ligt vóór datum hernummering en op of na datum aanvang adreshouding |
 
-  Scenario: bewoning wordt gevraagd van een verblijfsobject dat na herindeling in een ander gemeente is komen te liggen en <omschrijving>
+  Scenario: bewoning wordt gevraagd van een verblijfsobject dat na herindeling in een andere gemeente is komen te liggen en <omschrijving>
     Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0123                 | 0123010011067001                         | 0123200010877001                           |
