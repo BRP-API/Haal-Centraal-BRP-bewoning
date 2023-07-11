@@ -2,10 +2,10 @@
 
 Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
 
-Rule: Wanneer een nieuw verblijfplaats wordt geregistreerd naar aanleiding van wijzigingen van het adres, dan bevat de vorige verblijfplaats voorkomen de werkelijke datum van inschrijving 
+Rule: Wanneer een nieuwe verblijfplaats wordt geregistreerd naar aanleiding van wijzigingen van het adres, dan bevat het vorige verblijfplaats voorkomen de werkelijke datum van inschrijving 
   Wijzigingen aan een adres wordt geregistreerd als een nieuw adres.
-  Personen met een verblijfplaats die het oude adres refereren, krijgen een nieuw verblijfplaats voorkomen om het nieuwe adres te refereren.
-  Bij de nieuwe verblijfplaats wordt ook het volgende geregistreerd:
+  Personen met een verblijfplaats die aan het oude adres refereren, krijgen een nieuw verblijfplaats voorkomen om aan het nieuwe adres te refereren.
+  Bij de nieuwe verblijfplaats wordt ook geregistreerd:
   - aangifte adreshouding (72.10) met waarde T (technische wijziging) of W (infrastructurele wijziging)
   - datum aanvang adreshouding (10.30) met de datum dat de nieuwe verblijfplaats is geregistreerd
 
