@@ -2,10 +2,14 @@
 flowchart TB
 
 A[bewoning met peildatum]
+A0{{"Bestaat er een adres in de registratie
+met de opgegeven adresseerbaar object identificatie?"}}
 A1["Haal alle personen op
 die verblijven/hebben verbleven op
 gevraagd adresseerbaar object"]
-A --> A1
+A --> A0
+A0 -- ja --> A1
+A0 -- nee --> Z5
 A1 -- "Bepaal voor
 elk persoon" --> A2
 
@@ -38,17 +42,17 @@ subgraph volledig bekend datum aanvang
             B3 -- ja --> B4["Bepaal bewoning voor
             volgende verblijfplaats
             op peildatum"]
-            B3 -- nee --> Z3
+            B3 -- nee ---> Z3
 
         C{{"aangifte adreshouding
         verblijfplaats = T of W?"}}
-        C -- nee --> Z3
         C -- ja --> D
+        C -- nee ---> Z3
 
         D{{"Heeft vorig verblijfplaats
         een ADO ID"}}
-        D -- nee --> Z4
         D -- ja --> E
+        D -- nee ----> Z4
 
             E{{"ado id vorig verblijfplaats
             = ado id verblijfplaats?"}}
@@ -59,12 +63,12 @@ subgraph volledig bekend datum aanvang
             >= datum aanvang
             vorig verblijfplaats?"}}
             F -- ja --> Z1
-            F -- nee --> Z3
+            F -- nee ---> Z3
 
             G{{"Is peildatum
             >= datum aanvang
             vorig verblijfplaats?"}}
-            G -- nee --> Z3
+            G -- nee ---> Z3
             G -- ja --> H["bepaal bewoning voor
                         vorig verblijfplaats
                         op peildatum"]
@@ -78,4 +82,5 @@ Z1[bewoner]
 Z2[mogelijke bewoner]
 Z3[geen bewoner]
 Z4[bewoning onbekend]
+Z5[geen bewoning]
 ```
