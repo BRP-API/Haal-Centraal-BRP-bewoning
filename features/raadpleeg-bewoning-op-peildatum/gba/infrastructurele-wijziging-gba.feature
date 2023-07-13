@@ -95,9 +95,9 @@ Rule: Wanneer een verblijfsobject in een periode geen adresseerbaar object ident
     | 000000024           |
 
     Voorbeelden:
-    | peildatum  | periode                   | omschrijving                                              |
-    | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum ligt na datum toevoegen van BAG identificaties) |
-    | 2022-05-01 | 2022-05-01 tot 2022-05-02 | peildatum is datum toevoegen van BAG identificaties       |
+    | peildatum  | periode                   | omschrijving                                             |
+    | 2023-01-01 | 2023-01-01 tot 2023-01-02 | peildatum ligt na datum toevoegen van BAG identificaties |
+    | 2022-05-01 | 2022-05-01 tot 2022-05-02 | peildatum is datum toevoegen van BAG identificaties      |
 
   Abstract Scenario: bewoning wordt gevraagd van een verblijfsobject waaraan BAG identificaties zijn toegevoegd en <omschrijving>
     Gegeven adres 'A1' heeft de volgende gegevens
@@ -273,13 +273,13 @@ Rule: bevragen van bewoning van een samengevoegd/gesplitst verblijfsobject op ee
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
+    | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
     | 20220501                           | W                             |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres 'A3' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
+    En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
     | 20220501                           | W                             |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde                               |
@@ -313,13 +313,13 @@ Rule: bevragen van bewoning van een samengevoegd/gesplitst verblijfsobject op ee
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
+    | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
     | 20220501                           | W                             |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres 'A3' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | Aangifte adreshouding (72.10) |
+    En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
     | 20220501                           | W                             |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
