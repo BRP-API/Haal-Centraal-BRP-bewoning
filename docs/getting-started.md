@@ -17,7 +17,7 @@ Met de bewoning API kun je:
 * de samenstelling van bewoners van een woning raadplegen op een peildatum 
 * de samenstelling(en) van bewoners van een woning raadplegen binnen een periode.
 
-De bewoning API kun je op drie manieren gebruiken:
+De bewoning API kun je op twee manieren gebruiken:
 1. Met een peildatum. Je krijgt dan de bewoners van de woning op de opgegeven datum.
 2. Met een periode (datumVan en datumTotEnMet). Je krijgt dan de samenstelling(en) van bewoners van de woning binnen de opgegeven periode.
 
