@@ -14,12 +14,12 @@ Wil je de API gebruiken? Dit kun je doen:
 
 ## Functionaliteit en specificaties
 Met de bewoning API kun je:
-* de samenstelling van bewoners van een adres raadplegen op een peildatum 
-* de samenstelling(en) van bewoners van een adres raadplegen en binnen een periode.
+* de samenstelling van bewoners van een woning raadplegen op een peildatum 
+* de samenstelling(en) van bewoners van een woning raadplegen binnen een periode.
 
 De bewoning API kun je op drie manieren gebruiken:
-1. Met een peildatum. Je krijgt dan de bewoners van het adres op de opgegeven datum.
-2. Met een periode (datumVan en datumTotEnMet). Je krijgt dan de samenstelling(en) van bewoners van het adres binnen de opgegeven periode.
+1. Met een peildatum. Je krijgt dan de bewoners van de woning op de opgegeven datum.
+2. Met een periode (datumVan en datumTotEnMet). Je krijgt dan de samenstelling(en) van bewoners van de woning binnen de opgegeven periode.
 
 Bekijk de OAS specificaties in [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
 
