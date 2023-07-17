@@ -572,6 +572,7 @@ Then(/^heeft de response een bewoning met een bewoningPeriode '([\d-]*) tot ([\d
     const actualBewoning = actual.at(-1);
     const bewoningPeriode = getBewoningPeriode(actualBewoning, van, tot);
     should.exist(bewoningPeriode);
+    should.exist(bewoningPeriode.bewoners, `geen bewoners array om bewoners te kunnen tellen. response:\n${JSON.stringify(actual, null, '\t')}`);
     bewoningPeriode.bewoners.length.should.equal(Number(aantal), `aantal bewoners in response is ongelijk aan ${aantal}\nBewoningPeriode: ${JSON.stringify(bewoningPeriode, null, '\t')}`);
 });
 
@@ -584,16 +585,18 @@ Then(/^heeft de response een bewoning met een bewoningPeriode '([\d-]*) tot ([\d
     const actualBewoning = actual.at(-1);
     const bewoningPeriode = getBewoningPeriode(actualBewoning, van, tot);
     should.exist(bewoningPeriode);
+    should.exist(bewoningPeriode.mogelijkeBewoners, `geen mogelijkeBewoners array om mogelijke bewoners te kunnen tellen. response:\n${JSON.stringify(actual, null, '\t')}`);
     bewoningPeriode.mogelijkeBewoners.length.should.equal(Number(aantal), `aantal bewoners in response is ongelijk aan ${aantal}\nBewoningPeriode: ${JSON.stringify(bewoningPeriode, null, '\t')}`);
 });
 
-Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' de volgende gegevens$/, function (van, tot, dataTable) {
+Then(/^heeft de bewoningPeriode de volgende gegevens$/, function (dataTable) {
     this.context.verifyResponse = true;
 
     let expectedBewoning = this.context.expected?.at(-1);
     should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 
-    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
+    let expectedBewoningPeriode = expectedBewoning.bewoningPeriodes.at(-1);
+    should.exist(expectedBewoningPeriode, `geen bewoningPeriode om velden toe te voegen.`);
 
     Object.assign(expectedBewoningPeriode, createObjectFrom(dataTable, true));
 });
