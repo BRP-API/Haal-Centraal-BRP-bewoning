@@ -2,14 +2,16 @@
 flowchart TB
 
 A[bewoning met peildatum]
+A --> A0
+
 A0{{"Bestaat er een adres in de registratie
 met de opgegeven adresseerbaar object identificatie?"}}
+A0 -- ja --> A1
+A0 -- nee --> ZOAO
+
 A1["Haal alle personen op
 die verblijven/hebben verbleven op
 gevraagd adresseerbaar object"]
-A --> A0
-A0 -- ja --> A1
-A0 -- nee --> Z5
 A1 -- "Bepaal voor
 elk persoon" --> A2
 
@@ -28,13 +30,13 @@ subgraph volledig bekend datum aanvang
         B1{{"Heeft persoon
         een volgende verblijfplaats?"}}
         B1 -- ja --> B2
-        B1 -- nee --> Z1
+        B1 -- nee --> ZBZVV
 
             B2{{"Is peildatum
             < datum aanvang
             volgende verblijfplaats?"}}
             B2 -- nee --> B3
-            B2 -- ja --> Z1
+            B2 -- ja --> ZBMVV
 
             B3{{"aangifte adreshouding
             volgende verblijfplaats
@@ -52,7 +54,7 @@ subgraph volledig bekend datum aanvang
         D{{"Heeft vorig verblijfplaats
         een ADO ID"}}
         D -- ja --> E
-        D -- nee ----> Z4
+        D -- nee ----> ZNBAG
 
             E{{"ado id vorig verblijfplaats
             = ado id verblijfplaats?"}}
@@ -62,7 +64,7 @@ subgraph volledig bekend datum aanvang
             F{{"Is peildatum
             >= datum aanvang
             vorig verblijfplaats?"}}
-            F -- ja --> Z1
+            F -- ja --> ZBGV
             F -- nee ---> Z3
 
             G{{"Is peildatum
@@ -75,12 +77,49 @@ subgraph volledig bekend datum aanvang
 end
 
 subgraph deels/geheel onbekend datum aanvang
-M
+
+M{{"Valt peildatum in
+onzekerheidsperiode
+datum aanvang verblijfplaats?"}}
+M -- ja --> N
+M -- nee --> O
+
+    N{{"Heeft persoon
+    een volgende verblijfplaats?"}}
+    N -- Nee --> ZMBZVV
+
+    O{{"Heeft persoon
+    een volgende verblijfplaats?"}}
+    O -- Ja --> O1
+    O -- Nee --> ZOBZVV
+
+        O1{{"Is datum aanvang adreshouding
+        volgende verblijfplaats
+        deels of geheel onbekend?"}}
+        O1 -- nee --> O2
+
+            O2{{"Is peildatum
+            < datum aanvang
+            volgende verblijfplaats?"}}
+            O2 -- ja --> Z1
+            O2 -- nee --> Z3
 end
 
 Z1[bewoner]
 Z2[mogelijke bewoner]
 Z3[geen bewoner]
-Z4[bewoning onbekend]
-Z5[geen bewoning]
+ZOBZVV[bewoner]
+click ZOBZVV "https://brp-api.github.io/Haal-Centraal-BRP-bewoning/" "bewoner met geheel/gedeeltelijk onbekend datum aanvang, verblijft op opgegeven adresseerbaar object en peildatum valt niet in onzekerheidsperiode" _blank
+ZMBZVV[mogelijke bewoner]
+click ZMBZVV "https://brp-api.github.io/Haal-Centraal-BRP-bewoning/" "bewoner met geheel/gedeeltelijk onbekend datum aanvang, verblijft op opgegeven adresseerbaar object en peildatum valt in onzekerheidsperiode" _blank
+ZNBAG[bewoning onbekend]
+click ZNBAG "https://brp-api.github.io/Haal-Centraal-BRP-bewoning/" "bewoner verblijft op peildatum op een niet-BAG adres" _blank
+ZOAO[geen bewoning]
+click ZOAO "https://brp-api.github.io/Haal-Centraal-BRP-bewoning/" "opgegeven adresseerbaar object bestaat niet" _blank
+ZBZVV[bewoner]
+click ZBZVV "https://brp-api.github.io/Haal-Centraal-BRP-bewoning/" "bewoner verblijft op opgegeven adresseerbaar object" _blank
+ZBMVV[bewoner]
+click ZBMVV "https://brp-api.github.io/Haal-Centraal-BRP-bewoning/" "bewoner verbleef op peildatum op opgegeven adresseerbaar object" _blank
+ZBGV[bewoner]
+click ZBGV "https://brp-api.github.io/Haal-Centraal-BRP-bewoning/" "bewoner van gewijzigd verblijfplaats" _blank
 ```
