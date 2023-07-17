@@ -1,5 +1,6 @@
 #language: nl
 
+@gba
 Functionaliteit: raadpleeg bewoning met infrastructurele of technische wijziging
 
 Rule: Wanneer een nieuwe verblijfplaats wordt geregistreerd naar aanleiding van wijzigingen van het adres, dan bevat het vorige verblijfplaats voorkomen de werkelijke datum van inschrijving 
