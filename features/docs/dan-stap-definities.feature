@@ -26,6 +26,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
@@ -38,6 +39,7 @@ Functionaliteit: Dan stap definities
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
 
@@ -47,6 +49,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
@@ -68,6 +71,7 @@ Functionaliteit: Dan stap definities
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' geen bewoners
@@ -78,6 +82,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
@@ -103,6 +108,7 @@ Functionaliteit: Dan stap definities
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' een bewoner met de volgende gegevens
@@ -115,6 +121,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
@@ -143,6 +150,7 @@ Functionaliteit: Dan stap definities
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' bewoners met de volgende gegevens
@@ -156,6 +164,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
@@ -181,6 +190,7 @@ Functionaliteit: Dan stap definities
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' een mogelijke bewoner met de volgende gegevens
@@ -193,6 +203,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
@@ -221,6 +232,7 @@ Functionaliteit: Dan stap definities
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' mogelijke bewoners met de volgende gegevens
@@ -234,6 +246,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
@@ -256,6 +269,7 @@ Functionaliteit: Dan stap definities
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' de volgende gegevens
@@ -268,6 +282,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
@@ -302,6 +317,7 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
+          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",

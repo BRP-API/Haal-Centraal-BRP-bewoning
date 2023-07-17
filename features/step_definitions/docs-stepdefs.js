@@ -74,10 +74,14 @@ Then(/^zijn de gegenereerde SQL statements$/, function(dataTable) {
                     currentStep = Number(exp.stap) - 1;
                 }
 
-                const actual = sqlDatas[currentStep][categorie][index];
+                const re = /(?<type>.*)-(?<typeid>.*)/;
+                const found = categorie.match(re);
+                const actual = found
+                    ? sqlDatas[currentStep][found.groups.type][found.groups.typeid].data
+                    : sqlDatas[currentStep][categorie][index];
 
                 let statement;
-                switch(categorie) {
+                switch(categorie.replace(/-.*$/, '')) {
                     case 'adres':
                         statement = insertIntoAdresStatement(actual);
                         break;
@@ -93,8 +97,7 @@ Then(/^zijn de gegenereerde SQL statements$/, function(dataTable) {
                         ].concat(actual), tableNameMap);
                         break;
                     default:
-                        const name = categorie.replace(/-\d$/, "");
-                        statement = insertIntoStatement(name, [
+                        statement = insertIntoStatement(categorie, [
                             ['pl_id', sqlDataIds.plIds[currentPlIndex]+'']
                         ].concat(actual), tableNameMap);
                         break;

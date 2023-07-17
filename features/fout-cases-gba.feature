@@ -192,7 +192,8 @@ Rule: Om privacy en security redenen moet een bevraging van bewoningen worden ge
     Dan heeft de response een object met de volgende gegevens
     | naam     | waarde                                                      |
     | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5 |
-    | title    | Method not allowed.                                         |
+    | title    | Gebruikte bevragingsmethode is niet toegestaan.             |
+    | code     | methodNotAllowed                                            |
     | status   | 405                                                         |
     | instance | /haalcentraal/api/bewoning/bewoningen                       |
 

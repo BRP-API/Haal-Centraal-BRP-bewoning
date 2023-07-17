@@ -92,7 +92,7 @@ components:
             peildatum:
               $ref: 'filter.yaml#/components/schemas/Peildatum'
             adresseerbaarObjectIdentificatie:
-              $ref: "verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie"
+              $ref: "filter.yaml#/components/schemas/AdresseerbaarObjectIdentificatieFilter"
     BewoningMetPeriode:
       required:
         - datumVan
@@ -107,11 +107,11 @@ components:
             datumTot:
               $ref: 'filter.yaml#/components/schemas/DatumTot'
             adresseerbaarObjectIdentificatie:
-              $ref: "verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie"
+              $ref: "filter.yaml#/components/schemas/AdresseerbaarObjectIdentificatieFilter"
     BewoningenQueryResponse:
       type: object
       properties:
         bewoningen:
           type: array
           items:
-            $ref: 'bewoning.yaml#/components/schemas/Bewoning'
+            $ref: 'bewoning.yaml#/components/schemas/AbstractBewoning'
