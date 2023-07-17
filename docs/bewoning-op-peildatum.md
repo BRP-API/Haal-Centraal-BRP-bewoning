@@ -19,9 +19,9 @@ A2 -- ja --> M
 A2 -- nee --> B
 
 subgraph volledig bekend datum aanvang
-    B{{"Is peildatum verblijfplaats
+    B{{"Is peildatum
     >=
-    datum aanvang adreshouding?"}}
+    datum aanvang verblijfplaats?"}}
     B --ja--> B1
     B --nee--> C
 
