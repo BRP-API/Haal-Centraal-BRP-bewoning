@@ -13,7 +13,8 @@ public static class MethodNotAllowedHandler
         {
             Status = StatusCodes.Status405MethodNotAllowed,
             Instance = new Uri(context.Request.Path, UriKind.Relative),
-            Title = "Method not allowed.",
+            Title = "Gebruikte bevragingsmethode is niet toegestaan.",
+            Code = "methodNotAllowed",
             Type = new Uri(StatusCodeIdentifiers.MethodNotAllowedIdentifier)
         };
     }
