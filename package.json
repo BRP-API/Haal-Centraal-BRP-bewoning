@@ -45,18 +45,18 @@
   },
   "homepage": "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning#readme",
   "devDependencies": {
-    "@cucumber/cucumber": "^9.1.2",
+    "@cucumber/cucumber": "^9.2.0",
     "@openapitools/openapi-generator-cli": "^2.6.0",
     "@stoplight/spectral-cli": "^6.8.0",
     "axios": "^1.4.0",
     "chai": "^4.3.7",
-    "cucumber-html-reporter": "^7.1.0",
+    "cucumber-html-reporter": "^7.1.1",
     "deep-equal-in-any-order": "^2.0.6",
     "husky": "^8.0.3",
     "mkdirp": "^3.0.1",
     "mvn-dl": "^6.1.1",
     "nswag": "^13.19.0",
-    "openapi-to-postmanv2": "^4.14.0",
-    "pg": "^8.11.0"
+    "openapi-to-postmanv2": "^4.15.0",
+    "pg": "^8.11.1"
   }
 }

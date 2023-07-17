@@ -4,17 +4,14 @@ function noSqlData(sqlData) {
 }
 
 function getAdresId(sqlData, adresIndex) {
-    let index=0;
-    for(const sqlDataElement of sqlData) {
-        if(sqlDataElement['adres'] !== undefined) {
-            if(index === adresIndex) {
-                return sqlDataElement['adres'][0].find(elem => elem[0] === 'adres_id')[1];
-            }
-            else {
-                index++;
-            }
+    const adressenData = sqlData.find(e => Object.keys(e).includes('adres'));
+
+    for(const key of Object.keys(adressenData.adres)) {
+        if(adressenData.adres[key].index === adresIndex) {
+            return adressenData.adres[key].data?.find(elem => elem[0] === 'adres_id')[1];
         }
     }
+    return undefined;
 }
 
 function setAdresIdForVerblijfplaatsen(sqlDataElement, sqlData) {
@@ -109,14 +106,14 @@ async function executeSql(client, sqlData, tableNameMap, logSqlStatements) {
         }
     }
     if(sqlData['adres'] !== undefined) {
-        for(const rowData of sqlData['adres']) {
-            const sqlStatement = insertIntoAdresStatement(rowData);
+        for(const key of Object.keys(sqlData['adres'])) {
+            const sqlStatement = insertIntoAdresStatement(sqlData['adres'][key].data);
 
             logIf(sqlStatement, logSqlStatements);
 
             const res = await client.query(sqlStatement);
 
-            rowData.push(['adres_id', res.rows[0]['adres_id']]);
+            sqlData['adres'][key].data.push(['adres_id', res.rows[0]['adres_id']]);
         }
     }
     if(sqlData['inschrijving'] !== undefined) {
@@ -299,18 +296,20 @@ async function deleteAdresRecord(client, sqlData, tableNameMap, logSqlStatements
         return;
     }
 
-    const adresIdElem = sqlData['adres'][0].find(e => e[0] === 'adres_id');
-    if(adresIdElem == undefined) {
-        return;
+    for(const key of Object.keys(sqlData['adres'])) {
+        const adresIdElem = sqlData['adres'][key].data.find(e => e[0] === 'adres_id');
+        if(adresIdElem == undefined) {
+            continue;
+        }
+
+        const id = Number(adresIdElem[1]);
+
+        const sqlStatement = createDeleteStatement('adres', id, tableNameMap);
+
+        logIf(sqlStatement, logSqlStatements);
+
+        await client.query(sqlStatement);
     }
-
-    const id = Number(adresIdElem[1]);
-
-    const sqlStatement = createDeleteStatement('adres', id, tableNameMap);
-
-    logIf(sqlStatement, logSqlStatements);
-
-    await client.query(sqlStatement);
 }
 
 async function deleteAutorisatieRecords(client, tableNameMap, logSqlStatements) {

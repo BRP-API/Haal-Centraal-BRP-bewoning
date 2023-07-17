@@ -92,6 +92,32 @@ async function handleOAuthRequest(accessToken, oAuth, afnemerId, endpointUrl, da
     return { response: response, accessToken: accessToken};
 }
 
+async function handleOAuthCustomRequest(accessToken, oAuth, afnemerId, endpointUrl, method, requestBody) {
+    const accessTokenUrl = oAuth.accessTokenUrl;
+    const oAuthSettings = afnemerId === undefined
+        ? oAuth.clients[0]
+        : oAuth.clients.find(client => client.afnemerID === afnemerId);
+
+    if(oAuthSettings === undefined) {
+        console.log(`geen oAuthSettings gevonden voor afnemerId '${afnemerId}'`);
+        return undefined;
+    }
+
+    if(accessToken === undefined) {
+        console.log("no access token. authenticate");
+        accessToken = await getOAuthAccessToken(accessTokenUrl, oAuthSettings);
+    }
+
+    let response = await postBevragenRequestWithOAuth(endpointUrl, accessToken, undefined, method, requestBody);
+    if(response.status === 401) {
+        console.log("access denied. access token expired");
+        accessToken = await getOAuthAccessToken(accessTokenUrl, oAuthSettings);
+        response = await postBevragenRequestWithOAuth(endpointUrl, accessToken, undefined, method, requestBody);
+    }
+
+    return { response: response, accessToken: accessToken};
+}
+
 async function getOAuthAccessToken(accessTokenUrl, oAuthSettings) {
     const config = {
         method: 'post',
@@ -138,4 +164,4 @@ async function postBevragenRequestWithOAuth(baseUrl, access_token, dataTable, me
     }
 }
 
-module.exports = { postBevragenRequestWithBasicAuth, handleOAuthRequest, handleCustomBevragenRequest }
+module.exports = { postBevragenRequestWithBasicAuth, handleOAuthRequest, handleOAuthCustomRequest, handleCustomBevragenRequest }

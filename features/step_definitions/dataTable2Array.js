@@ -67,4 +67,4 @@ function createVoorkomenDataFromArray(data) {
     ].concat(data);
 }
 
-module.exports = { createCollectieDataFromArray, createArrayFrom, createVoorkomenDataFromArray }
+module.exports = { createCollectieDataFromArray, createArrayFrom, createVoorkomenDataFromArray, fromHash }
