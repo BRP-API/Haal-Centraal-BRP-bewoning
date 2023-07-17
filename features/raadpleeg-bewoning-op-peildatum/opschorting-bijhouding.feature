@@ -3,14 +3,14 @@
 Functionaliteit: niet leveren van een bewoner met opschorting bijhouding
 
   Achtergrond:
-    Gegeven een adres heeft de volgende gegevens
+    Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000713450                         |
 
 Rule: personen met een afgevoerde persoonslijst worden niet gezien als bewoner
 
   Scenario: persoon heeft afgevoerde persoonslijst
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
     En de persoon heeft de volgende 'inschrijving' gegevens
@@ -31,7 +31,7 @@ Rule: personen met een afgevoerde persoonslijst worden niet gezien als bewoner
 Rule: personen op een logisch verwijderde persoonslijst worden niet gezien als bewoner
 
   Scenario: persoon is opgeschort met reden "W" (wissen)
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
     En de persoon heeft de volgende 'inschrijving' gegevens
@@ -52,7 +52,7 @@ Rule: personen op een logisch verwijderde persoonslijst worden niet gezien als b
 Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W" worden na datum opschorting bijhouding niet gezien als bewoner
 
   Abstract Scenario: persoon is opgeschort met reden "<reden opschorting bijhouding>" (<reden opschorting omschrijving>) en peildatum ligt vóór datum opschorting bijhouding
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
     En de persoon heeft de volgende 'inschrijving' gegevens
@@ -81,7 +81,7 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     | .                            | onbekend                       |
 
   Abstract Scenario: persoon is opgeschort met reden "<reden opschorting bijhouding>" (<reden opschorting omschrijving>) en <scenario>
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
     En de persoon heeft de volgende 'inschrijving' gegevens

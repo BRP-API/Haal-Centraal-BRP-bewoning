@@ -24,10 +24,10 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
   Rule: Parameter peildatum filtert op datum aanvang adreshouding (08.10.30) en datum aanvang adres buitenland (08.13.20), parameter adresseerbaarObjectIdentificatie zoekt op identificatiecode verblijfplaats (08.11.80)
 
     Scenario: Raadpleeg bewoning op peildatum
-      Gegeven een adres heeft de volgende gegevens
+      Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000713450                         |
-      En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | datum aanvang adreshouding (10.30) |
       | 20200818                           |
       Als gba bewoning wordt gezocht met de volgende parameters
@@ -43,10 +43,10 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
   Rule: Bij bewoning wordt alleen het burgerservicenummer (01.01.20) van de persoon gevraagd.
 
     Scenario: Burgerservicenummer (010120) wordt vastgelegd in 'request_gevraagde_rubrieken'
-      Gegeven een adres heeft de volgende gegevens
+      Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000713450                         |
-      En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | datum aanvang adreshouding (10.30) |
       | 20200818                           |
       Als gba bewoning wordt gezocht met de volgende parameters
@@ -61,13 +61,13 @@ Functionaliteit: Als burger wil ik zien wie welke gegegevens van mij heeft gezie
   Rule: Wanneer in het antwoord meerdere personen worden geleverd, dan wordt er per geleverde persoon een protocolleringsrecord opgenomen
     
     Scenario: Meerdere bewoners gevonden op peildatum
-      Gegeven een adres heeft de volgende gegevens
+      Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000713450                         |
-      En de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | datum aanvang adreshouding (10.30) |
       | 20200818                           |
-      En de persoon met burgerservicenummer '000000048' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
       | datum aanvang adreshouding (10.30) |
       | 20200818                           |
       Als gba bewoning wordt gezocht met de volgende parameters

@@ -7,10 +7,10 @@ Functionaliteit: raadpleeg bewoning op peildatum
   zodat ik deze informatie kan gebruiken in mijn proces
 
   Achtergrond:
-    Gegeven een adres heeft de volgende gegevens
+    Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000713450                         |
-    En een adres heeft de volgende gegevens
+    En adres 'A2' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000854789                         |
 
@@ -26,11 +26,11 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0800010000713451     |
     Dan heeft de response 0 bewoningen
 
-  Abstract Scenario: er is één persoon ingeschreven op het aangegeven adresseerbaar object en <scenario>
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+  Abstract Scenario: persoon met volgende verblijfplaats is ingeschreven op het gevraagde adresseerbaar object en peildatum en <scenario>
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160526                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -54,10 +54,10 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | 2016-05-25 | 2016-05-25 tot 2016-05-26 | peildatum valt op de laatste dag van adreshouding periode |
 
   Abstract Scenario: er zijn geen personen ingeschreven op het aangegeven adresseerbaar object en peildatum
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160526                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -78,7 +78,7 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | 2016-05-26 | 2016-05-26 tot 2016-05-27 | peildatum valt op eerste dag van volgend adreshouding periode |
 
   Abstract Scenario: <omschrijving>
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
     En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
@@ -91,6 +91,7 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
+    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0800010000713450 |
     En heeft de bewoning voor de bewoningPeriode '<periode>' geen bewoners
@@ -101,7 +102,7 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
       | 2023-06-01 | 2023-06-01 tot 2023-06-02 | de bewoner is geëmigreerd voor de peildatum |
 
   Scenario: de bewoner is geëmigreerd na de peildatum
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
     En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
@@ -114,6 +115,7 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | adresseerbaarObjectIdentificatie | 0800010000713450     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
+    | type                             | Bewoning                  |
     | periode                          | 2023-05-25 tot 2023-05-26 |
     | adresseerbaarObjectIdentificatie | 0800010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2023-05-25 tot 2023-05-26' een bewoner met de volgende gegevens
@@ -121,13 +123,13 @@ Rule: een persoon is bewoner van een adresseerbaar object op een peildatum als:
     | 000000024           |
 
   Abstract Scenario: er zijn meerdere personen ingeschreven op het aangegeven adresseerbaar object en peildatum
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160526                           |
-    En de persoon met burgerservicenummer '000000048' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20140808                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -156,7 +158,7 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
       - datum aanvang adreshouding van de persoon op het volgend adresseerbaar object deels of geheel onbekend is en de peildatum valt in de onzekerheidsperiode
 
   Abstract Scenario: dag datum aanvang adreshouding van een persoon op het aangegeven adresseerbaar object is onbekend en <scenario>
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -180,7 +182,7 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | 2010-08-31 | 2010-08-31 tot 2010-09-01 | peildatum valt op de laatste dag van de maand aanvang adreshouding |
 
   Scenario: dag datum aanvang adreshouding van een persoon op het aangegeven adresseerbaar object is onbekend en peildatum valt op de eerste dag van de daarop volgende maand
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -198,7 +200,7 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | 000000024           |
 
   Scenario: dag datum aanvang adreshouding van een persoon op het aangegeven adresseerbaar object is onbekend en peildatum valt op de laatste dag van de vorige maand
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -214,10 +216,10 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     En heeft de bewoning voor de bewoningPeriode '2010-07-31 tot 2010-08-01' geen bewoners
 
   Abstract Scenario: dag datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is onbekend en <scenario>
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160500                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -241,10 +243,10 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | 2016-05-31 | 2016-05-31 tot 2016-06-01 | peildatum valt op de laatste dag van de maand van de volgende aanvang adreshouding |
 
   Scenario: dag datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is onbekend en peildatum valt op de eerste dag van de daarop volgende maand
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160500                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -260,10 +262,10 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     En heeft de bewoning voor de bewoningPeriode '2016-06-01 tot 2016-06-02' geen bewoners
 
   Scenario: dag datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is onbekend en peildatum valt op de laatste dag van de vorige maand
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160500                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -281,7 +283,7 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | 000000024           |
 
   Abstract Scenario: dag en maand datum aanvang adreshouding van een persoon op het aangegeven adresseerbaar object is onbekend en <scenario>
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100000                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -305,7 +307,7 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | 2010-12-31 | 2010-12-31 tot 2011-01-01 | peildatum valt op de laatste dag van het jaar aanvang adreshouding |
 
   Scenario: dag en maand datum aanvang adreshouding van een persoon op het aangegeven adresseerbaar object is onbekend en peildatum valt op de eerste dag van het daarop volgend jaar
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100000                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -323,7 +325,7 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | 000000024           |
 
   Scenario: dag en maand datum aanvang adreshouding van een persoon op het aangegeven adresseerbaar object is onbekend en peildatum valt op de laatste dag van het vorige jaar
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100000                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -339,10 +341,10 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     En heeft de bewoning voor de bewoningPeriode '2009-12-31 tot 2010-01-01' geen bewoners
 
   Abstract Scenario: dag en maand datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is onbekend en <scenario>
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160000                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -366,10 +368,10 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     | 2016-12-31 | 2016-12-31 tot 2017-01-01 | peildatum valt op de laatste dag van het jaar van de volgende aanvang adreshouding |
 
   Scenario: dag en maand datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is onbekend en peildatum valt op de eerste dag van het daarop volgend jaar
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160000                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -385,10 +387,10 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
     En heeft de bewoning voor de bewoningPeriode '2017-01-01 tot 2017-01-02' geen bewoners
 
   Scenario: dag en maand datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is onbekend en peildatum valt op de laatste dag van het vorig jaar
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160000                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -408,7 +410,7 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op een peilda
 Rule: een persoon is mogelijk bewoner van een adresseerbaar object op elke peildatum als de datum aanvang adreshouding van de persoon op het adresseerbaar object volledig onbekend is en er is geen inschrijving op een volgend adresseerbaar object
 
   Scenario: datum aanvang adreshouding van een persoon op het aangegeven adresseerbaar object is onbekend
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 00000000                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -428,10 +430,10 @@ Rule: een persoon is mogelijk bewoner van een adresseerbaar object op elke peild
 Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adresseerbaar object als de datum aanvang adreshouding op het volgend adresseerbaar object volledig onbekend is
 
   Scenario: datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is volledig onbekend en peildatum valt op de datum aanvang adreshouding op het eerste adresseerbaar object
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 00000000                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -449,10 +451,10 @@ Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adress
     | 000000024           |
 
   Scenario: datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is volledig onbekend en peildatum valt op de eerste dag na datum aanvang adreshouding op het eerste adresseerbaar object
-    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000713450' met de volgende gegevens
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En de persoon is vervolgens ingeschreven op het adres met 'identificatiecode verblijfplaats (11.80)' '0800010000854789' met de volgende gegevens
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 00000000                           |
     Als bewoning wordt gezocht met de volgende parameters
