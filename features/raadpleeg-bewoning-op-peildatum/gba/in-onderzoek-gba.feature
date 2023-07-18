@@ -29,25 +29,26 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | 000000024           | <aanduiding in onderzoek> |
 
     Voorbeelden:
-    | aanduiding in onderzoek | type                               |
-    | 080000                  | hele categorie verblijfplaats      |
-    | 080900                  | hele groep gemeente                |
-    | 080910                  | gemeente van inschrijving          |
-    | 080920                  | datum inschrijving in de gemeente  |
-    | 081000                  | hele groep adreshouding            |
-    | 081030                  | datum aanvang adreshouding         |
-    | 081100                  | hele groep adres                   |
-    | 081180                  | identificatiecode verblijfplaats   |
-    | 081010                  | functie adres                      |
-    | 081110                  | straatnaam                         |
-    | 081115                  | naam openbare ruimte               |
-    | 081190                  | identificatiecode nummeraanduiding |
-    | 081200                  | hele groep locatie                 |
-    | 081400                  | hele groep immigratie              |
-    | 081410                  | land vanwaar ingeschreven          |
-    | 081420                  | datum vestiging in Nederland       |
-    | 088500                  | hele groep geldigheid              |
-    | 088510                  | datum ingang geldigheid            |
+    | aanduiding in onderzoek | type                                |
+    | 080000                  | hele categorie verblijfplaats       |
+    | 080900                  | hele groep gemeente                 |
+    | 080910                  | gemeente van inschrijving           |
+    | 080920                  | datum inschrijving in de gemeente   |
+    | 081000                  | hele groep adreshouding             |
+    | 081030                  | datum aanvang adreshouding          |
+    | 081100                  | hele groep adres                    |
+    | 081180                  | identificatiecode verblijfplaats    |
+    | 081010                  | functie adres                       |
+    | 081110                  | straatnaam                          |
+    | 081115                  | naam openbare ruimte                |
+    | 081190                  | identificatiecode nummeraanduiding  |
+    | 081200                  | hele groep locatie                  |
+    | 081400                  | hele groep immigratie               |
+    | 081410                  | land vanwaar ingeschreven           |
+    | 081420                  | datum vestiging in Nederland        |
+    | 088500                  | hele groep geldigheid               |
+    | 088510                  | datum ingang geldigheid             |
+    | 089999                  | vastgesteld verblijft niet op adres |
 
 Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het indicatieVerblijfsplaatsInOnderzoek veld met waarde true
 
