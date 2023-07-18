@@ -1,27 +1,32 @@
 ---
 layout: page-with-side-nav
-title: Haal-Centraal-BRP-bewoning
+title: Haal Centraal BRP-bewoning
 ---
 # Haal Centraal BRP bewoning
 
 ![lint oas](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/lint-oas/badge.svg)
 ![generate postman collection](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/generate-postman-collection/badge.svg)
 
-API voor het raadplegen van de (historische) bewoning van een adres, verloop op een adres, of de medebewoners van een persoon.
-De API wordt nog niet door RvIG aangeboden. Om de migratie naar API's te versnellen besluiten sommige gemeenten de API zelf aan te bieden.  
+API voor het raadplegen van de (historische) bewoning(en) van een adres. Met de API kun je de samenstelling(en) van bewoners van een adres raadplegen op een peildatum en binnen een periode.
+
+## Planning & Roadmap
+Het team van RvIG werkt op dit moment nog aan v2 van de API. Binnenkort kun je hier net als bij de Personen API met behulp van een docker compose bestand de bewoningProxy en de mock van de GBA variant draaien op jouw eigen machine. Hiermee kun je onze MVP voor raadplegen op peildatum alvast uitproberen. Wij werken dan verder aan het raadplegen van bewoningen op periode, maar hebben ook tijd om de MVP te verbeteren. Wij horen graag jullie ervaringen!
+De bewoning API v2 gaat op 1 oktober in productie, en kan voorlopig alleen worden gebruikt door gemeenten. 
 
 ## Direct uitproberen?
-* Bekijk de specificaties met [Swagger UI](swagger-ui) of [Redoc](redoc)
-* Lees de [Getting started](getting-started)
-* Download de [technische specificaties](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml){:target="_blank" rel="noopener"}
+* Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
+* Lees de [Getting started] (volgt binnenkort)
+* Download de [technische specificaties](volgt binnenkort)
 
 ## Heb je meer nodig? 
 Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 
-* [Actuele BRP-gegevens bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-bevragen){:target="_blank" rel="noopener"}
-* [Historische BRP-gegevens bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-historie-bevragen){:target="_blank" rel="noopener"}
+* [Personen bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-bevragen){:target="_blank" rel="noopener"}
+* [Historie bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-historie-bevragen){:target="_blank" rel="noopener"}
 * [Reisdocumenten bevragen](https://BRP-API.github.io/Haal-Centraal-Reisdocumenten-bevragen){:target="_blank" rel="noopener"}
 * [Landelijke tabellen bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-tabellen-bevragen){:target="_blank" rel="noopener"}
+  
+Maak je nog gebruik van versie 1.0? Bekijk de specificaties met [Swagger UI](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc) en download de [technische specificaties](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml)
 
 ## Bronnen
 
@@ -32,16 +37,12 @@ Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 ## Contact
 
 * Bug Melden
-  [Maak een bug issue aan >>](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
+  [Geef een bug door >>](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
 * Verbeteringen doorgeven
-  [Maak een verbeter issue aan >>](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
+  [Geef een verbetering door >>](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
 
-* Product Owner: Cathy Dingemanse, [c.dingemanse@comites.nl](mailto:c.dingemanse@comites.nl)
-* Designer: Johan Boer, [johan.boer@vng.nl](mailto:johan.boer@vng.nl)
-* Designer: Robert Melskens, [robert.melskens@vng.nl](mailto:robert.melskens@vng.nl)
-* Customer zero: Melvin Lee, [melvin.lee@iswish.nl](mailto:melvin.lee@iswish.nl)
-* Tester: Frank Samwel, [frank.samwel@denhaag.nl](mailto:frank.samwel@rvig.nl)
+* Product Owner: Cathy Dingemanse, [cathy.dingemanse@rvig.nl](mailto:cathy.dingemanse@rvig.nl)
+* Customer zero en ontwikkelaar: Melvin Lee, [melvin.lee@iswish.nl](mailto:melvin.lee@rvig.nl)
+* Tester: Frank Samwel, [frank.samwel@rvig.nl](mailto:frank.samwel@rvig.nl)
 
-## Licentie
-Copyright &copy; VNG Realisatie 2020
-Licensed under the [EUPL](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/LICENCE.md)
+
