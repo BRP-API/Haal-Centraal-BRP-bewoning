@@ -13,7 +13,7 @@ M -- nee --> O
 
     N{{"Heeft persoon
     volgende verblijf?"}}
-    N -- nee --------> MB-GO-VG
+    N -- nee --------> MB-GO-GV
     N -- ja --> N1
 
         N1{{"Is datum aanvang
@@ -94,8 +94,8 @@ M -- nee --> O
                         O7 -- nee --> WB-DO-VDOV
 
 
-MB-GO-VG["mogelijke bewoner
-(MB-GO-VG)"]
+MB-GO-GV["mogelijke bewoner
+(MB-GO-GV)"]
 %% persoon met geheel onbekend datum aanvang verblijf en geen volgend verblijf %%
 
 MB-GO-VNOV["mogelijke bewoner
@@ -160,6 +160,8 @@ WB-DO-VDOV["bewoner
 
 ```
 
+Legenda:
+
 IB = is bewoner  
 WB = was bewoner  
 MB = mogelijke bewoner  
@@ -175,6 +177,11 @@ DOV = deels onbekend volgend datum aanvang
 NOV = (niet on)bekend volgend datum aanvang
 
 IGO = in onzekerheidsperiode geheel onbekend datum aanvang  
-IDOV = in onzekerheidsperiode deels onbekend volgend datum aanvang  
+IDO = in onzekerheidsperiode deels onbekend datum aanvang  
 VDO = vóór onzekerheidsperiode deels onbekend datum aanvang  
-NNOV = na (niet on)bekend volgend datum aanvang
+NDO = na onzekerheidsperiode deels onbekend datum aanvang  
+IDOV = in onzekerheidsperiode deels onbekend volgend datum aanvang  
+VDOV = vóór onzekerheidsperiode deels onbekend volgend datum aanvang  
+NDOV = na onzekerheidsperiode deels onbekend volgend datum aanvang  
+VNOV = vóór (niet on)bekend volgend datum aanvang  
+NNOV = op/na (niet on)bekend volgend datum aanvang
