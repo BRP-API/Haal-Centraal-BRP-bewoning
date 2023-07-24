@@ -8,6 +8,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres'
 
 Rule: een persoon met aanduiding in onderzoek waarde '089999' wordt niet geleverd als bewoner
 
+  @VGB-NNO-GV
   Scenario: persoon verblijft niet meer op het gevraagde adres
     Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
