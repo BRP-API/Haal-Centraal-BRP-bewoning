@@ -207,7 +207,7 @@ Rule: een persoon was op de peildatum bewoner van een adresseerbaar object als d
 
 Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adresseerbaar object als de datum aanvang adreshouding op het volgend adresseerbaar object volledig onbekend is
 
-  @WB-INO-GOV
+  @WB-INO-IGOV
   Scenario: datum aanvang adreshouding van een persoon op het volgend adresseerbaar object is volledig onbekend en peildatum valt op de datum aanvang adreshouding op het eerste adresseerbaar object
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |

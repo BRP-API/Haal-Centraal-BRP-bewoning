@@ -8,13 +8,13 @@ A0{{"Bestaat er een adres
 in de registratie met de opgegeven
 adresseerbaar object identificatie?"}}
 A0 -- ja --> A1
-A0 -- nee --> ZA
+A0 -- nee --> BG
 
-A1["Haal alle personen op
-die verblijven/verbleven op
+A1["Bepaal voor elk
+niet-opgeschorte persoon
+die verblijft/verbleef op
 gevraagd adresseerbaar object"]
-A1 -- "Bepaal voor
-elk persoon" --> A2
+A1 --> A2
 
 A2{{"Is datum aanvang adreshouding
 deels/geheel onbekend?"}}
@@ -40,26 +40,43 @@ B --nee--> C
     B1{{"Heeft persoon
     volgende verblijf?"}}
     B1 -- ja --> B2
-    B1 -- nee --> B5
+    B1 -- nee --> B6
 
-        B2{{"Is peildatum
-        < datum aanvang
-        volgende verblijf?"}}
-        B2 -- nee --> B3
-        B2 -- ja ----> WB-NNO-VNOV
-
-        B3{{"aangifte adreshouding
+        B2{{"Is datum aanvang
         volgende verblijf
-        = T of W?"}}
-        B3 -- ja ---> B4["Bepaal bewoning van
-        volgende verblijfplaats
-        op peildatum"]
-        B3 -- nee ---> GB-NNO-NNOV
+        geheel/deels onbekend?"}}
+        B2 -- nee --> B3
+        B2 -- ja --> I
 
-        B5{{"aanduiding in onderzoek
+            B3{{"Is peildatum
+            < datum aanvang
+            volgende verblijf?"}}
+            B3 -- nee --> B4
+            B3 -- ja ---> WB-NNO-VNOV
+
+                B4{{"aangifte adreshouding
+                volgende verblijf
+                = T of W?"}}
+                B4 -- ja --> B5["Bepaal bewoning van
+                volgende verblijfplaats
+                op peildatum"]
+                B4 -- nee --> GB-NNO-NNOV
+
+        B6{{"aanduiding in onderzoek
         verblijf = 089999?"}}
-        B5 -- nee ----> IB-NNO-GV
-        B5 -- ja ----> VGB-NNO-GV
+        B6 -- nee ----> IB-NNO-GV
+        B6 -- ja ----> VGB-NNO-GV
+
+        I{{"Is datum aanvang
+        volgende verblijf
+        geheel onbekend?"}}
+        I -- ja --> I1
+        I -- nee --> J
+
+            I1{{"peildatum =
+            datum aanvang verblijf?"}}
+            I1 -- ja --> WB-INO-IGOV
+            I1 -- nee --> MB-NNO-IGOV
 
     C{{"aangifte adreshouding
     verblijf = T of W?"}}
@@ -127,11 +144,20 @@ GB-VNOW["geen bewoner
 (GB-VNOW)"]
 %% persoon met bekend datum aanvang verblijf en aangifte adreshouding = W en peildatum valt vóór datum aanvang vorig verblijf %%
 
+WB-INO-IGOV["bewoner
+(WB-INO-IGOV)"]
+%% persoon met bekend datum aanvang verblijf en geheel onbekend datum aanvang volgend verblijf en peildatum valt op datum aanvang verblijf %%
+
+MB-NNO-IGOV["mogelijke bewoner
+(MB-NNO-IGOV)"]
+%% persoon met bekend datum aanvang verblijf en geheel onbekend datum aanvang volgend verblijf en peildatum valt na datum aanvang verblijf %%
+
 ```
 Legenda:
 
 IB = is bewoner  
-WB = was bewoner  
+WB = was bewoner 
+MB = mogelijke bewoner 
 GB = geen bewoner  
 VGB = vastgesteld geen bewoner  
 BO = bewoning onbekend  
@@ -142,10 +168,11 @@ NOT = (niet on)bekend datum aanvang en aangifte adreshouding = technisch gewijzi
 NOW = (niet on)bekend datum aanvang en aangifte adreshouding = infrastructureel gewijzigd  
 
 VNO = vóór (niet on)bekend datum aanvang
-NNO = op/na (niet on)bekend datum aanvang
+NNO = op of na (niet on)bekend datum aanvang
+INO = op (niet on)bekend datum aanvang
 
-GV = geen volgend datum aanvang
-NOV = (niet on)bekend volgend datum aanvang
+GV = geen volgend datum aanvang  
+NOV = (niet on)bekend volgend datum aanvang  
 NOVT = (niet on)bekend volgend datum aanvang en aangifte adreshouding = technisch gewijzigd  
 NOVW = (niet on)bekend volgend datum aanvang en aangifte adreshouding = infrastructureel gewijzigd  
 
