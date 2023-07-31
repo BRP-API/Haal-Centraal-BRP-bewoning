@@ -1,35 +1,63 @@
 ```mermaid
 flowchart LR
 
-A[bewoning met peildatum]
+A["bepaal bewoning voor
+adresseerbaar object
+op peildatum"]
 A --> A0
 
 A0{{"Bestaat er een adres
 in de registratie met de opgegeven
 adresseerbaar object identificatie?"}}
+A0 -- nee -------> BG
 A0 -- ja --> A1
-A0 -- nee --> BG
 
-A1["Bepaal voor elk
-niet-opgeschorte persoon
+A1["Bepaal voor elk persoon
 die verblijft/verbleef op
-gevraagd adresseerbaar object"]
+het adresseerbaar object"]
 A1 --> A2
 
-A2{{"Is datum aanvang adreshouding
-deels/geheel onbekend?"}}
-A2 -- ja --> DGO[deels/geheel onbekend datum aanvang]
-A2 -- nee --> NO["(niet on)bekend datum aanvang"]
+A2{{"Heeft de persoon
+opschorting?"}}
+A2 -- ja --> A3
+A2 -- nee --> A5
 
+A3{{"Reden opschorting
+bijhouding = F/W?"}}
+A3 -- ja ----> OGB
+A3 -- nee --> A4
+
+A4{{"Is peildatum >=
+datum opschorting bijhouding?"}}
+A4 -- ja ---> OGB-NOB
+A4 -- nee --> A5
+
+A5{{"Is datum aanvang verblijf
+deels/geheel onbekend?"}}
+A5 -- ja --> DGO["deels/geheel onbekend
+datum aanvang verblijf"]
+A5 -- nee --> NO["(niet on)bekend
+datum aanvang verblijf"]
 
 BG["geen bewoning
 (BG)"]
 %% opgegeven adresseerbaar object bestaat niet/is niet geregistreerd in de BRP %%
 
+OGB["geen bewoner
+(OGB)"]
+%% persoon met reden opschorting bijhouding 'F' of 'W' %%
+
+OGB-NOB["geen bewoner
+(OGB-NOB)"]
+%% persoon met reden opschorting bijhouding ongelijk aan 'F' of 'W' en peildatum valt op/na datum opschorting bijhouding %%
+
 ```
 
 ```mermaid
-flowchart TB
+flowchart
+
+subgraph NO["(niet on)bekend datum aanvang verblijf"]
+direction LR
 
 B{{"Is peildatum
 >=
@@ -119,8 +147,7 @@ IB-NNO-GV["bewoner
 (IB-NNO-GV)"]
 %% persoon met bekend datum aanvang verblijf, geen volgend verblijf en peildatum valt op/na datum aanvang verblijf %%
 
-VGB-NNO-GV["vastgesteld
-geen bewoner
+VGB-NNO-GV["geen bewoner
 (VGB-NNO-GV)"]
 %% persoon met bekend datum aanvang verblijf, geen volgend verblijf, peildatum valt op/na datum aanvang verblijf en aanduiding in onderzoek = 089999 %%
 
@@ -152,23 +179,28 @@ MB-NNO-IGOV["mogelijke bewoner
 (MB-NNO-IGOV)"]
 %% persoon met bekend datum aanvang verblijf en geheel onbekend datum aanvang volgend verblijf en peildatum valt na datum aanvang verblijf %%
 
+end
 ```
 Legenda:
 
 IB = is bewoner  
-WB = was bewoner 
-MB = mogelijke bewoner 
+WB = was bewoner  
+MB = mogelijke bewoner  
 GB = geen bewoner  
 VGB = vastgesteld geen bewoner  
 BO = bewoning onbekend  
-BG = geen bewoning
+BG = geen bewoning  
+OGB = geen bewoner (opgeschort)
+
+OB = datum opschorting bijhouding  
+NOB = op of na datum opschorting bijhouding
 
 NO = (niet on)bekend datum aanvang  
 NOT = (niet on)bekend datum aanvang en aangifte adreshouding = technisch gewijzigd  
 NOW = (niet on)bekend datum aanvang en aangifte adreshouding = infrastructureel gewijzigd  
 
-VNO = vóór (niet on)bekend datum aanvang
-NNO = op of na (niet on)bekend datum aanvang
+VNO = vóór (niet on)bekend datum aanvang  
+NNO = op of na (niet on)bekend datum aanvang  
 INO = op (niet on)bekend datum aanvang
 
 GV = geen volgend datum aanvang  

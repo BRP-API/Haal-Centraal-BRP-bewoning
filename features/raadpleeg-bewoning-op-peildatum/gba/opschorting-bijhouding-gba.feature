@@ -10,6 +10,7 @@ Functionaliteit: niet leveren van een bewoner met opschorting bijhouding
 
 Rule: personen met een afgevoerde persoonslijst worden niet gezien als bewoner
 
+  @OGB
   Scenario: persoon heeft afgevoerde persoonslijst
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
@@ -31,6 +32,7 @@ Rule: personen met een afgevoerde persoonslijst worden niet gezien als bewoner
 
 Rule: personen op een logisch verwijderde persoonslijst worden niet gezien als bewoner
 
+  @OGB
   Scenario: persoon is opgeschort met reden "W" (wissen)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
@@ -81,6 +83,7 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     | R                            | pl is aangelegd in de rni      |
     | .                            | onbekend                       |
 
+  @OGB-NOB
   Abstract Scenario: persoon is opgeschort met reden "<reden opschorting bijhouding>" (<reden opschorting omschrijving>) en <scenario>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
