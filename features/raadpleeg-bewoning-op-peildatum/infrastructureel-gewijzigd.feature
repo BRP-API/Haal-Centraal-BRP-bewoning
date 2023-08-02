@@ -14,7 +14,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object op een peildatu
     En adres 'A1' is op '2022-05-01' gewijzigd naar de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800000000000001                         | 0800200010877001                           |
-    Als gba bewoning wordt gezocht met de volgende parameters
+    Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -42,7 +42,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object op een peildatu
     En adres 'A1' is op '2022-05-01' gewijzigd naar de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800000000000001                         | 0800200010877001                           |
-    Als gba bewoning wordt gezocht met de volgende parameters
+    Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2022-04-30           |
@@ -61,7 +61,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is overgega
     En adres 'A1' is op '2022-05-01' samengevoegd tot adres 'A2' met de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800000000000002                         | 0800200010877001                           |
-    Als gba bewoning wordt gezocht met de volgende parameters
+    Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2023-01-01           |
@@ -80,7 +80,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is ontstaan
     En adres 'A1' is op '2022-05-01' samengevoegd tot adres 'A2' met de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800000000000002                         | 0800200010877001                           |
-    Als gba bewoning wordt gezocht met de volgende parameters
+    Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2022-01-01           |
@@ -109,7 +109,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is gesplits
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
     | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
     | 20220501                           | W                             |
-    Als gba bewoning wordt gezocht met de volgende parameters
+    Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2023-01-01           |
@@ -138,7 +138,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is ontstaan
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
     | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
     | 20220501                           | W                             |
-    Als gba bewoning wordt gezocht met de volgende parameters
+    Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde                               |
     | type                             | BewoningMetPeildatum                 |
     | peildatum                        | 2022-01-01                           |

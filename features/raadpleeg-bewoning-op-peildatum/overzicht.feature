@@ -68,7 +68,6 @@ Rule: een persoon is op een peildatum bewoner van een adresseerbaar object als:
     | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0800000000000001 |
     En heeft de bewoning bewoners met de volgende gegevens
