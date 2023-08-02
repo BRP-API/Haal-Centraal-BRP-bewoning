@@ -120,11 +120,11 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2016-04-30           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2016-04-30 tot 2016-05-01 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800000000000001          |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -177,7 +177,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2009-12-31           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response 0 bewoningen
 
   Abstract Scenario: dag en maand datum aanvang adreshouding op het volgend adresseerbaar object is onbekend en <scenario>
@@ -191,11 +191,11 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0800010000713450 |
+    | adresseerbaarObjectIdentificatie | 0800000000000001 |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -217,7 +217,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2017-01-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response 0 bewoningen
 
   Scenario: dag en maand datum aanvang adreshouding op het volgend adresseerbaar object is onbekend en peildatum valt op de laatste dag van het vorig jaar
@@ -231,11 +231,11 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2015-12-31           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2015-12-31 tot 2016-01-01 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800000000000001          |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -250,11 +250,11 @@ Rule: een persoon is op elke peildatum een mogelijke bewoner van een adresseerba
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2010-09-01 tot 2010-09-02 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800000000000001          |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -272,11 +272,11 @@ Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adress
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-18           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2010-08-18 tot 2010-08-19 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800000000000001          |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -292,11 +292,11 @@ Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adress
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-19           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800000000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2010-08-19 tot 2010-08-20 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800000000000001          |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
