@@ -11,7 +11,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object wanneer de peil
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En aan adres 'A1' is op '2022-05-01' geactualiseerd met de volgende gegevens
+    En adres 'A1' is op '2022-05-01' geactualiseerd met de volgende gegevens
     | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800010000000001                         | 0800200010877001                           |
     Als bewoning wordt gezocht met de volgende parameters
@@ -22,7 +22,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object wanneer de peil
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0800010011067001 |
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
     En heeft de bewoning bewoners met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -39,9 +39,9 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object wanneer de peil
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
-    En adres 'A1' is op '2022-05-01' gewijzigd naar de volgende gegevens
-    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
-    | 0800                 | 0800010000000001                         | 0800200010877001                           |
+    En adres 'A1' is op '2022-05-01' geactualiseerd met de volgende gegevens
+    | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
+    | 0800010000000001                         | 0800200010877001                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |

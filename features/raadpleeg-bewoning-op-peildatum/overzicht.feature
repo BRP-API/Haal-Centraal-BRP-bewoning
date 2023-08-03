@@ -100,9 +100,9 @@ Rule: er wordt geen bewoning geleverd voor een adresseerbaar object als er op de
     Dan heeft de response 0 bewoningen
 
     Voorbeelden:
-      | peildatum  | periode                   | omschrijving                                                                               |
-      | 2023-05-26 | 2023-05-26 tot 2023-05-27 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd op de peildatum   |
-      | 2023-06-01 | 2023-06-01 tot 2023-06-02 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd vóór de peildatum |
+    | peildatum  | periode                   | omschrijving                                                                               |
+    | 2023-05-26 | 2023-05-26 tot 2023-05-27 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd op de peildatum   |
+    | 2023-06-01 | 2023-06-01 tot 2023-06-02 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd vóór de peildatum |
 
   Scenario: persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd na de peildatum
     Als bewoning wordt gezocht met de volgende parameters
