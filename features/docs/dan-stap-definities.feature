@@ -26,20 +26,19 @@ Functionaliteit: Dan stap definities
     {
       "bewoningen": [
         {
-          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
             "datumTot": "2013-01-01"
           },
-          "bewoningPeriodes": []
+          "bewoners": [],
+          "mogelijkeBewoners": []
         }
       ]
     }
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
 
@@ -76,112 +75,83 @@ Functionaliteit: Dan stap definities
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
     En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' geen bewoners
 
-  Scenario: Dan heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
+  Scenario: Dan heeft de bewoning een bewoner met de volgende gegevens
     Gegeven de response body is gelijk aan
     """
     {
       "bewoningen": [
         {
-          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
             "datumTot": "2013-01-01"
           },
-          "bewoningPeriodes": [
+          "bewoners": [
             {
-              "periode": {
-                "datumVan": "2012-01-01",
-                "datumTot": "2013-01-01"
-              },
-              "bewoners": [
-                {
-                  "burgerservicenummer": "000000024"
-                }
-              ],
-              "mogelijkeBewoners": []
+              "burgerservicenummer": "000000024"
             }
-          ]
+          ],
+          "mogelijkeBewoners": []
         }
       ]
     }
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' een bewoner met de volgende gegevens
+    En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Dan heeft de bewoning voor de bewoningPeriode '<periode>' bewoners met de volgende gegevens
+  Scenario: Dan heeft de bewoning bewoners met de volgende gegevens
     Gegeven de response body is gelijk aan
     """
     {
       "bewoningen": [
         {
-          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
             "datumTot": "2013-01-01"
           },
-          "bewoningPeriodes": [
+          "bewoners": [
             {
-              "periode": {
-                "datumVan": "2012-01-01",
-                "datumTot": "2013-01-01"
-              },
-              "bewoners": [
-                {
-                  "burgerservicenummer": "000000024"
-                },
-                {
-                  "burgerservicenummer": "000000048"
-                }
-              ],
-              "mogelijkeBewoners": []
+              "burgerservicenummer": "000000024"
+            },
+            {
+              "burgerservicenummer": "000000048"
             }
-          ]
+          ],
+          "mogelijkeBewoners": []
         }
       ]
     }
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' bewoners met de volgende gegevens
+    En heeft de bewoning bewoners met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
     | 000000048           |
 
-  Scenario: Dan heeft de bewoning voor de bewoningPeriode '<periode>' een mogelijke bewoner met de volgende gegevens
+  Scenario: Dan heeft de bewoning een mogelijke bewoner met de volgende gegevens
     Gegeven de response body is gelijk aan
     """
     {
       "bewoningen": [
         {
-          "type": "Bewoning",
           "adresseerbaarObjectIdentificatie": "0518010000713450",
           "periode": {
             "datumVan": "2012-01-01",
             "datumTot": "2013-01-01"
           },
-          "bewoningPeriodes": [
+          "bewoners": [],
+          "mogelijkeBewoners": [
             {
-              "periode": {
-                "datumVan": "2012-01-01",
-                "datumTot": "2013-01-01"
-              },
-              "bewoners": [],
-              "mogelijkeBewoners": [
-                {
-                  "burgerservicenummer": "000000024"
-                }
-              ]
+              "burgerservicenummer": "000000024"
             }
           ]
         }
@@ -190,10 +160,9 @@ Functionaliteit: Dan stap definities
     """
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2012-01-01 tot 2013-01-01 |
     | adresseerbaarObjectIdentificatie | 0518010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2012-01-01 tot 2013-01-01' een mogelijke bewoner met de volgende gegevens
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 

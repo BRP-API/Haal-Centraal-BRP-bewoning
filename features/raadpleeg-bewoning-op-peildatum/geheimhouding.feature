@@ -2,17 +2,21 @@
 
 Functionaliteit: geheimhouding leveren bij een bewoner
 
+  Als consumer van de Bewoning API
+  wil ik een indicatie als een bewoner van een adresseerbaar object geen toestemming heeft gegeven voor het verstrekken van zijn gegevens aan derden
+  zodat ik hiermee rekening kan houden in mijn proces
+
   Achtergrond:
     Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-    | 0800                 | 0800010000713450                         |
+    | 0800                 | 0800010000000001                         |
     En adres 'A2' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-    | 0800                 | 0800010000854789                         |
+    | 0800                 | 0800010000000002                         |
 
 Rule: indicatie geheim waarde 0 wordt niet geleverd
 
-  Scenario: een persoon zonder geheimhouding, is ingeschreven op het aangegeven adresseerbaar object en peildatum
+  Scenario: een persoon zonder geheimhouding is op de peildatum ingeschreven op het aangegeven adresseerbaar object
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
@@ -26,17 +30,16 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-09-01 tot 2010-09-02 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' een bewoner met de volgende gegevens
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: dag datum aanvang adreshouding van een persoon zonder geheimhouding op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand
+  Scenario: een persoon zonder geheimhouding en met onbekend datum aanvang adreshouding op het aangegeven adresseerbaar object en de peildatum valt in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
@@ -50,19 +53,18 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-18           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een mogelijke bewoner met de volgende gegevens
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
 Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingPersoonsgegevens waarde true en ongevraagd meegeleverd
 
-  Abstract Scenario: een persoon met indicatie geheim <waarde>, is ingeschreven op het aangegeven adresseerbaar object en peildatum
+  Abstract Scenario: een persoon met indicatie geheim <waarde>, is op de peildatum ingeschreven op het aangegeven adresseerbaar object
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
@@ -76,13 +78,12 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingP
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-09-01 tot 2010-09-02 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2010-09-01 tot 2010-09-02' een bewoner met de volgende gegevens
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer | geheimhoudingPersoonsgegevens |
     | 000000024           | true                          |
 
@@ -96,7 +97,7 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingP
     | 6      |
     | 7      |
 
-  Abstract Scenario: dag datum aanvang adreshouding van een persoon op de aangegeven adresseerbaar object is onbekend en peildatum valt in die maand en de persoon heeft indicatie geheim <waarde>
+  Abstract Scenario: een persoon met indicatie geheim <waarde> en met onbekend datum aanvang adreshouding op het aangegeven adresseerbaar object en de peildatum valt in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
@@ -110,13 +111,13 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingP
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-18           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2010-08-18 tot 2010-08-19' een mogelijke bewoner met de volgende gegevens
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer | geheimhoudingPersoonsgegevens |
     | 000000024           | true                          |
 

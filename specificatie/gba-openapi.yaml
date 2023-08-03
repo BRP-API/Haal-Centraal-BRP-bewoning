@@ -120,4 +120,4 @@ components:
         bewoningen:
           type: array
           items:
-            $ref: 'bewoning.yaml#/components/schemas/GbaAbstractBewoning'
+            $ref: 'bewoning.yaml#/components/schemas/GbaBewoning'
