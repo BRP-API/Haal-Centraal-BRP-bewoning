@@ -476,7 +476,7 @@
             "description" : "Geeft aan dat de bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft.\n"
           }
         },
-        "description" : "Een bewoning geeft weer welke personen in een periode op een adresseerbaar object (mogelijk) staan ingeschreven.\n\nEen persoon wordt weergegeven als mogelijke bewoner voor een bewoning als er niet met zekerheid kan worden bepaald of de persoon in de bewoning periode op het adresseerbaar object staat/stond ingeschreven.\nDit is het geval als de datum aanvang of de datum einde van de inschrijving geheel of deels onbekend is, en de onzekerheidsperiode overlapt de bewoning periode.\n\nWanneer een bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft, wordt het **indicatieVeelBewoners** veld gezet.\n"
+        "description" : "Een bewoning geeft aan welke personen in een periode (mogelijk) op een adresseerbaar object staan ingeschreven.\n\nEen persoon is een mogelijke bewoner als niet met zekerheid kan worden bepaald of de persoon in de bewoningperiode op het adresseerbaar object staat/stond ingeschreven.\nDit is het geval als de datum aanvang of de datum einde van de inschrijving geheel of deels onbekend is, en de onzekerheidsperiode overlapt de bewoningperiode.\n\nWanneer een bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft, wordt het **indicatieVeelBewoners** veld geleverd.\n"
       },
       "Periode" : {
         "type" : "object",
