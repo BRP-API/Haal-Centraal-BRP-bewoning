@@ -147,7 +147,7 @@ Rule: Gegeven de persoon met burgerservicenummer '<bsn>' heeft de volgende '<cat
     |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 10001,0,0,P,000000003 |
     |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 10001,4999,0,20230102 |
 
-  Scenario: een adres met identificatie wordt gewijzigd
+  Scenario: een adres wordt gewijzigd
     Gegeven adres 'A1' heeft de volgende gegevens
     | straatnaam (11.10) |
     | Boterdiep          |
@@ -158,6 +158,18 @@ Rule: Gegeven de persoon met burgerservicenummer '<bsn>' heeft de volgende '<cat
     | stap | categorie | text                                                                                                                                                 | values           |
     | 1    | adres-A1  | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                | Boterdiep        |
     |      | adres-2   | INSERT INTO public.lo3_adres(adres_id,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING * | 0800010011067001 |
+
+  Scenario: een adres wordt geactualiseerd
+    Gegeven adres 'A1' heeft de volgende gegevens
+    | straatnaam (11.10) |
+    | Boterdiep          |
+    En adres 'A1' is op '2023-02-03' geactualiseerd met de volgende gegevens
+    | identificatiecode verblijfplaats (11.80) |
+    | 0800010011067001                         |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie | text                                                                                                                                                                | values                     |
+    | 1    | adres-A1  | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                               | Boterdiep                  |
+    |      | adres-2   | INSERT INTO public.lo3_adres(adres_id,straat_naam,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1,$2) RETURNING * | Boterdiep,0800010011067001 |
 
   Scenario: een inschrijving op een adres met identificatie dat wordt gewijzigd
     Gegeven adres 'A1' heeft de volgende gegevens

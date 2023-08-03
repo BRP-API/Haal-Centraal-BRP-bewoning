@@ -9,10 +9,10 @@ Functionaliteit: raadpleeg bewoning op peildatum
   Achtergrond:
     Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-    | 0800                 | 0800000000000001                         |
+    | 0800                 | 0800010000000001                         |
     En adres 'A2' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-    | 0800                 | 0800000000000002                         |
+    | 0800                 | 0800010000000002                         |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100818                           |
@@ -45,11 +45,11 @@ Rule: een persoon is op een peildatum bewoner van een adresseerbaar object als:
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0800000000000001     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0800000000000001 |
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -65,11 +65,11 @@ Rule: een persoon is op een peildatum bewoner van een adresseerbaar object als:
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0800000000000001     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0800000000000001 |
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
     En heeft de bewoning bewoners met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -88,7 +88,7 @@ Rule: er wordt geen bewoning geleverd voor een adresseerbaar object als er op de
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-17           |
-    | adresseerbaarObjectIdentificatie | 0800000000000001     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response 0 bewoningen
 
   Abstract Scenario: <omschrijving>
@@ -96,24 +96,24 @@ Rule: er wordt geen bewoning geleverd voor een adresseerbaar object als er op de
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0800000000000002     |
+    | adresseerbaarObjectIdentificatie | 0800010000000002     |
     Dan heeft de response 0 bewoningen
 
     Voorbeelden:
-      | peildatum  | periode                   | omschrijving                                                                               |
-      | 2023-05-26 | 2023-05-26 tot 2023-05-27 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd op de peildatum   |
-      | 2023-06-01 | 2023-06-01 tot 2023-06-02 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd vóór de peildatum |
+    | peildatum  | periode                   | omschrijving                                                                               |
+    | 2023-05-26 | 2023-05-26 tot 2023-05-27 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd op de peildatum   |
+    | 2023-06-01 | 2023-06-01 tot 2023-06-02 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd vóór de peildatum |
 
   Scenario: persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd na de peildatum
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2023-05-25           |
-    | adresseerbaarObjectIdentificatie | 0800000000000002     |
+    | adresseerbaarObjectIdentificatie | 0800010000000002     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2023-05-25 tot 2023-05-26 |
-    | adresseerbaarObjectIdentificatie | 0800000000000002          |
+    | adresseerbaarObjectIdentificatie | 0800010000000002          |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |

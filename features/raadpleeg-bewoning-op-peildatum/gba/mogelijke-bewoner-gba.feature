@@ -1,5 +1,6 @@
 #language: nl
 
+@gba
 Functionaliteit: raadpleeg bewoning op peildatum bij geheel/deels onbekend datum aanvang adreshouding
 
   Als consumer van de Bewoning API
@@ -22,7 +23,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -45,7 +46,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
@@ -62,7 +63,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100800                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-07-31           |
@@ -76,7 +77,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160500                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -102,7 +103,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160500                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2016-06-01           |
@@ -116,7 +117,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160500                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2016-04-30           |
@@ -133,7 +134,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -156,7 +157,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2011-01-01           |
@@ -173,7 +174,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20100000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2009-12-31           |
@@ -187,7 +188,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -213,7 +214,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2017-01-01           |
@@ -227,7 +228,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20160000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2015-12-31           |
@@ -246,7 +247,7 @@ Rule: een persoon is op elke peildatum een mogelijke bewoner van een adresseerba
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 00000000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
@@ -268,7 +269,7 @@ Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adress
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 00000000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-18           |
@@ -288,7 +289,7 @@ Rule: een persoon is alleen op datum aanvang adreshouding bewoner van een adress
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 00000000                           |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-19           |

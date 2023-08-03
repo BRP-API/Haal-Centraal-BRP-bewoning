@@ -334,7 +334,7 @@
           "bewoningen" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/GbaAbstractBewoning"
+              "$ref" : "#/components/schemas/GbaBewoning"
             }
           }
         }
@@ -447,24 +447,39 @@
         "format" : "date",
         "example" : "1964-09-24"
       },
-      "GbaAbstractBewoning" : {
-        "required" : [ "type" ],
+      "GbaBewoning" : {
         "type" : "object",
         "properties" : {
-          "type" : {
-            "type" : "string"
+          "adresseerbaarObjectIdentificatie" : {
+            "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
           },
           "periode" : {
             "$ref" : "#/components/schemas/Periode"
+          },
+          "bewoners" : {
+            "maxItems" : 100,
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "De personen die in de bewoning periode staan ingeschreven op het adresseerbaar object.\n",
+            "items" : {
+              "$ref" : "#/components/schemas/GbaBewoner"
+            }
+          },
+          "mogelijkeBewoners" : {
+            "maxItems" : 100,
+            "minItems" : 0,
+            "type" : "array",
+            "description" : "De personen die in de bewoning periode mogelijk staan ingeschreven op het adresseerbaar object.\n",
+            "items" : {
+              "$ref" : "#/components/schemas/GbaBewoner"
+            }
+          },
+          "indicatieVeelBewoners" : {
+            "type" : "boolean",
+            "description" : "Geeft aan dat de bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft.\n"
           }
         },
-        "discriminator" : {
-          "propertyName" : "type",
-          "mapping" : {
-            "Bewoning" : "#/components/schemas/GbaBewoning",
-            "BewoningOnbekend" : "#/components/schemas/GbaBewoningOnbekend"
-          }
-        }
+        "description" : "Een bewoning geeft aan welke personen in een periode (mogelijk) op een adresseerbaar object staan ingeschreven.\n\nEen persoon is een mogelijke bewoner als niet met zekerheid kan worden bepaald of de persoon in de bewoningperiode op het adresseerbaar object staat/stond ingeschreven.\nDit is het geval als de datum aanvang of de datum einde van de inschrijving geheel of deels onbekend is, en de onzekerheidsperiode overlapt de bewoningperiode.\n\nWanneer een bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft, wordt het **indicatieVeelBewoners** veld geleverd.\n"
       },
       "Periode" : {
         "type" : "object",
@@ -480,61 +495,6 @@
             "example" : "2021-01-01"
           }
         }
-      },
-      "GbaBewoning" : {
-        "description" : "Bewoning van een adresseerbaar object",
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/GbaAbstractBewoning"
-        }, {
-          "type" : "object",
-          "properties" : {
-            "adresseerbaarObjectIdentificatie" : {
-              "$ref" : "#/components/schemas/AdresseerbaarObjectIdentificatie"
-            },
-            "bewoningPeriodes" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/components/schemas/GbaBewoningPeriode"
-              }
-            }
-          }
-        } ]
-      },
-      "GbaBewoningPeriode" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "$ref" : "#/components/schemas/Periode"
-          },
-          "bewoners" : {
-            "maxItems" : 100,
-            "minItems" : 0,
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/GbaBewoner"
-            }
-          },
-          "mogelijkeBewoners" : {
-            "maxItems" : 100,
-            "minItems" : 0,
-            "type" : "array",
-            "description" : "Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.\n",
-            "items" : {
-              "$ref" : "#/components/schemas/GbaBewoner"
-            }
-          },
-          "indicatieVeelBewoners" : {
-            "type" : "boolean",
-            "description" : "Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven."
-          }
-        },
-        "description" : "Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was."
-      },
-      "GbaBewoningOnbekend" : {
-        "description" : "Verblijfobject waarvoor geen bewoning kan worden bepaald.\n",
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/GbaAbstractBewoning"
-        } ]
       },
       "AdresseerbaarObjectIdentificatie" : {
         "pattern" : "^[0-9]{16}$",
