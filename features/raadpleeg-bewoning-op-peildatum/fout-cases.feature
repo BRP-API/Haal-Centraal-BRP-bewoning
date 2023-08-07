@@ -1,6 +1,6 @@
 #language: nl
 
-Functionaliteit: Raadpleeg bewoning op peildatum - fout cases
+Functionaliteit: raadpleeg bewoning op peildatum - fout cases
 
 Rule: De adresseerbaarObjectIdentificatie en peildatum parameters zijn verplichte parameters
 
@@ -45,7 +45,7 @@ Rule: De adresseerbaarObjectIdentificatie en peildatum parameters zijn verplicht
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een object met de volgende gegevens
     | naam     | waarde                                                      |
     | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1 |
@@ -83,7 +83,7 @@ Rule: De adresseerbaarObjectIdentificatie en peildatum parameters zijn verplicht
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        |                      |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een object met de volgende gegevens
     | naam     | waarde                                                      |
     | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1 |
@@ -132,7 +132,7 @@ Rule: De peildatum is een datum string geformatteerd volgens de [ISO 8601 date f
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een object met de volgende gegevens
     | naam     | waarde                                                      |
     | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1 |
@@ -159,7 +159,7 @@ Rule: Alleen gespecificeerde parameters bij het opgegeven raadpleeg type mogen w
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2023-01-01           |
-    | adresseerbaarObjectIdentificatie | 0518010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     | <parameter>                      | <waarde>             |
     Dan heeft de response een object met de volgende gegevens
     | naam     | waarde                                                      |
