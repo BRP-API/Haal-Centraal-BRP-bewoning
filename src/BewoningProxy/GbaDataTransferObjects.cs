@@ -70,7 +70,7 @@ namespace HaalCentraal.BewoningProxy.Generated.Gba
     public partial class GbaBewoningenQueryResponse
     {
         [Newtonsoft.Json.JsonProperty("bewoningen", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<GbaAbstractBewoning> Bewoningen { get; set; }
+        public System.Collections.Generic.ICollection<GbaBewoning> Bewoningen { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -185,14 +185,44 @@ namespace HaalCentraal.BewoningProxy.Generated.Gba
 
     }
 
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "type")]
-    [JsonInheritanceAttribute("Bewoning", typeof(GbaBewoning))]
-    [JsonInheritanceAttribute("BewoningOnbekend", typeof(GbaBewoningOnbekend))]
+    /// <summary>
+    /// Een bewoning geeft aan welke personen in een periode (mogelijk) op een adresseerbaar object staan ingeschreven.
+    /// <br/>
+    /// <br/>Een persoon is een mogelijke bewoner als niet met zekerheid kan worden bepaald of de persoon in de bewoningperiode op het adresseerbaar object staat/stond ingeschreven.
+    /// <br/>Dit is het geval als de datum aanvang of de datum einde van de inschrijving geheel of deels onbekend is, en de onzekerheidsperiode overlapt de bewoningperiode.
+    /// <br/>
+    /// <br/>Wanneer een bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft, wordt het **indicatieVeelBewoners** veld geleverd.
+    /// <br/>
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GbaAbstractBewoning
+    public partial class GbaBewoning
     {
+        [Newtonsoft.Json.JsonProperty("adresseerbaarObjectIdentificatie", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AdresseerbaarObjectIdentificatie { get; set; }
+
         [Newtonsoft.Json.JsonProperty("periode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Periode Periode { get; set; }
+
+        /// <summary>
+        /// De personen die in de bewoning periode staan ingeschreven op het adresseerbaar object.
+        /// <br/>
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("bewoners", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<GbaBewoner> Bewoners { get; set; }
+
+        /// <summary>
+        /// De personen die in de bewoning periode mogelijk staan ingeschreven op het adresseerbaar object.
+        /// <br/>
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("mogelijkeBewoners", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<GbaBewoner> MogelijkeBewoners { get; set; }
+
+        /// <summary>
+        /// Geeft aan dat de bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft.
+        /// <br/>
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("indicatieVeelBewoners", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IndicatieVeelBewoners { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -215,56 +245,6 @@ namespace HaalCentraal.BewoningProxy.Generated.Gba
         [Newtonsoft.Json.JsonProperty("datumTot", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
         public System.DateTimeOffset? DatumTot { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
-        }
-
-    }
-
-    /// <summary>
-    /// Bewoning van een adresseerbaar object
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GbaBewoning : GbaAbstractBewoning
-    {
-        [Newtonsoft.Json.JsonProperty("adresseerbaarObjectIdentificatie", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AdresseerbaarObjectIdentificatie { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("bewoningPeriodes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<GbaBewoningPeriode> BewoningPeriodes { get; set; }
-
-    }
-
-    /// <summary>
-    /// Tijdsperiode waarin op het adresseerbaar object een bepaalde samenstelling van bewoners was.
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GbaBewoningPeriode
-    {
-        [Newtonsoft.Json.JsonProperty("periode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Periode Periode { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("bewoners", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<GbaBewoner> Bewoners { get; set; }
-
-        /// <summary>
-        /// Personen waarbij de datum aanvang of de datum einde van de bewoning geheel of gedeeltelijk onbekend is, waardoor niet zeker is of ze in deze periode bewoner waren.
-        /// <br/>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("mogelijkeBewoners", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<GbaBewoner> MogelijkeBewoners { get; set; }
-
-        /// <summary>
-        /// Geeft aan dat het adresseerbaar object zo veel bewoners heeft of had in de gevraagde periode dat zij niet in het antwoord worden opgenomen, met uitzondering van de persoon waarvan de BSN is opgegeven.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("indicatieVeelBewoners", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? IndicatieVeelBewoners { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
