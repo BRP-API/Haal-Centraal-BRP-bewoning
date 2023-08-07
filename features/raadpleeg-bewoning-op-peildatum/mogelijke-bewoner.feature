@@ -30,7 +30,7 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0800010000000002 |
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |

@@ -114,7 +114,6 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingP
     | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2010-08-18 tot 2010-08-19 |
     | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
