@@ -31,11 +31,11 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2010-09-01 tot 2010-09-02 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -54,11 +54,11 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-18           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2010-08-18 tot 2010-08-19 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -79,11 +79,11 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingP
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-09-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2010-09-01 tot 2010-09-02 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer | geheimhoudingPersoonsgegevens |
     | 000000024           | <waarde>                      |
@@ -112,11 +112,11 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt vertaald naar geheimhoudingP
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-18           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2010-08-18 tot 2010-08-19 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer | geheimhoudingPersoonsgegevens |
     | 000000024           | <waarde>                      |
