@@ -48,7 +48,7 @@ public class BewoningController : Generated.ControllerBase
 
         var retval = new GbaBewoningenQueryResponse
         {
-            Bewoningen = new List<GbaAbstractBewoning>
+            Bewoningen = new List<GbaBewoning>
             {
                 new GbaBewoning
                 {
@@ -58,18 +58,7 @@ public class BewoningController : Generated.ControllerBase
                         DatumVan = q.Peildatum,
                         DatumTot = q.Peildatum.AddDays(1),
                     },
-                    BewoningPeriodes = new List<GbaBewoningPeriode>
-                    {
-                        new GbaBewoningPeriode
-                        {
-                            Bewoners = bewoners,
-                            Periode = new Periode
-                            {
-                                DatumVan = q.Peildatum,
-                                DatumTot = q.Peildatum.AddDays(1),
-                            }
-                        }
-                    }
+                    Bewoners = bewoners,
                 }
             }
         };
