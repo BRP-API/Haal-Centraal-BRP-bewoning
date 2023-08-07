@@ -1,14 +1,18 @@
 #language: nl
 
 @gba
-Functionaliteit: indicatie verblijfplaats in onderzoek leveren bij een bewoner
+Functionaliteit: indicatie verblijfplaats in onderzoek leveren bij een bewoner bij het raadplegen van bewoning op peildatum
+
+  Als consumer van de Bewoning API
+  wil ik een indicatie krijgen wanneer de verblijfplaats gegevens van een bewoner in onderzoek staan
+  zodat ik deze informatie kan gebruiken in mijn proces
 
   Achtergrond:
     Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-    | 0800                 | 0800010000713450                         |
+    | 0800                 | 0800010000000001                         |
 
-Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'datum aanvang adreshouding' gegevens van een persoon wordt vertaald naar het inOnderzoek veld met waarde true
+Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'datum aanvang adreshouding' gegevens van een persoon wordt vertaald naar het inOnderzoek veld van een bewoner met waarde true
 
   Abstract Scenario: '<type>' is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -18,13 +22,12 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2020-04-15           |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | type                             | Bewoning                  |
     | periode                          | 2020-04-15 tot 2020-04-16 |
-    | adresseerbaarObjectIdentificatie | 0800010000713450          |
-    En heeft de bewoning voor de bewoningPeriode '2020-04-15 tot 2020-04-16' een bewoner met de volgende gegevens
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer | verblijfplaatsInOnderzoek |
     | 000000024           | <aanduiding in onderzoek> |
 
@@ -50,7 +53,7 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | 088510                  | datum ingang geldigheid             |
     | 089999                  | vastgesteld verblijft niet op adres |
 
-Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het indicatieVerblijfsplaatsInOnderzoek veld met waarde true
+Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het inOnderzoek veld met waarde true
 
   Abstract Scenario: 'hele categorie verblijfplaats' is in onderzoek en <scenario>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -60,13 +63,12 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0800010000713450 |
-    En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
+    En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer | verblijfplaatsInOnderzoek |
     | 000000024           | 080000                    |
 
@@ -76,7 +78,7 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | 2020-04-01 | 2020-04-01 tot 2020-04-02 | peildatum ligt op datum ingang onderzoek   |
     | 2020-05-01 | 2020-05-01 tot 2020-05-02 | peildatum ligt na datum ingang onderzoek   |
 
-Rule: een beëindigd onderzoek wordt nooit vertaald naar indicatieVerblijfsplaatsInOnderzoek, ook niet als de peildatum valt binnen de onderzoek periode
+Rule: een beëindigd onderzoek wordt nooit vertaald naar het inOnderzoek veld, ook niet als de peildatum valt binnen de onderzoek periode
 
   Abstract Scenario: het in onderzoek zijn van 'hele categorie verblijfplaats' is beëindigd en <scenario>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -86,13 +88,12 @@ Rule: een beëindigd onderzoek wordt nooit vertaald naar indicatieVerblijfsplaat
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0800010000713450     |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde           |
-    | type                             | Bewoning         |
     | periode                          | <periode>        |
-    | adresseerbaarObjectIdentificatie | 0800010000713450 |
-    En heeft de bewoning voor de bewoningPeriode '<periode>' een bewoner met de volgende gegevens
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
+    En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 

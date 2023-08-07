@@ -56,10 +56,10 @@ Rule: een persoon is op een peildatum bewoner van een adresseerbaar object als:
     | 000000024           |
 
     Voorbeelden:
-    | peildatum  | periode                   | scenario                                                  |
-    | 2010-09-01 | 2010-09-01 tot 2010-09-02 | peildatum valt in de adreshouding periode                 |
-    | 2010-08-18 | 2010-08-18 tot 2010-08-19 | peildatum valt op de eerste dag van adreshouding periode  |
-    | 2016-05-25 | 2016-05-25 tot 2016-05-26 | peildatum valt op de laatste dag van adreshouding periode |
+    | peildatum  | periode                   | scenario                                                                                           |
+    | 2010-09-01 | 2010-09-01 tot 2010-09-02 | peildatum valt in de adreshouding periode                                                          |
+    | 2010-08-18 | 2010-08-18 tot 2010-08-19 | peildatum valt op de eerste dag van adreshouding periode                                           |
+    | 2014-08-07 | 2014-08-07 tot 2014-08-08 | peildatum valt op de laatste dag vóór adreshouding van persoon met burgerservicenummer '000000048' |
 
   Abstract Scenario: meerdere personen verblijven/verbleven op de peildatum op het gevraagde adresseerbaar object
     Als gba bewoning wordt gezocht met de volgende parameters
