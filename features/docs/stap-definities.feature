@@ -41,15 +41,28 @@ Rule: Gegeven de persoon met burgerservicenummer '<bsn>' heeft de volgende '<cat
     | 1    | inschrijving | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind,kiesrecht_uitgesl_aand) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1,$2) RETURNING * | 0,A                  |
     |      | persoon      | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                                                | 9999,0,0,P,000000012 |
 
-    Scenario: Persoon heeft 'gezagsverhouding' gegevens
-      Gegeven de persoon met burgerservicenummer '000000012' heeft de volgende 'gezagsverhouding' gegevens
-      | indicatie gezag minderjarige (32.10) |
-      | 12                                   |
-      Dan zijn de gegenereerde SQL statements
-      | stap | categorie        | text                                                                                                                                                  | values               |
-      | 1    | inschrijving     | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                    |
-      |      | persoon          | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012 |
-      |      | gezagsverhouding | INSERT INTO public.lo3_pl_gezagsverhouding(pl_id,volg_nr,minderjarig_gezag_ind) VALUES($1,$2,$3)                                                      | 9999,0,12            |
+  Scenario: Persoon heeft 'gezagsverhouding' gegevens
+    Gegeven de persoon met burgerservicenummer '000000012' heeft de volgende 'gezagsverhouding' gegevens
+    | indicatie gezag minderjarige (32.10) |
+    | 12                                   |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie        | text                                                                                                                                                  | values               |
+    | 1    | inschrijving     | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                    |
+    |      | persoon          | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012 |
+    |      | gezagsverhouding | INSERT INTO public.lo3_pl_gezagsverhouding(pl_id,volg_nr,minderjarig_gezag_ind) VALUES($1,$2,$3)                                                      | 9999,0,12            |
+
+  Scenario: Persoon heeft 'inschrijving' en 'gezagsverhouding' gegevens
+    Gegeven de persoon met burgerservicenummer '000000012' heeft de volgende 'inschrijving' gegevens
+    | indicatie geheim (70.10) | aanduiding uitgesloten kiesrecht (38.10) |
+    | 7                        | A                                        |
+    En de persoon heeft de volgende 'gezagsverhouding' gegevens
+    | indicatie gezag minderjarige (32.10) |
+    | 12                                   |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie        | text                                                                                                                                                                            | values               |
+    | 1    | inschrijving     | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind,kiesrecht_uitgesl_aand) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1,$2) RETURNING * | 7,A                  |
+    |      | persoon          | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                                                | 9999,0,0,P,000000012 |
+    |      | gezagsverhouding | INSERT INTO public.lo3_pl_gezagsverhouding(pl_id,volg_nr,minderjarig_gezag_ind) VALUES($1,$2,$3)                                                                                | 9999,0,12            |
 
   Scenario: een adres
     Gegeven adres 'A1' heeft de volgende gegevens
@@ -147,18 +160,6 @@ Rule: Gegeven de persoon met burgerservicenummer '<bsn>' heeft de volgende '<cat
     |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 10001,0,0,P,000000003 |
     |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 10001,4999,0,20230102 |
 
-  Scenario: een adres wordt gewijzigd
-    Gegeven adres 'A1' heeft de volgende gegevens
-    | straatnaam (11.10) |
-    | Boterdiep          |
-    En adres 'A1' is op '2023-02-03' gewijzigd naar de volgende gegevens
-    | identificatiecode verblijfplaats (11.80) |
-    | 0800010011067001                         |
-    Dan zijn de gegenereerde SQL statements
-    | stap | categorie | text                                                                                                                                                 | values           |
-    | 1    | adres-A1  | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                | Boterdiep        |
-    |      | adres-2   | INSERT INTO public.lo3_adres(adres_id,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING * | 0800010011067001 |
-
   Scenario: een adres wordt geactualiseerd
     Gegeven adres 'A1' heeft de volgende gegevens
     | straatnaam (11.10) |
@@ -171,24 +172,24 @@ Rule: Gegeven de persoon met burgerservicenummer '<bsn>' heeft de volgende '<cat
     | 1    | adres-A1  | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                               | Boterdiep                  |
     |      | adres-2   | INSERT INTO public.lo3_adres(adres_id,straat_naam,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1,$2) RETURNING * | Boterdiep,0800010011067001 |
 
-  Scenario: een inschrijving op een adres met identificatie dat wordt gewijzigd
+  Scenario: een inschrijving op een adres met identificatie dat wordt geactualiseerd
     Gegeven adres 'A1' heeft de volgende gegevens
     | straatnaam (11.10) |
     | Boterdiep          |
     En de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20220102                           |
-    En adres 'A1' is op '2023-02-03' gewijzigd naar de volgende gegevens
+    En adres 'A1' is op '2023-02-03' geactualiseerd met de volgende gegevens
     | identificatiecode verblijfplaats (11.80) |
     | 0800010011067001                         |
     Dan zijn de gegenereerde SQL statements
-    | stap | categorie      | text                                                                                                                                                  | values                 |
-    | 1    | adres-A1       | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                 | Boterdiep              |
-    |      | adres-2        | INSERT INTO public.lo3_adres(adres_id,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *  | 0800010011067001       |
-    | 2    | inschrijving   | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                      |
-    |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012   |
-    |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 9999,4999,1,20220102   |
-    |      |                | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum,aangifte_adreshouding_oms) VALUES($1,$2,$3,$4,$5)            | 9999,5000,0,20230203,W |
+    | stap | categorie      | text                                                                                                                                                                | values                     |
+    | 1    | adres-A1       | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                               | Boterdiep                  |
+    |      | adres-2        | INSERT INTO public.lo3_adres(adres_id,straat_naam,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1,$2) RETURNING * | Boterdiep,0800010011067001 |
+    | 2    | inschrijving   | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING *               | 0                          |
+    |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                                    | 9999,0,0,P,000000012       |
+    |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                                       | 9999,4999,1,20220102       |
+    |      |                | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum,aangifte_adreshouding_oms) VALUES($1,$2,$3,$4,$5)                          | 9999,5000,0,20230203,T     |
 
   Scenario: een inschrijving op een adres met identificatie dat wordt samengevoegd
     Gegeven adres 'A1' heeft de volgende gegevens
@@ -252,3 +253,21 @@ Rule: Gegeven de persoon met burgerservicenummer '<bsn>' heeft de volgende '<cat
     | 1    | adres-A1  | INSERT INTO public.lo3_adres(adres_id,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING * | 0800010011067001 |
     |      | adres-A2  | INSERT INTO public.lo3_adres(adres_id,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING * | 0800010011067002 |
     |      | adres-A3  | INSERT INTO public.lo3_adres(adres_id,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING * | 0800010011067003 |
+
+  Scenario: een emigratie
+    Gegeven adres 'A1' heeft de volgende gegevens
+    | identificatiecode verblijfplaats (11.80) |
+    | 0800010011067001                         |
+    En de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20220102                           |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | land (13.10) | datum aanvang adres buitenland (13.20) |
+    | 5010         | 20230526                               |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie      | text                                                                                                                                                  | values               |
+    | 1    | adres-A1       | INSERT INTO public.lo3_adres(adres_id,verblijf_plaats_ident_code) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *  | 0800010011067001     |
+    | 2    | inschrijving   | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                    |
+    |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012 |
+    |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 9999,4999,1,20220102 |
+    |      |                | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,volg_nr,vertrek_land_code,vertrek_datum) VALUES($1,$2,$3,$4)                                           | 9999,0,5010,20230526 |

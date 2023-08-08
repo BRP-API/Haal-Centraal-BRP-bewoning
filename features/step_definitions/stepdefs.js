@@ -16,6 +16,47 @@ let pool;
 let logSqlStatements = false;
 let accessToken;
 
+function createPersoonMetGegevensgroep(burgerservicenummer, gegevensgroep, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData["persoon"] = [
+        createCollectieDataFromArray("persoon", [
+            ['burger_service_nr', burgerservicenummer]
+        ])
+    ];
+
+    switch(gegevensgroep){
+        case 'inschrijving':
+            sqlData[gegevensgroep] = [ createArrayFrom(dataTable, columnNameMap) ];
+            break;
+        case 'kiesrecht':
+            sqlData["inschrijving"] = [
+                [
+                    [ 'geheim_ind', '0' ]
+                ].concat(createArrayFrom(dataTable, columnNameMap))
+            ];
+            break;
+        case 'verblijfplaats':
+            should.fail(`deprecated. Gebruik de nieuwe stap: "Gegeven de persoon met burgerservicenummer '<bsn>' is ingeschreven op het adres met '<element naam>' '<waarde>' met de volgende gegevens"`)
+            break;
+        default:
+            sqlData["inschrijving"] = [[[ 'geheim_ind', '0' ]]];
+            sqlData[gegevensgroep] = [
+                [
+                    [ 'volg_nr', '0']
+                ].concat(createArrayFrom(dataTable, columnNameMap))
+            ];
+            break;
+    }
+}
+
+Given(/^de persoon met burgerservicenummer '(\d*)' heeft de volgende '(\w*)' gegevens$/, createPersoonMetGegevensgroep);
+
 Given(/^de persoon heeft de volgende '(.*)' gegevens$/, function (gegevensgroep, dataTable) {
     let sqlData = this.context.sqlData.at(-1);
 
