@@ -207,6 +207,32 @@ Rule: een persoon is op een peildatum een mogelijke bewoner van een adresseerbaa
     | 2016-05-18 | 2016-05-18 tot 2016-05-19 | peildatum valt binnen het jaar van de volgende aanvang adreshouding                |
     | 2016-12-31 | 2016-12-31 tot 2017-01-01 | peildatum valt op de laatste dag van het jaar van de volgende aanvang adreshouding |
 
+  Abstract Scenario: dag en maand datum vertrek naar buitenland is onbekend en <scenario>
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20100818                           |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | land (13.10) | datum aanvang adres buitenland (13.20) |
+    | 0000         | 20160000                               |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | <peildatum>          |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde           |
+    | periode                          | <periode>        |
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
+    Voorbeelden:
+    | peildatum  | periode                   | scenario                                                           |
+    | 2016-01-01 | 2016-01-01 tot 2016-01-02 | peildatum valt op de eerste dag van het jaar van de datum vertrek  |
+    | 2016-05-18 | 2016-05-18 tot 2016-05-19 | peildatum valt binnen het jaar van de datum vertrek                |
+    | 2016-12-31 | 2016-12-31 tot 2017-01-01 | peildatum valt op de laatste dag van het jaar van de datum vertrek |
+
   Scenario: dag en maand datum aanvang adreshouding op het volgend adresseerbaar object is onbekend en peildatum valt op de eerste dag van het daarop volgend jaar
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
