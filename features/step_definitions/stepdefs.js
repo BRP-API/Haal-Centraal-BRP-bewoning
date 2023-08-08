@@ -68,6 +68,39 @@ Given(/^de persoon heeft de volgende '(.*)' gegevens$/, function (gegevensgroep,
     ];
 });
 
+Given(/^(?:de|het) '(.*)' is gecorrigeerd naar de volgende gegevens$/, async function (relatie, dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    const foundRelatie = Object.keys(sqlData).findLast(key => key.startsWith(relatie));
+
+    const stapelNr = sqlData[foundRelatie][0].find(el => el[0] === 'stapel_nr');
+    let adres_id;
+
+    sqlData[foundRelatie].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        if(volgNr[1] === '0') {
+            data.push(['onjuist_ind','O']);
+            if(relatie === 'verblijfplaats') {
+                adres_id = data.find(el => el[0] === 'adres_id')[1];
+            }
+        }
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+
+    if(stapelNr !== undefined){
+        sqlData[foundRelatie].push(createCollectieDataFromArray(relatie, createArrayFrom(dataTable, columnNameMap), stapelNr[1]));
+    }
+    else {
+        let data = createArrayFrom(dataTable, columnNameMap);
+        if(adres_id !== undefined) {
+            data = [
+                ['adres_id', adres_id]
+            ].concat(data);
+        }
+        sqlData[foundRelatie].push(createVoorkomenDataFromArray(data));
+    }
+});
+
 function wijzigRelatie(relatie, dataTable) {
     should.not.equal('verblijfplaats', `deprecated. Gebruik de nieuwe stap: "En de persoon is vervolgens ingeschreven op het adres met '<element naam>' '<waarde>' met de volgende gegevens"`)
 
