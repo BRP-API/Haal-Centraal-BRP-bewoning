@@ -527,8 +527,22 @@
         "type" : "integer"
       },
       "GbaInOnderzoek" : {
-        "pattern" : "^[0-9]{6}$",
-        "type" : "string"
+        "required" : [ "aanduidingGegevensInOnderzoek", "datumIngangOnderzoek" ],
+        "type" : "object",
+        "properties" : {
+          "aanduidingGegevensInOnderzoek" : {
+            "pattern" : "^[0-9]{6}$",
+            "type" : "string"
+          },
+          "datumIngangOnderzoek" : {
+            "$ref" : "#/components/schemas/GbaDatum"
+          }
+        }
+      },
+      "GbaDatum" : {
+        "pattern" : "^[0-9]{8}$",
+        "type" : "string",
+        "example" : "20180700"
       }
     },
     "responses" : {

@@ -11,5 +11,13 @@ components:
       description: |
         Geeft aan dat de verblijfplaats in onderzoek is.
     GbaInOnderzoek:
-      type: string
-      pattern: ^[0-9]{6}$
+      type: object
+      required:
+        - aanduidingGegevensInOnderzoek
+        - datumIngangOnderzoek
+      properties:
+        aanduidingGegevensInOnderzoek:
+          type: string
+          pattern: ^[0-9]{6}$
+        datumIngangOnderzoek:
+          $ref: 'datum.yaml#/components/schemas/GbaDatum'
