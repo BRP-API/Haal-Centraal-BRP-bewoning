@@ -69,8 +69,11 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | periode                          | <periode>        |
     | adresseerbaarObjectIdentificatie | 0800010000000001 |
     En heeft de bewoning een bewoner met de volgende gegevens
-    | burgerservicenummer | verblijfplaatsInOnderzoek.aanduidingGegevensInOnderzoek | verblijfplaatsInOnderzoek.datumIngangOnderzoek |
-    | 000000024           | 080000                                                  | 20200401                                       |
+    | burgerservicenummer |
+    | 000000024           |
+    En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+    | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+    | 080000                        | 20200401             |
 
     Voorbeelden:
     | peildatum  | periode                   | scenario                                   |
