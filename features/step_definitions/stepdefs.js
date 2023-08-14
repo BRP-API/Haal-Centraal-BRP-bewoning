@@ -1,5 +1,5 @@
 const { World } = require('./world');
-const { Given, When, Then, setWorldConstructor, Before, After } = require('@cucumber/cucumber');
+const { Given, When, Then, setWorldConstructor, Before, After, setDefaultTimeout } = require('@cucumber/cucumber');
 const { createObjectFrom, createObjectArrayFrom } = require('./dataTable2Object.js');
 const deepEqualInAnyOrder = require('deep-equal-in-any-order');
 const should = require('chai').use(deepEqualInAnyOrder).should();
@@ -11,6 +11,11 @@ const { tableNameMap, columnNameMap, createAutorisatieSettingsFor, createRequest
 const { stringifyValues } = require('./stringify.js');
 
 setWorldConstructor(World);
+
+// voor het aanpassen van de default timeout waarde (5s) van cucumber-js
+// de default timeout waarde van axios is 0 (geen timeout)
+// https://github.com/cucumber/cucumber-js/blob/main/docs/support_files/timeouts.md
+setDefaultTimeout(5000);
 
 let pool;
 let logSqlStatements = false;
