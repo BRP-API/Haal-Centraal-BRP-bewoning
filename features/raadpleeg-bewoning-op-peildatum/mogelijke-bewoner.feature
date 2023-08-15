@@ -79,7 +79,7 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
     | 20100800                   | 2010-09-01 | 2010-09-01 tot 2010-09-02 |
     | 20100000                   | 2011-01-01 | 2011-01-01 tot 2011-01-02 |
 
-Rule: een persoon met bekende aanvang volgende adreshouding die na de onzekerheidsperiode van de onbekende aanvang adreshouding ligt, is op peildatum een mogelijke bewoner als de peildatum in de onzekerheidsperiode van de gevraagde adreshouding ligt
+Rule: een persoon met onbekende aanvang adreshouding, en een bekende datum volgende adreshouding die na de onzekerheidsperiode van de gevraagde adreshouding ligt, is op peildatum een mogelijke bewoner als de peildatum in de onzekerheidsperiode van de gevraagde adreshouding ligt
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt na de onzekerheidsperiode van deels onbekende aanvang adreshouding en peildatum ligt in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
