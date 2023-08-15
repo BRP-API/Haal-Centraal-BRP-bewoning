@@ -28,8 +28,11 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | periode                          | 2020-04-15 tot 2020-04-16 |
     | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een bewoner met de volgende gegevens
-    | burgerservicenummer | verblijfplaatsInOnderzoek.aanduidingGegevensInOnderzoek | verblijfplaatsInOnderzoek.datumIngangOnderzoek |
-    | 000000024           | <aanduiding in onderzoek>                               | 20200401                                       |
+    | burgerservicenummer |
+    | 000000024           |
+    En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+    | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+    | <aanduiding in onderzoek>     | 20200401             |
 
     Voorbeelden:
     | aanduiding in onderzoek | type                                |
