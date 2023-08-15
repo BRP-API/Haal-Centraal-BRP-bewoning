@@ -267,7 +267,27 @@ namespace HaalCentraal.BewoningProxy.Generated.Gba
         public int GeheimhoudingPersoonsgegevens { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verblijfplaatsInOnderzoek", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string VerblijfplaatsInOnderzoek { get; set; }
+        public GbaInOnderzoek VerblijfplaatsInOnderzoek { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class GbaInOnderzoek
+    {
+        [Newtonsoft.Json.JsonProperty("aanduidingGegevensInOnderzoek", Required = Newtonsoft.Json.Required.Always)]
+        public string AanduidingGegevensInOnderzoek { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("datumIngangOnderzoek", Required = Newtonsoft.Json.Required.Always)]
+        public string DatumIngangOnderzoek { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
