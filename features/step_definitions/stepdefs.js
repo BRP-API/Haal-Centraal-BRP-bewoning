@@ -470,6 +470,16 @@ Then(/^heeft de bewoning een bewoner met de volgende gegevens$/, function (dataT
     expectedBewoning.bewoners.push(createObjectFrom(dataTable, true));
 });
 
+Then(/^heeft de bewoner de volgende '(.*)' gegevens$/, function (gegevensgroep, dataTable) {
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om bewoner gegevens aan te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    let expectedBewoner = expectedBewoning.bewoners.at(-1);
+    should.exist(expectedBewoner, `geen bewoner om gegevens aan toe te voegen. Gebruik de stap 'En heeft de bewoning een bewoner met de volgende gegevens' om een verwachte bewoner te definieren`);
+
+    expectedBewoner[gegevensgroep] = createObjectFrom(dataTable, true);
+});
+
 Then(/^heeft de bewoning bewoners met de volgende gegevens$/, function (dataTable) {
     this.context.verifyResponse = true;
 
