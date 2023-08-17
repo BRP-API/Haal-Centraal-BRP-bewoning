@@ -1,5 +1,6 @@
 #language: nl
 
+@gba
 Functionaliteit: raadpleeg bewoning op peildatum bij geheel/deels onbekende datum aanvang adreshouding
 
   Als consumer van de Bewoning API
