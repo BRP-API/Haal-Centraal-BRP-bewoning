@@ -1,5 +1,5 @@
 const { World } = require('./world');
-const { Given, When, Then, setWorldConstructor, Before, After } = require('@cucumber/cucumber');
+const { Given, When, Then, setWorldConstructor, Before, After, setDefaultTimeout } = require('@cucumber/cucumber');
 const { createObjectFrom, createObjectArrayFrom } = require('./dataTable2Object.js');
 const deepEqualInAnyOrder = require('deep-equal-in-any-order');
 const should = require('chai').use(deepEqualInAnyOrder).should();
@@ -12,9 +12,14 @@ const { stringifyValues } = require('./stringify.js');
 
 setWorldConstructor(World);
 
-let pool = undefined;
+// voor het aanpassen van de default timeout waarde (5s) van cucumber-js
+// de default timeout waarde van axios is 0 (geen timeout)
+// https://github.com/cucumber/cucumber-js/blob/main/docs/support_files/timeouts.md
+setDefaultTimeout(5000);
+
+let pool;
 let logSqlStatements = false;
-let accessToken = undefined;
+let accessToken;
 
 function createPersoonMetGegevensgroep(burgerservicenummer, gegevensgroep, dataTable) {
     if(this.context.sqlData === undefined) {
@@ -68,17 +73,36 @@ Given(/^de persoon heeft de volgende '(.*)' gegevens$/, function (gegevensgroep,
     ];
 });
 
-Given(/^de '(\w*)' heeft de volgende '(\w*)' gegevens$/, function (_, gegevensgroep, dataTable) {
-    if(gegevensgroep === 'adres') {
-        should.fail(`deprecated. Gebruik de stap: "Gegeven een adres heeft de volgende gegevens" om eerst het adres te specificeren`);
+Given(/^(?:de|het) '(.*)' is gecorrigeerd naar de volgende gegevens$/, async function (relatie, dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    const foundRelatie = Object.keys(sqlData).findLast(key => key.startsWith(relatie));
+
+    const stapelNr = sqlData[foundRelatie][0].find(el => el[0] === 'stapel_nr');
+    let adres_id;
+
+    sqlData[foundRelatie].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        if(volgNr[1] === '0') {
+            data.push(['onjuist_ind','O']);
+            if(relatie === 'verblijfplaats') {
+                adres_id = data.find(el => el[0] === 'adres_id')[1];
+            }
+        }
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+
+    if(stapelNr !== undefined){
+        sqlData[foundRelatie].push(createCollectieDataFromArray(relatie, createArrayFrom(dataTable, columnNameMap), stapelNr[1]));
     }
     else {
-        let sqlData = this.context.sqlData.at(-1);
-
-        if(sqlData[`${gegevensgroep}`] === undefined) {
-            sqlData[`${gegevensgroep}`] = [];
+        let data = createArrayFrom(dataTable, columnNameMap);
+        if(adres_id !== undefined) {
+            data = [
+                ['adres_id', adres_id]
+            ].concat(data);
         }
-        sqlData[`${gegevensgroep}`].push(createArrayFrom(dataTable, columnNameMap));
+        sqlData[foundRelatie].push(createVoorkomenDataFromArray(data));
     }
 });
 
@@ -121,44 +145,6 @@ Given(/^adres '(.*)' heeft de volgende gegevens$/, function (adresId, dataTable)
         index: Object.keys(sqlData['adres']).length,
         data: createArrayFrom(dataTable, columnNameMap)
     };
-});
-
-Given(/^adres '(.*)' is op '(.*)' gewijzigd naar de volgende gegevens$/, function (adresId, ingangsdatum, dataTable) {
-    let sqlData = this.context.sqlData.at(0);
-
-    const nieuwAdresIndex = Object.keys(sqlData['adres']).length;
-    const nieuwAdresData = createArrayFrom(dataTable, columnNameMap);
-    sqlData['adres'][nieuwAdresIndex + 1 + ''] = {
-        index: nieuwAdresIndex,
-        data: nieuwAdresData
-    };
-
-    const adresIndex = this.context.sqlData.at(0).adres[adresId]?.index;
-    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
-
-    const nieuwGemeenteCode = nieuwAdresData.find(el => el[0] == 'gemeente_code');
-
-    this.context.sqlData.forEach(function(elem) {
-        let verblijfplaats = elem['verblijfplaats']?.at(-1);
-        if(verblijfplaats?.find(el => el[0] === 'adres_id' && el[1] === adresIndex + '') !== undefined) {
-            elem['verblijfplaats'].forEach(function(data) {
-                let volgNr = data.find(el => el[0] === 'volg_nr');
-                volgNr[1] = Number(volgNr[1]) + 1 + '';
-            });
-
-            let nieuwVerblijfplaatsData = [
-                [ 'adres_id', nieuwAdresIndex + '' ],
-                [ 'volg_nr', '0'],
-                [ 'adreshouding_start_datum', ingangsdatum.replaceAll('-', '')],
-                [ 'aangifte_adreshouding_oms', 'W' ]
-            ];
-            if(nieuwGemeenteCode !== undefined) {
-                nieuwVerblijfplaatsData.push([ 'inschrijving_gemeente_code', nieuwGemeenteCode[1] ]);
-            }
-
-            elem.verblijfplaats.push(nieuwVerblijfplaatsData);
-        }
-    });
 });
 
 Given(/^adres '(.*)' is op '(.*)' geactualiseerd met de volgende gegevens$/, function (adresId, ingangsdatum, dataTable) {
@@ -446,14 +432,6 @@ When(/^gba bewoning wordt gezocht met een '(.*)' aanroep$/, async function(verb)
     await handleCustomRequest(this.context, verb);
 });
 
-Then(/^heeft de response geen bewoningen$/, function () {
-    this.context.verifyResponse = true;
-
-    if(this.context.expected === undefined) {
-        this.context.expected = [];
-    }
-});
-
 function createBewoning(dataTable) {
     let bewoning = createObjectFrom(dataTable, true);
     const match = bewoning.periode.match(/^(?<datumVan>[\d-]*) tot (?<datumTot>[\d-]*)$/);
@@ -467,27 +445,6 @@ function createBewoning(dataTable) {
     return bewoning;
 }
 
-function createBewoningPeriode(van, tot) {
-    return {
-        periode: { datumVan: van, datumTot: tot },
-        bewoners: [],
-        mogelijkeBewoners: []
-    }
-}
-
-function getBewoningPeriode(bewoning, van, tot) {
-    let bewoningPeriode = bewoning.bewoningPeriodes.find(p => p.periode.datumVan === van &&
-                                                              p.periode.datumTot === tot);
-
-    if(bewoningPeriode === undefined) {
-        bewoningPeriode = createBewoningPeriode(van, tot);
-
-        bewoning.bewoningPeriodes.push(bewoningPeriode); 
-    }
-
-    return bewoningPeriode;
-}
-
 Then(/^heeft de response een bewoning met de volgende gegevens$/, function (dataTable) {
     this.context.verifyResponse = true;
 
@@ -497,24 +454,11 @@ Then(/^heeft de response een bewoning met de volgende gegevens$/, function (data
     this.context.expected.push(createBewoning(dataTable));
 });
 
-Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' geen bewoners$/, function (van, tot) {
+Then(/^heeft de bewoning geen bewoners en geen mogelijke bewoners$/, function () {
     this.context.verifyResponse = true;
 
     let expectedBewoning = this.context.expected?.at(-1);
-    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
-
-    expectedBewoning.bewoningPeriodes.push(createBewoningPeriode(van, tot));
-});
-
-Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' een bewoner met de volgende gegevens$/, function (van, tot, dataTable) {
-    this.context.verifyResponse = true;
-
-    let expectedBewoning = this.context.expected?.at(-1);
-    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
-
-    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
-
-    expectedBewoningPeriode.bewoners.push(createObjectFrom(dataTable, true));
+    should.exist(expectedBewoning, `geen bewoning om de bewoners toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 });
 
 Then(/^heeft de bewoning een bewoner met de volgende gegevens$/, function (dataTable) {
@@ -526,15 +470,14 @@ Then(/^heeft de bewoning een bewoner met de volgende gegevens$/, function (dataT
     expectedBewoning.bewoners.push(createObjectFrom(dataTable, true));
 });
 
-Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' bewoners met de volgende gegevens$/, function (van, tot, dataTable) {
-    this.context.verifyResponse = true;
-
+Then(/^heeft de bewoner de volgende '(.*)' gegevens$/, function (gegevensgroep, dataTable) {
     let expectedBewoning = this.context.expected?.at(-1);
-    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+    should.exist(expectedBewoning, `geen bewoning om bewoner gegevens aan te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 
-    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
+    let expectedBewoner = expectedBewoning.bewoners.at(-1);
+    should.exist(expectedBewoner, `geen bewoner om gegevens aan toe te voegen. Gebruik de stap 'En heeft de bewoning een bewoner met de volgende gegevens' om een verwachte bewoner te definieren`);
 
-    expectedBewoningPeriode.bewoners = createObjectArrayFrom(dataTable, true);
+    expectedBewoner[gegevensgroep] = createObjectFrom(dataTable, true);
 });
 
 Then(/^heeft de bewoning bewoners met de volgende gegevens$/, function (dataTable) {
@@ -546,17 +489,6 @@ Then(/^heeft de bewoning bewoners met de volgende gegevens$/, function (dataTabl
     expectedBewoning.bewoners = createObjectArrayFrom(dataTable, true);
 });
 
-Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' een mogelijke bewoner met de volgende gegevens$/, function (van, tot, dataTable) {
-    this.context.verifyResponse = true;
-
-    let expectedBewoning = this.context.expected?.at(-1);
-    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
-
-    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
-
-    expectedBewoningPeriode.mogelijkeBewoners.push(createObjectFrom(dataTable, true));
-});
-
 Then(/^heeft de bewoning een mogelijke bewoner met de volgende gegevens$/, function (dataTable) {
     this.context.verifyResponse = true;
 
@@ -564,17 +496,6 @@ Then(/^heeft de bewoning een mogelijke bewoner met de volgende gegevens$/, funct
     should.exist(expectedBewoning, `geen bewoning om mogelijke bewoners toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 
     expectedBewoning.mogelijkeBewoners.push(createObjectFrom(dataTable, true));
-});
-
-Then(/^heeft de bewoning voor de bewoningPeriode '([\d-]*) tot ([\d-]*)' mogelijke bewoners met de volgende gegevens$/, function (van, tot, dataTable) {
-    this.context.verifyResponse = true;
-
-    let expectedBewoning = this.context.expected?.at(-1);
-    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
-
-    let expectedBewoningPeriode = getBewoningPeriode(expectedBewoning, van, tot);
-
-    expectedBewoningPeriode.mogelijkeBewoners = createObjectArrayFrom(dataTable, true);
 });
 
 Then(/^heeft de persoon met burgerservicenummer '(.*)' de volgende '(.*)' gegevens$/, async function (burgerservicenummer, tabelNaam, dataTable) {
@@ -628,42 +549,17 @@ Then(/^heeft de response (\d*) (?:bewoning|bewoningen)$/, function (aantal) {
     actual.length.should.equal(Number(aantal), `aantal bewoningen in response is ongelijk aan ${aantal}\nBewoningen: ${JSON.stringify(actual, null, '\t')}`);
 });
 
-Then(/^heeft de response een bewoning met een bewoningPeriode '([\d-]*) tot ([\d-]*)' met (\d*) bewoners$/, function (van, tot, aantal) {
+Then(/^heeft de response een bewoning met (\d*) bewoners en (\d*) mogelijke bewoners$/, function (aantalBewoners, aantalMogelijkeBewoners) {
     this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
 
     const actual = this.context?.response?.data?.bewoningen;
     should.exist(actual);
 
     const actualBewoning = actual.at(-1);
-    const bewoningPeriode = getBewoningPeriode(actualBewoning, van, tot);
-    should.exist(bewoningPeriode);
-    should.exist(bewoningPeriode.bewoners, `geen bewoners array om bewoners te kunnen tellen. response:\n${JSON.stringify(actual, null, '\t')}`);
-    bewoningPeriode.bewoners.length.should.equal(Number(aantal), `aantal bewoners in response is ongelijk aan ${aantal}\nBewoningPeriode: ${JSON.stringify(bewoningPeriode, null, '\t')}`);
-});
-
-Then(/^heeft de response een bewoning met een bewoningPeriode '([\d-]*) tot ([\d-]*)' met (\d*) mogelijke bewoners$/, function (van, tot, aantal) {
-    this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
-
-    const actual = this.context?.response?.data?.bewoningen;
-    should.exist(actual);
-
-    const actualBewoning = actual.at(-1);
-    const bewoningPeriode = getBewoningPeriode(actualBewoning, van, tot);
-    should.exist(bewoningPeriode);
-    should.exist(bewoningPeriode.mogelijkeBewoners, `geen mogelijkeBewoners array om mogelijke bewoners te kunnen tellen. response:\n${JSON.stringify(actual, null, '\t')}`);
-    bewoningPeriode.mogelijkeBewoners.length.should.equal(Number(aantal), `aantal bewoners in response is ongelijk aan ${aantal}\nBewoningPeriode: ${JSON.stringify(bewoningPeriode, null, '\t')}`);
-});
-
-Then(/^heeft de bewoningPeriode de volgende gegevens$/, function (dataTable) {
-    this.context.verifyResponse = true;
-
-    let expectedBewoning = this.context.expected?.at(-1);
-    should.exist(expectedBewoning, `geen bewoning om de bewoningPeriode toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
-
-    let expectedBewoningPeriode = expectedBewoning.bewoningPeriodes.at(-1);
-    should.exist(expectedBewoningPeriode, `geen bewoningPeriode om velden toe te voegen.`);
-
-    Object.assign(expectedBewoningPeriode, createObjectFrom(dataTable, true));
+    should.exist(actualBewoning.bewoners, `geen bewoners array om bewoners te kunnen tellen. response:\n${JSON.stringify(actual, null, '\t')}`);
+    actualBewoning.bewoners.length.should.equal(Number(aantalBewoners), `aantal bewoners in response is ongelijk aan ${aantalBewoners}\nBewoning: ${JSON.stringify(actualBewoning, null, '\t')}`);
+    should.exist(actualBewoning.mogelijkeBewoners, `geen mogelijkeBewoners array om mogelijke bewoners te kunnen tellen. response:\n${JSON.stringify(actual, null, '\t')}`);
+    actualBewoning.mogelijkeBewoners.length.should.equal(Number(aantalMogelijkeBewoners), `aantal mogelijke bewoners in response is ongelijk aan ${aantalMogelijkeBewoners}\nBewoning: ${JSON.stringify(actualBewoning, null, '\t')}`);
 });
 
 Then(/^heeft de response een object met de volgende gegevens$/, function (dataTable) {

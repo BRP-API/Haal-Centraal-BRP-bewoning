@@ -91,11 +91,13 @@ Then(/^zijn de gegenereerde SQL statements$/, function(dataTable) {
                         break;
                     case 'verblijfplaats':
                         let adresIdElem = actual.find(ee => ee[0] === 'adres_id');
-                        adresIdElem[1] = sqlDataIds.adresIds[Number(adresIdElem[1])]+'';
+                        if(adresIdElem !== undefined) {
+                            adresIdElem[1] = sqlDataIds.adresIds[Number(adresIdElem[1])]+'';
+                        }
                         statement = insertIntoStatement(categorie, [
                             ['pl_id', sqlDataIds.plIds[currentPlIndex]+''],
                         ].concat(actual), tableNameMap);
-                        break;
+                    break;
                     default:
                         statement = insertIntoStatement(categorie, [
                             ['pl_id', sqlDataIds.plIds[currentPlIndex]+'']

@@ -9,7 +9,11 @@ public class BewonerProfile : Profile
     public BewonerProfile()
     {
         CreateMap<Gba.GbaBewoner, HC.Bewoner>()
-            .ForMember(dest => dest.InOnderzoek, opt => opt.MapFrom(src => src.VerblijfplaatsInOnderzoek.Map()))
+            .ForMember(dest => dest.InOnderzoek, opt => 
+            {
+                opt.PreCondition(src => src.VerblijfplaatsInOnderzoek != null);
+                opt.MapFrom(src => src.VerblijfplaatsInOnderzoek.AanduidingGegevensInOnderzoek.Map());
+            })
             ;
     }
 }

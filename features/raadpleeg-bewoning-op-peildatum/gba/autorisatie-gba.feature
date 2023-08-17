@@ -32,10 +32,10 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | 000008    | 0800         |
       En adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0800                 | 0800010000713450                         |
+      | 0800                 | 0800010000000001                         |
       En adres 'A2' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0518                 | 0518010000854789                         |
+      | 0518                 | 0518010000000002                         |
 
 
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object binnen de eigen gemeente.
@@ -49,7 +49,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
       | peildatum                        | 2023-01-01           |
-      | adresseerbaarObjectIdentificatie | 0800010000713450     |
+      | adresseerbaarObjectIdentificatie | 0800010000000001     |
       Dan heeft de response 1 bewoning
 
     @fout-case
@@ -61,7 +61,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
       | peildatum                        | 2023-01-01           |
-      | adresseerbaarObjectIdentificatie | 0518010000854789     |
+      | adresseerbaarObjectIdentificatie | 0518010000000002     |
       Dan heeft de response een object met de volgende gegevens
       | naam     | waarde                                                                                 |
       | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3                            |
@@ -82,7 +82,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
       | peildatum                        | 2023-01-01           |
-      | adresseerbaarObjectIdentificatie | 0800010000713450     |
+      | adresseerbaarObjectIdentificatie | 0800010000000001     |
       Dan heeft de response 1 bewoning
 
     @fout-case
@@ -97,7 +97,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
       | peildatum                        | 2023-01-01           |
-      | adresseerbaarObjectIdentificatie | 0518010000854789     |
+      | adresseerbaarObjectIdentificatie | 0518010000000002     |
       Dan heeft de response een object met de volgende gegevens
       | naam     | waarde                                                                                 |
       | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3                            |
