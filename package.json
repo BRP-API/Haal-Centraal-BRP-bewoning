@@ -8,21 +8,31 @@
     "test": "test"
   },
   "scripts": {
+    "mermaid:gen": "mmdc -i docs/bewoning-op-peildatum.md -o docs/img/bewoning-op-peildatum-diagram.svg",
+    "nswag:gen": "bash scripts/nswag-gen.sh",
     "oas:generate-client": "openapi-generator-cli generate -i ./specificatie/genereervariant/openapi.yaml --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false",
     "oas:generate-java-client": "npm run oas:generate-client -- -o ./code/java -g java --additional-properties=dateLibrary=java8,java8=true,optionalProjectFile=false,optionalAssemblyInfo=false",
     "oas:generate-netcore-client": "npm run oas:generate-client -- -o ./code/netcore -g csharp-netcore --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false",
     "oas:generate-net-client": "npm run oas:generate-client -- -o ./code/net -g csharp --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false",
     "oas:generate-python-client": "npm run oas:generate-client -- -o ./code/python -g python --additional-properties=optionalProjectFile=false,optionalAssemblyInfo=false",
     "preoas:generate-postman-collection": "mkdirp ./test",
-    "oas:generate-postman-collection": "openapi2postmanv2 -s ./specificatie/genereervariant/openapi.yaml -o ./test/BRP-Bewoning-postman-collection.json --pretty",
-    "oas:lint": "spectral lint ./specificatie/openapi.yaml",
-    "oas:lint-genereervariant": "spectral lint ./specificatie/genereervariant/openapi.yaml",
-    "preoas:resolve": "mvn-dl io.swagger.codegen.v3:swagger-codegen-cli:3.0.19 -f swagger-codegen-cli.jar",
-    "oas:resolve": "java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi-yaml -o ./specificatie/genereervariant && java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi -o ./specificatie/genereervariant",
+    "oas:generate-postman-collection": "openapi2postmanv2 -s ./specificatie/genereervariant/openapi.yaml -o ./test/BRP-Bevragen-postman-collection.json --pretty",
+    "oas:lint": "bash scripts/lint-oas.sh",
+    "oas:lint-genereervariant": "bash scripts/lint-oas-genereervariant.sh",
+    "preoas:resolve": "mvn-dl io.swagger.codegen.v3:swagger-codegen-cli:3.0.45 -f swagger-codegen-cli.jar",
+    "oas:resolve": "bash scripts/resolve-oas.sh",
     "postoas:resolve": "rm swagger-codegen-cli.jar",
-    "unstage-generated": "git reset HEAD ./specificatie/genereervariant/openapi.* ./test/BRP-Bewoning-bevragen-postman-collection.json ./code/**",
-    "rollback-generated": "git checkout ./specificatie/genereervariant/openapi.* ./test/BRP-Bewoning-bevragen-postman-collection.json ./code/**",
-    "prepare": "husky install"
+    "unstage-generated": "git reset HEAD ./specificatie/genereervariant/openapi.* ./specificatie/gba-genereervariant/openapi.*",
+    "rollback-generated": "git checkout ./specificatie/genereervariant/openapi.* ./specificatie/gba-genereervariant/openapi.*",
+    "specs:report": "node scripts/generate-cucumber-report.js",
+    "specs:summary": "node scripts/parse-summary.js",
+    "specs:verify": "bash scripts/specs-verify.sh",
+    "pre-commit": "npm run oas:lint && npm run oas:resolve && npm run oas:lint-genereervariant && npm run unstage-generated",
+    "prepare": "husky install",
+    "dotnet:clean": "for /d /r . %d in (bin,obj) do @if exist \"%d\" rd /s/q \"%d\"",
+    "dotnet:restore": "dotnet restore src/Bewoning.sln",
+    "dotnet:build": "dotnet build src/Bewoning.sln --configuration Release --no-restore",
+    "dotnet:test": "dotnet test src/Bewoning.sln --configuration Release --no-build --verbosity normal --collect:\"XPlat Code Coverage\" --results-directory ./coverage"
   },
   "repository": {
     "type": "git",
@@ -36,9 +46,19 @@
   },
   "homepage": "https://github.com/BRP-API/Haal-Centraal-BRP-bewoning#readme",
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.6.0",
-    "@stoplight/spectral-cli": "^6.6.0",
+    "@cucumber/cucumber": "^9.4.0",
+    "@mermaid-js/mermaid-cli": "^10.2.4",
+    "@openapitools/openapi-generator-cli": "^2.7.0",
+    "@stoplight/spectral-cli": "^6.10.1",
+    "axios": "^1.4.0",
+    "chai": "^4.3.7",
+    "cucumber-html-reporter": "^7.1.1",
+    "deep-equal-in-any-order": "^2.0.6",
     "husky": "^8.0.3",
-    "mvn-dl": "^6.0.0"
+    "mkdirp": "^3.0.1",
+    "mvn-dl": "^6.1.1",
+    "nswag": "^13.20.0",
+    "openapi-to-postmanv2": "^4.16.0",
+    "pg": "^8.11.3"
   }
 }

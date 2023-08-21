@@ -1,0 +1,123 @@
+openapi: 3.0.3
+servers:
+  - description: |
+      Proef omgeving
+    url: https://proefomgeving.haalcentraal.nl/haalcentraal/api/bewoning
+  - description: |
+      Lokaal
+    url: http://localhost:5010/haalcentraal/api/bewoning
+info:
+  title: Haal Centraal BRP bewoning
+  description: |
+    API voor het raadplegen van de (historische) bewoning van een adres.
+  version: 2.0.0
+  contact:
+    url: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning
+  license:
+    name: European Union Public License, version 1.2 (EUPL-1.2)
+    url: https://eupl.eu/1.2/nl/
+tags:
+  - name: Bewoning
+paths:
+  /bewoningen:
+    post:
+      summary: Raadplegen van bewoningen
+      description: |
+        Met de API kun je raadplegen:
+
+        **Bewoning:**
+        welke personen (bewoners) een adresseerbaar object bewoonden op een opgegeven moment (peildatum) of
+        welke samenstellingen van personen een adresseerbaar object bewoonden in een opgegeven periode.
+      operationId: Bewoningen
+      requestBody:
+        content:
+          'application/json; charset=utf-8':
+            schema:
+              $ref: "#/components/schemas/BewoningenQuery"
+      responses:
+        '200':
+          description: |
+            Zoekactie geslaagd
+          headers:
+            api-version:
+              $ref: "common.yaml#/components/headers/api_version"
+            warning:
+              $ref: "common.yaml#/components/headers/warning"
+            X-Rate-Limit-Limit:
+              $ref: "common.yaml#/components/headers/X_Rate_Limit_Limit"
+            X-Rate-Limit-Remaining:
+              $ref: "common.yaml#/components/headers/X_Rate_Limit_Remaining"
+            X-Rate-Limit-Reset:
+              $ref: "common.yaml#/components/headers/X_Rate_Limit_Reset"
+          content:
+            'application/json; charset=utf-8':
+              schema:
+                $ref: "#/components/schemas/GbaBewoningenQueryResponse"
+        '400':
+          $ref: "common.yaml#/components/responses/400"
+        '401':
+          $ref: "common.yaml#/components/responses/401"
+        '403':
+          $ref: "common.yaml#/components/responses/403"
+        '406':
+          $ref: "common.yaml#/components/responses/406"
+        '429':
+          $ref: "common.yaml#/components/responses/429"
+        '500':
+          $ref: "common.yaml#/components/responses/500"
+        '501':
+          $ref: "common.yaml#/components/responses/501"
+        '503':
+          $ref: "common.yaml#/components/responses/503"
+        'default':
+          $ref: "common.yaml#/components/responses/default"
+      tags:
+        - Bewoning
+components:
+  schemas:
+    BewoningenQuery:
+      type: object
+      required:
+        - type
+      discriminator:
+        propertyName: type
+        mapping:
+          BewoningMetPeildatum: '#/components/schemas/BewoningMetPeildatum'
+          BewoningMetPeriode: '#/components/schemas/BewoningMetPeriode'
+      properties:
+        type:
+          type: string
+    BewoningMetPeildatum:
+      required:
+        - peildatum
+        - adresseerbaarObjectIdentificatie
+      allOf:
+        - $ref: '#/components/schemas/BewoningenQuery'
+        - type: object
+          properties:
+            peildatum:
+              $ref: 'filter.yaml#/components/schemas/Peildatum'
+            adresseerbaarObjectIdentificatie:
+              $ref: "filter.yaml#/components/schemas/AdresseerbaarObjectIdentificatieFilter"
+    BewoningMetPeriode:
+      required:
+        - datumVan
+        - datumTot
+        - adresseerbaarObjectIdentificatie
+      allOf:
+        - $ref: '#/components/schemas/BewoningenQuery'
+        - type: object
+          properties:
+            datumVan:
+              $ref: 'filter.yaml#/components/schemas/DatumVan'
+            datumTot:
+              $ref: 'filter.yaml#/components/schemas/DatumTot'
+            adresseerbaarObjectIdentificatie:
+              $ref: "filter.yaml#/components/schemas/AdresseerbaarObjectIdentificatieFilter"
+    GbaBewoningenQueryResponse:
+      type: object
+      properties:
+        bewoningen:
+          type: array
+          items:
+            $ref: 'bewoning.yaml#/components/schemas/GbaBewoning'

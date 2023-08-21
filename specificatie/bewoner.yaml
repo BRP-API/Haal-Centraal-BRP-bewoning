@@ -1,0 +1,38 @@
+openapi: 3.0.3
+info:
+  title: Persoon definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    Burgerservicenummer:
+      type: string
+      pattern: ^[0-9]{9}$
+      example: "555555021"
+    GbaGeheimhoudingPersoonsgegevens:
+      type: integer
+      minimum: 0
+      maximum: 7
+    GeheimhoudingPersoonsgegevens:
+      description: |
+        Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
+      type: boolean
+    Bewoner:
+      type: object
+      properties:
+        burgerservicenummer:
+          $ref: '#/components/schemas/Burgerservicenummer'
+        geheimhoudingPersoonsgegevens:
+          $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
+        inOnderzoek:
+          $ref: 'in-onderzoek.yaml#/components/schemas/InOnderzoek'
+    GbaBewoner:
+      type: object
+      properties:
+        burgerservicenummer:
+          $ref: '#/components/schemas/Burgerservicenummer'
+        geheimhoudingPersoonsgegevens:
+          $ref: '#/components/schemas/GbaGeheimhoudingPersoonsgegevens'
+        verblijfplaatsInOnderzoek:
+          $ref: 'in-onderzoek.yaml#/components/schemas/GbaInOnderzoek'

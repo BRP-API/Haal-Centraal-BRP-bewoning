@@ -1,5 +1,18 @@
 node_modules/
 
-specificatie/genereervariant/.swagger-codegen
-specificatie/genereervariant/.swagger-codegen-ignore
-specificatie/genereervariant/README.md
+.swagger-codegen
+.swagger-codegen-ignore
+specificatie/**/README.md
+
+*.suo
+*.user
+
+[Dd]ebug/
+[Rr]elease/
+[Oo]bj/
+
+.vs/
+
+coverage*.json
+coverage*.xml
+coverage*.info

@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: Bewoning definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    Bewoning:
+      description: |
+        Een bewoning geeft aan welke personen in een periode (mogelijk) op een adresseerbaar object staan ingeschreven.
+        
+        Een persoon is een mogelijke bewoner als niet met zekerheid kan worden bepaald of de persoon in de bewoningperiode op het adresseerbaar object staat/stond ingeschreven.
+        Dit is het geval als de datum aanvang of de datum einde van de inschrijving geheel of deels onbekend is, en de onzekerheidsperiode overlapt de bewoningperiode.
+
+        Wanneer een bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft, wordt het **indicatieVeelBewoners** veld geleverd.
+
+      type: object
+      properties:
+        adresseerbaarObjectIdentificatie:
+          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+        periode:
+          $ref: '#/components/schemas/Periode'
+        bewoners:
+          type: array
+          description: |
+            De personen die in de bewoning periode staan ingeschreven op het adresseerbaar object.
+          minItems: 0
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/Bewoner'
+        mogelijkeBewoners:
+          type: array
+          description: |
+            De personen die in de bewoning periode mogelijk staan ingeschreven op het adresseerbaar object.
+          minItems: 0
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/Bewoner'
+        indicatieVeelBewoners:
+          type: boolean
+          description: |
+            Geeft aan dat de bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft.
+    GbaBewoning:
+      description: |
+        Een bewoning geeft aan welke personen in een periode (mogelijk) op een adresseerbaar object staan ingeschreven.
+        
+        Een persoon is een mogelijke bewoner als niet met zekerheid kan worden bepaald of de persoon in de bewoningperiode op het adresseerbaar object staat/stond ingeschreven.
+        Dit is het geval als de datum aanvang of de datum einde van de inschrijving geheel of deels onbekend is, en de onzekerheidsperiode overlapt de bewoningperiode.
+
+        Wanneer een bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft, wordt het **indicatieVeelBewoners** veld geleverd.
+
+      type: object
+      properties:
+        adresseerbaarObjectIdentificatie:
+          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+        periode:
+          $ref: '#/components/schemas/Periode'
+        bewoners:
+          type: array
+          description: |
+            De personen die in de bewoning periode staan ingeschreven op het adresseerbaar object.
+          minItems: 0
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/GbaBewoner'
+        mogelijkeBewoners:
+          type: array
+          description: |
+            De personen die in de bewoning periode mogelijk staan ingeschreven op het adresseerbaar object.
+          minItems: 0
+          maxItems: 100
+          items:
+            $ref: 'bewoner.yaml#/components/schemas/GbaBewoner'
+        indicatieVeelBewoners:
+          type: boolean
+          description: |
+            Geeft aan dat de bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft.
+    Periode:
+      type: object
+      properties:
+        datumVan:
+          type: string
+          format: date
+          example: 2020-01-01
+        datumTot:
+          type: string
+          format: date
+          example: 2021-01-01

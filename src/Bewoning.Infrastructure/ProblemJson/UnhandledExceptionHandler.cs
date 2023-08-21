@@ -1,0 +1,38 @@
+﻿using Bewoning.Infrastructure.Http;
+using Bewoning.Infrastructure.Json;
+using Bewoning.Infrastructure.Stream;
+using Microsoft.AspNetCore.Http;
+
+namespace Bewoning.Infrastructure.ProblemJson;
+
+public static class UnhandledExceptionHandler
+{
+    private static Foutbericht CreateInternalServerErrorFoutbericht(this HttpContext context)
+    {
+        return new Foutbericht
+        {
+            Status = StatusCodes.Status500InternalServerError,
+            Instance = new Uri(context.Request.Path, UriKind.Relative),
+            Title = "Internal Server error.",
+            Type = new Uri(StatusCodeIdentifiers.InternalServerErrorIdentifier)
+        };
+    }
+
+    public static async Task HandleUnhandledException(this HttpContext context, System.IO.Stream orgResponseBodyStream)
+    {
+        var message = context.CreateInternalServerErrorFoutbericht();
+
+        using var bodyStream = message.ToJson().ToMemoryStream(context.Response.UseGzip());
+
+        context.Response.SetHeaderPropertiesFrom(message, bodyStream);
+
+        await bodyStream.CopyToAsync(orgResponseBodyStream);
+    }
+
+    public static void SetHeaderPropertiesFrom(this HttpResponse response, Foutbericht foutbericht, System.IO.Stream bodyStream)
+    {
+        response.StatusCode = foutbericht.Status!.Value;
+        response.ContentLength = bodyStream.Length;
+        response.ContentType = ContentTypes.ProblemJson;
+    }
+}

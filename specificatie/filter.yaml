@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: Filter definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    AdresseerbaarObjectIdentificatieFilter:
+      type: string
+      pattern: ^(?!0{16})[0-9]{16}$
+      description: |
+        De identificatie van het adresseerbaar object waarover de bewoning wordt gevraagd.
+      example: "0226010000038820"
+    DatumVan:
+      type: string
+      description: |
+        De begindatum van de periode waarover de bewoning wordt opgevraagd.
+      format: date
+      example: 1964-09-24
+    DatumTot:
+      type: string
+      description: |
+        De einddatum van de periode waarover de bewoning wordt opgevraagd.
+      format: date
+      example: 1964-09-24
+    Peildatum:
+      type: string
+      description: |
+        Peildatum: de datum waarop je de bewoning wil weten.
+      format: date
+      example: 1964-09-24
