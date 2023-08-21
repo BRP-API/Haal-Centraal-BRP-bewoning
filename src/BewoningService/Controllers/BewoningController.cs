@@ -34,9 +34,16 @@ public class BewoningController : Generated.ControllerBase
     private async Task<GbaBewoningenQueryResponse> Handle(BewoningMetPeildatum q)
     {
         var personen = await _repository.Zoek<BewoningMetPeildatum>(q);
-        var bewoners = new List<GbaBewoner>();
-        if(personen != null)
+
+        var retval = new GbaBewoningenQueryResponse
         {
+            Bewoningen = new List<GbaBewoning>()
+        };
+
+        if (personen != null && personen.Any())
+        {
+            var bewoners = new List<GbaBewoner>();
+
             foreach (var persoon in personen)
             {
                 var bewoner = new GbaBewoner
@@ -54,14 +61,8 @@ public class BewoningController : Generated.ControllerBase
                 }
 
                 bewoners.Add(bewoner);
-            }
-        }
 
-        var retval = new GbaBewoningenQueryResponse
-        {
-            Bewoningen = new List<GbaBewoning>
-            {
-                new GbaBewoning
+                retval.Bewoningen.Add(new GbaBewoning
                 {
                     AdresseerbaarObjectIdentificatie = q.AdresseerbaarObjectIdentificatie,
                     Periode = new Periode
@@ -70,9 +71,9 @@ public class BewoningController : Generated.ControllerBase
                         DatumTot = q.Peildatum.AddDays(1),
                     },
                     Bewoners = bewoners,
-                }
+                });
             }
-        };
+        }
 
         return retval;
     }
