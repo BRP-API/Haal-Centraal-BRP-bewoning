@@ -17,4 +17,4 @@ RUN dotnet publish "BewoningService.csproj" -c Release -o /app/publish /p:UseApp
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BewoningService.dll"]
+ENTRYPOINT ["dotnet", "HaalCentraal.BewoningService.dll"]
