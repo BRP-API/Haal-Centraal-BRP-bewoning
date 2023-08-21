@@ -39,10 +39,21 @@ public class BewoningController : Generated.ControllerBase
         {
             foreach (var persoon in personen)
             {
-                bewoners.Add(new GbaBewoner
+                var bewoner = new GbaBewoner
                 {
                     Burgerservicenummer = persoon.BurgerserviceNummer,
-                });
+                    GeheimhoudingPersoonsgegevens = persoon.GeheimhoudingPersoonsgegevens.GetValueOrDefault(0)
+                };
+                if(persoon.Verblijfplaats?.InOnderzoek != null)
+                {
+                    bewoner.VerblijfplaatsInOnderzoek = new GbaInOnderzoek
+                    {
+                        AanduidingGegevensInOnderzoek = persoon.Verblijfplaats.InOnderzoek.AanduidingGegevensInOnderzoek,
+                        DatumIngangOnderzoek = persoon.Verblijfplaats.InOnderzoek.DatumIngangOnderzoek
+                    };
+                }
+
+                bewoners.Add(bewoner);
             }
         }
 
