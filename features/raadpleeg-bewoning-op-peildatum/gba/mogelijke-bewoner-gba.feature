@@ -540,7 +540,7 @@ Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerh
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    | adresseerbaarObjectIdentificatie | 0800010000000002     |
     Dan heeft de response 0 bewoningen
 
     Voorbeelden:
