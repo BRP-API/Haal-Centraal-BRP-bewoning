@@ -285,6 +285,38 @@ pre {
     min-width: 100%;
 }
 
+.ellipsis {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all .2s linear;
+    white-space: nowrap;
+    padding:.5rem 1rem;
+}
+.ellipsis:focus, .ellipsis:hover {
+  color:transparent;
+}
+.ellipsis:focus:after,.ellipsis:hover:after{
+    content:attr(data-text);
+    overflow: visible;
+    text-overflow: inherit;
+    background: #fff;
+    position: absolute;
+    left:auto;
+    top:auto;
+    width: auto;
+    max-width: 100%;
+    border: 1px solid #eaebec;
+    padding: 0 .5rem;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.28);
+    white-space: normal;
+    word-wrap: break-word;
+    display:block;
+    color:black;
+    margin-top:-1.25rem;
+    z-index: 1;
+  }
 
     /** Issue in google-charts tooltip - https://github.com/google/google-visualization-issues/issues/2162 */
     .google-visualization-tooltip {
@@ -365,7 +397,7 @@ pre {
           </div>
           <div class="label-container">
             <div class="generated-on">
-              Thu Jun 29 2023 06:54:50 GMT+0000 (Coordinated Universal Time)
+              Tue Aug 22 2023 10:11:10 GMT+0000 (Coordinated Universal Time)
             </div>
           </div>
       </div>
@@ -444,7 +476,7 @@ pre {
                         
                     </div>
                     
-                    <a data-toggle="collapse" href="#collapseFeatureautorisatie_features09658670-871d-4059-bb07-ed1487cb7f42">
+                    <a data-toggle="collapse" href="#collapseFeatureautorisatie_features0b49edb0-2306-4dbc-b634-d5af095c94d5">
                         <i class="glyphicon glyphicon-chevron-right"></i>
                         <i class="glyphicon glyphicon-chevron-down"></i>
                         <b>Functionaliteit:</b>autorisatie voor het gebruik van de API BewoningMetPeildatum
@@ -460,7 +492,7 @@ pre {
                     </a>
                 </h4>
             </div>
-            <div id="collapseFeatureautorisatie_features09658670-871d-4059-bb07-ed1487cb7f42" class="panel-collapse collapse">
+            <div id="collapseFeatureautorisatie_features0b49edb0-2306-4dbc-b634-d5af095c94d5" class="panel-collapse collapse">
                 <div class="panel-body">
                     
                     <div class="description">  Autorisatie voor het gebruik van de API gebeurt op twee niveau's:<br/>  1. autorisatie van de gebruiker door de afnemende organisatie<br/>  2. autorisatie van de afnemer (organisatie) door RvIG<br/><br/>  Deze feature beschrijft alleen de autorisatie van de afnemer door RvIG.<br/><br/>  Voorlopig wordt de Bewoning API alleen aangeboden aan gemeenten voor het raadplegen van adresseerbare object binnen de eigen gemeente.<br/><br/>  Autorisatie wordt verkregen met behulp van een OAuth 2 token. <br/>  In het verkregen token is de afnemerindicatie opgenomen die de afnemer uniek identificeert. Op basis van de afnemerindicatie kan de autorisatie worden opgezocht.<br/>  Wanneer de afnemer een gemeente is, is er ook een gemeentecode opgenomen in de OAuth token. Deze wordt gebruikt om te bepalen of het bevraagde adres binnen de eigen gemeente ligt.<br/><br/>  Voor één afnemer kunnen er meerdere rijen zijn in de autorisatietabel, maar daarvan kan er maar één actueel zijn. Alleen de actuele mag worden gebruikt.<br/>  Een autorisatie is actueel wanneer de Datum ingang (35.99.98) in het verleden ligt en Datum beëindiging tabelregel (35.99.99) leeg is of in de toekomst ligt.</div>
@@ -475,13 +507,13 @@ pre {
                                 <div class="tags">
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenarioautorisatie_featuresb50cc46f-3aa1-4ed6-854a-fe520c6471e4">
+                                <a data-toggle="collapse" href="#collapseScenarioautorisatie_features0be0e0ae-e6a5-483c-83d9-f0dbedc42be2">
                                     <div>
 
                                         <div style="padding-right: 30px">
                                             <i class="glyphicon glyphicon-chevron-right"></i>
                                             <i class="glyphicon glyphicon-chevron-down"></i>
-                                            <b>Scenario:</b>Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente">Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente</div>
                                         </div>
                                         <div>
                             <span class="label-container ">
@@ -500,7 +532,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenarioautorisatie_featuresb50cc46f-3aa1-4ed6-854a-fe520c6471e4"
+                        <div id="collapseScenarioautorisatie_features0be0e0ae-e6a5-483c-83d9-f0dbedc42be2"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -525,7 +557,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               < 1ms
+                               1ms
                               </span>
                             
                          
@@ -677,7 +709,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -711,7 +743,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0800010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -751,7 +783,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A2&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -785,7 +817,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0518010000854789
+                                          0518010000000002
                                         </td>
                                       
                                       </tr>
@@ -825,11 +857,11 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">Gegeven </span>
-                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0800010000713450&#39; met de volgende gegevens</span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
-                               < 1ms
+                               1ms
                               </span>
                             
                          
@@ -903,7 +935,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               750ms
+                               1s 361ms
                               </span>
                             
                          
@@ -959,7 +991,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0800010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -1044,13 +1076,13 @@ pre {
                                     
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenarioautorisatie_features2dba7661-e460-4771-8437-312f44c5fb1f">
+                                <a data-toggle="collapse" href="#collapseScenarioautorisatie_features955701af-74db-44f4-9725-c4eaba4b77cf">
                                     <div>
 
                                         <div style="padding-right: 30px">
                                             <i class="glyphicon glyphicon-chevron-right"></i>
                                             <i class="glyphicon glyphicon-chevron-down"></i>
-                                            <b>Scenario:</b>Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente">Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente</div>
                                         </div>
                                         <div>
                             <span class="label-container ">
@@ -1069,7 +1101,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenarioautorisatie_features2dba7661-e460-4771-8437-312f44c5fb1f"
+                        <div id="collapseScenarioautorisatie_features955701af-74db-44f4-9725-c4eaba4b77cf"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -1246,7 +1278,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -1280,7 +1312,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0800010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -1320,7 +1352,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A2&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -1354,7 +1386,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0518010000854789
+                                          0518010000000002
                                         </td>
                                       
                                       </tr>
@@ -1394,7 +1426,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">Gegeven </span>
-                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0518010000854789&#39; met de volgende gegevens</span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A2&#39; met de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -1472,7 +1504,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               31ms
+                               134ms
                               </span>
                             
                          
@@ -1528,7 +1560,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0518010000854789
+                                          0518010000000002
                                         </td>
                                       
                                       </tr>
@@ -1667,7 +1699,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          /haalcentraal/api/bewoning/bewoning
+                                          /haalcentraal/api/bewoning/bewoningen
                                         </td>
                                       
                                       </tr>
@@ -1699,136 +1731,6 @@ pre {
                                 
                                 
                                 
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-danger" title="Failed"><i
-                                            class="glyphicon glyphicon-remove"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">After</span>
-                          <span> </span>
-                            
-                          
-                              <span class="step-duration">
-                               1ms
-                              </span>
-                            
-                         
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-                                    <a href="#error0_110"
-                                       data-toggle="collapse" class="toggle">Show Error +</a>
-                                    <div id="error0_110"
-                                         class="collapse">
-                                        <pre class="info show-modal"
-                                             data-toggle="modal"
-                                             style="cursor: pointer"
-                                             data-target="#error-modal-0_110">
-                                            <br> AssertionError: response body: {
-	"bewoningen": [
-		{
-			"adresseerbaarObjectIdentificatie": "0518010000854789",
-			"bewoningPeriodes": [
-				{
-					"periode": {
-						"datumVan": "2023-01-01",
-						"datumTot": "2023-01-02"
-					},
-					"bewoners": [
-						{
-							"burgerservicenummer": "000000024"
-						}
-					],
-					"mogelijkeBewoners": []
-				}
-			],
-			"periode": {
-				"datumVan": "2023-01-01",
-				"datumTot": "2023-01-02"
-			}
-		}
-	]
-}: expected 200 to not equal 200
-    + expected - actual
-
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:451:45)</pre>
-                                    </div>
-
-                                <div class="modal fade" id="error-modal-0_110" tabindex="-1" role="dialog"
-                                     aria-labelledby="stacktraceModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title" id="error-modal-title">
-                                                    Error
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>
-                                                    <pre><br>AssertionError: response body: {
-	"bewoningen": [
-		{
-			"adresseerbaarObjectIdentificatie": "0518010000854789",
-			"bewoningPeriodes": [
-				{
-					"periode": {
-						"datumVan": "2023-01-01",
-						"datumTot": "2023-01-02"
-					},
-					"bewoners": [
-						{
-							"burgerservicenummer": "000000024"
-						}
-					],
-					"mogelijkeBewoners": []
-				}
-			],
-			"periode": {
-				"datumVan": "2023-01-01",
-				"datumTot": "2023-01-02"
-			}
-		}
-	]
-}: expected 200 to not equal 200
-    + expected - actual
-
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:451:45)</pre>
-                                                </h5>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
                                 
                             </div>
                         </div>
@@ -1843,13 +1745,13 @@ pre {
                                 <div class="tags">
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenarioautorisatie_features9e374963-db1f-4d79-a22c-87f82df831bb">
+                                <a data-toggle="collapse" href="#collapseScenarioautorisatie_features66147fd8-57d5-4810-9c89-625e01dd62f2">
                                     <div>
 
                                         <div style="padding-right: 30px">
                                             <i class="glyphicon glyphicon-chevron-right"></i>
                                             <i class="glyphicon glyphicon-chevron-down"></i>
-                                            <b>Scenario:</b>Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is nu niet meer ingeschreven in de gemeente
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is nu niet meer ingeschreven in de gemeente">Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is nu niet meer ingeschreven in de gemeente</div>
                                         </div>
                                         <div>
                             <span class="label-container ">
@@ -1868,7 +1770,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenarioautorisatie_features9e374963-db1f-4d79-a22c-87f82df831bb"
+                        <div id="collapseScenarioautorisatie_features66147fd8-57d5-4810-9c89-625e01dd62f2"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -2045,7 +1947,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -2079,7 +1981,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0800010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -2119,7 +2021,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A2&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -2153,7 +2055,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0518010000854789
+                                          0518010000000002
                                         </td>
                                       
                                       </tr>
@@ -2193,7 +2095,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">Gegeven </span>
-                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0800010000713450&#39; met de volgende gegevens</span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -2267,7 +2169,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> de persoon is vervolgens ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0518010000854789&#39; met de volgende gegevens</span>
+                          <span> de persoon is vervolgens ingeschreven op adres &#39;A2&#39; met de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -2345,7 +2247,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               15ms
+                               28ms
                               </span>
                             
                          
@@ -2401,7 +2303,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0800010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -2486,13 +2388,13 @@ pre {
                                     
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenarioautorisatie_features7083ea4b-dfd1-47f9-a15c-63a297de56d8">
+                                <a data-toggle="collapse" href="#collapseScenarioautorisatie_features7837fd99-c451-4a9e-a5d4-e8009580c4ae">
                                     <div>
 
                                         <div style="padding-right: 30px">
                                             <i class="glyphicon glyphicon-chevron-right"></i>
                                             <i class="glyphicon glyphicon-chevron-down"></i>
-                                            <b>Scenario:</b>Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente en de bewoner is nu wel ingeschreven in de gemeente
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente en de bewoner is nu wel ingeschreven in de gemeente">Gemeente raadpleegt bewoning van een adresseerbaar object buiten de gemeente en de bewoner is nu wel ingeschreven in de gemeente</div>
                                         </div>
                                         <div>
                             <span class="label-container ">
@@ -2511,7 +2413,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenarioautorisatie_features7083ea4b-dfd1-47f9-a15c-63a297de56d8"
+                        <div id="collapseScenarioautorisatie_features7837fd99-c451-4a9e-a5d4-e8009580c4ae"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -2688,7 +2590,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -2722,7 +2624,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0800010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -2762,7 +2664,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A2&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -2796,7 +2698,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0518010000854789
+                                          0518010000000002
                                         </td>
                                       
                                       </tr>
@@ -2836,7 +2738,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">Gegeven </span>
-                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0518010000854789&#39; met de volgende gegevens</span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A2&#39; met de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -2910,7 +2812,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> de persoon is vervolgens ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0800010000713450&#39; met de volgende gegevens</span>
+                          <span> de persoon is vervolgens ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -2988,7 +2890,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               11ms
+                               35ms
                               </span>
                             
                          
@@ -3044,7 +2946,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0518010000854789
+                                          0518010000000002
                                         </td>
                                       
                                       </tr>
@@ -3183,7 +3085,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          /haalcentraal/api/bewoning/bewoning
+                                          /haalcentraal/api/bewoning/bewoningen
                                         </td>
                                       
                                       </tr>
@@ -3215,136 +3117,6 @@ pre {
                                 
                                 
                                 
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-danger" title="Failed"><i
-                                            class="glyphicon glyphicon-remove"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">After</span>
-                          <span> </span>
-                            
-                          
-                              <span class="step-duration">
-                               < 1ms
-                              </span>
-                            
-                         
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-                                    <a href="#error0_311"
-                                       data-toggle="collapse" class="toggle">Show Error +</a>
-                                    <div id="error0_311"
-                                         class="collapse">
-                                        <pre class="info show-modal"
-                                             data-toggle="modal"
-                                             style="cursor: pointer"
-                                             data-target="#error-modal-0_311">
-                                            <br> AssertionError: response body: {
-	"bewoningen": [
-		{
-			"adresseerbaarObjectIdentificatie": "0518010000854789",
-			"bewoningPeriodes": [
-				{
-					"periode": {
-						"datumVan": "2023-01-01",
-						"datumTot": "2023-01-02"
-					},
-					"bewoners": [
-						{
-							"burgerservicenummer": "000000024"
-						}
-					],
-					"mogelijkeBewoners": []
-				}
-			],
-			"periode": {
-				"datumVan": "2023-01-01",
-				"datumTot": "2023-01-02"
-			}
-		}
-	]
-}: expected 200 to not equal 200
-    + expected - actual
-
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:451:45)</pre>
-                                    </div>
-
-                                <div class="modal fade" id="error-modal-0_311" tabindex="-1" role="dialog"
-                                     aria-labelledby="stacktraceModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title" id="error-modal-title">
-                                                    Error
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>
-                                                    <pre><br>AssertionError: response body: {
-	"bewoningen": [
-		{
-			"adresseerbaarObjectIdentificatie": "0518010000854789",
-			"bewoningPeriodes": [
-				{
-					"periode": {
-						"datumVan": "2023-01-01",
-						"datumTot": "2023-01-02"
-					},
-					"bewoners": [
-						{
-							"burgerservicenummer": "000000024"
-						}
-					],
-					"mogelijkeBewoners": []
-				}
-			],
-			"periode": {
-				"datumVan": "2023-01-01",
-				"datumTot": "2023-01-02"
-			}
-		}
-	]
-}: expected 200 to not equal 200
-    + expected - actual
-
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:451:45)</pre>
-                                                </h5>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
                                 
                             </div>
                         </div>
@@ -3372,7 +3144,7 @@ pre {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
     integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js" integrity="sha512-r8lfwD+xE5L0FjDLicb4ZiF32sJqCAOnLN0nxQq5VW0t0nFEEiNIvTZ/I9Su4ulGpDCfYjXsSFZsT9FpILp2+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript">
     google.load("visualization", "1", { packages: ["corechart"] });
