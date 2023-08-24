@@ -4,7 +4,7 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 432 scenarios (51 failed, 381 passed)
+Totaal: 432 scenarios (65 failed, 367 passed)
 
 ## GBA v2.0.1
 
@@ -15,7 +15,21 @@ Totaal: 432 scenarios (51 failed, 381 passed)
 
 ## Proxy v2.0.0
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (51 failed, 160 passed)
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (65 failed, 146 passed)
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:128
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:129
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:130
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:131
+    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:32
+    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:54
+    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:92
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:106
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:107
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:125
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:126
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:177
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:178
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:179
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:198
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:200
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:202
