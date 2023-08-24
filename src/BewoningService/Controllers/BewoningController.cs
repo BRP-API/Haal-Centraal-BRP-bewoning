@@ -34,23 +34,35 @@ public class BewoningController : Generated.ControllerBase
     private async Task<GbaBewoningenQueryResponse> Handle(BewoningMetPeildatum q)
     {
         var personen = await _repository.Zoek<BewoningMetPeildatum>(q);
-        var bewoners = new List<GbaBewoner>();
-        if(personen != null)
-        {
-            foreach (var persoon in personen)
-            {
-                bewoners.Add(new GbaBewoner
-                {
-                    Burgerservicenummer = persoon.BurgerserviceNummer,
-                });
-            }
-        }
 
         var retval = new GbaBewoningenQueryResponse
         {
-            Bewoningen = new List<GbaBewoning>
+            Bewoningen = new List<GbaBewoning>()
+        };
+
+        if (personen != null && personen.Any())
+        {
+            var bewoners = new List<GbaBewoner>();
+
+            foreach (var persoon in personen)
             {
-                new GbaBewoning
+                var bewoner = new GbaBewoner
+                {
+                    Burgerservicenummer = persoon.BurgerserviceNummer,
+                    GeheimhoudingPersoonsgegevens = persoon.GeheimhoudingPersoonsgegevens.GetValueOrDefault(0)
+                };
+                if(persoon.Verblijfplaats?.InOnderzoek != null)
+                {
+                    bewoner.VerblijfplaatsInOnderzoek = new GbaInOnderzoek
+                    {
+                        AanduidingGegevensInOnderzoek = persoon.Verblijfplaats.InOnderzoek.AanduidingGegevensInOnderzoek,
+                        DatumIngangOnderzoek = persoon.Verblijfplaats.InOnderzoek.DatumIngangOnderzoek
+                    };
+                }
+
+                bewoners.Add(bewoner);
+
+                retval.Bewoningen.Add(new GbaBewoning
                 {
                     AdresseerbaarObjectIdentificatie = q.AdresseerbaarObjectIdentificatie,
                     Periode = new Periode
@@ -59,9 +71,9 @@ public class BewoningController : Generated.ControllerBase
                         DatumTot = q.Peildatum.AddDays(1),
                     },
                     Bewoners = bewoners,
-                }
+                });
             }
-        };
+        }
 
         return retval;
     }

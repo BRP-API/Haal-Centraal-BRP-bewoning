@@ -6,6 +6,8 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["src/BewoningProxy/BewoningProxy.csproj", "src/BewoningProxy/"]
+COPY ["src/Bewoning.Infrastructure/Bewoning.Infrastructure.csproj", "src/Bewoning.Infrastructure/"]
+COPY ["src/Bewoning.Validatie/Bewoning.Validatie.csproj", "src/Bewoning.Validatie/"]
 RUN dotnet restore "src/BewoningProxy/BewoningProxy.csproj"
 COPY . .
 WORKDIR "/src/src/BewoningProxy"
