@@ -1,5 +1,6 @@
 #language: nl
 
+@gba
 Functionaliteit: raadpleeg bewoning in periode
 
   Als consumer van de Bewoning API
@@ -16,11 +17,11 @@ Functionaliteit: raadpleeg bewoning in periode
 
 Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende adreshouding, is in een periode een mogelijke bewoner als de periode in de onzekerheidsperiode van de gevraagde adreshouding ligt
 
-  Abstract Scenario: aanvang adreshouding is onbekend en periode ligt in de onzekerheidsperiode van de adreshouding
+  Abstract Scenario: aanvang adreshouding is deels/geheel onbekend en periode ligt in de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | <datum aanvang adreshouding>       |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | <datum van>        |
@@ -42,11 +43,11 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
     | 20100000                   | 2010-12-01 | 2011-12-31 | 2010-12-01 tot 2011-12-31 | gevraagde periode overlapt een deel van de onzekerheidsperiode                           |
     | 00000000                   | 2000-01-01 | 2001-01-01 | 2000-01-01 tot 2001-01-01 | een willekeurig periode in de onzekerheidsperiode van een geheel onbekende aanvangsdatum |
 
-  Abstract Scenario: aanvang adreshouding is deels onbekend en periode overlapt deels/geheel zowel de onzekerheidsperiode en zekerheidsperiode van de adreshouding
+  Abstract Scenario: aanvang adreshouding is deels onbekend en periode overlapt deels/geheel de onzekerheidsperiode en deels de zekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | <datum aanvang adreshouding>       |
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | <datum van>        |

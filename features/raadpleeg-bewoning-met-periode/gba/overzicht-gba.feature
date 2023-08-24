@@ -1,5 +1,6 @@
 #language: nl
 
+@gba
 Functionaliteit: raadpleeg bewoning in periode
 
   Als consumer van de Bewoning API
@@ -31,7 +32,7 @@ Rule: een persoon is binnen een periode bewoner van een adresseerbaar object als
       - de tot datum van de periode valt vóór datum aanvang adreshouding van de persoon op het volgend adresseerbaar object
 
   Scenario: bewoning wordt gevraagd voor een periode dat ligt binnen het verblijf periode van één persoon op het adresseerbaar object
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2010-09-01         |
@@ -46,7 +47,7 @@ Rule: een persoon is binnen een periode bewoner van een adresseerbaar object als
     | 000000024           |
 
   Scenario: bewoning wordt gevraagd voor een periode dat ligt binnen het verblijf periode van meerdere personen op het adresseerbaar object
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2014-09-01         |
@@ -64,7 +65,7 @@ Rule: een persoon is binnen een periode bewoner van een adresseerbaar object als
 Rule: er wordt geen bewoning geleverd voor een gevraagde periode voor een adresseerbaar object als er binnen die periode geen personen verblijven/hebben verbleven op het adresseerbaar object
 
   Scenario: bewoning wordt gevraagd voor een periode dat vóór de verblijf periode van een persoon op het adresseerbaar object ligt
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2010-01-01         |
@@ -75,7 +76,7 @@ Rule: er wordt geen bewoning geleverd voor een gevraagde periode voor een adress
 Rule: er wordt geen bewoning geleverd voor een deel van de gevraagde periode voor een adresseerbaar object als er binnen dat deel van de periode geen personen verblijven/hebben verbleven op het adresseerbaar object
 
   Scenario: bewoning wordt gevraagd voor een periode dat deels vóór de verblijf periode van een persoon op het adresseerbaar object ligt
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2010-01-01         |
@@ -92,7 +93,7 @@ Rule: er wordt geen bewoning geleverd voor een deel van de gevraagde periode voo
 Rule: er wordt voor een periode voor een adresseerbaar object meerdere bewoningen geleverd als binnen de gevraagde periode de samenstelling van bewoners verandert
 
   Scenario: bewoning wordt gevraagd voor een periode dat ligt binnen het verblijf periode van één persoon en deels binnen het verblijf periode van een ander persoon op het adresseerbaar object
-    Als bewoning wordt gezocht met de volgende parameters
+    Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2014-01-01         |
