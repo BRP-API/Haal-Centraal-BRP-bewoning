@@ -106,3 +106,135 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
+
+  Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object dat is overgegaan van een andere gemeente vanaf het moment van overgaan
+
+    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en bewoning wordt gevraagd na de herindeling
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0530                 | 0530010000000003                         |
+      En adres 'A4' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0530010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20230526                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2023-07-01           |
+      | adresseerbaarObjectIdentificatie | 0530010000000003     |
+      Dan heeft de response 1 bewoning
+
+    @fout-case
+    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en bewoning wordt gevraagd voor de herindeling
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0530                 | 0530010000000003                         |
+      En adres 'A4' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0530010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20230526                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2023-01-01           |
+      | adresseerbaarObjectIdentificatie | 0530010000000003     |
+      Dan heeft de response een object met de volgende gegevens
+      | naam     | waarde                                                                                 |
+      | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3                            |
+      | title    | U bent niet geautoriseerd voor deze vraag.                                             |
+      | status   | 403                                                                                    |
+      | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
+      | code     | unauthorized                                                                           |
+      | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
+
+    Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en bewoning wordt gevraagd voor de herindeling
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000003                         |
+      En adres 'A4' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0530                 | 0800010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20230526                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2023-01-01           |
+      | adresseerbaarObjectIdentificatie | 0800010000000003     |
+      Dan heeft de response 1 bewoning
+
+    @fout-case
+    Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en bewoning wordt gevraagd na de herindeling
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000003                         |
+      En adres 'A4' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0530                 | 0800010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20230526                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2023-07-01           |
+      | adresseerbaarObjectIdentificatie | 0800010000000003     |
+      Dan heeft de response een object met de volgende gegevens
+      | naam     | waarde                                                                                 |
+      | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3                            |
+      | title    | U bent niet geautoriseerd voor deze vraag.                                             |
+      | status   | 403                                                                                    |
+      | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
+      | code     | unauthorized                                                                           |
+      | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
+
+
+  Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object in een gemeente die is overgegaan of samengevoegd met de afnemer gemeente
+
+    Abstract Scenario: Adres ligt in samengevoegde gemeente en <scenario>
+      Gegeven een gemeente met de volgende gegevens
+      | code | omschrijving | nieuwe code | datum einde |
+      | 9999 | Ons Dorp     | 0800        | 20230526    |
+      En een gemeente met de volgende gegevens
+      | code | omschrijving          | nieuwe code | datum einde |
+      | 0800 | Samenvoegingsgemeente | 0800        |             |
+      En adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 9999                 | 9999010000000003                         |
+      En adres 'A4' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 9999010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 9999                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20230526                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | <peildatum>          |
+      | adresseerbaarObjectIdentificatie | 9999010000000003     |
+      Dan heeft de response 1 bewoning
+
+      Voorbeelden:
+      | peildatum  | scenario                                     |
+      | 2023-07-01 | bewoning wordt gevraagd na de samenvoeging   |
+      | 2023-01-01 | bewoning wordt gevraagd voor de samenvoeging |
