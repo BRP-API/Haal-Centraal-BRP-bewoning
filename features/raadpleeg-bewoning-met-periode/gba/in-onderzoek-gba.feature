@@ -81,11 +81,12 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van 'in 
     | 080000                        | 20200401             |
 
     Voorbeelden:
-    | datum van  | datum tot  | scenario                                 |
-    | 2020-01-01 | 2020-03-31 | periode ligt vóór datum ingang onderzoek |
-    | 2020-01-01 | 2020-04-01 | datumTot valt op datum ingang onderzoek  |
-    | 2020-04-01 | 2021-01-01 | datumVan valt op datum ingang onderzoek  |
-    | 2020-05-01 | 2021-01-01 | periode ligt na datum ingang onderzoek   |
+    | datum van  | datum tot  | scenario                                            |
+    | 2020-01-01 | 2020-03-31 | gevraagde periode ligt vóór datum ingang onderzoek  |
+    | 2020-01-01 | 2020-04-01 | datumTot valt op datum ingang onderzoek             |
+    | 2020-04-01 | 2021-01-01 | datumVan valt op datum ingang onderzoek             |
+    | 2020-05-01 | 2021-01-01 | gevraagde periode ligt na datum ingang onderzoek    |
+    | 2020-01-01 | 2021-01-01 | datum ingang onderzoek ligt in de gevraagde periode |
 
 Rule: een beëindigd onderzoek wordt niet geleverd, ook niet als de gevraagde periode in de onderzoek periode ligt of geheel/deels overlapt
 

@@ -224,15 +224,15 @@ Rule: datumVan en datumTot zijn een datum string geformatteerd volgens de [ISO 8
     | 26 mei 1983 |
     | 2023-02-29  |
 
-Rule: datumTot ligt op of na datumVan
+Rule: datumTot ligt na datumVan
 
   @fout-case
-  Scenario: datumTot ligt vóór datumVan
+  Abstract Scenario: datumTot ligt op/vóór datumVan
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2023-01-01         |
-    | datumTot                         | 2022-01-01         |
+    | datumTot                         | <datum tot>        |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een object met de volgende gegevens
     | naam     | waarde                                                      |
@@ -243,8 +243,13 @@ Rule: datumTot ligt op of na datumVan
     | code     | paramsValidation                                            |
     | instance | /haalcentraal/api/bewoning/bewoningen                       |
     En heeft het object de volgende 'invalidParams' gegevens
-    | code         | name     | reason                     |
-    | invalidParam | datumTot | waarde ligt vóór datumVan. |
+    | code         | name     | reason                                  |
+    | invalidParam | datumTot | datumTot moet na datumVan liggen. |
+
+    Voorbeelden:
+    | datum tot  |
+    | 2023-01-01 |
+    | 2022-01-01 |
 
 Rule: Alleen gespecificeerde parameters bij het opgegeven raadpleeg type mogen worden gebruikt
 
