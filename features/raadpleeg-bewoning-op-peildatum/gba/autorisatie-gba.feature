@@ -109,19 +109,16 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
 
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object dat is overgegaan van een andere gemeente vanaf het moment van overgaan
 
-    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en bewoning wordt gevraagd na de herindeling
+    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en peildatum ligt na de herindeling
       Gegeven adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0530                 | 0530010000000003                         |
-      En adres 'A4' heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0800                 | 0530010000000003                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0530                              | 20100818                           |
-      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20230526                           |
+      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd met de volgende gegevens
+      | gemeentecode (92.10) |
+      | 0800                 |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -130,19 +127,16 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       Dan heeft de response 1 bewoning
 
     @fout-case
-    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en bewoning wordt gevraagd voor de herindeling
+    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en peildatum ligt voor de herindeling
       Gegeven adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0530                 | 0530010000000003                         |
-      En adres 'A4' heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0800                 | 0530010000000003                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0530                              | 20100818                           |
-      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20230526                           |
+      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd met de volgende gegevens
+      | gemeentecode (92.10) |
+      | 0800                 |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -157,19 +151,16 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
 
-    Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en bewoning wordt gevraagd voor de herindeling
+    Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en peildatum ligt voor datum herindeling
       Gegeven adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000003                         |
-      En adres 'A4' heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0530                 | 0800010000000003                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20100818                           |
-      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0530                              | 20230526                           |
+      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd met de volgende gegevens
+      | gemeentecode (92.10) |
+      | 0530                 |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -178,19 +169,16 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       Dan heeft de response 1 bewoning
 
     @fout-case
-    Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en bewoning wordt gevraagd na de herindeling
+    Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en peildatum ligt na datum herindeling
       Gegeven adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000003                         |
-      En adres 'A4' heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0530                 | 0800010000000003                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20100818                           |
-      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0530                              | 20230526                           |
+      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd met de volgende gegevens
+      | gemeentecode (92.10) |
+      | 0530                 |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -210,20 +198,17 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
 
     Abstract Scenario: Adres ligt in samengevoegde gemeente en <scenario>
       Gegeven een gemeente met de volgende gegevens
-      | code | omschrijving | nieuwe code | datum einde |
-      | 9999 | Ons Dorp     | 0800        | 20230526    |
+      | code | omschrijving |
+      | 9999 | Ons Dorp     |
       En adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 9999                 | 9999010000000003                         |
-      En adres 'A4' heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0800                 | 9999010000000003                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 9999                              | 20100818                           |
-      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20230526                           |
+      En de gemeente met code '9999' is samengevoegd met de volgende gegevens
+      | nieuwe gemeentecode (92.12) | datum beëindiging (99.99) |
+      | 0800                        | 20230526                  |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -232,6 +217,6 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       Dan heeft de response 1 bewoning
 
       Voorbeelden:
-      | peildatum  | scenario                               |
-      | 2023-07-01 | peildatum ligt na datum samenvoeging   |
-      | 2023-01-01 | peildatum ligt voor datum samenvoeging |
+      | peildatum  | scenario                                                                            |
+      | 2023-07-01 | peildatum ligt na datum samenvoeging (adresseerbaar object ligt in gemeente 0800)   |
+      | 2023-01-01 | peildatum ligt voor datum samenvoeging (adresseerbaar object ligt in gemeente 9999) |
