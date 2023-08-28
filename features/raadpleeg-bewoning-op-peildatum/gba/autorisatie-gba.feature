@@ -212,9 +212,6 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       Gegeven een gemeente met de volgende gegevens
       | code | omschrijving | nieuwe code | datum einde |
       | 9999 | Ons Dorp     | 0800        | 20230526    |
-      En een gemeente met de volgende gegevens
-      | code | omschrijving          | nieuwe code | datum einde |
-      | 0800 | Samenvoegingsgemeente | 0800        |             |
       En adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 9999                 | 9999010000000003                         |
@@ -235,6 +232,6 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeildatum
       Dan heeft de response 1 bewoning
 
       Voorbeelden:
-      | peildatum  | scenario                                     |
-      | 2023-07-01 | bewoning wordt gevraagd na de samenvoeging   |
-      | 2023-01-01 | bewoning wordt gevraagd voor de samenvoeging |
+      | peildatum  | scenario                               |
+      | 2023-07-01 | peildatum ligt na datum samenvoeging   |
+      | 2023-01-01 | peildatum ligt voor datum samenvoeging |
