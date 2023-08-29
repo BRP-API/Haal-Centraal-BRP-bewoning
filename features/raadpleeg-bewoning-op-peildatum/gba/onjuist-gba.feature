@@ -89,3 +89,26 @@ Functionaliteit: raadpleeg bewoning van een gecorrigeerde verblijfplaats
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+
+    Scenario: datum aanvang van verblijf is gecorrigeerd naar een deels onbekende datum en peildatum ligt in de onzekerheidsperiode en voor de onjuiste datum aanvang
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | datum aanvang adreshouding (10.30) |
+      | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | datum aanvang adreshouding (10.30) |
+      | 20160526                           |
+      En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
+      | datum aanvang adreshouding (10.30) |
+      | 20160000                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2016-05-1            |
+      | adresseerbaarObjectIdentificatie | 0800010000000002     |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                  |
+      | periode                          | 2016-05-1 tot 2016-05-2 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002        |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
