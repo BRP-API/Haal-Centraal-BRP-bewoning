@@ -42,22 +42,22 @@ public class X509Handler : DelegatingHandler
 
                         httpClientHandler.ClientCertificates.Add(x509Certificate);
 
-                        _logger.LogDebug("X509Handler.SendAsync. Certificate '{path}' added for mTLS authentication", path);
+                        _logger.LogDebug("Certificate '{path}' added for mTLS authentication", path);
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogWarning(ex, $"X509Handler.SendAsync: {ex.Message}");
+                        _logger.LogWarning(ex, "Unhandled exception: {ex.Message}", ex.Message);
                     }
                 }
             }
             else
             {
-                _logger.LogWarning("X509Handler.SendAsync: Certificate file '{path}' does not exist", path);
+                _logger.LogWarning("Certificate file '{path}' does not exist", path);
             }
         }
         else
         {
-            _logger.LogDebug("X509Handler:SendAsync: No certificate and/or password provided");
+            _logger.LogDebug("No X509 certificate and/or password provided");
         }
 
         return base.SendAsync(request, cancellationToken);

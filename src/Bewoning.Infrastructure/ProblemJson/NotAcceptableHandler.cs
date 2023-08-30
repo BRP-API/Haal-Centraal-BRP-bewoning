@@ -28,7 +28,7 @@ public static class NotAcceptableHandler
         };
     }
 
-    public static async Task<bool> AcceptIsAllowed(this HttpContext context, System.IO.Stream orgResponseBodyStream)
+    public static async Task<Foutbericht?> AcceptIsAllowed(this HttpContext context, System.IO.Stream orgResponseBodyStream)
     {
         foreach (var acceptValue in context.Request.Headers.Accept)
         {
@@ -43,9 +43,9 @@ public static class NotAcceptableHandler
 
                 await bodyStream.CopyToAsync(orgResponseBodyStream);
 
-                return false;
+                return foutbericht;
             }
         }
-        return true;
+        return null;
     }
 }

@@ -19,9 +19,9 @@ public static class MethodNotAllowedHandler
         };
     }
 
-    public static async Task<bool> MethodIsAllowed(this HttpContext context, System.IO.Stream orgResponseBodyStream)
+    public static async Task<Foutbericht?> MethodIsAllowed(this HttpContext context, System.IO.Stream orgResponseBodyStream)
     {
-        if (context.Request.Method == HttpMethod.Post.Method) return true;
+        if (context.Request.Method == HttpMethod.Post.Method) return null;
 
         var foutbericht = context.CreateMethodNotAllowedFoutbericht();
 
@@ -31,6 +31,6 @@ public static class MethodNotAllowedHandler
 
         await bodyStream.CopyToAsync(orgResponseBodyStream);
 
-        return false;
+        return foutbericht;
     }
 }

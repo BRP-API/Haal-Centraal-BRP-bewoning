@@ -1,29 +1,47 @@
+using Bewoning.Infrastructure.Logging;
 using Bewoning.Infrastructure.mTls;
-using Bewoning.Infrastructure.Serilog;
 using BewoningProxy.Middlewares;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Serilog;
 
-var builder = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
 
-builder.Logging.ClearProviders();
-builder.Host.UseSerilog(SerilogHelpers.Configure());
+try
+{
+    Log.Information("Starting Bewoning Proxy");
 
-builder.Configuration.AddJsonFile(Path.Combine("configuration", "ocelot.json"))
-                     .AddJsonFile(Path.Combine("configuration", $"ocelot.{builder.Environment.EnvironmentName}.json"), true)
-                     .AddEnvironmentVariables();
+    var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddOcelot()
-                .AddDelegatingHandler<X509Handler>(global: true);
+    builder.Logging.ClearProviders();
+    builder.Host.UseSerilog(SerilogHelpers.Configure());
 
-var app = builder.Build();
+    builder.Configuration.AddJsonFile(Path.Combine("configuration", "ocelot.json"))
+                         .AddJsonFile(Path.Combine("configuration", $"ocelot.{builder.Environment.EnvironmentName}.json"), true)
+                         .AddEnvironmentVariables();
 
-// Configure the HTTP request pipeline.
+    // Add services to the container.
+    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    builder.Services.AddOcelot()
+                    .AddDelegatingHandler<X509Handler>(global: true);
 
-app.UseMiddleware<OverwriteResponseBodyMiddleware>();
-app.UseOcelot().Wait();
+    var app = builder.Build();
 
-app.Run();
+    // Configure the HTTP request pipeline.
+    app.UseSerilogRequestLogging();
+
+    app.UseMiddleware<OverwriteResponseBodyMiddleware>();
+    app.UseOcelot().Wait();
+
+    app.Run();
+}
+catch(Exception ex)
+{
+    Log.Fatal(ex, "Bewoning Proxy terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
