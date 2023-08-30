@@ -40,6 +40,7 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
     | 20100800                   | 2010-08-01 | 2010-09-01 | 2010-08-01 tot 2010-09-01 | gevraagde periode overlapt de gehele onzekerheidsperiode                                 |
     | 20100800                   | 2010-08-10 | 2010-08-20 | 2010-08-10 tot 2010-08-20 | gevraagde periode overlapt een deel van de onzekerheidsperiode                           |
     | 20100000                   | 2010-01-01 | 2011-01-01 | 2010-01-01 tot 2011-01-01 | gevraagde periode overlapt de gehele onzekerheidsperiode                                 |
+    | 20100000                   | 2010-12-01 | 2010-12-31 | 2010-12-01 tot 2010-12-31 | gevraagde periode overlapt een deel van de onzekerheidsperiode                           |
     | 00000000                   | 2000-01-01 | 2001-01-01 | 2000-01-01 tot 2001-01-01 | een willekeurig periode in de onzekerheidsperiode van een geheel onbekende aanvangsdatum |
 
   Abstract Scenario: aanvang adreshouding is deels onbekend en gevraagde periode overlapt een deel van de onzekerheidsperiode
