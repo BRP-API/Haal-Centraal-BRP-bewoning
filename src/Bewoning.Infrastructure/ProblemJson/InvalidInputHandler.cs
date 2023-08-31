@@ -22,7 +22,7 @@ public static class InvalidInputHandler
         };
     }
 
-    public static async Task HandleValidationErrors(this HttpContext context, ValidationResult validationResult, System.IO.Stream orgResponseBodyStream)
+    public static async Task<Foutbericht> HandleValidationErrors(this HttpContext context, ValidationResult validationResult, System.IO.Stream orgResponseBodyStream)
     {
         var message = context.CreateBadRequestFoutbericht(
             "Een of meerdere parameters zijn niet correct.",
@@ -35,5 +35,7 @@ public static class InvalidInputHandler
         context.Response.SetHeaderPropertiesFrom(message, bodyStream);
 
         await bodyStream.CopyToAsync(orgResponseBodyStream);
+
+        return message;
     }
 }
