@@ -20,7 +20,7 @@ Rule: een persoon ingeschreven op een nevenadres wordt gezien als bewoner van he
     | 20220818                           |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
-    | type                             | BewoningMetPeildatum |
+    | type                             | BewoningMetPeriode |
     | datumVan                         | 2023-01-01           |
     | datumTot                         | 2023-08-01           |
     | adresseerbaarObjectIdentificatie | 0800010000000001     |

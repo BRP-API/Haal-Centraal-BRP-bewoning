@@ -55,7 +55,7 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2022-01-01         |
-    | datumTot                         | 2023-01-01         |
+    | datumTot                         | 2022-08-29         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |

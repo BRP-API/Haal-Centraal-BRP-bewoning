@@ -39,7 +39,7 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | 20200800                           |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
-    | type                             | BewoningMetPeildatum |
+    | type                             | BewoningMetPeriode |
     | datumVan                         | 2020-08-18           |
     | datumTot                         | 2021-01-01           |
     | adresseerbaarObjectIdentificatie | 0800010000000001     |
@@ -62,7 +62,7 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | 20200800                           |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
-    | type                             | BewoningMetPeildatum |
+    | type                             | BewoningMetPeriode |
     | datumVan                         | 2020-08-18           |
     | datumTot                         | 2021-01-01           |
     | adresseerbaarObjectIdentificatie | 0800010000000001     |
@@ -82,7 +82,7 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | 20200818                           |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
-    | type                             | BewoningMetPeildatum |
+    | type                             | BewoningMetPeriode |
     | datumVan                         | 2020-08-18           |
     | datumTot                         | 2021-01-01           |
     | adresseerbaarObjectIdentificatie | 0800010000000001     |
@@ -100,7 +100,7 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | 20200800                           |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
-    | type                             | BewoningMetPeildatum |
+    | type                             | BewoningMetPeriode |
     | datumVan                         | 2020-08-18           |
     | datumTot                         | 2021-01-01           |
     | adresseerbaarObjectIdentificatie | 0800010000000001     |

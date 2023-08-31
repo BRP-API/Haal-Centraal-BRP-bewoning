@@ -31,7 +31,7 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2010-09-01         |
-    | datumVan                         | 2011-01-01         |
+    | datumTot                         | 2011-01-01         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |

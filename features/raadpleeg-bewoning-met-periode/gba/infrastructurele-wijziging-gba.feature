@@ -52,7 +52,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object voor (het deel 
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response 0 bewoningen
 
-  Abstract Scenario: gevraagde periode overlapt datum toevoeging BAG identificaties aan het gevraagde adresseerbaar object
+  Scenario: gevraagde periode overlapt datum toevoeging BAG identificaties aan het gevraagde adresseerbaar object
     Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | straatnaam (11.10) |
     | 0800                 | Spui               |
@@ -65,12 +65,12 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object voor (het deel 
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
-    | datumVan                         | 2010-01-01         |
-    | datumTot                         | 2011-01-01         |
+    | datumVan                         | 2022-01-01         |
+    | datumTot                         | 2023-01-01         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | periode                          | 2010-08-18 tot 2011-01-01 |
+    | periode                          | 2022-05-01 tot 2023-01-01 |
     | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning bewoners met de volgende gegevens
     | burgerservicenummer |
@@ -159,7 +159,7 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is ontstaan
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2022-05-01 tot 2023-01-01 |
-    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    | adresseerbaarObjectIdentificatie | 0800010000000002          |
     En heeft de bewoning bewoners met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
