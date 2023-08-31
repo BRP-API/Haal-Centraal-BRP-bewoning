@@ -2,6 +2,7 @@ const { readdirSync, readFileSync, createWriteStream } = require('fs');
 
 const gbaFeatures = [
     'Raadpleeg bewoning op peildatum',
+    'Raadpleeg bewoning met periode',
     'Autorisatie',
     'Protocollering'
 ];

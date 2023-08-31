@@ -39,6 +39,12 @@ npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-op-peildatu
                 --tags "not @skip-verify" --tags "@gba" --tags "not @autorisatie" --tags "not @protocollering" \
                 --world-parameters "$PARAMS"
 
+npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-met-periode-gba.json \
+                -f summary:docs/features/test-result-raadpleeg-bewoning-met-periode-gba-summary.txt \
+                features/raadpleeg-bewoning-met-periode \
+                --tags "not @skip-verify" --tags "@gba" --tags "not @autorisatie" --tags "not @protocollering" \
+                --world-parameters "$PARAMS"
+
 npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-op-peildatum.json \
                 -f summary:docs/features/test-result-raadpleeg-bewoning-op-peildatum-summary.txt \
                 features/raadpleeg-bewoning-op-peildatum \
