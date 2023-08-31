@@ -231,16 +231,16 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object in een gemeente die is overgegaan of samengevoegd met de afnemer gemeente
 
     Abstract Scenario: Adres ligt in samengevoegde gemeente en <scenario>
-      Gegeven een gemeente met de volgende gegevens
-      | code | omschrijving |
-      | 9999 | Ons Dorp     |
+      Gegeven gemeente 'G1' heeft de volgende gegevens
+      | gemeentecode (92.10) | gemeentenaam (92.11) |
+      | 9999                 | Ons Dorp             |
       En adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 9999                 | 9999010000000003                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 9999                              | 20100818                           |
-      En de gemeente met code '9999' is samengevoegd met de volgende gegevens
+      En gemeente 'G1' is samengevoegd met de volgende gegevens
       | nieuwe gemeentecode (92.12) | datum beëindiging (99.99) |
       | 0800                        | 20230526                  |
       Als gba bewoning wordt gezocht met de volgende parameters
