@@ -4,7 +4,7 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 444 scenarios (71 failed, 373 passed)
+Totaal: 444 scenarios (73 failed, 371 passed)
 
 ## GBA v2.0.1
 
@@ -19,7 +19,9 @@ Totaal: 444 scenarios (71 failed, 373 passed)
 
 ## Proxy v2.0.1
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (67 failed, 144 passed)
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (69 failed, 142 passed)
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:42
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:125
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:126
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:127
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:128
@@ -71,4 +73,19 @@ Totaal: 444 scenarios (71 failed, 373 passed)
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:529
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:547
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:548
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:574
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:575
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:576
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:595
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:597
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:599
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:625
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:626
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:679
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:727
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:729
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:747
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:748
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:749
+    - features/raadpleeg-bewoning-op-peildatum/overzicht.feature:107
     - features/raadpleeg-bewoning-op-peildatum/vastgesteld-verblijft-niet-op-adres.feature:11
