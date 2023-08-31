@@ -20,7 +20,7 @@ public static class UnsupportedMediaTypeHandler
         };
     }
 
-    public static async Task<bool> ContentTypeIsAllowed(this HttpContext context, System.IO.Stream orgResponseBodyStream)
+    public static async Task<Foutbericht?> ContentTypeIsAllowed(this HttpContext context, System.IO.Stream orgResponseBodyStream)
     {
         foreach (var contentType in context.Request.Headers.ContentType)
         {
@@ -39,9 +39,9 @@ public static class UnsupportedMediaTypeHandler
 
                 await bodyStream.CopyToAsync(orgResponseBodyStream);
 
-                return false;
+                return foutbericht;
             }
         }
-        return true;
+        return null;
     }
 }
