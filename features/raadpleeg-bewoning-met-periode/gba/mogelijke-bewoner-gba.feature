@@ -43,6 +43,37 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
     | 20100000                   | 2010-12-01 | 2010-12-31 | 2010-12-01 tot 2010-12-31 | gevraagde periode overlapt een deel van de onzekerheidsperiode                           |
     | 00000000                   | 2000-01-01 | 2001-01-01 | 2000-01-01 tot 2001-01-01 | een willekeurig periode in de onzekerheidsperiode van een geheel onbekende aanvangsdatum |
 
+  Abstract Scenario: aanvang adreshouding is deels onbekend en gevraagde periode overlapt een deel van de onzekerheidsperiode
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | <datum aanvang adreshouding>       |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | <datum van>        |
+    | datumTot                         | <datum tot>        |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                      |
+    | periode                          | <periode mogelijke bewoner> |
+    | adresseerbaarObjectIdentificatie | 0800010000000001            |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+    En heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                  |
+    | periode                          | <periode zeker bewoner> |
+    | adresseerbaarObjectIdentificatie | 0800010000000001        |
+    En heeft de bewoning een bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
+    Voorbeelden:
+    | datum aanvang adreshouding | datum van  | datum tot  | periode mogelijke bewoner | periode zeker bewoner     |
+    | 20100000                   | 2010-12-01 | 2011-12-31 | 2010-12-01 tot 2011-01-01 | 2011-01-01 tot 2011-12-31 |
+    | 20100300                   | 2010-03-06 | 2010-04-18 | 2010-03-06 tot 2010-04-01 | 2010-04-01 tot 2010-04-18 |
+    
+
   Abstract Scenario: aanvang adreshouding is deels onbekend en periode overlapt deels/geheel de onzekerheidsperiode en deels de zekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
