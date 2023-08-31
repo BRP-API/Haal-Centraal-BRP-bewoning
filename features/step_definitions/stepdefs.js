@@ -107,7 +107,7 @@ Given(/^(?:de|het) '(.*)' is gecorrigeerd naar de volgende gegevens$/, async fun
 });
 
 function wijzigRelatie(relatie, dataTable) {
-    should.not.equal('verblijfplaats', `deprecated. Gebruik de nieuwe stap: "En de persoon is vervolgens ingeschreven op het adres met '<element naam>' '<waarde>' met de volgende gegevens"`)
+    should.not.equal('verblijfplaats', `deprecated. Gebruik de nieuwe stap: "En de persoon is vervolgens ingeschreven op adres '<adres id>' met de volgende gegevens"`)
 
     let sqlData = this.context.sqlData.at(-1);
 
@@ -477,6 +477,28 @@ Given(/^gemeente '(.*)' is samengevoegd met de volgende gegevens$/, function (ge
             }
         });
     });
+});
+
+Given(/^de inschrijving is vervolgens gecorrigeerd als een inschrijving op adres '(.*)' met de volgende gegevens$/, function (adresId, dataTable) {
+    const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
+    should.exist(adressenData, 'geen adressen gevonden');
+    const adresIndex = adressenData.adres[adresId]?.index;
+    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['verblijfplaats'].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        if(volgNr[1] === '0') {
+            data.push(['onjuist_ind','O']);
+        }
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+
+    sqlData['verblijfplaats'].push([
+        [ 'adres_id', adresIndex + '' ],
+        [ 'volg_nr', '0']
+    ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
 async function handleRequest(context, dataTable) {
