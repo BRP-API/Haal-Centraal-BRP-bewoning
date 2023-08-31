@@ -4,6 +4,7 @@ const tableNameMap = new Map([
 
     ['adres', 'lo3_adres'],
     ['autorisatie', 'lo3_autorisatie'],
+    ['gemeente', 'lo3_gemeente'],
     ['gezagsverhouding', 'lo3_pl_gezagsverhouding'],
     ['inschrijving', 'lo3_pl'],
     ['persoon', 'lo3_pl_persoon' ],
@@ -46,6 +47,9 @@ const columnNameMap = new Map([
     ['datum einde onderzoek (83.30)', 'onderzoek_eind_datum' ],
 
     ['gemeentecode (92.10)', 'gemeente_code'],
+    ['gemeentenaam (92.11)', 'gemeente_naam'],
+    ['nieuwe gemeentecode (92.12)', 'nieuwe_gemeente_code'],
+    ['datum beëindiging (99.99)', 'tabel_regel_eind_datum'],
 
     ['Rubrieknummer ad hoc (35.95.60)', 'ad_hoc_rubrieken'],
     ['Medium ad hoc (35.95.67)', 'ad_hoc_medium'],

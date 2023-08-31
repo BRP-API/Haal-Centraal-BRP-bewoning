@@ -73,6 +73,7 @@ async function rollbackSqlStatements(sqlData, pool, tableNameMap, logSqlStatemen
         for(const adrData of adresData) {
             await deleteAdresRecord(client, adrData, tableNameMap, logSqlStatements);
         }
+        await deleteGemeenteRecords(client, sqlData.find(el => el['gemeente'] !== undefined), tableNameMap, logSqlStatements);
         await deleteAutorisatieRecords(client, tableNameMap, logSqlStatements);
     }
     catch(ex) {
@@ -105,6 +106,15 @@ async function executeSql(client, sqlData, tableNameMap, logSqlStatements) {
             rowData.push(['autorisatie_id', res.rows[0]['autorisatie_id']]);
         }
     }
+    if(sqlData['gemeente'] !== undefined) {
+        for(const key of Object.keys(sqlData['gemeente'])) {
+            const sqlStatement = insertIntoStatement('gemeente', sqlData['gemeente'][key].data, tableNameMap);
+
+            logIf(sqlStatement, logSqlStatements);
+
+            await client.query(sqlStatement);
+        }
+    }
     if(sqlData['adres'] !== undefined) {
         for(const key of Object.keys(sqlData['adres'])) {
             const sqlStatement = insertIntoAdresStatement(sqlData['adres'][key].data);
@@ -130,7 +140,7 @@ async function executeSql(client, sqlData, tableNameMap, logSqlStatements) {
     }
 
     for(const key of Object.keys(sqlData)) {
-        if (['inschrijving', 'adres', 'ids', 'autorisatie'].includes(key)) {
+        if (['inschrijving', 'gemeente', 'adres', 'ids', 'autorisatie'].includes(key)) {
             continue;
         }
 
@@ -278,6 +288,9 @@ function createDeleteStatement(tabelNaam, id, tableNameMap) {
         case 'autorisatie':
             naamId = 'autorisatie_id';
             break;
+        case 'gemeente':
+            naamId = 'gemeente_code';
+            break;
         default:
             naamId = 'pl_id';
             break;
@@ -298,7 +311,7 @@ async function deleteAdresRecord(client, sqlData, tableNameMap, logSqlStatements
 
     for(const key of Object.keys(sqlData['adres'])) {
         const adresIdElem = sqlData['adres'][key].data.find(e => e[0] === 'adres_id');
-        if(adresIdElem == undefined) {
+        if(adresIdElem === undefined) {
             continue;
         }
 
@@ -321,6 +334,27 @@ async function deleteAutorisatieRecords(client, tableNameMap, logSqlStatements) 
     logIf(statement, logSqlStatements);
 
     await client.query(statement);
+}
+
+async function deleteGemeenteRecords(client, sqlData, tableNameMap, logSqlStatements) {
+    if(sqlData?.gemeente === undefined) {
+        return;
+    }
+
+    for(const key of Object.keys(sqlData['gemeente'])) {
+        const gemeenteCodeElem = sqlData['gemeente'][key].data.find(e => e[0] === 'gemeente_code');
+        if(gemeenteCodeElem === undefined) {
+            continue;
+        }
+
+        const id = Number(gemeenteCodeElem[1]);
+
+        const sqlStatement = createDeleteStatement('gemeente', id, tableNameMap);
+
+        logIf(sqlStatement, logSqlStatements);
+
+        await client.query(sqlStatement);
+    }
 }
 
 module.exports = {

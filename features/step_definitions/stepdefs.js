@@ -107,7 +107,7 @@ Given(/^(?:de|het) '(.*)' is gecorrigeerd naar de volgende gegevens$/, async fun
 });
 
 function wijzigRelatie(relatie, dataTable) {
-    should.not.equal('verblijfplaats', `deprecated. Gebruik de nieuwe stap: "En de persoon is vervolgens ingeschreven op het adres met '<element naam>' '<waarde>' met de volgende gegevens"`)
+    should.not.equal('verblijfplaats', `deprecated. Gebruik de nieuwe stap: "En de persoon is vervolgens ingeschreven op adres '<adres id>' met de volgende gegevens"`)
 
     let sqlData = this.context.sqlData.at(-1);
 
@@ -180,6 +180,54 @@ Given(/^adres '(.*)' is op '(.*)' geactualiseerd met de volgende gegevens$/, fun
             if(nieuwGemeenteCode !== undefined) {
                 nieuwVerblijfplaatsData.push([ 'inschrijving_gemeente_code', nieuwGemeenteCode[1] ]);
             }
+
+            elem.verblijfplaats.push(nieuwVerblijfplaatsData);
+        }
+    });
+});
+
+Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd met de volgende gegevens$/, function (adresId, ingangsdatum, dataTable) {
+    let sqlData = this.context.sqlData.find(el => el['adres'] !== undefined);
+
+    const oudAdres = sqlData.adres[adresId];
+    should.exist(oudAdres, `geen adres gevonden met id '${adresId}'`);
+    const adresIndex = oudAdres.index;
+
+    const nieuwAdresIndex = Object.keys(sqlData['adres']).length;
+    const nieuwAdresData = JSON.parse(JSON.stringify(oudAdres.data));
+    createArrayFrom(dataTable, columnNameMap).forEach(function(elem) {
+        let foundElem = nieuwAdresData.find(el => el[0] === elem[0]);
+        if(foundElem !== undefined) {
+            foundElem[1] = elem[1];
+        }
+        else {
+            nieuwAdresData.push(elem);
+        }
+    });
+    sqlData['adres'][nieuwAdresIndex + 1 + ''] = {
+        index: nieuwAdresIndex,
+        data: nieuwAdresData
+    };
+
+    this.context.sqlData.forEach(function(elem) {
+        let verblijfplaats = elem['verblijfplaats']?.at(-1);
+        if(verblijfplaats?.find(el => el[0] === 'adres_id' && el[1] === adresIndex + '') !== undefined) {
+            elem['verblijfplaats'].forEach(function(data) {
+                let volgNr = data.find(el => el[0] === 'volg_nr');
+                volgNr[1] = Number(volgNr[1]) + 1 + '';
+            });
+
+            let nieuwVerblijfplaatsData = JSON.parse(JSON.stringify(elem['verblijfplaats'].at(-1)));
+            nieuwVerblijfplaatsData.find(el => el[0] === 'adres_id')[1] = nieuwAdresIndex + '';
+            nieuwVerblijfplaatsData.find(el => el[0] === 'volg_nr')[1] = '0';
+            nieuwVerblijfplaatsData.find(el => el[0] === 'adreshouding_start_datum')[1] = ingangsdatum.replaceAll('-', '');
+
+            const nieuwGemeenteCode = nieuwAdresData.find(el => el[0] == 'gemeente_code');
+            if(nieuwGemeenteCode !== undefined) {
+                nieuwVerblijfplaatsData.find(el => el[0] === 'inschrijving_gemeente_code')[1] = nieuwGemeenteCode[1];
+            }
+
+            nieuwVerblijfplaatsData.push(['aangifte_adreshouding_oms', 'W'])
 
             elem.verblijfplaats.push(nieuwVerblijfplaatsData);
         }
@@ -352,6 +400,105 @@ Given(/^de geauthenticeerde consumer heeft de volgende '(.*)' gegevens$/, functi
     this.context.gemeenteCode = dataTable.hashes()[0].naam !== undefined
         ? dataTable.hashes().find(param => param.naam === 'gemeenteCode').waarde
         : dataTable.hashes()[0].gemeenteCode;
+});
+
+Given(/^gemeente '(.*)' heeft de volgende gegevens$/, function (gemeenteId, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [{ gemeente:{} }];
+    }
+
+    let sqlData = this.context.sqlData.find(e => Object.keys(e).includes('gemeente'));
+    if(sqlData === undefined) {
+        sqlData = { gemeente:{} };
+        this.context.sqlData.push(sqlData);
+    }
+
+    sqlData['gemeente'][gemeenteId] = {
+        index: Object.keys(sqlData['gemeente']).length,
+        data: createArrayFrom(dataTable, columnNameMap)
+    };
+});
+
+Given(/^gemeente '(.*)' is samengevoegd met de volgende gegevens$/, function (gemeenteId, dataTable) {
+    let gemeenteData = this.context.sqlData.find(el => el['gemeente'] !== undefined);
+
+    const gemeente = gemeenteData.gemeente[gemeenteId];
+    should.exist(gemeente, `geen gemeente gevonden met id '${gemeenteId}'`);
+
+    gemeente.data = gemeente.data.concat(createArrayFrom(dataTable, columnNameMap));
+
+    const oudGemeenteCode = gemeente.data.find(el => el[0] === 'gemeente_code')[1];
+    const nieuweGemeenteCode = gemeente.data.find(el => el[0] === 'nieuwe_gemeente_code')[1];
+    const ingangsdatum = gemeente.data.find(el => el[0] === 'tabel_regel_eind_datum')[1];
+
+    let gewijzigdAdressenIds = [];
+    this.context.sqlData.forEach(function(elem) {
+        let adres = elem['adres'];
+        if(adres !== undefined) {
+            Object.keys(adres).forEach(function(adresId) {
+                if(adres[adresId].data.find(el => el[0] === 'gemeente_code' && el[1] === oudGemeenteCode)) {
+                    const nieuwAdresIndex = Object.keys(adres).length;
+                    const nieuwAdresData = JSON.parse(JSON.stringify(adres[adresId].data));
+                    nieuwAdresData.find(el => el[0] === 'gemeente_code')[1] = nieuweGemeenteCode;
+                    adres[nieuwAdresIndex + 1 + ''] = {
+                        index: nieuwAdresIndex,
+                        data: nieuwAdresData
+                    };
+
+                    gewijzigdAdressenIds.push([adresId, nieuwAdresIndex + 1 + '']);
+                }
+            });
+        }
+    });
+
+    const sqlDatas = this.context.sqlData;
+    const adressen = this.context.sqlData.find(el => el['adres'] !== undefined);
+
+    gewijzigdAdressenIds.forEach(function(elem) {
+        const oudAdres = adressen.adres[elem[0]];
+        const nieuwAdres = adressen.adres[elem[1]];
+
+        sqlDatas.forEach(function(elem) {
+            let verblijfplaats = elem['verblijfplaats']?.at(-1);
+            if(verblijfplaats?.find(el => el[0] === 'adres_id' && el[1] === oudAdres.index + '') !== undefined) {
+                elem['verblijfplaats'].forEach(function(data) {
+                    let volgNr = data.find(el => el[0] === 'volg_nr');
+                    volgNr[1] = Number(volgNr[1]) + 1 + '';
+                });
+
+                let nieuwVerblijfplaatsData = JSON.parse(JSON.stringify(elem['verblijfplaats'].at(-1)));
+                nieuwVerblijfplaatsData.find(el => el[0] === 'adres_id')[1] = nieuwAdres.index + '';
+                nieuwVerblijfplaatsData.find(el => el[0] === 'volg_nr')[1] = '0';
+                nieuwVerblijfplaatsData.find(el => el[0] === 'inschrijving_gemeente_code')[1] = nieuweGemeenteCode + '';
+                nieuwVerblijfplaatsData.find(el => el[0] === 'adreshouding_start_datum')[1] = ingangsdatum + '';
+                nieuwVerblijfplaatsData.push(['aangifte_adreshouding_oms', 'W'])
+
+                elem.verblijfplaats.push(nieuwVerblijfplaatsData);
+            }
+        });
+    });
+});
+
+Given(/^de inschrijving is vervolgens gecorrigeerd als een inschrijving op adres '(.*)' met de volgende gegevens$/, function (adresId, dataTable) {
+    const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
+    should.exist(adressenData, 'geen adressen gevonden');
+    const adresIndex = adressenData.adres[adresId]?.index;
+    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['verblijfplaats'].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        if(volgNr[1] === '0') {
+            data.push(['onjuist_ind','O']);
+        }
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+
+    sqlData['verblijfplaats'].push([
+        [ 'adres_id', adresIndex + '' ],
+        [ 'volg_nr', '0']
+    ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
 async function handleRequest(context, dataTable) {
