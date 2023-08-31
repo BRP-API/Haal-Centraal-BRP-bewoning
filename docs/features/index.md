@@ -4,11 +4,12 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 438 scenarios (64 failed, 374 passed)
+Totaal: 444 scenarios (71 failed, 373 passed)
 
 ## GBA v2.0.1
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 214 scenarios (214 passed)
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 220 scenarios (1 failed, 219 passed)
+    - features/raadpleeg-bewoning-op-peildatum/gba/onjuist-gba.feature:172
 - [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 10 scenarios (3 failed, 7 passed)
     - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:130
     - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:154
@@ -18,7 +19,13 @@ Totaal: 438 scenarios (64 failed, 374 passed)
 
 ## Proxy v2.0.1
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (61 failed, 150 passed)
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (67 failed, 144 passed)
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:126
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:127
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:128
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:129
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:130
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:131
     - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:32
     - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:54
     - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:92
