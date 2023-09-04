@@ -21,6 +21,8 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
   # To Do (t.z.t.): regels voor leveren persoonsgegevens met geheimhouding aan derde (35.95.12)
   # To Do (t.z.t.): regels voor voorwaarderegel ad hoc (35.95.61)
 
+  Autorisatie voor bewoning wordt bepaald door de gemeente waar het gevraagde adresseerbaar object ligt in de gevraagde periode.
+  Een afnemer is niet geautoriseerd voor een vraag naar bewoning, wanneer het juiste antwoord op die vraag ten minste één bewoning zou geven buiten de eigen gemeente.
 
 
     Achtergrond:
@@ -73,6 +75,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
 
+  Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object binnen de eigen gemeente, ongeacht of de bewoner(s) nu nog zijn ingeschreven in de eigen gemeente.
     Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is nu niet meer ingeschreven in de gemeente
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -110,6 +113,44 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
+
+  Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object binnen de eigen gemeente, ook wanneer de bewoners binnen de gevraagde periode ook buiten de gemeente hebben gewoond
+
+    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is binnen de periode verhuisd buiten de gemeente
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20220526                           |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20220820                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response 1 bewoning
+
+    Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is binnen de periode vertrokken naar het buitenland
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20220526                           |
+      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+      | land (13.10) | datum aanvang adres buitenland (13.20) | regel 1 adres buitenland (13.30) | regel 2 adres buitenland (13.40) | regel 3 adres buitenland (13.50) |
+      | 5010         | 20220820                               | Rue du pomme 26                  | Bruxelles                        | postcode 1000                    |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response 1 bewoning
 
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object dat is overgegaan van een andere gemeente vanaf het moment van overgaan
 
@@ -183,6 +224,8 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
 
+  Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object dat is overgegaan naar een andere gemeente tot het moment van overgaan
+
     Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en periode ligt voor datum herindeling
       Gegeven adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
@@ -227,6 +270,33 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
 
+    @fout-case
+    Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en datum herindeling valt binnen de periode
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
+      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd met de volgende gegevens
+      | gemeentecode (92.10) |
+      | 0530                 |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2023-05-01         |
+      | datumTot                         | 2023-06-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000003   |
+      Dan heeft de response een object met de volgende gegevens
+      | naam     | waarde                                                                                 |
+      | type     | https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3                            |
+      | title    | U bent niet geautoriseerd voor deze vraag.                                             |
+      | status   | 403                                                                                    |
+      | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
+      | code     | unauthorized                                                                           |
+      | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
+
+  Rule: Een gemeente als afnemer is geautoriseerd voor de hele onzekerheidsperiode van de datum aanvang een verblijf in de eigen gemeente
 
     Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en een bewoner heeft gedeeltelijk onbekende datum aanvang adreshouding en periode valt na de datum herindeling en binnen de onzekerheidsperiode van de datum aanvang
       Gegeven adres 'A3' heeft de volgende gegevens
@@ -248,6 +318,8 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | datumTot                         | 2023-08-01         |
       | adresseerbaarObjectIdentificatie | 0530010000000003   |
       Dan heeft de response 1 bewoning
+
+  Rule: Alleen de bewoning in de gevraagde periode is bepalend voor autorisatie. Het is voor autorisatie niet relevant of het adresseerbaar object voor of na de periode in een andere gemeente lag.
 
     Abstract Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen, tijdens verblijf van een vorige bewoner lag het nog in de andere gemeente en tijdens de bewoning in de gevraagde periode ligt het adres in de vragende gemeente
       Gegeven adres 'A3' heeft de volgende gegevens
@@ -280,6 +352,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | 20230000      | datum aanvang is gedeeltelijk onbekend en gevraagde periode valt in zijn geheel binnen de onzekerheidsperiode |
 
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object in een gemeente die is overgegaan of samengevoegd met de afnemer gemeente
+    Dit is te herkennen aan nieuwe gemeentecode (92.12) in de gemeententabel.
 
     Abstract Scenario: Adres ligt in samengevoegde gemeente en <scenario>
       Gegeven gemeente 'G1' heeft de volgende gegevens
