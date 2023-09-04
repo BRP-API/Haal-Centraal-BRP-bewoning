@@ -228,6 +228,57 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
 
 
+    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en een bewoner heeft gedeeltelijk onbekende datum aanvang adreshouding en periode valt na de datum herindeling en binnen de onzekerheidsperiode van de datum aanvang
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0530                 | 0530010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20100818                           |
+      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd met de volgende gegevens
+      | gemeentecode (92.10) |
+      | 0800                 |
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20230000                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2023-07-01         |
+      | datumTot                         | 2023-08-01         |
+      | adresseerbaarObjectIdentificatie | 0530010000000003   |
+      Dan heeft de response 1 bewoning
+
+    Abstract Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen, tijdens verblijf van een vorige bewoner lag het nog in de andere gemeente en tijdens de bewoning in de gevraagde periode ligt het adres in de vragende gemeente
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0530                 | 0530010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20150526                           |
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang>                    |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2023-06-15         |
+      | datumTot                         | 2023-07-15         |
+      | adresseerbaarObjectIdentificatie | 0530010000000003   |
+      Dan heeft de response 1 bewoning
+
+      Voorbeelden:
+      | datum aanvang | scenario                                                                                                      |
+      | 20230601      | datum aanvang ligt voor de periode                                                                            |
+      | 20230615      | datum aanvang is eerste dag van de periode                                                                    |
+      | 20230701      | datum aanvang ligt in de periode                                                                              |
+      | 20230400      | datum aanvang is gedeeltelijk onbekend en ligt voor de periode                                                |
+      | 20230700      | datum aanvang is gedeeltelijk onbekend en onzekerheidsperiode overlapt gedeeltelijk met gevraagde periode     |
+      | 20230000      | datum aanvang is gedeeltelijk onbekend en gevraagde periode valt in zijn geheel binnen de onzekerheidsperiode |
+
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object in een gemeente die is overgegaan of samengevoegd met de afnemer gemeente
 
     Abstract Scenario: Adres ligt in samengevoegde gemeente en <scenario>
