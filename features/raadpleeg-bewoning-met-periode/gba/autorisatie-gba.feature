@@ -318,6 +318,23 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | adresseerbaarObjectIdentificatie | 0530010000000003   |
       Dan heeft de response 1 bewoning
 
+  Rule: Een gemeente als afnemer is geautoriseerd voor bewoning van een verblijf in de eigen gemeente gedurende de hele onzekerheidsperiode van de datum aanvang volgende verblijf
+
+    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en een bewoner heeft gedeeltelijk onbekende datum aanvang adreshouding en periode valt na de datum herindeling en binnen de onzekerheidsperiode van de datum aanvang
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20230000                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2023-07-01         |
+      | datumTot                         | 2023-08-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response 1 bewoning
+
   Rule: Alleen de bewoning in de gevraagde periode is bepalend voor autorisatie. Het is voor autorisatie niet relevant of het adresseerbaar object voor of na de periode in een andere gemeente lag.
 
     Scenario: Het adresseerbaar object wordt niet gevonden en dus is er kan de gemeente van het adresseerbaarbaar object niet gelijk of ongelijk zijn aan de afnemer
