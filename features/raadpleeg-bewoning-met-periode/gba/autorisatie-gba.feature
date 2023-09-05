@@ -17,12 +17,12 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
   Voor één afnemer kunnen er meerdere rijen zijn in de autorisatietabel, maar daarvan kan er maar één actueel zijn. Alleen de actuele mag worden gebruikt.
   Een autorisatie is actueel wanneer de Datum ingang (35.99.98) in het verleden ligt en Datum beëindiging tabelregel (35.99.99) leeg is of in de toekomst ligt.
 
+  Autorisatie voor bewoning wordt bepaald door de gemeente waar het gevraagde adresseerbaar object ligt in de gevraagde periode.
+  Een afnemer is niet geautoriseerd voor een vraag naar bewoning, wanneer het juiste antwoord op die vraag ten minste één bewoning zou geven buiten de eigen gemeente.
+
   # To Do (t.z.t.): regels voor autorisatie op basis van een autorisatiebesluit
   # To Do (t.z.t.): regels voor leveren persoonsgegevens met geheimhouding aan derde (35.95.12)
   # To Do (t.z.t.): regels voor voorwaarderegel ad hoc (35.95.61)
-
-  Autorisatie voor bewoning wordt bepaald door de gemeente waar het gevraagde adresseerbaar object ligt in de gevraagde periode.
-  Een afnemer is niet geautoriseerd voor een vraag naar bewoning, wanneer het juiste antwoord op die vraag ten minste één bewoning zou geven buiten de eigen gemeente.
 
 
     Achtergrond:
@@ -41,7 +41,6 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
 
 
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object binnen de eigen gemeente.
-      - 'gemeentecode' in de claim komt overeen met 'gemeentecode (92.10)' van het adres
 
     Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
