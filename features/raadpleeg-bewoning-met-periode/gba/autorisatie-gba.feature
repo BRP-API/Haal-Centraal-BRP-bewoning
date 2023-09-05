@@ -320,6 +320,27 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
 
   Rule: Alleen de bewoning in de gevraagde periode is bepalend voor autorisatie. Het is voor autorisatie niet relevant of het adresseerbaar object voor of na de periode in een andere gemeente lag.
 
+    Scenario: Het adresseerbaar object wordt niet gevonden en dus is er kan de gemeente van het adresseerbaarbaar object niet gelijk of ongelijk zijn aan de afnemer
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2010-01-01         |
+      | datumTot                         | 2010-08-17         |
+      | adresseerbaarObjectIdentificatie | 1234010000123456   |
+      Dan heeft de response 0 bewoningen
+
+    Scenario: Het adresseerbaar object wordt niet bewoond in de gevraagde periode en dus is er kan de gemeente van het adresseerbaarbaar object in die periode niet gelijk of ongelijk zijn aan de afnemer
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20230701                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0518010000000002   |
+      Dan heeft de response 0 bewoningen
+
     Abstract Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen, tijdens verblijf van een vorige bewoner lag het nog in de andere gemeente en tijdens de bewoning in de gevraagde periode ligt het adres in de vragende gemeente
       Gegeven adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
