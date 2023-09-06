@@ -10,10 +10,9 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
     En adres 'A2' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000002                         |
-    En adres 'A2' heeft de volgende gegevens
+    En adres 'A3' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000003                         |
-
     En de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) |
     | 20170210                           |
