@@ -321,7 +321,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
 
   Rule: Een gemeente als afnemer is geautoriseerd voor bewoning van een verblijf in de eigen gemeente gedurende de hele onzekerheidsperiode van de datum aanvang volgende verblijf
 
-    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en een bewoner heeft gedeeltelijk onbekende datum aanvang adreshouding en periode valt na de datum herindeling en binnen de onzekerheidsperiode van de datum aanvang
+    Scenario: Volgende verblijf is in andere gemeente en aanvang volgende verblijf is gedeeltelijk onbekend en de periode valt binnen de onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20100818                           |
