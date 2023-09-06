@@ -75,6 +75,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
 
   Rule: Een gemeente als afnemer is geautoriseerd voor het bevragen van bewoning van een adresseerbaar object binnen de eigen gemeente, ongeacht of de bewoner(s) nu nog zijn ingeschreven in de eigen gemeente.
+    
     Scenario: Gemeente raadpleegt bewoning van een adresseerbaar object binnen de gemeente en de bewoner is nu niet meer ingeschreven in de gemeente
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
