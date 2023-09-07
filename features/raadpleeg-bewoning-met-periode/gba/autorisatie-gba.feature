@@ -18,10 +18,7 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
 
 
     Achtergrond:
-      Gegeven de afnemer met indicatie '000008' heeft de volgende 'autorisatie' gegevens
-      | Rubrieknummer ad hoc (35.95.60) | Medium ad hoc (35.95.67) | Datum ingang (35.99.98) |
-      | 10120                           | N                        | 20201128                |
-      En de geauthenticeerde consumer heeft de volgende 'claim' gegevens
+      Gegeven de geauthenticeerde consumer heeft de volgende 'claim' gegevens
       | afnemerID | gemeenteCode |
       | 000008    | 0800         |
       En adres 'A1' heeft de volgende gegevens
