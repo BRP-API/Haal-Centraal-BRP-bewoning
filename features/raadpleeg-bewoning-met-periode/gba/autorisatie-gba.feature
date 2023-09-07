@@ -17,11 +17,6 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
   Een afnemer is niet geautoriseerd voor een vraag naar bewoning, wanneer het juiste antwoord op die vraag ten minste één bewoning van een adresseerbaar object zou geven dat in die periode buiten de eigen gemeente ligt of lag.
 
 
-  # To Do (t.z.t.): regels voor autorisatie op basis van een autorisatiebesluit
-  # To Do (t.z.t.): regels voor leveren persoonsgegevens met geheimhouding aan derde (35.95.12)
-  # To Do (t.z.t.): regels voor voorwaarderegel ad hoc (35.95.61)
-
-
     Achtergrond:
       Gegeven de afnemer met indicatie '000008' heeft de volgende 'autorisatie' gegevens
       | Rubrieknummer ad hoc (35.95.60) | Medium ad hoc (35.95.67) | Datum ingang (35.99.98) |
