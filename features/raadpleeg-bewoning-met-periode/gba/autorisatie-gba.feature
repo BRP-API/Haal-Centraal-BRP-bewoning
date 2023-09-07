@@ -251,6 +251,30 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
 
+    Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en periode ligt voor de herindeling en het adres wordt tijdens de periode niet bewoond
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0530                 | 0530010000000003                         |
+      En de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20210601                           |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20230219                           |
+      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd met de volgende gegevens
+      | gemeentecode (92.10) |
+      | 0800                 |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0530010000000003   |
+      Dan heeft de response 0 bewoningen
+
     @fout-case
     Scenario: Adres is na gemeentelijke herindeling in vragende gemeente komen te liggen en de herindeling vindt plaats binnen de gevraagde periode
       Gegeven adres 'A3' heeft de volgende gegevens
@@ -320,6 +344,30 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       | detail   | Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen. |
       | code     | unauthorized                                                                           |
       | instance | /haalcentraal/api/bewoning/bewoningen                                                  |
+
+    Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en periode ligt na datum herindeling en het adres wordt in periode niet bewoond
+      Gegeven adres 'A3' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000003                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
+      En adres 'A3' is op '2022-01-01' infrastructureel gewijzigd met de volgende gegevens
+      | gemeentecode (92.10) |
+      | 0530                 |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0518                              | 20221101                           |
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0530                              | 20230901                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2023-07-01         |
+      | datumTot                         | 2023-08-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000003   |
+      Dan heeft de response 0 bewoningen
 
     @fout-case
     Scenario: Adres is na gemeentelijke herindeling in andere gemeente komen te liggen en datum herindeling valt binnen de periode
