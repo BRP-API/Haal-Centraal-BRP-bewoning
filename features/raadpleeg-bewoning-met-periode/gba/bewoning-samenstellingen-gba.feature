@@ -59,6 +59,7 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
     | datum aanvang adreshouding (10.30) |
     | 20221001                           |
 
+  Rule: Elke wijziging van de samenstelling van bewoners van een adresseerbaar object leidt tot een bewoning
 
     Scenario: een nieuwe bewoner (000000024) verhuist naar het adres in de gevraagde periode, wordt dit een extra bewoning
       Als gba bewoning wordt gezocht met de volgende parameters
@@ -105,29 +106,6 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000048           |
-
-    Scenario: tijdelijk is er geen enkele bewoner in de periode, dus is er geen bewoning voor de periode zonder bewoners
-      Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde             |
-      | type                             | BewoningMetPeriode |
-      | datumVan                         | 2022-07-01         |
-      | datumTot                         | 2022-11-01         |
-      | adresseerbaarObjectIdentificatie | 0800010000000002   |
-      Dan heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde                    |
-      | periode                          | 2022-07-01 tot 2022-08-01 |
-      | adresseerbaarObjectIdentificatie | 0800010000000002          |
-      En heeft de bewoning een bewoner met de volgende gegevens
-      | burgerservicenummer |
-      | 000000048           |
-      En heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde                    |
-      | periode                          | 2022-10-01 tot 2022-11-01 |
-      | adresseerbaarObjectIdentificatie | 0800010000000002          |
-      En heeft de bewoning bewoners met de volgende gegevens
-      | burgerservicenummer |
-      | 000000061           |
-      | 000000073           |
 
     Scenario: een bewoner (000000061) vertrekt en komt daarna weer op hetzelfde adres te wonen
       Als gba bewoning wordt gezocht met de volgende parameters
@@ -183,6 +161,35 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
       | burgerservicenummer |
       | 000000012           |
       | 000000048           |
+  
+
+  Rule: er wordt geen bewoning geleverd zonder bewoners of mogelijke bewoners
+
+    Scenario: tijdelijk is er geen enkele bewoner in de periode, dus is er geen bewoning voor de periode zonder bewoners
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-07-01         |
+      | datumTot                         | 2022-11-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-07-01 tot 2022-08-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000048           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-10-01 tot 2022-11-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
+      En heeft de bewoning bewoners met de volgende gegevens
+      | burgerservicenummer |
+      | 000000061           |
+      | 000000073           |
+
+
+  Rule: datumTot van een periode bevat de bewoning tot en met 1 dag vóór datumTot en is minimaal 1 dag later dan datumVan
 
     Scenario: datumTot van de gevraagde periode is gelijk aan de datum dat een bewoner (000000024) er is komen wonen
       Als gba bewoning wordt gezocht met de volgende parameters
