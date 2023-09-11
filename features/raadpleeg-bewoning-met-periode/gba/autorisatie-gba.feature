@@ -11,11 +11,9 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
   Voorlopig wordt de Bewoning API alleen aangeboden aan gemeenten voor het raadplegen van adresseerbare object binnen de eigen gemeente.
 
   Autorisatie wordt verkregen met behulp van een OAuth 2 token. 
-  In het verkregen token is de afnemerindicatie opgenomen die de afnemer uniek identificeert. 
-  Wanneer de afnemer een gemeente is, is er ook een gemeentecode opgenomen in de OAuth token. Deze wordt gebruikt om te bepalen of het bevraagde adres binnen de eigen gemeente ligt.
+  Wanneer de afnemer een gemeente is, is er in de claims in het OAuth token ook een gemeentecode opgenomen. Deze wordt gebruikt om te bepalen of het bevraagde adres binnen de eigen gemeente ligt.
   Autorisatie voor bewoning wordt bepaald door de gemeente waar het gevraagde adresseerbaar object ligt in de gevraagde periode.
-  Een afnemer is niet geautoriseerd voor een vraag naar bewoning, wanneer het juiste antwoord op die vraag ten minste één bewoning van een adresseerbaar object zou geven dat in die periode buiten de eigen gemeente ligt of lag.
-
+  Een afnemer is alleen geautoriseerd voor een vraag naar bewoning, wanneer in het antwoord op die vraag elke (mogelijke) bewoner in de periode van betreffende bewoning in de afnemer gemeente stond ingeschreven.
 
 
     Achtergrond:
