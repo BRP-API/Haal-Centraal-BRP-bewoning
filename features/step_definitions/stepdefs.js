@@ -511,7 +511,9 @@ async function handleRequest(context, dataTable) {
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
 
     const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
-    if(!heeftAutorisatieSettings){
+    if (!heeftAutorisatieSettings &&
+        (context.createDefaultAutorisation === undefined || context.createDefaultAutorisation)
+       ) {
         let sqlData = context.sqlData.at(-1);
         sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
     }
@@ -550,7 +552,9 @@ async function handleCustomRequest(context, verb) {
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
 
     const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
-    if(!heeftAutorisatieSettings){
+    if (!heeftAutorisatieSettings &&
+        (context.createDefaultAutorisation === undefined || context.createDefaultAutorisation)
+       ) {
         let sqlData = context.sqlData.at(-1);
         sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
     }
@@ -634,6 +638,15 @@ Then(/^heeft de bewoning bewoners met de volgende gegevens$/, function (dataTabl
     should.exist(expectedBewoning, `geen bewoning om bewoners toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 
     expectedBewoning.bewoners = createObjectArrayFrom(dataTable, true);
+});
+
+Then(/^heeft de bewoning mogelijke bewoners met de volgende gegevens$/, function (dataTable) {
+    this.context.verifyResponse = true;
+
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om mogelijke bewoners toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    expectedBewoning.mogelijkeBewoners = createObjectArrayFrom(dataTable, true);
 });
 
 Then(/^heeft de bewoning een mogelijke bewoner met de volgende gegevens$/, function (dataTable) {
@@ -753,6 +766,10 @@ After({tags: '@fout-case'}, async function() {
     const expected = this.context.expected;
 
     actual.should.deep.equalInAnyOrder(expected, `actual: ${JSON.stringify(actual, null, '\t')}\nexpected: ${JSON.stringify(expected, null, '\t')}`);
+});
+
+Before({tags: '@autorisatie'}, async function() {
+    this.context.createDefaultAutorisation = false;
 });
 
 Before(function() {
