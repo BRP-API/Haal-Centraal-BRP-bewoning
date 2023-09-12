@@ -10,6 +10,9 @@ Functionaliteit: indicatie verblijfplaats in onderzoek leveren bij een bewoner b
     Gegeven adres 'A1' heeft de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000001                         |
+    En adres 'A2' heeft de volgende gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0800                 | 0800010000000002                         |
 
 Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'datum aanvang adreshouding' gegevens van een persoon wordt vertaald naar het inOnderzoek veld van een bewoner met waarde true
 
@@ -17,6 +20,9 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
     | 20100818                           | <aanduiding in onderzoek>       | 20200401                       |
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20210526                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -31,12 +37,16 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | 000000024           | true        |
 
     Voorbeelden:
-    | aanduiding in onderzoek | type                             |
-    | 080000                  | hele categorie verblijfplaats    |
-    | 081000                  | hele groep adreshouding          |
-    | 081030                  | datum aanvang adreshouding       |
-    | 081100                  | hele groep adres                 |
-    | 081180                  | identificatiecode verblijfplaats |
+    | aanduiding in onderzoek | type                                         |
+    | 080000                  | hele categorie verblijfplaats                |
+    | 081000                  | hele groep adreshouding                      |
+    | 081030                  | datum aanvang adreshouding                   |
+    | 081100                  | hele groep adres                             |
+    | 081180                  | identificatiecode verblijfplaats             |
+    | 580000                  | historische categorie verblijfplaats         |
+    | 581000                  | historische groep adreshouding               |
+    | 581100                  | historische groep adres                      |
+    | 581180                  | historische identificatiecode verblijfplaats |
 
   Abstract Scenario: '<type>' is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
