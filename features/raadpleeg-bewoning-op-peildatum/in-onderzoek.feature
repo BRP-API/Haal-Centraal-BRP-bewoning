@@ -45,6 +45,7 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | 081180                  | identificatiecode verblijfplaats             |
     | 580000                  | historische categorie verblijfplaats         |
     | 581000                  | historische groep adreshouding               |
+    | 581030                  | historische datum aanvang adreshouding       |
     | 581100                  | historische groep adres                      |
     | 581180                  | historische identificatiecode verblijfplaats |
 
