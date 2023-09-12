@@ -280,14 +280,14 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
       | adresseerbaarObjectIdentificatie | 0800010000000002   |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
-      | periode                          | 2010-01-01 tot 2010-02-01 |
+      | periode                          | 2010-01-01 tot 2010-02-10 |
       | adresseerbaarObjectIdentificatie | 0800010000000002          |
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
       En heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
-      | periode                          | 2010-02-01 tot 2010-03-01 |
+      | periode                          | 2010-02-10 tot 2010-03-01 |
       | adresseerbaarObjectIdentificatie | 0800010000000002          |
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
