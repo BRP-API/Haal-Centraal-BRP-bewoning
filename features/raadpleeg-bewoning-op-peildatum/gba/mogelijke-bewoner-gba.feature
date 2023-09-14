@@ -477,7 +477,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
     | 20100000                   | 20100800                            | 2010-08-31 | 2010-08-31 tot 2010-09-01 | peildatum is de laatste dag van de onzekerheidsperiode volgende adreshouding |
     | 00000000                   | 20100000                            | 2010-12-31 | 2010-12-31 tot 2011-01-01 | peildatum is de laatste dag van de onzekerheidsperiode volgende adreshouding |
     | 20100000                   | 00000000                            | 2010-01-01 | 2010-01-01 tot 2010-01-02 | peildatum is de eerste dag van de onzekerheidsperiode gevraagde adreshouding |
-    | 20100000                   | 00000000                            | 2011-01-01 | 2011-01-01 tot 2011-01-02 | peildatum is de eerste dag van de onzekerheidsperiode gevraagde adreshouding |
+    | 20100000                   | 00000000                            | 2010-01-01 | 2010-01-01 tot 2010-01-02 | peildatum is de eerste dag van de onzekerheidsperiode gevraagde adreshouding |
 
   Abstract Scenario: persoon heeft onbekende aanvang adreshouding en deels/geheel overlappend onbekende aanvang volgende adreshouding en peildatum ligt of vóór de onzekerheidsperiode gevraagde adreshouding of na de onzekerheidsperiode volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
