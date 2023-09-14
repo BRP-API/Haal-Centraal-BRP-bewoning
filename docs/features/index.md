@@ -4,13 +4,20 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 592 scenarios (42 failed, 550 passed)
+Totaal: 619 scenarios (74 failed, 545 passed)
 
 ## GBA v2.0.8
 
 - [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 220 scenarios (1 failed, 219 passed)
     - features/raadpleeg-bewoning-op-peildatum/gba/onjuist-gba.feature:172
-- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 121 scenarios (20 failed, 101 passed)
+- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 131 scenarios (27 failed, 104 passed)
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:58
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:105
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:140
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:221
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:265
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:299
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:389
     - features/raadpleeg-bewoning-met-periode/gba/fout-cases-gba.feature:251
     - features/raadpleeg-bewoning-met-periode/gba/fout-cases-gba.feature:252
     - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:44
@@ -31,11 +38,36 @@ Totaal: 592 scenarios (42 failed, 550 passed)
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:72
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:73
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:74
-- [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 33 scenarios (18 failed, 15 passed)
-    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:135
-    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:161
-    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:186
-    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:257
+- [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 50 scenarios (43 failed, 7 passed)
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:33
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:46
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:65
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:74
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:86
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:104
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:120
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:142
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:160
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:178
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:193
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:208
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:227
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:252
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:277
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:302
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:321
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:346
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:371
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:396
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:443
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:444
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:445
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:446
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:447
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:448
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:476
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:477
+    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:478
     - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:64
     - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:87
     - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:110
