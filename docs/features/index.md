@@ -4,7 +4,7 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 581 scenarios (31 failed, 550 passed)
+Totaal: 592 scenarios (42 failed, 550 passed)
 
 ## GBA v2.0.8
 
@@ -31,11 +31,22 @@ Totaal: 581 scenarios (31 failed, 550 passed)
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:72
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:73
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:74
-- [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 22 scenarios (7 failed, 15 passed)
+- [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 33 scenarios (18 failed, 15 passed)
     - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:135
     - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:161
     - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:186
     - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:257
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:64
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:87
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:110
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:141
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:168
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:194
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:209
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:232
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:248
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:271
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:286
     - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:130
     - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:154
     - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:222
