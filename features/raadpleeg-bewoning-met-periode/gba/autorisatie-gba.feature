@@ -424,7 +424,10 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0518                              | 20150526                           |
-      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A3' met de volgende gegevens
+      En adres 'A4' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0530010000000003                         |
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A4' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <datum aanvang>                    |
       Als gba bewoning wordt gezocht met de volgende parameters
