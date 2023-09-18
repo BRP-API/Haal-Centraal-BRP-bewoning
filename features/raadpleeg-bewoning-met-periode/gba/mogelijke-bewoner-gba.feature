@@ -507,7 +507,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | <datum van>        |
-    | datumTot                         | 2012-08-03         |
+    | datumTot                         | <datum tot>        |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                      |
