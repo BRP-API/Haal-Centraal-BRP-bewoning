@@ -558,7 +558,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
     | 00000000                   | 20100000                            | 2011-01-03 | 2011-03-19 |
     | 20100000                   | 00000000                            | 2009-11-12 | 2009-12-27 |
 
-Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerheidsperiode van deels onbekende aanvang adreshouding ligt, is een mogelijke bewoner het deel van de periode dat in de onzekerheidsperiode van de gevraagde adreshouding ligt
+Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerheidsperiode van deels onbekende aanvang adreshouding ligt, is een mogelijke bewoner voor het deel van de periode dat in de onzekerheidsperiode van de gevraagde adreshouding ligt
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt vóór onzekerheidsperiode van deels onbekende aanvang adreshouding en periode ligt in de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
