@@ -260,13 +260,13 @@ Rule: een persoon met bekende aanvang adreshouding die niet in de onzekerheidspe
     | 000000024           |
 
     Voorbeelden:
-    | datum aanvang volgende adreshouding | datum van  | datum tot  | scenario                                                                           |
-    | 20160500                            | 2016-05-01 | 2016-06-01 | periode loopt van de eerste tot en met de laatste dag van de onzekerheidsperiode   |
-    | 20160500                            | 2016-05-06 | 2016-05-18 | periode valt binnen de volgende aanvang adreshouding maand                         |
-    | 20160000                            | 2016-01-01 | 2016-07-01 | periode begint op de eerste dag van het volgende aanvang adreshouding jaar         |
-    | 20160000                            | 2016-05-18 | 2016-05-26 | periode valt binnen het volgende aanvang adreshouding jaar                         |
-    | 20160000                            | 2016-07-01 | 2017-01-01 | periode loopt tot en met de laatste dag van het volgende aanvang adreshouding jaar |
-    | 20160000                            | 2016-12-31 | 2017-01-01 | periode begint op de laatste dag van het volgende aanvang adreshouding jaar        |
+    | datum aanvang volgende adreshouding | datum van  | datum tot  | scenario                                                                                             |
+    | 20160500                            | 2016-05-01 | 2016-06-01 | gevraagde periode overlapt de gehele onzekerheidsperiode van volgende adreshouding                   |
+    | 20160500                            | 2016-05-06 | 2016-05-18 | gevraagde periode overlapt een deel van de onzekerheidsperiode van de volgende adreshouding maand    |
+    | 20160000                            | 2016-01-01 | 2016-07-01 | gevraagde periode overlapt eerste deel van de onzekerheidsperiode van de volgende adreshouding jaar  |
+    | 20160000                            | 2016-05-18 | 2016-05-26 | gevraagde periode overlapt een deel van de onzekerheidsperiode van de volgende adreshouding jaar     |
+    | 20160000                            | 2016-07-01 | 2017-01-01 | gevraagde periode overlapt laatste deel van de onzekerheidsperiode van de volgende adreshouding jaar |
+    | 20160000                            | 2016-12-31 | 2017-01-01 | periode begint is de laatste dag van de onzekerheidsperiode van de volgende adreshouding jaar        |
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekende aanvang volgende adreshouding en periode ligt na de onzekerheidsperiode van de volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
