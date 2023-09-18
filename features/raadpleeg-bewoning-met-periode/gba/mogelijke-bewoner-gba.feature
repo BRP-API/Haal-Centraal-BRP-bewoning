@@ -390,7 +390,7 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
     Voorbeelden:
     | datum aanvang adreshouding | datum aanvang volgende adreshouding | datum van  | datum tot  |
     | 20100800                   | 20101000                            | 2010-09-01 | 2010-10-01 |
-    | 20100800                   | 20101000                            | 2010-09-03 | 2010-10-21 |
+    | 20100800                   | 20101000                            | 2010-09-03 | 2010-09-21 |
     | 20100800                   | 20110000                            | 2010-09-01 | 2011-01-01 |
     | 20100800                   | 20110000                            | 2010-10-14 | 2010-12-15 |
     | 20100000                   | 20111000                            | 2011-03-27 | 2011-06-09 |
