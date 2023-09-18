@@ -210,7 +210,7 @@ Rule: een persoon met bekende aanvang volgende adreshouding die in de onzekerhei
     | 20100800                   | 20100821                            | 2010-08-01 | 2010-08-21 |
     | 20100000                   | 20101001                            | 2010-03-14 | 2010-09-06 |
     | 20100000                   | 20101001                            | 2010-01-01 | 2010-10-01 |
-    | 00000000                   | 20100101                            | 2009-12-31 | 2009-12-31 |
+    | 00000000                   | 20100101                            | 2009-12-31 | 2010-01-01 |
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt in de onzekerheidsperiode van onbekende adreshouding en periode begint op/na datum aanvang volgende adreshouding binnen de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
