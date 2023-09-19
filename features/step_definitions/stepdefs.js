@@ -189,8 +189,15 @@ Given(/^adres '(.*)' is op '(.*)' geactualiseerd met de volgende gegevens$/, fun
 Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd met de volgende gegevens$/, function (adresId, ingangsdatum, dataTable) {
     let sqlData = this.context.sqlData.find(el => el['adres'] !== undefined);
 
-    const oudAdres = sqlData.adres[adresId];
-    should.exist(oudAdres, `geen adres gevonden met id '${adresId}'`);
+    const nieuwAdresIndex = Object.keys(sqlData['adres']).length;
+    infrastructureelWijzigenAdres(this.context, adresId, ingangsdatum, nieuwAdresIndex + 1 + '', dataTable);
+});
+
+function infrastructureelWijzigenAdres(context, sourceAdresId, ingangsdatum, targetAdresId, dataTable) {
+    let sqlData = context.sqlData.find(el => el['adres'] !== undefined);
+
+    const oudAdres = sqlData.adres[sourceAdresId];
+    should.exist(oudAdres, `geen adres gevonden met id '${sourceAdresId}'`);
     const adresIndex = oudAdres.index;
 
     const nieuwAdresIndex = Object.keys(sqlData['adres']).length;
@@ -204,12 +211,12 @@ Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd met de volgende geg
             nieuwAdresData.push(elem);
         }
     });
-    sqlData['adres'][nieuwAdresIndex + 1 + ''] = {
+    sqlData['adres'][targetAdresId] = {
         index: nieuwAdresIndex,
         data: nieuwAdresData
     };
 
-    this.context.sqlData.forEach(function(elem) {
+    context.sqlData.forEach(function(elem) {
         let verblijfplaats = elem['verblijfplaats']?.at(-1);
         if(verblijfplaats?.find(el => el[0] === 'adres_id' && el[1] === adresIndex + '') !== undefined) {
             elem['verblijfplaats'].forEach(function(data) {
@@ -232,6 +239,10 @@ Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd met de volgende geg
             elem.verblijfplaats.push(nieuwVerblijfplaatsData);
         }
     });
+}
+
+Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd naar adres '(.*)' met de volgende gegevens$/, function(sourceAdresId, ingangsdatum, targetAdresId, dataTable) {
+    infrastructureelWijzigenAdres(this.context, sourceAdresId, ingangsdatum, targetAdresId, dataTable);
 });
 
 Given(/^(?:adres|de adressen) '(.*)' (?:is|zijn) op '(.*)' samengevoegd tot adres '(.*)' met de volgende gegevens$/, function (sourceAdresIds, ingangsdatum, targetAdresId, dataTable) {
