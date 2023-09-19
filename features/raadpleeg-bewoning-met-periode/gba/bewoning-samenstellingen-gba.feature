@@ -14,50 +14,50 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000003                         |
     En de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20170210                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20170210                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20211208                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20211208                           |
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220601                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220601                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220201                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220201                           |
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220401                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220401                           |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20181026                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20181026                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220401                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220401                           |
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220801                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220801                           |
     En de persoon met burgerservicenummer '000000061' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20181026                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20181026                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20221001                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20221001                           |
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20221201                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20221201                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20230201                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20230201                           |
     En de persoon met burgerservicenummer '000000073' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20190403                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20190403                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20221001                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20221001                           |
 
   Rule: Elke wijziging van de samenstelling van bewoners van een adresseerbaar object leidt tot een bewoning
 

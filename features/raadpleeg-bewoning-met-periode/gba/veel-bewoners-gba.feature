@@ -15,8 +15,8 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000001                         |
     En er zijn 101 personen ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200818                           |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -35,14 +35,14 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000001                         |
     En er zijn 101 personen ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200800                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200800                           |
     Als gba bewoning wordt gezocht met de volgende parameters
-    | naam                             | waarde               |
+    | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
-    | datumVan                         | 2020-08-18           |
-    | datumTot                         | 2021-01-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    | datumVan                         | 2020-08-18         |
+    | datumTot                         | 2021-01-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2020-08-18 tot 2021-01-01 |
@@ -55,17 +55,17 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000001                         |
     En er zijn 81 personen ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200818                           |
     En er zijn 20 personen ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200800                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200800                           |
     Als gba bewoning wordt gezocht met de volgende parameters
-    | naam                             | waarde               |
+    | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
-    | datumVan                         | 2020-08-18           |
-    | datumTot                         | 2021-01-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    | datumVan                         | 2020-08-18         |
+    | datumTot                         | 2021-01-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2020-08-18 tot 2021-01-01 |
@@ -78,14 +78,14 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000001                         |
     En er zijn 100 personen ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200818                           |
     Als gba bewoning wordt gezocht met de volgende parameters
-    | naam                             | waarde               |
+    | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
-    | datumVan                         | 2020-08-18           |
-    | datumTot                         | 2021-01-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    | datumVan                         | 2020-08-18         |
+    | datumTot                         | 2021-01-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met 100 bewoners en 0 mogelijke bewoners
 
   Scenario: adresseerbaar object heeft in de gevraagde periode in totaal 100 bewoners en mogelijke bewoners
@@ -93,15 +93,15 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000001                         |
     En er zijn 80 personen ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200818                           |
     En er zijn 20 personen ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200800                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200800                           |
     Als gba bewoning wordt gezocht met de volgende parameters
-    | naam                             | waarde               |
+    | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
-    | datumVan                         | 2020-08-18           |
-    | datumTot                         | 2021-01-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    | datumVan                         | 2020-08-18         |
+    | datumTot                         | 2021-01-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met 80 bewoners en 20 mogelijke bewoners

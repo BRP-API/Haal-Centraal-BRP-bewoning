@@ -13,7 +13,7 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
       | 0800                 | 0800010000000002                         |
       En adres 'A3' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0800                 | 0800010000000003                         | 
+      | 0800                 | 0800010000000003                         |
 
 
   Rule: Bij de start en na afloop van de onzekerheidsperiode van datum aanvang ontstaat een nieuwe bewoning(samenstelling)
@@ -22,14 +22,14 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang is onbekend en periode begint in de onzekerheidsperiode en loopt door na de onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -57,14 +57,14 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang is onbekend en periode begint voor de onzekerheidsperiode en loopt door na de onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -104,14 +104,14 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang volgende verblijfplaats is onbekend en periode loopt door tot in de onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -139,14 +139,14 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang volgende verblijfplaats is onbekend en periode loopt door tot na de onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -183,17 +183,17 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang is onbekend en tijdens de onzekerheidsperiode komt een andere bewoner op het adres wonen
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100201                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100201                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -220,17 +220,17 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang is onbekend en tijdens de onzekerheidsperiode verhuist een andere bewoner naar een ander adres
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100201                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100201                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -264,14 +264,14 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang volgende verblijfplaats is onbekend en tijdens de onzekerheidsperiode komt een andere bewoner op het adres wonen
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100210                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100210                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -298,17 +298,17 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang volgende verblijfplaats is onbekend en tijdens de onzekerheidsperiode verhuist een andere bewoner naar een ander adres
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100201                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100201                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -343,17 +343,17 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang is onbekend en overlapt de ook onbekende datum aanvang van een andere bewoner
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100200                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100200                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
@@ -388,17 +388,17 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
 
     Scenario: Datum aanvang is onbekend en overlapt de ook onbekende datum aanvang volgende verblijf van een andere bewoner
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20080526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20010410                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20010410                           |
       En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20100200                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100200                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |

@@ -350,13 +350,13 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20100818                           |
-      En adres 'A3' is op '2022-01-01' infrastructureel gewijzigd met de volgende gegevens
+      En adres 'A3' is op '2022-01-01' infrastructureel gewijzigd naar adres 'A4' met de volgende gegevens
       | gemeentecode (92.10) |
       | 0530                 |
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0518                              | 20221101                           |
-      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A3' met de volgende gegevens
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A4' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0530                              | 20230901                           |
       Als gba bewoning wordt gezocht met de volgende parameters
@@ -400,10 +400,10 @@ Functionaliteit: autorisatie voor het gebruik van de API BewoningMetPeriode
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0530                              | 20100818                           |
-      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd met de volgende gegevens
+      En adres 'A3' is op '2023-05-26' infrastructureel gewijzigd naar adres 'A4' met de volgende gegevens
       | gemeentecode (92.10) |
       | 0800                 |
-      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A3' met de volgende gegevens
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A4' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20230000                           |
       Als gba bewoning wordt gezocht met de volgende parameters

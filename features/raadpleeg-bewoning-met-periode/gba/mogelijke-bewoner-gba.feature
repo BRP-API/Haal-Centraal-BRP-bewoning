@@ -19,8 +19,8 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
 
   Abstract Scenario: aanvang adreshouding is deels/geheel onbekend en periode ligt in de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -28,9 +28,9 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
     | datumTot                         | <datum tot>        |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
-    | naam                             | waarde           |
-    | periode                          | <datum van> tot <datum tot>        |
-    | adresseerbaarObjectIdentificatie | 0800010000000001 |
+    | naam                             | waarde                      |
+    | periode                          | <datum van> tot <datum tot> |
+    | adresseerbaarObjectIdentificatie | 0800010000000001            |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -45,8 +45,8 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
 
   Abstract Scenario: aanvang adreshouding is deels onbekend en gevraagde periode overlapt een deel van de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -75,8 +75,8 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
     
   Abstract Scenario: aanvang adreshouding is deels onbekend en periode overlapt deels/geheel de onzekerheidsperiode en deels de zekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -108,11 +108,11 @@ Rule: een persoon met onbekende aanvang adreshouding, en een bekende datum volge
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt na de onzekerheidsperiode van deels onbekende aanvang adreshouding en periode valt helemaal in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -134,11 +134,11 @@ Rule: een persoon met onbekende aanvang adreshouding, en een bekende datum volge
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt na de onzekerheidsperiode van deels onbekende aanvang adreshouding en periode begint op/na datum aanvang volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -156,11 +156,11 @@ Rule: een persoon met onbekende aanvang adreshouding, en een bekende datum volge
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt na de onzekerheidsperiode van deels onbekende aanvang adreshouding en periode ligt tussen de onzekerheidsperiode en datum aanvang volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -185,11 +185,11 @@ Rule: een persoon met bekende aanvang volgende adreshouding die in de onzekerhei
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt in de onzekerheidsperiode van onbekende adreshouding en periode ligt vóór datum aanvang volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -214,11 +214,11 @@ Rule: een persoon met bekende aanvang volgende adreshouding die in de onzekerhei
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt in de onzekerheidsperiode van onbekende adreshouding en periode begint binnen de onzekerheidsperiode op of na datum aanvang volgende adreshouding 
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -240,11 +240,11 @@ Rule: een persoon met bekende aanvang adreshouding die niet in de onzekerheidspe
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekende aanvang volgend adreshouding en periode ligt in de onzekerheidsperiode van de volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -270,11 +270,11 @@ Rule: een persoon met bekende aanvang adreshouding die niet in de onzekerheidspe
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekende aanvang volgende adreshouding en periode ligt na de onzekerheidsperiode van de volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -290,11 +290,11 @@ Rule: een persoon met bekende aanvang adreshouding die niet in de onzekerheidspe
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekend aanvang volgende adreshouding en periode ligt vóór de onzekerheidsperiode van volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -318,11 +318,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang volgende adreshouding niet en <opmerking>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -346,11 +346,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang volgende adreshouding niet en periode ligt na onzekerheidsperiode volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -360,7 +360,7 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
     Dan heeft de response 0 bewoningen
 
     Voorbeelden:
-    | datum aanvang adreshouding | datum aanvang volgende adreshouding | datum van  | 
+    | datum aanvang adreshouding | datum aanvang volgende adreshouding | datum van  |
     | 20100800                   | 20101000                            | 2010-11-01 |
     | 20100800                   | 20110000                            | 2012-01-01 |
     | 20100000                   | 20110200                            | 2011-03-01 |
@@ -368,11 +368,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang volgende adreshouding niet en periode ligt tussen de onzekerheidsperiodes
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -400,11 +400,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
   Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en periode ligt in de onzekerheidsperiode op/na datum aanvang adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -427,11 +427,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
   Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en periode ligt in de onzekerheidsperiode tot de datum aanvang adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -454,11 +454,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
   Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels onbekende aanvang volgende adreshouding en periode ligt na de onzekerheidperiode van volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -474,11 +474,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
   Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en periode ligt in de onzekerheidsperiode vóór datum aanvang adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -498,11 +498,11 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
 
   Abstract Scenario: persoon heeft onbekende aanvang adreshouding en deels/geheel overlappende onbekende aanvang volgende adreshouding en periode ligt tussen de eerste dag van de onzekerheidsperiode adreshouding en laatste dag van de onzekerheidsperiode volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -530,11 +530,11 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
 
   Abstract Scenario: persoon heeft onbekende aanvang adreshouding en deels/geheel overlappend onbekende aanvang volgende adreshouding en periode loopt tot of vóór de onzekerheidsperiode gevraagde adreshouding of loopt na de onzekerheidsperiode volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -562,11 +562,11 @@ Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerh
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt vóór onzekerheidsperiode van deels onbekende aanvang adreshouding en periode ligt in de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -590,11 +590,11 @@ Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerh
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt vóór onzekerheidsperiode van deels onbekende aanvang adreshouding en periode ligt vóór de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -614,11 +614,11 @@ Rule: een persoon met bekende aanvang vorige adreshouding die in de onzekerheids
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt in onzekerheidsperiode van onbekende aanvang adreshouding en periode ligt in de onzekerheidsperiode van gevraagde adreshouding na datum aanvang vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -644,11 +644,11 @@ Rule: een persoon met bekende aanvang vorige adreshouding die in de onzekerheids
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt in onzekerheidsperiode van onbekende aanvang adreshouding en periode ligt in de onzekerheidsperiode van gevraagde adreshouding tot of vóór datum aanvang vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -670,11 +670,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang vorige adreshouding niet en periode ligt in de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -698,11 +698,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang vorige adreshouding niet en periode ligt vóór de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -728,11 +728,11 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
 
   Abstract Scenario: onzekerheidsperiode van adreshouding komt overeen met onzekerheidsperiode van vorige adreshouding en periode ligt in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -757,11 +757,11 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
 
   Abstract Scenario: onzekerheidsperiode van adreshouding komt overeen met onzekerheidsperiode van vorige adreshouding en periode ligt vóór de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -771,7 +771,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
     Dan heeft de response 0 bewoningen
 
     Voorbeelden:
-    | datum aanvang vorige adreshouding | datum aanvang adreshouding | datum van  | datum tot |
+    | datum aanvang vorige adreshouding | datum aanvang adreshouding | datum van  | datum tot  |
     | 20100000                          | 20100000                   | 2009-12-31 | 2010-01-01 |
     | 20100500                          | 20100500                   | 2010-02-01 | 2010-04-27 |
     | 20100500                          | 20100500                   | 2010-04-30 | 2010-05-01 |
@@ -780,11 +780,11 @@ Rule: een persoon met onbekende aanvang adreshouding, deels onbekende aanvang vo
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding geheel en periode ligt op/na de eerste dag van de onzekerheidsperiode van vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -809,11 +809,11 @@ Rule: een persoon met onbekende aanvang adreshouding, deels onbekende aanvang vo
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding geheel en periode ligt vóór de onzekerheidsperiode van vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -831,11 +831,11 @@ Rule: een persoon met onbekende aanvang adreshouding, deels onbekende aanvang vo
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding deels en periode ligt in de onzekerheidsperiode van de gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -859,11 +859,11 @@ Rule: een persoon met onbekende aanvang adreshouding, deels onbekende aanvang vo
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding deels en periode ligt vóór de onzekerheidsperiode van de gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
