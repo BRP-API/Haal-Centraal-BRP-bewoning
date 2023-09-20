@@ -92,8 +92,8 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er op een peildatum meer dan 
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20200818                           |
     En er zijn 20 personen ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200800                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200800                           |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
