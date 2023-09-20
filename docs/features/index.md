@@ -4,28 +4,12 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 754 scenarios (160 failed, 594 passed)
+Totaal: 754 scenarios (144 failed, 610 passed)
 
 ## GBA v2.0.8
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 221 scenarios (17 failed, 204 passed)
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:597
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:599
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:601
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:627
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:628
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:680
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:728
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:730
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:748
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:749
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:750
-    - features/raadpleeg-bewoning-op-peildatum/gba/onjuist-gba.feature:53
-    - features/raadpleeg-bewoning-op-peildatum/gba/onjuist-gba.feature:93
-    - features/raadpleeg-bewoning-op-peildatum/gba/onjuist-gba.feature:141
-    - features/raadpleeg-bewoning-op-peildatum/gba/onjuist-gba.feature:142
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 221 scenarios (1 failed, 220 passed)
     - features/raadpleeg-bewoning-op-peildatum/gba/onjuist-gba.feature:172
-    - features/raadpleeg-bewoning-op-peildatum/gba/overzicht-gba.feature:108
 - [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 265 scenarios (97 failed, 168 passed)
     - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:58
     - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:105
