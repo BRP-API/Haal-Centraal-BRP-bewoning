@@ -243,8 +243,8 @@ Rule: datumTot ligt na datumVan
     | code     | paramsValidation                                            |
     | instance | /haalcentraal/api/bewoning/bewoningen                       |
     En heeft het object de volgende 'invalidParams' gegevens
-    | code         | name     | reason                                  |
-    | invalidParam | datumTot | datumTot moet na datumVan liggen. |
+    | code | name     | reason                            |
+    | date | datumTot | datumTot moet na datumVan liggen. |
 
     Voorbeelden:
     | datum tot  |
