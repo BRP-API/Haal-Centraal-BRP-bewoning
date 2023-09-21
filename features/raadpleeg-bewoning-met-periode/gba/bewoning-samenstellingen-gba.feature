@@ -307,7 +307,7 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
       | 000000048           |
 
 
-  Rule: een correctie of wijziging waardoor er meerdere aaneensluitende verblijfplaatsen van hetzelfde adresseerbaar object zijn wordt dat als één bewoning gezien
+  Rule: meerdere aaneensluitende verblijfplaatsen op hetzelfde adresseerbaar object als gevolg van een correctie of wijziging, wordt als één bewoning gezien
     
     Scenario: <omschrijving>
       Gegeven adres 'A4' heeft de volgende gegevens
