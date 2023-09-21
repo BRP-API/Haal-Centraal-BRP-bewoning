@@ -103,7 +103,7 @@ Functionaliteit: raadpleeg bewoning in een periode van een gecorrigeerde verblij
       En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20210526                           |
-      En de persoon is vervolgens ingeschreven op adres 'A1' met de volgende gegevens
+      En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <datum aanvang volgende>           |
       Als gba bewoning wordt gezocht met de volgende parameters
