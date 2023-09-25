@@ -305,3 +305,33 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000048           |
+
+
+  Rule: meerdere aaneensluitende verblijfplaatsen op hetzelfde adresseerbaar object als gevolg wijzigen of samenvoegen van gemeenten, wordt als één bewoning gezien
+
+    Scenario: Adres ligt in samengevoegde gemeente en periode overlapt het moment van samenvoegen
+      Gegeven gemeente 'G1' heeft de volgende gegevens
+      | gemeentecode (92.10) | gemeentenaam (92.11) |
+      | 9999                 | Ons Dorp             |
+      En adres 'A6' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 9999                 | 9999010000000006                         |
+      En de persoon met burgerservicenummer '000000085' is ingeschreven op adres 'A6' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 9999                              | 20100818                           |
+      En gemeente 'G1' is samengevoegd met de volgende gegevens
+      | nieuwe gemeentecode (92.12) | datum beëindiging (99.99) |
+      | 0800                        | 20230526                  |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2023-05-01         |
+      | datumTot                         | 2023-06-01         |
+      | adresseerbaarObjectIdentificatie | 9999010000000006   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2023-05-01 tot 2023-06-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000006          |
+      En heeft de bewoning bewoners met de volgende gegevens
+      | burgerservicenummer |
+      | 000000085           |
