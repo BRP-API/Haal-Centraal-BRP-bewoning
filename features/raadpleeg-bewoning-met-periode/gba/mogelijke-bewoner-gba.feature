@@ -776,7 +776,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
     | 20100500                          | 20100500                   | 2010-02-01 | 2010-04-27 |
     | 20100500                          | 20100500                   | 2010-04-30 | 2010-05-01 |
 
-Rule: een persoon met onbekende aanvang adreshouding, deels onbekende aanvang vorige adreshouding en deels/geheel overlappende onzekerheidsperiodes, is een mogelijke bewoner voor het deel van de periode dat in de onzekerheidsperiode van de adreshouding ligt én op of na de eerste dag van de onzekerheidsperiode van de vorige adreshouding
+Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige adreshouding en deels/geheel overlappende onzekerheidsperiodes, is een mogelijke bewoner voor het deel van de periode dat in de onzekerheidsperiode van de adreshouding ligt én op of na de eerste dag van de onzekerheidsperiode van de vorige adreshouding
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding geheel en periode ligt op/na de eerste dag van de onzekerheidsperiode van vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
