@@ -307,7 +307,7 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
       | 000000048           |
 
 
-  Rule: meerdere aaneensluitende verblijfplaatsen op hetzelfde adresseerbaar object als gevolg wijzigen of samenvoegen van gemeenten, wordt als één bewoning gezien
+  Rule: meerdere aaneensluitende verblijfplaatsen op hetzelfde adresseerbaar object als gevolg wijzigen of samenvoegen van gemeenten, met dezelfde (mede)bewoners, wordt als één bewoning gezien
 
     Scenario: Adres ligt in samengevoegde gemeente en periode overlapt het moment van samenvoegen
       Gegeven gemeente 'G1' heeft de volgende gegevens
