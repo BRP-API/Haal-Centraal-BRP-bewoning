@@ -5,11 +5,11 @@ title: Features
 
 # {{ site.apiname }} Web API Features
 
-De {{ site.apiname }} Web API maakt het mogelijk om de bewoning van een adresseerbaar object in een periode te raadplegen. Bewoning wordt opgehaald met behulp van de identificatie van een adresseerbaar object.
+Met de {{ site.apiname }} Web API kun je de bewoning van een adresseerbaar object in een periode raadplegen. Bewoning kun je ophalen met de identificatie van een adresseerbaar object.
 
 ## Algemene Verordening Gegevensbescherming (AVG)
 
-De '{{ site.apiname }}' Web API is ontworpen conform de REST principes. Om ook aan de AVG te conformeren zijn er concessies gedaan met betrekking tot het toepassen van de REST principes. De belangrijkste concessie is dat de POST methode en niet de GET methode wordt gebruikt om reisdocumenten te bevragen. Dit zorgt er voor dat er geen [persoonlijk identificeerbare informatie (PII)](https://piwikpro.nl/blog/pii-niet-pii-en-persoonsgegevens/) terecht komen in de url van een request en daardoor ook niet in server logs.
+De '{{ site.apiname }}' Web API is ontworpen conform de REST principes. Om ook aan de AVG te conformeren zijn er concessies gedaan aan het toepassen van de REST principes. De belangrijkste concessie is dat de POST methode en niet de GET methode wordt gebruikt om reisdocumenten te bevragen. Dit zorgt er voor dat er geen [persoonlijk identificeerbare informatie (PII)](https://piwikpro.nl/blog/pii-niet-pii-en-persoonsgegevens/) terecht komen in de url van een request en daardoor ook niet in server logs.
 
 ## Raadplegen van de bewoning van een adresseerbaar object
 
