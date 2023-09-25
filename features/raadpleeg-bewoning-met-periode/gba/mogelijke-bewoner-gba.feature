@@ -522,7 +522,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
     | 20100800                   | 20100000                            | 2010-08-01 | 2010-10-12 | periode begint op de eerste dag van de onzekerheidsperiode gevraagde adreshouding |
     | 20100800                   | 20100000                            | 2010-09-11 | 2011-01-01 | periode loopt tot de laatste dag van de onzekerheidsperiode volgende adreshouding |
     | 20100000                   | 20100800                            | 2010-01-01 | 2010-05-01 | periode begint op de eerste dag van de onzekerheidsperiode gevraagde adreshouding |
-    | 20100000                   | 20100800                            | 2010-04-31 | 2010-09-01 | periode loopt tot de laatste dag van de onzekerheidsperiode volgende adreshouding |
+    | 20100000                   | 20100800                            | 2010-04-01 | 2010-09-01 | periode loopt tot de laatste dag van de onzekerheidsperiode volgende adreshouding |
     | 00000000                   | 20100800                            | 2008-07-30 | 2010-09-01 | periode loopt tot de laatste dag van de onzekerheidsperiode volgende adreshouding |
     | 00000000                   | 20100000                            | 2008-07-30 | 2011-01-01 | periode loopt tot de laatste dag van de onzekerheidsperiode volgende adreshouding |
     | 20100800                   | 00000000                            | 2010-08-01 | 2019-09-28 | periode begint op de eerste dag van de onzekerheidsperiode gevraagde adreshouding |
@@ -608,7 +608,7 @@ Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerh
     | 20100101                          | 20100800                   | 2010-07-16 | 2010-08-01 |
     | 20100101                          | 20100800                   | 2010-07-16 | 2010-07-23 |
     | 20091001                          | 20100000                   | 2009-12-06 | 2010-01-01 |
-    | 20091001                          | 20100000                   | 2009-12-06 | 2009-10-14 |
+    | 20091001                          | 20100000                   | 2009-10-06 | 2009-10-14 |
 
 Rule: een persoon met bekende aanvang vorige adreshouding die in de onzekerheidsperiode van de onbekende aanvang adreshouding ligt, is een mogelijke bewoner voor het deel van de periode in de onzekerheidsperiode dat na de datum aanvang vorige adreshouding ligt
 
@@ -776,7 +776,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
     | 20100500                          | 20100500                   | 2010-02-01 | 2010-04-27 |
     | 20100500                          | 20100500                   | 2010-04-30 | 2010-05-01 |
 
-Rule: een persoon met onbekende aanvang adreshouding, deels onbekende aanvang vorige adreshouding en deels/geheel overlappende onzekerheidsperiodes, is een mogelijke bewoner voor het deel van de periode dat in de onzekerheidsperiode van de adreshouding ligt én op of na de eerste dag van de onzekerheidsperiode van de vorige adreshouding
+Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige adreshouding en deels/geheel overlappende onzekerheidsperiodes, is een mogelijke bewoner voor het deel van de periode dat in de onzekerheidsperiode van de adreshouding ligt én op of na de eerste dag van de onzekerheidsperiode van de vorige adreshouding
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding geheel en periode ligt op/na de eerste dag van de onzekerheidsperiode van vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
