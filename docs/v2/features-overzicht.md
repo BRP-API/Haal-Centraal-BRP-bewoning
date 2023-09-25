@@ -9,7 +9,7 @@ Met de {{ site.apiname }} Web API kun je de bewoning van een adresseerbaar objec
 
 ## Algemene Verordening Gegevensbescherming (AVG)
 
-De '{{ site.apiname }}' Web API is ontworpen conform de REST principes. Om ook aan de AVG te conformeren zijn er concessies gedaan aan het toepassen van de REST principes. De belangrijkste concessie is dat de POST methode en niet de GET methode wordt gebruikt om bewoning te raadplegen. Dit zorgt er voor dat er geen [persoonlijk identificeerbare informatie (PII)](https://piwikpro.nl/blog/pii-niet-pii-en-persoonsgegevens/) terecht komt in de url van een request en daarmee ook niet in server logs.
+De '{{ site.apiname }}' Web API is ontworpen conform de REST principes. Om aan de AVG te conformeren zijn er concessies gedaan aan het toepassen van de REST principes. De belangrijkste concessie is dat de POST methode en niet de GET methode wordt gebruikt om bewoning te raadplegen. Dit zorgt er voor dat er geen [persoonlijk identificeerbare informatie (PII)](https://piwikpro.nl/blog/pii-niet-pii-en-persoonsgegevens/) terecht komt in de url van een request en daarmee ook niet in server logs. We anticiperen daarmee op het raadplegen van bewoningen van een persoon, die je in een volgende versie van de Bewoning API kunt ophalen met een BSN.
 
 ## Raadplegen van de bewoning van een adresseerbaar object
 
