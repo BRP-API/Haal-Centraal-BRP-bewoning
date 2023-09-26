@@ -61,11 +61,11 @@ Rule: het in onderzoek zijn van verblijfplaats gegevens wordt ongevraagd gelever
 
   Abstract Scenario: '<type>' van vorige verblijfplaats is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
-    | 20100818                           | <aanduiding in onderzoek>       | 20200401                       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
+    | 0800                              | 20100818                           | <aanduiding in onderzoek>       | 20200401                       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20210526                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20210526                           |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
