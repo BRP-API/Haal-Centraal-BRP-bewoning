@@ -10,8 +10,8 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object wanneer de peil
     | gemeentecode (92.10) | straatnaam (11.10) |
     | 0800                 | Spui               |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En adres 'A1' is op '2022-05-01' geactualiseerd met de volgende gegevens
     | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800010000000001                         | 0800200010877001                           |
@@ -38,8 +38,8 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object wanneer de peil
     | gemeentecode (92.10) | straatnaam (11.10) |
     | 0800                 | Spui               |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En adres 'A1' is op '2022-05-01' geactualiseerd met de volgende gegevens
     | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800010000000001                         | 0800200010877001                           |
@@ -57,8 +57,8 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is overgega
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800010000000001                         | 0800200010877001                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En adres 'A1' is op '2022-05-01' samengevoegd tot adres 'A2' met de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800010000000002                         | 0800200010877001                           |
@@ -76,8 +76,8 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is ontstaan
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800010000000001                         | 0800200010877001                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En adres 'A1' is op '2022-05-01' samengevoegd tot adres 'A2' met de volgende gegevens
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800010000000002                         | 0800200010877001                           |
@@ -99,17 +99,17 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is gesplits
     | A2    | 0800                 | 0800010000000002                         | 0800200022192682                           |
     | A3    | 0800                 | 0800010000000003                         | 0800200010877001                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
-    | 20220501                           | W                             |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
+    | 0800                              | 20220501                           | W                             |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
-    | 20220501                           | W                             |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
+    | 0800                              | 20220501                           | W                             |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -128,17 +128,17 @@ Rule: bewoning wordt niet geleverd voor een adresseerbaar object dat is ontstaan
     | A2    | 0800                 | 0800010000000002                         | 0800200022192682                           |
     | A3    | 0800                 | 0800010000000003                         | 0800200010877001                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
-    | 20220501                           | W                             |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
+    | 0800                              | 20220501                           | W                             |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
-    | 20220501                           | W                             |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | aangifte adreshouding (72.10) |
+    | 0800                              | 20220501                           | W                             |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde                               |
     | type                             | BewoningMetPeildatum                 |

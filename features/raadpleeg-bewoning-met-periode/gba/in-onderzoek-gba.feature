@@ -19,8 +19,8 @@ Rule: het in onderzoek zijn van verblijfplaats gegevens wordt ongevraagd gelever
 
   Abstract Scenario: '<type>' is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
-    | 20100818                           | <aanduiding in onderzoek>       | 20200401                       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
+    | 0800                              | 20100818                           | <aanduiding in onderzoek>       | 20200401                       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -97,8 +97,8 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van 'in 
 
   Abstract Scenario: 'hele categorie verblijfplaats' is in onderzoek en <scenario>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
-    | 20100818                           | 080000                          | 20200401                       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) |
+    | 0800                              | 20100818                           | 080000                          | 20200401                       |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -128,8 +128,8 @@ Rule: een beëindigd onderzoek wordt niet geleverd, ook niet als de gevraagde pe
 
   Abstract Scenario: het in onderzoek zijn van 'hele categorie verblijfplaats' is beëindigd en <scenario>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum einde onderzoek (83.30) |
-    | 20100818                           | 080000                          | 20200401                       | 20200801                      |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum einde onderzoek (83.30) |
+    | 0800                              | 20100818                           | 080000                          | 20200401                       | 20200801                      |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |

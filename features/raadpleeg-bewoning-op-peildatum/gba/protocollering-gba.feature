@@ -28,8 +28,8 @@ Functionaliteit: Protocolleer gebruik van BewoningMetPeildatum
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000001                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20200818                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200818                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -47,8 +47,8 @@ Functionaliteit: Protocolleer gebruik van BewoningMetPeildatum
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000001                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20200818                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200818                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -65,11 +65,11 @@ Functionaliteit: Protocolleer gebruik van BewoningMetPeildatum
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000001                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20200818                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200818                           |
       En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
-      | datum aanvang adreshouding (10.30) |
-      | 20200818                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200818                           |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
