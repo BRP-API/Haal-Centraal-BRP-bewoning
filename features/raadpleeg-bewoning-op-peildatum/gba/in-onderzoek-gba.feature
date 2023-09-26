@@ -15,7 +15,7 @@ Functionaliteit: indicatie verblijfplaats in onderzoek leveren bij een bewoner b
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000002                         |
 
-Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'datum aanvang adreshouding' gegevens van een persoon wordt vertaald naar het inOnderzoek veld van een bewoner met waarde true
+Rule: het in onderzoek zijn van de verblijfplaats wordt geleverd bij de bewoner
 
   Abstract Scenario: '<type>' is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -91,7 +91,7 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | 581180                  | identificatiecode verblijfplaats |
 
 
-Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het inOnderzoek veld met waarde true
+Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het inOnderzoek veld
 
   Abstract Scenario: 'hele categorie verblijfplaats' is in onderzoek en <scenario>
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -118,6 +118,7 @@ Rule: datum ingang onderzoek is niet relevant voor het wel/niet leveren van het 
     | 2020-03-31 | 2020-03-31 tot 2020-04-01 | peildatum ligt vóór datum ingang onderzoek |
     | 2020-04-01 | 2020-04-01 tot 2020-04-02 | peildatum ligt op datum ingang onderzoek   |
     | 2020-05-01 | 2020-05-01 tot 2020-05-02 | peildatum ligt na datum ingang onderzoek   |
+
 
 Rule: een beëindigd onderzoek wordt nooit vertaald naar het inOnderzoek veld, ook niet als de peildatum valt binnen de onderzoek periode
 
