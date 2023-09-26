@@ -14,17 +14,17 @@ Functionaliteit: raadpleeg bewoning op peildatum
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000002                         |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20160526                           |
     En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
     | land (13.10) | datum aanvang adres buitenland (13.20) | regel 1 adres buitenland (13.30) | regel 2 adres buitenland (13.40) | regel 3 adres buitenland (13.50) |
     | 5010         | 20230526                               | Rue du pomme 26                  | Bruxelles                        | postcode 1000                    |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20140808                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20140808                           |
 
 Rule: er wordt geen bewoning geleverd voor een adresseerbaar object dat niet is geregistreerd in de BRP
 
