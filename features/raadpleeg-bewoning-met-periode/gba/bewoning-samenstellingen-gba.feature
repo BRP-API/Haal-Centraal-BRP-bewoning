@@ -305,3 +305,41 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000048           |
+
+
+  Rule: meerdere aaneensluitende verblijfplaatsen op hetzelfde adresseerbaar object als gevolg van een correctie of wijziging, wordt als één bewoning gezien
+    
+    Scenario: <omschrijving>
+      Gegeven adres 'A4' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000004                         |
+      En adres 'A5' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000005                         |
+      En de persoon met burgerservicenummer '000000085' is ingeschreven op adres 'A4' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A5' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210526                           |
+      En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang volgende>           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2021-01-01         |
+      | datumTot                         | 2022-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000004   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2021-01-01 tot 2022-01-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000004          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000085           |
+
+      Voorbeelden:
+      | datum aanvang volgende | omschrijving                                                                         |
+      | 20210526               | datum aanvang is gelijk aan datum aanvang adres waar persoon nooit gewoond heeft     |
+      | 20100818               | datum aanvang is gelijk aan datum aanvang oorspronkelijke verblijf op gevraagd adres |

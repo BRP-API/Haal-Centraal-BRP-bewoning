@@ -185,3 +185,27 @@ Functionaliteit: raadpleeg bewoning van een gecorrigeerde verblijfplaats
       | peildatum                        | 2016-02-01           |
       | adresseerbaarObjectIdentificatie | 0800010000000002     |
       Dan heeft de response 0 bewoningen
+
+  Rule: wanneer datum aanvang volgende gelijk is aan of eerder ligt dan datum aanvang gevraagde verblijf, is de persoon er geen bewoner
+
+    Scenario: <scenario>
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210526                           |
+      En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang volgende>           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2021-05-26           |
+      | adresseerbaarObjectIdentificatie | 0800010000000002     |
+      Dan heeft de response 0 bewoningen
+
+      Voorbeelden:
+      | datum aanvang volgende | scenario                                                                       |
+      | 20210526               | datum aanvang volgende verblijf is gelijk aan datum aanvang gevraagde verblijf |
+      | 20201229               | datum aanvang volgende verblijf ligt voor datum aanvang gevraagde verblijf     |
