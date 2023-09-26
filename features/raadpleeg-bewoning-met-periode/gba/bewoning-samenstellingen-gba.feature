@@ -331,7 +331,7 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
       | periode                          | 2023-05-01 tot 2023-06-01 |
-      | adresseerbaarObjectIdentificatie | 0800010000000006          |
+      | adresseerbaarObjectIdentificatie | 9999010000000006          |
       En heeft de bewoning bewoners met de volgende gegevens
       | burgerservicenummer |
       | 000000085           |
