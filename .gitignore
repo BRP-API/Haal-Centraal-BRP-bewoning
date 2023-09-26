@@ -16,3 +16,5 @@ specificatie/**/README.md
 coverage*.json
 coverage*.xml
 coverage*.info
+
+src/config/Database
