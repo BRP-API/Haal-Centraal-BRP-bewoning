@@ -51,3 +51,9 @@ npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-op-peildatu
                 fout-cases.feature \
                 --tags "not @skip-verify" --tags "not @gba" \
                 --world-parameters "$PARAMS"
+
+npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-met-periode.json \
+                -f summary:docs/features/test-result-raadpleeg-bewoning-met-periode-summary.txt \
+                features/raadpleeg-bewoning-met-periode \
+                --tags "not @skip-verify" --tags "not @gba" \
+                --world-parameters "$PARAMS"
