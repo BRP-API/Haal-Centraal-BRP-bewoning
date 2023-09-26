@@ -4,7 +4,7 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 754 scenarios (143 failed, 611 passed)
+Totaal: 755 scenarios (144 failed, 611 passed)
 
 ## GBA v2.0.8
 
@@ -107,7 +107,7 @@ Totaal: 754 scenarios (143 failed, 611 passed)
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:72
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:73
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:74
-- [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 50 scenarios (43 failed, 7 passed)
+- [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 51 scenarios (44 failed, 7 passed)
     - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:33
     - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:46
     - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:65
@@ -148,6 +148,7 @@ Totaal: 754 scenarios (143 failed, 611 passed)
     - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:248
     - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:271
     - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:286
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-gba.feature:312
     - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:130
     - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:154
     - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:222
