@@ -19,17 +19,17 @@ Rule: een bewoning kan meerdere bewoners en/of mogelijke bewoners hebben
 
   Scenario: bewoning wordt gevraagd voor een periode dat ligt binnen het verblijf periode van meerdere personen op het adresseerbaar object
     Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200000                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200000                           |
     En de persoon met burgerservicenummer '000000072' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 00000000                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 00000000                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -38,7 +38,7 @@ Rule: een bewoning kan meerdere bewoners en/of mogelijke bewoners hebben
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | periode                          | 2020-01-01 tot 2021-07-01 |
+    | periode                          | 2020-01-01 tot 2021-01-01 |
     | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning bewoners met de volgende gegevens
     | burgerservicenummer |
@@ -48,16 +48,28 @@ Rule: een bewoning kan meerdere bewoners en/of mogelijke bewoners hebben
     | burgerservicenummer |
     | 000000048           |
     | 000000072           |
+    En heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | periode                          | 2021-01-01 tot 2021-07-01 |
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    En heeft de bewoning bewoners met de volgende gegevens
+    | burgerservicenummer |
+    | 000000012           |
+    | 000000024           |
+    | 000000048           |
+    En heeft de bewoning mogelijke bewoners met de volgende gegevens
+    | burgerservicenummer |
+    | 000000072           |
 
 Rule: er wordt geen bewoning geleverd voor een gevraagde periode voor een adresseerbaar object als er binnen die periode geen personen verblijven/hebben verbleven op het adresseerbaar object
 
   Scenario: bewoning wordt gevraagd voor een periode dat ligt na het laatste verblijf
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20160526                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -70,8 +82,8 @@ Rule: er wordt geen bewoning geleverd voor een deel van de gevraagde periode voo
 
   Scenario: bewoning wordt gevraagd voor een periode dat deels vóór de verblijf periode van een persoon op het adresseerbaar object ligt
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200818                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -90,14 +102,14 @@ Rule: er wordt voor een periode voor een adresseerbaar object meerdere bewoninge
 
   Scenario: bewoning wordt gevraagd voor een periode waarbinnen er eerst een tweede bewoner komt wonen en daarna de oorspronkelijke bewoner vertrekt
     Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20170818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20170818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20201103                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20201103                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20200526                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200526                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |

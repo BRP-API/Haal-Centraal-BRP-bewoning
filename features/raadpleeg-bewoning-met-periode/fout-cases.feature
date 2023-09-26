@@ -242,7 +242,7 @@ Rule: datumTot ligt na datumVan
     | code     | paramsValidation                                            |
     | instance | /haalcentraal/api/bewoning/bewoningen                       |
     En heeft het object de volgende 'invalidParams' gegevens
-    | code         | name     | reason                                  |
+    | code         | name     | reason                            |
     | invalidParam | datumTot | datumTot moet na datumVan liggen. |
 
     Voorbeelden:
@@ -258,7 +258,7 @@ Rule: Alleen gespecificeerde parameters bij het opgegeven raadpleeg type mogen w
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2023-01-01         |
-    | datumTot                         | 2023-01-01         |
+    | datumTot                         | 2023-01-02         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     | <parameter>                      | <waarde>           |
     Dan heeft de response een object met de volgende gegevens
