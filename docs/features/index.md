@@ -4,19 +4,121 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 755 scenarios (136 failed, 619 passed)
+Totaal: 755 scenarios (246 failed, 509 passed)
 
 ## GBA v2.0.10
 
 - [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 221 scenarios (221 passed)
-- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 265 scenarios (265 passed)
+- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 265 scenarios (102 failed, 163 passed)
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:23
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:58
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:105
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:140
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:184
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:221
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:265
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:299
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:344
+    - features/raadpleeg-bewoning-met-periode/gba/bewoning-samenstellingen-mogelijke-bewoners-gba.feature:389
+    - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:44
+    - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:130
+    - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:131
+    - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:132
+    - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:133
+    - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:134
+    - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:135
+    - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:136
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:34
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:35
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:55
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:81
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:99
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:143
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:169
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:197
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:303
+    - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:304
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:132
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:133
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:152
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:153
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:154
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:155
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:209
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:210
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:211
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:212
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:213
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:232
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:233
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:235
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:237
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:264
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:265
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:266
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:267
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:268
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:269
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:288
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:289
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:342
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:343
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:344
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:345
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:364
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:365
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:366
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:367
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:424
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:425
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:426
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:472
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:473
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:523
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:524
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:525
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:526
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:527
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:549
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:551
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:552
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:555
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:557
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:558
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:638
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:639
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:640
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:641
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:642
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:662
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:663
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:664
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:665
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:666
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:716
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:717
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:720
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:721
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:722
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:723
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:804
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:805
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:806
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:807
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:808
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:827
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:828
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:829
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:830
+    - features/raadpleeg-bewoning-met-periode/gba/onjuist-gba.feature:55
+    - features/raadpleeg-bewoning-met-periode/gba/overzicht-gba.feature:99
 - [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 51 scenarios (51 passed)
 - [Protocollering](./test-report-protocollering-gba.html){:target="_blank" rel="noopener"}: 7 scenarios (7 passed)
 
 
 ## Proxy v2.0.1
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (136 failed, 75 passed)
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (144 failed, 67 passed)
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:19
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:42
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:92
@@ -58,6 +160,9 @@ Totaal: 755 scenarios (136 failed, 619 passed)
     - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:121
     - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:122
     - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:123
+    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:32
+    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:54
+    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:92
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:38
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:39
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:40
@@ -67,11 +172,16 @@ Totaal: 755 scenarios (136 failed, 619 passed)
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:80
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:106
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:107
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:125
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:126
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:150
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:151
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:177
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:178
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:179
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:198
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:200
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:202
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:228
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:229
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:230
