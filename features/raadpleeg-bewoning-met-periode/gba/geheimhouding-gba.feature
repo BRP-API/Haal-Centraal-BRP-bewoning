@@ -19,11 +19,11 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
 
   Scenario: een persoon zonder geheimhouding is in de gevraagde periode ingeschreven op het aangegeven adresseerbaar object
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20160526                           |
     En de persoon heeft de volgende 'inschrijving' gegevens
     | naam                     | waarde |
     | indicatie geheim (70.10) | 0      |
@@ -43,11 +43,11 @@ Rule: indicatie geheim waarde 0 wordt niet geleverd
 
   Scenario: een persoon zonder geheimhouding en met onbekend datum aanvang adreshouding op het aangegeven adresseerbaar object en de gevraagde periode valt in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100800                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100800                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20160526                           |
     En de persoon heeft de volgende 'inschrijving' gegevens
     | naam                     | waarde |
     | indicatie geheim (70.10) | 0      |
@@ -69,11 +69,11 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt ongevraagd meegeleverd
 
   Abstract Scenario: een persoon met indicatie geheim <waarde>, is in de gevraagde periode ingeschreven op het aangegeven adresseerbaar object
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20160526                           |
     En de persoon heeft de volgende 'inschrijving' gegevens
     | naam                     | waarde   |
     | indicatie geheim (70.10) | <waarde> |
@@ -103,11 +103,11 @@ Rule: indicatie geheim met waarde hoger dan 0 wordt ongevraagd meegeleverd
 
   Abstract Scenario: een persoon met indicatie geheim <waarde> en met onbekend datum aanvang adreshouding op het aangegeven adresseerbaar object en de gevraagde periode valt in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100000                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100000                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20160526                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20160526                           |
     En de persoon heeft de volgende 'inschrijving' gegevens
     | naam                     | waarde   |
     | indicatie geheim (70.10) | <waarde> |

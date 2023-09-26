@@ -189,8 +189,15 @@ Given(/^adres '(.*)' is op '(.*)' geactualiseerd met de volgende gegevens$/, fun
 Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd met de volgende gegevens$/, function (adresId, ingangsdatum, dataTable) {
     let sqlData = this.context.sqlData.find(el => el['adres'] !== undefined);
 
-    const oudAdres = sqlData.adres[adresId];
-    should.exist(oudAdres, `geen adres gevonden met id '${adresId}'`);
+    const nieuwAdresIndex = Object.keys(sqlData['adres']).length;
+    infrastructureelWijzigenAdres(this.context, adresId, ingangsdatum, nieuwAdresIndex + 1 + '', dataTable);
+});
+
+function infrastructureelWijzigenAdres(context, sourceAdresId, ingangsdatum, targetAdresId, dataTable) {
+    let sqlData = context.sqlData.find(el => el['adres'] !== undefined);
+
+    const oudAdres = sqlData.adres[sourceAdresId];
+    should.exist(oudAdres, `geen adres gevonden met id '${sourceAdresId}'`);
     const adresIndex = oudAdres.index;
 
     const nieuwAdresIndex = Object.keys(sqlData['adres']).length;
@@ -204,12 +211,12 @@ Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd met de volgende geg
             nieuwAdresData.push(elem);
         }
     });
-    sqlData['adres'][nieuwAdresIndex + 1 + ''] = {
+    sqlData['adres'][targetAdresId] = {
         index: nieuwAdresIndex,
         data: nieuwAdresData
     };
 
-    this.context.sqlData.forEach(function(elem) {
+    context.sqlData.forEach(function(elem) {
         let verblijfplaats = elem['verblijfplaats']?.at(-1);
         if(verblijfplaats?.find(el => el[0] === 'adres_id' && el[1] === adresIndex + '') !== undefined) {
             elem['verblijfplaats'].forEach(function(data) {
@@ -232,6 +239,10 @@ Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd met de volgende geg
             elem.verblijfplaats.push(nieuwVerblijfplaatsData);
         }
     });
+}
+
+Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd naar adres '(.*)' met de volgende gegevens$/, function(sourceAdresId, ingangsdatum, targetAdresId, dataTable) {
+    infrastructureelWijzigenAdres(this.context, sourceAdresId, ingangsdatum, targetAdresId, dataTable);
 });
 
 Given(/^(?:adres|de adressen) '(.*)' (?:is|zijn) op '(.*)' samengevoegd tot adres '(.*)' met de volgende gegevens$/, function (sourceAdresIds, ingangsdatum, targetAdresId, dataTable) {
@@ -511,7 +522,9 @@ async function handleRequest(context, dataTable) {
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
 
     const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
-    if(!heeftAutorisatieSettings){
+    if (!heeftAutorisatieSettings &&
+        (context.createDefaultAutorisation === undefined || context.createDefaultAutorisation)
+       ) {
         let sqlData = context.sqlData.at(-1);
         sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
     }
@@ -550,7 +563,9 @@ async function handleCustomRequest(context, verb) {
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
 
     const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
-    if(!heeftAutorisatieSettings){
+    if (!heeftAutorisatieSettings &&
+        (context.createDefaultAutorisation === undefined || context.createDefaultAutorisation)
+       ) {
         let sqlData = context.sqlData.at(-1);
         sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
     }
@@ -634,6 +649,15 @@ Then(/^heeft de bewoning bewoners met de volgende gegevens$/, function (dataTabl
     should.exist(expectedBewoning, `geen bewoning om bewoners toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 
     expectedBewoning.bewoners = createObjectArrayFrom(dataTable, true);
+});
+
+Then(/^heeft de bewoning mogelijke bewoners met de volgende gegevens$/, function (dataTable) {
+    this.context.verifyResponse = true;
+
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om mogelijke bewoners toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    expectedBewoning.mogelijkeBewoners = createObjectArrayFrom(dataTable, true);
 });
 
 Then(/^heeft de bewoning een mogelijke bewoner met de volgende gegevens$/, function (dataTable) {
@@ -753,6 +777,10 @@ After({tags: '@fout-case'}, async function() {
     const expected = this.context.expected;
 
     actual.should.deep.equalInAnyOrder(expected, `actual: ${JSON.stringify(actual, null, '\t')}\nexpected: ${JSON.stringify(expected, null, '\t')}`);
+});
+
+Before({tags: '@autorisatie'}, async function() {
+    this.context.createDefaultAutorisation = false;
 });
 
 Before(function() {

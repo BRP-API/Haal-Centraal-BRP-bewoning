@@ -4,27 +4,28 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 460 scenarios (78 failed, 382 passed)
+Totaal: 755 scenarios (136 failed, 619 passed)
 
-## GBA v2.0.1
+## GBA v2.0.10
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 220 scenarios (1 failed, 219 passed)
-    - features/raadpleeg-bewoning-op-peildatum/gba/onjuist-gba.feature:172
-- [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 22 scenarios (7 failed, 15 passed)
-    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:135
-    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:161
-    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:186
-    - features/raadpleeg-bewoning-met-periode/gba/autorisatie-gba.feature:257
-    - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:130
-    - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:154
-    - features/raadpleeg-bewoning-op-peildatum/gba/autorisatie-gba.feature:222
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 221 scenarios (221 passed)
+- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 265 scenarios (265 passed)
+- [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 51 scenarios (51 passed)
 - [Protocollering](./test-report-protocollering-gba.html){:target="_blank" rel="noopener"}: 7 scenarios (7 passed)
 
 
 ## Proxy v2.0.1
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (70 failed, 141 passed)
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 211 scenarios (136 failed, 75 passed)
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:19
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:42
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:92
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:93
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:94
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:95
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:96
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:97
+    - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:98
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:125
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:126
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:127
@@ -32,47 +33,74 @@ Totaal: 460 scenarios (78 failed, 382 passed)
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:129
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:130
     - features/raadpleeg-bewoning-op-peildatum/geheimhouding.feature:131
-    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:32
-    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:54
-    - features/raadpleeg-bewoning-op-peildatum/infrastructureel-gewijzigd.feature:92
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:35
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:36
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:37
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:38
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:39
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:60
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:61
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:62
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:63
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:64
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:65
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:66
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:67
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:68
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:69
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:70
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:71
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:72
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:95
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:96
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:97
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:120
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:121
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:122
+    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:123
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:38
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:39
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:40
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:41
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:42
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:79
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:80
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:106
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:107
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:125
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:126
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:150
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:151
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:177
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:178
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:179
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:198
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:200
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:202
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:228
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:229
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:230
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:231
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:232
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:233
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:251
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:252
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:276
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:277
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:303
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:304
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:305
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:306
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:324
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:325
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:326
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:327
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:351
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:352
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:353
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:354
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:380
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:381
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:382
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:426
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:427
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:406
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:407
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:408
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:473
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:474
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:475
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:476
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:477
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:478
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:479
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:498
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:500
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:501
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:528
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:529
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:547
@@ -80,17 +108,48 @@ Totaal: 460 scenarios (78 failed, 382 passed)
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:574
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:575
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:576
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:595
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:597
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:599
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:625
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:626
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:627
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:628
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:679
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:680
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:681
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:726
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:727
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:728
     - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:729
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:747
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:748
-    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:749
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:773
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:774
+    - features/raadpleeg-bewoning-op-peildatum/mogelijke-bewoner.feature:775
+    - features/raadpleeg-bewoning-op-peildatum/nevenadres.feature:7
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:12
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:28
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:66
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:67
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:68
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:69
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:70
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:88
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:89
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:90
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:91
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:92
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:93
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:94
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:95
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:96
+    - features/raadpleeg-bewoning-op-peildatum/opschorting-bijhouding.feature:97
+    - features/raadpleeg-bewoning-op-peildatum/overzicht.feature:59
+    - features/raadpleeg-bewoning-op-peildatum/overzicht.feature:60
+    - features/raadpleeg-bewoning-op-peildatum/overzicht.feature:61
+    - features/raadpleeg-bewoning-op-peildatum/overzicht.feature:80
+    - features/raadpleeg-bewoning-op-peildatum/overzicht.feature:81
+    - features/raadpleeg-bewoning-op-peildatum/overzicht.feature:82
     - features/raadpleeg-bewoning-op-peildatum/overzicht.feature:107
     - features/raadpleeg-bewoning-op-peildatum/vastgesteld-verblijft-niet-op-adres.feature:11
+    - features/raadpleeg-bewoning-op-peildatum/veel-bewoners.feature:12
+    - features/raadpleeg-bewoning-op-peildatum/veel-bewoners.feature:31
     - features/raadpleeg-bewoning-op-peildatum/veel-bewoners.feature:50
+    - features/raadpleeg-bewoning-op-peildatum/veel-bewoners.feature:72
+    - features/raadpleeg-bewoning-op-peildatum/veel-bewoners.feature:86

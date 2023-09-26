@@ -13,17 +13,17 @@ Rule: een persoon ingeschreven op een nevenadres wordt gezien als bewoner van he
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800010000000001                         | 0800200022197986                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220818                           |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220818                           |
     Als gba bewoning wordt gezocht met de volgende parameters
-    | naam                             | waarde               |
+    | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
-    | datumVan                         | 2023-01-01           |
-    | datumTot                         | 2023-08-01           |
-    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    | datumVan                         | 2023-01-01         |
+    | datumTot                         | 2023-08-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2023-01-01 tot 2023-08-01 |
