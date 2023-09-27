@@ -18,8 +18,8 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
 
   Abstract Scenario: aanvang adreshouding is onbekend en peildatum ligt in de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -43,8 +43,8 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
 
   Abstract Scenario: aanvang adreshouding is deels onbekend en peildatum ligt vóór de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -59,8 +59,8 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
 
   Abstract Scenario: aanvang adreshouding is deels onbekend en peildatum ligt na onzekerheidsperiode adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -83,11 +83,11 @@ Rule: een persoon met onbekende aanvang adreshouding, en een bekende datum volge
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt na de onzekerheidsperiode van deels onbekende aanvang adreshouding en peildatum ligt in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -108,11 +108,11 @@ Rule: een persoon met onbekende aanvang adreshouding, en een bekende datum volge
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt na de onzekerheidsperiode van deels onbekende aanvang adreshouding en peildatum ligt op/na datum aanvang volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -127,11 +127,11 @@ Rule: een persoon met onbekende aanvang adreshouding, en een bekende datum volge
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt na de onzekerheidsperiode van deels onbekende aanvang adreshouding en peildatum ligt tussen de onzekerheidsperiode en datum aanvang volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -154,11 +154,11 @@ Rule: een persoon met bekende aanvang volgende adreshouding die in de onzekerhei
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt in de onzekerheidsperiode van onbekende adreshouding en peildatum ligt vóór datum aanvang volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -180,11 +180,11 @@ Rule: een persoon met bekende aanvang volgende adreshouding die in de onzekerhei
 
   Abstract Scenario: datum aanvang volgende adreshouding ligt in de onzekerheidsperiode van onbekende adreshouding en peildatum ligt op/na datum aanvang volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -205,11 +205,11 @@ Rule: een persoon met bekende aanvang adreshouding die niet in de onzekerheidspe
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekende aanvang volgend adreshouding en peildatum ligt in de onzekerheidsperiode van de volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -234,11 +234,11 @@ Rule: een persoon met bekende aanvang adreshouding die niet in de onzekerheidspe
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekende aanvang volgende adreshouding en peildatum ligt na de onzekerheidsperiode van de volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -253,11 +253,11 @@ Rule: een persoon met bekende aanvang adreshouding die niet in de onzekerheidspe
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekend aanvang volgende adreshouding en peildatum ligt vóór de onzekerheidsperiode van volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -280,11 +280,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang volgende adreshouding niet en peildatum ligt in één van de onzekerheidsperiodes
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -307,11 +307,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang volgende adreshouding niet en peildatum ligt na onzekerheidsperiode volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -328,11 +328,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang volgende adreshouding niet en peildatum ligt tussen de onzekerheidsperiodes
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -357,11 +357,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
   Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en peildatum ligt in de onzekerheidsperiode op/na datum aanvang adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -383,11 +383,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
   Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en peildatum ligt in de onzekerheidsperiode op datum aanvang adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -409,11 +409,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
   Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels onbekende aanvang volgende adreshouding en peildatum ligt na de onzekerheidperiode van volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -428,11 +428,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
   Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en peildatum ligt in de onzekerheidsperiode vóór datum aanvang adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20100818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -450,11 +450,11 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
 
   Abstract Scenario: persoon heeft onbekende aanvang adreshouding en deels/geheel overlappende onbekende aanvang volgende adreshouding en peildatum ligt tussen de eerste dag van de onzekerheidsperiode adreshouding en laatste dag van de onzekerheidsperiode volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -480,11 +480,11 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
 
   Abstract Scenario: persoon heeft onbekende aanvang adreshouding en deels/geheel overlappend onbekende aanvang volgende adreshouding en peildatum ligt of vóór de onzekerheidsperiode gevraagde adreshouding of na de onzekerheidsperiode volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)    |
-    | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -505,11 +505,11 @@ Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerh
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt vóór onzekerheidsperiode van deels onbekende aanvang adreshouding en peildatum ligt in de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -530,16 +530,16 @@ Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerh
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt vóór onzekerheidsperiode van deels onbekende aanvang adreshouding en peildatum ligt vóór de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
-    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    | adresseerbaarObjectIdentificatie | 0800010000000002     |
     Dan heeft de response 0 bewoningen
 
     Voorbeelden:
@@ -551,11 +551,11 @@ Rule: een persoon met bekend aanvang vorige adreshouding die in de onzekerheidsp
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt in onzekerheidsperiode van onbekende aanvang adreshouding en peildatum ligt in de onzekerheidsperiode van gevraagde adreshouding na datum aanvang vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -577,11 +577,11 @@ Rule: een persoon met bekend aanvang vorige adreshouding die in de onzekerheidsp
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt in onzekerheidsperiode van onbekende aanvang adreshouding en peildatum ligt in de onzekerheidsperiode van gevraagde adreshouding op of vóór datum aanvang vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -602,11 +602,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang vorige adreshouding niet en peildatum ligt in de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -629,11 +629,11 @@ Rule: een persoon met deels onbekende aanvang adreshouding, deels onbekende aanv
 
   Abstract Scenario: onzekerheidsperiode van deels onbekende aanvang adreshouding overlapt onzekerheidsperiode van deels onbekende aanvang vorige adreshouding niet en peildatum ligt vóór de onzekerheidsperiode van gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -656,11 +656,11 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
 
   Abstract Scenario: onzekerheidsperiode van adreshouding komt overeen met onzekerheidsperiode van vorige adreshouding en peildatum ligt in de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -682,11 +682,11 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
 
   Abstract Scenario: onzekerheidsperiode van adreshouding komt overeen met onzekerheidsperiode van vorige adreshouding en peildatum ligt vóór de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -699,15 +699,15 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
     | 20100000                          | 20100000                   | 2009-12-31 |
     | 20100500                          | 20100500                   | 2010-04-30 |
 
-Rule: een persoon met onbekend aanvang adreshouding, deels onbekende aanvang vorige adreshouding en deels/geheel overlappende onzekerheidsperiodes, is op peildatum een mogelijke bewoner als de peildatum in de onzekerheidsperiode van de vorige adreshouding na de onzekerheidsperiode van de vorige adreshouding ligt
+Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige adreshouding en deels/geheel overlappende onzekerheidsperiodes, is op peildatum een mogelijke bewoner als de peildatum in de onzekerheidsperiode van de vorige adreshouding na de onzekerheidsperiode van de vorige adreshouding ligt
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding geheel en peildatum ligt op/na de eerste dag van de onzekerheidsperiode van vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -730,11 +730,11 @@ Rule: een persoon met onbekend aanvang adreshouding, deels onbekende aanvang vor
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding geheel en peildatum ligt vóór de onzekerheidsperiode van vorige adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -750,11 +750,11 @@ Rule: een persoon met onbekend aanvang adreshouding, deels onbekende aanvang vor
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding deels en peildatum ligt in de onzekerheidsperiode van de gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
@@ -776,11 +776,11 @@ Rule: een persoon met onbekend aanvang adreshouding, deels onbekende aanvang vor
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding deels en peildatum ligt vóór de onzekerheidsperiode van de gevraagde adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30)  |
-    | <datum aanvang vorige adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
+    | 0800                              | <datum aanvang vorige adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |

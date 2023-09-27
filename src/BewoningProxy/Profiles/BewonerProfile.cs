@@ -28,7 +28,12 @@ public static class VerblijfplaatsInOnderzoekConverter
             "081000" or
             "081030" or
             "081100" or
-            "081180" => true,
+            "081180" or
+            "580000" or
+            "581000" or
+            "581030" or
+            "581100" or
+            "581180" => true,
             _ => false
         };
     }

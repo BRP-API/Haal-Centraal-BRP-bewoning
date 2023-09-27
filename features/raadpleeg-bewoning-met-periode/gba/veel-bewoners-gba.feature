@@ -102,6 +102,6 @@ Rule: indicatieVeelBewoners wordt geleverd wanneer er in een periode meer dan 10
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2020-08-18         |
-    | datumTot                         | 2021-01-01         |
+    | datumTot                         | 2020-09-01         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met 80 bewoners en 20 mogelijke bewoners
