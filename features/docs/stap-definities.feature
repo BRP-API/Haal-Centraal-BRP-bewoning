@@ -389,3 +389,123 @@ Rule: Gegeven de persoon met burgerservicenummer '<bsn>' heeft de volgende '<cat
     |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012   |
     |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum,onjuist_ind) VALUES($1,$2,$3,$4,$5)                          | 9999,4999,1,20230102,O |
     |      |                | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 9999,5000,0,20230800   |
+
+  Scenario: persoon heeft kind
+    Gegeven de persoon met burgerservicenummer '000000012' heeft een 'kind' met de volgende gegevens
+    | naam                  | waarde |
+    | geslachtsnaam (02.40) | Jansen |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie    | text                                                                                                                                                  | values               |
+    | 1    | inschrijving | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                    |
+    |      | persoon      | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012 |
+    |      | kind-1       | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,K,Jansen    |
+
+  Scenario: persoon heeft kind en inschrijving op een adres met identificatie
+    Gegeven adres 'A1' heeft de volgende gegevens
+    | straatnaam (11.10) |
+    | Boterdiep          |
+    En de persoon met burgerservicenummer '000000012' heeft een 'kind' met de volgende gegevens
+    | naam                  | waarde |
+    | geslachtsnaam (02.40) | Jansen |
+    En de persoon is ingeschreven op adres 'A1' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20230102                           |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie      | text                                                                                                                                                  | values               |
+    | 1    | adres-A1       | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                 | Boterdiep            |
+    | 2    | inschrijving   | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                    |
+    |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012 |
+    |      | kind-1         | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,K,Jansen    |
+    |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 9999,4999,0,20230102 |
+
+  Abstract Scenario: persoon heeft ouder
+    Gegeven de persoon met burgerservicenummer '000000012' heeft een ouder '<ouder-type>' met de volgende gegevens
+    | naam                  | waarde |
+    | geslachtsnaam (02.40) | Jansen |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie          | text                                                                                                                                                  | values                       |
+    | 1    | inschrijving       | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                            |
+    |      | persoon            | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012         |
+    |      | ouder-<ouder-type> | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,<ouder-type>,Jansen |
+
+    Voorbeelden:
+    | ouder-type |
+    | 1          |
+    | 2          |
+
+  Abstract Scenario: persoon heeft ouder en inschrijving op een adres met identificatie
+    Gegeven adres 'A1' heeft de volgende gegevens
+    | straatnaam (11.10) |
+    | Boterdiep          |
+    En de persoon met burgerservicenummer '000000012' heeft een ouder '<ouder-type>' met de volgende gegevens
+    | naam                  | waarde |
+    | geslachtsnaam (02.40) | Jansen |
+    En de persoon is ingeschreven op adres 'A1' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20230102                           |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie          | text                                                                                                                                                  | values                       |
+    | 1    | adres-A1           | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                 | Boterdiep                    |
+    | 2    | inschrijving       | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                            |
+    |      | persoon            | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012         |
+    |      | ouder-<ouder-type> | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,<ouder-type>,Jansen |
+    |      | verblijfplaats     | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 9999,4999,0,20230102         |
+
+    Voorbeelden:
+    | ouder-type |
+    | 1          |
+    | 2          |
+
+  Scenario: persoon heeft partner
+    Gegeven de persoon met burgerservicenummer '000000012' heeft een 'partner' met de volgende gegevens
+    | naam                  | waarde |
+    | geslachtsnaam (02.40) | Jansen |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie    | text                                                                                                                                                  | values               |
+    | 1    | inschrijving | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                    |
+    |      | persoon      | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012 |
+    |      | partner-1    | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,R,Jansen    |
+
+  Scenario: persoon heeft partner en inschrijving op een adres met identificatie
+    Gegeven adres 'A1' heeft de volgende gegevens
+    | straatnaam (11.10) |
+    | Boterdiep          |
+    En de persoon met burgerservicenummer '000000012' heeft een 'partner' met de volgende gegevens
+    | naam                  | waarde |
+    | geslachtsnaam (02.40) | Jansen |
+    En de persoon is ingeschreven op adres 'A1' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20230102                           |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie      | text                                                                                                                                                  | values               |
+    | 1    | adres-A1       | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                 | Boterdiep            |
+    | 2    | inschrijving   | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                    |
+    |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012 |
+    |      | partner-1      | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,R,Jansen    |
+    |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 9999,4999,0,20230102 |
+
+  Scenario: persoon heeft ouder, partner, kind en inschrijving op een adres met identificatie
+    Gegeven adres 'A1' heeft de volgende gegevens
+    | straatnaam (11.10) |
+    | Boterdiep          |
+    En de persoon met burgerservicenummer '000000012' heeft een ouder '1' met de volgende gegevens
+    | naam                  | waarde |
+    | geslachtsnaam (02.40) | Jansen |
+    En de persoon heeft een 'partner' met de volgende gegevens
+    | naam                  | waarde    |
+    | geslachtsnaam (02.40) | Pietersen |
+    En de persoon heeft een 'kind' met de volgende gegevens
+    | naam                  | waarde |
+    | geslachtsnaam (02.40) | Jansen |
+    En de persoon is ingeschreven op adres 'A1' met de volgende gegevens
+    | datum aanvang adreshouding (10.30) |
+    | 20230102                           |
+    Dan zijn de gegenereerde SQL statements
+    | stap | categorie      | text                                                                                                                                                  | values               |
+    | 1    | adres-A1       | INSERT INTO public.lo3_adres(adres_id,straat_naam) VALUES((SELECT COALESCE(MAX(adres_id), 0)+1 FROM public.lo3_adres),$1) RETURNING *                 | Boterdiep            |
+    | 2    | inschrijving   | INSERT INTO public.lo3_pl(pl_id,mutatie_dt,geheim_ind) VALUES((SELECT COALESCE(MAX(pl_id), 0)+1 FROM public.lo3_pl),current_timestamp,$1) RETURNING * | 0                    |
+    |      | persoon        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,burger_service_nr) VALUES($1,$2,$3,$4,$5)                                      | 9999,0,0,P,000000012 |
+    |      | ouder-1        | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,1,Jansen    |
+    |      | partner-1      | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,R,Pietersen |
+    |      | kind-1         | INSERT INTO public.lo3_pl_persoon(pl_id,stapel_nr,volg_nr,persoon_type,geslachts_naam) VALUES($1,$2,$3,$4,$5)                                         | 9999,0,0,K,Jansen    |
+    |      | verblijfplaats | INSERT INTO public.lo3_pl_verblijfplaats(pl_id,adres_id,volg_nr,adreshouding_start_datum) VALUES($1,$2,$3,$4)                                         | 9999,4999,0,20230102 |

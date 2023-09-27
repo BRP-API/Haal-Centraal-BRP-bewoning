@@ -73,6 +73,67 @@ Given(/^de persoon heeft de volgende '(.*)' gegevens$/, function (gegevensgroep,
     ];
 });
 
+function getNextStapelNr(sqlData, relatie) {
+    let stapelNr = 0;
+
+    Object.keys(sqlData).forEach(function(key) {
+        if(key.startsWith(relatie)){
+            stapelNr = Number(key.replace(`${relatie}-`, ''));
+        }
+    });
+
+    return stapelNr+1;
+}
+
+Given(/^de persoon met burgerservicenummer '(\d*)' heeft een '(\w*)' met de volgende gegevens$/, async function (burgerservicenummer, collectieGegevensgroep, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData["inschrijving"] = [[[ 'geheim_ind', '0' ]]];
+    sqlData["persoon"] = [
+        createCollectieDataFromArray("persoon", [
+            ['burger_service_nr', burgerservicenummer]
+        ])
+    ];
+    sqlData[`${collectieGegevensgroep}-${getNextStapelNr(sqlData, collectieGegevensgroep)}`] = [
+        createCollectieDataFromArray(collectieGegevensgroep, createArrayFrom(dataTable, columnNameMap))
+    ];
+});
+
+Given(/^de persoon heeft ?(?:nog)? een '?(?:ex-)?(\w*)' met ?(?:alleen)? de volgende gegevens$/, async function (relatie, dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    const stapelNr = getNextStapelNr(sqlData, relatie);
+    sqlData[`${relatie}-${stapelNr}`] = [
+        createCollectieDataFromArray(relatie, createArrayFrom(dataTable, columnNameMap), stapelNr-1)
+    ];
+});
+
+async function createPersoonMetOuder(burgerservicenummer, ouderType, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData["inschrijving"] = [[[ 'geheim_ind', '0' ]]];
+    sqlData["persoon"] = [
+        createCollectieDataFromArray("persoon", [
+            ['burger_service_nr', burgerservicenummer]
+        ])
+    ];
+    sqlData[`ouder-${ouderType}`] = [
+        createCollectieDataFromArray(ouderType, createArrayFrom(dataTable, columnNameMap))
+    ];
+}
+
+Given(/^de persoon met burgerservicenummer '(\d*)' heeft een ouder '(\d)' met de volgende gegevens$/, createPersoonMetOuder);
+
 Given(/^(?:de|het) '(.*)' is gecorrigeerd naar de volgende gegevens$/, async function (relatie, dataTable) {
     let sqlData = this.context.sqlData.at(-1);
 
@@ -327,6 +388,22 @@ Given(/^de persoon met burgerservicenummer '(\d*)' is ingeschreven op adres '(.*
     ];
 
     sqlData['inschrijving'] = [[[ 'geheim_ind', '0' ]]];
+
+    sqlData['verblijfplaats'] = [
+        [
+            [ 'adres_id', adresIndex + '' ],
+            [ 'volg_nr', '0']
+        ].concat(createArrayFrom(dataTable, columnNameMap))
+    ];
+});
+
+Given(/^de persoon is ingeschreven op adres '(.*)' met de volgende gegevens$/, function (adresId, dataTable) {
+    const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
+    should.exist(adressenData, 'geen adressen gevonden');
+    const adresIndex = adressenData.adres[adresId]?.index;
+    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
+
+    let sqlData = this.context.sqlData.at(-1);
 
     sqlData['verblijfplaats'] = [
         [
