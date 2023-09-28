@@ -340,6 +340,7 @@ Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adress
       | 000000085           |
 
       Voorbeelden:
-      | datum aanvang volgende | omschrijving                                                                         |
-      | 20210526               | datum aanvang is gelijk aan datum aanvang adres waar persoon nooit gewoond heeft     |
-      | 20100818               | datum aanvang is gelijk aan datum aanvang oorspronkelijke verblijf op gevraagd adres |
+      | datum aanvang volgende | omschrijving                                                                                                                               |
+      | 20210526               | datum aanvang is gelijk aan datum aanvang adres waar persoon nooit gewoond heeft                                                           |
+      | 20100818               | datum aanvang is gelijk aan datum aanvang oorspronkelijke verblijf op gevraagd adres                                                       |
+      | 20150321               | datum aanvang ligt tussen datum aanvang oorspronkelijke verblijf op gevraagd adres en datum aanvang adres waar persoon nooit gewoond heeft |
