@@ -109,3 +109,5 @@ Functionaliteit: Protocolleer gebruik van BewoningMetPeriode
       En heeft de persoon met burgerservicenummer '000000048' de volgende 'protocollering' gegevens
       | request_gevraagde_rubrieken | request_zoek_rubrieken |
       | 010120                      | 081030, 081180, 081320 |
+      En is voor de geauthenticeerde consumer '2' protocollering regels vastgelegd
+
