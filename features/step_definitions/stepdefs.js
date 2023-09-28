@@ -884,5 +884,10 @@ After(async function() {
         return;
     }
 
-    await rollbackSqlStatements(this.context.sqlData, pool, tableNameMap, logSqlStatements);
+    let deleteIndividualRecords = this.context.sql.deleteIndividualRecords;
+    if(deleteIndividualRecords === undefined) {
+        deleteIndividualRecords = true;
+    }
+
+    await rollbackSqlStatements(this.context.sqlData, pool, tableNameMap, logSqlStatements, deleteIndividualRecords);
 });

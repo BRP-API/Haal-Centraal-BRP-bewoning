@@ -55,7 +55,7 @@ async function executeSqlStatements(sqlData, pool, tableNameMap, logSqlStatement
     }
 }
 
-async function rollbackSqlStatements(sqlData, pool, tableNameMap, logSqlStatements) {
+async function rollbackSqlStatements(sqlData, pool, tableNameMap, logSqlStatements, deleteIndividualRecords) {
 
     const client = await pool.connect();
     try {
@@ -66,7 +66,7 @@ async function rollbackSqlStatements(sqlData, pool, tableNameMap, logSqlStatemen
                 adresData.push(sqlDataElement);
             }
             else {
-                await deleteRecords(client, sqlDataElement, tableNameMap, logSqlStatements);
+                await deleteRecords(client, sqlDataElement, tableNameMap, logSqlStatements, deleteIndividualRecords);
             }
         }
 
@@ -255,7 +255,7 @@ function equals(sqlData, adresData) {
            Object.keys(sqlData).every((v, i) => v === adresData[i])
 }
 
-async function deleteRecords(client, sqlData, tableNameMap, logSqlStatements) {
+async function deleteRecords(client, sqlData, tableNameMap, logSqlStatements, deleteIndividualRecords = true) {
     if(sqlData['inschrijving'] === undefined) {
         return;
     }
@@ -265,7 +265,9 @@ async function deleteRecords(client, sqlData, tableNameMap, logSqlStatements) {
         return;
     }
 
-    const id = Number(plIdElem[1]);
+    const id = deleteIndividualRecords
+        ? Number(plIdElem[1])
+        : undefined;
 
     for(const key of Object.keys(sqlData)) {
         if(tableNameMap.has(key)) {
@@ -297,8 +299,12 @@ function createDeleteStatement(tabelNaam, id, tableNameMap) {
     }
 
     const statement = {
-        text: `DELETE FROM public.${tableNameMap.get(tabelNaam)} WHERE ${naamId}=$1`,
-        values: [id]
+        text: id !== undefined
+            ? `DELETE FROM public.${tableNameMap.get(tabelNaam)} WHERE ${naamId}=$1`
+            : `DELETE FROM public.${tableNameMap.get(tabelNaam)}`,
+        values: id !== undefined
+            ? [id]
+            : []
     };
 
     return statement;

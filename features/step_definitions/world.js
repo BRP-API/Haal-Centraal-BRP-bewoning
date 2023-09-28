@@ -7,6 +7,7 @@ class World {
             useDb: true,
             logStatements: false,
             cleanup: true,
+            deleteIndividualRecords: false,
             poolConfig: {
                 user: "",
                 host: "",
