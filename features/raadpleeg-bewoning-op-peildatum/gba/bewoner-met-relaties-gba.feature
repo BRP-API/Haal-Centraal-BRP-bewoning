@@ -1,7 +1,7 @@
 # language: nl
 
 @gba
-Functionaliteit: bepalen van de bewoner bij personen met kind, ouder en/of partner relaties
+Functionaliteit: bepalen van de bewoner op peildatum bij personen met kind, ouder en/of partner relaties
 
   Als consumer van de bewoner API
   wil ik dat voor een bewoner met kind, ouder en/of partner relaties
@@ -25,14 +25,13 @@ Functionaliteit: bepalen van de bewoner bij personen met kind, ouder en/of partn
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20210102                           |
     Als gba bewoning wordt gezocht met de volgende parameters
-    | naam                             | waarde             |
-    | type                             | BewoningMetPeriode |
-    | datumVan                         | 2022-01-01         |
-    | datumTot                         | 2022-03-01         |
-    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2022-01-01           |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
-    | periode                          | 2022-01-01 tot 2022-03-01 |
+    | periode                          | 2022-01-01 tot 2022-01-02 |
     | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
@@ -61,14 +60,13 @@ Functionaliteit: bepalen van de bewoner bij personen met kind, ouder en/of partn
       | naam                        | waarde    |
       | burgerservicenummer (01.20) | 000000073 |
       Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde             |
-      | type                             | BewoningMetPeriode |
-      | datumVan                         | 2021-01-01         |
-      | datumTot                         | 2022-01-01         |
-      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2021-01-01           |
+      | adresseerbaarObjectIdentificatie | 0800010000000001     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
-      | periode                          | 2021-01-01 tot 2022-01-01 |
+      | periode                          | 2021-01-01 tot 2021-01-02 |
       | adresseerbaarObjectIdentificatie | 0800010000000001          |
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
@@ -97,14 +95,13 @@ Functionaliteit: bepalen van de bewoner bij personen met kind, ouder en/of partn
       | naam                  | waarde |
       | geslachtsnaam (02.40) | kind   |
       Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde             |
-      | type                             | BewoningMetPeriode |
-      | datumVan                         | 2021-01-01         |
-      | datumTot                         | 2022-01-01         |
-      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | 2021-01-01           |
+      | adresseerbaarObjectIdentificatie | 0800010000000001     |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
-      | periode                          | 2021-01-01 tot 2022-01-01 |
+      | periode                          | 2021-01-01 tot 2021-01-02 |
       | adresseerbaarObjectIdentificatie | 0800010000000001          |
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
