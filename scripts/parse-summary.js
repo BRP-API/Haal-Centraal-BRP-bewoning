@@ -8,7 +8,8 @@ const gbaFeatures = [
 ];
 
 const proxyFeatures = [
-    'Raadpleeg bewoning op peildatum'
+    'Raadpleeg bewoning op peildatum',
+    'Raadpleeg bewoning met periode'
 ];
 
 function getSummaryFiles(src) {
