@@ -599,6 +599,32 @@ async function createOuder(ouderType, dataTable) {
 
 Given(/^de persoon heeft een ouder '(\d)' met de volgende gegevens$/, createOuder);
 
+Given(/^(?:de|een) persoon met burgerservicenummer '(\d*)' heeft de volgende gegevens$/, function (burgerservicenummer, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData["inschrijving"] = [[[ 'geheim_ind', '0' ]]];
+    sqlData["persoon"] = [
+        createCollectieDataFromArray("persoon", [
+            ['burger_service_nr', burgerservicenummer]
+        ]).concat(createArrayFrom(dataTable, columnNameMap))
+    ];
+});
+
+Given(/^de persoon is gewijzigd naar de volgende gegevens$/, function (dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['persoon'].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+    sqlData['persoon'].push(createCollectieDataFromArray('persoon', createArrayFrom(dataTable, columnNameMap)));
+});
+
 async function handleRequest(context, dataTable) {
     if(context.sqlData === undefined) {
         context.sqlData = [{}];
