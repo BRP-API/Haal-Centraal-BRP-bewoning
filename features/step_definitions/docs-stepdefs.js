@@ -76,7 +76,7 @@ Then(/^zijn de gegenereerde SQL statements$/, function(dataTable) {
 
                 const re = /(?<type>.*)-(?<typeid>.*)/;
                 const found = categorie.match(re);
-                const actual = found
+                const actual = found && !['kind', 'ouder', 'partner'].find((i) => i === found.groups.type)
                     ? sqlDatas[currentStep][found.groups.type][found.groups.typeid]?.data
                     : sqlDatas[currentStep][categorie][index];
                 should.exist(actual, `categorie: ${categorie}`);
@@ -103,7 +103,7 @@ Then(/^zijn de gegenereerde SQL statements$/, function(dataTable) {
                         ].concat(actual), tableNameMap);
                     break;
                     default:
-                        statement = insertIntoStatement(categorie, [
+                        statement = insertIntoStatement(categorie.replace(/-.*$/, ''), [
                             ['pl_id', sqlDataIds.plIds[currentPlIndex]+'']
                         ].concat(actual), tableNameMap);
                         break;

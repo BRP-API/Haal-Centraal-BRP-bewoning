@@ -1,6 +1,6 @@
 # language: nl
 
-@gba @autorisatie
+@gba
 Functionaliteit: Elke wijziging van de samenstelling van bewoners van een adresseerbaar object leidt tot een bewoning
 
   Achtergrond:

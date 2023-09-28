@@ -7,6 +7,9 @@ const tableNameMap = new Map([
     ['gemeente', 'lo3_gemeente'],
     ['gezagsverhouding', 'lo3_pl_gezagsverhouding'],
     ['inschrijving', 'lo3_pl'],
+    ['kind', 'lo3_pl_persoon'],
+    ['ouder', 'lo3_pl_persoon'],
+    ['partner', 'lo3_pl_persoon'],
     ['persoon', 'lo3_pl_persoon' ],
     ['protocollering', 'haalcentraal_vraag'],
     ['verblijfplaats', 'lo3_pl_verblijfplaats'],
@@ -14,6 +17,10 @@ const tableNameMap = new Map([
 ]);
 
 const columnNameMap = new Map([
+
+    ['burgerservicenummer (01.20)', 'burger_service_nr' ],
+
+    ['geslachtsnaam (02.40)', 'geslachts_naam' ],
 
     ['gemeente van inschrijving (09.10)', 'inschrijving_gemeente_code'],
 
