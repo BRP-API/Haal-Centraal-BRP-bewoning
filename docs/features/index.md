@@ -4,7 +4,7 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 870 scenarios (5 failed, 865 passed)
+Totaal: 870 scenarios (6 failed, 864 passed)
 
 ## GBA v2.0.11
 
@@ -16,7 +16,8 @@ Totaal: 870 scenarios (5 failed, 865 passed)
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:102
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:103
 - [Autorisatie](./test-report-autorisatie-gba.html){:target="_blank" rel="noopener"}: 39 scenarios (39 passed)
-- [Protocollering](./test-report-protocollering-gba.html){:target="_blank" rel="noopener"}: 7 scenarios (7 passed)
+- [Protocollering](./test-report-protocollering-gba.html){:target="_blank" rel="noopener"}: 7 scenarios (1 failed, 6 passed)
+    - features/raadpleeg-bewoning-met-periode/gba/protocollering-gba.feature:90
 
 
 ## Proxy v2.0.2
