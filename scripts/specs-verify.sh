@@ -7,6 +7,7 @@ CLIENTID=$4
 CLIENTSECRET=$5
 
 PARAMS="{ \
+  \"deleteIndividualRecords\": false, \
   \"poolConfig\": { \
     \"host\": \"${DBHOST}\", \
     \"user\": \"${DBUSER}\", \

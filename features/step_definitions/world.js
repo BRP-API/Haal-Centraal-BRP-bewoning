@@ -7,7 +7,7 @@ class World {
             useDb: true,
             logStatements: false,
             cleanup: true,
-            deleteIndividualRecords: false,
+            deleteIndividualRecords: true,
             poolConfig: {
                 user: "",
                 host: "",
@@ -29,6 +29,9 @@ class World {
                     resourceServer: "ResourceServer02"
                 }
             ]
+        }
+        if(this.context.parameters?.deleteIndividualRecords !== undefined) {
+            this.context.sql.deleteIndividualRecords = this.context.parameters.deleteIndividualRecords;
         }
         if(this.context.parameters?.poolConfig !== undefined) {
             this.context.sql.poolConfig.host = this.context.parameters.poolConfig.host;
