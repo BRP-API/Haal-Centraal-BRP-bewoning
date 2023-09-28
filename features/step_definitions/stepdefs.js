@@ -589,6 +589,16 @@ Given(/^de inschrijving is vervolgens gecorrigeerd als een inschrijving op adres
     ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
+async function createOuder(ouderType, dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData[`ouder-${ouderType}`] = [
+        createCollectieDataFromArray(ouderType, createArrayFrom(dataTable, columnNameMap))
+    ];
+}
+
+Given(/^de persoon heeft een ouder '(\d)' met de volgende gegevens$/, createOuder);
+
 async function handleRequest(context, dataTable) {
     if(context.sqlData === undefined) {
         context.sqlData = [{}];
