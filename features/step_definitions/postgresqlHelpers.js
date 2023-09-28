@@ -75,6 +75,7 @@ async function rollbackSqlStatements(sqlData, pool, tableNameMap, logSqlStatemen
         }
         await deleteGemeenteRecords(client, sqlData.find(el => el['gemeente'] !== undefined), tableNameMap, logSqlStatements);
         await deleteAutorisatieRecords(client, tableNameMap, logSqlStatements);
+        await deleteProtocolleringRecords(client, tableNameMap, logSqlStatements);
     }
     catch(ex) {
         console.log(ex.stack);
@@ -361,6 +362,17 @@ async function deleteGemeenteRecords(client, sqlData, tableNameMap, logSqlStatem
 
         await client.query(sqlStatement);
     }
+}
+
+async function deleteProtocolleringRecords(client, tableNameMap, logSqlStatements) {
+    const statement = {
+        text: `DELETE FROM public.${tableNameMap.get('protocollering')}`,
+        values: []
+    };
+
+    logIf(statement, logSqlStatements);
+
+    await client.query(statement);
 }
 
 module.exports = {

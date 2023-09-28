@@ -798,6 +798,42 @@ Then(/^heeft de persoon met burgerservicenummer '(.*)' de volgende '(.*)' gegeve
     }
 });
 
+Then(/^is voor de geauthenticeerde consumer '(\d*)' protocollering regels vastgelegd$/, async function (aantal) {
+    this.context.verifyResponse = false;
+
+    const tabelNaam = 'protocollering';
+    const afnemerId = this.context.afnemerId ?? this.context.oAuth?.clients[0].afnemerID;
+
+    if (pool !== undefined) {
+        let res;
+        let client;
+        try {
+            let tableName = tableNameMap.get(tabelNaam);
+            if(tableName === undefined) {
+                tableName = tabelNaam;
+            }
+            const sql = `SELECT COUNT(*) FROM public.${tableName} WHERE afnemer_code=${afnemerId}`;
+
+            client = await pool.connect();
+            res = await client.query(sql);
+        }
+        catch(ex) {
+            console.log(ex);
+        }
+        finally {
+            if(client !== undefined){
+                client.release();
+            }
+        }
+
+        should.exist(res);
+        res.rows.length.should.equal(1, `Geen ${tabelNaam} gegevens gevonden voor afnemer met code ${afnemerId}`);
+
+        const actual = res.rows[0];
+        actual['count'].should.equal(aantal);
+    }
+});
+
 Then(/^heeft de response (\d*) (?:bewoning|bewoningen)$/, function (aantal) {
     this.context?.response?.status?.should.equal(200, `response body: ${JSON.stringify(this.context.response.data, null, '\t')}`);
 
