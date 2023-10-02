@@ -111,3 +111,35 @@ Functionaliteit: Protocolleer gebruik van BewoningMetPeriode
       | 010120                      | 081030, 081180, 081320 |
       En is voor de geauthenticeerde consumer '2' protocollering regels vastgelegd
 
+    Scenario: Persoon vertrekt en komt weer terugwonen binnen dezelfde periode
+      Gegeven adres 'A1' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000001                         |
+      En adres 'A2' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000002                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20220526                           |
+      En de persoon is vervolgens ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20221014                           |
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20220818                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de persoon met burgerservicenummer '000000024' de volgende 'protocollering' gegevens
+      | request_gevraagde_rubrieken | request_zoek_rubrieken |
+      | 010120                      | 081030, 081180, 081320 |
+      En heeft de persoon met burgerservicenummer '000000048' de volgende 'protocollering' gegevens
+      | request_gevraagde_rubrieken | request_zoek_rubrieken |
+      | 010120                      | 081030, 081180, 081320 |
+      En is voor de geauthenticeerde consumer '2' protocollering regels vastgelegd
