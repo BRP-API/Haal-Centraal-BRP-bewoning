@@ -111,7 +111,7 @@ Functionaliteit: Protocolleer gebruik van BewoningMetPeriode
       | 010120                      | 081030, 081180, 081320 |
       En is voor de geauthenticeerde consumer '2' protocollering regels vastgelegd
 
-    Scenario: Persoon vertrekt en komt weer terugwonen binnen dezelfde periode
+    Scenario: Persoon vertrekt en komt weer terugwonen binnen de gevraagde periode
       Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000001                         |
