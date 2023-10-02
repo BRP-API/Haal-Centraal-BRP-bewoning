@@ -110,7 +110,7 @@ Functionaliteit: bepalen van de bewoner bij personen met kind, ouder en/of partn
       | burgerservicenummer |
       | 000000012           |
 
-    Scenario: gegevens van de persoon zijn gewijzigd      
+    Scenario: gegevens van de persoon zijn gewijzigd
       Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000001                         |
@@ -119,7 +119,7 @@ Functionaliteit: bepalen van de bewoner bij personen met kind, ouder en/of partn
       | aanduiding naamgebruik (61.10) | E      |
       En de persoon is gewijzigd naar de volgende gegevens
       | naam                           | waarde    |
-      | burgerservicenummer (01.20)    | 000000012 |
+      | burgerservicenummer (01.20)    | 000000024 |
       | aanduiding naamgebruik (61.10) | V         |
       En de persoon is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -136,4 +136,4 @@ Functionaliteit: bepalen van de bewoner bij personen met kind, ouder en/of partn
       | adresseerbaarObjectIdentificatie | 0800010000000001          |
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
-      | 000000012           |
+      | 000000024           |
