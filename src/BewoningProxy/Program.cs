@@ -16,7 +16,7 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Logging.ClearProviders();
-    builder.Host.UseSerilog(SerilogHelpers.Configure());
+    builder.Host.UseSerilog(SerilogHelpers.Configure(Log.Logger));
 
     builder.Configuration.AddJsonFile(Path.Combine("configuration", "ocelot.json"))
                          .AddJsonFile(Path.Combine("configuration", $"ocelot.{builder.Environment.EnvironmentName}.json"), true)
@@ -30,7 +30,10 @@ try
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
-    app.UseSerilogRequestLogging();
+    app.UseSerilogRequestLogging(options =>
+    {
+        options.GetLevel = CustomRequestLoggingOptions.GetLevel;
+    });
 
     app.UseMiddleware<OverwriteResponseBodyMiddleware>();
     app.UseOcelot().Wait();

@@ -49,7 +49,27 @@ public class OverwriteResponseBodyMiddleware
             return false;
         }
 
-        BewoningenQuery? bewoningenQuery = JsonConvert.DeserializeObject<BewoningenQuery>(requestBody);
+        BewoningenQuery? bewoningenQuery;
+        try
+        {
+            bewoningenQuery = JsonConvert.DeserializeObject<BewoningenQuery>(requestBody);
+        }
+        catch (JsonSerializationException ex)
+        {
+            problemJson = await context.HandleJsonDeserializeException(ex, orgBodyStream);
+            _diagnosticContext.SetException(ex);
+            _diagnosticContext.Set("response.body", problemJson, true);
+
+            return false;
+        }
+        catch (JsonReaderException ex)
+        {
+            problemJson = await context.HandleJsonDeserializeException(ex, orgBodyStream);
+            _diagnosticContext.SetException(ex);
+            _diagnosticContext.Set("response.body", problemJson, true);
+
+            return false;
+        }
 
         var validationResult = bewoningenQuery.Validate(requestBody);
         if (!validationResult.IsValid)
@@ -102,8 +122,9 @@ public class OverwriteResponseBodyMiddleware
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Unhandled exception: {message}", ex.Message);
-            await context.HandleUnhandledException(orgBodyStream);
+            var problemJson = await context.HandleUnhandledException(orgBodyStream);
+            _diagnosticContext.SetException(ex);
+            _diagnosticContext.Set("response.body", problemJson, true);
         }
     }
 }

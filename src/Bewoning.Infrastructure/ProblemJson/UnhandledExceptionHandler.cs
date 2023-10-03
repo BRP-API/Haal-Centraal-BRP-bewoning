@@ -18,7 +18,7 @@ public static class UnhandledExceptionHandler
         };
     }
 
-    public static async Task HandleUnhandledException(this HttpContext context, System.IO.Stream orgResponseBodyStream)
+    public static async Task<Foutbericht> HandleUnhandledException(this HttpContext context, System.IO.Stream orgResponseBodyStream)
     {
         var message = context.CreateInternalServerErrorFoutbericht();
 
@@ -27,6 +27,8 @@ public static class UnhandledExceptionHandler
         context.Response.SetHeaderPropertiesFrom(message, bodyStream);
 
         await bodyStream.CopyToAsync(orgResponseBodyStream);
+
+        return message;
     }
 
     public static void SetHeaderPropertiesFrom(this HttpResponse response, Foutbericht foutbericht, System.IO.Stream bodyStream)
