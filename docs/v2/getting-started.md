@@ -23,13 +23,13 @@ De [functionele documentatie](./features-overzicht) van de '{{ site.apiname }}' 
 
 ## Probeer de API in de proef omgeving
 
-Je kunt de '{{ site.apiname }}' Web API uitproberen in de proef omgeving. De API is te bevragen op de volgende endpoint: [{{ site.proefProxyUrl }}/haalcentraal/api/bewoning/bewoningen]({{ site.proefProxyUrl }}/haalcentraal/api/bewoning/bewoningen). Hiervoor heb je een apikey nodig.
+Je kunt de '{{ site.apiname }}' Web API uitproberen in de proef omgeving. Bevraag de API op het volgende endpoint: [{{ site.proefProxyUrl }}/haalcentraal/api/bewoning/bewoningen]({{ site.proefProxyUrl }}/haalcentraal/api/bewoning/bewoningen). Hiervoor heb je een apikey nodig.
 
 De proef omgeving ontsluit de bewoning van adresseerbaar objecten die voorkomen in de [Testdataset Basisregistratie Personen](https://www.rvig.nl/Testdataset-persoonslijsten-proefomgevingen-GBA-V.ods){:target="_blank" rel="noopener"}
 
 Vraag een apikey aan bij de [product owner](mailto:{{ site.PO-email }}) of gebruik de apikey die is uitgereikt op de API Labs.
 
-Met behulp van het volgende curl statement wordt op basis van een adresseerbaar object identificatie en peildatum de bewoning van het adresseerbaar object op de peildatum opgehaald
+Met behulp van het volgende curl statement wordt op basis van een adresseerbaar object identificatie en peildatum de bewoning van het adresseerbaar object op de peildatum opgehaald:
 
 ```sh
 
@@ -57,7 +57,7 @@ Door wettelijke restricties kan de '{{ site.apiname }}' Web API bepaalde bewerki
 
 De '{{ site.apiname }}' Proxy is een containerized applicatie die in de omgeving van een consumer moet worden gehost. Bevragingen van de '{{ site.apiname }}' Web API moet naar de '{{ site.apiname }}' Proxy worden gestuurd, zodat deze de bevragingen kan routeren naar de GBA variant van de '{{ site.apiname }}' Web API. Responses van deze Web API worden getransformeerd naar responses conform de {{ site.apiname }} [OAS3 specificatie]({{ site.v2SpecUrl }}){:target="_blank" rel="noopener"} voordat deze naar de bevrager worden gestuurd.
 
-Onderstaand figuur is een globale illustratie van de communicatie tussen een consumer applicatie en een Haal Centraal Web API.
+Onderstaand figuur is een globale illustratie van de communicatie tussen een consumer applicatie en een BRP Web API.
 
 ![Haal Centraal Communicatie Globaal Overview](../img/haal-centraal-communicatie-globaal-overview.png)
 
@@ -76,7 +76,7 @@ docker-compose up -d
 
 Behalve de '{{ site.apiname }}' Proxy wordt lokaal ook een mock van de GBA variant van de '{{ site.apiname }}' Web API opgestart. De mock maakt het mogelijk om lokaal zonder apikey de functionaliteit van de '{{ site.apiname }}' Web API uit te proberen.
 
-Met behulp van het volgende curl statement wordt op basis van een adresseerbaar object identificatie en peildatum de bewoning van het adresseerbaar object op de peildatum via de '{{ site.apiname }}' Proxy bij de mock opgehaald
+Met behulp van het volgende curl statement wordt op basis van een adresseerbaar object identificatie en peildatum de bewoning van het adresseerbaar object op de peildatum via de '{{ site.apiname }}' Proxy bij de mock opgehaald:
 
 ```sh
 
@@ -120,7 +120,7 @@ kubectl apply -f .k8s/proxy-deployment.yaml \
 
 Behalve de '{{ site.apiname }}' Proxy wordt lokaal ook een mock van de GBA variant van de '{{ site.apiname }}' Web API opgestart. De mock maakt het mogelijk om lokaal zonder apikey de functionaliteit van de '{{ site.apiname }}' Web API uit te proberen.
 
-Met behulp van het volgende curl statement wordt op basis van een adresseerbaar object identificatie en peildatum de bewoning van het adresseerbaar object op de peildatum via de '{{ site.apiname }}' Proxy bij de mock opgehaald
+Met behulp van het volgende curl statement wordt op basis van een adresseerbaar object identificatie en peildatum de bewoning van het adresseerbaar object op de peildatum via de '{{ site.apiname }}' Proxy bij de mock opgehaald:
 
 ```sh
 
@@ -195,7 +195,7 @@ docker-compose up -d
 
 ```
 
-Met behulp van het volgende curl statement wordt op basis van een adresseerbaar object identificatie en peildatum de bewoning van het adresseerbaar object op peildatum via de '{{ site.apiname }}' Proxy bij de GBA variant van de '{{ site.apiname }}' Web API in de proef omgeving opgehaald
+Met behulp van het volgende curl statement wordt op basis van een adresseerbaar object identificatie en peildatum de bewoning van het adresseerbaar object op peildatum via de '{{ site.apiname }}' Proxy bij de GBA variant van de '{{ site.apiname }}' Web API in de proef omgeving opgehaald:
 
 ```sh
 
