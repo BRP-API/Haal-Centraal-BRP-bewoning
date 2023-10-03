@@ -17,9 +17,9 @@ De '{{ site.apiname }}' Web API biedt functionaliteit om de bewoning van een adr
 
 De '{{ site.apiname }}' Web API is gespecificeerd met behulp van de [OpenAPI Specification v3.0.3](https://spec.openapis.org/oas/v3.0.3){:target="_blank" rel="noopener"}.
 
-De OAS3 specificatie van de '{{ site.apiname }}' Web API kan worden bekeken met behulp van [Redoc](./redoc).
+Je kunt de OAS3 specificatie van de '{{ site.apiname }}' Web API bekijken met behulp van [Redoc](./redoc).
 
-De [functionele documentatie](./features-overzicht) van de '{{ site.apiname }}' Web API vindt je in de [features overzicht](./features-overzicht).
+De [functionele documentatie](./features-overzicht) van de '{{ site.apiname }}' Web API vind je in de [features overzicht](./features-overzicht).
 
 ## Probeer de API in de proef omgeving
 
