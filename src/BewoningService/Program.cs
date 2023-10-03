@@ -13,7 +13,7 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Logging.ClearProviders();
-    builder.Host.UseSerilog(SerilogHelpers.Configure());
+    builder.Host.UseSerilog(SerilogHelpers.Configure(Log.Logger));
 
     // Add services to the container.
 
