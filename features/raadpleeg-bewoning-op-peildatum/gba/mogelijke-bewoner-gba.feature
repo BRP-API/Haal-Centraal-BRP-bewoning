@@ -628,7 +628,7 @@ Rule: een persoon met bekend aanvang vorige adreshouding die in de onzekerheidsp
 
 Rule: een persoon met bekend aanvang vorige adreshouding en bekende aanvang volgende adreshouding die beide in de onzekerheidsperiode van de onbekende aanvang adreshouding ligt, is op peildatum een mogelijke bewoner als de peildatum in de onzekerheidsperiode na de datum aanvang vorige adreshouding en voor datum aanvang volgende adreshouding ligt
 
-Abstract Scenario: datum aanvang vorige adreshouding en datum aanvang volgende adreshouding liggen in onzekerheidsperiode van onbekende aanvang adreshouding en peildatum ligt in de onzekerheidsperiode van gevraagde adreshouding na datum aanvang vorige adreshouding en voor aanvang volgende adreshouding
+  Abstract Scenario: datum aanvang vorige adreshouding en datum aanvang volgende adreshouding liggen in onzekerheidsperiode van onbekende aanvang adreshouding en peildatum ligt in de onzekerheidsperiode van gevraagde adreshouding na datum aanvang vorige adreshouding en voor aanvang volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)  |
     | 0800                              | <datum aanvang vorige adreshouding> |
