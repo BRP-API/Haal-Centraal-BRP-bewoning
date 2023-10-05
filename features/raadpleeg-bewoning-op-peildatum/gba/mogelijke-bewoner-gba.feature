@@ -202,6 +202,32 @@ Rule: een persoon met bekende aanvang volgende adreshouding die in de onzekerhei
     | 00000000                   | 20100101                            | 2010-01-01 |
     | 00000000                   | 20100101                            | 2010-01-02 |
 
+  Abstract Scenario: datum aanvang volgende adreshouding ligt in de onzekerheidsperiode van onbekende adreshouding en peildatum ligt op/na datum aanvang volgende adreshouding en er is opschorting bijhouding na de onzekerheidsperiode
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
+    En de persoon heeft de volgende 'inschrijving' gegevens
+    | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+    | 20120730                             | O                                    |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | <peildatum>          |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    Dan heeft de response 0 bewoningen
+
+    Voorbeelden:
+    | datum aanvang adreshouding | datum aanvang volgende adreshouding | peildatum  |
+    | 20100800                   | 20100821                            | 2010-08-21 |
+    | 20100800                   | 20100821                            | 2011-05-26 |
+    | 20100000                   | 20101001                            | 2010-10-01 |
+    | 20100000                   | 20101001                            | 2011-05-26 |
+    | 00000000                   | 20100101                            | 2010-01-01 |
+    | 00000000                   | 20100101                            | 2011-05-26 |
+
 Rule: een persoon met bekende aanvang adreshouding die niet in de onzekerheidsperiode van de deels onbekende aanvang volgende adreshouding ligt, is op peildatum een mogelijke bewoner als de peildatum in de onzekerheidsperiode van het volgende adreshouding ligt
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekende aanvang volgend adreshouding en peildatum ligt in de onzekerheidsperiode van de volgende adreshouding
