@@ -1,6 +1,5 @@
 ﻿using Bewoning.Validatie.Interfaces;
 using FluentValidation;
-using System.Globalization;
 
 namespace Bewoning.Validatie.Validators;
 
@@ -26,7 +25,7 @@ public class BewoningMetPeildatumQueryValidator : AbstractValidator<IBewoningMet
             .Matches(DatePattern).WithMessage(DateErrorMessage)
             .Custom((peildatum, context) =>
             {
-                if(!DateTime.TryParseExact(peildatum, "yyyy-MM-dd", new CultureInfo("nl-NL").DateTimeFormat, DateTimeStyles.None, out _))
+                if(!peildatum.IsDateTime())
                 {
                     context.AddFailure(DateErrorMessage);
                 }

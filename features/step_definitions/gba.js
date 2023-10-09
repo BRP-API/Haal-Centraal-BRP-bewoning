@@ -42,6 +42,8 @@ const columnNameMap = new Map([
 
     ['aanduiding uitgesloten kiesrecht (38.10)', 'kiesrecht_uitgesl_aand'],
 
+    ['aanduiding naamgebruik (61.10)', 'naam_gebruik_aand'],
+
     ['datum opschorting bijhouding (67.10)', 'bijhouding_opschort_datum' ],
     ['reden opschorting bijhouding (67.20)', 'bijhouding_opschort_reden'],
 

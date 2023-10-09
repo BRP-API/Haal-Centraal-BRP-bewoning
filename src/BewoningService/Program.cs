@@ -1,6 +1,10 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Bewoning.Infrastructure.Logging;
 using HaalCentraal.BewoningService.Repositories;
 using Serilog;
+using HaalCentraal.BewoningService.Validators;
+using Bewoning.Infrastructure.ProblemJson;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -13,13 +17,15 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     builder.Logging.ClearProviders();
-    builder.Host.UseSerilog(SerilogHelpers.Configure());
+    builder.Host.UseSerilog(SerilogHelpers.Configure(Log.Logger));
 
     // Add services to the container.
 
     builder.Services.AddControllers()
-                    //.ConfigureInvalidModelStateHandling()
+                    .ConfigureInvalidModelStateHandling()
                     .AddNewtonsoftJson();
+    builder.Services.AddFluentValidationAutoValidation(options => options.DisableDataAnnotationsValidation = true)
+                    .AddValidatorsFromAssemblyContaining<BewoningMetPeildatumValidator>();
 
     builder.Services.AddScoped<PersoonRepository>();
 
@@ -27,6 +33,8 @@ try
 
     // Configure the HTTP request pipeline.
     app.UseSerilogRequestLogging();
+
+    app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
     app.MapControllers();
 

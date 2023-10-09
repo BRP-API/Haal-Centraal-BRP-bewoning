@@ -1,14 +1,10 @@
 ﻿using Bewoning.Validatie.Interfaces;
 using FluentValidation;
-using System.Globalization;
 
 namespace Bewoning.Validatie.Validators;
 
 public class BewoningMetPeriodeQueryValidator : AbstractValidator<IBewoningMetPeriodeQuery>
 {
-    static readonly CultureInfo _nl = new("nl-NL");
-    const string dateFormat = "yyyy-MM-dd";
-
     const string RequiredErrorMessage = "required||Parameter is verplicht.";
     const string AdresseerbaarObjectIdentificatiePattern = @"^(?!0{16})[0-9]{16}$";
     const string AdresseerbaarObjectIdentificatieErrorMessage = $"pattern||Waarde voldoet niet aan patroon {AdresseerbaarObjectIdentificatiePattern}.";
@@ -29,7 +25,7 @@ public class BewoningMetPeriodeQueryValidator : AbstractValidator<IBewoningMetPe
             .Matches(DatePattern).WithMessage(DateErrorMessage)
             .Custom((datumTot, context) =>
             {
-                if (!DateTime.TryParseExact(datumTot, dateFormat, _nl.DateTimeFormat, DateTimeStyles.None, out _))
+                if (!datumTot.IsDateTime())
                 {
                     context.AddFailure(DateErrorMessage);
                 }
@@ -42,18 +38,16 @@ public class BewoningMetPeriodeQueryValidator : AbstractValidator<IBewoningMetPe
             .Matches(DatePattern).WithMessage(DateErrorMessage)
             .Custom((datumVan, context) =>
             {
-                if (!DateTime.TryParseExact(datumVan, dateFormat, _nl.DateTimeFormat, DateTimeStyles.None, out _))
+                if (!datumVan.IsDateTime())
                 {
                     context.AddFailure(DateErrorMessage);
                 }
             })
             ;
 
-        RuleFor(x => DateTime.ParseExact(x.DatumTot!, dateFormat, _nl.DateTimeFormat, DateTimeStyles.None))
-            .GreaterThan(x => DateTime.ParseExact(x.DatumVan!, dateFormat, _nl.DateTimeFormat, DateTimeStyles.None)).WithMessage(DateGreaterThanErrorMessage).WithName("datumTot")
-            .When(x =>
-                DateTime.TryParseExact(x.DatumTot, dateFormat, _nl.DateTimeFormat, DateTimeStyles.None, out _) &&
-                DateTime.TryParseExact(x.DatumVan, dateFormat, _nl.DateTimeFormat, DateTimeStyles.None, out _))
+        RuleFor(x => x.DatumTot!.ToDateTimeOffset())
+            .GreaterThan(x => x.DatumVan!.ToDateTimeOffset()).WithMessage(DateGreaterThanErrorMessage).WithName("datumTot")
+            .When(x => x.DatumTot.IsDateTime() && x.DatumVan.IsDateTime())
             ;
     }
 }

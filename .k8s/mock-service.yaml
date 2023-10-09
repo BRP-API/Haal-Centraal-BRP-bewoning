@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bewoningmock
+  labels:
+    app: haal-centraal-bewoning-bevragen-api
+spec:
+  selector:
+    name: bewoningmock
+  type: ClusterIP
+  ports:
+    - name: "5010"
+      port: 5010
+      targetPort: 5010

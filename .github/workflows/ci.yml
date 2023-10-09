@@ -101,6 +101,7 @@ jobs:
             git commit -m "commit functional test reports"
             git push
           fi
+
       - name: Stop containers
         if: always()
         run: docker compose ${{ env.COMPOSE_FILE_ARGUMENT }} down

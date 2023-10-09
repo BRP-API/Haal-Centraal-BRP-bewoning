@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bewoningmock
+  labels:
+    app: haal-centraal-bewoning-bevragen-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: bewoningmock
+  template:
+    metadata:
+      labels:
+        name: bewoningmock
+    spec:
+      containers:
+        - name: bewoningmock
+          image: ghcr.io/brp-api/haal-centraal-bewoning-bevragen-mock:latest
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Release
+            - name: ASPNETCORE_URLS
+              value: http://+:5010
+          ports:
+            - name: http
+              containerPort: 5010

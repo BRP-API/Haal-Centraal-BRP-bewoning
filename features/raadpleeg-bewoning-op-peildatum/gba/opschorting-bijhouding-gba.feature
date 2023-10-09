@@ -96,3 +96,49 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     | R                            | pl is aangelegd in de rni      | 2022-09-01 | 2022-09-01 tot 2022-09-02 | peildatum ligt na datum opschorting bijhouding |
     | .                            | onbekend                       | 2022-08-29 | 2022-08-29 tot 2022-08-30 | peildatum ligt op datum opschorting bijhouding |
     | .                            | onbekend                       | 2022-09-01 | 2022-09-01 tot 2022-09-02 | peildatum ligt na datum opschorting bijhouding |
+
+  Abstract Scenario: <scenario>
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang>                    |
+    En de persoon heeft de volgende 'inschrijving' gegevens
+    | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+    | <datum opschorting bijhouding>       | O                                    |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2020-10-14           |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | periode                          | 2020-10-14 tot 2020-10-15 |
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
+    Voorbeelden:
+    | datum aanvang | datum opschorting bijhouding | scenario                                                                                                          |
+    | 20201000      | 20201016                     | datum aanvang heeft onbekende dag en peildatum valt binnen onzekerheidsperiode en voor datum opschorting          |
+    | 20200000      | 20201016                     | datum aanvang heeft onbekende dag en maand en peildatum valt binnen onzekerheidsperiode en voor datum opschorting |
+    | 00000000      | 20201016                     | datum aanvang heeft onbekende dag en peildatum valt binnen onzekerheidsperiode en voor datum opschorting          |
+
+  Abstract Scenario: <scenario>
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang>                    |
+    En de persoon heeft de volgende 'inschrijving' gegevens
+    | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+    | <datum opschorting bijhouding>       | O                                    |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | 2020-10-14           |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    Dan heeft de response 0 bewoningen
+
+    Voorbeelden:
+    | datum aanvang | datum opschorting bijhouding | scenario                                                                                                        |
+    | 20201000      | 20201012                     | datum aanvang heeft onbekende dag en peildatum valt binnen onzekerheidsperiode en na datum opschorting          |
+    | 20200000      | 20200526                     | datum aanvang heeft onbekende dag en maand en peildatum valt binnen onzekerheidsperiode en na datum opschorting |
+    | 00000000      | 20190526                     | datum aanvang heeft onbekende dag en peildatum valt binnen onzekerheidsperiode en na datum opschorting          |

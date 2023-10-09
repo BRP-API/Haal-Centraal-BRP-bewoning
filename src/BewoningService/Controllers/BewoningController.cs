@@ -1,4 +1,5 @@
-﻿using HaalCentraal.BewoningService.Generated;
+﻿using Bewoning.Validatie;
+using HaalCentraal.BewoningService.Generated;
 using HaalCentraal.BewoningService.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
@@ -25,6 +26,7 @@ public class BewoningController : Generated.ControllerBase
         var retval = body switch
         {
             BewoningMetPeildatum q => await Handle(q),
+            BewoningMetPeriode q => await Handle(q),
             _ => new GbaBewoningenQueryResponse()
         };
 
@@ -37,46 +39,22 @@ public class BewoningController : Generated.ControllerBase
     {
         var personen = await _repository.Zoek<BewoningMetPeildatum>(q);
 
-        var retval = new GbaBewoningenQueryResponse
+        return new GbaBewoningenQueryResponse
         {
-            Bewoningen = new List<GbaBewoning>()
+            Bewoningen = personen.ToGbaBewoningen(q.AdresseerbaarObjectIdentificatie!,
+                                                  q.Peildatum!,
+                                                  q.Peildatum!.ToDateTimeOffset().AddDays(1).ToString("yyyy-MM-dd"))
         };
+    }
 
-        if (personen != null && personen.Any())
+    private async Task<GbaBewoningenQueryResponse> Handle(BewoningMetPeriode q)
+    {
+        var personen = await _repository.Zoek<BewoningMetPeriode>(q);
+                                          
+
+        return new GbaBewoningenQueryResponse
         {
-            var bewoners = new List<GbaBewoner>();
-
-            foreach (var persoon in personen)
-            {
-                var bewoner = new GbaBewoner
-                {
-                    Burgerservicenummer = persoon.BurgerserviceNummer,
-                    GeheimhoudingPersoonsgegevens = persoon.GeheimhoudingPersoonsgegevens.GetValueOrDefault(0)
-                };
-                if(persoon.Verblijfplaats?.InOnderzoek != null)
-                {
-                    bewoner.VerblijfplaatsInOnderzoek = new GbaInOnderzoek
-                    {
-                        AanduidingGegevensInOnderzoek = persoon.Verblijfplaats.InOnderzoek.AanduidingGegevensInOnderzoek,
-                        DatumIngangOnderzoek = persoon.Verblijfplaats.InOnderzoek.DatumIngangOnderzoek
-                    };
-                }
-
-                bewoners.Add(bewoner);
-
-                retval.Bewoningen.Add(new GbaBewoning
-                {
-                    AdresseerbaarObjectIdentificatie = q.AdresseerbaarObjectIdentificatie,
-                    Periode = new Periode
-                    {
-                        DatumVan = q.Peildatum,
-                        DatumTot = q.Peildatum.AddDays(1),
-                    },
-                    Bewoners = bewoners,
-                });
-            }
-        }
-
-        return retval;
+            Bewoningen = personen.ToGbaBewoningen(q.AdresseerbaarObjectIdentificatie!, q.DatumVan!, q.DatumTot!)
+        };
     }
 }
