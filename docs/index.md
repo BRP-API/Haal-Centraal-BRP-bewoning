@@ -7,24 +7,22 @@ title: Haal Centraal BRP-bewoning
 ![lint oas](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/lint-oas/badge.svg)
 ![generate postman collection](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/generate-postman-collection/badge.svg)
 
-API voor het raadplegen van de (historische) bewoning(en) van een adres. Met de API kun je de samenstelling(en) van bewoners van een adres raadplegen op een peildatum en binnen een periode.
+API voor het raadplegen van de historische bewoning van een adres. Met de API kun je de samenstelling(en) van bewoners van een woning raadplegen op een peildatum of binnen een periode.
 
 ## Planning & Roadmap
-Het team van RvIG werkt op dit moment nog aan v2 van de API. Binnenkort kun je hier net als bij de Personen API met behulp van een docker compose bestand de bewoningProxy en de mock van de GBA variant draaien op jouw eigen machine. Hiermee kun je onze MVP voor raadplegen op peildatum alvast uitproberen. Wij werken dan verder aan het raadplegen van bewoningen op periode, maar hebben ook tijd om de MVP te verbeteren. Wij horen graag jullie ervaringen!
-De bewoning API v2 gaat op 1 oktober in productie, en kan voorlopig alleen worden gebruikt door gemeenten. 
+De bewoning API v2 kan voorlopig alleen worden gebruikt door gemeenten. 
 
 ## Direct uitproberen?
 * Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
-* Lees de [Getting started] (volgt binnenkort)
-* Download de [technische specificaties](volgt binnenkort)
-
+* Lees de [Getting started]
+* Download de [technische specificaties]
+  
 ## Heb je meer nodig? 
 Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 
 * [Personen bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-bevragen){:target="_blank" rel="noopener"}
 * [Historie bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-historie-bevragen){:target="_blank" rel="noopener"}
 * [Reisdocumenten bevragen](https://BRP-API.github.io/Haal-Centraal-Reisdocumenten-bevragen){:target="_blank" rel="noopener"}
-* [Landelijke tabellen bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-tabellen-bevragen){:target="_blank" rel="noopener"}
   
 Maak je nog gebruik van versie 1.0? Bekijk de specificaties met [Swagger UI](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc) en download de [technische specificaties](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml)
 
