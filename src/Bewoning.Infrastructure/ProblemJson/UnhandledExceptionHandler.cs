@@ -7,7 +7,7 @@ namespace Bewoning.Infrastructure.ProblemJson;
 
 public static class UnhandledExceptionHandler
 {
-    private static Foutbericht CreateInternalServerErrorFoutbericht(this HttpContext context)
+    public static Foutbericht CreateInternalServerErrorFoutbericht(this HttpContext context)
     {
         return new Foutbericht
         {

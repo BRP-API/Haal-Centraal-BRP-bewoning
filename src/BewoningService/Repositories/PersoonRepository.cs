@@ -27,6 +27,8 @@ public class PersoonRepository
         {
             BewoningMetPeildatum f => JsonConvert.DeserializeObject<List<Persoon>>(data)?
                 .AsQueryable().Where(f.ToSpecification().ToExpression()).ToList(),
+            BewoningMetPeriode f => JsonConvert.DeserializeObject<List<Persoon>>(data)?
+                .AsQueryable().Where(f.ToSpecification().ToExpression()).ToList(),
             _ => throw new NotSupportedException($"{query}")
         };
     }
