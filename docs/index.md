@@ -14,7 +14,7 @@ De bewoning API v2 kan voorlopig alleen worden gebruikt door gemeenten.
 
 ## Direct uitproberen?
 * Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
-* Lees de [Getting started]
+* Lees de [Getting started](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/getting-started)
 * Download de [technische specificaties]
   
 ## Heb je meer nodig? 
