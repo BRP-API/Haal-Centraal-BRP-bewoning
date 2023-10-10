@@ -14,7 +14,7 @@ API voor het raadplegen van de historische bewoning van een adres. Met de API ku
 Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 
 * [Personen bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-bevragen)
-* [Historische bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-historie-bevragen)
+* [Historie bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-historie-bevragen)
 * [Reisdocumenten bevragen](https://BRP-API.github.io/Haal-Centraal-Reisdocumenten-bevragen)
 
 ## Bronnen
