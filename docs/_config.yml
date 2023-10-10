@@ -37,7 +37,7 @@ nav:
       - title: Getting started
         path: /v2/getting-started
       - title: User stories
-        path: /user-stories-prod
+        path: /user-stories
       - title: Bevragen API (redoc)
         path: /v2/redoc
       - title: Bevragen API, GBA variant (redoc)

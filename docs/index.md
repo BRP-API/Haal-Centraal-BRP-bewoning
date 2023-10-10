@@ -13,7 +13,7 @@ API voor het raadplegen van de historische bewoning van een adres. Met de API ku
 De bewoning API v2 kan voorlopig alleen worden gebruikt door gemeenten. 
 
 ## Direct uitproberen?
-* Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
+* Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/redoc)
 * Lees de [Getting started](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/getting-started)
   
 ## Heb je meer nodig? 
