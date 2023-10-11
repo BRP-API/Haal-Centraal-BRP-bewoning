@@ -33,11 +33,12 @@ nav:
   - title: Specificaties v. 2
     subnav:
       - title: Releasenotes
-        path: releasenotes
+        path: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/releases
+        target: blank
       - title: Getting started
         path: /v2/getting-started
       - title: User stories
-        path: /user-stories-prod
+        path: /user-stories
       - title: Bevragen API (redoc)
         path: /v2/redoc
       - title: Bevragen API, GBA variant (redoc)

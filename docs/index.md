@@ -13,7 +13,7 @@ API voor het raadplegen van de historische bewoning van een adres. Met de API ku
 De bewoning API v2 kan voorlopig alleen worden gebruikt door gemeenten. 
 
 ## Direct uitproberen?
-* Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
+* Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/redoc)
 * Lees de [Getting started](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/getting-started)
   
 ## Heb je meer nodig? 
@@ -22,8 +22,6 @@ Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 * [Personen bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-bevragen){:target="_blank" rel="noopener"}
 * [Historie bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-historie-bevragen){:target="_blank" rel="noopener"}
 * [Reisdocumenten bevragen](https://BRP-API.github.io/Haal-Centraal-Reisdocumenten-bevragen){:target="_blank" rel="noopener"}
-  
-Maak je nog gebruik van versie 1.0? Bekijk de specificaties met [Swagger UI](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc) en download de [technische specificaties](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml)
 
 ## Bronnen
 
