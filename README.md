@@ -8,7 +8,6 @@ API voor het raadplegen van de historische bewoning van een adres. Met de API ku
 ## Direct uitproberen?
 * Bekijk de specificaties met Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/redoc)
 * Lees de [Getting started](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/getting-started)
-* Download de [technische specificaties](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/genereervariant/openapi.yaml)
 
 ## Heb je meer nodig? 
 Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
