@@ -29,7 +29,3 @@ title: User Stories in Productie
 - [Als medewerker Sociale Zaken wil ik weten wie er op het adres van client wonen ](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/31){:target="_blank" rel="noopener"}
 - [Als medewerker bezwaar Sociale Zaken wil ik weten welke personen gedurende welke periode of op een datum in het verleden op hetzelfde adres wonen of hebben gewoond  ](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/73){:target="_blank" rel="noopener"}
 
-## Vanaf versie 1.0
-
-
-
