@@ -516,7 +516,7 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
 
     Voorbeelden:
     | datum aanvang volgende adreshouding | datum tot  |
-    | 20100800                            | 2010-06-16 |
+    | 20100800                            | 2010-08-03 |
     | 20100800                            | 2010-08-18 |
     | 20100000                            | 2010-08-18 |
     | 00000000                            | 2010-08-18 |
