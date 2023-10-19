@@ -151,6 +151,24 @@ Functionaliteit: bewoning in periode met echte datums
       | periode eindigt voor overlijden    | 2021-11-01 | 2021-11-01  |
       | periode gevraagd tot na overlijden | 2022-01-01 | 2021-11-27  |
 
+    Scenario: persoon is overleden tijdens verblijf op gevraagde adres en gevraagd wordt periode na overlijden
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210526                           |
+      En de persoon heeft de volgende 'inschrijving' gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | 20211127                             | O                                    |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2021-12-01         |
+      | datumTot                         | 2022-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response 0 bewoningen
+
     Scenario: persoon is overleden na vertrek uit gevraagde adres
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
