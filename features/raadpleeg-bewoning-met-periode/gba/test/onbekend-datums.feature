@@ -255,7 +255,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
 
   Rule: een persoon is mogelijke bewoner tijdens de onzekerheidsperiode van de datum aanvang volgende verblijf en bewoner daarvoor
 
-    Abstract Scenario: aanvang volgende verblijf is geheel/gedeeltelijk onbekend en <scenario>
+    Abstract Scenario: aanvang volgende verblijf is gedeeltelijk onbekend en het daaropvolgende verblijf begint buiten de onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20210516                           |
@@ -293,6 +293,37 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | datum aanvang volgende | periode bewoner           | periode mogelijke bewoner |
       | 20210700               | 2021-05-26 tot 2021-07-01 | 2021-07-01 tot 2021-08-01 |
       | 20220000               | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2023-01-01 |
+
+    Scenario: aanvang volgende verblijf is geheel onbekend en er is geen daaropvolgende verblijfplaats
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210526                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 00000000                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2021-01-01         |
+      | datumTot                         | 2023-07-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2021-05-26 tot 2021-05-27 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2021-05-27 tot 2023-07-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
 
   Rule: een persoon is zeker geen bewoner op of voor de datum aanvang vorige verblijf
 
@@ -336,6 +367,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | datum aanvang volgende | datum aanvang daaropvolgende | periode bewoner           | periode mogelijke bewoner |
       | 20210700               | 20210730                     | 2021-05-26 tot 2021-07-01 | 2021-07-01 tot 2021-07-30 |
       | 20220000               | 20221014                     | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-10-14 |
+      | 00000000               | 20221014                     | 2021-05-26 tot 2021-05-27 | 2021-05-27 tot 2022-10-14 |
 
   Rule: geleverde bewoning wordt beperkt door de gevraagde periode
 
