@@ -438,7 +438,7 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
       | burgerservicenummer |
       | 000000012           |
 
-  Rule: Aaneensluitende periodes met identieke samenstelling van bewoners en mogelijke bewoners worden geleverd als één bewoning
+  Rule: Rule: meerdere aaneensluitende verblijfplaatsen op hetzelfde adresseerbaar object, met dezelfde (mogelijke) bewoners, wordt als één bewoning geleverd
 
     Abstract Scenario: persoon heeft onbekende aanvang adreshouding en daar direct op aansluitende onbekende aanvang volgende adreshouding en periode overlapt de onzekerheidsperiodes
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
