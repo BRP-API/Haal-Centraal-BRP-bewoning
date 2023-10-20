@@ -120,7 +120,7 @@ Functionaliteit: bewoning in periode met echte datums
       | periode eindigt voor aanvang volgend verblijf | 2021-01-01 | 2021-07-01 | 2021-05-26 tot 2021-07-01 |
       | periode tussen aanvang en volgend verblijf    | 2021-06-01 | 2021-07-01 | 2021-06-01 tot 2021-07-01 |
 
-  Rule: geleverde bewoning wordt beperkt door opschorting
+  Rule: een persoon is geen bewoner meer vanaf de datum opschorting
 
     Abstract Scenario: persoon is overleden tijdens verblijf op gevraagde adres en gevraagd wordt <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
