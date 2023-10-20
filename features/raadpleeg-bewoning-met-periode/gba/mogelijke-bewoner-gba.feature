@@ -995,7 +995,7 @@ Rule: een persoon met onbekende aanvang adreshouding is bewoner voor dat deel va
     En heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde            |
     | periode                          | <periode bewoner> |
-    | adresseerbaarObjectIdentificatie | 0800010000000002  |
+    | adresseerbaarObjectIdentificatie | 0800010000000001  |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000012           |
