@@ -985,8 +985,8 @@ Rule: een persoon met onbekende aanvang volgende adreshouding en een daaropvolge
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
     | 0800                              | <datum aanvang volgende adreshouding> |
     En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
-    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
-    | 0800                              | <datum aanvang volgende adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)           |
+    | 0800                              | <datum aanvang daarop volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -994,17 +994,17 @@ Rule: een persoon met onbekende aanvang volgende adreshouding en een daaropvolge
     | datumTot                         | 2011-05-28         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
-    | naam                             | waarde                    |
-    | periode                          | <periode> |
-    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    | naam                             | waarde           |
+    | periode                          | <periode>        |
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
 
     Voorbeelden:
-    | datum aanvang volgende adreshouding | datum aanvang volgende adreshouding | periode                   | scenario                                                                         |
-    | 20110500                            | 20110516                            | 2011-05-03 tot 2011-05-16 | aanvang daaropvolgende verblijf valt binnen onzekerheidsperiode aanvang volgende |
-    | 20110000                            | 20110516                            | 2011-05-03 tot 2011-05-16 | aanvang daaropvolgende verblijf valt binnen onzekerheidsperiode aanvang volgende |
-    | 00000000                            | 20110516                            | 2011-05-03 tot 2011-05-16 | aanvang daaropvolgende verblijf valt binnen onzekerheidsperiode aanvang volgende |
-    | 20110500                            | 20111014                            | 2011-05-03 tot 2011-05-28 | aanvang daaropvolgende verblijf valt na onzekerheidsperiode aanvang volgende     |
-    | 20110000                            | 20120730                            | 2011-05-03 tot 2011-05-28 | aanvang daaropvolgende verblijf valt na onzekerheidsperiode aanvang volgende     |
+    | datum aanvang volgende adreshouding | datum aanvang daarop volgende adreshouding | periode                   | scenario                                                                         |
+    | 20110500                            | 20110516                                   | 2011-05-03 tot 2011-05-16 | aanvang daaropvolgende verblijf valt binnen onzekerheidsperiode aanvang volgende |
+    | 20110000                            | 20110516                                   | 2011-05-03 tot 2011-05-16 | aanvang daaropvolgende verblijf valt binnen onzekerheidsperiode aanvang volgende |
+    | 00000000                            | 20110516                                   | 2011-05-03 tot 2011-05-16 | aanvang daaropvolgende verblijf valt binnen onzekerheidsperiode aanvang volgende |
+    | 20110500                            | 20111014                                   | 2011-05-03 tot 2011-05-28 | aanvang daaropvolgende verblijf valt na onzekerheidsperiode aanvang volgende     |
+    | 20110000                            | 20120730                                   | 2011-05-03 tot 2011-05-28 | aanvang daaropvolgende verblijf valt na onzekerheidsperiode aanvang volgende     |
