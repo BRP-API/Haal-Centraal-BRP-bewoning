@@ -500,6 +500,97 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
 
   Rule: geleverde bewoning wordt beperkt door de gevraagde periode
 
+    Abstract Scenario: aanvang adreshouding is geheel/gedeeltelijk onbekend en <scenario>
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang>                    |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20221014                           |
+      En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20230730                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | <datum van>        |
+      | datumTot                         | 2022-07-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                      |
+      | periode                          | <periode mogelijke bewoner> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002            |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde            |
+      | periode                          | <periode bewoner> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002  |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+
+      Voorbeelden:
+      | scenario                                                     | datum aanvang | datum van  | periode mogelijke bewoner | periode bewoner           |
+      | periode begint voor onzekerheidsperiode                      | 20210500      | 2021-01-01 | 2021-05-17 tot 2021-06-01 | 2021-06-01 tot 2022-07-01 |
+      | periode begint in onzekerheidsperiode en voor aanvang vorige | 20210500      | 2021-05-03 | 2021-05-17 tot 2021-06-01 | 2021-06-01 tot 2022-07-01 |
+      | periode begint in onzekerheidsperiode en na aanvang vorige   | 20210500      | 2021-05-26 | 2021-05-26 tot 2021-06-01 | 2021-06-01 tot 2022-07-01 |
+      | periode begint voor onzekerheidsperiode                      | 20210000      | 2020-07-01 | 2021-05-17 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
+      | periode begint in onzekerheidsperiode en voor aanvang vorige | 20210000      | 2021-05-03 | 2021-05-17 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
+      | periode begint in onzekerheidsperiode en na aanvang vorige   | 20210000      | 2021-05-26 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
+      | periode begint in onzekerheidsperiode en voor aanvang vorige | 00000000      | 2021-05-03 | 2021-05-17 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
+      | periode begint in onzekerheidsperiode en na aanvang vorige   | 00000000      | 2021-05-26 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
+
+    Abstract Scenario: aanvang adreshouding volgende is geheel/gedeeltelijk onbekend en <scenario>
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210526                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang volgende>           |
+      En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20220730                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2021-01-01         |
+      | datumTot                         | <datum tot>        |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde            |
+      | periode                          | <periode bewoner> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002  |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                      |
+      | periode                          | <periode mogelijke bewoner> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002            |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+
+      Voorbeelden:
+      | scenario                                                              | datum aanvang volgende | datum tot  | periode bewoner           | periode mogelijke bewoner |
+      | periode eindigt na onzekerheidsperiode                                | 20220700               | 2023-01-01 | 2021-05-26 tot 2022-07-01 | 2022-07-01 tot 2022-07-30 |
+      | periode eindigt in onzekerheidsperiode en voor aanvang daaropvolgende | 20220700               | 2022-07-15 | 2021-05-26 tot 2022-07-01 | 2022-07-01 tot 2022-07-15 |
+      | periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 20220700               | 2022-07-31 | 2021-05-26 tot 2022-07-01 | 2022-07-01 tot 2022-07-30 |
+      | periode eindigt na onzekerheidsperiode                                | 20220000               | 2023-07-01 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      | periode eindigt in onzekerheidsperiode en voor aanvang daaropvolgende | 20220000               | 2022-07-15 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-15 |
+      | periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 20220000               | 2022-07-31 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      | periode eindigt in onzekerheidsperiode en voor aanvang daaropvolgende | 00000000               | 2022-07-15 | 2021-05-26 tot 2021-05-27 | 2021-05-27 tot 2022-07-15 |
+      | periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 00000000               | 2022-07-31 | 2021-05-26 tot 2021-05-27 | 2021-05-27 tot 2022-07-30 |
+  
+
   Rule: een persoon is geen bewoner meer vanaf de datum opschorting
 
   Rule: onjuist wordt genegeerd
