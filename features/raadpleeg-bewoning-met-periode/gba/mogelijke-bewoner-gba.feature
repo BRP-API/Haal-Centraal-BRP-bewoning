@@ -1049,7 +1049,7 @@ Rule: een persoon met onbekende aanvang adreshouding is bewoner voor dat deel va
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2020-01-01         |
-    | datumTot                         | 2022-01-01         |
+    | datumTot                         | 2023-01-01         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                      |
@@ -1068,8 +1068,8 @@ Rule: een persoon met onbekende aanvang adreshouding is bewoner voor dat deel va
 
     Voorbeelden:
     | datum aanvang | periode mogelijke bewoner | periode bewoner           |
-    | 20210500      | 2021-05-01 tot 2021-06-01 | 2021-06-01 tot 2022-01-01 |
-    | 20210000      | 2021-01-01 tot 2022-01-01 | 2022-01-01 tot 2022-01-01 |
+    | 20210500      | 2021-05-01 tot 2021-06-01 | 2021-06-01 tot 2022-10-14 |
+    | 20210000      | 2021-01-01 tot 2022-01-01 | 2022-01-01 tot 2022-10-14 |
 
   Abstract Scenario: aanvang adreshouding is deels/geheel onbekend en volgende verblijfplaats in onzekerheidsperiode en binnen gevraagde periode
     Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
