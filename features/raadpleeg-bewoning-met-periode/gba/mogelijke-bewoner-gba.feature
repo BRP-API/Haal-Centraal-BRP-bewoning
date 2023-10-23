@@ -693,7 +693,6 @@ Rule: een persoon met bekende aanvang vorige adreshouding die in de onzekerheids
     | 20101014                          | 00000000                   | 2010-04-01 | 2010-10-01 |
     | 20101014                          | 00000000                   | 2010-10-13 | 2010-10-15 |
 
-
 Rule: een persoon met bekende aanvang vorige adreshouding en bekende aanvang volgende adreshouding die beide in de onzekerheidsperiode van de onbekende aanvang adreshouding ligt, is een mogelijke bewoner voor het deel van de periode dat in de onzekerheidsperiode na de datum aanvang vorige adreshouding en voor datum aanvang volgende adreshouding ligt
 
   Abstract Scenario: datum aanvang vorige adreshouding en datum aanvang volgende adreshouding liggen in onzekerheidsperiode van onbekende aanvang adreshouding en periode ligt in de onzekerheidsperiode van gevraagde adreshouding
@@ -972,6 +971,33 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
     | 00000000                          | 20100500                   | 2010-03-17 | 2010-05-01 |
     | 20100000                          | 20100800                   | 2010-07-30 | 2010-08-01 |
 
+  Scenario: er wordt niet verder terug gekeken dan het verblijf vóór het gevraagde verblijf
+    Gegeven adres 'A3' heeft de volgende gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0800                 | 0800010000000003                         |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20110516                           |
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20110500                           |
+    En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20110000                           |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | 2011-01-01         |
+    | datumTot                         | 2011-05-28         |
+    | adresseerbaarObjectIdentificatie | 0800010000000003   |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | periode                          | 2011-05-01 tot 2011-05-28 |
+    | adresseerbaarObjectIdentificatie | 0800010000000003          |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
 Rule: een persoon met onbekende aanvang volgende adreshouding en een daaropvolgende adreshouding die binnen de onzekerheidsperiode aanvangt is mogelijke bewoner tot aanvang van de daaropvolgende adreshouding
 
   Abstract Scenario: datum aanvang adreshouding ligt niet in de onzekerheidsperiode van het deels onbekende aanvang volgend adreshouding en periode ligt in de onzekerheidsperiode van de volgende adreshouding
@@ -1008,3 +1034,36 @@ Rule: een persoon met onbekende aanvang volgende adreshouding en een daaropvolge
     | 00000000                            | 20110516                                   | 2011-05-03 tot 2011-05-16 | aanvang daaropvolgende verblijf valt binnen onzekerheidsperiode aanvang volgende |
     | 20110500                            | 20111014                                   | 2011-05-03 tot 2011-05-28 | aanvang daaropvolgende verblijf valt na onzekerheidsperiode aanvang volgende     |
     | 20110000                            | 20120730                                   | 2011-05-03 tot 2011-05-28 | aanvang daaropvolgende verblijf valt na onzekerheidsperiode aanvang volgende     |
+
+  Scenario: er wordt niet verder gekeken dan één verblijf na de volgende
+    Gegeven adres 'A3' heeft de volgende gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0800                 | 0800010000000003                         |
+    En adres 'A4' heeft de volgende gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0800                 | 0800010000000004                         |
+    En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20110000                           |
+    En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20110500                           |
+    En de persoon is vervolgens ingeschreven op adres 'A4' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20110516                           |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | 2011-05-03         |
+    | datumTot                         | 2011-05-28         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                    |
+    | periode                          | 2011-05-03 tot 2011-05-28 |
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
