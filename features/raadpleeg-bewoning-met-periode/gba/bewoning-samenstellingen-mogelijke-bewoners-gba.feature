@@ -97,6 +97,47 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
       | 000000012           |
       | 000000024           |
 
+    Scenario: Datum aanvang is onbekend en aanvang vorige verblijf ligt in de onzekerheidsperiode
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20080526                           |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100410                           |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20100000                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2010-03-01         |
+      | datumTot                         | 2012-03-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2010-03-01 tot 2010-04-11 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2010-04-11 tot 2011-01-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2011-01-01 tot 2012-03-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
+      En heeft de bewoning bewoners met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      | 000000024           |
 
   Rule: Bij de start en na afloop van de onzekerheidsperiode van datum aanvang volgende verblijfplaats ontstaat een nieuwe bewoning(samenstelling)
       - De eerste dag van de onzekerheidsperiode van datum aanvang wordt de persoon mogelijke bewoner en ontstaat een nieuwe bewoning(samenstelling)
