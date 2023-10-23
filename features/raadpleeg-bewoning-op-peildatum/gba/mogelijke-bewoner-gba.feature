@@ -383,7 +383,7 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
     | 20100000                            |
     | 00000000                            |
 
-  Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en peildatum ligt in de onzekerheidsperiode op/na datum aanvang adreshouding
+  Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en peildatum ligt in de onzekerheidsperiode na datum aanvang adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20080413                           |
