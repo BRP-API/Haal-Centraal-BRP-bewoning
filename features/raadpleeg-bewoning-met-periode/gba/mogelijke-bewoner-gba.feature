@@ -521,7 +521,7 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
     | 20100000                            | 2010-08-18 |
     | 00000000                            | 2010-08-18 |
 
-  Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van het deels/geheel onbekende aanvang volgende adreshouding en periode begint in de onzekerheidsperiode vóór datum aanvang adreshouding en loopt tot na de onzekerheidsperiode
+  Abstract Scenario: datum aanvang adreshouding ligt in de onzekerheidsperiode van de deels/geheel onbekende aanvang volgende adreshouding en periode begint in de onzekerheidsperiode na datum aanvang adreshouding en loopt tot na de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20080314                           |
