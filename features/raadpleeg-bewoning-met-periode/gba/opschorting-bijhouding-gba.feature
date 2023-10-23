@@ -148,11 +148,11 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     | type                             | BewoningMetPeriode |
     | datumVan                         | 2021-01-01         |
     | datumTot                         | <datumTot>         |
-    | adresseerbaarObjectIdentificatie | 0800010000000002   |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                       |
     | periode                          | 2021-05-26 tot <periode tot> |
-    | adresseerbaarObjectIdentificatie | 0800010000000002             |
+    | adresseerbaarObjectIdentificatie | 0800010000000001             |
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000012           |
