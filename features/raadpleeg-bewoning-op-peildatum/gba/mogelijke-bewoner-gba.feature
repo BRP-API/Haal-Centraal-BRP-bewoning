@@ -388,11 +388,11 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20080413                           |
     En de persoon is vervolgens ingeschreven op adres 'A1' met de volgende gegevens
-    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
-    | 0800                              | 20100818 |
-    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-    | 0800                              | <datum aanvang volgende adreshouding>                           |
+    | 0800                              | 20100818                           |
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
