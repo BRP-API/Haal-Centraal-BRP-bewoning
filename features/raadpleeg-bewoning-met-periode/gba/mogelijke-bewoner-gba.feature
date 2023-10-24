@@ -565,9 +565,9 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
     | datumTot                         | 2011-08-23         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
-    | naam                             | waarde            |
-    | periode                          | <periode bewoner> |
-    | adresseerbaarObjectIdentificatie | 0800010000000001  |
+    | naam                             | waarde                    |
+    | periode                          | 2010-08-18 tot 2010-08-19 |
+    | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
@@ -580,9 +580,10 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
     | 000000024           |
 
     Voorbeelden:
-    | datum aanvang volgende adreshouding | periode bewoner | periode mogelijke bewoner |
-    | 20100800                            | 2010-08-18 tot 2010-08-19 | 2010-08-19 tot 2010-09-01 |
-    | 20100000                            | 2010-08-18 tot 2010-08-19 | 2010-08-19 tot 2011-01-01 |
+    | datum aanvang volgende adreshouding | periode mogelijke bewoner |
+    | 20100800                            | 2010-08-19 tot 2010-09-01 |
+    | 20100000                            | 2010-08-19 tot 2011-01-01 |
+    | 00000000                            | 2010-08-19 tot 2011-08-23 |
 
 Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende adreshouding en deels/geheel overlappende onzekerheidsperiodes, is mogelijke bewoner voor de periode tussen de eerste dag van de onzekerheidsperiode van de gevraagde adreshouding en de laatste dag van de onzekerheidsperiode van de volgende adreshouding.
 
