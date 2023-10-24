@@ -503,6 +503,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
 
   Rule: geleverde bewoning wordt beperkt door de gevraagde periode
 
+    #215
     Abstract Scenario: aanvang adreshouding is geheel/gedeeltelijk onbekend en <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -548,6 +549,8 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | periode begint in onzekerheidsperiode en voor aanvang vorige | 00000000      | 2021-05-03 | 2021-05-17 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
       | periode begint in onzekerheidsperiode en na aanvang vorige   | 00000000      | 2021-05-26 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
 
+    #212 (daaropvolgende: niet in v2.0.x)
+    #216? (voorbeeld met aanvang volgende 00000000) 
     Abstract Scenario: aanvang adreshouding volgende is geheel/gedeeltelijk onbekend en <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -584,14 +587,14 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
 
       Voorbeelden:
       | scenario                                                              | datum aanvang volgende | datum tot  | periode bewoner           | periode mogelijke bewoner |
-      | periode eindigt na onzekerheidsperiode                                | 20220700               | 2023-01-01 | 2021-05-26 tot 2022-07-01 | 2022-07-01 tot 2022-07-30 |
+      #| periode eindigt na onzekerheidsperiode                                | 20220700               | 2023-01-01 | 2021-05-26 tot 2022-07-01 | 2022-07-01 tot 2022-07-30 |
       | periode eindigt in onzekerheidsperiode en voor aanvang daaropvolgende | 20220700               | 2022-07-15 | 2021-05-26 tot 2022-07-01 | 2022-07-01 tot 2022-07-15 |
-      | periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 20220700               | 2022-07-31 | 2021-05-26 tot 2022-07-01 | 2022-07-01 tot 2022-07-30 |
-      | periode eindigt na onzekerheidsperiode                                | 20220000               | 2023-07-01 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      #| periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 20220700               | 2022-07-31 | 2021-05-26 tot 2022-07-01 | 2022-07-01 tot 2022-07-30 |
+      #| periode eindigt na onzekerheidsperiode                                | 20220000               | 2023-07-01 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       | periode eindigt in onzekerheidsperiode en voor aanvang daaropvolgende | 20220000               | 2022-07-15 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-15 |
-      | periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 20220000               | 2022-07-31 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      #| periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 20220000               | 2022-07-31 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       | periode eindigt in onzekerheidsperiode en voor aanvang daaropvolgende | 00000000               | 2022-07-15 | 2021-05-26 tot 2021-05-27 | 2021-05-27 tot 2022-07-15 |
-      | periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 00000000               | 2022-07-31 | 2021-05-26 tot 2021-05-27 | 2021-05-27 tot 2022-07-30 |
+      #| periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 00000000               | 2022-07-31 | 2021-05-26 tot 2021-05-27 | 2021-05-27 tot 2022-07-30 |
   
 
   Rule: een persoon is geen bewoner meer vanaf de datum opschorting
