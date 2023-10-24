@@ -626,7 +626,7 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
       | 000000012           |
       En heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                                          |
-      | periode                          | <eerste dag onzekerheidsperiode> tot 2021-05-26 |
+      | periode                          | <eerste dag onzekerheidsperiode> tot 2021-05-11 |
       | adresseerbaarObjectIdentificatie | 0800010000000002                                |
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
@@ -635,32 +635,17 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
       | burgerservicenummer |
       | 000000024           |
       En heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde                                          |
-      | periode                          | 2021-05-26 tot <laatste dag onzekerheidperiode> |
-      | adresseerbaarObjectIdentificatie | 0800010000000002                                |
+      | naam                             | waarde                    |
+      | periode                          | 2021-05-11 tot 2022-10-14 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
       En heeft de bewoning bewoners met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
-      | 000000036           |
-      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
-      | burgerservicenummer |
-      | 000000024           |
-      En heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde                                          |
-      | periode                          | <laatste dag onzekerheidperiode> tot 2022-10-14 |
-      | adresseerbaarObjectIdentificatie | 0800010000000002                                |
-      En heeft de bewoning bewoners met de volgende gegevens
-      | burgerservicenummer |
-      | 000000012           |
-      | 000000024           |
-      | 000000036           |
 
       Voorbeelden:
-      | datum aanvang | eerste dag onzekerheidsperiode | laatste dag onzekerheidperiode |
-      | 20210500      | 2021-05-01                     | 2021-06-01                     |
-      | 20210000      | 2021-01-01                     | 2022-01-01                     |
-
-    Scenario: persoon overlijdt tussen aanvang en volgende
+      | datum aanvang | eerste dag onzekerheidsperiode |
+      | 20210500      | 2021-05-01                     |
+      | 20210000      | 2021-01-01                     |
 
     Scenario: persoon overlijdt tijdens onzekerheidsperiode aanvang volgende
 
