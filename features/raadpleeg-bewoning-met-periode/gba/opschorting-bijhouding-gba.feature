@@ -200,3 +200,101 @@ Rule: personen met opschorting bijhouding met aanduiding ongelijk aan "F" of "W"
     En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000012           |
+
+
+  Abstract Scenario: persoon bijhouding is opgeschort tijdens onzekerheidsperiode aanvang adreshouding
+    Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang>                    |
+    En de persoon heeft de volgende 'inschrijving' gegevens
+    | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+    | 20211127                             | O                                    |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | 2020-01-01         |
+    | datumTot                         | 2023-01-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde           |
+    | periode                          | <periode>        |
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000012           |
+
+    Voorbeelden:
+    | datum aanvang | periode                   |
+    | 20211100      | 2021-11-01 tot 2021-11-27 |
+    | 20210000      | 2021-01-01 tot 2021-11-27 |
+    | 00000000      | 2020-01-01 tot 2021-11-27 |
+
+  Abstract Scenario: persoon bijhouding is opgeschort tijdens onzekerheidsperiode aanvang adreshouding en aanvang vorige ligt binnen de onzekerheidsperiode
+    Gegeven adres 'vorige' heeft de volgende gegevens
+    | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+    | 0800                 | 0800010000000002                         |
+    En de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20211104                           |
+    En de persoon is vervolgens ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang>                    |
+    En de persoon heeft de volgende 'inschrijving' gegevens
+    | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+    | 20211127                             | O                                    |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | 2020-01-01         |
+    | datumTot                         | 2023-01-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde           |
+    | periode                          | <periode>        |
+    | adresseerbaarObjectIdentificatie | 0800010000000001 |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000012           |
+
+    Voorbeelden:
+    | datum aanvang | periode                   |
+    | 20211100      | 2021-11-05 tot 2021-11-27 |
+    | 20210000      | 2021-11-05 tot 2021-11-27 |
+    | 00000000      | 2021-11-05 tot 2021-11-27 |
+
+  Abstract Scenario: persoon bijhouding is opgeschort tijdens onzekerheidsperiode aanvang volgende adreshouding
+    Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20200526                           |
+    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    | land (13.10) | datum aanvang adres buitenland (13.20) | regel 1 adres buitenland (13.30) | regel 2 adres buitenland (13.40) | regel 3 adres buitenland (13.50) |
+    | 5010         | <datum aanvang>                        | Rue du pomme 26                  | Bruxelles                        | postcode 1000                    |
+    En de persoon heeft de volgende 'inschrijving' gegevens
+    | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+    | 20211127                             | R                                    |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | 2020-01-01         |
+    | datumTot                         | 2023-01-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde            |
+    | periode                          | <periode bewoner> |
+    | adresseerbaarObjectIdentificatie | 0800010000000001  |
+    En heeft de bewoning een bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000012           |
+    En heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                      |
+    | periode                          | <periode mogelijke bewoner> |
+    | adresseerbaarObjectIdentificatie | 0800010000000001            |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000012           |
+
+    Voorbeelden:
+    | datum aanvang | periode bewoner           | periode mogelijke bewoner |
+    | 20211100      | 2020-05-26 tot 2021-11-01 | 2021-11-01 tot 2021-11-27 |
+    | 20210000      | 2020-05-26 tot 2021-01-01 | 2021-01-01 tot 2021-11-27 |
+    | 00000000      | 2020-05-26 tot 2020-05-27 | 2020-05-27 tot 2021-11-27 |
