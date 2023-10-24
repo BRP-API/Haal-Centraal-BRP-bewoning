@@ -186,7 +186,8 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | 20210500      | 2021-05-01 tot 2021-05-16 |
       | 20210000      | 2021-01-01 tot 2021-05-16 |
       | 00000000      | 2020-01-01 tot 2021-05-16 |
-
+    
+    #215
     Abstract Scenario: vorige verblijfplaats ligt in onzekerheidsperiode en er is een volgende en daaropvolgende verblijfplaats
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
