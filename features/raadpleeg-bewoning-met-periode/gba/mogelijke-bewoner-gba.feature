@@ -960,7 +960,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
     | 20100000                          | 00000000                   | 2010-01-01 | 2012-11-17 | periode begint op de eerste dag in de onzekerheidsperiode van aanvang vorige adreshouding |
     | 20100000                          | 00000000                   | 2011-01-01 | 2012-01-01 | periode begint op de eerste dag na de onzekerheidsperiode van aanvang vorige adreshouding |
     | 20100500                          | 00000000                   | 2010-05-01 | 2012-05-26 | periode begint op de eerste dag in de onzekerheidsperiode van aanvang vorige adreshouding |
-    | 20100500                          | 20100000                   | 2010-05-01 | 2012-07-30 | periode begint op de eerste dag in de onzekerheidsperiode van aanvang vorige adreshouding |
+    | 20100500                          | 20100000                   | 2010-05-01 | 2010-07-01 | periode begint op de eerste dag in de onzekerheidsperiode van aanvang vorige adreshouding |
     | 20100500                          | 20100000                   | 2010-06-01 | 2010-07-01 | periode begint op de eerste dag na de onzekerheidsperiode van aanvang vorige adreshouding |
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding geheel en periode ligt vóór de onzekerheidsperiode van vorige adreshouding
