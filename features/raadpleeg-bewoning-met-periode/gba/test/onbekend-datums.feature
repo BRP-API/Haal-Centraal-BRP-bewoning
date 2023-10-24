@@ -187,7 +187,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | 20210000      | 2021-01-01 tot 2021-05-16 |
       | 00000000      | 2020-01-01 tot 2021-05-16 |
     
-    #215
     Abstract Scenario: vorige verblijfplaats ligt in onzekerheidsperiode en er is een volgende en daaropvolgende verblijfplaats
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -295,7 +294,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | 20210700               | 2021-05-26 tot 2021-07-01 | 2021-07-01 tot 2021-08-01 |
       | 20220000               | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2023-01-01 |
 
-    #216
     Scenario: aanvang volgende verblijf is geheel onbekend en er is geen daaropvolgende verblijfplaats
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -503,7 +501,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
 
   Rule: geleverde bewoning wordt beperkt door de gevraagde periode
 
-    #215
+    #217 (voorbeelden met aanvang gevraagde 00000000)
     Abstract Scenario: aanvang adreshouding is geheel/gedeeltelijk onbekend en <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -550,7 +548,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | periode begint in onzekerheidsperiode en na aanvang vorige   | 00000000      | 2021-05-26 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
 
     #212 (daaropvolgende: niet in v2.0.x)
-    #216? (voorbeeld met aanvang volgende 00000000) 
     Abstract Scenario: aanvang adreshouding volgende is geheel/gedeeltelijk onbekend en <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -629,7 +626,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | 20210000      | 2021-01-01 tot 2021-03-14 |
       | 00000000      | 2020-01-01 tot 2021-03-14 |
 
-    #219
     Abstract Scenario: persoon overlijdt in onzekerheidsperiode aanvang adreshouding en vorige verblijf ligt in onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -661,7 +657,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | 00000000      | 2021-03-07 tot 2021-03-14 |
 
     #212 (daaropvolgende: niet in v2.0.x)
-    #219?
     Abstract Scenario: persoon overlijdt in onzekerheidsperiode volgende adreshouding en <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -711,6 +706,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
 
   Rule: onjuist wordt genegeerd
 
+    #217 (vorige in onzekerheidsperiode)
     Abstract Scenario: datum aanvang is gecorrigeerd <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -754,6 +750,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | naar eerdere onzekerheidperiode waarbij vorige voor onzekerheidsperiode ligt       | 20210700       | 20210600     | 2021-06-01 tot 2021-07-01 | 2021-07-01 tot 2022-07-30 |
       | naar eerdere onzekerheidperiode waarbij vorige in onzekerheidsperiode ligt         | 20210700       | 20210500     | 2021-05-16 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
       | van maanddatum naar jaardatum waarbij vorige in onzekerheidsperiode ligt           | 20210700       | 20210000     | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      | van echte datum naar onbekende datum waarbij vorige voor onzekerheidsperiode ligt  | 20210529       | 20210700     | 2021-07-01 tot 2021-08-01 | 2021-08-01 tot 2022-07-30 |
       | van echte datum naar onbekende datum waarbij vorige in de onzekerheidsperiode ligt | 20210529       | 20210500     | 2021-05-16 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
       | van echte datum naar onbekende datum waarbij vorige in de onzekerheidsperiode ligt | 20210529       | 20210000     | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       
@@ -802,6 +799,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | van jaardatum naar maanddatum van zelfde jaar | 20210000                | 20210500              | 2020-05-26 tot 2021-05-01 | 2021-05-01 tot 2021-06-01 |
       | van echte datum naar onbekende datum          | 20210730                | 20210700              | 2020-05-26 tot 2021-07-01 | 2021-07-01 tot 2021-08-01 |
 
+    #212 (daaropvolgende: niet in v2.0.x)
     Scenario: datum aanvang daaropvolgende is gecorrigeerd en <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -842,7 +840,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       Voorbeelden:
       | scenario                                                      | datum volgende | onjuiste datum daaropvolgende | nieuwe datum daaropvolgende | periode bewoner           | periode mogelijke bewoner |
       | daaropvolgende lag binnen onzekerheidsperiode en nu niet meer | 20210500       | 20210526                      | 20220314                    | 2020-10-14 tot 2021-05-01 | 2021-05-01 tot 2021-06-01 |
-      | daaropvolgende lag na onzekerheidsperiode en nu erbinnen      | 20210500       | 20220314                      | 20210526                    | 2020-10-14 tot 2021-05-01 | 2021-05-01 tot 2021-05-26 |
+      #| daaropvolgende lag na onzekerheidsperiode en nu erbinnen      | 20210500       | 20220314                      | 20210526                    | 2020-10-14 tot 2021-05-01 | 2021-05-01 tot 2021-05-26 |
       | daaropvolgende lag binnen onzekerheidsperiode en nu niet meer | 20210000       | 20210526                      | 20220314                    | 2020-10-14 tot 2021-01-01 | 2021-01-01 tot 2022-01-01 |
-      | daaropvolgende lag na onzekerheidsperiode en nu erbinnen      | 20210000       | 20220314                      | 20210526                    | 2020-10-14 tot 2021-01-01 | 2021-01-01 tot 2021-05-26 |
-      | daaropvolgende is vervroegd                                   | 00000000       | 20220314                      | 20210526                    | 2020-10-14 tot 2020-10-15 | 2020-10-15 tot 2021-05-26 |
+      #| daaropvolgende lag na onzekerheidsperiode en nu erbinnen      | 20210000       | 20220314                      | 20210526                    | 2020-10-14 tot 2021-01-01 | 2021-01-01 tot 2021-05-26 |
+      #| daaropvolgende is vervroegd                                   | 00000000       | 20220314                      | 20210526                    | 2020-10-14 tot 2020-10-15 | 2020-10-15 tot 2021-05-26 |
