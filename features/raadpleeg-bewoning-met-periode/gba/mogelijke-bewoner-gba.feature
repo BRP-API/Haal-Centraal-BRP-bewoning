@@ -568,7 +568,7 @@ Rule: een persoon met bekende aanvang adreshouding die in de onzekerheidsperiode
     | naam                             | waarde                    |
     | periode                          | 2010-08-18 tot 2010-08-19 |
     | adresseerbaarObjectIdentificatie | 0800010000000001          |
-    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    En heeft de bewoning een bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
     En heeft de response een bewoning met de volgende gegevens
