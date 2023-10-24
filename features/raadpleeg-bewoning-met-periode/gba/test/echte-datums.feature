@@ -58,6 +58,27 @@ Functionaliteit: bewoning in periode met echte datums
       | burgerservicenummer |
       | 000000012           |
 
+    Scenario: volgende verblijfplaats is verblijf buitenland
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210526                           |
+      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+      | land (13.10) | datum aanvang adres buitenland (13.20) | regel 1 adres buitenland (13.30) | regel 2 adres buitenland (13.40) | regel 3 adres buitenland (13.50) |
+      | 5010         | 20211014                               | Rue du pomme 26                  | Bruxelles                        | postcode 1000                    |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2021-01-01         |
+      | datumTot                         | 2022-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2021-05-26 tot 2021-10-14 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+
     Scenario: vorige, volgende en daaropvolgende verblijfplaats
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
