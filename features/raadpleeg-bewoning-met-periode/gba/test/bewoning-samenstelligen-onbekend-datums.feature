@@ -906,7 +906,7 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
 
   Rule: Als de bijhouding van de persoon tijdens de onzekerheidsperiode wordt opgeschort, ontstaat op de datum opschorting een nieuwe bewoning(samenstelling)
 
-    Scenario: persoon overlijdt tijdens onzekerheidsperiode aanvang
+    Abstract Scenario: persoon overlijdt tijdens onzekerheidsperiode aanvang
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20200516                           |
@@ -952,7 +952,7 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
       | 20210500      | 2021-05-01                     |
       | 20210000      | 2021-01-01                     |
 
-    Scenario: bijhouding wordt opgeschort tijdens onzekerheidsperiode aanvang volgende
+    Abstract Scenario: bijhouding wordt opgeschort tijdens onzekerheidsperiode aanvang volgende
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20200516                           |
@@ -1002,7 +1002,7 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
       | 20210500               | 2021-05-01                     |
       | 20210000               | 2021-01-01                     |
 
-    Scenario: persoon overlijdt na onzekerheidsperiode volgende
+    Abstract Scenario: persoon overlijdt na onzekerheidsperiode volgende
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20200516                           |
@@ -1052,7 +1052,7 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
       | 20210500               | 2021-05-01                     | 2021-06-01                      |
       | 20210000               | 2021-01-01                     | 2022-01-01                      |
 
-    Scenario: andere persoon overlijdt tijdens onzekerheidsperiode aanvang
+    Abstract Scenario: andere persoon overlijdt tijdens onzekerheidsperiode aanvang
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20200516                           |
@@ -1123,7 +1123,7 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
       | 20210500      | 2021-05-01                     | 2021-06-01                     |
       | 20210000      | 2021-01-01                     | 2022-01-01                     |
 
-    Scenario: andere persoon overlijdt tijdens onzekerheidsperiode aanvang volgende
+    Abstract Scenario: andere persoon overlijdt tijdens onzekerheidsperiode aanvang volgende
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20200516                           |

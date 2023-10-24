@@ -367,6 +367,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
 
   Rule: een persoon is zeker geen bewoner op of voor de datum aanvang vorige verblijf
 
+    #217? (voorbeelden met overlap)
     Abstract Scenario: <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -414,6 +415,50 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 20210000             | 20210000                | 2021-01-02 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 00000000             | 20210000                | 2021-01-01 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       
+    Abstract Scenario: remigratie en <scenario>
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20180730                           |
+      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+      | land (13.10) | datum aanvang adres buitenland (13.20) | regel 1 adres buitenland (13.30) | regel 2 adres buitenland (13.40) | regel 3 adres buitenland (13.50) |
+      | 5010         | <datum aanvang vorige>                 | Rue du pomme 26                  | Bruxelles                        | postcode 1000                    |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang gevraagde>          |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20220730                           |
+      En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20221014                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2020-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                      |
+      | periode                          | <periode mogelijke bewoner> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002            |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde            |
+      | periode                          | <periode bewoner> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002  |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+
+      Voorbeelden:
+      | scenario                                                          | datum aanvang vorige | datum aanvang gevraagde | periode mogelijke bewoner | periode bewoner           |
+      | vorige verblijf voor onzekerheidsperiode                          | 20180210             | 20210500                | 2021-05-01 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
+      | vorige verblijf voor onzekerheidsperiode                          | 20180210             | 20210000                | 2021-01-01 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      | vorig verblijf in onzekerheidsperiode                             | 20210516             | 20210500                | 2021-05-17 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
+      | vorig verblijf in onzekerheidsperiode                             | 20210516             | 20210000                | 2021-05-17 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+
     Abstract Scenario: aanvang gevraagde verblijf is volledig onbekend
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -592,7 +637,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       #| periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 20220000               | 2022-07-31 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       | periode eindigt in onzekerheidsperiode en voor aanvang daaropvolgende | 00000000               | 2022-07-15 | 2021-05-26 tot 2021-05-27 | 2021-05-27 tot 2022-07-15 |
       #| periode eindigt in onzekerheidsperiode en na aanvang daaropvolgende   | 00000000               | 2022-07-31 | 2021-05-26 tot 2021-05-27 | 2021-05-27 tot 2022-07-30 |
-  
 
   Rule: een persoon is geen bewoner meer vanaf de datum opschorting
 
@@ -702,7 +746,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220000               | 20220714          | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2022-07-14 |
       #| datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220000               | 20220819          | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       | datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220000               | 20230218          | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2023-01-01 |
-
 
   Rule: onjuist wordt genegeerd
 
