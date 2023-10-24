@@ -4,7 +4,7 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 940 scenarios (16 failed, 924 passed)
+Totaal: 949 scenarios (17 failed, 932 passed)
 
 ## GBA v2.0.11
 
@@ -12,17 +12,18 @@ Totaal: 940 scenarios (16 failed, 924 passed)
     - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:411
     - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:412
     - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:413
-- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 331 scenarios (13 failed, 318 passed)
+- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 340 scenarios (14 failed, 326 passed)
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:240
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:550
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:551
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:552
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1068
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1069
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:645
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1101
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1102
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1129
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1156
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1134
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1135
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1162
+    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:1189
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:162
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:163
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:165
