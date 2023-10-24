@@ -295,6 +295,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | 20210700               | 2021-05-26 tot 2021-07-01 | 2021-07-01 tot 2021-08-01 |
       | 20220000               | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2023-01-01 |
 
+    #216
     Scenario: aanvang volgende verblijf is geheel onbekend en er is geen daaropvolgende verblijfplaats
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -326,6 +327,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | burgerservicenummer |
       | 000000012           |
 
+    #217 (voorbeelden met aanvang gevraagde 00000000)
     Abstract Scenario: aanvang volgende gevraagd verblijf en aanvang volgend verblijf zijn onbekend en overlappen (dus er is geen periode van zekere bewoning)
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
