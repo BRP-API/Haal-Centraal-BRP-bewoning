@@ -629,6 +629,7 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | 20210000      | 2021-01-01 tot 2021-03-14 |
       | 00000000      | 2020-01-01 tot 2021-03-14 |
 
+    #219
     Abstract Scenario: persoon overlijdt in onzekerheidsperiode aanvang adreshouding en vorige verblijf ligt in onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -659,6 +660,8 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | 20210000      | 2021-03-07 tot 2021-03-14 |
       | 00000000      | 2021-03-07 tot 2021-03-14 |
 
+    #212 (daaropvolgende: niet in v2.0.x)
+    #219?
     Abstract Scenario: persoon overlijdt in onzekerheidsperiode volgende adreshouding en <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -699,10 +702,10 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       Voorbeelden:
       | scenario                                                                      | datum aanvang volgende | datum opschorting | periode bewoner           | periode mogelijke bewoner |
       | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220700               | 20220714          | 2021-05-16 tot 2022-07-01 | 2022-07-01 tot 2022-07-14 |
-      | datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220700               | 20220731          | 2021-05-16 tot 2022-07-01 | 2022-07-01 tot 2022-07-30 |
+      #| datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220700               | 20220731          | 2021-05-16 tot 2022-07-01 | 2022-07-01 tot 2022-07-30 |
       | datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220700               | 20220819          | 2021-05-16 tot 2022-07-01 | 2022-07-01 tot 2022-08-01 |
       | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220000               | 20220714          | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2022-07-14 |
-      | datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220000               | 20220819          | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      #| datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220000               | 20220819          | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       | datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220000               | 20230218          | 2021-05-16 tot 2022-01-01 | 2022-01-01 tot 2023-01-01 |
 
 
