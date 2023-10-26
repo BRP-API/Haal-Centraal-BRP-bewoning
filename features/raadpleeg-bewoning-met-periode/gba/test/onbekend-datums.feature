@@ -614,18 +614,11 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
-      En heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde            |
-      | periode                          | <periode bewoner> |
-      | adresseerbaarObjectIdentificatie | 0800010000000002  |
-      En heeft de bewoning een bewoner met de volgende gegevens
-      | burgerservicenummer |
-      | 000000012           |
 
       Voorbeelden:
-      | scenario                                                     | datum aanvang | datum van  | periode mogelijke bewoner | periode bewoner           |
-      | periode begint in onzekerheidsperiode en voor aanvang vorige | 00000000      | 2021-05-03 | 2021-05-17 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
-      | periode begint in onzekerheidsperiode en na aanvang vorige   | 00000000      | 2021-05-26 | 2021-05-26 tot 2022-01-01 | 2022-01-01 tot 2022-07-01 |
+      | scenario                                                     | datum aanvang | datum van  | periode mogelijke bewoner |
+      | periode begint in onzekerheidsperiode en voor aanvang vorige | 00000000      | 2021-05-03 | 2021-05-17 tot 2022-07-01 |
+      | periode begint in onzekerheidsperiode en na aanvang vorige   | 00000000      | 2021-05-26 | 2021-05-26 tot 2022-07-01 |
 
     #212 (daaropvolgende: niet in v2.0.x)
     Abstract Scenario: aanvang adreshouding volgende is geheel/gedeeltelijk onbekend en <scenario>
