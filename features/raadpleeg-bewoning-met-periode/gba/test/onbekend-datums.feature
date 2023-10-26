@@ -325,7 +325,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | burgerservicenummer |
       | 000000012           |
 
-    #217 (voorbeelden met aanvang gevraagde 00000000)
     Abstract Scenario: aanvang volgende gevraagd verblijf en aanvang volgend verblijf zijn onbekend en overlappen (dus er is geen periode van zekere bewoning)
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -367,7 +366,6 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
 
   Rule: een persoon is zeker geen bewoner op of voor de datum aanvang vorige verblijf
 
-    #217? (voorbeelden met overlap)
     Abstract Scenario: <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -408,11 +406,11 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | vorige verblijf voor onzekerheidsperiode                          | 20180210             | 20210000                | 2021-01-01 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       | vorig verblijf in onzekerheidsperiode                             | 20210516             | 20210500                | 2021-05-17 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
       | vorig verblijf in onzekerheidsperiode                             | 20210516             | 20210000                | 2021-05-17 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
-      | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 20210500             | 20210500                | 2021-05-02 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
+      | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 20210500             | 20210500                | 2021-05-01 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
       | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 20210000             | 20210500                | 2021-05-01 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
       | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 00000000             | 20210500                | 2021-05-01 tot 2021-06-01 | 2021-06-01 tot 2022-07-30 |
-      | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 20210500             | 20210000                | 2021-05-02 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
-      | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 20210000             | 20210000                | 2021-01-02 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 20210500             | 20210000                | 2021-05-01 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
+      | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 20210000             | 20210000                | 2021-01-01 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       | onzekerheidsperiode vorige overlapt onzekerheidsperiode gevraagde | 00000000             | 20210000                | 2021-01-01 tot 2022-01-01 | 2022-01-01 tot 2022-07-30 |
       
     Abstract Scenario: remigratie en <scenario>
