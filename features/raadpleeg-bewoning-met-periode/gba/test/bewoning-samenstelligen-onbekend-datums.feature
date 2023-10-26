@@ -262,7 +262,7 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
     Scenario: onzekerheidsperiode aanvang en volgende overlappen
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20200516                           |
+      | 0800                              | 20201014                           |
       En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <datum aanvang>                    |
@@ -309,7 +309,7 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
       | 20210500      | 20210000               | 2021-05-01                     | 2022-01-01                     |
       | 20210000      | 20210000               | 2021-01-01                     | 2022-01-01                     |
       | 20210000      | 20210500               | 2021-01-01                     | 2021-06-01                     |
-      | 00000000      | 20210500               | 2020-07-31                     | 2021-06-01                     |
+      | 00000000      | 20210500               | 2020-10-15                     | 2021-06-01                     |
 
   Rule: Als er tijdens de onzekerheidsperiode van een bewoner een andere bewoner in- of uitverhuist, ontstaat op de datum aanvang van de andere bewoner een nieuwe bewoning(samenstelling)
 
