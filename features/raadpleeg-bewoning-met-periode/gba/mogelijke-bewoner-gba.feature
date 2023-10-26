@@ -615,6 +615,39 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang volgende
     | 00000000                   | 20100000                            | 2011-01-03 | 2011-03-19 |
     | 20100000                   | 00000000                            | 2009-11-12 | 2009-12-27 |
 
+  Abstract Scenario: persoon heeft onbekende aanvang adreshouding en deels/geheel overlappende onbekende aanvang volgende adreshouding en periode overlapt de onzekerheidsperiodes
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | 2009-07-01         |
+    | datumTot                         | 2011-07-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                      |
+    | periode                          | <datum van> tot <datum tot> |
+    | adresseerbaarObjectIdentificatie | 0800010000000001            |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
+    Voorbeelden:
+    | datum aanvang adreshouding | datum aanvang volgende adreshouding | datum van  | datum tot  |
+    | 20100800                   | 20100800                            | 2010-08-01 | 2010-09-01 |
+    | 20100800                   | 20100000                            | 2010-08-01 | 2011-01-01 |
+    | 20100800                   | 00000000                            | 2010-08-01 | 2011-07-01 |
+    | 20100000                   | 20100800                            | 2010-01-01 | 2010-09-01 |
+    | 20100000                   | 20100000                            | 2010-01-01 | 2011-01-01 |
+    | 20100000                   | 00000000                            | 2010-01-01 | 2011-07-01 |
+    | 00000000                   | 20100800                            | 2009-07-01 | 2010-09-01 |
+    | 00000000                   | 20100000                            | 2009-07-01 | 2011-01-01 |
+    | 00000000                   | 00000000                            | 2009-07-01 | 2011-07-01 |
+
 Rule: een persoon met bekende aanvang vorige adreshouding die vóór de onzekerheidsperiode van deels onbekende aanvang adreshouding ligt, is een mogelijke bewoner voor het deel van de periode dat in de onzekerheidsperiode van de gevraagde adreshouding ligt
 
   Abstract Scenario: datum aanvang vorige adreshouding ligt vóór onzekerheidsperiode van deels onbekende aanvang adreshouding en periode ligt in de onzekerheidsperiode van gevraagde adreshouding
@@ -927,7 +960,7 @@ Rule: een persoon met onbekende aanvang adreshouding, onbekende aanvang vorige a
     | 20100000                          | 00000000                   | 2010-01-01 | 2012-11-17 | periode begint op de eerste dag in de onzekerheidsperiode van aanvang vorige adreshouding |
     | 20100000                          | 00000000                   | 2011-01-01 | 2012-01-01 | periode begint op de eerste dag na de onzekerheidsperiode van aanvang vorige adreshouding |
     | 20100500                          | 00000000                   | 2010-05-01 | 2012-05-26 | periode begint op de eerste dag in de onzekerheidsperiode van aanvang vorige adreshouding |
-    | 20100500                          | 20100000                   | 2010-05-01 | 2012-07-30 | periode begint op de eerste dag in de onzekerheidsperiode van aanvang vorige adreshouding |
+    | 20100500                          | 20100000                   | 2010-05-01 | 2010-07-01 | periode begint op de eerste dag in de onzekerheidsperiode van aanvang vorige adreshouding |
     | 20100500                          | 20100000                   | 2010-06-01 | 2010-07-01 | periode begint op de eerste dag na de onzekerheidsperiode van aanvang vorige adreshouding |
 
   Abstract Scenario: onzekerheidsperiode van adreshouding overlapt onzekerheidsperiode van vorige adreshouding geheel en periode ligt vóór de onzekerheidsperiode van vorige adreshouding
