@@ -671,6 +671,77 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
       | 20210500               | 2021-05-01                     | 2021-06-01                     |
       | 20210000               | 2021-01-01                     | 2022-01-01                     |
 
+    Abstract Scenario: andere persoon overlijdt tijdens onzekerheidsperiode aanvang volgende
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200730                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang volgende>           |
+      En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20230730                           |
+      En de persoon met burgerservicenummer '000000036' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200730                           |
+      En de persoon heeft de volgende 'inschrijving' gegevens
+      | datum opschorting bijhouding (67.10) | reden opschorting bijhouding (67.20) |
+      | 20210526                             | O                                    |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2020-01-01         |
+      | datumTot                         | 2023-11-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000002   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                                          |
+      | periode                          | 2020-07-30 tot <eerste dag onzekerheidsperiode> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002                                |
+      En heeft de bewoning bewoners met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      | 000000024           |
+      | 000000036           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                                          |
+      | periode                          | <eerste dag onzekerheidsperiode> tot 2021-05-26 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002                                |
+      En heeft de bewoning bewoners met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      | 000000036           |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                                          |
+      | periode                          | 2021-05-26 tot <laatste dag onzekerheidperiode> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002                                |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                                          |
+      | periode                          | <laatste dag onzekerheidperiode> tot 2022-10-14 |
+      | adresseerbaarObjectIdentificatie | 0800010000000002                                |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000012           |
+
+      Voorbeelden:
+      | datum aanvang volgende | eerste dag onzekerheidsperiode | laatste dag onzekerheidperiode |
+      | 20210500               | 2021-05-01                     | 2021-06-01                     |
+      | 20210000               | 2021-01-01                     | 2022-01-01                     |
+
     Scenario: andere persoon verhuist met gedeeltelijk onbekende aanvang in tijdens onzekerheidsperiode aanvang met overlappende verschillende onzekerheidsperiodes
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
