@@ -1088,8 +1088,8 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
-    | datumVan                         | <datum van>        |
-    | datumTot                         | <datum tot>        |
+    | datumVan                         | 2009-07-01         |
+    | datumTot                         | 2011-02-01         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                      |
@@ -1117,8 +1117,8 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
-    | datumVan                         | <datum van>        |
-    | datumTot                         | <datum tot>        |
+    | datumVan                         | 2009-07-01         |
+    | datumTot                         | 2011-02-01         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                      |
@@ -1218,7 +1218,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | burgerservicenummer |
     | 000000024           |
 
-  Abstract Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de geheel/deels onbekende datum aanvang adreshouding én geheel/deels onbekende datum aanvang volgende adreshouding én datum aanvang vorig adreshouding die in de onzekerheidsperiodes ligt
+  Abstract Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding én deels onbekende datum aanvang volgende adreshouding én datum aanvang vorig adreshouding die in de onzekerheidsperiodes ligt
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090510                           |
@@ -1235,15 +1235,38 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | datumTot                         | 2011-01-01         |
     | adresseerbaarObjectIdentificatie | 0800010000000001   |
     Dan heeft de response een bewoning met de volgende gegevens
+    | naam                             | waarde                      |
+    | periode                          | <datum van> tot <datum tot> |
+    | adresseerbaarObjectIdentificatie | 0800010000000001            |
+    En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+    | burgerservicenummer |
+    | 000000024           |
+
+    Voorbeelden:
+    | datum aanvang adreshouding | datum aanvang volgend adreshouding | datum van  | datum tot  |
+    | 20090000                   | 20090000                           | 2009-05-11 | 2010-01-01 |
+    | 20090500                   | 20090500                           | 2009-05-11 | 2009-06-01 |
+
+  Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de geheel onbekende datum aanvang adreshouding én geheel onbekende datum aanvang volgende adreshouding én datum aanvang vorig adreshouding die in de onzekerheidsperiodes ligt
+    Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20090510                           |
+    En de persoon is vervolgens ingeschreven op adres 'A1' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 00000000                           |
+    En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 00000000                           |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | 2008-01-01         |
+    | datumTot                         | 2011-01-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    Dan heeft de response een bewoning met de volgende gegevens
     | naam                             | waarde                    |
     | periode                          | 2009-05-11 tot 2011-01-01 |
     | adresseerbaarObjectIdentificatie | 0800010000000001          |
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
-
-    Voorbeelden:
-    | datum aanvang adreshouding | datum aanvang volgend adreshouding |
-    | 00000000                   | 00000000                           |
-    | 20090000                   | 20090000                           |
-    | 20090500                   | 20090500                           |
