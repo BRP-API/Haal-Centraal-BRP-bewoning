@@ -120,7 +120,7 @@ Rule: er wordt geen bewoning geleverd voor een deel van de gevraagde periode voo
 
 Rule: er wordt voor een periode voor een adresseerbaar object meerdere bewoningen geleverd als binnen de gevraagde periode de samenstelling van bewoners verandert
 
-  Scenario: bewoning wordt gevraagd voor een periode dat ligt binnen het verblijf periode van één persoon en deels binnen het verblijf periode van een ander persoon op het adresseerbaar object
+  Scenario: bewoning wordt gevraagd voor een periode die ligt binnen de verblijfperiode van één persoon en deels binnen de verblijfperiode van een ander persoon op het adresseerbaar object
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
