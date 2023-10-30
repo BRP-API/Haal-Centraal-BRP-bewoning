@@ -49,7 +49,7 @@ Rule: Een persoon met bekende datum aanvang adreshouding is bewoner in (een deel
   # 24 |--A1--|--A2--   |--A1--|--A2--
   #            |--|          |---|
   # res        |--|            |-|
-  Abstract Scenario: De gevraagde periode ligt geheel/deels in de adreshoudingperiode (wel vorige en geen volgende adreshouding periode)
+  Abstract Scenario: De gevraagde periode ligt geheel/deels in de adreshoudingperiode (wel vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100818                           |
@@ -78,7 +78,7 @@ Rule: Een persoon met bekende datum aanvang adreshouding is bewoner in (een deel
   # 24 |--A1--|--A2--   |--A1--|--A2--
   #     |---|                |---|
   # res |---|                |-|
-  Abstract Scenario: De gevraagde periode ligt geheel/deels in de adreshouding periode (geen vorige en wel volgende adreshoudingperiode)
+  Abstract Scenario: De gevraagde periode ligt geheel/deels in de adreshoudingperiode (geen vorige en wel volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100818                           |
@@ -107,7 +107,7 @@ Rule: Een persoon met bekende datum aanvang adreshouding is bewoner in (een deel
   # 24 |--A1--|--A2--|--A3--   |--A1--|--A2--|--A3--
   #             |---|               |----------|
   # res         |---|                 |------|
-  Abstract Scenario: De gevraagde periode ligt geheel/deels in de adreshouding periode (wel vorige en wel volgende adreshouding periode)
+  Abstract Scenario: De gevraagde periode ligt geheel/deels in de adreshoudingperiode (wel vorige en wel volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100818                           |
@@ -139,7 +139,7 @@ Rule: Een persoon met bekende datum aanvang adreshouding is bewoner in (een deel
   # 24      |--A1--|--A2--|--A3--   |--A1--|--A2--|--A3--
   #     |---|                          (A1)|---|
   # res
-  Abstract Scenario: De gevraagde periode ligt geheel vóór of na de adreshouding periode
+  Abstract Scenario: De gevraagde periode ligt geheel vóór of na de adreshoudingperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100818                           |
@@ -263,7 +263,7 @@ Rule: Een persoon met een afgevoerde persoonslijst of logisch verwijderde persoo
 
 Rule: Een persoon met opschorting bijhouding wordt na datum opschorting bijhouding niet gezien als bewoner
 
-  Abstract Scenario: persoon met adreshouding op het gevraagde adresseerbaar object is opgeschort met reden "<reden opschorting bijhouding>" (<reden opschorting omschrijving>) en datum opschorting ligt in de adreshouding periode (geen vorige en geen volgende adreshoudingperiode)
+  Abstract Scenario: persoon met adreshouding op het gevraagde adresseerbaar object is opgeschort met reden "<reden opschorting bijhouding>" (<reden opschorting omschrijving>) en datum opschorting ligt in de adreshoudingperiode (geen vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100818                           |
@@ -292,7 +292,7 @@ Rule: Een persoon met opschorting bijhouding wordt na datum opschorting bijhoudi
     | R                            | pl is aangelegd in de rni      |
     | .                            | onbekend                       |
 
-  Abstract Scenario: persoon met adreshouding op het gevraagde adresseerbaar object is opgeschort met reden "<reden opschorting bijhouding>" (<reden opschorting omschrijving>) en datum opschorting ligt in de adreshouding periode (wel vorige en geen volgende adreshouding periode)
+  Abstract Scenario: persoon met adreshouding op het gevraagde adresseerbaar object is opgeschort met reden "<reden opschorting bijhouding>" (<reden opschorting omschrijving>) en datum opschorting ligt in de adreshoudingperiode (wel vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20050414                           |
@@ -326,7 +326,7 @@ Rule: Een persoon met opschorting bijhouding wordt na datum opschorting bijhoudi
 
 Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding ligt
 
-  Abstract Scenario: De gevraagde periode ligt geheel in de onzekerheidsperiode van de adreshoudingperiode (geen vorige en geen volgende adreshouding periode)
+  Abstract Scenario: De gevraagde periode ligt geheel in de onzekerheidsperiode van de adreshoudingperiode (geen vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | <datum aanvang adreshouding>       |
@@ -375,7 +375,7 @@ Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding is mogel
     | burgerservicenummer |
     | 000000024           |
 
-  Abstract Scenario: De gevraagde periode ligt geheel in de onzekerheidsperiode van de adreshouding periode (wel vorige en geen volgende adreshoudingperiode)
+  Abstract Scenario: De gevraagde periode ligt geheel in de onzekerheidsperiode van de adreshoudingperiode (wel vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100818                           |
@@ -429,7 +429,7 @@ Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding is mogel
     | burgerservicenummer |
     | 000000024           |
 
-  Abstract Scenario: De gevraagde periode ligt geheel in de onzekerheidsperiode van de adreshouding periode (geen vorig en wel volgend adreshouding periode)
+  Abstract Scenario: De gevraagde periode ligt geheel in de onzekerheidsperiode van de adreshoudingperiode (geen vorige en wel volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100800                           |
@@ -455,7 +455,7 @@ Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding is mogel
     | 2010-08-01 |
     | 2010-08-10 |
 
-  Scenario: De gevraagde periode overlapt de onzekerheidsperiode van de adreshouding periode (geen vorig en wel volgend adreshouding periode)
+  Scenario: De gevraagde periode overlapt de onzekerheidsperiode van de adreshoudingperiode (geen vorige en wel volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100800                           |
@@ -483,7 +483,7 @@ Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding is mogel
     | burgerservicenummer |
     | 000000024           |
 
-  Abstract Scenario: De gevraagde periode ligt geheel in de onzekerheidsperiode van de adreshouding periode (wel vorig en wel volgend adreshouding periode)
+  Abstract Scenario: De gevraagde periode ligt geheel in de onzekerheidsperiode van de adreshoudingperiode (wel vorige en wel volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100818                           |
@@ -512,7 +512,7 @@ Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding is mogel
     | 2016-01-01 |
     | 2016-06-06 |
 
-  Abstract Scenario: De gevraagde periode overlapt de onzekerheidsperiode van de adreshouding periode (wel vorig en wel volgend adreshouding periode)
+  Abstract Scenario: De gevraagde periode overlapt de onzekerheidsperiode van de adreshoudingperiode (wel vorige en wel volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100818                           |
@@ -543,9 +543,9 @@ Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding is mogel
     | burgerservicenummer |
     | 000000024           |
 
-Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend datum aanvang vorig adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding na datum aanvang vorig adreshouding ligt
+Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekende datum aanvang vorige adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding na datum aanvang vorige adreshouding ligt
 
-  Scenario: Datum aanvang vorig adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen volgend adreshouding periode)
+  Scenario: Datum aanvang vorige adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090712                           |
@@ -573,7 +573,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Datum aanvang vorig adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel volgend adreshouding periode)
+  Scenario: Datum aanvang vorige adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20091216                           |
@@ -604,7 +604,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Datum aanvang vorig adreshouding ligt in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen volgend adreshouding periode)
+  Scenario: Datum aanvang vorige adreshouding ligt in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100814                           |
@@ -632,7 +632,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Datum aanvang vorig adreshouding ligt in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel volgend adreshouding periode)
+  Scenario: Datum aanvang vorige adreshouding ligt in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100814                           |
@@ -663,9 +663,9 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend
     | burgerservicenummer |
     | 000000024           |
 
-Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend datum aanvang volgend adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding vóór datum aanvang volgend adreshouding ligt
+Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekende datum aanvang volgende adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding vóór datum aanvang volgende adreshouding ligt
 
-  Scenario: Datum aanvang volgend adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen vorig adreshouding periode)
+  Scenario: Datum aanvang volgende adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen vorige adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100000                           |
@@ -693,7 +693,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Datum aanvang volgend adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel vorig adreshouding periode)
+  Scenario: Datum aanvang volgende adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel vorige adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090101                           |
@@ -724,7 +724,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Datum aanvang volgend adreshouding ligt in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen vorig adreshouding periode)
+  Scenario: Datum aanvang volgende adreshouding ligt in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen vorige adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100000                           |
@@ -745,7 +745,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Datum aanvang volgend adreshouding ligt in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel vorig adreshouding periode)
+  Scenario: Datum aanvang volgende adreshouding ligt in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel vorige adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090101                           |
@@ -769,9 +769,9 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekend
     | burgerservicenummer |
     | 000000024           |
 
-Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, bekend datum aanvang vorig adreshouding en bekend datum aanvang volgend adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding tussen datum vorig adreshouding en datum volgend adreshouding ligt
+Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, bekende datum aanvang vorige adreshouding en bekende datum aanvang volgende adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding tussen datum vorige adreshouding en datum volgende adreshouding ligt
 
-  Scenario: Datum aanvang vorig en volgend adreshouding liggen niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode
+  Scenario: Datum aanvang vorige en volgende adreshouding liggen niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100814                           |
@@ -802,7 +802,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, bekend d
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Datum aanvang vorig en volgend adreshouding liggen in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode
+  Scenario: Datum aanvang vorige en volgende adreshouding liggen in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100814                           |
@@ -826,9 +826,9 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, bekend d
     | burgerservicenummer |
     | 000000024           |
 
-Rule: Een persoon met bekend datum aanvang adreshouding en geheel/deels onbekend datum aanvang volgend adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de volgende adreshouding na datum aanvang adreshouding ligt
+Rule: Een persoon met bekende datum aanvang adreshouding en geheel/deels onbekend datum aanvang volgende adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de volgende adreshouding na datum aanvang adreshouding ligt
 
-  Scenario: Datum aanvang adreshouding ligt niet in de onzekerheidsperiode van de volgende adreshouding en gevraagde periode overlapt de onzekerheidsperiode (geen vorig adreshouding)
+  Scenario: Datum aanvang adreshouding ligt niet in de onzekerheidsperiode van de volgende adreshouding en gevraagde periode overlapt de onzekerheidsperiode (geen vorige adreshouding)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100814                           |
@@ -856,7 +856,7 @@ Rule: Een persoon met bekend datum aanvang adreshouding en geheel/deels onbekend
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: Datum aanvang adreshouding ligt niet in de onzekerheidsperiode van de volgende adreshouding en gevraagde periode overlapt de onzekerheidsperiode (wel vorig adreshouding)
+  Scenario: Datum aanvang adreshouding ligt niet in de onzekerheidsperiode van de volgende adreshouding en gevraagde periode overlapt de onzekerheidsperiode (wel vorige adreshouding)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100101                           |
@@ -887,7 +887,7 @@ Rule: Een persoon met bekend datum aanvang adreshouding en geheel/deels onbekend
     | burgerservicenummer |
     | 000000024           |
 
-  Abstract Scenario: Datum aanvang adreshouding ligt in de onzekerheidsperiode van de volgende adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen vorig adreshouding)
+  Abstract Scenario: Datum aanvang adreshouding ligt in de onzekerheidsperiode van de volgende adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen vorige adreshouding)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100814                           |
@@ -921,7 +921,7 @@ Rule: Een persoon met bekend datum aanvang adreshouding en geheel/deels onbekend
     | 20100000                            | 2010-08-15 tot 2011-01-01 |
     | 00000000                            | 2010-08-15 tot 2012-01-01 |
 
-  Abstract Scenario: Datum aanvang adreshouding ligt in de onzekerheidsperiode van de volgende adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel vorig adreshouding)
+  Abstract Scenario: Datum aanvang adreshouding ligt in de onzekerheidsperiode van de volgende adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (wel vorige adreshouding)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090101                           |
@@ -958,9 +958,9 @@ Rule: Een persoon met bekend datum aanvang adreshouding en geheel/deels onbekend
     | 20100000                            | 2010-08-15 tot 2011-01-01 |
     | 00000000                            | 2010-08-15 tot 2012-01-01 |
 
-Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/deels onbekend datum aanvang volgende adreshouding en optioneel een bekend datum aanvang vorig adreshouding die niet in de onzekerheidsperiode ligt, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in één van de onzekerheidsperiodes ligt
+Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/deels onbekend datum aanvang volgende adreshouding en optioneel een bekend datum aanvang vorige adreshouding die niet in de onzekerheidsperiode ligt, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in één van de onzekerheidsperiodes ligt
 
-  Scenario: De gevraagde periode overlapt de niet-overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (geen vorig adreshouding periode)
+  Scenario: De gevraagde periode overlapt de niet-overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (geen vorige adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100800                           |
@@ -995,7 +995,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: De gevraagde periode overlapt de niet-overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (wel datum aanvang vorig adreshouding die niet in de onzekerheidsperiodes ligt)
+  Scenario: De gevraagde periode overlapt de niet-overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (wel datum aanvang vorige adreshouding die niet in de onzekerheidsperiodes ligt)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090501                           |
@@ -1033,7 +1033,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: De gevraagde periode overlapt de deels overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (geen vorig adreshouding periode)
+  Scenario: De gevraagde periode overlapt de deels overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (geen vorige adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100000                           |
@@ -1054,7 +1054,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: De gevraagde periode overlapt de deels overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (wel datum aanvang vorig adreshouding die niet in de onzekerheidsperiodes ligt)
+  Scenario: De gevraagde periode overlapt de deels overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (wel datum aanvang vorige adreshouding die niet in de onzekerheidsperiodes ligt)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090501                           |
@@ -1078,13 +1078,13 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | burgerservicenummer |
     | 000000024           |
 
-  Abstract Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (geen vorig adreshouding periode)
+  Abstract Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (geen vorige adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)   |
-    | 0800                              | <datum aanvang volgend adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -1100,11 +1100,11 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | 000000024           |
 
     Voorbeelden:
-    | datum aanvang adreshouding | datum aanvang volgend adreshouding | datum van  | datum tot  |
-    | 20100000                   | 20100000                           | 2010-01-01 | 2011-01-01 |
-    | 20090800                   | 20090800                           | 2009-08-01 | 2009-09-01 |
+    | datum aanvang adreshouding | datum aanvang volgende adreshouding | datum van  | datum tot  |
+    | 20100000                   | 20100000                            | 2010-01-01 | 2011-01-01 |
+    | 20090800                   | 20090800                            | 2009-08-01 | 2009-09-01 |
 
-  Abstract Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (wel datum aanvang vorig adreshouding die niet in de onzekerheidsperiodes ligt)
+  Abstract Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding (wel datum aanvang vorige adreshouding die niet in de onzekerheidsperiodes ligt)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090501                           |
@@ -1112,8 +1112,8 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)   |
-    | 0800                              | <datum aanvang volgend adreshouding> |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -1129,11 +1129,11 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | 000000024           |
 
     Voorbeelden:
-    | datum aanvang adreshouding | datum aanvang volgend adreshouding | datum van  | datum tot  |
-    | 20100000                   | 20100000                           | 2010-01-01 | 2011-01-01 |
-    | 20090800                   | 20090800                           | 2009-08-01 | 2009-09-01 |
+    | datum aanvang adreshouding | datum aanvang volgende adreshouding | datum van  | datum tot  |
+    | 20100000                   | 20100000                            | 2010-01-01 | 2011-01-01 |
+    | 20090800                   | 20090800                            | 2009-08-01 | 2009-09-01 |
 
-  Scenario: De gevraagde periode ligt in de geheel overlappende onzekerheidsperiodes van de geheel onbekende datum aanvang adreshouding en geheel onbekende datum aanvang volgende adreshouding (geen vorig adreshouding periode)
+  Scenario: De gevraagde periode ligt in de geheel overlappende onzekerheidsperiodes van de geheel onbekende datum aanvang adreshouding en geheel onbekende datum aanvang volgende adreshouding (geen vorige adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 00000000                           |
@@ -1154,9 +1154,9 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | burgerservicenummer |
     | 000000024           |
 
-Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/deels onbekend datum aanvang volgend adreshouding en een bekend datum aanvang vorig adreshouding die in de onzekerheidsperiode ligt, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in één van de onzekerheidsperiodes ná datum aanvang vorig adreshouding ligt 
+Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/deels onbekend datum aanvang volgende adreshouding en een bekend datum aanvang vorige adreshouding die in de onzekerheidsperiode ligt, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in één van de onzekerheidsperiodes ná datum aanvang vorige adreshouding ligt 
 
-  Scenario: De gevraagde periode overlapt de niet-overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding en datum aanvang vorig adreshouding ligt in de onzekerheidsperiode van de adreshouding
+  Scenario: De gevraagde periode overlapt de niet-overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding en datum aanvang vorige adreshouding ligt in de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100814                           |
@@ -1194,7 +1194,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: De gevraagde periode overlapt de deels overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding en datum aanvang vorig adreshouding ligt in de onzekerheidsperiode van de adreshouding en vóór de onzekerheidsperiode van de volgende adreshouding
+  Scenario: De gevraagde periode overlapt de deels overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding en deels onbekende datum aanvang volgende adreshouding en datum aanvang vorige adreshouding ligt in de onzekerheidsperiode van de adreshouding en vóór de onzekerheidsperiode van de volgende adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20100208                           |
@@ -1218,7 +1218,7 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | burgerservicenummer |
     | 000000024           |
 
-  Abstract Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding én deels onbekende datum aanvang volgende adreshouding én datum aanvang vorig adreshouding die in de onzekerheidsperiodes ligt
+  Abstract Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de deels onbekende datum aanvang adreshouding én deels onbekende datum aanvang volgende adreshouding én datum aanvang vorige adreshouding die in de onzekerheidsperiodes ligt
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090510                           |
@@ -1226,8 +1226,8 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | <datum aanvang adreshouding>       |
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
-    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-    | 0800                              | <datum aanvang adreshouding>       |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+    | 0800                              | <datum aanvang volgende adreshouding> |
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -1243,11 +1243,11 @@ Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding, geheel/d
     | 000000024           |
 
     Voorbeelden:
-    | datum aanvang adreshouding | datum aanvang volgend adreshouding | datum van  | datum tot  |
-    | 20090000                   | 20090000                           | 2009-05-11 | 2010-01-01 |
-    | 20090500                   | 20090500                           | 2009-05-11 | 2009-06-01 |
+    | datum aanvang adreshouding | datum aanvang volgende adreshouding | datum van  | datum tot  |
+    | 20090000                   | 20090000                            | 2009-05-11 | 2010-01-01 |
+    | 20090500                   | 20090500                            | 2009-05-11 | 2009-06-01 |
 
-  Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de geheel onbekende datum aanvang adreshouding én geheel onbekende datum aanvang volgende adreshouding én datum aanvang vorig adreshouding die in de onzekerheidsperiodes ligt
+  Scenario: De gevraagde periode overlapt de geheel overlappende onzekerheidsperiodes van de geheel onbekende datum aanvang adreshouding én geheel onbekende datum aanvang volgende adreshouding én datum aanvang vorige adreshouding die in de onzekerheidsperiodes ligt
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A3' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20090510                           |
