@@ -72,8 +72,8 @@ Functionaliteit: gebeurtenissen met meerdere bewoners in periode met geheel of g
 
       Voorbeelden:
       | datum aanvang | eerste dag onzekerheidsperiode | laatste dag onzekerheidperiode |
-      | 20210500      | 2021-05-01 | 2021-06-01 |
-      | 20210000      | 2021-01-01 | 2022-01-01 |
+      | 20210500      | 2021-05-01                     | 2021-06-01                     |
+      | 20210000      | 2021-01-01                     | 2022-01-01                     |
 
     Abstract Scenario: vorige aanvang ligt in onzekerheidsperiode aanvang gevraagde
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
