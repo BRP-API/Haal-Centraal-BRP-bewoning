@@ -87,6 +87,39 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | peildatum is dag voor onzekerheidsperiode jaar  | 20210000      | 2020-12-31 |
       | peildatum ligt voor onzekerheidsperiode jaar    | 20210000      | 2020-07-30 |
 
+    Abstract Scenario: eerste en enige verblijfplaats met gedeeltelijk onbekende datum aanvang, er is een andere bewoner en <omschrijving>
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang>                    |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20180516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200730                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20221014                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | <peildatum>          |
+      | adresseerbaarObjectIdentificatie | 0800010000000002     |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                        |
+      | periode                          | <peildatum> tot <periode tot> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002              |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+
+      Voorbeelden:
+      | omschrijving                                    | datum aanvang | peildatum  | periode tot |
+      | peildatum is dag voor onzekerheidsperiode maand | 20210500      | 2021-04-30 | 2021-05-01  |
+      | peildatum ligt voor onzekerheidsperiode maand   | 20210500      | 2020-07-30 | 2020-07-31  |
+      | peildatum is dag voor onzekerheidsperiode jaar  | 20210000      | 2020-12-31 | 2021-01-01  |
+      | peildatum ligt voor onzekerheidsperiode jaar    | 20210000      | 2020-07-30 | 2020-07-31  |
+
     Abstract Scenario: eerste en enige verblijfplaats met volledig onbekende datum aanvang
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'gevraagd' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -190,6 +223,44 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | peildatum is datum aanvang volgende             | 20210000      | 2022-10-14 |
       | peildatum na datum aanvang volgende             | 20210000      | 2022-11-03 |
 
+    Abstract Scenario: volgende verblijfplaats na onzekerheidsperiode, er is een andere bewoner en <omschrijving>
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang>                    |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20221014                           |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20180516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200730                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20231014                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | <peildatum>          |
+      | adresseerbaarObjectIdentificatie | 0800010000000002     |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                        |
+      | periode                          | <peildatum> tot <periode tot> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002              |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+
+      Voorbeelden:
+      | omschrijving                                    | datum aanvang | peildatum  | periode tot |
+      | peildatum is dag voor onzekerheidsperiode maand | 20210500      | 2021-04-30 | 2021-05-01  |
+      | peildatum ligt voor onzekerheidsperiode maand   | 20210500      | 2020-07-30 | 2020-07-31  |
+      | peildatum is dag voor onzekerheidsperiode jaar  | 20210000      | 2020-12-31 | 2021-01-01  |
+      | peildatum ligt voor onzekerheidsperiode jaar    | 20210000      | 2020-07-30 | 2020-07-31  |
+      | peildatum is datum aanvang volgende             | 20210000      | 2022-10-14 | 2022-10-15  |
+      | peildatum na datum aanvang volgende             | 20210000      | 2022-11-03 | 2022-11-04  |
+
     Abstract Scenario: volgende verblijfplaats in onzekerheidsperiode en <scenario>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'gevraagd' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
@@ -241,7 +312,48 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | peildatum na onzekerheidsperiode maand                                    | 20210500      | 2021-06-03 |
       | peildatum na onzekerheidsperiode jaar                                     | 20210000      | 2022-03-15 |
       | datum aanvang is volledig onbekend en peildatum is datum aanvang volgende | 00000000      | 2021-05-26 |
-      | datum aanvang is volledig onbekend en peildatum na datum aanvang volgende | 00000000      | 2023-03-27  |
+      | datum aanvang is volledig onbekend en peildatum na datum aanvang volgende | 00000000      | 2023-03-27 |
+
+    Abstract Scenario: volgende verblijfplaats in onzekerheidsperiode, er is een andere bewoner en <scenario>
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang>                    |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210526                           |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20180516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200730                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20231014                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | <peildatum>          |
+      | adresseerbaarObjectIdentificatie | 0800010000000002     |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                        |
+      | periode                          | <peildatum> tot <periode tot> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002              |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+
+      Voorbeelden:
+      | scenario                                                                  | datum aanvang | peildatum  | periode tot |
+      | peildatum is een dag voor onzekerheidsperiode maand                       | 20210500      | 2021-04-30 | 2021-05-01  |
+      | peildatum is een dag voor onzekerheidsperiode jaar                        | 20210000      | 2020-12-31 | 2021-01-01  |
+      | peildatum is datum aanvang volgende binnen onzekerheidsperiode maand      | 20210500      | 2021-05-26 | 2021-05-27  |
+      | peildatum na datum aanvang volgende binnen onzekerheidsperiode maand      | 20210500      | 2021-05-28 | 2021-05-29  |
+      | peildatum na datum aanvang volgende binnen onzekerheidsperiode jaar       | 20210000      | 2021-11-03 | 2021-11-04  |
+      | peildatum na onzekerheidsperiode maand                                    | 20210500      | 2021-06-03 | 2021-06-04  |
+      | peildatum na onzekerheidsperiode jaar                                     | 20210000      | 2022-03-15 | 2022-03-16  |
+      | datum aanvang is volledig onbekend en peildatum is datum aanvang volgende | 00000000      | 2021-05-26 | 2021-05-27  |
+      | datum aanvang is volledig onbekend en peildatum na datum aanvang volgende | 00000000      | 2023-03-27 | 2023-03-28  |
 
     Abstract Scenario: vorige verblijfplaats ligt in onzekerheidsperiode en er is een volgende en daaropvolgende verblijfplaats en <omschrijving>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
@@ -346,6 +458,56 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | peildatum ligt na aanvang volgende      | 00000000      | 2023-01-01 |
       | peildatum ligt voor aanvang vorige      | 00000000      | 2021-05-03 |
 
+    Abstract Scenario: vorige verblijfplaats ligt in onzekerheidsperiode en er is een volgende en daaropvolgende verblijfplaats, er is een andere bewoner en <omschrijving>
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang>                    |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20220730                           |
+      En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20221014                           |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20180516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200730                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20231014                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | <peildatum>          |
+      | adresseerbaarObjectIdentificatie | 0800010000000002     |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                        |
+      | periode                          | <peildatum> tot <periode tot> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002              |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+
+      Voorbeelden:
+      | omschrijving                            | datum aanvang | peildatum  | periode tot |
+      | peildatum is datum aanvang vorige       | 20210500      | 2021-05-16 | 2021-05-17  |
+      | peildatum is datum aanvang volgende     | 20210500      | 2022-07-30 | 2022-07-31  |
+      | peildatum ligt voor aanvang vorige      | 20210500      | 2021-05-03 | 2021-05-04  |
+      | peildatum ligt voor onzekerheidsperiode | 20210500      | 2021-01-01 | 2021-01-02  |
+      | peildatum is datum aanvang vorige       | 20210000      | 2021-05-16 | 2021-05-17  |
+      | peildatum is datum aanvang volgende     | 20210000      | 2022-07-30 | 2022-07-31  |
+      | peildatum ligt voor aanvang vorige      | 20210000      | 2021-05-03 | 2021-05-04  |
+      | peildatum ligt voor onzekerheidsperiode | 20210000      | 2020-11-01 | 2020-11-02  |
+      | peildatum is datum aanvang vorige       | 00000000      | 2021-05-16 | 2021-05-17  |
+      | peildatum is datum aanvang volgende     | 00000000      | 2022-07-30 | 2022-07-31  |
+      | peildatum ligt na aanvang volgende      | 00000000      | 2023-01-01 | 2023-01-02  |
+      | peildatum ligt voor aanvang vorige      | 00000000      | 2021-05-03 | 2021-05-04  |
+
   Rule: een persoon is mogelijke bewoner tijdens de onzekerheidsperiode van de datum aanvang volgende verblijf en bewoner daarvoor
 
     Abstract Scenario: aanvang volgende verblijf is gedeeltelijk onbekend en het daaropvolgende verblijf begint buiten de onzekerheidsperiode en <omschrijving>
@@ -433,6 +595,47 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | peildatum                        | <peildatum>          |
       | adresseerbaarObjectIdentificatie | 0800010000000002     |
       Dan heeft de response 0 bewoningen
+
+      Voorbeelden:
+      | omschrijving                                | datum aanvang volgende | peildatum  | periode tot |
+      | peildatum ligt voor datum aanvang           | 20210700               | 2021-05-25 | 2021-05-26  |
+      | peildatum ligt na onzekerheidsperiode maand | 20210700               | 2021-08-01 | 2021-08-02  |
+      | peildatum ligt na onzekerheidsperiode jaar  | 20210000               | 2022-01-01 | 2022-01-02  |
+
+    Abstract Scenario: aanvang volgende verblijf is gedeeltelijk onbekend en het daaropvolgende verblijf begint buiten de onzekerheidsperiode, er is een andere bewoner en <omschrijving>
+      Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20210526                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang volgende>           |
+      En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20230210                           |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'vorige' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20180516                           |
+      En de persoon is vervolgens ingeschreven op adres 'gevraagd' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20200730                           |
+      En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | 20231014                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde               |
+      | type                             | BewoningMetPeildatum |
+      | peildatum                        | <peildatum>          |
+      | adresseerbaarObjectIdentificatie | 0800010000000002     |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                        |
+      | periode                          | <peildatum> tot <periode tot> |
+      | adresseerbaarObjectIdentificatie | 0800010000000002              |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
 
       Voorbeelden:
       | omschrijving                                | datum aanvang volgende | peildatum  | periode tot |
