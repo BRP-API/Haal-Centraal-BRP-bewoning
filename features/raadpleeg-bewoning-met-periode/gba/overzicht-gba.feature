@@ -18,7 +18,7 @@ Functionaliteit: raadpleeg bewoning in periode
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000003                         |
 
-Rule: Een persoon met bekende datum aanvang adreshouding is bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de adreshoudingperiode ligt
+Rule: Een persoon met een bekende datum aanvang adreshouding is bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de adreshoudingperiode ligt
 
   Abstract Scenario: <scenario> (geen vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -167,7 +167,7 @@ Rule: Een persoon met bekende datum aanvang adreshouding is bewoner in (een deel
     #     |---|                          (A1)|---|            (A2)|---|                           (A2)|---|
     # res
 
-Rule: Voor een periode wordt meerdere bewoningen geleverd als de samenstelling van bewoners in de periode verandert
+Rule: Voor een periode worden meerdere bewoningen geleverd als de samenstelling van bewoners in de periode is veranderd
 
   Scenario: De gevraagde periode ligt in de adreshoudingperiode van één persoon en ligt deels in de adreshoudingperiode van een ander persoon
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -550,7 +550,7 @@ Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding is mogel
     | burgerservicenummer |
     | 000000024           |
 
-Rule: Een persoon met geheel/deels onbekend datum aanvang adreshouding en bekende datum aanvang vorige adreshouding, is mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding na datum aanvang vorige adreshouding ligt
+Rule: Een persoon met geheel/deels onbekende datum aanvang adreshouding en bekende datum aanvang vorige adreshouding, is een mogelijke bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de onzekerheidsperiode van de adreshouding na datum aanvang vorige adreshouding ligt
 
   Scenario: Datum aanvang vorige adreshouding ligt niet in de onzekerheidsperiode van de adreshouding en de gevraagde periode overlapt de onzekerheidsperiode (geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
