@@ -35,9 +35,9 @@ Functionaliteit: raadpleeg bewoning in periode
 
 Rule: een persoon is binnen een periode bewoner van een adresseerbaar object als:
       - de van datum van de periode valt op of na datum aanvang adreshouding van de persoon op het adresseerbaar object
-      - de tot datum van de periode valt vóór datum aanvang adreshouding van de persoon op het volgend adresseerbaar object
+      - de tot datum van de periode valt vóór datum aanvang adreshouding van de persoon op het volgende adresseerbaar object
 
-  Scenario: bewoning wordt gevraagd voor een periode dat ligt binnen het verblijf periode van één persoon op het adresseerbaar object
+  Scenario: bewoning wordt gevraagd voor een periode die ligt binnen de verblijfperiode van één persoon op het adresseerbaar object
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -52,7 +52,7 @@ Rule: een persoon is binnen een periode bewoner van een adresseerbaar object als
     | burgerservicenummer |
     | 000000024           |
 
-  Scenario: bewoning wordt gevraagd voor een periode dat ligt binnen het verblijf periode van meerdere personen op het adresseerbaar object
+  Scenario: bewoning wordt gevraagd voor een periode die ligt binnen de verblijfperiode van meerdere personen op het adresseerbaar object
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
@@ -70,7 +70,7 @@ Rule: een persoon is binnen een periode bewoner van een adresseerbaar object als
 
 Rule: er wordt geen bewoning geleverd voor een gevraagde periode voor een adresseerbaar object als er binnen die periode geen personen verblijven/hebben verbleven op het adresseerbaar object
 
-  Scenario: bewoning wordt gevraagd voor een periode dat vóór de verblijf periode van een persoon op het adresseerbaar object ligt
+  Scenario: bewoning wordt gevraagd voor een periode die vóór de verblijfperiode van een persoon op het adresseerbaar object ligt
     Als gba bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde             |
     | type                             | BewoningMetPeriode |
