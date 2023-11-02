@@ -35,12 +35,13 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | 000000024           | true        |
 
     Voorbeelden:
-    | aanduiding in onderzoek | type                                         |
-    | 080000                  | hele categorie verblijfplaats                |
-    | 081000                  | hele groep adreshouding                      |
-    | 081030                  | datum aanvang adreshouding                   |
-    | 081100                  | hele groep adres                             |
-    | 081180                  | identificatiecode verblijfplaats             |
+    | aanduiding in onderzoek | type                             |
+    | 080000                  | hele categorie verblijfplaats    |
+    | 081000                  | hele groep adreshouding          |
+    | 081030                  | datum aanvang adreshouding       |
+    | 081100                  | hele groep adres                 |
+    | 081180                  | identificatiecode verblijfplaats |
+    | 089999                  | vastgesteld geen bewoner meer    |
 
   Abstract Scenario: '<type>' van vorige verblijfplaats is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
