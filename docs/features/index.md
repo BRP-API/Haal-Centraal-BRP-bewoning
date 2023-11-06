@@ -6,7 +6,7 @@ title: Features test overzicht
 
 Totaal: 1553 scenarios (2 failed, 1551 passed)
 
-## GBA v2.0.16
+## GBA v    2.0.16
 
 - [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 611 scenarios (611 passed)
 - [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 590 scenarios (2 failed, 588 passed)
