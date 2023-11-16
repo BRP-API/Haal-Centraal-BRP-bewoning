@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "mermaid:gen": "mmdc -i docs/bewoning-op-peildatum.md -o docs/img/bewoning-op-peildatum-diagram.svg",
+    "mermaid:gen": "mmdc -i docs/v2/features-overzicht-src.md -o docs/img/features-overzicht.svg",
     "nswag:gen": "bash scripts/nswag-gen.sh",
     "oas:generate-client": "openapi-generator-cli generate -i ./specificatie/genereervariant/openapi.yaml --global-property=modelTests=false,apiTests=false,modelDocs=false,apiDocs=false",
     "oas:generate-java-client": "npm run oas:generate-client -- -o ./code/java -g java --additional-properties=dateLibrary=java8,java8=true,optionalProjectFile=false,optionalAssemblyInfo=false",
