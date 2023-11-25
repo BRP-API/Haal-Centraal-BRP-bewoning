@@ -7,10 +7,15 @@ title: Haal Centraal BRP-bewoning
 ![lint oas](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/lint-oas/badge.svg)
 ![generate postman collection](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/generate-postman-collection/badge.svg)
 
-API voor het raadplegen van de historische bewoning van een adres. Met de API kun je de samenstelling(en) van bewoners van een woning raadplegen op een peildatum of binnen een periode.
+API voor het raadplegen van de historische bewoning van een adres. Met de API kun je de samenstelling(en) van bewoners van een woning raadplegen binnen een periode of op een peildatum.
 
 ## Planning & Roadmap
-De bewoning API v2 kan voorlopig alleen worden gebruikt door gemeenten. 
+De BRP Bewoning API v2 is live sinds november 2023. 
+
+## Aansluiten en voorwaarden
+De BRP Bewoning API kan voorlopig alleen worden gebruikt door gemeenten door deel te nemen aan het [Experiment Dataminimalisatie] (https://www.rijksoverheid.nl/documenten/besluiten/2023/08/28/experimentbesluit-brp-dataminimalisatie-amvb-nvt-versie-voorhang). Hiervoor wordt een convenant met RvIG gesloten waarin de afspraken voor deelname zijn vastgelegd. De technische aansluiting verloopt via Diginetwerk, vereist een TLS verbinding (PKIO certificaat) en een OAuth 2.0 token (OAuth 2.0 client credentials flow).
+
+Stuur een email naar info@RvIG voor een kennismakingmakingsgesprek en onboarding.
 
 ## Direct uitproberen?
 * Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/redoc)
