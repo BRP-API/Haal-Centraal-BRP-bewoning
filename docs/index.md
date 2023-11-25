@@ -13,7 +13,7 @@ API voor het raadplegen van de historische bewoning van een adres. Met de API ku
 De BRP Bewoning API v2 is live sinds november 2023. 
 
 ## Aansluiten en voorwaarden
-De BRP Bewoning API kan voorlopig alleen worden gebruikt door gemeenten door deel te nemen aan het [Experiment Dataminimalisatie](https://www.rijksoverheid.nl/documenten/besluiten/2023/08/28/experimentbesluit-brp-dataminimalisatie-amvb-nvt-versie-voorhang). Hiervoor wordt een convenant met RvIG gesloten waarin de afspraken voor deelname zijn vastgelegd. De technische aansluiting verloopt via Diginetwerk, vereist een TLS verbinding (PKIO certificaat) en een OAuth 2.0 token (OAuth 2.0 client credentials flow).
+De BRP Bewoning API kan voorlopig alleen worden gebruikt door gemeenten door deelname aan het [Experiment Dataminimalisatie](https://www.rijksoverheid.nl/documenten/besluiten/2023/08/28/experimentbesluit-brp-dataminimalisatie-amvb-nvt-versie-voorhang). Hiervoor wordt een convenant met RvIG gesloten waarin de afspraken voor deelname zijn vastgelegd. Voor de technische aansluiting is een API Gateway nodig. Aansluiten kan via Diginetwerk met gebruik van een TLS verbinding (PKIO certificaat) en een OAuth 2.0 token (OAuth 2.0 client credentials flow).
 
 Stuur een email naar info@RvIG voor een kennismakingmakingsgesprek en onboarding.
 
