@@ -1,8 +1,8 @@
 ---
 layout: page-with-side-nav
-title: Haal Centraal BRP-bewoning
+title: BRP Bewoning
 ---
-# Haal Centraal BRP bewoning
+# BRP Bewoning
 
 ![lint oas](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/lint-oas/badge.svg)
 ![generate postman collection](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/generate-postman-collection/badge.svg)
