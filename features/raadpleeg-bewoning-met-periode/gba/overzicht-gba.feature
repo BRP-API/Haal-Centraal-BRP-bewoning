@@ -18,7 +18,7 @@ Functionaliteit: raadpleeg bewoning in periode
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000003                         |
 
-Rule: Een persoon dat verblijft op de gevraagde adresseerbaar object met een bekende datum aanvang adreshouding is bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de adreshoudingperiode ligt
+Rule: Een persoon die verblijft op het gevraagde adresseerbaar object met een bekende datum aanvang adreshouding is bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de adreshoudingperiode ligt
 
   Abstract Scenario: <scenario> (geen vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
