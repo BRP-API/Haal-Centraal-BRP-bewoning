@@ -15,7 +15,7 @@ Functionaliteit: raadpleeg bewoning in periode
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000002                         |
 
-Rule: een persoon dat verblijft op de gevraagde adresseerbaar object met onbekende aanvang adreshouding, geen vorige en volgende adreshouding, is in een periode een mogelijke bewoner voor dat deel van de periode dat in de onzekerheidsperiode van de gevraagde adreshouding ligt
+Rule: een persoon die verblijft op het gevraagde adresseerbaar object met onbekende aanvang adreshouding, geen vorige en volgende adreshouding, is in een periode een mogelijke bewoner voor dat deel van de periode die in de onzekerheidsperiode van de gevraagde adreshouding ligt
 
   Abstract Scenario: aanvang adreshouding is deels/geheel onbekend en periode ligt in de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
