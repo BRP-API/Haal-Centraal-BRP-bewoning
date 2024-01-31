@@ -7,6 +7,7 @@ title: User Stories in Productie
 
 ## Vanaf versie 2.0
 
+- [Als medewerker belastingzaken wil ik weten welke bewoner van het verblijfsobject het langst op een adres woont](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/223){:target="_blank" rel="noopener"}
 - [Als PO wil ik een dat het raadplegen van een bewoning met een Adresseerbaar Object met 16 nullen een foutmelding levert](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/148){:target="_blank" rel="noopener"}
 - [Als consumer van de Bewoning API wil ik een indicatie krijgen wanneer een adresseerbaar object veel bewoners heeft ](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/145){:target="_blank" rel="noopener"}
 - [Als PO wil ik dat RNI en verificatie uit bewoners en mogelijke bewoners worden verwijderd](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/139){:target="_blank" rel="noopener"}
