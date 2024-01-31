@@ -43,7 +43,7 @@ Rule: een persoon die verblijft op het gevraagde adresseerbaar object met onbeke
     | 20100000                   | 2010-12-01 | 2010-12-31 | 2010-12-01 tot 2010-12-31 | gevraagde periode overlapt een deel van de onzekerheidsperiode                           |
     | 00000000                   | 2000-01-01 | 2001-01-01 | 2000-01-01 tot 2001-01-01 | een willekeurig periode in de onzekerheidsperiode van een geheel onbekende aanvangsdatum |
 
-  Abstract Scenario: persoon heeft de gevraagde adresseerbaar object als briefadres opgegeven en aanvang adreshouding is deels/geheel onbekend en periode ligt in de onzekerheidsperiode van de adreshouding
+  Abstract Scenario: persoon heeft het gevraagde adresseerbaar object als briefadres opgegeven en aanvang adreshouding is deels/geheel onbekend en periode ligt in de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' heeft adres 'A1' als briefadres opgegeven met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | <datum aanvang adreshouding>       |
