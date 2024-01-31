@@ -15,7 +15,7 @@ setWorldConstructor(World);
 // voor het aanpassen van de default timeout waarde (5s) van cucumber-js
 // de default timeout waarde van axios is 0 (geen timeout)
 // https://github.com/cucumber/cucumber-js/blob/main/docs/support_files/timeouts.md
-setDefaultTimeout(15000);
+setDefaultTimeout(60000);
 
 let pool;
 let logSqlStatements = false;

@@ -1,7 +1,7 @@
 class World {
     constructor(parameters) {
         this.context = parameters;
-        this.context.proxyUrl = "http://localhost:5003/haalcentraal/api/bewoning";
+        this.context.proxyUrl = "http://localhost:5004/haalcentraal/api/bewoning";
         this.context.apiUrl = "http://localhost:8000/haalcentraal/api/bewoning";
         this.context.sql = {
             useDb: true,

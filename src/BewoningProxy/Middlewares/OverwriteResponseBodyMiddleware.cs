@@ -110,7 +110,7 @@ public class OverwriteResponseBodyMiddleware
             _diagnosticContext.Set("api response.body", body);
 
             var modifiedBody = context.Response.StatusCode == StatusCodes.Status200OK
-                ? body.Transform(_mapper)
+                ? body.Transform(_mapper, _logger)
                 : body;
 
             _diagnosticContext.Set("response.body", modifiedBody);
