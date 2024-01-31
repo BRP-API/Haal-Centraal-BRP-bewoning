@@ -235,6 +235,7 @@ Given(/^adres '(.*)' is op '(.*)' geactualiseerd met de volgende gegevens$/, fun
             let nieuwVerblijfplaatsData = [
                 [ 'adres_id', nieuwAdresIndex + '' ],
                 [ 'volg_nr', '0'],
+                [ 'adres_functie', 'W'],
                 [ 'adreshouding_start_datum', ingangsdatum.replaceAll('-', '')],
                 [ 'aangifte_adreshouding_oms', 'T' ]
             ];
@@ -336,6 +337,7 @@ Given(/^(?:adres|de adressen) '(.*)' (?:is|zijn) op '(.*)' samengevoegd tot adre
                 let nieuwVerblijfplaatsData = [
                     [ 'adres_id', nieuwAdresIndex + '' ],
                     [ 'volg_nr', '0'],
+                    [ 'adres_functie', 'W'],
                     [ 'adreshouding_start_datum', ingangsdatum.replaceAll('-', '')],
                     [ 'aangifte_adreshouding_oms', 'W' ]
                 ];
@@ -392,7 +394,8 @@ Given(/^de persoon met burgerservicenummer '(\d*)' is ingeschreven op adres '(.*
     sqlData['verblijfplaats'] = [
         [
             [ 'adres_id', adresIndex + '' ],
-            [ 'volg_nr', '0']
+            [ 'volg_nr', '0'],
+            [ 'adres_functie', 'W']
         ].concat(createArrayFrom(dataTable, columnNameMap))
     ];
 });
@@ -428,7 +431,8 @@ Given(/^de persoon is vervolgens ingeschreven op adres '(.*)' met de volgende ge
 
     sqlData['verblijfplaats'].push([
         [ 'adres_id', adresIndex + '' ],
-        [ 'volg_nr', '0']
+        [ 'volg_nr', '0'],
+        [ 'adres_functie', 'W']
     ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
@@ -458,7 +462,8 @@ Given(/^er zijn (\d*) personen ingeschreven op adres '(.*)' met de volgende gege
         sqlData['verblijfplaats'] = [
             [
                 [ 'adres_id', adresIndex + '' ],
-                [ 'volg_nr', '0']
+                [ 'volg_nr', '0'],
+                [ 'adres_functie', 'W']
             ].concat(createArrayFrom(dataTable, columnNameMap))
         ];
     }
@@ -585,7 +590,8 @@ Given(/^de inschrijving is vervolgens gecorrigeerd als een inschrijving op adres
 
     sqlData['verblijfplaats'].push([
         [ 'adres_id', adresIndex + '' ],
-        [ 'volg_nr', '0']
+        [ 'volg_nr', '0'],
+        [ 'adres_functie', 'W']
     ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
