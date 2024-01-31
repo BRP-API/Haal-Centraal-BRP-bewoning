@@ -40,7 +40,7 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | 081030                  | datum aanvang adreshouding       |
     | 081100                  | hele groep adres                 |
     | 081180                  | identificatiecode verblijfplaats |
-    | 081010                  | functie adres                      |
+    | 081010                  | functie adres                    |
 
   Abstract Scenario: '<type>' van vorige verblijfplaats is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -66,7 +66,7 @@ Rule: het in onderzoek zijn van de 'identificatiecode verblijfplaats' en/of 'dat
     | aanduiding in onderzoek | type                             |
     | 580000                  | hele categorie verblijfplaats    |
     | 581000                  | hele groep adreshouding          |
-    | 581010                  | functie adres                      |
+    | 581010                  | functie adres                    |
     | 581030                  | datum aanvang adreshouding       |
     | 581100                  | hele groep adres                 |
     | 581180                  | identificatiecode verblijfplaats |

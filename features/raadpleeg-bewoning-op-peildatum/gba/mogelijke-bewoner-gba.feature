@@ -42,7 +42,7 @@ Rule: een persoon dat verblijft op de gevraagde adresseerbaar object met onbeken
     | 20100000                   | 2010-12-31 | 2010-12-31 tot 2011-01-01 | laatste dag in onbekende dag en maand datum   |
     | 00000000                   | 2000-01-01 | 2000-01-01 tot 2000-01-02 | een willekeurig dag in geheel onbekende datum |
 
-  Abstract Scenario: persoon heeft het gevraagde adresseerbaar object als briefadres opgegeven en aanvang adreshouding is onbekend en peildatum ligt in de onzekerheidsperiode van de adreshouding
+  Abstract Scenario: persoon heeft de gevraagde adresseerbaar object als briefadres opgegeven en aanvang adreshouding is onbekend en peildatum ligt in de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' heeft adres 'A1' als briefadres opgegeven met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | <datum aanvang adreshouding>       |

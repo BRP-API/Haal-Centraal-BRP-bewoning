@@ -18,7 +18,7 @@ Functionaliteit: raadpleeg bewoning in periode
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000003                         |
 
-Rule: Een persoon met een bekende datum aanvang adreshouding is bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de adreshoudingperiode ligt
+Rule: Een persoon dat verblijft op de gevraagde adresseerbaar object met een bekende datum aanvang adreshouding is bewoner in (een deel van) de gevraagde periode als (dat deel van) de gevraagde periode in de adreshoudingperiode ligt
 
   Abstract Scenario: <scenario> (geen vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -45,6 +45,23 @@ Rule: Een persoon met een bekende datum aanvang adreshouding is bewoner in (een 
     # 24 |--A1--     |--A1--
     #     |----|   |---|
     # res |----|     |-|
+
+  Abstract Scenario: persoon heeft het gevraagde adresseerbaar object als briefadres opgegeven en <scenario> (geen vorige en geen volgende adreshoudingperiode)
+    Gegeven de persoon met burgerservicenummer '000000024' heeft adres 'A1' als briefadres opgegeven met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20100818                           |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde             |
+    | type                             | BewoningMetPeriode |
+    | datumVan                         | <datum van>        |
+    | datumTot                         | 2011-09-01         |
+    | adresseerbaarObjectIdentificatie | 0800010000000001   |
+    Dan heeft de response 0 bewoningen
+
+    Voorbeelden:
+    | datum van  | periode                   | scenario                                                  |
+    | 2010-09-01 | 2010-09-01 tot 2011-09-01 | de gevraagde periode ligt in de adreshoudingperiode       |
+    | 2010-08-01 | 2010-08-18 tot 2011-09-01 | de gevraagde periode ligt deels in de adreshoudingperiode |
 
   Abstract Scenario: <scenario> (wel vorige en geen volgende adreshoudingperiode)
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
