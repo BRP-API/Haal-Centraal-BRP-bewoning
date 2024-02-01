@@ -25,7 +25,7 @@ public class BewoningMetPeildatumQueryValidator : AbstractValidator<IBewoningMet
             .Matches(DatePattern).WithMessage(DateErrorMessage)
             .Custom((peildatum, context) =>
             {
-                if(!DateTime.TryParse(peildatum, out _))
+                if(!peildatum.IsDateTime())
                 {
                     context.AddFailure(DateErrorMessage);
                 }

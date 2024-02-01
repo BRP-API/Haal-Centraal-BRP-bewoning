@@ -3,12 +3,13 @@ version: '3.7'
 services:
   haalcentraal_bewoningen_api:
     container_name: haalcentraal_bewoningen_api
-    image: haalcentraal.azurecr.io/gba-bewoningen-api:2.0.5
+    image: haalcentraal.azurecr.io/gba-bewoningen-api:2.0.16
     environment:
       - Database__ConnectionString=Host=postgres;Username=root;Password=root;Database=rvig_haalcentraal_testdata
       - HaalcentraalApi__MaxSearchResults=10
       - ASPNETCORE_URLS=http://+;
       - AuthenticationTypes=Basic
+      - Database__RefreshLandelijkeTabellen=0
       # - AuthenticationTypes=jwtbearer
       - Serilog__MinimumLevel__Default=Information
     ports:

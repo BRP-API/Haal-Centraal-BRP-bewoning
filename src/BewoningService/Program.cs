@@ -1,36 +1,50 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Bewoning.Infrastructure.Logging;
 using HaalCentraal.BewoningService.Repositories;
 using Serilog;
-using Serilog.Enrichers.Span;
-using Serilog.Exceptions;
-using Serilog.Sinks.SystemConsole.Themes;
+using HaalCentraal.BewoningService.Validators;
+using Bewoning.Infrastructure.ProblemJson;
 
-var builder = WebApplication.CreateBuilder(args);
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
 
-builder.Logging.ClearProviders();
-builder.Host.UseSerilog((context, config) =>
+try
 {
-    config
-        .ReadFrom.Configuration(context.Configuration)
-        .Enrich.WithExceptionDetails()
-        .Enrich.FromLogContext()
-        .Enrich.With<ActivityEnricher>()
-        .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}",
-                         theme: AnsiConsoleTheme.Code)
-        .WriteTo.Seq(context.Configuration["Seq:ServerUrl"]!);
-});
+    Log.Information("Starting Bewoning Mock");
 
-// Add services to the container.
+    var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers()
-                //.ConfigureInvalidModelStateHandling()
-                .AddNewtonsoftJson();
+    builder.Logging.ClearProviders();
+    builder.Host.UseSerilog(SerilogHelpers.Configure(Log.Logger));
 
-builder.Services.AddScoped<PersoonRepository>();
+    // Add services to the container.
 
-var app = builder.Build();
+    builder.Services.AddControllers()
+                    .ConfigureInvalidModelStateHandling()
+                    .AddNewtonsoftJson();
+    builder.Services.AddFluentValidationAutoValidation(options => options.DisableDataAnnotationsValidation = true)
+                    .AddValidatorsFromAssemblyContaining<BewoningMetPeildatumValidator>();
 
-// Configure the HTTP request pipeline.
+    builder.Services.AddScoped<PersoonRepository>();
 
-app.MapControllers();
+    var app = builder.Build();
 
-app.Run();
+    // Configure the HTTP request pipeline.
+    app.UseSerilogRequestLogging();
+
+    app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
+
+    app.MapControllers();
+
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Bewoning Mock terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}

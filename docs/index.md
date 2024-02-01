@@ -1,32 +1,32 @@
 ---
 layout: page-with-side-nav
-title: Haal Centraal BRP-bewoning
+title: BRP Bewoning
 ---
-# Haal Centraal BRP bewoning
+# BRP Bewoning
 
 ![lint oas](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/lint-oas/badge.svg)
 ![generate postman collection](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/workflows/generate-postman-collection/badge.svg)
 
-API voor het raadplegen van de (historische) bewoning(en) van een adres. Met de API kun je de samenstelling(en) van bewoners van een adres raadplegen op een peildatum en binnen een periode.
+API voor het raadplegen van de historische bewoning van een adres. Met de API kun je de samenstelling(en) van bewoners van een woning raadplegen binnen een periode of op een peildatum.
 
 ## Planning & Roadmap
-Het team van RvIG werkt op dit moment nog aan v2 van de API. Binnenkort kun je hier net als bij de Personen API met behulp van een docker compose bestand de bewoningProxy en de mock van de GBA variant draaien op jouw eigen machine. Hiermee kun je onze MVP voor raadplegen op peildatum alvast uitproberen. Wij werken dan verder aan het raadplegen van bewoningen op periode, maar hebben ook tijd om de MVP te verbeteren. Wij horen graag jullie ervaringen!
-De bewoning API v2 gaat op 1 oktober in productie, en kan voorlopig alleen worden gebruikt door gemeenten. 
+De BRP Bewoning API v2 is live sinds november 2023. 
+
+## Aansluiten en voorwaarden
+De BRP Bewoning API kan voorlopig alleen worden gebruikt door gemeenten die deelnemen aan het [Experiment Dataminimalisatie](https://www.rijksoverheid.nl/documenten/besluiten/2023/08/28/experimentbesluit-brp-dataminimalisatie-amvb-nvt-versie-voorhang). Hiervoor wordt een convenant met RvIG gesloten waarin de afspraken voor deelname zijn vastgelegd. Voor de technische aansluiting is een API Gateway nodig. Aansluiten kan via Diginetwerk met gebruik van een TLS verbinding (PKIO certificaat) en een OAuth 2.0 token (OAuth 2.0 client credentials flow).
+
+Stuur een email naar info@RvIG voor een kennismakingmakingsgesprek en onboarding. [Download]({{ site.onboardingUrl }}){:target="_blank" rel="noopener"} en lees het onboardingproces.
 
 ## Direct uitproberen?
-* Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc-io)
-* Lees de [Getting started] (volgt binnenkort)
-* Download de [technische specificaties](volgt binnenkort)
-
+* Bekijk de specificaties met [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/redoc)
+* Lees de [Getting started](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/v2/getting-started)
+  
 ## Heb je meer nodig? 
 Gebruik de BRP bewoning API in combinatie met (een van de) andere BRP API’s:
 
 * [Personen bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-bevragen){:target="_blank" rel="noopener"}
 * [Historie bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-historie-bevragen){:target="_blank" rel="noopener"}
 * [Reisdocumenten bevragen](https://BRP-API.github.io/Haal-Centraal-Reisdocumenten-bevragen){:target="_blank" rel="noopener"}
-* [Landelijke tabellen bevragen](https://BRP-API.github.io/Haal-Centraal-BRP-tabellen-bevragen){:target="_blank" rel="noopener"}
-  
-Maak je nog gebruik van versie 1.0? Bekijk de specificaties met [Swagger UI](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/swagger-ui) of [Redoc](https://brp-api.github.io/Haal-Centraal-BRP-bewoning/redoc) en download de [technische specificaties](https://github.com/BRP-API/Haal-Centraal-BRP-Bewoning/blob/master/specificatie/genereervariant/openapi.yaml)
 
 ## Bronnen
 
@@ -41,8 +41,8 @@ Maak je nog gebruik van versie 1.0? Bekijk de specificaties met [Swagger UI](htt
 * Verbeteringen doorgeven
   [Geef een verbetering door >>](https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/issues/new?assignees=&labels=enhancement&template=enhancement.md&title=)
 
-* Product Owner: Cathy Dingemanse, [cathy.dingemanse@rvig.nl](mailto:cathy.dingemanse@rvig.nl)
-* Customer zero en ontwikkelaar: Melvin Lee, [melvin.lee@iswish.nl](mailto:melvin.lee@rvig.nl)
-* Tester: Frank Samwel, [frank.samwel@rvig.nl](mailto:frank.samwel@rvig.nl)
+* Product Owner: Cathy Dingemanse, [{{ site.PO-email }}](mailto:{{ site.PO-email }})
+* Customer zero: Melvin Lee, [{{ site.CZ-email }}](mailto:{{ site.CZ-email }})
+* Tester: Frank Samwel, [{{ site.Tester-email }}](mailto:{{ site.Tester-email }})
 
 

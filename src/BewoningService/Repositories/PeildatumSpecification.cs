@@ -1,4 +1,5 @@
-﻿using HaalCentraal.BewoningService.Entities;
+﻿using Bewoning.Validatie;
+using HaalCentraal.BewoningService.Entities;
 using System.Linq.Expressions;
 
 namespace HaalCentraal.BewoningService.Repositories;
@@ -7,9 +8,9 @@ public class PeildatumSpecification : Specification<Persoon>
 {
     private readonly DateTimeOffset _peildatum;
 
-    public PeildatumSpecification(DateTimeOffset peildatum)
+    public PeildatumSpecification(string peildatum)
     {
-        _peildatum = peildatum;
+        _peildatum = peildatum.ToDateTimeOffset();
     }
 
     public override Expression<Func<Persoon, bool>> ToExpression()

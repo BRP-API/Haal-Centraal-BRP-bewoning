@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  bewoningproxy-2:
+    container_name: bewoningproxy-2
+    image: ghcr.io/brp-api/haal-centraal-bewoning-bevragen-proxy:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://+:5000
+      - Routes__0__DownstreamScheme=http
+      - Routes__0__DownstreamHostAndPorts__0__Host=bewoningproxy
+      - Routes__0__DownstreamHostAndPorts__0__Port=5000
+    ports:
+      - "5004:5000"
+    networks:
+      - bewoningen-api-network
+
+networks:
+  bewoningen-api-network:
+    name: bewoningen-api-network

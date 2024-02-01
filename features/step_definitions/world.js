@@ -1,12 +1,13 @@
 class World {
     constructor(parameters) {
         this.context = parameters;
-        this.context.proxyUrl = "http://localhost:5003/haalcentraal/api/bewoning";
+        this.context.proxyUrl = "http://localhost:5004/haalcentraal/api/bewoning";
         this.context.apiUrl = "http://localhost:8000/haalcentraal/api/bewoning";
         this.context.sql = {
             useDb: true,
             logStatements: false,
             cleanup: true,
+            deleteIndividualRecords: true,
             poolConfig: {
                 user: "",
                 host: "",
@@ -24,9 +25,13 @@ class World {
                     afnemerID: "000008",
                     clientId: "",
                     clientSecret: "",
-                    scopes: ["000000099000000080000"]
+                    scopes: ["000000099000000080000"],
+                    resourceServer: "ResourceServer02"
                 }
             ]
+        }
+        if(this.context.parameters?.deleteIndividualRecords !== undefined) {
+            this.context.sql.deleteIndividualRecords = this.context.parameters.deleteIndividualRecords;
         }
         if(this.context.parameters?.poolConfig !== undefined) {
             this.context.sql.poolConfig.host = this.context.parameters.poolConfig.host;
@@ -39,6 +44,9 @@ class World {
         }
     }
 }
+
+// set this environment variable to bypass DEPTH_ZERO_SELF_SIGNED_CERT error when using self-signed certificates
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 module.exports = {World}
 

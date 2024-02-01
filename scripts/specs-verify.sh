@@ -7,6 +7,7 @@ CLIENTID=$4
 CLIENTSECRET=$5
 
 PARAMS="{ \
+  \"deleteIndividualRecords\": false, \
   \"poolConfig\": { \
     \"host\": \"${DBHOST}\", \
     \"user\": \"${DBUSER}\", \
@@ -35,11 +36,25 @@ npx cucumber-js -f json:docs/features/test-result-protocollering-gba.json \
 npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-op-peildatum-gba.json \
                 -f summary:docs/features/test-result-raadpleeg-bewoning-op-peildatum-gba-summary.txt \
                 features/raadpleeg-bewoning-op-peildatum \
+                fout-cases-gba.feature \
+                --tags "not @skip-verify" --tags "@gba" --tags "not @autorisatie" --tags "not @protocollering" \
+                --world-parameters "$PARAMS"
+
+npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-met-periode-gba.json \
+                -f summary:docs/features/test-result-raadpleeg-bewoning-met-periode-gba-summary.txt \
+                features/raadpleeg-bewoning-met-periode \
                 --tags "not @skip-verify" --tags "@gba" --tags "not @autorisatie" --tags "not @protocollering" \
                 --world-parameters "$PARAMS"
 
 npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-op-peildatum.json \
                 -f summary:docs/features/test-result-raadpleeg-bewoning-op-peildatum-summary.txt \
                 features/raadpleeg-bewoning-op-peildatum \
+                fout-cases.feature \
+                --tags "not @skip-verify" --tags "not @gba" \
+                --world-parameters "$PARAMS"
+
+npx cucumber-js -f json:docs/features/test-result-raadpleeg-bewoning-met-periode.json \
+                -f summary:docs/features/test-result-raadpleeg-bewoning-met-periode-summary.txt \
+                features/raadpleeg-bewoning-met-periode \
                 --tags "not @skip-verify" --tags "not @gba" \
                 --world-parameters "$PARAMS"

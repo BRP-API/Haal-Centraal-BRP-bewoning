@@ -76,14 +76,18 @@ Then(/^zijn de gegenereerde SQL statements$/, function(dataTable) {
 
                 const re = /(?<type>.*)-(?<typeid>.*)/;
                 const found = categorie.match(re);
-                const actual = found
-                    ? sqlDatas[currentStep][found.groups.type][found.groups.typeid].data
+                const actual = found && !['kind', 'ouder', 'partner'].find((i) => i === found.groups.type)
+                    ? sqlDatas[currentStep][found.groups.type][found.groups.typeid]?.data
                     : sqlDatas[currentStep][categorie][index];
+                should.exist(actual, `categorie: ${categorie}`);
 
                 let statement;
                 switch(categorie.replace(/-.*$/, '')) {
                     case 'adres':
                         statement = insertIntoAdresStatement(actual);
+                        break;
+                    case 'gemeente':
+                        statement = insertIntoStatement('gemeente', actual, tableNameMap);
                         break;
                     case 'inschrijving':
                         statement = insertIntoPersoonlijstStatement(actual);
@@ -99,14 +103,14 @@ Then(/^zijn de gegenereerde SQL statements$/, function(dataTable) {
                         ].concat(actual), tableNameMap);
                     break;
                     default:
-                        statement = insertIntoStatement(categorie, [
+                        statement = insertIntoStatement(categorie.replace(/-.*$/, ''), [
                             ['pl_id', sqlDataIds.plIds[currentPlIndex]+'']
                         ].concat(actual), tableNameMap);
                         break;
                 }
 
                 statement.text.should.equal(exp.text);
-                statement.values.should.deep.equalInAnyOrder(exp.values.split(','), `${exp.key}: ${statement.values} != ${exp.values}`);
+                statement.values.should.deep.equalInAnyOrder(exp.values.split(','), `${exp.categorie}: ${statement.values} != ${exp.values}`);
             });
         }
     }

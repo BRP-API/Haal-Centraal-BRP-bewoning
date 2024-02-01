@@ -285,6 +285,38 @@ pre {
     min-width: 100%;
 }
 
+.ellipsis {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all .2s linear;
+    white-space: nowrap;
+    padding:.5rem 1rem;
+}
+.ellipsis:focus, .ellipsis:hover {
+  color:transparent;
+}
+.ellipsis:focus:after,.ellipsis:hover:after{
+    content:attr(data-text);
+    overflow: visible;
+    text-overflow: inherit;
+    background: #fff;
+    position: absolute;
+    left:auto;
+    top:auto;
+    width: auto;
+    max-width: 100%;
+    border: 1px solid #eaebec;
+    padding: 0 .5rem;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.28);
+    white-space: normal;
+    word-wrap: break-word;
+    display:block;
+    color:black;
+    margin-top:-1.25rem;
+    z-index: 1;
+  }
 
     /** Issue in google-charts tooltip - https://github.com/google/google-visualization-issues/issues/2162 */
     .google-visualization-tooltip {
@@ -358,14 +390,14 @@ pre {
       <div class="navbar-header">
         
           <a class="navbar-brand">
-            Haal Centraal Bewoningen Bevragen API - GBA 2.0.1
+            Haal Centraal Bewoningen Bevragen API - GBA     2.0.16
           </a>
           <div class="project-name visible-md visible-lg">
             protocollering features
           </div>
           <div class="label-container">
             <div class="generated-on">
-              Thu Jun 29 2023 06:54:50 GMT+0000 (Coordinated Universal Time)
+              Thu Feb 01 2024 08:01:34 GMT+0000 (Coordinated Universal Time)
             </div>
           </div>
       </div>
@@ -381,7 +413,7 @@ pre {
         </div>
         <div class="feature-value">
           <h5>
-            3
+            8
           </h5>
         </div>
       </div>
@@ -391,7 +423,7 @@ pre {
         </div>
         <div class="feature-value">
           <h5>
-            0
+            8
           </h5>
         </div>
       </div>
@@ -401,7 +433,7 @@ pre {
         </div>
         <div class="feature-value">
           <h5>
-            3
+            0
           </h5>
         </div>
       </div>
@@ -432,7 +464,7 @@ pre {
 <div class="row" xmlns="http://www.w3.org/1999/html">
 
 
-<div class="feature-failed">
+<div class="feature-passed">
 
     <div class="col-lg-6 col-md-6">
         <div class="panel panel-default">
@@ -444,14 +476,14 @@ pre {
                         
                     </div>
                     
-                    <a data-toggle="collapse" href="#collapseFeatureprotocollering_featuresf35a020f-644e-4a95-93bc-8eb599b46059">
+                    <a data-toggle="collapse" href="#collapseFeatureprotocollering_featuresf58cf85e-95bb-4c9d-a7e2-f02ca9285fbd">
                         <i class="glyphicon glyphicon-chevron-right"></i>
                         <i class="glyphicon glyphicon-chevron-down"></i>
-                        <b>Functionaliteit:</b>Als burger wil ik zien wie welke gegegevens van mij heeft gezien of gebruikt
+                        <b>Functionaliteit:</b>Protocolleer gebruik van BewoningMetPeriode
                         <span class="label-container">
+              <span class="label label-success"
+                                                         title="5 Scenarios Passed">5</span>
               
-              <span class="label label-danger"
-                                                         title="3 Scenarios Failed">3</span>
               
               
               
@@ -460,7 +492,7 @@ pre {
                     </a>
                 </h4>
             </div>
-            <div id="collapseFeatureprotocollering_featuresf35a020f-644e-4a95-93bc-8eb599b46059" class="panel-collapse collapse">
+            <div id="collapseFeatureprotocollering_featuresf58cf85e-95bb-4c9d-a7e2-f02ca9285fbd" class="panel-collapse collapse">
                 <div class="panel-body">
                     
                     <div class="description">  Zoeken en raadplegen van gegevens van burgers worden "geprotocolleerd" (formeel gelogd).<br/><br/>  Protocollering moet gebeuren op twee niveau's:<br/>  - bij de RvIG op het niveau van afnemende organisaties<br/>  - bij de afnemende organisatie op het niveau van gebruikers<br/><br/>  Deze feature beschrijft alleen de werking van protocollering op het niveau van afnemende organisaties bij de bron (RvIG)<br/><br/>  Daarin worden de volgende gegevens vastgelegd:<br/>  - request_id: unieke identificatie van de berichtuitwisseling<br/>  - request_datum: tijdstip waarop de protocollering is vastgelegd<br/>  - afnemer_code: identificatiecode van de afnemende organisatie, zoals die is opgenomen in de gestuurde Oauth 2 token<br/>  - anummer: het A-nummer van de persoon waarvan gegevens zijn gevraagd of geleverd<br/>  - request_zoek_rubrieken: lijst van alle parameters die in het request gebruikt zijn, vertaald naar LO-BRP elementnummers<br/>  - request_gevraagde_rubrieken: lijst van alle gegevens die met fields gevraagd zijn, vertaald naar LO-BRP elementnummers<br/>  - verwerkt: vaste waarde false (boolean)<br/><br/>  Zowel request_zoek_rubrieken als request_gevraagde_rubrieken bevatten de LO-BRP elementnummers als 6 cijferig rubrieknummer (incl. voorloopnul), gescheiden door komma spatie, en oplopend gesorteerd.</div>
@@ -475,24 +507,23 @@ pre {
                                 <div class="tags">
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features87918ebc-820b-4e16-b851-9553a6e68973">
+                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features17947e2c-0cc6-44a6-bb79-3e912ed31223">
                                     <div>
 
-                                        <div style="padding-right: 50px">
+                                        <div style="padding-right: 30px">
                                             <i class="glyphicon glyphicon-chevron-right"></i>
                                             <i class="glyphicon glyphicon-chevron-down"></i>
-                                            <b>Scenario:</b>Raadpleeg bewoning op peildatum
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Raadpleeg bewoning op periode">Raadpleeg bewoning op periode</div>
                                         </div>
                                         <div>
                             <span class="label-container ">
                               
                               <span class="label label-success"
-                                                               title="3 Steps Passed">3</span>
+                                                               title="4 Steps Passed">4</span>
                               
                               
                               
-                              <span class="label label-danger"
-                                                               title="1 Steps Failed">1</span>
+                              
                               
                             </span>
                                         </div>
@@ -501,7 +532,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenarioprotocollering_features87918ebc-820b-4e16-b851-9553a6e68973"
+                        <div id="collapseScenarioprotocollering_features17947e2c-0cc6-44a6-bb79-3e912ed31223"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -522,7 +553,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">Gegeven </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -552,11 +583,11 @@ pre {
                                       
                                       
                                         <td>
-                                          0518
+                                          0800
                                         </td>
                                       
                                         <td>
-                                          0518010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -596,7 +627,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0518010000713450&#39; met de volgende gegevens</span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -613,6 +644,10 @@ pre {
                                       
                                       
                                         <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
                                           datum aanvang adreshouding (10.30)
                                         </th>
                                          
@@ -620,6 +655,10 @@ pre {
                                     
                                       <tr>
                                       
+                                      
+                                        <td>
+                                          0800
+                                        </td>
                                       
                                         <td>
                                           20200818
@@ -666,7 +705,2712 @@ pre {
                             
                           
                               <span class="step-duration">
-                               41ms
+                               51ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          naam
+                                        </th>
+                                         
+                                        <th>
+                                          waarde
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          type
+                                        </td>
+                                      
+                                        <td>
+                                          BewoningMetPeriode
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumVan
+                                        </td>
+                                      
+                                        <td>
+                                          2022-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumTot
+                                        </td>
+                                      
+                                        <td>
+                                          2023-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          adresseerbaarObjectIdentificatie
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Dan </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000024&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               2ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_zoek_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          081030, 081180, 081320
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                
+                                
+                                <div class="tags">
+                                </div>
+                                
+                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features62814a45-54be-437b-ab37-05f103096a2d">
+                                    <div>
+
+                                        <div style="padding-right: 30px">
+                                            <i class="glyphicon glyphicon-chevron-right"></i>
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Burgerservicenummer (010120) wordt vastgelegd in &#39;request_gevraagde_rubrieken&#39;">Burgerservicenummer (010120) wordt vastgelegd in 'request_gevraagde_rubrieken'</div>
+                                        </div>
+                                        <div>
+                            <span class="label-container ">
+                              
+                              <span class="label label-success"
+                                                               title="4 Steps Passed">4</span>
+                              
+                              
+                              
+                              
+                              
+                            </span>
+                                        </div>
+                                    </div>
+                                    <div><small><i></i></small></div>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseScenarioprotocollering_features62814a45-54be-437b-ab37-05f103096a2d"
+                             class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div></div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Gegeven </span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeentecode (92.10)
+                                        </th>
+                                         
+                                        <th>
+                                          identificatiecode verblijfplaats (11.80)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20200818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Als </span>
+                          <span> gba bewoning wordt gezocht met de volgende parameters</span>
+                            
+                          
+                              <span class="step-duration">
+                               11ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          naam
+                                        </th>
+                                         
+                                        <th>
+                                          waarde
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          type
+                                        </td>
+                                      
+                                        <td>
+                                          BewoningMetPeriode
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumVan
+                                        </td>
+                                      
+                                        <td>
+                                          2022-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumTot
+                                        </td>
+                                      
+                                        <td>
+                                          2023-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          adresseerbaarObjectIdentificatie
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Dan </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000024&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_gevraagde_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          010120
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                
+                                
+                                <div class="tags">
+                                </div>
+                                
+                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features7e9d0416-d8ea-4791-b43a-86c46b21affa">
+                                    <div>
+
+                                        <div style="padding-right: 30px">
+                                            <i class="glyphicon glyphicon-chevron-right"></i>
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Meerdere bewoners gevonden op periode">Meerdere bewoners gevonden op periode</div>
+                                        </div>
+                                        <div>
+                            <span class="label-container ">
+                              
+                              <span class="label label-success"
+                                                               title="6 Steps Passed">6</span>
+                              
+                              
+                              
+                              
+                              
+                            </span>
+                                        </div>
+                                    </div>
+                                    <div><small><i></i></small></div>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseScenarioprotocollering_features7e9d0416-d8ea-4791-b43a-86c46b21affa"
+                             class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div></div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Gegeven </span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeentecode (92.10)
+                                        </th>
+                                         
+                                        <th>
+                                          identificatiecode verblijfplaats (11.80)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20200818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000048&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20200818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Als </span>
+                          <span> gba bewoning wordt gezocht met de volgende parameters</span>
+                            
+                          
+                              <span class="step-duration">
+                               13ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          naam
+                                        </th>
+                                         
+                                        <th>
+                                          waarde
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          type
+                                        </td>
+                                      
+                                        <td>
+                                          BewoningMetPeriode
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumVan
+                                        </td>
+                                      
+                                        <td>
+                                          2022-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumTot
+                                        </td>
+                                      
+                                        <td>
+                                          2023-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          adresseerbaarObjectIdentificatie
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Dan </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000024&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_gevraagde_rubrieken
+                                        </th>
+                                         
+                                        <th>
+                                          request_zoek_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          010120
+                                        </td>
+                                      
+                                        <td>
+                                          081030, 081180, 081320
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000048&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_gevraagde_rubrieken
+                                        </th>
+                                         
+                                        <th>
+                                          request_zoek_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          010120
+                                        </td>
+                                      
+                                        <td>
+                                          081030, 081180, 081320
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                
+                                
+                                <div class="tags">
+                                </div>
+                                
+                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features67a0c9b8-6d5c-4011-a521-e08794bcf61c">
+                                    <div>
+
+                                        <div style="padding-right: 30px">
+                                            <i class="glyphicon glyphicon-chevron-right"></i>
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Meerdere bewoningen gevonden in periode">Meerdere bewoningen gevonden in periode</div>
+                                        </div>
+                                        <div>
+                            <span class="label-container ">
+                              
+                              <span class="label label-success"
+                                                               title="7 Steps Passed">7</span>
+                              
+                              
+                              
+                              
+                              
+                            </span>
+                                        </div>
+                                    </div>
+                                    <div><small><i></i></small></div>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseScenarioprotocollering_features67a0c9b8-6d5c-4011-a521-e08794bcf61c"
+                             class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div></div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Gegeven </span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeentecode (92.10)
+                                        </th>
+                                         
+                                        <th>
+                                          identificatiecode verblijfplaats (11.80)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20200818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000048&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20220818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Als </span>
+                          <span> gba bewoning wordt gezocht met de volgende parameters</span>
+                            
+                          
+                              <span class="step-duration">
+                               12ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          naam
+                                        </th>
+                                         
+                                        <th>
+                                          waarde
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          type
+                                        </td>
+                                      
+                                        <td>
+                                          BewoningMetPeriode
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumVan
+                                        </td>
+                                      
+                                        <td>
+                                          2022-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumTot
+                                        </td>
+                                      
+                                        <td>
+                                          2023-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          adresseerbaarObjectIdentificatie
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Dan </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000024&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_gevraagde_rubrieken
+                                        </th>
+                                         
+                                        <th>
+                                          request_zoek_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          010120
+                                        </td>
+                                      
+                                        <td>
+                                          081030, 081180, 081320
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000048&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_gevraagde_rubrieken
+                                        </th>
+                                         
+                                        <th>
+                                          request_zoek_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          010120
+                                        </td>
+                                      
+                                        <td>
+                                          081030, 081180, 081320
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> is voor de geauthenticeerde consumer &#39;2&#39; protocollering regels vastgelegd</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                
+                                
+                                <div class="tags">
+                                </div>
+                                
+                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_featuresf30c22bc-a0a5-42d2-9b7b-4fa37104db0d">
+                                    <div>
+
+                                        <div style="padding-right: 30px">
+                                            <i class="glyphicon glyphicon-chevron-right"></i>
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Persoon vertrekt en komt weer terugwonen binnen de gevraagde periode">Persoon vertrekt en komt weer terugwonen binnen de gevraagde periode</div>
+                                        </div>
+                                        <div>
+                            <span class="label-container ">
+                              
+                              <span class="label label-success"
+                                                               title="10 Steps Passed">10</span>
+                              
+                              
+                              
+                              
+                              
+                            </span>
+                                        </div>
+                                    </div>
+                                    <div><small><i></i></small></div>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseScenarioprotocollering_featuresf30c22bc-a0a5-42d2-9b7b-4fa37104db0d"
+                             class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div></div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Gegeven </span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeentecode (92.10)
+                                        </th>
+                                         
+                                        <th>
+                                          identificatiecode verblijfplaats (11.80)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> adres &#39;A2&#39; heeft de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeentecode (92.10)
+                                        </th>
+                                         
+                                        <th>
+                                          identificatiecode verblijfplaats (11.80)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000002
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20200818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon is vervolgens ingeschreven op adres &#39;A2&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20220526
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon is vervolgens ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20221014
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000048&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20220818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Als </span>
+                          <span> gba bewoning wordt gezocht met de volgende parameters</span>
+                            
+                          
+                              <span class="step-duration">
+                               14ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          naam
+                                        </th>
+                                         
+                                        <th>
+                                          waarde
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          type
+                                        </td>
+                                      
+                                        <td>
+                                          BewoningMetPeriode
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumVan
+                                        </td>
+                                      
+                                        <td>
+                                          2022-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          datumTot
+                                        </td>
+                                      
+                                        <td>
+                                          2023-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          adresseerbaarObjectIdentificatie
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Dan </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000024&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_gevraagde_rubrieken
+                                        </th>
+                                         
+                                        <th>
+                                          request_zoek_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          010120
+                                        </td>
+                                      
+                                        <td>
+                                          081030, 081180, 081320
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000048&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_gevraagde_rubrieken
+                                        </th>
+                                         
+                                        <th>
+                                          request_zoek_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          010120
+                                        </td>
+                                      
+                                        <td>
+                                          081030, 081180, 081320
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> is voor de geauthenticeerde consumer &#39;2&#39; protocollering regels vastgelegd</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+<div class="feature-passed">
+
+    <div class="col-lg-6 col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    
+                    <div class="tags"> <span class="tag">@gba</span>
+                         <span class="tag">@protocollering</span>
+                        
+                    </div>
+                    
+                    <a data-toggle="collapse" href="#collapseFeatureprotocollering_featuresf5be0c74-5c82-45e1-9d71-2dbecf29014c">
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                        <b>Functionaliteit:</b>Protocolleer gebruik van BewoningMetPeildatum
+                        <span class="label-container">
+              <span class="label label-success"
+                                                         title="3 Scenarios Passed">3</span>
+              
+              
+              
+              
+              
+                        </span>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFeatureprotocollering_featuresf5be0c74-5c82-45e1-9d71-2dbecf29014c" class="panel-collapse collapse">
+                <div class="panel-body">
+                    
+                    <div class="description">  Zoeken en raadplegen van gegevens van burgers worden "geprotocolleerd" (formeel gelogd).<br/><br/>  Protocollering moet gebeuren op twee niveau's:<br/>  - bij de RvIG op het niveau van afnemende organisaties<br/>  - bij de afnemende organisatie op het niveau van gebruikers<br/><br/>  Deze feature beschrijft alleen de werking van protocollering op het niveau van afnemende organisaties bij de bron (RvIG)<br/><br/>  Daarin worden de volgende gegevens vastgelegd:<br/>  - request_id: unieke identificatie van de berichtuitwisseling<br/>  - request_datum: tijdstip waarop de protocollering is vastgelegd<br/>  - afnemer_code: identificatiecode van de afnemende organisatie, zoals die is opgenomen in de gestuurde Oauth 2 token<br/>  - anummer: het A-nummer van de persoon waarvan gegevens zijn gevraagd of geleverd<br/>  - request_zoek_rubrieken: lijst van alle parameters die in het request gebruikt zijn, vertaald naar LO-BRP elementnummers<br/>  - request_gevraagde_rubrieken: lijst van alle gegevens die met fields gevraagd zijn, vertaald naar LO-BRP elementnummers<br/>  - verwerkt: vaste waarde false (boolean)<br/><br/>  Zowel request_zoek_rubrieken als request_gevraagde_rubrieken bevatten de LO-BRP elementnummers als 6 cijferig rubrieknummer (incl. voorloopnul), gescheiden door komma spatie, en oplopend gesorteerd.</div>
+                    
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                
+                                
+                                <div class="tags">
+                                </div>
+                                
+                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features4bb1f1f9-20e7-4912-b9eb-c680aa92c34d">
+                                    <div>
+
+                                        <div style="padding-right: 30px">
+                                            <i class="glyphicon glyphicon-chevron-right"></i>
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Raadpleeg bewoning op peildatum">Raadpleeg bewoning op peildatum</div>
+                                        </div>
+                                        <div>
+                            <span class="label-container ">
+                              
+                              <span class="label label-success"
+                                                               title="4 Steps Passed">4</span>
+                              
+                              
+                              
+                              
+                              
+                            </span>
+                                        </div>
+                                    </div>
+                                    <div><small><i></i></small></div>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseScenarioprotocollering_features4bb1f1f9-20e7-4912-b9eb-c680aa92c34d"
+                             class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div></div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Gegeven </span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeentecode (92.10)
+                                        </th>
+                                         
+                                        <th>
+                                          identificatiecode verblijfplaats (11.80)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20200818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Als </span>
+                          <span> gba bewoning wordt gezocht met de volgende parameters</span>
+                            
+                          
+                              <span class="step-duration">
+                               9ms
                               </span>
                             
                          
@@ -722,7 +3466,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0518010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -756,8 +3500,8 @@ pre {
                                 <div class="row steps">
                                     
                                     
-                                    <span class="label label-danger" title="Failed"><i
-                                            class="glyphicon glyphicon-remove"></i></span>
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
                                     
                                     
                                     <span class="text">
@@ -766,7 +3510,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               2ms
+                               < 1ms
                               </span>
                             
                          
@@ -807,60 +3551,6 @@ pre {
                                 
 
                                     
-                                    <a href="#error0_05"
-                                       data-toggle="collapse" class="toggle">Show Error +</a>
-                                    <div id="error0_05"
-                                         class="collapse">
-                                        <pre class="info show-modal"
-                                             data-toggle="modal"
-                                             style="cursor: pointer"
-                                             data-target="#error-modal-0_05">
-                                            <br> AssertionError: Geen protocollering gegevens gevonden voor persoon met burgerservicenummer 000000024: expected +0 to equal 1
-    + expected - actual
-
-    -0
-    +1
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:404:32)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)</pre>
-                                    </div>
-
-                                <div class="modal fade" id="error-modal-0_05" tabindex="-1" role="dialog"
-                                     aria-labelledby="stacktraceModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title" id="error-modal-title">
-                                                    Error
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>
-                                                    <pre><br>AssertionError: Geen protocollering gegevens gevonden voor persoon met burgerservicenummer 000000024: expected +0 to equal 1
-    + expected - actual
-
-    -0
-    +1
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:404:32)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)</pre>
-                                                </h5>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                    
 
                                     
 
@@ -888,24 +3578,23 @@ pre {
                                 <div class="tags">
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features9f341556-66f2-4d51-9689-72fea84b0372">
+                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_featuresc93feae8-b625-4d1f-81de-a7649e6c78f1">
                                     <div>
 
-                                        <div style="padding-right: 50px">
+                                        <div style="padding-right: 30px">
                                             <i class="glyphicon glyphicon-chevron-right"></i>
                                             <i class="glyphicon glyphicon-chevron-down"></i>
-                                            <b>Scenario:</b>Burgerservicenummer (010120) wordt vastgelegd in 'request_gevraagde_rubrieken'
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Burgerservicenummer (010120) wordt vastgelegd in &#39;request_gevraagde_rubrieken&#39;">Burgerservicenummer (010120) wordt vastgelegd in 'request_gevraagde_rubrieken'</div>
                                         </div>
                                         <div>
                             <span class="label-container ">
                               
                               <span class="label label-success"
-                                                               title="3 Steps Passed">3</span>
+                                                               title="4 Steps Passed">4</span>
                               
                               
                               
-                              <span class="label label-danger"
-                                                               title="1 Steps Failed">1</span>
+                              
                               
                             </span>
                                         </div>
@@ -914,7 +3603,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenarioprotocollering_features9f341556-66f2-4d51-9689-72fea84b0372"
+                        <div id="collapseScenarioprotocollering_featuresc93feae8-b625-4d1f-81de-a7649e6c78f1"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -935,7 +3624,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">Gegeven </span>
-                          <span> een adres heeft de volgende gegevens</span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -965,11 +3654,11 @@ pre {
                                       
                                       
                                         <td>
-                                          0518
+                                          0800
                                         </td>
                                       
                                         <td>
-                                          0518010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -1009,7 +3698,7 @@ pre {
                                     
                                     <span class="text">
                         <span class="keyword highlight">En </span>
-                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0518010000713450&#39; met de volgende gegevens</span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
                             
                           
                               <span class="step-duration">
@@ -1026,6 +3715,10 @@ pre {
                                       
                                       
                                         <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
                                           datum aanvang adreshouding (10.30)
                                         </th>
                                          
@@ -1033,6 +3726,450 @@ pre {
                                     
                                       <tr>
                                       
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20200818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Als </span>
+                          <span> gba bewoning wordt gezocht met de volgende parameters</span>
+                            
+                          
+                              <span class="step-duration">
+                               9ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          naam
+                                        </th>
+                                         
+                                        <th>
+                                          waarde
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          type
+                                        </td>
+                                      
+                                        <td>
+                                          BewoningMetPeildatum
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          peildatum
+                                        </td>
+                                      
+                                        <td>
+                                          2022-01-01
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          adresseerbaarObjectIdentificatie
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Dan </span>
+                          <span> heeft de persoon met burgerservicenummer &#39;000000024&#39; de volgende &#39;protocollering&#39; gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          request_gevraagde_rubrieken
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          010120
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                
+                                
+                                <div class="tags">
+                                </div>
+                                
+                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features6fb018ba-4c11-4b97-bdf5-49dc979e9545">
+                                    <div>
+
+                                        <div style="padding-right: 30px">
+                                            <i class="glyphicon glyphicon-chevron-right"></i>
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                            <b>Scenario:</b><div class="ellipsis" data-text="Meerdere bewoners gevonden op peildatum">Meerdere bewoners gevonden op peildatum</div>
+                                        </div>
+                                        <div>
+                            <span class="label-container ">
+                              
+                              <span class="label label-success"
+                                                               title="6 Steps Passed">6</span>
+                              
+                              
+                              
+                              
+                              
+                            </span>
+                                        </div>
+                                    </div>
+                                    <div><small><i></i></small></div>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseScenarioprotocollering_features6fb018ba-4c11-4b97-bdf5-49dc979e9545"
+                             class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div></div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Gegeven </span>
+                          <span> adres &#39;A1&#39; heeft de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeentecode (92.10)
+                                        </th>
+                                         
+                                        <th>
+                                          identificatiecode verblijfplaats (11.80)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          0800010000000001
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
+                                      
+                                        <td>
+                                          20200818
+                                        </td>
+                                      
+                                      </tr>
+                                    
+                              </table>
+                               </div>
+                                        
+                               
+
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">En </span>
+                          <span> de persoon met burgerservicenummer &#39;000000048&#39; is ingeschreven op adres &#39;A1&#39; met de volgende gegevens</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                               
+                                <div class="scrollBar">
+                                    <table class="arguments">
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <th>
+                                          gemeente van inschrijving (09.10)
+                                        </th>
+                                         
+                                        <th>
+                                          datum aanvang adreshouding (10.30)
+                                        </th>
+                                         
+                                        </tr>
+                                    
+                                      <tr>
+                                      
+                                      
+                                        <td>
+                                          0800
+                                        </td>
                                       
                                         <td>
                                           20200818
@@ -1135,7 +4272,7 @@ pre {
                                         </td>
                                       
                                         <td>
-                                          0518010000713450
+                                          0800010000000001
                                         </td>
                                       
                                       </tr>
@@ -1169,8 +4306,8 @@ pre {
                                 <div class="row steps">
                                     
                                     
-                                    <span class="label label-danger" title="Failed"><i
-                                            class="glyphicon glyphicon-remove"></i></span>
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
                                     
                                     
                                     <span class="text">
@@ -1179,487 +4316,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               1ms
-                              </span>
-                            
-                         
-                            
-                               
-                                <div class="scrollBar">
-                                    <table class="arguments">
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <th>
-                                          request_gevraagde_rubrieken
-                                        </th>
-                                         
-                                        </tr>
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <td>
-                                          010120
-                                        </td>
-                                      
-                                      </tr>
-                                    
-                              </table>
-                               </div>
-                                        
-                               
-
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-                                    <a href="#error0_15"
-                                       data-toggle="collapse" class="toggle">Show Error +</a>
-                                    <div id="error0_15"
-                                         class="collapse">
-                                        <pre class="info show-modal"
-                                             data-toggle="modal"
-                                             style="cursor: pointer"
-                                             data-target="#error-modal-0_15">
-                                            <br> AssertionError: Geen protocollering gegevens gevonden voor persoon met burgerservicenummer 000000024: expected +0 to equal 1
-    + expected - actual
-
-    -0
-    +1
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:404:32)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)</pre>
-                                    </div>
-
-                                <div class="modal fade" id="error-modal-0_15" tabindex="-1" role="dialog"
-                                     aria-labelledby="stacktraceModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title" id="error-modal-title">
-                                                    Error
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>
-                                                    <pre><br>AssertionError: Geen protocollering gegevens gevonden voor persoon met burgerservicenummer 000000024: expected +0 to equal 1
-    + expected - actual
-
-    -0
-    +1
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:404:32)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)</pre>
-                                                </h5>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                
-                                
-                                <div class="tags">
-                                </div>
-                                
-                                <a data-toggle="collapse" href="#collapseScenarioprotocollering_features71c1bbf7-bf24-489e-894b-dc810023b31f">
-                                    <div>
-
-                                        <div style="padding-right: 70px">
-                                            <i class="glyphicon glyphicon-chevron-right"></i>
-                                            <i class="glyphicon glyphicon-chevron-down"></i>
-                                            <b>Scenario:</b>Meerdere bewoners gevonden op peildatum
-                                        </div>
-                                        <div>
-                            <span class="label-container ">
-                              
-                              <span class="label label-success"
-                                                               title="4 Steps Passed">4</span>
-                              
-                              
-                              <span class="label label-warning"
-                                                                title="1 Steps Skipped">1</span>
-                              <span class="label label-danger"
-                                                               title="1 Steps Failed">1</span>
-                              
-                            </span>
-                                        </div>
-                                    </div>
-                                    <div><small><i></i></small></div>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseScenarioprotocollering_features71c1bbf7-bf24-489e-894b-dc810023b31f"
-                             class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div></div>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">Gegeven </span>
-                          <span> een adres heeft de volgende gegevens</span>
-                            
-                          
-                              <span class="step-duration">
                                < 1ms
-                              </span>
-                            
-                         
-                            
-                               
-                                <div class="scrollBar">
-                                    <table class="arguments">
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <th>
-                                          gemeentecode (92.10)
-                                        </th>
-                                         
-                                        <th>
-                                          identificatiecode verblijfplaats (11.80)
-                                        </th>
-                                         
-                                        </tr>
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <td>
-                                          0518
-                                        </td>
-                                      
-                                        <td>
-                                          0518010000713450
-                                        </td>
-                                      
-                                      </tr>
-                                    
-                              </table>
-                               </div>
-                                        
-                               
-
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">En </span>
-                          <span> de persoon met burgerservicenummer &#39;000000024&#39; is ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0518010000713450&#39; met de volgende gegevens</span>
-                            
-                          
-                              <span class="step-duration">
-                               < 1ms
-                              </span>
-                            
-                         
-                            
-                               
-                                <div class="scrollBar">
-                                    <table class="arguments">
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <th>
-                                          datum aanvang adreshouding (10.30)
-                                        </th>
-                                         
-                                        </tr>
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <td>
-                                          20200818
-                                        </td>
-                                      
-                                      </tr>
-                                    
-                              </table>
-                               </div>
-                                        
-                               
-
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">En </span>
-                          <span> de persoon met burgerservicenummer &#39;000000048&#39; is ingeschreven op het adres met &#39;identificatiecode verblijfplaats (11.80)&#39; &#39;0518010000713450&#39; met de volgende gegevens</span>
-                            
-                          
-                              <span class="step-duration">
-                               < 1ms
-                              </span>
-                            
-                         
-                            
-                               
-                                <div class="scrollBar">
-                                    <table class="arguments">
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <th>
-                                          datum aanvang adreshouding (10.30)
-                                        </th>
-                                         
-                                        </tr>
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <td>
-                                          20200818
-                                        </td>
-                                      
-                                      </tr>
-                                    
-                              </table>
-                               </div>
-                                        
-                               
-
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">Als </span>
-                          <span> gba bewoning wordt gezocht met de volgende parameters</span>
-                            
-                          
-                              <span class="step-duration">
-                               18ms
-                              </span>
-                            
-                         
-                            
-                               
-                                <div class="scrollBar">
-                                    <table class="arguments">
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <th>
-                                          naam
-                                        </th>
-                                         
-                                        <th>
-                                          waarde
-                                        </th>
-                                         
-                                        </tr>
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <td>
-                                          type
-                                        </td>
-                                      
-                                        <td>
-                                          BewoningMetPeildatum
-                                        </td>
-                                      
-                                      </tr>
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <td>
-                                          peildatum
-                                        </td>
-                                      
-                                        <td>
-                                          2022-01-01
-                                        </td>
-                                      
-                                      </tr>
-                                    
-                                      <tr>
-                                      
-                                      
-                                        <td>
-                                          adresseerbaarObjectIdentificatie
-                                        </td>
-                                      
-                                        <td>
-                                          0518010000713450
-                                        </td>
-                                      
-                                      </tr>
-                                    
-                              </table>
-                               </div>
-                                        
-                               
-
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-danger" title="Failed"><i
-                                            class="glyphicon glyphicon-remove"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">Dan </span>
-                          <span> heeft de persoon met burgerservicenummer &#39;000000024&#39; de volgende &#39;protocollering&#39; gegevens</span>
-                            
-                          
-                              <span class="step-duration">
-                               1ms
                               </span>
                             
                          
@@ -1708,60 +4365,6 @@ pre {
                                 
 
                                     
-                                    <a href="#error0_26"
-                                       data-toggle="collapse" class="toggle">Show Error +</a>
-                                    <div id="error0_26"
-                                         class="collapse">
-                                        <pre class="info show-modal"
-                                             data-toggle="modal"
-                                             style="cursor: pointer"
-                                             data-target="#error-modal-0_26">
-                                            <br> AssertionError: Geen protocollering gegevens gevonden voor persoon met burgerservicenummer 000000024: expected +0 to equal 1
-    + expected - actual
-
-    -0
-    +1
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:404:32)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)</pre>
-                                    </div>
-
-                                <div class="modal fade" id="error-modal-0_26" tabindex="-1" role="dialog"
-                                     aria-labelledby="stacktraceModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title" id="error-modal-title">
-                                                    Error
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>
-                                                    <pre><br>AssertionError: Geen protocollering gegevens gevonden voor persoon met burgerservicenummer 000000024: expected +0 to equal 1
-    + expected - actual
-
-    -0
-    +1
-
-    at World.(anonymous) (/home/runner/work/Haal-Centraal-BRP-bewoning/Haal-Centraal-BRP-bewoning/features/step_definitions/stepdefs.js:404:32)
-    at processTicksAndRejections (node:internal/process/task_queues:96:5)</pre>
-                                                </h5>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                    
 
                                     
 
@@ -1777,8 +4380,8 @@ pre {
                                 <div class="row steps">
                                     
                                     
-                                    <span class="label label-warning" title="Skipped"><i
-                                            class="glyphicon glyphicon-minus"></i></span>
+                                    <span class="label label-success" title="Success"><i
+                                            class="glyphicon glyphicon-ok"></i></span>
                                     
                                     
                                     <span class="text">
@@ -1876,15 +4479,15 @@ pre {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
     integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js" integrity="sha512-r8lfwD+xE5L0FjDLicb4ZiF32sJqCAOnLN0nxQq5VW0t0nFEEiNIvTZ/I9Su4ulGpDCfYjXsSFZsT9FpILp2+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript">
     google.load("visualization", "1", { packages: ["corechart"] });
     google.setOnLoadCallback(function () {
       drawChart({
         "title": "Features",
-        "failed": 1,
-        "passed": 0,
+        "failed": 0,
+        "passed": 2,
         "notdefined": 0,
         "pending": 0,
         "skipped": 0,
@@ -1894,8 +4497,8 @@ pre {
     google.setOnLoadCallback(function () {
       drawChart({
         "title": "Scenarios",
-        "failed": 3,
-        "passed": 0,
+        "failed": 0,
+        "passed": 8,
         "rerun": 0,
         "notdefined": 0,
         "pending": 0,

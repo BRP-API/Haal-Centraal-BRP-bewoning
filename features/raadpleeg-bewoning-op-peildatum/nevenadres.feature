@@ -12,11 +12,11 @@ Rule: een persoon ingeschreven op een nevenadres wordt gezien als bewoner van he
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) | identificatiecode nummeraanduiding (11.90) |
     | 0800                 | 0800010000000001                         | 0800200022197986                           |
     En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220818                           |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A2' met de volgende gegevens
-    | datum aanvang adreshouding (10.30) |
-    | 20220818                           |
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | 20220818                           |
     Als bewoning wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |

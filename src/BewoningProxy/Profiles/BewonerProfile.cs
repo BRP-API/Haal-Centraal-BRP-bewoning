@@ -9,7 +9,11 @@ public class BewonerProfile : Profile
     public BewonerProfile()
     {
         CreateMap<Gba.GbaBewoner, HC.Bewoner>()
-            .ForMember(dest => dest.InOnderzoek, opt => opt.MapFrom(src => src.VerblijfplaatsInOnderzoek.Map()))
+            .ForMember(dest => dest.InOnderzoek, opt => 
+            {
+                opt.PreCondition(src => src.VerblijfplaatsInOnderzoek != null);
+                opt.MapFrom(src => src.VerblijfplaatsInOnderzoek.AanduidingGegevensInOnderzoek.Map());
+            })
             ;
     }
 }
@@ -24,7 +28,12 @@ public static class VerblijfplaatsInOnderzoekConverter
             "081000" or
             "081030" or
             "081100" or
-            "081180" => true,
+            "081180" or
+            "580000" or
+            "581000" or
+            "581030" or
+            "581100" or
+            "581180" => true,
             _ => false
         };
     }

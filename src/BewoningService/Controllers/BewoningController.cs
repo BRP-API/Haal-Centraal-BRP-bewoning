@@ -1,32 +1,36 @@
-﻿using HaalCentraal.BewoningService.Generated;
+﻿using Bewoning.Validatie;
+using HaalCentraal.BewoningService.Generated;
 using HaalCentraal.BewoningService.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace HaalCentraal.BewoningService.Controllers;
 
 [ApiController]
 public class BewoningController : Generated.ControllerBase
 {
-    private readonly ILogger<BewoningController> _logger;
+    private readonly IDiagnosticContext _diagnosticContext;
     private readonly PersoonRepository _repository;
 
-    public BewoningController(ILogger<BewoningController> logger, PersoonRepository repository)
+    public BewoningController(IDiagnosticContext diagnosticContext, PersoonRepository repository)
     {
-        _logger = logger;
+        _diagnosticContext = diagnosticContext;
         _repository = repository;
     }
 
     public override async Task<ActionResult<GbaBewoningenQueryResponse>> Bewoningen([FromBody] BewoningenQuery body)
     {
-        _logger.LogDebug("Request. {headers} {@body}", HttpContext.Request.Headers, body);
+        _diagnosticContext.Set("request.body", body, true);
+        _diagnosticContext.Set("request.headers", HttpContext.Request.Headers);
 
         var retval = body switch
         {
             BewoningMetPeildatum q => await Handle(q),
+            BewoningMetPeriode q => await Handle(q),
             _ => new GbaBewoningenQueryResponse()
         };
 
-        _logger.LogDebug("Response. {@body}", retval);
+        _diagnosticContext.Set("response.body", retval, true);
         
         return Ok(retval);
     }
@@ -34,35 +38,23 @@ public class BewoningController : Generated.ControllerBase
     private async Task<GbaBewoningenQueryResponse> Handle(BewoningMetPeildatum q)
     {
         var personen = await _repository.Zoek<BewoningMetPeildatum>(q);
-        var bewoners = new List<GbaBewoner>();
-        if(personen != null)
-        {
-            foreach (var persoon in personen)
-            {
-                bewoners.Add(new GbaBewoner
-                {
-                    Burgerservicenummer = persoon.BurgerserviceNummer,
-                });
-            }
-        }
 
-        var retval = new GbaBewoningenQueryResponse
+        return new GbaBewoningenQueryResponse
         {
-            Bewoningen = new List<GbaBewoning>
-            {
-                new GbaBewoning
-                {
-                    AdresseerbaarObjectIdentificatie = q.AdresseerbaarObjectIdentificatie,
-                    Periode = new Periode
-                    {
-                        DatumVan = q.Peildatum,
-                        DatumTot = q.Peildatum.AddDays(1),
-                    },
-                    Bewoners = bewoners,
-                }
-            }
+            Bewoningen = personen.ToGbaBewoningen(q.AdresseerbaarObjectIdentificatie!,
+                                                  q.Peildatum!,
+                                                  q.Peildatum!.ToDateTimeOffset().AddDays(1).ToString("yyyy-MM-dd"))
         };
+    }
 
-        return retval;
+    private async Task<GbaBewoningenQueryResponse> Handle(BewoningMetPeriode q)
+    {
+        var personen = await _repository.Zoek<BewoningMetPeriode>(q);
+                                          
+
+        return new GbaBewoningenQueryResponse
+        {
+            Bewoningen = personen.ToGbaBewoningen(q.AdresseerbaarObjectIdentificatie!, q.DatumVan!, q.DatumTot!)
+        };
     }
 }

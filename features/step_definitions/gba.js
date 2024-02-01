@@ -4,8 +4,12 @@ const tableNameMap = new Map([
 
     ['adres', 'lo3_adres'],
     ['autorisatie', 'lo3_autorisatie'],
+    ['gemeente', 'lo3_gemeente'],
     ['gezagsverhouding', 'lo3_pl_gezagsverhouding'],
     ['inschrijving', 'lo3_pl'],
+    ['kind', 'lo3_pl_persoon'],
+    ['ouder', 'lo3_pl_persoon'],
+    ['partner', 'lo3_pl_persoon'],
     ['persoon', 'lo3_pl_persoon' ],
     ['protocollering', 'haalcentraal_vraag'],
     ['verblijfplaats', 'lo3_pl_verblijfplaats'],
@@ -13,6 +17,10 @@ const tableNameMap = new Map([
 ]);
 
 const columnNameMap = new Map([
+
+    ['burgerservicenummer (01.20)', 'burger_service_nr' ],
+
+    ['geslachtsnaam (02.40)', 'geslachts_naam' ],
 
     ['gemeente van inschrijving (09.10)', 'inschrijving_gemeente_code'],
 
@@ -34,6 +42,8 @@ const columnNameMap = new Map([
 
     ['aanduiding uitgesloten kiesrecht (38.10)', 'kiesrecht_uitgesl_aand'],
 
+    ['aanduiding naamgebruik (61.10)', 'naam_gebruik_aand'],
+
     ['datum opschorting bijhouding (67.10)', 'bijhouding_opschort_datum' ],
     ['reden opschorting bijhouding (67.20)', 'bijhouding_opschort_reden'],
 
@@ -46,6 +56,9 @@ const columnNameMap = new Map([
     ['datum einde onderzoek (83.30)', 'onderzoek_eind_datum' ],
 
     ['gemeentecode (92.10)', 'gemeente_code'],
+    ['gemeentenaam (92.11)', 'gemeente_naam'],
+    ['nieuwe gemeentecode (92.12)', 'nieuwe_gemeente_code'],
+    ['datum beëindiging (99.99)', 'tabel_regel_eind_datum'],
 
     ['Rubrieknummer ad hoc (35.95.60)', 'ad_hoc_rubrieken'],
     ['Medium ad hoc (35.95.67)', 'ad_hoc_medium'],

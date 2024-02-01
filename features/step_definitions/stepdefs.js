@@ -1,5 +1,5 @@
 const { World } = require('./world');
-const { Given, When, Then, setWorldConstructor, Before, After } = require('@cucumber/cucumber');
+const { Given, When, Then, setWorldConstructor, Before, After, setDefaultTimeout } = require('@cucumber/cucumber');
 const { createObjectFrom, createObjectArrayFrom } = require('./dataTable2Object.js');
 const deepEqualInAnyOrder = require('deep-equal-in-any-order');
 const should = require('chai').use(deepEqualInAnyOrder).should();
@@ -11,6 +11,11 @@ const { tableNameMap, columnNameMap, createAutorisatieSettingsFor, createRequest
 const { stringifyValues } = require('./stringify.js');
 
 setWorldConstructor(World);
+
+// voor het aanpassen van de default timeout waarde (5s) van cucumber-js
+// de default timeout waarde van axios is 0 (geen timeout)
+// https://github.com/cucumber/cucumber-js/blob/main/docs/support_files/timeouts.md
+setDefaultTimeout(60000);
 
 let pool;
 let logSqlStatements = false;
@@ -68,8 +73,102 @@ Given(/^de persoon heeft de volgende '(.*)' gegevens$/, function (gegevensgroep,
     ];
 });
 
+function getNextStapelNr(sqlData, relatie) {
+    let stapelNr = 0;
+
+    Object.keys(sqlData).forEach(function(key) {
+        if(key.startsWith(relatie)){
+            stapelNr = Number(key.replace(`${relatie}-`, ''));
+        }
+    });
+
+    return stapelNr+1;
+}
+
+Given(/^de persoon met burgerservicenummer '(\d*)' heeft een '(\w*)' met de volgende gegevens$/, async function (burgerservicenummer, collectieGegevensgroep, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData["inschrijving"] = [[[ 'geheim_ind', '0' ]]];
+    sqlData["persoon"] = [
+        createCollectieDataFromArray("persoon", [
+            ['burger_service_nr', burgerservicenummer]
+        ])
+    ];
+    sqlData[`${collectieGegevensgroep}-${getNextStapelNr(sqlData, collectieGegevensgroep)}`] = [
+        createCollectieDataFromArray(collectieGegevensgroep, createArrayFrom(dataTable, columnNameMap))
+    ];
+});
+
+Given(/^de persoon heeft ?(?:nog)? een '?(?:ex-)?(\w*)' met ?(?:alleen)? de volgende gegevens$/, async function (relatie, dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    const stapelNr = getNextStapelNr(sqlData, relatie);
+    sqlData[`${relatie}-${stapelNr}`] = [
+        createCollectieDataFromArray(relatie, createArrayFrom(dataTable, columnNameMap), stapelNr-1)
+    ];
+});
+
+async function createPersoonMetOuder(burgerservicenummer, ouderType, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData["inschrijving"] = [[[ 'geheim_ind', '0' ]]];
+    sqlData["persoon"] = [
+        createCollectieDataFromArray("persoon", [
+            ['burger_service_nr', burgerservicenummer]
+        ])
+    ];
+    sqlData[`ouder-${ouderType}`] = [
+        createCollectieDataFromArray(ouderType, createArrayFrom(dataTable, columnNameMap))
+    ];
+}
+
+Given(/^de persoon met burgerservicenummer '(\d*)' heeft een ouder '(\d)' met de volgende gegevens$/, createPersoonMetOuder);
+
+Given(/^(?:de|het) '(.*)' is gecorrigeerd naar de volgende gegevens$/, async function (relatie, dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    const foundRelatie = Object.keys(sqlData).findLast(key => key.startsWith(relatie));
+
+    const stapelNr = sqlData[foundRelatie][0].find(el => el[0] === 'stapel_nr');
+    let adres_id;
+
+    sqlData[foundRelatie].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        if(volgNr[1] === '0') {
+            data.push(['onjuist_ind','O']);
+            if(relatie === 'verblijfplaats') {
+                adres_id = data.find(el => el[0] === 'adres_id')[1];
+            }
+        }
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+
+    if(stapelNr !== undefined){
+        sqlData[foundRelatie].push(createCollectieDataFromArray(relatie, createArrayFrom(dataTable, columnNameMap), stapelNr[1]));
+    }
+    else {
+        let data = createArrayFrom(dataTable, columnNameMap);
+        if(adres_id !== undefined) {
+            data = [
+                ['adres_id', adres_id]
+            ].concat(data);
+        }
+        sqlData[foundRelatie].push(createVoorkomenDataFromArray(data));
+    }
+});
+
 function wijzigRelatie(relatie, dataTable) {
-    should.not.equal('verblijfplaats', `deprecated. Gebruik de nieuwe stap: "En de persoon is vervolgens ingeschreven op het adres met '<element naam>' '<waarde>' met de volgende gegevens"`)
+    should.not.equal('verblijfplaats', `deprecated. Gebruik de nieuwe stap: "En de persoon is vervolgens ingeschreven op adres '<adres id>' met de volgende gegevens"`)
 
     let sqlData = this.context.sqlData.at(-1);
 
@@ -136,6 +235,7 @@ Given(/^adres '(.*)' is op '(.*)' geactualiseerd met de volgende gegevens$/, fun
             let nieuwVerblijfplaatsData = [
                 [ 'adres_id', nieuwAdresIndex + '' ],
                 [ 'volg_nr', '0'],
+                [ 'adres_functie', 'W'],
                 [ 'adreshouding_start_datum', ingangsdatum.replaceAll('-', '')],
                 [ 'aangifte_adreshouding_oms', 'T' ]
             ];
@@ -146,6 +246,65 @@ Given(/^adres '(.*)' is op '(.*)' geactualiseerd met de volgende gegevens$/, fun
             elem.verblijfplaats.push(nieuwVerblijfplaatsData);
         }
     });
+});
+
+Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd met de volgende gegevens$/, function (adresId, ingangsdatum, dataTable) {
+    let sqlData = this.context.sqlData.find(el => el['adres'] !== undefined);
+
+    const nieuwAdresIndex = Object.keys(sqlData['adres']).length;
+    infrastructureelWijzigenAdres(this.context, adresId, ingangsdatum, nieuwAdresIndex + 1 + '', dataTable);
+});
+
+function infrastructureelWijzigenAdres(context, sourceAdresId, ingangsdatum, targetAdresId, dataTable) {
+    let sqlData = context.sqlData.find(el => el['adres'] !== undefined);
+
+    const oudAdres = sqlData.adres[sourceAdresId];
+    should.exist(oudAdres, `geen adres gevonden met id '${sourceAdresId}'`);
+    const adresIndex = oudAdres.index;
+
+    const nieuwAdresIndex = Object.keys(sqlData['adres']).length;
+    const nieuwAdresData = JSON.parse(JSON.stringify(oudAdres.data));
+    createArrayFrom(dataTable, columnNameMap).forEach(function(elem) {
+        let foundElem = nieuwAdresData.find(el => el[0] === elem[0]);
+        if(foundElem !== undefined) {
+            foundElem[1] = elem[1];
+        }
+        else {
+            nieuwAdresData.push(elem);
+        }
+    });
+    sqlData['adres'][targetAdresId] = {
+        index: nieuwAdresIndex,
+        data: nieuwAdresData
+    };
+
+    context.sqlData.forEach(function(elem) {
+        let verblijfplaats = elem['verblijfplaats']?.at(-1);
+        if(verblijfplaats?.find(el => el[0] === 'adres_id' && el[1] === adresIndex + '') !== undefined) {
+            elem['verblijfplaats'].forEach(function(data) {
+                let volgNr = data.find(el => el[0] === 'volg_nr');
+                volgNr[1] = Number(volgNr[1]) + 1 + '';
+            });
+
+            let nieuwVerblijfplaatsData = JSON.parse(JSON.stringify(elem['verblijfplaats'].at(-1)));
+            nieuwVerblijfplaatsData.find(el => el[0] === 'adres_id')[1] = nieuwAdresIndex + '';
+            nieuwVerblijfplaatsData.find(el => el[0] === 'volg_nr')[1] = '0';
+            nieuwVerblijfplaatsData.find(el => el[0] === 'adreshouding_start_datum')[1] = ingangsdatum.replaceAll('-', '');
+
+            const nieuwGemeenteCode = nieuwAdresData.find(el => el[0] == 'gemeente_code');
+            if(nieuwGemeenteCode !== undefined) {
+                nieuwVerblijfplaatsData.find(el => el[0] === 'inschrijving_gemeente_code')[1] = nieuwGemeenteCode[1];
+            }
+
+            nieuwVerblijfplaatsData.push(['aangifte_adreshouding_oms', 'W'])
+
+            elem.verblijfplaats.push(nieuwVerblijfplaatsData);
+        }
+    });
+}
+
+Given(/^adres '(.*)' is op '(.*)' infrastructureel gewijzigd naar adres '(.*)' met de volgende gegevens$/, function(sourceAdresId, ingangsdatum, targetAdresId, dataTable) {
+    infrastructureelWijzigenAdres(this.context, sourceAdresId, ingangsdatum, targetAdresId, dataTable);
 });
 
 Given(/^(?:adres|de adressen) '(.*)' (?:is|zijn) op '(.*)' samengevoegd tot adres '(.*)' met de volgende gegevens$/, function (sourceAdresIds, ingangsdatum, targetAdresId, dataTable) {
@@ -178,6 +337,7 @@ Given(/^(?:adres|de adressen) '(.*)' (?:is|zijn) op '(.*)' samengevoegd tot adre
                 let nieuwVerblijfplaatsData = [
                     [ 'adres_id', nieuwAdresIndex + '' ],
                     [ 'volg_nr', '0'],
+                    [ 'adres_functie', 'W'],
                     [ 'adreshouding_start_datum', ingangsdatum.replaceAll('-', '')],
                     [ 'aangifte_adreshouding_oms', 'W' ]
                 ];
@@ -234,6 +394,23 @@ Given(/^de persoon met burgerservicenummer '(\d*)' is ingeschreven op adres '(.*
     sqlData['verblijfplaats'] = [
         [
             [ 'adres_id', adresIndex + '' ],
+            [ 'volg_nr', '0'],
+            [ 'adres_functie', 'W']
+        ].concat(createArrayFrom(dataTable, columnNameMap))
+    ];
+});
+
+Given(/^de persoon is ingeschreven op adres '(.*)' met de volgende gegevens$/, function (adresId, dataTable) {
+    const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
+    should.exist(adressenData, 'geen adressen gevonden');
+    const adresIndex = adressenData.adres[adresId]?.index;
+    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['verblijfplaats'] = [
+        [
+            [ 'adres_id', adresIndex + '' ],
             [ 'volg_nr', '0']
         ].concat(createArrayFrom(dataTable, columnNameMap))
     ];
@@ -254,7 +431,8 @@ Given(/^de persoon is vervolgens ingeschreven op adres '(.*)' met de volgende ge
 
     sqlData['verblijfplaats'].push([
         [ 'adres_id', adresIndex + '' ],
-        [ 'volg_nr', '0']
+        [ 'volg_nr', '0'],
+        [ 'adres_functie', 'W']
     ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 
@@ -284,7 +462,8 @@ Given(/^er zijn (\d*) personen ingeschreven op adres '(.*)' met de volgende gege
         sqlData['verblijfplaats'] = [
             [
                 [ 'adres_id', adresIndex + '' ],
-                [ 'volg_nr', '0']
+                [ 'volg_nr', '0'],
+                [ 'adres_functie', 'W']
             ].concat(createArrayFrom(dataTable, columnNameMap))
         ];
     }
@@ -316,6 +495,142 @@ Given(/^de geauthenticeerde consumer heeft de volgende '(.*)' gegevens$/, functi
         : dataTable.hashes()[0].gemeenteCode;
 });
 
+Given(/^gemeente '(.*)' heeft de volgende gegevens$/, function (gemeenteId, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [{ gemeente:{} }];
+    }
+
+    let sqlData = this.context.sqlData.find(e => Object.keys(e).includes('gemeente'));
+    if(sqlData === undefined) {
+        sqlData = { gemeente:{} };
+        this.context.sqlData.push(sqlData);
+    }
+
+    sqlData['gemeente'][gemeenteId] = {
+        index: Object.keys(sqlData['gemeente']).length,
+        data: createArrayFrom(dataTable, columnNameMap)
+    };
+});
+
+Given(/^gemeente '(.*)' is samengevoegd met de volgende gegevens$/, function (gemeenteId, dataTable) {
+    let gemeenteData = this.context.sqlData.find(el => el['gemeente'] !== undefined);
+
+    const gemeente = gemeenteData.gemeente[gemeenteId];
+    should.exist(gemeente, `geen gemeente gevonden met id '${gemeenteId}'`);
+
+    gemeente.data = gemeente.data.concat(createArrayFrom(dataTable, columnNameMap));
+
+    const oudGemeenteCode = gemeente.data.find(el => el[0] === 'gemeente_code')[1];
+    const nieuweGemeenteCode = gemeente.data.find(el => el[0] === 'nieuwe_gemeente_code')[1];
+    const ingangsdatum = gemeente.data.find(el => el[0] === 'tabel_regel_eind_datum')[1];
+
+    let gewijzigdAdressenIds = [];
+    this.context.sqlData.forEach(function(elem) {
+        let adres = elem['adres'];
+        if(adres !== undefined) {
+            Object.keys(adres).forEach(function(adresId) {
+                if(adres[adresId].data.find(el => el[0] === 'gemeente_code' && el[1] === oudGemeenteCode)) {
+                    const nieuwAdresIndex = Object.keys(adres).length;
+                    const nieuwAdresData = JSON.parse(JSON.stringify(adres[adresId].data));
+                    nieuwAdresData.find(el => el[0] === 'gemeente_code')[1] = nieuweGemeenteCode;
+                    adres[nieuwAdresIndex + 1 + ''] = {
+                        index: nieuwAdresIndex,
+                        data: nieuwAdresData
+                    };
+
+                    gewijzigdAdressenIds.push([adresId, nieuwAdresIndex + 1 + '']);
+                }
+            });
+        }
+    });
+
+    const sqlDatas = this.context.sqlData;
+    const adressen = this.context.sqlData.find(el => el['adres'] !== undefined);
+
+    gewijzigdAdressenIds.forEach(function(elem) {
+        const oudAdres = adressen.adres[elem[0]];
+        const nieuwAdres = adressen.adres[elem[1]];
+
+        sqlDatas.forEach(function(elem) {
+            let verblijfplaats = elem['verblijfplaats']?.at(-1);
+            if(verblijfplaats?.find(el => el[0] === 'adres_id' && el[1] === oudAdres.index + '') !== undefined) {
+                elem['verblijfplaats'].forEach(function(data) {
+                    let volgNr = data.find(el => el[0] === 'volg_nr');
+                    volgNr[1] = Number(volgNr[1]) + 1 + '';
+                });
+
+                let nieuwVerblijfplaatsData = JSON.parse(JSON.stringify(elem['verblijfplaats'].at(-1)));
+                nieuwVerblijfplaatsData.find(el => el[0] === 'adres_id')[1] = nieuwAdres.index + '';
+                nieuwVerblijfplaatsData.find(el => el[0] === 'volg_nr')[1] = '0';
+                nieuwVerblijfplaatsData.find(el => el[0] === 'inschrijving_gemeente_code')[1] = nieuweGemeenteCode + '';
+                nieuwVerblijfplaatsData.find(el => el[0] === 'adreshouding_start_datum')[1] = ingangsdatum + '';
+                nieuwVerblijfplaatsData.push(['aangifte_adreshouding_oms', 'W'])
+
+                elem.verblijfplaats.push(nieuwVerblijfplaatsData);
+            }
+        });
+    });
+});
+
+Given(/^de inschrijving is vervolgens gecorrigeerd als een inschrijving op adres '(.*)' met de volgende gegevens$/, function (adresId, dataTable) {
+    const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
+    should.exist(adressenData, 'geen adressen gevonden');
+    const adresIndex = adressenData.adres[adresId]?.index;
+    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['verblijfplaats'].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        if(volgNr[1] === '0') {
+            data.push(['onjuist_ind','O']);
+        }
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+
+    sqlData['verblijfplaats'].push([
+        [ 'adres_id', adresIndex + '' ],
+        [ 'volg_nr', '0'],
+        [ 'adres_functie', 'W']
+    ].concat(createArrayFrom(dataTable, columnNameMap)));
+});
+
+async function createOuder(ouderType, dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData[`ouder-${ouderType}`] = [
+        createCollectieDataFromArray(ouderType, createArrayFrom(dataTable, columnNameMap))
+    ];
+}
+
+Given(/^de persoon heeft een ouder '(\d)' met de volgende gegevens$/, createOuder);
+
+Given(/^(?:de|een) persoon met burgerservicenummer '(\d*)' heeft de volgende gegevens$/, function (burgerservicenummer, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData["inschrijving"] = [[[ 'geheim_ind', '0' ]]];
+    sqlData["persoon"] = [
+        createCollectieDataFromArray("persoon", [
+            ['burger_service_nr', burgerservicenummer]
+        ]).concat(createArrayFrom(dataTable, columnNameMap))
+    ];
+});
+
+Given(/^de persoon is gewijzigd naar de volgende gegevens$/, function (dataTable) {
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['persoon'].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+    sqlData['persoon'].push(createCollectieDataFromArray('persoon', createArrayFrom(dataTable, columnNameMap)));
+});
+
 async function handleRequest(context, dataTable) {
     if(context.sqlData === undefined) {
         context.sqlData = [{}];
@@ -326,7 +641,9 @@ async function handleRequest(context, dataTable) {
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
 
     const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
-    if(!heeftAutorisatieSettings){
+    if (!heeftAutorisatieSettings &&
+        (context.createDefaultAutorisation === undefined || context.createDefaultAutorisation)
+       ) {
         let sqlData = context.sqlData.at(-1);
         sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
     }
@@ -365,7 +682,9 @@ async function handleCustomRequest(context, verb) {
     const url = context.proxyAanroep ? context.proxyUrl : context.apiUrl;
 
     const heeftAutorisatieSettings = context.sqlData.filter(s => s['autorisatie'] !== undefined).length > 0;
-    if(!heeftAutorisatieSettings){
+    if (!heeftAutorisatieSettings &&
+        (context.createDefaultAutorisation === undefined || context.createDefaultAutorisation)
+       ) {
         let sqlData = context.sqlData.at(-1);
         sqlData['autorisatie'] = createAutorisatieSettingsFor(afnemerId);
     }
@@ -432,6 +751,16 @@ Then(/^heeft de bewoning een bewoner met de volgende gegevens$/, function (dataT
     expectedBewoning.bewoners.push(createObjectFrom(dataTable, true));
 });
 
+Then(/^heeft de bewoner de volgende '(.*)' gegevens$/, function (gegevensgroep, dataTable) {
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om bewoner gegevens aan te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    let expectedBewoner = expectedBewoning.bewoners.at(-1);
+    should.exist(expectedBewoner, `geen bewoner om gegevens aan toe te voegen. Gebruik de stap 'En heeft de bewoning een bewoner met de volgende gegevens' om een verwachte bewoner te definieren`);
+
+    expectedBewoner[gegevensgroep] = createObjectFrom(dataTable, true);
+});
+
 Then(/^heeft de bewoning bewoners met de volgende gegevens$/, function (dataTable) {
     this.context.verifyResponse = true;
 
@@ -439,6 +768,15 @@ Then(/^heeft de bewoning bewoners met de volgende gegevens$/, function (dataTabl
     should.exist(expectedBewoning, `geen bewoning om bewoners toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
 
     expectedBewoning.bewoners = createObjectArrayFrom(dataTable, true);
+});
+
+Then(/^heeft de bewoning mogelijke bewoners met de volgende gegevens$/, function (dataTable) {
+    this.context.verifyResponse = true;
+
+    let expectedBewoning = this.context.expected?.at(-1);
+    should.exist(expectedBewoning, `geen bewoning om mogelijke bewoners toe te voegen. Gebruik de stap 'Dan heeft de response een bewoning met de volgende gegevens' om een verwachte bewoning te definieren`);
+
+    expectedBewoning.mogelijkeBewoners = createObjectArrayFrom(dataTable, true);
 });
 
 Then(/^heeft de bewoning een mogelijke bewoner met de volgende gegevens$/, function (dataTable) {
@@ -489,6 +827,42 @@ Then(/^heeft de persoon met burgerservicenummer '(.*)' de volgende '(.*)' gegeve
         Object.keys(sqlData).forEach(function(key) {
             actual[key].split(' ').should.have.members(sqlData[key].split(' '), `${actual[key]} !== ${sqlData[key]}`);
         });
+    }
+});
+
+Then(/^is voor de geauthenticeerde consumer '(\d*)' protocollering regels vastgelegd$/, async function (aantal) {
+    this.context.verifyResponse = false;
+
+    const tabelNaam = 'protocollering';
+    const afnemerId = this.context.afnemerId ?? this.context.oAuth?.clients[0].afnemerID;
+
+    if (pool !== undefined) {
+        let res;
+        let client;
+        try {
+            let tableName = tableNameMap.get(tabelNaam);
+            if(tableName === undefined) {
+                tableName = tabelNaam;
+            }
+            const sql = `SELECT COUNT(*) FROM public.${tableName} WHERE afnemer_code=${afnemerId}`;
+
+            client = await pool.connect();
+            res = await client.query(sql);
+        }
+        catch(ex) {
+            console.log(ex);
+        }
+        finally {
+            if(client !== undefined){
+                client.release();
+            }
+        }
+
+        should.exist(res);
+        res.rows.length.should.equal(1, `Geen ${tabelNaam} gegevens gevonden voor afnemer met code ${afnemerId}`);
+
+        const actual = res.rows[0];
+        actual['count'].should.equal(aantal);
     }
 });
 
@@ -560,6 +934,10 @@ After({tags: '@fout-case'}, async function() {
     actual.should.deep.equalInAnyOrder(expected, `actual: ${JSON.stringify(actual, null, '\t')}\nexpected: ${JSON.stringify(expected, null, '\t')}`);
 });
 
+Before({tags: '@autorisatie'}, async function() {
+    this.context.createDefaultAutorisation = false;
+});
+
 Before(function() {
     if(this.context.sql.useDb && pool === undefined && this.context.stapDocumentatie) {
         pool = new Pool(this.context.sql.poolConfig);
@@ -574,5 +952,10 @@ After(async function() {
         return;
     }
 
-    await rollbackSqlStatements(this.context.sqlData, pool, tableNameMap, logSqlStatements);
+    let deleteIndividualRecords = this.context.sql.deleteIndividualRecords;
+    if(deleteIndividualRecords === undefined) {
+        deleteIndividualRecords = true;
+    }
+
+    await rollbackSqlStatements(this.context.sqlData, pool, tableNameMap, logSqlStatements, deleteIndividualRecords);
 });
