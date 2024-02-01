@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>acbf13b7-9926-457c-bb04-914935d50733</UserSecretsId>
@@ -11,22 +10,17 @@
     <RootNamespace>HaalCentraal.BewoningService</RootNamespace>
     <Version>2.0.1</Version>
   </PropertyGroup>
-
   <ItemGroup>
     <AssemblyAttribute Include="Bewoning.Infrastructure.Logging.ApiVersionAttribute">
       <_Parameter1>2.0.0</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.22" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Bewoning.Infrastructure\Bewoning.Infrastructure.csproj" />
   </ItemGroup>
-
 </Project>
