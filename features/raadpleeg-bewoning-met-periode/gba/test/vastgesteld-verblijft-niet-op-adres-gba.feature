@@ -8,6 +8,9 @@ Functionaliteit: bijzondere situaties 'indicatie vastgesteld verblijft niet op a
       Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000001                         |
+      En adres 'A2' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000002                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
       | 589999                          | 20220526                       | <datum aanvang>                    |
@@ -102,6 +105,79 @@ Functionaliteit: bijzondere situaties 'indicatie vastgesteld verblijft niet op a
       | 20220400      | gedeeltelijk onbekende datum | periode overlapt de onzekerheidsperiode datum aanvang en datum ingang onderzoek                 |
       | 20220000      | gedeeltelijk onbekende datum | periode overlapt de datum ingang onderzoek die ligt in de onzekerheidsperiode van datum aanvang |
       | 00000000      | volledig onbekende datum     | periode overlapt de datum ingang onderzoek die ligt in de onzekerheidsperiode van datum aanvang |
+
+
+    Scenario: persoon verblijft niet meer op het gevraagde adres en staat daar nu weer wel ingeschreven
+      Gegeven adres 'A1' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000001                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
+      | 589999                          | 20220526                       | 20200818                           |
+      En de persoon is vervolgens ingeschreven op adres 'A1' met de volgende gegevens
+      | datum aanvang adreshouding (10.30) |
+      | 20220810                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-05-01         |
+      | datumTot                         | 2022-11-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-05-01 tot 2022-05-26 |
+      | adresseerbaarObjectIdentificatie | 0800010000000001          |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-08-10 tot 2022-11-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000001          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+
+    Scenario: persoon verblijft niet meer op het gevraagde adres en andere persoon verblijft er wel
+      Gegeven adres 'A1' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000001                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
+      | 089999                          | 20220526                       | 20200818                           |
+      En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
+      | datum aanvang adreshouding (10.30) |
+      | 20220401                           |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-01-01 tot 2022-04-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000001          |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-04-01 tot 2022-05-26 |
+      | adresseerbaarObjectIdentificatie | 0800010000000001          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000048           |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-05-26 tot 2023-01-01 |
+      | adresseerbaarObjectIdentificatie | 0800010000000001          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000048           |
 
 
   Rule: een persoon met beëindigd onderzoek met aanduiding in onderzoek waarde '089999' wordt geleverd als bewoner
