@@ -4,6 +4,59 @@ Functionaliteit: bijzondere situaties 'indicatie vastgesteld verblijft niet op a
 
   Rule: een persoon met aanduiding in onderzoek waarde '089999' wordt niet geleverd als bewoner vanaf de ingangsdatum van het onderzoek
 
+    # A1: |-----OOOO
+    # A2:           ????----
+    #     MMMMMM
+    Abstract Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven met gedeeltelijk onbekende vertrekdatum en <scenario>
+      Gegeven adres 'A1' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000001                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
+      | 589999                          | 20220526                       | 20200818                           |
+      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+      | land (13.10) | datum aanvang adres buitenland (13.20) |
+      | 0000         | 20220600                               |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | <datum van>        |
+      | datumTot                         | <datum tot>        |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response 0 bewoningen
+      
+      Voorbeelden:
+      | datum van  | datum tot  | scenario                                                       |
+      | 2022-06-03 | 2022-06-14 | periode ligt in de onzekerheidsperiode van volgende verblijf   |
+      | 2022-06-23 | 2022-08-12 | periode begint in de onzekerheidsperiode van volgende verblijf |
+
+    #A1: |----OOOO
+    #VB:        ??----
+    #    MMMMM
+    Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven met gedeeltelijk onbekende vertrekdatum en periode loopt tot in de onzekerheidsperiode van volgende verblijf
+      Gegeven adres 'A1' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000001                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
+      | 589999                          | 20220526                       | 20200818                           |
+      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+      | land (13.10) | datum aanvang adres buitenland (13.20) |
+      | 0000         | 20220700                               |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-06-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response 0 bewoningen
+
+
+  Rule: een persoon met aanduiding in onderzoek waarde '089999' wordt geleverd als mogelijke bewoner tot de ingangsdatum van het onderzoek
+
+    # A1: ????OOOOO
+    # A2:          |-----
+    #     MMMM
     Abstract Scenario: persoon verblijft niet meer op het gevraagde adres en stond daar ingeschreven met <soort datum> aanvang en gevraagde periode overlapt de datum ingang onderzoek binnen de onzekerheidsperiode van datum aanvang
       Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
@@ -36,49 +89,8 @@ Functionaliteit: bijzondere situaties 'indicatie vastgesteld verblijft niet op a
       | 20220000      | gedeeltelijk onbekende datum |
       | 00000000      | volledig onbekende datum     |
 
-    Abstract Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven met gedeeltelijk onbekende vertrekdatum en <scenario>
-      Gegeven adres 'A1' heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0800                 | 0800010000000001                         |
-      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
-      | 589999                          | 20220526                       | 20200818                           |
-      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
-      | land (13.10) | datum aanvang adres buitenland (13.20) |
-      | 0000         | 20220600                               |
-      Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde             |
-      | type                             | BewoningMetPeriode |
-      | datumVan                         | <datum van>        |
-      | datumTot                         | <datum tot>        |
-      | adresseerbaarObjectIdentificatie | 0800010000000001   |
-      Dan heeft de response 0 bewoningen
-      
-      Voorbeelden:
-      | datum van  | datum tot  | scenario                                                       |
-      | 2022-06-03 | 2022-06-14 | periode ligt in de onzekerheidsperiode van volgende verblijf   |
-      | 2022-06-23 | 2022-08-12 | periode begint in de onzekerheidsperiode van volgende verblijf |
-
-    Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven met gedeeltelijk onbekende vertrekdatum en periode loopt tot in de onzekerheidsperiode van volgende verblijf
-      Gegeven adres 'A1' heeft de volgende gegevens
-      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
-      | 0800                 | 0800010000000001                         |
-      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
-      | 589999                          | 20220526                       | 20200818                           |
-      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
-      | land (13.10) | datum aanvang adres buitenland (13.20) |
-      | 0000         | 20220600                               |
-      Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde             |
-      | type                             | BewoningMetPeriode |
-      | datumVan                         | 2022-05-28         |
-      | datumTot                         | 2022-06-15         |
-      | adresseerbaarObjectIdentificatie | 0800010000000001   |
-
-
-  Rule: een persoon met aanduiding in onderzoek waarde '089999' wordt geleverd als mogelijke bewoner tot de ingangsdatum van het onderzoek
-
+    # A1: ????---OOOO
+    #     MMMMMMM
     Abstract Scenario: persoon verblijft mogelijk nog op het gevraagde adres en stond daar ingeschreven met <soort datum> aanvang en <scenario>
       Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
@@ -107,6 +119,8 @@ Functionaliteit: bijzondere situaties 'indicatie vastgesteld verblijft niet op a
       | 00000000      | volledig onbekende datum     | periode overlapt de datum ingang onderzoek die ligt in de onzekerheidsperiode van datum aanvang |
 
 
+    # A1: |----OOOO|----
+    #     MMMMM    BBBBB
     Scenario: persoon verblijft niet meer op het gevraagde adres en staat daar nu weer wel ingeschreven
       Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
@@ -120,24 +134,29 @@ Functionaliteit: bijzondere situaties 'indicatie vastgesteld verblijft niet op a
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
-      | datumVan                         | 2022-05-01         |
-      | datumTot                         | 2022-11-01         |
+      | datumVan                         | 2020-01-01         |
+      | datumTot                         | 2023-01-01         |
       | adresseerbaarObjectIdentificatie | 0800010000000001   |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
-      | periode                          | 2022-05-01 tot 2022-05-26 |
+      | periode                          | 2020-08-18 tot 2022-05-26 |
       | adresseerbaarObjectIdentificatie | 0800010000000001          |
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
       En heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
-      | periode                          | 2022-08-10 tot 2022-11-01 |
+      | periode                          | 2022-08-10 tot 2023-01-01 |
       | adresseerbaarObjectIdentificatie | 0800010000000001          |
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
 
+    #A1P24: |----OOOO
+    #A1P48:    |-----
+    #P24:   MMMMM
+    #P48:      BBBBBB
+    #Bew.:  111223333
     Scenario: persoon verblijft niet meer op het gevraagde adres en andere persoon verblijft er wel
       Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
@@ -178,6 +197,60 @@ Functionaliteit: bijzondere situaties 'indicatie vastgesteld verblijft niet op a
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000048           |
+
+    #A1: |----OOOO
+    #VB:        ??----
+    #    MMMMM
+    Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven met gedeeltelijk onbekende vertrekdatum en periode loopt tot in de onzekerheidsperiode van volgende verblijf
+      Gegeven adres 'A1' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000001                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
+      | 589999                          | 20220526                       | 20200818                           |
+      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+      | land (13.10) | datum aanvang adres buitenland (13.20) |
+      | 0000         | 20220600                               |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-01-01 tot 2022-05-26 |
+      | adresseerbaarObjectIdentificatie | 0800010000000001          |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+
+    #A1: |----OOOO
+    #VB:    ????----
+    #    MMMMM
+    Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven met gedeeltelijk onbekende vertrekdatum die datum ingang onderzoek overlapt
+      Gegeven adres 'A1' heeft de volgende gegevens
+      | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+      | 0800                 | 0800010000000001                         |
+      En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
+      | 589999                          | 20220526                       | 20200818                           |
+      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+      | land (13.10) | datum aanvang adres buitenland (13.20) |
+      | 0000         | 20220500                               |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2022-01-01         |
+      | datumTot                         | 2023-01-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-01-01 tot 2022-05-26 |
+      | adresseerbaarObjectIdentificatie | 0800010000000001          |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
 
 
   Rule: een persoon met beëindigd onderzoek met aanduiding in onderzoek waarde '089999' wordt geleverd als bewoner
