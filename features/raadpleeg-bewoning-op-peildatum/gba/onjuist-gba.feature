@@ -21,8 +21,8 @@ Functionaliteit: raadpleeg bewoning van een gecorrigeerde verblijfplaats
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20160526                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20160601                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | 20160601                           | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -35,8 +35,8 @@ Functionaliteit: raadpleeg bewoning van een gecorrigeerde verblijfplaats
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20160601                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20160526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | 20160526                           | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -58,8 +58,8 @@ Functionaliteit: raadpleeg bewoning van een gecorrigeerde verblijfplaats
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20160601                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20160526                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | 20160526                           | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -75,8 +75,8 @@ Functionaliteit: raadpleeg bewoning van een gecorrigeerde verblijfplaats
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20160526                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20160601                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | 20160601                           | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -98,8 +98,8 @@ Functionaliteit: raadpleeg bewoning van een gecorrigeerde verblijfplaats
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20160526                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20160000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | 20160000                           | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -121,8 +121,8 @@ Functionaliteit: raadpleeg bewoning van een gecorrigeerde verblijfplaats
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20160526                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 20160000                           |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | 20160000                           | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |

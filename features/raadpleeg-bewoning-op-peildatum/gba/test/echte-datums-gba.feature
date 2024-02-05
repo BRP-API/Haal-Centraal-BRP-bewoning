@@ -365,8 +365,8 @@ Functionaliteit: bewoning op peildatum met echte datums
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20210526                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum>                     |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum>                     | W                     |
       En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20210730                           |
@@ -396,8 +396,8 @@ Functionaliteit: bewoning op peildatum met echte datums
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20210730                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum>                     |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum>                     | W                     |
       En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20211014                           |
@@ -430,8 +430,8 @@ Functionaliteit: bewoning op peildatum met echte datums
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20210730                           |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum>                     |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum>                     | W                     |
       En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20211014                           |
