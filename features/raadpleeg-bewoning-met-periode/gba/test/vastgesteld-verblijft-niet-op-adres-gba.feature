@@ -263,7 +263,7 @@ Functionaliteit: bijzondere situaties 'indicatie vastgesteld verblijft niet op a
       | 00000000      | volledig onbekende datum                     |
 
 
-  Rule: een persoon met onderzoek met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd op of voor datum aanvang van de volgende verblijfplaats wordt geleverd als bewoner
+  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd op of voor datum aanvang van de volgende verblijfplaats wordt geleverd als bewoner
     # maar is wel mogelijke bewoner voor onzekerheidsperiode van datum aanvang
     # en is wel mogelijke bewoner voor onzekerheidsperiode van datum aanvang volgende verblijf
 

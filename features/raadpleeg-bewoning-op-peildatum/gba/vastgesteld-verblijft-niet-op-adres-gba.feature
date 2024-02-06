@@ -136,7 +136,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | 2022-08-12 | 2022-08-12 tot 2022-08-13 | peildatum valt na de dag ingang onderzoek en na datum einde onderzoek                                                 |
 
 
-  Rule: een persoon met onderzoek met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd op of voor datum aanvang van de volgende verblijfplaats wordt geleverd als bewoner
+  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd op of voor datum aanvang van de volgende verblijfplaats wordt geleverd als bewoner
 
     Abstract Scenario: persoon heeft beëindigd onderzoek met aanduiding in onderzoek waarde '589999' en is <omschrijving aanvang> ingeschreven op een ander adres en <scenario>
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -168,7 +168,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | 20220810               | 2022-08-12 | 2022-08-12 tot 2022-08-13 | vanaf datum beëindigen van het onderzoek | peildatum valt na de dag ingang onderzoek en na datum einde onderzoek en voor datum aanvang volgende verblijfplaats   |
 
 
-  Rule: een persoon met onderzoek met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd binnen de onzekerheidsperiode van datum aanvang van de volgende verblijfplaats wordt geleverd als bewoner in de periode voor de onzekerheidsperiode en als mogelijke bewoner in de onzekerheidsperiode van de volgende verblijfplaats
+  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd binnen de onzekerheidsperiode van datum aanvang van de volgende verblijfplaats wordt geleverd als bewoner in de periode voor de onzekerheidsperiode en als mogelijke bewoner in de onzekerheidsperiode van de volgende verblijfplaats
 
     Abstract Scenario: onderzoek met aanduiding in onderzoek waarde '589999' is beëindigd in de onzekerheidsperiode <soort datum> aanvang volgende verblijf en <scenario>
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -198,7 +198,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | 20220000               | 2022-01-01 | 2022-01-01 tot 2022-01-02 | mogelijke bewoner | gedeeltelijk (jaar) onbekende datum          | peildatum ligt in de onzekerheidsperiode volgende verblijf |
       | 00000000               | 2021-01-01 | 2021-01-01 tot 2021-01-02 | mogelijke bewoner | volledig onbekende datum                     | peildatum ligt in de onzekerheidsperiode volgende verblijf |
 
-  Rule: een persoon met onderzoek met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd na datum aanvang van de volgende verblijfplaats wordt geleverd als mogelijke bewoner
+  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd na datum aanvang van de volgende verblijfplaats wordt geleverd als mogelijke bewoner
     # wanneer het onderzoek is beëindigd na datum aanvang van de volgende verblijfplaats is niet met zekerheid te bepalen waarom het onderzoek beëindigd is
     # het onderzoek kan bijvoorbeeld beëindigd zijn door een andere gemeente dan waar het onderzoek betrekking op had, zonder dat die gemeente heeft bepaald dat 'vastgesteld geen bewoner meer' niet meer van toepassing is
 
