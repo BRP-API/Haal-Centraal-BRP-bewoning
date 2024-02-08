@@ -111,7 +111,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum valt voor de datum ingang onderzoek           |
       | 2020-08-18 | 2020-08-18 tot 2020-08-19 | peildatum valt op de datum aanvang van het verblijf     |
 
-    Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven op een ander adres en peildatum ligt voor aanvang onderzoek en voor aanvang volgende
+    Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven op een ander adres en peildatum ligt voor aanvang onderzoek en voor aanvang volgende adreshouding
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
       | 0800                              | 589999                          | 20220526                       | 20200818                           |
