@@ -86,7 +86,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       Dan heeft de response 0 bewoningen
 
 
-  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' wordt geleverd als mogelijke bewoner tot de ingangsdatum van het onderzoek
+  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' wordt geleverd als bewoner tot de ingangsdatum van het onderzoek
 
     Scenario: persoon verblijft mogelijk nog op het gevraagde adres en <scenario>
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -101,7 +101,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | naam                             | waarde           |
       | periode                          | <periode>        |
       | adresseerbaarObjectIdentificatie | 0800010000000001 |
-      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
 
@@ -127,7 +127,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | naam                             | waarde                    |
       | periode                          | 2022-04-10 tot 2022-04-11 |
       | adresseerbaarObjectIdentificatie | 0800010000000001          |
-      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
 
