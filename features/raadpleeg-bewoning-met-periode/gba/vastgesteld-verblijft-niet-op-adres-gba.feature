@@ -92,6 +92,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 089999                        | 20220526             |
 
       Voorbeelden:
       | datum van  | datum tot  | periode                   | scenario                                            |
@@ -119,6 +122,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 589999                        | 20220526             |
 
       Voorbeelden:
       | datum van  | datum tot  | periode                   | scenario                                            |
@@ -146,6 +152,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 089999                        | 20220526             |
 
       Voorbeelden:
       | datum van  | datum tot  | periode                   | scenario                                        |
@@ -159,7 +168,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
     Abstract Scenario: persoon heeft beëindigd onderzoek met aanduiding in onderzoek waarde '<aanduiding onderzoek>' en is inmiddels ingeschreven op een ander adres en onderzoek is beëindigd voor aanvang van de volgende verblijfplaats en <scenario>
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum einde onderzoek (83.30) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 589999                          | 20220526                       | 20220810                      | 20200818                           |
+      | 0800                              | <aanduiding onderzoek>          | 20220526                       | 20220810                      | 20200818                           |
       En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
       | land (13.10) | datum aanvang adres buitenland (13.20) |
       | 0000         | 20220901                               |
@@ -176,6 +185,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | <aanduiding onderzoek>        | 20220526             |
 
       Voorbeelden:
       | aanduiding onderzoek | datum van  | datum tot  | scenario                                        |
@@ -199,7 +211,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | 0800                 | 0800010000000001                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum einde onderzoek (83.30) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 589999                          | 20220526                       | 20220902                      | 20200818                           |
+      | 0800                              | <aanduiding onderzoek>          | 20220526                       | 20220902                      | 20200818                           |
       En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
       | land (13.10) | datum aanvang adres buitenland (13.20) |
       | 0000         | 20220901                               |
@@ -216,6 +228,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | <aanduiding onderzoek>        | 20220526             |
 
       Voorbeelden:
       | aanduiding onderzoek | datum van  | datum tot  | scenario                                        |
@@ -248,3 +263,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 589999                        | 20220526             |

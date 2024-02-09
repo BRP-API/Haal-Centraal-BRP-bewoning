@@ -104,6 +104,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 089999                        | 20220526             |
 
       Voorbeelden:
       | peildatum  | periode                   | scenario                                                |
@@ -130,6 +133,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 589999                        | 20220526             |
 
 
   Rule: een persoon met beëindigd onderzoek met aanduiding in onderzoek waarde '089999' op de actuele verblijfplaats wordt geleverd als bewoner
@@ -150,6 +156,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 089999                        | 20220526             |
 
       Voorbeelden:
       | peildatum  | periode                   | scenario                                                                                                              |
@@ -179,6 +188,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 589999                        | 20220526             |
 
       Voorbeelden:
       | datum aanvang volgende | peildatum  | periode                   | omschrijving omvang                      | scenario                                                                                                              |
@@ -216,6 +228,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 589999                        | 20220526             |
 
       Voorbeelden:
       | peildatum  | periode                   | scenario                                      |
@@ -241,6 +256,9 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
+      En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | 589999                        | 20220526             |
 
       Voorbeelden:
       | peildatum  | periode                   | scenario                                    |
