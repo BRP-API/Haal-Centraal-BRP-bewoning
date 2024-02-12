@@ -202,7 +202,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | 20220810               | 2022-08-12 | 2022-08-12 tot 2022-08-13 | vanaf datum beëindigen van het onderzoek | peildatum valt na de dag ingang onderzoek en na datum einde onderzoek en voor datum aanvang volgende verblijfplaats   |
 
 
-  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd op of na datum aanvang van de volgende verblijfplaats wordt geleverd als mogelijke bewoner
+  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd op of na datum aanvang van de volgende verblijfplaats wordt geleverd als bewoner tot de ingangsdatum van het onderzoek en wordt geleverd als mogelijke bewoner vanaf de ingangsdatum van het onderzoek
     # wanneer het onderzoek is beëindigd op of na datum aanvang van de volgende verblijfplaats is niet met zekerheid te bepalen waarom het onderzoek beëindigd is
     # het onderzoek kan bijvoorbeeld beëindigd zijn door een andere gemeente dan waar het onderzoek betrekking op had, zonder dat die gemeente heeft bepaald dat 'vastgesteld geen bewoner meer' niet meer van toepassing is
 
@@ -225,17 +225,17 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | naam                             | waarde           |
       | periode                          | <periode>        |
       | adresseerbaarObjectIdentificatie | 0800010000000001 |
-      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      En heeft de bewoning een <soort bewoner> met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      En heeft de <soort bewoner> de volgende 'verblijfplaatsInOnderzoek' gegevens
       | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
       | 589999                        | 20220526             |
 
       Voorbeelden:
-      | peildatum  | periode                   | scenario                                      |
-      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor datum ingang van het onderzoek |
-      | 2022-07-30 | 2022-07-30 tot 2022-07-31 | peildatum tijdens het onderzoek               |
+      | peildatum  | periode                   | soort bewoner     | scenario                                      |
+      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | bewoner           | peildatum voor datum ingang van het onderzoek |
+      | 2022-07-30 | 2022-07-30 tot 2022-07-31 | mogelijke bewoner | peildatum tijdens het onderzoek               |
 
     Abstract Scenario: persoon heeft beëindigd onderzoek met aanduiding in onderzoek waarde '589999' en onderzoek is beëindigd op de datum aanvang van de volgende verblijfplaats en <scenario>
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -253,14 +253,14 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | naam                             | waarde           |
       | periode                          | <periode>        |
       | adresseerbaarObjectIdentificatie | 0800010000000001 |
-      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      En heeft de bewoning een <soort bewoner> met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      En heeft de <soort bewoner> de volgende 'verblijfplaatsInOnderzoek' gegevens
       | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
       | 589999                        | 20220526             |
 
       Voorbeelden:
-      | peildatum  | periode                   | scenario                                    |
-      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | peildatum voor ingang onderzoek             |
-      | 2022-06-01 | 2022-06-01 tot 2022-06-02 | peildatum na ingang en voor einde onderzoek |
+      | peildatum  | periode                   | soort bewoner     | scenario                                    |
+      | 2022-01-01 | 2022-01-01 tot 2022-01-02 | bewoner           | peildatum voor ingang onderzoek             |
+      | 2022-06-01 | 2022-06-01 tot 2022-06-02 | mogelijke bewoner | peildatum na ingang en voor einde onderzoek |

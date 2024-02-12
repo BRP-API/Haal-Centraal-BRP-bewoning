@@ -201,52 +201,17 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | 589999               | 2022-08-12 | 2022-08-29 | periode valt na beëindigen van onderzoek        |
 
 
-  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd op of na datum aanvang van de volgende verblijfplaats wordt geleverd als mogelijke bewoner
+  Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' op een historische verblijfplaats en het onderzoek is beëindigd op of na datum aanvang van de volgende verblijfplaats wordt geleverd als bewoner tot de ingangsdatum van het onderzoek en wordt geleverd als mogelijke bewoner vanaf de ingangsdatum van het onderzoek
     # wanneer het onderzoek is beëindigd op of na datum aanvang van de volgende verblijfplaats is niet met zekerheid te bepalen waarom het onderzoek beëindigd is
     # het onderzoek kan bijvoorbeeld beëindigd zijn door een andere gemeente dan waar het onderzoek betrekking op had, zonder dat die gemeente heeft bepaald dat 'vastgesteld geen bewoner meer' niet meer van toepassing is
 
-    Abstract Scenario: persoon heeft beëindigd onderzoek met aanduiding in onderzoek waarde '<aanduiding onderzoek>' en is inmiddels ingeschreven op een ander adres en onderzoek is beëindigd na aanvang van de volgende verblijfplaats en <scenario>
+    Abstract Scenario: persoon heeft beëindigd onderzoek met aanduiding in onderzoek waarde '<aanduiding onderzoek>' en is inmiddels ingeschreven op een ander adres en <scenario>
       Gegeven adres 'A1' heeft de volgende gegevens
       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
       | 0800                 | 0800010000000001                         |
       En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum einde onderzoek (83.30) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <aanduiding onderzoek>          | 20220526                       | 20220902                      | 20200818                           |
-      En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
-      | land (13.10) | datum aanvang adres buitenland (13.20) |
-      | 0000         | 20220901                               |
-      Als gba bewoning wordt gezocht met de volgende parameters
-      | naam                             | waarde             |
-      | type                             | BewoningMetPeriode |
-      | datumVan                         | <datum van>        |
-      | datumTot                         | <datum tot>        |
-      | adresseerbaarObjectIdentificatie | 0800010000000001   |
-      Dan heeft de response een bewoning met de volgende gegevens
-      | naam                             | waarde                      |
-      | periode                          | <datum van> tot <datum tot> |
-      | adresseerbaarObjectIdentificatie | 0800010000000001            |
-      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
-      | burgerservicenummer |
-      | 000000024           |
-      En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | <aanduiding onderzoek>        | 20220526             |
-
-      Voorbeelden:
-      | aanduiding onderzoek | datum van  | datum tot  | scenario                                        |
-      | 089999               | 2022-01-01 | 2022-09-01 | periode overlapt de hele duur van het onderzoek |
-      | 089999               | 2022-01-01 | 2022-05-01 | periode loopt tot voor ingang onderzoek         |
-      | 089999               | 2022-06-01 | 2022-08-01 | periode valt binnen onderzoek                   |
-      | 089999               | 2022-08-12 | 2022-08-17 | periode valt na beëindigen van onderzoek        |
-      | 589999               | 2022-01-01 | 2022-09-01 | periode overlapt de hele duur van het onderzoek |
-      | 589999               | 2022-01-01 | 2022-05-01 | periode loopt tot voor ingang onderzoek         |
-      | 589999               | 2022-06-01 | 2022-08-01 | periode valt binnen onderzoek                   |
-      | 589999               | 2022-08-12 | 2022-08-17 | periode valt na beëindigen van onderzoek        |
-
-    Scenario: persoon heeft beëindigd onderzoek met aanduiding in onderzoek waarde '589999' en is inmiddels ingeschreven op een ander adres en onderzoek is beëindigd op de datum aanvang van de volgende verblijfplaats
-      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
-      | gemeente van inschrijving (09.10) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum einde onderzoek (83.30) | datum aanvang adreshouding (10.30) |
-      | 0800                              | 589999                          | 20220526                       | 20220901                      | 20200818                           |
+      | 0800                              | <aanduiding onderzoek>          | 20220526                       | <datum einde onderzoek>       | 20200818                           |
       En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
       | land (13.10) | datum aanvang adres buitenland (13.20) |
       | 0000         | 20220901                               |
@@ -258,11 +223,28 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | adresseerbaarObjectIdentificatie | 0800010000000001   |
       Dan heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
-      | periode                          | 2022-01-01 tot 2022-09-01 |
+      | periode                          | 2022-01-01 tot 2022-05-26 |
+      | adresseerbaarObjectIdentificatie | 0800010000000001          |
+      En heeft de bewoning een bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
+      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
+      | <aanduiding onderzoek>        | 20220526             |
+      En heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                    |
+      | periode                          | 2022-05-26 tot 2022-09-01 |
       | adresseerbaarObjectIdentificatie | 0800010000000001          |
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
       En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
       | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | 589999                        | 20220526             |
+      | <aanduiding onderzoek>        | 20220526             |
+
+      Voorbeelden:
+      | aanduiding onderzoek | datum einde onderzoek | scenario                                                                  |
+      | 089999               | 20220902              | onderzoek is beëindigd na de datum aanvang van de volgende verblijfplaats |
+      | 589999               | 20220902              | onderzoek is beëindigd na de datum aanvang van de volgende verblijfplaats |
+      | 089999               | 20220901              | onderzoek is beëindigd op de datum aanvang van de volgende verblijfplaats |
+      | 589999               | 20220901              | onderzoek is beëindigd op de datum aanvang van de volgende verblijfplaats |
