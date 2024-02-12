@@ -24,6 +24,7 @@ const columnNameMap = new Map([
 
     ['gemeente van inschrijving (09.10)', 'inschrijving_gemeente_code'],
 
+    ['functie adres (10.10)', 'adres_functie'],
     ['datum aanvang adreshouding (10.30)', 'adreshouding_start_datum'],
 
     ['straatnaam (11.10)', 'straat_naam'],

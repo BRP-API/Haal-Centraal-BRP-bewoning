@@ -417,11 +417,11 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | 000000012           |
 
       Voorbeelden:
-      | omschrijving                                                                            | datum aanvang | peildatum  | periode tot |
-      | peildatum is eerste dag na onzekerheidsperiode maand                                    | 20210500      | 2021-06-01 | 2021-06-02  |
-      | peildatum is eerste dag na onzekerheidsperiode jaar                                     | 20210000      | 2022-01-01 | 2022-01-02  |
-      | peildatum is een dag voor aanvang volgende                                              | 20210500      | 2022-07-29 | 2022-07-30  |
-      | peildatum is een dag voor aanvang volgende                                              | 20210000      | 2022-07-29 | 2022-07-30  |
+      | omschrijving                                         | datum aanvang | peildatum  | periode tot |
+      | peildatum is eerste dag na onzekerheidsperiode maand | 20210500      | 2021-06-01 | 2021-06-02  |
+      | peildatum is eerste dag na onzekerheidsperiode jaar  | 20210000      | 2022-01-01 | 2022-01-02  |
+      | peildatum is een dag voor aanvang volgende           | 20210500      | 2022-07-29 | 2022-07-30  |
+      | peildatum is een dag voor aanvang volgende           | 20210000      | 2022-07-29 | 2022-07-30  |
       
     Abstract Scenario: vorige verblijfplaats ligt in onzekerheidsperiode en er is een volgende en daaropvolgende verblijfplaats en <omschrijving>
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
@@ -670,37 +670,37 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | 000000012           |
 
       Voorbeelden:
-      | datum aanvang gevraagde | datum aanvang volgende | peildatum | periode tot |
-      | 20210700                | 20210700               | 2021-07-01 | 2021-07-02 |
-      | 20210700                | 20210700               | 2021-07-15 | 2021-07-16 |
-      | 20210700                | 20210700               | 2021-07-31 | 2021-08-01 |
-      | 20210000                | 20210700               | 2021-01-01 | 2021-01-02 |
-      | 20210000                | 20210700               | 2021-07-01 | 2021-07-02 |
-      | 20210000                | 20210700               | 2021-07-31 | 2021-08-01 |
-      | 00000000                | 20210700               | 2020-01-01 | 2020-01-02 |
-      | 00000000                | 20210700               | 2021-07-01 | 2021-07-02 | 
-      | 00000000                | 20210700               | 2021-07-31 | 2021-08-01 | 
-      | 20210700                | 20210000               | 2021-07-01 | 2021-07-02 | 
-      | 20210700                | 20210000               | 2021-07-31 | 2021-08-01 | 
-      | 20210700                | 20210000               | 2021-08-01 | 2021-08-02 | 
-      | 20210700                | 20210000               | 2021-11-04 | 2021-11-05 | 
-      | 20210700                | 20210000               | 2021-12-31 | 2022-01-01 |
-      | 20210000                | 20210000               | 2021-01-01 | 2021-01-02 |
-      | 20210000                | 20210000               | 2021-07-30 | 2021-07-31 |
-      | 20210000                | 20210000               | 2021-12-31 | 2022-01-01 |
-      | 00000000                | 20210000               | 2020-01-01 | 2020-01-02 |
-      | 00000000                | 20210000               | 2020-12-31 | 2021-01-01 |
-      | 00000000                | 20210000               | 2021-01-01 | 2021-01-02 |
-      | 00000000                | 20210000               | 2021-12-31 | 2022-01-01 |
-      | 20210700                | 00000000               | 2021-07-01 | 2021-07-02 |
-      | 20210700                | 00000000               | 2021-07-31 | 2021-08-01 |
-      | 20210700                | 00000000               | 2021-08-01 | 2021-08-02 |
-      | 20210700                | 00000000               | 2022-07-01 | 2022-07-02 |
-      | 20210000                | 00000000               | 2021-01-01 | 2021-01-02 |
-      | 20210000                | 00000000               | 2021-12-31 | 2022-01-01 |
-      | 20210000                | 00000000               | 2022-01-01 | 2022-01-02 |
-      | 00000000                | 00000000               | 2020-01-01 | 2020-01-02 |
-      | 00000000                | 00000000               | 2023-01-01 | 2023-01-02 |
+      | datum aanvang gevraagde | datum aanvang volgende | peildatum  | periode tot |
+      | 20210700                | 20210700               | 2021-07-01 | 2021-07-02  |
+      | 20210700                | 20210700               | 2021-07-15 | 2021-07-16  |
+      | 20210700                | 20210700               | 2021-07-31 | 2021-08-01  |
+      | 20210000                | 20210700               | 2021-01-01 | 2021-01-02  |
+      | 20210000                | 20210700               | 2021-07-01 | 2021-07-02  |
+      | 20210000                | 20210700               | 2021-07-31 | 2021-08-01  |
+      | 00000000                | 20210700               | 2020-01-01 | 2020-01-02  |
+      | 00000000                | 20210700               | 2021-07-01 | 2021-07-02  |
+      | 00000000                | 20210700               | 2021-07-31 | 2021-08-01  |
+      | 20210700                | 20210000               | 2021-07-01 | 2021-07-02  |
+      | 20210700                | 20210000               | 2021-07-31 | 2021-08-01  |
+      | 20210700                | 20210000               | 2021-08-01 | 2021-08-02  |
+      | 20210700                | 20210000               | 2021-11-04 | 2021-11-05  |
+      | 20210700                | 20210000               | 2021-12-31 | 2022-01-01  |
+      | 20210000                | 20210000               | 2021-01-01 | 2021-01-02  |
+      | 20210000                | 20210000               | 2021-07-30 | 2021-07-31  |
+      | 20210000                | 20210000               | 2021-12-31 | 2022-01-01  |
+      | 00000000                | 20210000               | 2020-01-01 | 2020-01-02  |
+      | 00000000                | 20210000               | 2020-12-31 | 2021-01-01  |
+      | 00000000                | 20210000               | 2021-01-01 | 2021-01-02  |
+      | 00000000                | 20210000               | 2021-12-31 | 2022-01-01  |
+      | 20210700                | 00000000               | 2021-07-01 | 2021-07-02  |
+      | 20210700                | 00000000               | 2021-07-31 | 2021-08-01  |
+      | 20210700                | 00000000               | 2021-08-01 | 2021-08-02  |
+      | 20210700                | 00000000               | 2022-07-01 | 2022-07-02  |
+      | 20210000                | 00000000               | 2021-01-01 | 2021-01-02  |
+      | 20210000                | 00000000               | 2021-12-31 | 2022-01-01  |
+      | 20210000                | 00000000               | 2022-01-01 | 2022-01-02  |
+      | 00000000                | 00000000               | 2020-01-01 | 2020-01-02  |
+      | 00000000                | 00000000               | 2023-01-01 | 2023-01-02  |
 
   Rule: een persoon is zeker geen bewoner op of voor de datum aanvang vorige verblijf
 
@@ -893,17 +893,17 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | 000000012           |
 
       Voorbeelden:
-      | datum aanvang volgende | datum aanvang daaropvolgende | peildatum | periode tot |
-      | 20210700               | 20210730                     | 2021-07-29 | 2021-07-30 |
-      | 20220000               | 20221014                     | 2022-10-13 | 2022-10-14 |
-      | 00000000               | 20221014                     | 2022-10-13 | 2022-10-14 |
-      | 20210700               | 20210700                     | 2021-07-31 | 2021-08-01 |
-      | 20210700               | 00000000                     | 2021-07-31 | 2021-08-01 |
-      | 20220000               | 20221000                     | 2022-10-31 | 2022-11-01 |
-      | 20220000               | 20220000                     | 2022-12-31 | 2023-01-01 |
-      | 20220000               | 00000000                     | 2022-12-31 | 2023-01-01 |
-      | 00000000               | 20221000                     | 2022-10-31 | 2022-11-01 |
-      | 00000000               | 20220000                     | 2022-12-31 | 2023-01-01 |
+      | datum aanvang volgende | datum aanvang daaropvolgende | peildatum  | periode tot |
+      | 20210700               | 20210730                     | 2021-07-29 | 2021-07-30  |
+      | 20220000               | 20221014                     | 2022-10-13 | 2022-10-14  |
+      | 00000000               | 20221014                     | 2022-10-13 | 2022-10-14  |
+      | 20210700               | 20210700                     | 2021-07-31 | 2021-08-01  |
+      | 20210700               | 00000000                     | 2021-07-31 | 2021-08-01  |
+      | 20220000               | 20221000                     | 2022-10-31 | 2022-11-01  |
+      | 20220000               | 20220000                     | 2022-12-31 | 2023-01-01  |
+      | 20220000               | 00000000                     | 2022-12-31 | 2023-01-01  |
+      | 00000000               | 20221000                     | 2022-10-31 | 2022-11-01  |
+      | 00000000               | 20220000                     | 2022-12-31 | 2023-01-01  |
 
     #212 (wordt niet geleverd in v2.0.x)
     Abstract Scenario: aanvang volgende verblijf is geheel/gedeeltelijk onbekend en het daaropvolgende verblijf valt binnen de onzekerheidsperiode van het volgende verblijf
@@ -927,17 +927,17 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       Dan heeft de response 0 bewoningen
 
       Voorbeelden:
-      | datum aanvang volgende | datum aanvang daaropvolgende | peildatum |
+      | datum aanvang volgende | datum aanvang daaropvolgende | peildatum  |
       | 20210700               | 20210730                     | 2021-08-01 |
       #| 20210700               | 20210730                     | 2021-07-30 |
       #| 20210700               | 20210730                     | 2021-07-31 |
       #| 20220000               | 20221014                     | 2022-10-14 |
       #| 00000000               | 20221014                     | 2022-10-14 |
-      | 20210700               | 20210700                     | 2021-08-01 |
-      | 20210700               | 00000000                     | 2021-08-01 |
+      | 20210700 | 20210700 | 2021-08-01 |
+      | 20210700 | 00000000 | 2021-08-01 |
       #| 20220000               | 20221000                     | 2022-11-01 |
-      | 20220000               | 20220000                     | 2023-01-01 |
-      | 20220000               | 00000000                     | 2023-01-01 |
+      | 20220000 | 20220000 | 2023-01-01 |
+      | 20220000 | 00000000 | 2023-01-01 |
       #| 00000000               | 20221000                     | 2022-11-01 |
       #| 00000000               | 20220000                     | 2023-01-01 |
 
@@ -967,11 +967,11 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | 000000012           |
 
       Voorbeelden:
-      | datum aanvang | peildatum | periode tot |
-      | 20210300      | 2021-03-07 | 2021-03-08 |
-      | 20210300      | 2021-03-13 | 2021-03-14 |
-      | 20210000      | 2021-02-09 | 2021-02-10 |
-      | 00000000      | 2021-03-13 | 2021-03-14 |
+      | datum aanvang | peildatum  | periode tot |
+      | 20210300      | 2021-03-07 | 2021-03-08  |
+      | 20210300      | 2021-03-13 | 2021-03-14  |
+      | 20210000      | 2021-02-09 | 2021-02-10  |
+      | 00000000      | 2021-03-13 | 2021-03-14  |
 
     Abstract Scenario: persoon overlijdt in onzekerheidsperiode aanvang adreshouding
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
@@ -1129,23 +1129,23 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       Dan heeft de response 0 bewoningen
 
       Voorbeelden:
-      | scenario                                                                      | datum aanvang volgende | datum opschorting | peildatum  |
-      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220700               | 20220714          | 2022-07-14 |
-      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220700               | 20220714          | 2022-07-16 |
-      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220700               | 20220714          | 2022-07-31 |
-      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220700               | 20220714          | 2022-08-01 |
+      | scenario                                                                  | datum aanvang volgende | datum opschorting | peildatum  |
+      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende | 20220700               | 20220714          | 2022-07-14 |
+      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende | 20220700               | 20220714          | 2022-07-16 |
+      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende | 20220700               | 20220714          | 2022-07-31 |
+      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende | 20220700               | 20220714          | 2022-08-01 |
       #| datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220700               | 20220731          | 2022-07-30 |
-      | datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220700               | 20220731          | 2022-07-31 |
-      | datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220700               | 20220731          | 2022-08-01 |
+      | datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende | 20220700 | 20220731 | 2022-07-31 |
+      | datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende | 20220700 | 20220731 | 2022-08-01 |
       #| datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220700               | 20220819          | 2022-07-30 |
-      | datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220700               | 20220819          | 2022-08-01 |
-      | datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220700               | 20220819          | 2022-08-20 |
-      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220000               | 20220714          | 2022-07-14 |
-      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220000               | 20220714          | 2022-07-30 |
-      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220000               | 20220714          | 2023-01-03 |
+      | datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220700 | 20220819 | 2022-08-01 |
+      | datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220700 | 20220819 | 2022-08-20 |
+      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220000 | 20220714 | 2022-07-14 |
+      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220000 | 20220714 | 2022-07-30 |
+      | datum opschorting ligt in onzekerheidsperiode voor aanvang daaropvolgende     | 20220000 | 20220714 | 2023-01-03 |
       #| datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220000               | 20220819          | 2022-07-30 |
       #| datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220000               | 20220819          | 2022-07-31 |
-      | datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende       | 20220000               | 20220819          | 2022-08-19 |
+      | datum opschorting ligt in onzekerheidsperiode na aanvang daaropvolgende | 20220000 | 20220819 | 2022-08-19 |
       #| datum opschorting ligt na onzekerheidsperiode tijdens verblijf daaropvolgende | 20220000               | 20230218          | 2022-07-30 |
 
   Rule: onjuist wordt genegeerd
@@ -1158,8 +1158,8 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum>                   |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum>                     |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum>                     | W                     |
       En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20220730                           |
@@ -1198,8 +1198,8 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum>                   |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum>                     |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum>                     | W                     |
       En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20220730                           |
@@ -1220,11 +1220,11 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | 000000012           |
 
       Voorbeelden:
-      | scenario                                                                           | onjuiste datum | nieuwe datum | peildatum  | periode tot |
-      | naar latere onzekerheidperiode                                                     | 20210500       | 20210700     | 2021-08-01 | 2021-08-02  |
-      | naar eerdere onzekerheidperiode waarbij vorige voor onzekerheidsperiode ligt       | 20210700       | 20210600     | 2021-07-01 | 2021-07-02  |
-      | naar eerdere onzekerheidperiode waarbij vorige in onzekerheidsperiode ligt         | 20210700       | 20210500     | 2021-07-01 | 2021-07-02  |
-      | van echte datum naar onbekende datum waarbij vorige voor onzekerheidsperiode ligt  | 20210529       | 20210700     | 2021-08-01 | 2021-08-02  |
+      | scenario                                                                          | onjuiste datum | nieuwe datum | peildatum  | periode tot |
+      | naar latere onzekerheidperiode                                                    | 20210500       | 20210700     | 2021-08-01 | 2021-08-02  |
+      | naar eerdere onzekerheidperiode waarbij vorige voor onzekerheidsperiode ligt      | 20210700       | 20210600     | 2021-07-01 | 2021-07-02  |
+      | naar eerdere onzekerheidperiode waarbij vorige in onzekerheidsperiode ligt        | 20210700       | 20210500     | 2021-07-01 | 2021-07-02  |
+      | van echte datum naar onbekende datum waarbij vorige voor onzekerheidsperiode ligt | 20210529       | 20210700     | 2021-08-01 | 2021-08-02  |
       
     Abstract Scenario: datum aanvang is gecorrigeerd <scenario> en peildatum ligt voor de nieuwe onzekerheidsperiode
       Gegeven de persoon met burgerservicenummer '000000012' is ingeschreven op adres 'vorige' met de volgende gegevens
@@ -1234,8 +1234,8 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum>                   |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum>                     |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum>                     | W                     |
       En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20220730                           |
@@ -1273,8 +1273,8 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum volgende>          |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum volgende>            |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum volgende>            | W                     |
       En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20231014                           |
@@ -1309,8 +1309,8 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum volgende>          |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum volgende>            |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum volgende>            | W                     |
       En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20231014                           |
@@ -1348,8 +1348,8 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum volgende>          |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum volgende>            |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum volgende>            | W                     |
       En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20231014                           |
@@ -1382,8 +1382,8 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum daaropvolgende>    |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum daaropvolgende>      |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum daaropvolgende>      | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -1418,8 +1418,8 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum daaropvolgende>    |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum daaropvolgende>      |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum daaropvolgende>      | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde               |
       | type                             | BewoningMetPeildatum |
@@ -1428,7 +1428,7 @@ Functionaliteit: bewoning op peildatum met geheel of gedeeltelijk onbekende datu
       Dan heeft de response 0 bewoningen
 
       Voorbeelden:
-      | scenario                                                 | datum volgende | onjuiste datum daaropvolgende | nieuwe datum daaropvolgende | peildatum  | periode tot |
+      | scenario | datum volgende | onjuiste datum daaropvolgende | nieuwe datum daaropvolgende | peildatum | periode tot |
       #| daaropvolgende lag na onzekerheidsperiode en nu erbinnen | 20210500       | 20220314                      | 20210526                    | 2021-05-26 | 2021-05-27  |
       #| daaropvolgende lag na onzekerheidsperiode en nu erbinnen | 20210000       | 20220314                      | 20210526                    | 2021-05-26 | 2021-05-27  |
       #| daaropvolgende is vervroegd                              | 00000000       | 20220314                      | 20210526                    | 2021-05-26 | 2021-05-27  |

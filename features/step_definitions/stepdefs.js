@@ -400,6 +400,37 @@ Given(/^de persoon met burgerservicenummer '(\d*)' is ingeschreven op adres '(.*
     ];
 });
 
+Given(/^de persoon met burgerservicenummer '(\d*)' heeft adres '(.*)' als briefadres opgegeven met de volgende gegevens$/, function (burgerservicenummer, adresId, dataTable) {
+    if(this.context.sqlData === undefined) {
+        this.context.sqlData = [];
+    }
+
+    const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
+    should.exist(adressenData, 'geen adressen gevonden');
+    const adresIndex = adressenData.adres[adresId]?.index;
+    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
+
+    this.context.sqlData.push({});
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['persoon'] = [
+        createCollectieDataFromArray('persoon', [
+            ['burger_service_nr', burgerservicenummer]
+        ])
+    ];
+
+    sqlData['inschrijving'] = [[[ 'geheim_ind', '0' ]]];
+
+    sqlData['verblijfplaats'] = [
+        [
+            [ 'adres_id', adresIndex + '' ],
+            [ 'volg_nr', '0'],
+            [ 'adres_functie', 'B']
+        ].concat(createArrayFrom(dataTable, columnNameMap))
+    ];
+});
+
 Given(/^de persoon is ingeschreven op adres '(.*)' met de volgende gegevens$/, function (adresId, dataTable) {
     const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
     should.exist(adressenData, 'geen adressen gevonden');
@@ -411,7 +442,25 @@ Given(/^de persoon is ingeschreven op adres '(.*)' met de volgende gegevens$/, f
     sqlData['verblijfplaats'] = [
         [
             [ 'adres_id', adresIndex + '' ],
-            [ 'volg_nr', '0']
+            [ 'volg_nr', '0'],
+            [ 'adres_functie', 'W']
+        ].concat(createArrayFrom(dataTable, columnNameMap))
+    ];
+});
+
+Given(/^de persoon heeft adres '(.*)' als briefadres opgegeven met de volgende gegevens$/, function (adresId, dataTable) {
+    const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
+    should.exist(adressenData, 'geen adressen gevonden');
+    const adresIndex = adressenData.adres[adresId]?.index;
+    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['verblijfplaats'] = [
+        [
+            [ 'adres_id', adresIndex + '' ],
+            [ 'volg_nr', '0'],
+            [ 'adres_functie', 'B']
         ].concat(createArrayFrom(dataTable, columnNameMap))
     ];
 });
@@ -433,6 +482,26 @@ Given(/^de persoon is vervolgens ingeschreven op adres '(.*)' met de volgende ge
         [ 'adres_id', adresIndex + '' ],
         [ 'volg_nr', '0'],
         [ 'adres_functie', 'W']
+    ].concat(createArrayFrom(dataTable, columnNameMap)));
+});
+
+Given(/^de persoon heeft vervolgens adres '(.*)' als briefadres opgegeven met de volgende gegevens$/, function (adresId, dataTable) {
+    const adressenData = this.context.sqlData.find(e => Object.keys(e).includes('adres'));
+    should.exist(adressenData, 'geen adressen gevonden');
+    const adresIndex = adressenData.adres[adresId]?.index;
+    should.exist(adresIndex, `geen adres gevonden met id '${adresId}'`);
+
+    let sqlData = this.context.sqlData.at(-1);
+
+    sqlData['verblijfplaats'].forEach(function(data) {
+        let volgNr = data.find(el => el[0] === 'volg_nr');
+        volgNr[1] = Number(volgNr[1]) + 1 + '';
+    });
+
+    sqlData['verblijfplaats'].push([
+        [ 'adres_id', adresIndex + '' ],
+        [ 'volg_nr', '0'],
+        [ 'adres_functie', 'B']
     ].concat(createArrayFrom(dataTable, columnNameMap)));
 });
 

@@ -15,7 +15,7 @@ Functionaliteit: raadpleeg bewoning op peildatum bij geheel/deels onbekende datu
     | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
     | 0800                 | 0800010000000002                         |
 
-Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende adreshouding, is op peildatum een mogelijke bewoner als de peildatum in de onzekerheidsperiode van de gevraagde adreshouding ligt
+Rule: een persoon die verblijft op het gevraagde adresseerbaar object met onbekende aanvang adreshouding, geen vorige en volgende adreshouding, is op peildatum een mogelijke bewoner als de peildatum in de onzekerheidsperiode van de gevraagde adreshouding ligt
 
   Abstract Scenario: aanvang adreshouding is onbekend en peildatum ligt in de onzekerheidsperiode van de adreshouding
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
@@ -33,6 +33,25 @@ Rule: een persoon met onbekende aanvang adreshouding, geen vorige en volgende ad
     En heeft de bewoning een mogelijke bewoner met de volgende gegevens
     | burgerservicenummer |
     | 000000024           |
+
+    Voorbeelden:
+    | datum aanvang adreshouding | peildatum  | periode                   | opmerking                                     |
+    | 20100800                   | 2010-08-01 | 2010-08-01 tot 2010-08-02 | eerste dag in onbekende dag datum             |
+    | 20100800                   | 2010-08-31 | 2010-08-31 tot 2010-09-01 | laatste dag in onbekende dag datum            |
+    | 20100000                   | 2010-01-01 | 2010-01-01 tot 2010-01-02 | eerste dag in onbekende dag en maand datum    |
+    | 20100000                   | 2010-12-31 | 2010-12-31 tot 2011-01-01 | laatste dag in onbekende dag en maand datum   |
+    | 00000000                   | 2000-01-01 | 2000-01-01 tot 2000-01-02 | een willekeurig dag in geheel onbekende datum |
+
+  Abstract Scenario: persoon heeft het gevraagde adresseerbaar object als briefadres opgegeven en aanvang adreshouding is onbekend en peildatum ligt in de onzekerheidsperiode van de adreshouding
+    Gegeven de persoon met burgerservicenummer '000000024' heeft adres 'A1' als briefadres opgegeven met de volgende gegevens
+    | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+    | 0800                              | <datum aanvang adreshouding>       |
+    Als gba bewoning wordt gezocht met de volgende parameters
+    | naam                             | waarde               |
+    | type                             | BewoningMetPeildatum |
+    | peildatum                        | <peildatum>          |
+    | adresseerbaarObjectIdentificatie | 0800010000000001     |
+    Dan heeft de response 0 bewoningen
 
     Voorbeelden:
     | datum aanvang adreshouding | peildatum  | periode                   | opmerking                                     |
