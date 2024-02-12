@@ -785,8 +785,8 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum>                   |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum>                     |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum>                     | W                     |
       En de persoon is vervolgens ingeschreven op adres 'volgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20220730                           |
@@ -835,8 +835,8 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum volgende>          |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum volgende>            |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum volgende>            | W                     |
       En de persoon is vervolgens ingeschreven op adres 'daaropvolgende' met de volgende gegevens
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | 20231014                           |
@@ -884,8 +884,8 @@ Functionaliteit: bewoning in periode met geheel of gedeeltelijk onbekende datums
       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
       | 0800                              | <onjuiste datum daaropvolgende>    |
       En de 'verblijfplaats' is gecorrigeerd naar de volgende gegevens
-      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
-      | 0800                              | <nieuwe datum daaropvolgende>      |
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) | functie adres (10.10) |
+      | 0800                              | <nieuwe datum daaropvolgende>      | W                     |
       Als gba bewoning wordt gezocht met de volgende parameters
       | naam                             | waarde             |
       | type                             | BewoningMetPeriode |
