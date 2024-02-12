@@ -152,9 +152,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | 089999                        | 20220526             |
 
       Voorbeelden:
       | datum van  | datum tot  | periode                   | scenario                                        |
@@ -185,9 +182,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | <aanduiding onderzoek>        | 20220526             |
 
       Voorbeelden:
       | aanduiding onderzoek | datum van  | datum tot  | scenario                                        |
@@ -228,9 +222,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | <aanduiding onderzoek>        | 20220526             |
       En heeft de response een bewoning met de volgende gegevens
       | naam                             | waarde                    |
       | periode                          | 2022-05-26 tot 2022-09-01 |
@@ -238,9 +229,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de mogelijke bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | <aanduiding onderzoek>        | 20220526             |
 
       Voorbeelden:
       | aanduiding onderzoek | datum einde onderzoek | scenario                                                                  |

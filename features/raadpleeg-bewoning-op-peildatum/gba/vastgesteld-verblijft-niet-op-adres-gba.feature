@@ -156,9 +156,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | 089999                        | 20220526             |
 
       Voorbeelden:
       | peildatum  | periode                   | scenario                                                                                                              |
@@ -188,9 +185,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de bewoner de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | 589999                        | 20220526             |
 
       Voorbeelden:
       | datum aanvang volgende | peildatum  | periode                   | omschrijving omvang                      | scenario                                                                                                              |
@@ -228,9 +222,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een <soort bewoner> met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de <soort bewoner> de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | 589999                        | 20220526             |
 
       Voorbeelden:
       | peildatum  | periode                   | soort bewoner     | scenario                                      |
@@ -256,9 +247,6 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       En heeft de bewoning een <soort bewoner> met de volgende gegevens
       | burgerservicenummer |
       | 000000024           |
-      En heeft de <soort bewoner> de volgende 'verblijfplaatsInOnderzoek' gegevens
-      | aanduidingGegevensInOnderzoek | datumIngangOnderzoek |
-      | 589999                        | 20220526             |
 
       Voorbeelden:
       | peildatum  | periode                   | soort bewoner     | scenario                                    |
