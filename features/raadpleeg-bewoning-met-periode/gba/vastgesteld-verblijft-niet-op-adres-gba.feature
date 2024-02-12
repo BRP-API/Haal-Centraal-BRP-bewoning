@@ -75,7 +75,7 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
 
   Rule: een persoon met aanduiding in onderzoek waarde '089999' of '589999' wordt geleverd als bewoner tot de ingangsdatum van het onderzoek
 
-    Scenario: persoon verblijft mogelijk nog op het gevraagde adres en <scenario>
+    Scenario: persoon verblijft nog op het gevraagde adres en <scenario>
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
       | gemeente van inschrijving (09.10) | aanduiding in onderzoek (83.10) | datum ingang onderzoek (83.20) | datum aanvang adreshouding (10.30) |
       | 0800                              | 089999                          | 20220526                       | 20200818                           |
@@ -97,10 +97,10 @@ Functionaliteit: persoon met 'indicatie vastgesteld verblijft niet op adres' bij
       | 089999                        | 20220526             |
 
       Voorbeelden:
-      | datum van  | datum tot  | periode                   | scenario                                            |
-      | 2021-01-01 | 2022-01-01 | 2021-01-01 tot 2022-01-01 | periode ligt voor de datum aanvang van het verblijf |
-      | 2022-04-26 | 2022-05-26 | 2022-04-26 tot 2022-05-26 | periode loopt tot de datum ingang onderzoek         |
-      | 2022-01-01 | 2023-01-01 | 2022-01-01 tot 2022-05-26 | periode loopt tot na de datum ingang onderzoek      |
+      | datum van  | datum tot  | periode                   | scenario                                       |
+      | 2021-01-01 | 2022-01-01 | 2021-01-01 tot 2022-01-01 | periode ligt voor de datum ingang onderzoek    |
+      | 2022-04-26 | 2022-05-26 | 2022-04-26 tot 2022-05-26 | periode loopt tot de datum ingang onderzoek    |
+      | 2022-01-01 | 2023-01-01 | 2022-01-01 tot 2022-05-26 | periode loopt tot na de datum ingang onderzoek |
 
     Scenario: persoon verblijft niet meer op het gevraagde adres en is inmiddels ingeschreven op een ander adres en <scenario>
       Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
