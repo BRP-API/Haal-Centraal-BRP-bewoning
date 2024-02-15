@@ -4,21 +4,17 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 1584 scenarios (524 failed, 1060 passed)
+Totaal: 1584 scenarios (471 failed, 1113 passed)
 
-## GBA v    2.0.16
+## GBA v    2.0.18
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 630 scenarios (136 failed, 494 passed)
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:58
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:59
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:60
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:61
-    - features/raadpleeg-bewoning-op-peildatum/gba/mogelijke-bewoner-gba.feature:62
-    - features/raadpleeg-bewoning-op-peildatum/gba/overzicht-gba.feature:81
-    - features/raadpleeg-bewoning-op-peildatum/gba/overzicht-gba.feature:82
-    - features/raadpleeg-bewoning-op-peildatum/gba/overzicht-gba.feature:83
-    - features/raadpleeg-bewoning-op-peildatum/gba/test/briefadres-gba.feature:136
-    - features/raadpleeg-bewoning-op-peildatum/gba/test/briefadres-gba.feature:137
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum-gba.html){:target="_blank" rel="noopener"}: 630 scenarios (132 failed, 498 passed)
+    - features/raadpleeg-bewoning-op-peildatum/gba/in-onderzoek-gba.feature:60
+    - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:504
+    - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:505
+    - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:506
+    - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:507
+    - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:508
     - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:509
     - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:541
     - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:542
@@ -145,7 +141,7 @@ Totaal: 1584 scenarios (524 failed, 1060 passed)
     - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:1402
     - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:1403
     - features/raadpleeg-bewoning-op-peildatum/gba/test/onbekend-datums-gba.feature:1404
-- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 601 scenarios (384 failed, 217 passed)
+- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode-gba.html){:target="_blank" rel="noopener"}: 601 scenarios (335 failed, 266 passed)
     - features/raadpleeg-bewoning-met-periode/gba/bewoner-gba.feature:99
     - features/raadpleeg-bewoning-met-periode/gba/bewoner-met-relaties-gba.feature:152
     - features/raadpleeg-bewoning-met-periode/gba/bewoner-met-relaties-gba.feature:153
@@ -179,6 +175,7 @@ Totaal: 1584 scenarios (524 failed, 1060 passed)
     - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:134
     - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:135
     - features/raadpleeg-bewoning-met-periode/gba/geheimhouding-gba.feature:136
+    - features/raadpleeg-bewoning-met-periode/gba/in-onderzoek-gba.feature:61
     - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:34
     - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:35
     - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:55
@@ -189,11 +186,6 @@ Totaal: 1584 scenarios (524 failed, 1060 passed)
     - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:197
     - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:303
     - features/raadpleeg-bewoning-met-periode/gba/infrastructurele-wijziging-gba.feature:304
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:60
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:61
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:62
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:63
-    - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:64
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:152
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:153
     - features/raadpleeg-bewoning-met-periode/gba/mogelijke-bewoner-gba.feature:172
@@ -318,8 +310,6 @@ Totaal: 1584 scenarios (524 failed, 1060 passed)
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:298
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:299
     - features/raadpleeg-bewoning-met-periode/gba/opschorting-bijhouding-gba.feature:300
-    - features/raadpleeg-bewoning-met-periode/gba/overzicht-gba.feature:63
-    - features/raadpleeg-bewoning-met-periode/gba/overzicht-gba.feature:64
     - features/raadpleeg-bewoning-met-periode/gba/overzicht-gba.feature:89
     - features/raadpleeg-bewoning-met-periode/gba/overzicht-gba.feature:90
     - features/raadpleeg-bewoning-met-periode/gba/overzicht-gba.feature:91
@@ -401,49 +391,6 @@ Totaal: 1584 scenarios (524 failed, 1060 passed)
     - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:361
     - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:362
     - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:363
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:435
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:436
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:506
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:507
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:577
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:578
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:648
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:649
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:722
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:723
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:725
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:866
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:867
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:869
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:949
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1029
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1154
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1155
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1204
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1205
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1254
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1255
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1325
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1326
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1393
-    - features/raadpleeg-bewoning-met-periode/gba/test/bewoning-samenstelligen-onbekend-datums-gba.feature:1394
-    - features/raadpleeg-bewoning-met-periode/gba/test/briefadres-gba.feature:18
-    - features/raadpleeg-bewoning-met-periode/gba/test/briefadres-gba.feature:46
-    - features/raadpleeg-bewoning-met-periode/gba/test/briefadres-gba.feature:67
-    - features/raadpleeg-bewoning-met-periode/gba/test/briefadres-gba.feature:88
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:40
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:61
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:82
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:140
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:141
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:142
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:172
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:173
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:193
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:275
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:276
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:310
-    - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:311
     - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:371
     - features/raadpleeg-bewoning-met-periode/gba/test/echte-datums-gba.feature:372
     - features/raadpleeg-bewoning-met-periode/gba/test/onbekend-datums-gba.feature:100
