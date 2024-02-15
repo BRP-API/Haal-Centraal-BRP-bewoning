@@ -57,7 +57,6 @@ Rule: het in onderzoek zijn van verblijfplaats gegevens wordt ongevraagd gelever
     | 081420                  | datum vestiging in Nederland        |
     | 088500                  | hele groep geldigheid               |
     | 088510                  | datum ingang geldigheid             |
-    | 089999                  | vastgesteld verblijft niet op adres |
 
   Abstract Scenario: '<type>' van vorige verblijfplaats is in onderzoek
     Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
