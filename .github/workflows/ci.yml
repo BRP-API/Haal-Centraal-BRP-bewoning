@@ -51,7 +51,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Cache container images
-        uses: actions/cache@v2.1.8
+        uses: actions/cache@v4.0.2
         with:
           path: /var/lib/docker/
           key: local-docker-directory
@@ -108,7 +108,7 @@ jobs:
       - name: Stop containers
         if: always()
         run: docker compose ${{ env.COMPOSE_FILE_ARGUMENT }} down
-      - uses: actions-ecosystem/action-regex-match@v2
+      - uses: actions-ecosystem/action-regex-match@v2.0.2
         if: always()
         id: regex-match
         with:
