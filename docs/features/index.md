@@ -4,7 +4,7 @@ title: Features test overzicht
 ---
 # Features test overzicht
 
-Totaal: 1628 scenarios (4 failed, 1624 passed)
+Totaal: 1628 scenarios (0 failed, 1628 passed)
 
 ## GBA v    2.0.18
 
@@ -16,9 +16,5 @@ Totaal: 1628 scenarios (4 failed, 1624 passed)
 
 ## Proxy v2.0.2
 
-- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 230 scenarios (2 failed, 228 passed)
-    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:43
-    - features/raadpleeg-bewoning-op-peildatum/in-onderzoek.feature:69
-- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode.html){:target="_blank" rel="noopener"}: 80 scenarios (2 failed, 78 passed)
-    - features/raadpleeg-bewoning-met-periode/in-onderzoek.feature:41
-    - features/raadpleeg-bewoning-met-periode/in-onderzoek.feature:71
+- [Raadpleeg bewoning op peildatum](./test-report-raadpleeg-bewoning-op-peildatum.html){:target="_blank" rel="noopener"}: 230 scenarios (230 passed)
+- [Raadpleeg bewoning met periode](./test-report-raadpleeg-bewoning-met-periode.html){:target="_blank" rel="noopener"}: 80 scenarios (80 passed)
