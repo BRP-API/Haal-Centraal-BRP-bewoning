@@ -16,9 +16,9 @@ on:
   workflow_dispatch:
 
 env:
-  DOTNET_VERSION: 8.0.x
+  DOTNET_VERSION: 6.0.x
   DOTNET_SOLUTION: src/Bewoning.sln
-  NODE_VERSION: '18'
+  NODE_VERSION: '20'
   CONTAINER_NAME: ghcr.io/brp-api/haal-centraal-bewoning-bevragen
   COMPOSE_FILE_ARGUMENT: -f .docker/db-ci.yml -f .docker/bewoning-api.yml -f .docker/bewoning-proxy.yml -f .docker/bewoning-proxy2proxy.yml
   DOCKER_API_FILE_PATH: .docker/bewoning-api.yml
@@ -28,9 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
             dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Restore dependencies
@@ -43,9 +43,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Install dependencies
@@ -58,7 +58,7 @@ jobs:
       - name: Build container images
         run: docker compose build
       - name: Login to P5 Container Registry
-        uses: docker/login-action@v2.1.0
+        uses: docker/login-action@v3.1.0
         with:
           registry: haalcentraal.azurecr.io
           username: ${{ secrets.P5_CR_USER }}
@@ -116,7 +116,7 @@ jobs:
           regex: '^v(.*)-(.*)$'
       - name: Login to GitHub Container Registry
         if: always() && steps.regex-match.outputs.match != ''
-        uses: docker/login-action@v2.1.0
+        uses: docker/login-action@v3.1.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
