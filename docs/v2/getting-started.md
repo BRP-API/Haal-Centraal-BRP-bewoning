@@ -21,11 +21,11 @@ Je kunt de OAS3 specificatie van de '{{ site.apiname }}' Web API bekijken met be
 
 De [functionele documentatie](./features-overzicht) van de '{{ site.apiname }}' Web API vind je in de [features overzicht](./features-overzicht).
 
-## Probeer de API in de proef omgeving
+## Probeer de API in de demo omgeving
 
-Je kunt de '{{ site.apiname }}' Web API uitproberen in de proef omgeving. Bevraag de API op het volgende endpoint: [{{ site.proefProxyUrl }}/haalcentraal/api/bewoning/bewoningen]({{ site.proefProxyUrl }}/haalcentraal/api/bewoning/bewoningen). Hiervoor heb je een apikey nodig.
+Je kunt de '{{ site.apiname }}' Web API uitproberen in de demo omgeving. Bevraag de API op het volgende endpoint: [{{ site.proefProxyUrl }}/haalcentraal/api/bewoning/bewoningen]({{ site.proefProxyUrl }}/haalcentraal/api/bewoning/bewoningen). Hiervoor heb je een apikey nodig.
 
-De proef omgeving ontsluit de bewoning van adresseerbaar objecten die voorkomen in de [Testdataset Basisregistratie Personen](https://www.rvig.nl/Testdataset-persoonslijsten-proefomgevingen-GBA-V.ods){:target="_blank" rel="noopener"}
+De demo omgeving ontsluit de bewoning van adresseerbaar objecten die voorkomen in de [Testdataset Basisregistratie Personen](https://www.rvig.nl/Testdataset-persoonslijsten-proefomgevingen-GBA-V.ods){:target="_blank" rel="noopener"}
 
 Vraag een apikey aan bij de [product owner](mailto:{{ site.PO-email }}) of gebruik de apikey die is uitgereikt op de API Labs.
 
@@ -47,7 +47,7 @@ curl --request POST \
 
 Onderstaand figuur visualiseert de configuratie van bovenstaande aanroep in Postman.
 
-**Opmerking**. In de proefomgeving kan alleen de bewoning van adresseerbaar objecten in de gemeente Rotterdam worden geraadpleegd.
+**Opmerking**. In de demo omgeving kan alleen de bewoning van adresseerbaar objecten in de gemeente Rotterdam worden geraadpleegd.
 
 ![Raadpleeg de bewoning van adresseerbaar op peildatum](../img/postman-voorbeeld-aanroep.png)
 
