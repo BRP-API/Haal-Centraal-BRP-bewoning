@@ -212,6 +212,11 @@ components:
       properties:
         type:
           type: string
+      example:
+        type: BewoningMetPeriode
+        datumVan: 2023-11-19
+        datumTot: 2024-01-27
+        adresseerbaarObjectIdentificatie: "0599010370005001"
       discriminator:
         propertyName: type
         mapping:
@@ -251,6 +256,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Bewoning'
+      example:
+        bewoningen:
+        - adresseerbaarObjectIdentificatie: "0599010370005001"
+          periode:
+            datumVan: 2023-11-19
+            datumTot: 2024-01-01
+          bewoners:
+          - burgerservicenummer: "999997968"
+            geheimhoudingPersoonsgegevens: true
+          - burgerservicenummer: "999990524"
+          mogelijkeBewoners: []
+        - adresseerbaarObjectIdentificatie: "0599010370005001"
+          periode:
+            datumVan: 2024-01-01
+            datumTot: 2024-01-27
+          bewoners:
+          - burgerservicenummer: "999997968"
+            geheimhoudingPersoonsgegevens: true
+          mogelijkeBewoners:
+          - burgerservicenummer: "999990524"
     BadRequestFoutbericht:
       allOf:
       - $ref: '#/components/schemas/Foutbericht'
