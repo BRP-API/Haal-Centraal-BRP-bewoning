@@ -1,0 +1,60 @@
+Failures:
+
+1) Scenario: Het adresseerbaar object wordt niet meer bewoond in de gevraagde periode en dus kan de gemeente van inschrijving van het verblijf in die periode niet gelijk of ongelijk zijn aan de afnemer (gemeentecode in token) # features\raadpleeg-bewoning-met-periode\gba\autorisatie-gba.feature:86
+   √ Before # features\step_definitions\docs-stepdefs.js:7
+   √ Before # features\step_definitions\stepdefs.js:1008
+   √ Before # features\step_definitions\stepdefs.js:1012
+   √ Gegeven de geauthenticeerde consumer heeft de volgende 'claim' gegevens # features\step_definitions\stepdefs.js:557
+       | afnemerID | gemeenteCode |
+       | 000008    | 0800         |
+   √ En adres 'A1' heeft de volgende gegevens # features\step_definitions\stepdefs.js:194
+       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+       | 0800                 | 0800010000000001                         |
+   √ En adres 'A2' heeft de volgende gegevens # features\step_definitions\stepdefs.js:194
+       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+       | 0518                 | 0518010000000002                         |
+   √ Gegeven adres 'A3' heeft de volgende gegevens # features\step_definitions\stepdefs.js:194
+       | gemeentecode (92.10) | identificatiecode verblijfplaats (11.80) |
+       | 0530                 | 0530010000000003                         |
+   √ En de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A2' met de volgende gegevens # features\step_definitions\stepdefs.js:372
+       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+       | 0518                              | 20150701                           |
+   √ En de persoon is vervolgens ingeschreven op adres 'A3' met de volgende gegevens # features\step_definitions\stepdefs.js:468
+       | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+       | 0530                              | 20210601                           |
+   √ Als gba bewoning wordt gezocht met de volgende parameters # features\step_definitions\stepdefs.js:738
+       | naam                             | waarde             |
+       | type                             | BewoningMetPeriode |
+       | datumVan                         | 2022-01-01         |
+       | datumTot                         | 2023-01-01         |
+       | adresseerbaarObjectIdentificatie | 0518010000000002   |
+   × Dan heeft de response 0 bewoningen # features\step_definitions\stepdefs.js:938
+       AssertionError: response body: {
+       	"type": "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.3",
+       	"title": "U bent niet geautoriseerd voor deze vraag.",
+       	"status": 403,
+       	"detail": "Je mag alleen bewoning van adresseerbare objecten binnen de eigen gemeente raadplegen.",
+       	"instance": "/haalcentraal/api/bewoning/bewoningen",
+       	"code": "unauthorized"
+       }: expected 403 to equal 200
+           + expected - actual
+
+           -403
+           +200
+
+           at World.<anonymous> (C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\features\step_definitions\stepdefs.js:939:44)
+           at Object.run (C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\node_modules\@cucumber\cucumber\lib\user_code_runner.js:24:27)
+           at Object.run (C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\node_modules\@cucumber\cucumber\lib\runtime\step_runner.js:51:59)
+           at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+           at async TestCaseRunner.invokeStep (C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\node_modules\@cucumber\cucumber\lib\runtime\test_case_runner.js:111:16)
+           at async TestCaseRunner.runStep (C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\node_modules\@cucumber\cucumber\lib\runtime\test_case_runner.js:260:26)
+           at async C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\node_modules\@cucumber\cucumber\lib\runtime\test_case_runner.js:191:44
+           at async TestCaseRunner.aroundTestStep (C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\node_modules\@cucumber\cucumber\lib\runtime\test_case_runner.js:136:32)
+           at async TestCaseRunner.runAttempt (C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\node_modules\@cucumber\cucumber\lib\runtime\test_case_runner.js:174:13)
+           at async TestCaseRunner.run (C:\Projects\brp-api\Haal-Centraal-BRP-bewoning\node_modules\@cucumber\cucumber\lib\runtime\test_case_runner.js:152:35)
+   √ After # features\step_definitions\stepdefs.js:1019
+   √ After # features\step_definitions\stepdefs.js:970
+
+632 scenarios (1 failed, 627 skipped, 4 passed)
+5964 steps (1 failed, 5933 skipped, 30 passed)
+0m03.537s (executing steps: 0m02.817s)

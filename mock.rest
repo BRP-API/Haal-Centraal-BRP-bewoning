@@ -1,0 +1,93 @@
+@url = http://localhost:5000/haalcentraal/api/bewoning/bewoningen
+
+POST {{url}} HTTP/1.1
+content-type: application/json
+
+{
+    "type": "BewoningMetPeildatum",
+    "adresseerbaarObjectIdentificatie": "0599010000208579"
+}
+
+###
+# 999993653 20150808
+POST {{url}} HTTP/1.1
+content-type: application/json
+
+{
+    "type": "BewoningMetPeildatum",
+    "adresseerbaarObjectIdentificatie": "0599010000208579",
+    "peildatum": "2015-08-08"
+}
+
+### 
+# 999993653 20150808
+POST {{url}} HTTP/1.1
+content-type: application/json
+
+{
+    "type": "BewoningMetPeriode",
+    "adresseerbaarObjectIdentificatie": "0599010000208579",
+    "datumVan": "2015-08-01",
+    "datumTot": "2015-09-01"
+}
+
+###
+# 999991723 20000610
+# 999992788 20000610
+# 000009933 19980502
+# 000009970 19980502
+# 999993082 20000610
+# 999991772 20000610
+# 999994074 20000610
+# 999995054 19980502
+# 999994207 19980502
+POST {{url}} HTTP/1.1
+content-type: application/json
+
+{
+    "type": "BewoningMetPeriode",
+    "adresseerbaarObjectIdentificatie": "1810010010001001",
+    "datumVan": "1998-01-01",
+    "datumTot": "2001-01-01"
+}
+
+###
+# 999994542 19970302
+# 999993112 19970501
+# 999995832 20090529
+# 999995807 20181114
+POST http://localhost:5010/haalcentraal/api/bewoning/bewoningen HTTP/1.1
+content-type: application/json
+
+{
+    "type": "BewoningMetPeriode",
+    "adresseerbaarObjectIdentificatie": "0363010000805805",
+    "datumVan": "1997-01-01",
+    "datumTot": "1998-01-01"
+}
+
+###
+# 999994426 19940902 20111200
+POST http://localhost:5010/haalcentraal/api/bewoning/bewoningen HTTP/1.1
+content-type: application/json
+
+{
+    "type": "BewoningMetPeriode",
+    "adresseerbaarObjectIdentificatie": "1811010940003002",
+    "datumVan": "1998-01-01",
+    "datumTot": "2001-01-01"
+}
+
+###
+# 999994992 00000000 19900517
+# 999991449 00000000
+# 999990524 00000000
+POST http://localhost:5010/haalcentraal/api/bewoning/bewoningen HTTP/1.1
+content-type: application/json
+
+{
+    "type": "BewoningMetPeriode",
+    "adresseerbaarObjectIdentificatie": "0599010370005001",
+    "datumVan": "1998-01-01",
+    "datumTot": "2001-01-01"
+}
