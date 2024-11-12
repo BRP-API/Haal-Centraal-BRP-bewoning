@@ -27,6 +27,10 @@ components:
           $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
         inOnderzoek:
           $ref: 'in-onderzoek.yaml#/components/schemas/InOnderzoek'
+        naam:
+          $ref: 'naam.yaml#/components/schemas/Naam'
+        geboorte:
+          $ref: 'geboorte.yaml#/components/schemas/Geboorte'
     GbaBewoner:
       type: object
       properties:

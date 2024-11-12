@@ -1,0 +1,19 @@
+openapi: 3.0.3
+info:
+  title: Naam definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    Naam:
+      type: object
+      properties:
+        volledigeNaam:
+          $ref: '#/components/schemas/VolledigeNaam'
+    VolledigeNaam:
+      type: string
+      pattern: ^[a-zA-Z0-9À-ž \.\-\']{1,450}$
+      description: |
+        Combinatie van predicaat, voornamen, adellijke titel, voorvoegsels en geslachtsnaam, zonder toevoeging van een eventuele partnernaam.
+      example: "Pieter Jan de Vries"

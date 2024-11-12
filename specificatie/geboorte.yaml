@@ -1,0 +1,20 @@
+openapi: 3.0.3
+info:
+  title: Geboorte definities
+  version: 2.0.0
+  contact: {}
+paths: {}
+components:
+  schemas:
+    GeboorteBasis:
+      type: object
+      properties:
+        datum:
+          $ref: 'datum.yaml#/components/schemas/AbstractDatum'
+    Geboorte:
+      description: |
+        Gegevens over de geboorte.
+        * **datum** - datum waarop de persoon is geboren.
+      allOf:
+        - $ref: '#/components/schemas/GeboorteBasis'
+        - type: object
