@@ -1,6 +1,6 @@
 #!/bin/bash
 
-java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi-yaml -o ./specificatie/genereervariant
-java -jar swagger-codegen-cli.jar generate -i ./specificatie/openapi.yaml -l openapi -o ./specificatie/genereervariant
-java -jar swagger-codegen-cli.jar generate -i ./specificatie/gba-openapi.yaml -l openapi-yaml -o ./specificatie/gba-genereervariant
-java -jar swagger-codegen-cli.jar generate -i ./specificatie/gba-openapi.yaml -l openapi -o ./specificatie/gba-genereervariant
+npx redocly bundle ./specificatie/openapi.yaml -o ./specificatie/genereervariant/openapi.yaml
+npx redocly bundle ./specificatie/openapi.yaml -o ./specificatie/genereervariant/openapi.json
+npx redocly bundle ./specificatie/gba-openapi.yaml -o ./specificatie/gba-genereervariant/openapi.yaml
+npx redocly bundle ./specificatie/gba-openapi.yaml -o ./specificatie/gba-genereervariant/openapi.json
