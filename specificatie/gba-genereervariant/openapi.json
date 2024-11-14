@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.3",
+  "openapi": "3.1.0",
   "info": {
     "title": "Haal Centraal BRP bewoning",
     "description": "API voor het raadplegen van de (historische) bewoning van een adres.\n",
