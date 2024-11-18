@@ -15,8 +15,6 @@ components:
   schemas:
     AbstractDatum:
       type: object
-      required:
-        - type
       properties:
         type:
           type: string
@@ -43,8 +41,6 @@ components:
             datum:
               type: string
               format: date
-      required:
-        - datum
       example:
         value:
           type: Datum

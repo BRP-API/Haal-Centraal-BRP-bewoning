@@ -122,6 +122,42 @@ components:
             $ref: '#/components/schemas/Bewoning'
       example:
         bewoningen:
+        - adresseerbaarObjectIdentificatie: "0599010370005001"
+          periode:
+            datumVan: 2023-11-19
+            datumTot: 2024-01-01
+          bewoners:
+          - burgerservicenummer: "999997968"
+            geheimhoudingPersoonsgegevens: true
+          - burgerservicenummer: "999990524"
+            naam:
+              volledigeNaam: Pieter Jan de Vries
+            geboorte:
+              datum:
+                type: Datum
+                langFormaat: 1 juli 1984
+                datum: 1984-07-01
+          mogelijkeBewoners: []
+        - adresseerbaarObjectIdentificatie: "0599010370005001"
+          periode:
+            datumVan: 2024-01-01
+            datumTot: 2024-01-27
+          bewoners:
+          - burgerservicenummer: "999997968"
+            geheimhoudingPersoonsgegevens: true
+          mogelijkeBewoners:
+          - burgerservicenummer: "999990524"
+    BadRequestFoutbericht:
+      allOf:
+      - $ref: '#/components/schemas/Foutbericht'
+      - type: object
+        properties:
+          invalidParams:
+            type: array
+            description: Foutmelding per fout in een parameter. Alle gevonden fouten
+              worden één keer teruggemeld.
+            items:
+              $ref: '#/components/schemas/InvalidParams'
           - adresseerbaarObjectIdentificatie: '0599010370005001'
             periode:
               datumVan: '2023-11-19'
@@ -356,6 +392,7 @@ components:
 
         Wanneer een bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft, wordt het **indicatieVeelBewoners** veld geleverd.
       type: object
+      description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
       properties:
         adresseerbaarObjectIdentificatie:
           $ref: '#/components/schemas/AdresseerbaarObjectIdentificatie'

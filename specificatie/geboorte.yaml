@@ -13,3 +13,10 @@ components:
           $ref: 'datum.yaml#/components/schemas/AbstractDatum'
           description: |
             Datum waarop de persoon is geboren.
+    GbaGeboorte:
+      type: object
+      properties:
+        datum:
+          $ref: 'datum.yaml#/components/schemas/GbaDatum'
+          description: |
+            Datum waarop de persoon is geboren.
