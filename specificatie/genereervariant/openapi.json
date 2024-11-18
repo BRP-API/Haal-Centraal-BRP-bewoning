@@ -193,7 +193,17 @@
                   "geheimhoudingPersoonsgegevens": true
                 },
                 {
-                  "burgerservicenummer": "999990524"
+                  "burgerservicenummer": "999990524",
+                  "naam": {
+                    "volledigeNaam": "Pieter Jan de Vries"
+                  },
+                  "geboorte": {
+                    "datum": {
+                      "type": "Datum",
+                      "langFormaat": "1 juli 1984",
+                      "datum": "1984-07-01"
+                    }
+                  }
                 }
               ],
               "mogelijkeBewoners": []
@@ -331,9 +341,6 @@
       },
       "AbstractDatum": {
         "type": "object",
-        "required": [
-          "type"
-        ],
         "properties": {
           "type": {
             "type": "string"
@@ -368,9 +375,6 @@
               }
             }
           }
-        ],
-        "required": [
-          "datum"
         ],
         "example": {
           "value": {
