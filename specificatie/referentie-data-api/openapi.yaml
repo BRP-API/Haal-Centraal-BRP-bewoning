@@ -1,0 +1,26 @@
+openapi: 3.1.0
+info: 
+  title: referentie implementatie van data api contract mbv OAS 3.1
+  version: 1.0.0
+paths:
+  /data-api:
+    get:
+      summary: Haal data op
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataApiResponse'
+components: 
+  schemas:
+    DataApiResponse:
+      type: object
+      properties:
+        geboorteBasis:
+          $ref: '../brp/geboorte/geboorte-basis-v1.yaml#/components/schemas/GeboorteBasis'
+        geslachtsaanduiding:
+          $ref: '../brp/geslacht/geslachtsaanduiding-v1.yaml#/components/schemas/Geslachtsaanduiding'
+        naamBasis:
+          $ref: '../brp/naam/naam-basis-v1.yaml#/components/schemas/NaamBasis'

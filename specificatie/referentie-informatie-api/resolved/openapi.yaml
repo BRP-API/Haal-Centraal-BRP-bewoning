@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: referentie implementatie van informatie api contract mbv OAS 3.1
+  version: 1.0.0
+paths:
+  /informatie-api:
+    get:
+      summary: Haal data op
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InformatieApiResponse'
+components:
+  schemas:
+    InformatieApiResponse:
+      type: object
+      properties:
+        geboorteBasis:
+          $ref: '#/components/schemas/GeboorteBasis'
+        geslachtsaanduiding:
+          $ref: '#/components/schemas/Waardetabel'
+        volledigeNaam:
+          $ref: '#/components/schemas/VolledigeNaam'
+    AbstractDatum:
+      type: object
+      required:
+        - type
+        - langFormaat
+      properties:
+        type:
+          type: string
+        langFormaat:
+          type: string
+          pattern: ^[a-z0-9 ]{1,17}$
+      discriminator:
+        propertyName: type
+        mapping:
+          Datum: '#/components/schemas/VolledigeDatum'
+          DatumOnbekend: '#/components/schemas/DatumOnbekend'
+          JaarDatum: '#/components/schemas/JaarDatum'
+          JaarMaandDatum: '#/components/schemas/JaarMaandDatum'
+    VolledigeDatum:
+      description: Datum conform iso8601
+      allOf:
+        - $ref: '#/components/schemas/AbstractDatum'
+        - type: object
+          properties:
+            datum:
+              type: string
+              format: date
+      required:
+        - datum
+      example:
+        value:
+          type: Datum
+          datum: '2018-07-01'
+          langFormaat: 1 juli 2018
+    DatumOnbekend:
+      description: representatie voor een volledig onbekend datum
+      allOf:
+        - $ref: '#/components/schemas/AbstractDatum'
+        - type: object
+          properties:
+            onbekend:
+              type: boolean
+              default: true
+      required:
+        - onbekend
+      example:
+        value:
+          type: DatumOnbekend
+          onbekend: true
+          langFormaat: onbekend
+    Jaar:
+      type: integer
+      format: int32
+      minimum: 1
+      maximum: 9999
+    JaarDatum:
+      description: representatie voor een datum waarvan maand en dag onbekend zijn
+      allOf:
+        - $ref: '#/components/schemas/AbstractDatum'
+        - type: object
+          properties:
+            jaar:
+              $ref: '#/components/schemas/Jaar'
+      required:
+        - jaar
+      example:
+        value:
+          type: JaarDatum
+          jaar: 2018
+          langFormaat: 2018
+    Maand:
+      type: integer
+      format: int32
+      minimum: 1
+      maximum: 12
+    JaarMaandDatum:
+      description: representatie voor een datum waarvan de dag onbekend is
+      allOf:
+        - $ref: '#/components/schemas/AbstractDatum'
+        - type: object
+          properties:
+            jaar:
+              $ref: '#/components/schemas/Jaar'
+            maand:
+              $ref: '#/components/schemas/Maand'
+      required:
+        - jaar
+        - maand
+      example:
+        value:
+          type: JaarMaandDatum
+          jaar: 2018
+          maand: 7
+          langFormaat: juli 2018
+    GeboorteBasis:
+      type: object
+      properties:
+        datum:
+          $ref: '#/components/schemas/AbstractDatum'
+    Waardetabel:
+      type: object
+      properties:
+        code:
+          type: string
+          pattern: ^[a-zA-Z0-9 \.]+$
+          example: '6030'
+        omschrijving:
+          type: string
+          pattern: ^[a-zA-Z0-9À-ž \'\.\-\(\),]{1,200}$
+          example: Nederland
+    VolledigeNaam:
+      type: string
+      pattern: ^[a-zA-Z0-9À-ž \.\-\']{1,450}$
+      description: |
+        Combinatie van predicaat, voornamen, adellijke titel, voorvoegsels en geslachtsnaam, zonder toevoeging van een eventuele partnernaam.
+      example: Pieter Jan de Vries
