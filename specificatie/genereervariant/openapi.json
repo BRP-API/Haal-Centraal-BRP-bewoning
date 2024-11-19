@@ -341,6 +341,10 @@
       },
       "AbstractDatum": {
         "type": "object",
+        "required": [
+          "type",
+          "langFormaat"
+        ],
         "properties": {
           "type": {
             "type": "string"
@@ -358,6 +362,11 @@
             "JaarDatum": "#/components/schemas/JaarDatum",
             "JaarMaandDatum": "#/components/schemas/JaarMaandDatum"
           }
+        },
+        "example": {
+          "type": "Datum",
+          "datum": "2018-07-01",
+          "langFormaat": "1 juli 2018"
         }
       },
       "VolledigeDatum": {
@@ -376,12 +385,13 @@
             }
           }
         ],
+        "required": [
+          "datum"
+        ],
         "example": {
-          "value": {
-            "type": "Datum",
-            "datum": "2018-07-01",
-            "langFormaat": "1 juli 2018"
-          }
+          "type": "Datum",
+          "datum": "2018-07-01",
+          "langFormaat": "1 juli 2018"
         }
       },
       "DatumOnbekend": {
@@ -404,11 +414,9 @@
           "onbekend"
         ],
         "example": {
-          "value": {
-            "type": "DatumOnbekend",
-            "onbekend": true,
-            "langFormaat": "onbekend"
-          }
+          "type": "DatumOnbekend",
+          "onbekend": true,
+          "langFormaat": "onbekend"
         }
       },
       "Jaar": {
@@ -436,11 +444,9 @@
           "jaar"
         ],
         "example": {
-          "value": {
-            "type": "JaarDatum",
-            "jaar": 2018,
-            "langFormaat": 2018
-          }
+          "type": "JaarDatum",
+          "jaar": 2018,
+          "langFormaat": 2018
         }
       },
       "Maand": {
@@ -472,20 +478,17 @@
           "maand"
         ],
         "example": {
-          "value": {
-            "type": "JaarMaandDatum",
-            "jaar": 2018,
-            "maand": 7,
-            "langFormaat": "juli 2018"
-          }
+          "type": "JaarMaandDatum",
+          "jaar": 2018,
+          "maand": 7,
+          "langFormaat": "juli 2018"
         }
       },
       "GeboorteBasis": {
         "type": "object",
         "properties": {
           "datum": {
-            "$ref": "#/components/schemas/AbstractDatum",
-            "description": "Datum waarop de persoon is geboren.\n"
+            "$ref": "#/components/schemas/AbstractDatum"
           }
         }
       },

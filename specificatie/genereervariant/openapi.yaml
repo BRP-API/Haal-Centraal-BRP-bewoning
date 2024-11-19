@@ -243,6 +243,9 @@ components:
           $ref: '#/components/schemas/VolledigeNaam'
     AbstractDatum:
       type: object
+      required:
+        - type
+        - langFormaat
       properties:
         type:
           type: string
@@ -256,6 +259,10 @@ components:
           DatumOnbekend: '#/components/schemas/DatumOnbekend'
           JaarDatum: '#/components/schemas/JaarDatum'
           JaarMaandDatum: '#/components/schemas/JaarMaandDatum'
+      example:
+        type: Datum
+        datum: '2018-07-01'
+        langFormaat: 1 juli 2018
     VolledigeDatum:
       description: Datum conform iso8601
       allOf:
@@ -265,11 +272,12 @@ components:
             datum:
               type: string
               format: date
+      required:
+        - datum
       example:
-        value:
-          type: Datum
-          datum: '2018-07-01'
-          langFormaat: 1 juli 2018
+        type: Datum
+        datum: '2018-07-01'
+        langFormaat: 1 juli 2018
     DatumOnbekend:
       description: representatie voor een volledig onbekend datum
       allOf:
@@ -282,10 +290,9 @@ components:
       required:
         - onbekend
       example:
-        value:
-          type: DatumOnbekend
-          onbekend: true
-          langFormaat: onbekend
+        type: DatumOnbekend
+        onbekend: true
+        langFormaat: onbekend
     Jaar:
       type: integer
       format: int32
@@ -302,10 +309,9 @@ components:
       required:
         - jaar
       example:
-        value:
-          type: JaarDatum
-          jaar: 2018
-          langFormaat: 2018
+        type: JaarDatum
+        jaar: 2018
+        langFormaat: 2018
     Maand:
       type: integer
       format: int32
@@ -325,18 +331,15 @@ components:
         - jaar
         - maand
       example:
-        value:
-          type: JaarMaandDatum
-          jaar: 2018
-          maand: 7
-          langFormaat: juli 2018
+        type: JaarMaandDatum
+        jaar: 2018
+        maand: 7
+        langFormaat: juli 2018
     GeboorteBasis:
       type: object
       properties:
         datum:
           $ref: '#/components/schemas/AbstractDatum'
-          description: |
-            Datum waarop de persoon is geboren.
     Bewoner:
       type: object
       properties:
