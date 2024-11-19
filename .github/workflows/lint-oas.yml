@@ -20,12 +20,19 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: npm ci
+
+      - name: Zet run permissions op script folder
+        uses: ./.github/actions/zet-run-bash-scripts-permission
+        with:
+          path-bash-file-or-folder: ./scripts/*
+
       - name: lint OAS
-        run: npm run oas:lint
+        run: ./scripts/lint-oas.sh
       - name: resolve OAS
-        run: npm run oas:resolve
+        run: ./scripts/resolve-oas.sh
       - name: lint resolved OAS
-        run: npm run oas:lint-genereervariant
+        run: ./scripts/lint-oas-genereervariant.sh
+
       - name: push resolved to remote
         run: |
           doCommit=false
