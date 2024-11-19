@@ -30,7 +30,7 @@ components:
         naam:
           $ref: 'naam.yaml#/components/schemas/Naam'
         geboorte:
-          $ref: 'geboorte.yaml#/components/schemas/GeboorteBasis'
+          $ref: 'brp-api/geboorte/geboorte-basis-v1.yaml#/components/schemas/GeboorteBasis'
     GbaBewoner:
       type: object
       properties:
@@ -41,8 +41,8 @@ components:
         verblijfplaatsInOnderzoek:
           $ref: 'in-onderzoek.yaml#/components/schemas/GbaInOnderzoek'
         geslacht:
-          $ref: 'common.yaml#/components/schemas/Waardetabel'
+          $ref: 'brp/geslacht/geslachtsaanduiding-v1.yaml#/components/schemas/Geslachtsaanduiding'
         naam:
-          $ref: 'naam.yaml#/components/schemas/GbaNaam'
+          $ref: 'brp/naam/naam-basis-v1.yaml#/components/schemas/NaamBasis'
         geboorte:
-          $ref: 'geboorte.yaml#/components/schemas/GbaGeboorte'
+          $ref: 'brp/geboorte/geboorte-basis-v1.yaml#/components/schemas/GeboorteBasis'

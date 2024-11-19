@@ -20,4 +20,4 @@ components:
           type: string
           pattern: ^[0-9]{6}$
         datumIngangOnderzoek:
-          $ref: 'datum.yaml#/components/schemas/GbaDatum'
+          $ref: 'brp/datum-v1.yaml#/components/schemas/GbaDatum'
