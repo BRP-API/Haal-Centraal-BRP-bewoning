@@ -8,6 +8,6 @@ components:
       type: object
       properties:
         datum:
-          $ref: '../datum-polymorf-v1.yaml#/components/schemas/AbstractDatum'
+          $ref: '../datum/datum-polymorf-v1.yaml#/components/schemas/AbstractDatum'
           description: |
             Datum waarop de persoon is geboren.
