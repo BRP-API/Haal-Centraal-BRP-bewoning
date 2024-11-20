@@ -1,0 +1,20 @@
+openapi: 3.1.0
+info:
+  title: periode type definitie
+  version: 1.0.0
+  contact: {}
+components: 
+  schemas:
+    Periode:
+      type: object
+      properties:
+        datumVan:
+          $ref: 'datum-v1.yaml#/components/schemas/Datum'
+          example: 2020-01-01
+          description: |
+            De begindatum van de periode.
+        datumTot:
+          $ref: 'datum-v1.yaml#/components/schemas/Datum'
+          example: 2021-01-01
+          description: |
+            De einddatum van de periode.
