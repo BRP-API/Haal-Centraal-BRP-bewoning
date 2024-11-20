@@ -38,17 +38,6 @@ paths:
         '200':
           description: |
             Zoekactie geslaagd
-          headers:
-            api-version:
-              $ref: '#/components/headers/api_version'
-            warning:
-              $ref: '#/components/headers/warning'
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X_Rate_Limit_Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X_Rate_Limit_Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X_Rate_Limit_Reset'
           content:
             application/json; charset=utf-8:
               schema:
@@ -70,7 +59,7 @@ paths:
         '503':
           $ref: '#/components/responses/503'
         default:
-          $ref: '#/components/responses/default'
+          $ref: '#/components/responses/500'
       tags:
         - Bewoning
 components:
@@ -96,7 +85,9 @@ components:
         - type: object
           properties:
             peildatum:
-              $ref: '#/components/schemas/Peildatum'
+              $ref: '#/components/schemas/DatumFilter'
+              description: |
+                de datum waarover de bewoning wordt opgevraagd.
             adresseerbaarObjectIdentificatie:
               $ref: '#/components/schemas/AdresseerbaarObjectIdentificatieFilter'
     BewoningMetPeriode:
@@ -109,9 +100,13 @@ components:
         - type: object
           properties:
             datumVan:
-              $ref: '#/components/schemas/DatumVan'
+              $ref: '#/components/schemas/DatumFilter'
+              description: |
+                de begindatum van de periode waarover de bewoning wordt opgevraagd.
             datumTot:
-              $ref: '#/components/schemas/DatumTot'
+              $ref: '#/components/schemas/DatumFilter'
+              description: |
+                de einddatum van de periode waarover de bewoning wordt opgevraagd.
             adresseerbaarObjectIdentificatie:
               $ref: '#/components/schemas/AdresseerbaarObjectIdentificatieFilter'
     GbaBewoningenQueryResponse:
@@ -121,82 +116,79 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GbaBewoning'
-    Peildatum:
+    DatumFilter:
       type: string
-      description: |
-        Peildatum: de datum waarop je de bewoning wil weten.
       format: date
       example: '1964-09-24'
     AdresseerbaarObjectIdentificatieFilter:
       type: string
       pattern: ^(?!0{16})[0-9]{16}$
       description: |
-        De identificatie van het adresseerbaar object waarover de bewoning wordt gevraagd.
+        De identificatiecode van een adresseerbaar object uitgezonderd de standaardwaarde (0000000000000000)
       example: '0226010000038820'
-    DatumVan:
-      type: string
-      description: |
-        De begindatum van de periode waarover de bewoning wordt opgevraagd.
-      format: date
-      example: '1964-09-24'
-    DatumTot:
-      type: string
-      description: |
-        De einddatum van de periode waarover de bewoning wordt opgevraagd.
-      format: date
-      example: '1964-09-24'
     Foutbericht:
       type: object
       description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
       properties:
         type:
+          description: Link naar meer informatie over deze fout
           type: string
           format: uri
-          description: Link naar meer informatie over deze fout
         title:
+          description: Beschrijving van de fout
           type: string
           pattern: ^[a-zA-Z0-9À-ž \.\-]{1,80}$
-          description: Beschrijving van de fout
         status:
           type: integer
           minimum: 100
           maximum: 600
           description: Http status code
         detail:
-          type: string
-          pattern: ^[a-zA-Z0-9À-ž \.\-\(\)\,]{1,200}$
           description: Details over de fout
+          type: string
+          pattern: ^[a-zA-Z0-9À-ž \.\-\(\),]{1,200}$
         instance:
+          description: Uri van de aanroep die de fout heeft veroorzaakt
           type: string
           format: uri
-          description: Uri van de aanroep die de fout heeft veroorzaakt
         code:
+          description: Systeemcode die het type fout aangeeft
           type: string
           pattern: ^[a-zA-Z0-9]{1,25}$
-          description: Systeemcode die het type fout aangeeft
-          minLength: 1
     AdresseerbaarObjectIdentificatie:
       type: string
       pattern: ^[0-9]{16}$
       description: |
-        De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.
+        De identificatiecode van een adresseerbaar object.
       example: '0226010000038820'
+    Datum:
+      type: string
+      format: date
+      example: '1964-09-24'
+      description: |
+        Datum conform ISO-8601
     Periode:
       type: object
       properties:
         datumVan:
-          type: string
-          format: date
-          example: '2020-01-01'
+          allOf:
+            - $ref: '#/components/schemas/Datum'
+              description: |
+                De begindatum van de periode.
+            - example: '2020-01-01'
         datumTot:
-          type: string
-          format: date
-          example: '2021-01-01'
+          allOf:
+            - $ref: '#/components/schemas/Datum'
+              description: |
+                De einddatum van de periode.
+            - example: '2021-01-01'
     Burgerservicenummer:
       type: string
       pattern: ^[0-9]{9}$
       example: '555555021'
-    GbaGeheimhoudingPersoonsgegevens:
+    IndicatieGeheim:
+      description: |
+        Gegevens over het mogen verstrekken van persoonsgegevens aan derden / maatschappelijke instellingen.
       type: integer
       minimum: 0
       maximum: 7
@@ -204,7 +196,7 @@ components:
       type: string
       pattern: ^[0-9]{8}$
       example: '20180700'
-    GbaInOnderzoek:
+    InOnderzoek:
       type: object
       required:
         - aanduidingGegevensInOnderzoek
@@ -213,6 +205,7 @@ components:
         aanduidingGegevensInOnderzoek:
           type: string
           pattern: ^[0-9]{6}$
+          example: '100000'
         datumIngangOnderzoek:
           $ref: '#/components/schemas/GbaDatum'
     Waardetabel:
@@ -238,6 +231,7 @@ components:
       type: string
       pattern: ^[a-zA-Z0-9À-ž \.\-\']{1,200}$
       maxLength: 200
+      example: Pieter Jan
     AdellijkeTitelPredicaatSoort:
       type: string
       enum:
@@ -282,15 +276,17 @@ components:
       properties:
         datum:
           $ref: '#/components/schemas/GbaDatum'
+          description: |
+            Datum waarop de persoon is geboren.
     GbaBewoner:
       type: object
       properties:
         burgerservicenummer:
           $ref: '#/components/schemas/Burgerservicenummer'
         geheimhoudingPersoonsgegevens:
-          $ref: '#/components/schemas/GbaGeheimhoudingPersoonsgegevens'
+          $ref: '#/components/schemas/IndicatieGeheim'
         verblijfplaatsInOnderzoek:
-          $ref: '#/components/schemas/GbaInOnderzoek'
+          $ref: '#/components/schemas/InOnderzoek'
         geslacht:
           $ref: '#/components/schemas/Geslachtsaanduiding'
         naam:
@@ -331,68 +327,43 @@ components:
           type: boolean
           description: |
             Geeft aan dat de bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft.
-    InvalidParams:
+    InvalidParam:
       type: object
       description: Details over fouten in opgegeven parameters
       properties:
         type:
           type: string
           format: uri
-          example: https://www.vng.nl/realisatie/api/{major-versie}/validaties/integer
+          example: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1
         name:
-          type: string
-          pattern: ^[a-zA-Z0-9\.,_]{1,30}$
           description: Naam van de parameter
-          example: verblijfplaats__huisnummer
-        code:
           type: string
-          pattern: ^[a-zA-Z0-9\.,_]{1,25}$
+          pattern: ^[a-zA-Z0-9\._]{1,30}$
+          example: huisnummer
+        code:
           description: Systeemcode die het type fout aangeeft
-          minLength: 1
+          type: string
+          pattern: ^[a-zA-Z0-9]{1,25}$
           example: integer
         reason:
-          type: string
-          pattern: ^[a-zA-Z0-9\.,_ ]{1,80}$
           description: Beschrijving van de fout op de parameterwaarde
-          example: Waarde is geen geldige integer.
+          type: string
+          pattern: ^[a-zA-Z0-9\., ]{1,80}$
+          example: Waarde is geen geldig getal.
     BadRequestFoutbericht:
       allOf:
         - $ref: '#/components/schemas/Foutbericht'
         - type: object
           properties:
             invalidParams:
-              description: Foutmelding per fout in een parameter. Alle gevonden fouten worden één keer teruggemeld.
+              description: |
+                Foutmelding per fout in een parameter. Alle gevonden fouten worden één keer teruggemeld.
               type: array
               items:
-                $ref: '#/components/schemas/InvalidParams'
-  headers:
-    api_version:
-      schema:
-        type: string
-        pattern: ^[1-9][0-9]{0,2}.[0-9]{1,3}.[0-9]{1,3}$
-        description: Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
-        example: 1.0.0
-    warning:
-      schema:
-        type: string
-        maxLength: 500
-        description: zie RFC 7234. In het geval een major versie wordt uitgefaseerd, gebruiken we warn-code 299 ("Miscellaneous Persistent Warning") en het API end-point (inclusief versienummer) als de warn-agent van de warning, gevolgd door de warn-text met de human-readable waarschuwing
-        example: '299 https://service.../api/.../v1 "Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1".'
-    X_Rate_Limit_Limit:
-      schema:
-        type: integer
-    X_Rate_Limit_Remaining:
-      schema:
-        type: integer
-    X_Rate_Limit_Reset:
-      schema:
-        type: integer
+                $ref: '#/components/schemas/InvalidParam'
   responses:
     '400':
       description: Bad Request
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
       content:
         application/problem+json:
           schema:
@@ -406,14 +377,11 @@ components:
             code: paramsRequired
             invalidParams:
               - type: https://www.vng.nl/realisatie/api/validaties/integer
-                name: verblijfplaats__huisnummer
+                name: huisnummer
                 code: integer
-                reason: Waarde is geen geldige integer.
+                reason: Waarde is geen geldig getal.
     '401':
       description: Unauthorized
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
       content:
         application/problem+json:
           schema:
@@ -427,9 +395,6 @@ components:
             code: authentication
     '403':
       description: Forbidden
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
       content:
         application/problem+json:
           schema:
@@ -443,9 +408,6 @@ components:
             code: autorisation
     '406':
       description: Not Acceptable
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
       content:
         application/problem+json:
           schema:
@@ -459,9 +421,6 @@ components:
             code: notAcceptable
     '429':
       description: Too Many Requests
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
       content:
         application/problem+json:
           schema:
@@ -475,9 +434,6 @@ components:
             code: tooManyRequests
     '500':
       description: Internal Server Error
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
       content:
         application/problem+json:
           schema:
@@ -491,9 +447,6 @@ components:
             code: serverError
     '501':
       description: Not Implemented
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
       content:
         application/problem+json:
           schema:
@@ -507,9 +460,6 @@ components:
             code: notImplemented
     '503':
       description: Service Unavailable
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
       content:
         application/problem+json:
           schema:
@@ -521,12 +471,3 @@ components:
             detail: The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.
             instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
             code: notAvailable
-    default:
-      description: Er is een onverwachte fout opgetreden
-      headers:
-        api-version:
-          $ref: '#/components/headers/api_version'
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Foutbericht'
