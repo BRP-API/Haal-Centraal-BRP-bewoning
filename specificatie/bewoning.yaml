@@ -18,9 +18,9 @@ components:
       type: object
       properties:
         adresseerbaarObjectIdentificatie:
-          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+          $ref: 'brp/adres/adresseerbaar-object-identificatie-v1.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
         periode:
-          $ref: '#/components/schemas/Periode'
+          $ref: 'brp-api/datum/periode-v1.yaml#/components/schemas/Periode'
         bewoners:
           type: array
           description: |
@@ -41,6 +41,7 @@ components:
           type: boolean
           description: |
             Geeft aan dat de bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft.
+
     GbaBewoning:
       description: |
         Een bewoning geeft aan welke personen in een periode (mogelijk) op een adresseerbaar object staan ingeschreven.
@@ -53,9 +54,9 @@ components:
       type: object
       properties:
         adresseerbaarObjectIdentificatie:
-          $ref: 'verblijfplaats.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
+          $ref: 'brp/adres/adresseerbaar-object-identificatie-v1.yaml#/components/schemas/AdresseerbaarObjectIdentificatie'
         periode:
-          $ref: '#/components/schemas/Periode'
+          $ref: 'brp-api/datum/periode-v1.yaml#/components/schemas/Periode'
         bewoners:
           type: array
           description: |
@@ -76,14 +77,3 @@ components:
           type: boolean
           description: |
             Geeft aan dat de bewoning in totaal meer dan 100 bewoners en/of mogelijke bewoners heeft.
-    Periode:
-      type: object
-      properties:
-        datumVan:
-          type: string
-          format: date
-          example: 2020-01-01
-        datumTot:
-          type: string
-          format: date
-          example: 2021-01-01

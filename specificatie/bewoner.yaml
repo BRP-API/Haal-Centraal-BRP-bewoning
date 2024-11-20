@@ -6,40 +6,29 @@ info:
 paths: {}
 components:
   schemas:
-    Burgerservicenummer:
-      type: string
-      pattern: ^[0-9]{9}$
-      example: "555555021"
-    GbaGeheimhoudingPersoonsgegevens:
-      type: integer
-      minimum: 0
-      maximum: 7
-    GeheimhoudingPersoonsgegevens:
-      description: |
-        Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
-      type: boolean
     Bewoner:
       type: object
       properties:
         burgerservicenummer:
-          $ref: '#/components/schemas/Burgerservicenummer'
+          $ref: 'brp/identificatienummers/burgerservicenummer-v1.yaml#/components/schemas/Burgerservicenummer'
         geheimhoudingPersoonsgegevens:
-          $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
+          $ref: 'brp-api/geheim/geheimhouding-persoonsgegevens-v1.yaml#/components/schemas/GeheimhoudingPersoonsgegevens'
         inOnderzoek:
           $ref: 'in-onderzoek.yaml#/components/schemas/InOnderzoek'
         naam:
           $ref: 'naam.yaml#/components/schemas/Naam'
         geboorte:
           $ref: 'brp-api/geboorte/geboorte-basis-v1.yaml#/components/schemas/GeboorteBasis'
+
     GbaBewoner:
       type: object
       properties:
         burgerservicenummer:
-          $ref: '#/components/schemas/Burgerservicenummer'
+          $ref: 'brp/identificatienummers/burgerservicenummer-v1.yaml#/components/schemas/Burgerservicenummer'
         geheimhoudingPersoonsgegevens:
-          $ref: '#/components/schemas/GbaGeheimhoudingPersoonsgegevens'
+          $ref: 'brp/geheim/indicatie-geheim-v1.yaml#/components/schemas/IndicatieGeheim'
         verblijfplaatsInOnderzoek:
-          $ref: 'in-onderzoek.yaml#/components/schemas/GbaInOnderzoek'
+          $ref: 'brp/in-onderzoek-v1.yaml#/components/schemas/InOnderzoek'
         geslacht:
           $ref: 'brp/geslacht/geslachtsaanduiding-v1.yaml#/components/schemas/Geslachtsaanduiding'
         naam:
