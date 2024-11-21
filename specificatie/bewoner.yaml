@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Persoon definities
+  title: Bewoner type definitie
   version: 2.0.0
   contact: {}
 paths: {}
@@ -19,19 +19,3 @@ components:
           $ref: 'naam.yaml#/components/schemas/Naam'
         geboorte:
           $ref: 'brp-api/geboorte/geboorte-basis-v1.yaml#/components/schemas/GeboorteBasis'
-
-    GbaBewoner:
-      type: object
-      properties:
-        burgerservicenummer:
-          $ref: 'brp/identificatienummers/burgerservicenummer-v1.yaml#/components/schemas/Burgerservicenummer'
-        geheimhoudingPersoonsgegevens:
-          $ref: 'brp/geheim/indicatie-geheim-v1.yaml#/components/schemas/IndicatieGeheim'
-        verblijfplaatsInOnderzoek:
-          $ref: 'brp/in-onderzoek-v1.yaml#/components/schemas/InOnderzoek'
-        geslacht:
-          $ref: 'brp/geslacht/geslachtsaanduiding-v1.yaml#/components/schemas/Geslachtsaanduiding'
-        naam:
-          $ref: 'brp/naam/naam-basis-v1.yaml#/components/schemas/NaamBasis'
-        geboorte:
-          $ref: 'brp/geboorte/geboorte-basis-v1.yaml#/components/schemas/GeboorteBasis'

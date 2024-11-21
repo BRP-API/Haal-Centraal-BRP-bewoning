@@ -1,4 +1,4 @@
-name: lint-oas
+name: lint OpenAPI specificaties
 
 on:
   push:
@@ -9,15 +9,20 @@ on:
       - '**'
   workflow_dispatch:
 
+env:
+  NODE_VERSION: '20'
+    
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: ${{ env.NODE_VERSION }}
       - name: Install dependencies
         run: npm ci
 
@@ -27,25 +32,19 @@ jobs:
           path-bash-file-or-folder: ./scripts/*
 
       - name: lint OAS
-        run: ./scripts/lint-oas.sh
+        run: ./scripts/oas-lint.sh
       - name: resolve OAS
-        run: ./scripts/resolve-oas.sh
+        run: ./scripts/oas-resolve.sh
       - name: lint resolved OAS
-        run: ./scripts/lint-oas-genereervariant.sh
+        run: ./scripts/oas-lint-resolved.sh
 
       - name: push resolved to remote
         run: |
           doCommit=false
 
-          if [ -n "$(git status specificatie/genereervariant/openapi.yaml --porcelain)" ]; then
-              echo "specificatie/genereervariant/openapi.yaml modified"
-              git add specificatie/genereervariant/openapi.*
-              doCommit=true
-          fi
-
-          if [ -n "$(git status specificatie/gba-genereervariant/openapi.yaml --porcelain)" ]; then
-              echo "specificatie/gba-genereervariant/openapi.yaml modified"
-              git add specificatie/gba-genereervariant/openapi.*
+          if [ -n "$(git status specificatie/resolved/openapi.yaml --porcelain)" ]; then
+              echo "specificatie/resolved/openapi.yaml modified"
+              git add specificatie/resolved/openapi.*
               doCommit=true
           fi
 
