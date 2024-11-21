@@ -96,6 +96,8 @@ paths:
           $ref: '../problem-details/429-too-many-requests-response-v1.yaml#/components/responses/429'
         '500':
           $ref: '../problem-details/500-internal-server-error-response-v1.yaml#/components/responses/500'
+        '501':
+          $ref: '../problem-details/501-not-implemented-response-v1.yaml#/components/responses/501'
         '503':
           $ref: '../problem-details/503-service-unavailable-response-v1.yaml#/components/responses/503'
         default:
