@@ -33,7 +33,7 @@ nav:
   - title: Specificaties v. 2
     subnav:
       - title: Releasenotes
-        path: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/releases
+        url: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/releases
         target: blank
       - title: Getting started
         path: /v2/getting-started
