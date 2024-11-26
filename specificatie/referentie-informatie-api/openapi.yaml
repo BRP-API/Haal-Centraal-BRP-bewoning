@@ -126,6 +126,8 @@ components:
           $ref: '../brp-api/geheim/geheimhouding-persoonsgegevens-v1.yaml#/components/schemas/GeheimhoudingPersoonsgegevens'
         geslacht:
           $ref: '../brp/geslacht/geslachtsaanduiding-v1.yaml#/components/schemas/Geslachtsaanduiding'
+        gezagsrelatie:
+          $ref: '../brp-api/gezag/gezagsrelatie-v1.yaml#/components/schemas/AbstractGezagsrelatie'
         volledigeNaam:
           $ref: '../brp-api/naam/volledige-naam-v1.yaml#/components/schemas/VolledigeNaam'
 
