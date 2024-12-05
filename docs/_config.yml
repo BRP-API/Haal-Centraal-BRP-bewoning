@@ -1,6 +1,6 @@
 baseurl: "/Haal-Centraal-BRP-bewoning"
 mainBranchUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master
-v2SpecUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/genereervariant/openapi.yaml
+v2SpecUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/resolved/openapi.yaml
 v2GbaSpecUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/gba-genereervariant/openapi.yaml
 v2RawSpecUrl: https://raw.githubusercontent.com/BRP-API/Haal-Centraal-BRP-bewoning/master/specificatie/genereervariant/openapi.yaml
 v2RawGbaSpecUrl: https://raw.githubusercontent.com/BRP-API/Haal-Centraal-BRP-bewoning/master/specificatie/gba-genereervariant/openapi.yaml
@@ -41,8 +41,6 @@ nav:
         path: /user-stories
       - title: Bevragen API (redoc)
         path: /v2/redoc
-      - title: Bevragen API, GBA variant (redoc)
-        path: /v2/redoc-gba
       - title: Features overzicht
         path: /v2/features-overzicht
       - title: Features test overzicht
