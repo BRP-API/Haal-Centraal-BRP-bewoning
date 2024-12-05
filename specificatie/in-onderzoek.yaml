@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
-  title: In onderzoek definities
+  title: In onderzoek type definitie
   version: 2.0.0
   contact: {}
 paths: {}
@@ -10,14 +10,3 @@ components:
       type: boolean
       description: |
         Geeft aan dat de verblijfplaats in onderzoek is.
-    GbaInOnderzoek:
-      type: object
-      required:
-        - aanduidingGegevensInOnderzoek
-        - datumIngangOnderzoek
-      properties:
-        aanduidingGegevensInOnderzoek:
-          type: string
-          pattern: ^[0-9]{6}$
-        datumIngangOnderzoek:
-          $ref: 'datum.yaml#/components/schemas/GbaDatum'

@@ -1,9 +1,9 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: BRP bewoning
   description: |
     API voor het raadplegen van de (historische) bewoning van een adres.
-  version: 2.0.0
+  version: 2.1.0
   contact:
     url: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning
   license:
@@ -34,37 +34,28 @@ paths:
         '200':
           description: |
             Zoekactie geslaagd
-          headers:
-            warning:
-              $ref: "common.yaml#/components/headers/warning"
-            X-Rate-Limit-Limit:
-              $ref: "common.yaml#/components/headers/X_Rate_Limit_Limit"
-            X-Rate-Limit-Remaining:
-              $ref: "common.yaml#/components/headers/X_Rate_Limit_Remaining"
-            X-Rate-Limit-Reset:
-              $ref: "common.yaml#/components/headers/X_Rate_Limit_Reset"
           content:
             'application/json; charset=utf-8':
               schema:
                 $ref: "#/components/schemas/BewoningenQueryResponse"
         '400':
-          $ref: "common.yaml#/components/responses/400"
+          $ref: 'problem-details/400-bad-request-response-v1.yaml#/components/responses/400'
         '401':
-          $ref: "common.yaml#/components/responses/401"
+          $ref: 'problem-details/401-unauthorized-response-v1.yaml#/components/responses/401'
         '403':
-          $ref: "common.yaml#/components/responses/403"
+          $ref: 'problem-details/403-forbidden-response-v1.yaml#/components/responses/403'
         '406':
-          $ref: "common.yaml#/components/responses/406"
+          $ref: 'problem-details/406-not-acceptable-response-v1.yaml#/components/responses/406'
         '429':
-          $ref: "common.yaml#/components/responses/429"
+          $ref: 'problem-details/429-too-many-requests-response-v1.yaml#/components/responses/429'
         '500':
-          $ref: "common.yaml#/components/responses/500"
+          $ref: 'problem-details/500-internal-server-error-response-v1.yaml#/components/responses/500'
         '501':
-          $ref: "common.yaml#/components/responses/501"
+          $ref: 'problem-details/501-not-implemented-response-v1.yaml#/components/responses/501'
         '503':
-          $ref: "common.yaml#/components/responses/503"
+          $ref: 'problem-details/503-service-unavailable-response-v1.yaml#/components/responses/503'
         'default':
-          $ref: "common.yaml#/components/responses/default"
+          $ref: 'problem-details/500-internal-server-error-response-v1.yaml#/components/responses/500'
       tags:
         - Bewoning
 components:
@@ -86,6 +77,7 @@ components:
         datumVan: '2023-11-19'
         datumTot: '2024-01-27'
         adresseerbaarObjectIdentificatie: '0599010370005001'
+
     BewoningMetPeildatum:
       required:
         - peildatum
@@ -95,9 +87,14 @@ components:
         - type: object
           properties:
             peildatum:
-              $ref: 'filter.yaml#/components/schemas/Peildatum'
+              $ref: 'brp-api/query-parameters/datum-filter-v1.yaml#/components/schemas/DatumFilter'
+              description: |
+                de datum waarover de bewoning wordt opgevraagd.
             adresseerbaarObjectIdentificatie:
-              $ref: "filter.yaml#/components/schemas/AdresseerbaarObjectIdentificatieFilter"
+              $ref: 'brp-api/query-parameters/adresseerbaar-object-identificatie-filter-v1.yaml#/components/schemas/AdresseerbaarObjectIdentificatieFilter'
+              description: |
+                De identificatie van het adresseerbaar object waarover de bewoning wordt gevraagd.
+
     BewoningMetPeriode:
       required:
         - datumVan
@@ -108,11 +105,18 @@ components:
         - type: object
           properties:
             datumVan:
-              $ref: 'filter.yaml#/components/schemas/DatumVan'
+              $ref: 'brp-api/query-parameters/datum-filter-v1.yaml#/components/schemas/DatumFilter'
+              description: |
+                de begindatum van de periode waarover de bewoning wordt opgevraagd.
             datumTot:
-              $ref: 'filter.yaml#/components/schemas/DatumTot'
+              $ref: 'brp-api/query-parameters/datum-filter-v1.yaml#/components/schemas/DatumFilter'
+              description: |
+                de einddatum van de periode waarover de bewoning wordt opgevraagd.
             adresseerbaarObjectIdentificatie:
-              $ref: "filter.yaml#/components/schemas/AdresseerbaarObjectIdentificatieFilter"
+              $ref: 'brp-api/query-parameters/adresseerbaar-object-identificatie-filter-v1.yaml#/components/schemas/AdresseerbaarObjectIdentificatieFilter'
+              description: |
+                De identificatie van het adresseerbaar object waarover de bewoning wordt gevraagd.
+
     BewoningenQueryResponse:
       type: object
       properties:
@@ -130,6 +134,13 @@ components:
               - burgerservicenummer: '999997968'
                 geheimhoudingPersoonsgegevens: true
               - burgerservicenummer: '999990524'
+                naam: 
+                  volledigeNaam: Pieter Jan de Vries 
+                geboorte:
+                  datum:
+                    type: Datum
+                    langFormaat: 1 juli 1984
+                    datum: '1984-07-01'
             mogelijkeBewoners: []
           - adresseerbaarObjectIdentificatie: '0599010370005001'
             periode: 
