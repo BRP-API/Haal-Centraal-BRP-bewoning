@@ -2,7 +2,7 @@ baseurl: "/Haal-Centraal-BRP-bewoning"
 mainBranchUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master
 v2SpecUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/resolved/openapi.yaml
 v2GbaSpecUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/gba-genereervariant/openapi.yaml
-v2RawSpecUrl: https://raw.githubusercontent.com/BRP-API/Haal-Centraal-BRP-bewoning/master/specificatie/genereervariant/openapi.yaml
+v2RawSpecUrl: https://raw.githubusercontent.com/BRP-API/Haal-Centraal-BRP-bewoning/master/specificatie/resolved/openapi.yaml
 v2RawGbaSpecUrl: https://raw.githubusercontent.com/BRP-API/Haal-Centraal-BRP-bewoning/master/specificatie/gba-genereervariant/openapi.yaml
 v2DockerComposeUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/docker-compose.yml
 onboardingUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/docs/230615%20deelname%20experiment%20BRP%20API's%20v1.8.ppsx
