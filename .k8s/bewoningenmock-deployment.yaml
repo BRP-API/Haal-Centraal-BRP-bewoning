@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bewoningen-mock
+  labels:
+    app: bewoningen-mock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: bewoningen-mock
+  template:
+    metadata:
+      labels:
+        name: bewoningen-mock
+    spec:
+      containers:
+        - name: bewoningen-mock
+          image: ghcr.io/brp-api/bewoning-service-mock:2.0.1-latest
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Release
+            - name: ASPNETCORE_URLS
+              value: http://+:5010
+          ports:
+            - name: http-mock
+              containerPort: 5010

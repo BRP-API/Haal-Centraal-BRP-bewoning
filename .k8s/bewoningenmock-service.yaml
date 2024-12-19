@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bewoningen-mock
+  labels:
+    app: bewoningen-mock
+spec:
+  selector:
+    name: bewoningen-mock
+  type: LoadBalancer
+  ports:
+    - name: "5010"
+      port: 5010
+      targetPort: http-mock
