@@ -1,0 +1,18 @@
+services:
+
+  bewoningen-mock:
+    container_name: bewoningen-mock
+    image: ghcr.io/brp-api/bewoning-service-mock:2.0.1-latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://+:5010
+    ports:
+      - "5010:5010"
+    # volumes:
+    #   - ./src/config/BewoningService:/app/Data
+    networks:
+      - brp-api-network
+
+networks:
+  brp-api-network:
+    name: brp-api-network
