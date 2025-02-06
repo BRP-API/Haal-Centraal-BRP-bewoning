@@ -4,7 +4,7 @@ v2SpecUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/spe
 v2GbaSpecUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/specificatie/gba-genereervariant/openapi.yaml
 v2RawSpecUrl: https://raw.githubusercontent.com/BRP-API/Haal-Centraal-BRP-bewoning/master/specificatie/resolved/openapi.yaml
 v2DockerComposeUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/docker-compose.yml
-onboardingUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/docs/241003%20deelname%20BRP%20API%20v2.8.ppsx
+onboardingUrl: https://github.com/BRP-API/Haal-Centraal-BRP-bewoning/blob/master/docs/250204%20deelname%20BRP%20API%20v3.0.pdf
 proefProxyUrl: https://demo-omgeving.haalcentraal.nl
 
 PO-email: cathy.dingemanse@rvig.nl
