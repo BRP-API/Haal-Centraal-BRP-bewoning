@@ -1,6 +1,8 @@
 name: brp-api
 version: ~
 title: BRP API
+nav: 
+- modules/bewoning/nav.adoc
 asciidoc:
   attributes:
     apiname: BRP API
