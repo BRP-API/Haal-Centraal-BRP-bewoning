@@ -1,3 +1,4 @@
 .Bewoning
 * xref:bewoning:releasenotes.adoc[Releasenotes]
 * xref:bewoning:specificatie.adoc[Specificatie]
+* xref:bewoning:documentatie.adoc[Documentatie]
