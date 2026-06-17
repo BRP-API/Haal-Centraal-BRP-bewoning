@@ -7,7 +7,7 @@ title: Getting Started
 Gemeenten en andere organisaties met een autorisatiebesluit kunnen zich aanmelden voor deelname aan het Experiment dataminimalisatie.
 
 1. Bekijk de [functionaliteit en specificaties](#functionaliteit-en-specificaties)
-2. Probeer en test de {{ site.apiname }} [lokaal](#probeer-en-test-de-api-lokaal) of in de [demo omgeving](#probeer-en-test-de-api-in-de-demo-omgeving)
+2. Probeer en test de {{ site.apiname }} [lokaal](#probeer-en-test-de-api-lokaal)
 3. [Download]({{ site.onboardingUrl }}){:target="_blank" rel="noopener"} en lees het onboardingproces
 
 ## Functionaliteit en specificaties
@@ -20,22 +20,15 @@ Download de [OAS3 specificatie]({{ site.mainBranchUrl }}/specificatie/genereerva
 
 De [functionele documentatie](./features-overzicht) van de '{{ site.apiname }}' vind je in de [features overzicht](./features-overzicht).
 
-## Probeer en test de API in de demo omgeving
-
-Je kunt de {{ site.apiname }} uitproberen op de demo omgeving met de volgende url: [{{ site.proefProxyUrl }}]. Hiervoor heb je een apikey nodig.
-
-- Vraag een apikey aan bij de product owner [{{ site.PO-email }}](mailto:{{ site.PO-email }}). 
-- Voeg de apikey toe aan een request met de __X-API-KEY__ header.
-
 ## Probeer en test de API lokaal
 
 Een mock van de {{ site.apiname }} is beschikbaar als een containerized applicatie, die je gemakkelijk kunt hosten op een lokale machine of in een testomgeving. Bijkomend voordeel is dat je je eigen testgevallen kunt toevoegen aan het JSON bestand.
 
 Je kunt het [docker compose bestand]({{ site.mainBranchUrl }}/docker-compose-mock.yml){:target="_blank" rel="noopener"} gebruiken om de {{ site.apiname }} mock met behulp van [Docker Desktop](https://www.docker.com/products/docker-desktop) te draaien op een lokale machine.
 
-In het [docker compose bestand]({{ site.mainBranchUrl }}/docker-compose-mock.yml){:target="_blank" rel="noopener"} is een volume map geconfigureerd naar de ./src/config/BewoningService map met het test-data.json bestand. Dit bestand bevat verblijfplaatsgegevens van persoonslijsten die voorkomen in de LAP omgeving en kan worden uitgebreid met eigen test verblijfplaatsgegevens. Herstart de container als het test-data.json bestand is gewijzigd. Aangezien dit bestand kan worden bijgewerkt, is het handig om wijzigingen aan het einde van het bestand toe te voegen. Dit maakt het makkelijker om eigen wijzigingen veilig te stellen voordat het bestand lokaal moet worden bijgewerkt.  
+In het [docker compose bestand]({{ site.mainBranchUrl }}/docker-compose-mock.yml){:target="_blank" rel="noopener"} is een volume map geconfigureerd naar de ./src/config/BewoningService map met het test-data.json bestand. Dit bestand bevat verblijfplaats-, naam- en geboortegegevens van persoonslijsten die voorkomen in de LAP omgeving en kan worden uitgebreid met eigen test gevallen. Herstart de container als het test-data.json bestand is gewijzigd. Aangezien dit bestand kan worden bijgewerkt, is het handig om wijzigingen aan het einde van het bestand toe te voegen. Dit maakt het makkelijker om eigen wijzigingen veilig te stellen voordat het bestand lokaal moet worden bijgewerkt.  
 
-In plaats van het docker compose bestand kun je de [Kubernetes configuratie bestanden]({{ site.mainBranchUrl}}/.k8s){:target="_blank" rel="noopener"} gebruiken om de {{ site.apiname }} mock te draaien op een lokale machine. De {{ site.apiname }} mock maakt gebruik van de [testdataset persoonslijsten proefomgevingen GBA-V](https://www.rvig.nl/media/288) als input om de productie situatie zoveel mogelijk te kunnen simuleren.
+In plaats van het docker compose bestand kun je de [Kubernetes configuratie bestanden]({{ site.mainBranchUrl}}/.k8s){:target="_blank" rel="noopener"} gebruiken om de {{ site.apiname }} mock te draaien op een lokale machine.
 
 De volgende paragrafen beschrijven wat je moet doen om de {{ site.apiname }} mock op een lokale machine te installeren en aan te roepen.
 
@@ -69,7 +62,7 @@ Optioneel kun je de volgende tools ook op de lokale machine installeren:
   --header 'Content-Type: application/json' \
   --data '{
     "type": "BewoningMetPeildatum",
-    "adresseerbaarObjectIdentificatie": "0599010000208579",
+    "adresseerbaarObjectIdentificatie": "0518010000488459",
     "peildatum": "2015-08-08"
   }'
 
@@ -101,7 +94,7 @@ Optioneel kun je de volgende tools ook op de lokale machine installeren:
   --header 'Content-Type: application/json' \
   --data '{
     "type": "BewoningMetPeildatum",
-    "adresseerbaarObjectIdentificatie": "0599010000208579",
+    "adresseerbaarObjectIdentificatie": "0518010000488459",
     "peildatum": "2015-08-08"
   }'
 
