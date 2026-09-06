@@ -478,3 +478,33 @@ Functionaliteit: Bewoningsamenstellingen met mogelijke bewoners
       En heeft de bewoning een mogelijke bewoner met de volgende gegevens
       | burgerservicenummer |
       | 000000012           |
+
+  Rule: Rule: meerdere aaneensluitende verblijfplaatsen op hetzelfde adresseerbaar object, met dezelfde (mogelijke) bewoners, wordt als één bewoning geleverd
+
+    Abstract Scenario: persoon heeft onbekende aanvang adreshouding en daar direct op aansluitende onbekende aanvang volgende adreshouding en periode overlapt de onzekerheidsperiodes
+      Gegeven de persoon met burgerservicenummer '000000024' is ingeschreven op adres 'A1' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
+      | 0800                              | <datum aanvang adreshouding>       |
+      En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
+      | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30)    |
+      | 0800                              | <datum aanvang volgende adreshouding> |
+      Als gba bewoning wordt gezocht met de volgende parameters
+      | naam                             | waarde             |
+      | type                             | BewoningMetPeriode |
+      | datumVan                         | 2009-07-01         |
+      | datumTot                         | 2011-07-01         |
+      | adresseerbaarObjectIdentificatie | 0800010000000001   |
+      Dan heeft de response een bewoning met de volgende gegevens
+      | naam                             | waarde                      |
+      | periode                          | <datum van> tot <datum tot> |
+      | adresseerbaarObjectIdentificatie | 0800010000000001            |
+      En heeft de bewoning een mogelijke bewoner met de volgende gegevens
+      | burgerservicenummer |
+      | 000000024           |
+
+      Voorbeelden:
+      | datum aanvang adreshouding | datum aanvang volgende adreshouding | datum van  | datum tot  |
+      | 20100800                   | 20100900                            | 2010-08-01 | 2010-10-01 |
+      | 20101200                   | 20110000                            | 2010-12-01 | 2012-01-01 |
+      | 20100000                   | 20110100                            | 2010-01-01 | 2011-02-01 |
+      | 20100000                   | 20110000                            | 2010-01-01 | 2012-01-01 |
