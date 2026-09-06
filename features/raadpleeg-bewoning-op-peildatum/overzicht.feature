@@ -19,29 +19,29 @@ Functionaliteit: raadpleeg bewoning op peildatum
     En de persoon is vervolgens ingeschreven op adres 'A2' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20160526                           |
-    En de 'verblijfplaats' is gewijzigd naar de volgende gegevens
+    En de persoon is vervolgens ingeschreven op een buitenlands adres met de volgende gegevens
     | land (13.10) | datum aanvang adres buitenland (13.20) | regel 1 adres buitenland (13.30) | regel 2 adres buitenland (13.40) | regel 3 adres buitenland (13.50) |
     | 5010         | 20230526                               | Rue du pomme 26                  | Bruxelles                        | postcode 1000                    |
     En de persoon met burgerservicenummer '000000048' is ingeschreven op adres 'A1' met de volgende gegevens
     | gemeente van inschrijving (09.10) | datum aanvang adreshouding (10.30) |
     | 0800                              | 20140808                           |
 
-Rule: er wordt geen bewoning geleverd voor een adresseerbaar object dat niet is geregistreerd in de BRP
+Regel: er wordt geen bewoning geleverd voor een adresseerbaar object dat niet is geregistreerd in de BRP
 
   Scenario: bewoning wordt gevraagd van een niet-bestaand/geregistreerd adresseerbaar object
-    Als bewoning wordt gezocht met de volgende parameters
+    Als bewoningen wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-17           |
     | adresseerbaarObjectIdentificatie | 0800000000000003     |
     Dan heeft de response 0 bewoningen
 
-Rule: een persoon is op een peildatum bewoner van een adresseerbaar object als:
+Regel: een persoon is op een peildatum bewoner van een adresseerbaar object als:
       - de peildatum valt op of na datum aanvang adreshouding van de persoon op het adresseerbaar object en
       - de peildatum valt vóór datum aanvang adreshouding van de persoon op het volgend adresseerbaar object
 
   Abstract Scenario: persoon verbleef op het gevraagde adresseerbaar object en <scenario>
-    Als bewoning wordt gezocht met de volgende parameters
+    Als bewoningen wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -61,7 +61,7 @@ Rule: een persoon is op een peildatum bewoner van een adresseerbaar object als:
     | 2014-08-07 | 2014-08-07 tot 2014-08-08 | peildatum valt op de laatste dag vóór adreshouding van persoon met burgerservicenummer '000000048' |
 
   Abstract Scenario: meerdere personen verblijven/verbleven op de peildatum op het gevraagde adresseerbaar object
-    Als bewoning wordt gezocht met de volgende parameters
+    Als bewoningen wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -81,10 +81,10 @@ Rule: een persoon is op een peildatum bewoner van een adresseerbaar object als:
     | 2015-01-01 | 2015-01-01 tot 2015-01-02 | peildatum valt in de adreshouding periode van beide bewoners                                                 |
     | 2016-05-25 | 2016-05-25 tot 2016-05-26 | peildatum valt op de laatste dag van de adreshouding periode van bewoner met burgerservicenummer '000000024' |
 
-Rule: er wordt geen bewoning geleverd voor een adresseerbaar object als er op de peildatum geen personen staan ingeschreven
+Regel: er wordt geen bewoning geleverd voor een adresseerbaar object als er op de peildatum geen personen staan ingeschreven
 
   Scenario: persoon verbleef op het gevraagde adresseerbaar object en peildatum valt vóór datum aanvang adreshouding
-    Als bewoning wordt gezocht met de volgende parameters
+    Als bewoningen wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2010-08-17           |
@@ -92,7 +92,7 @@ Rule: er wordt geen bewoning geleverd voor een adresseerbaar object als er op de
     Dan heeft de response 0 bewoningen
 
   Abstract Scenario: <omschrijving>
-    Als bewoning wordt gezocht met de volgende parameters
+    Als bewoningen wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | <peildatum>          |
@@ -105,7 +105,7 @@ Rule: er wordt geen bewoning geleverd voor een adresseerbaar object als er op de
     | 2023-06-01 | 2023-06-01 tot 2023-06-02 | persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd vóór de peildatum |
 
   Scenario: persoon verbleef op het gevraagde adresseerbaar object en is geëmigreerd na de peildatum
-    Als bewoning wordt gezocht met de volgende parameters
+    Als bewoningen wordt gezocht met de volgende parameters
     | naam                             | waarde               |
     | type                             | BewoningMetPeildatum |
     | peildatum                        | 2023-05-25           |
