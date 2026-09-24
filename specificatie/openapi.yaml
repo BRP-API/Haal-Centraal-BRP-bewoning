@@ -72,11 +72,6 @@ components:
       properties:
         type:
           type: string
-      example:
-        type: 'BewoningMetPeriode'
-        datumVan: '2023-11-19'
-        datumTot: '2024-01-27'
-        adresseerbaarObjectIdentificatie: '0599010370005001'
 
     BewoningMetPeildatum:
       required:
